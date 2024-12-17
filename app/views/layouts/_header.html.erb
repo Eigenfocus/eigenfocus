@@ -20,29 +20,9 @@
         </div>
       </div>
       <div class="flex items-center space-x-4">
-        <%= link_to '#', class: 'text-md text-body-500 hover:text-primary' do %>
+        <%= link_to edit_profile_path, class: 'text-md text-body-500 hover:text-primary' do %>
           <i class='fa-solid fa-globe'></i>
         <% end %>
-
-
-        <hr class="w-px h-6 bg-body-200 border-none"/>
-        <div class="relative inline-flex" data-controller="dropdown">
-          <button data-action="click->dropdown#toggle click@window->dropdown#hide"
-            role="button" data-dropdown-target="button"
-            class="text-body-500 hover:text-primary inline-flex justify-center items-center group"
-            aria-haspopup="true" aria-expanded="false">
-            <span class="mr-1 text-md"><i class="fa-regular fa-user"></i></span>
-            <div class="flex items-center truncate">
-              <span class="truncate ml-1 text-sm font-medium">Vini</span>
-              <i class="fa-solid ml-4 fa-caret-down"></i>
-            </div>
-          </button>
-          <div data-dropdown-target="menu" class="origin-top-right z-10 absolute top-full min-w-20 bg-bodynegative border border-body-200 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
-            <div class="flex justify-stretch items-stretch text-sm text-center">
-              <%= button_to t("profile"), '#', method: :delete, class: 'no-underline hover:bg-body-100 w-full block px-5 py-2 text-primary font-medium whitespace-nowrap' %>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

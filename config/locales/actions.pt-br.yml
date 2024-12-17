@@ -1,0 +1,7 @@
+pt-BR:
+  profiles:
+    edit:
+      setup_missing: 'Para começar, precisamos que complete seu perfil.'
+      title: "Editar perfil"
+    update:
+      success: 'Perfil atualizado com sucesso.'

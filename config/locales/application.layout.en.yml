@@ -1,0 +1,7 @@
+en:
+  layouts:
+    sidebar:
+      edit_profile: "Edit profile"
+      profile_options: "Profile & Settings"
+      menu:
+        projects: 'Projects'

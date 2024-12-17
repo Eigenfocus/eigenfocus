@@ -1,0 +1,50 @@
+<%
+  form_options = {
+    model: current_user,
+    url: profile_path,
+    scope: :profile,
+    method: :put,
+    class: 'edit-profile',
+    data: { turbo: false }
+  }
+%>
+
+<%= form_with(**form_options) do |f| %>
+
+  <% if current_user.errors.any? %>
+    <div class="flex rounded-md w-full border-l-6 border-alert bg-alert bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm dark:bg-opacity-30 md:p-4 text-sm text-alert">
+      <%= current_user.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <div class="flex flex-col gap-4">
+    <div>
+      <%= f.label :timezone, class: "mb-2 label-primary" do %>
+        <span class="text-body-700 mr-1"><i class='fa-solid fa-globe'></i></span>
+        <%= User.human_attribute_name(:timezone) %>
+      <% end %>
+      <div class="flex items-stretch gap-5">
+        <%= f.select :timezone,
+          ActiveSupport::TimeZone.all.sort_by(&:utc_offset).map{|e| ["#{e.name} (GMT#{e.now.formatted_offset})", e.name]},
+          { include_blank: true },
+          { class: "input-primary m-0", data: { controller: 'select2' } } %>
+      </div>
+    </div>
+
+    <div class="">
+      <%= f.label :locale, class: "mb-2 label-primary" do %>
+        <span class="text-body-700 mr-1"><i class='fa-solid fa-globe'></i></span>
+        <%= User.human_attribute_name(:locale) %>
+      <% end %>
+      <div class="flex items-stretch gap-5">
+        <%= f.select :locale, [['English', 'en'], ['Português (Brasil)', 'pt-BR']], { selected: I18n.locale }, { class: "input-primary m-0", data: { controller: 'select2' } } %>
+      </div>
+    </div>
+
+
+    <div class="flex justify-center self-center	">
+      <%= f.submit t('actions.update'), class: "btn-primary" %>
+    </div>
+  </div>
+
+<% end %>

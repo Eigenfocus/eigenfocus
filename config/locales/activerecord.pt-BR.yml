@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: 'Usuário'
+        other: 'USuários'
+
+    attributes:
+      user:
+        timezone: 'Fuso horário'
+        locale: 'Idioma'

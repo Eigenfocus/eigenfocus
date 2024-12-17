@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: 'User'
+        other: 'Users'
+
+    attributes:
+      user:
+        timezone: 'Timezone'
+        locale: 'Language'
