@@ -37,7 +37,7 @@
         <%= User.human_attribute_name(:locale) %>
       <% end %>
       <div class="flex items-stretch gap-5">
-        <%= f.select :locale, [['English', 'en'], ['Português (Brasil)', 'pt-BR']], { selected: I18n.locale }, { class: "input-primary m-0", data: { controller: 'select2' } } %>
+        <%= f.select :locale, [['English', 'en'], ['Português (Brasil)', 'pt-BR']], { selected: I18n.locale }, { class: "input-primary m-0" } %>
       </div>
     </div>
 

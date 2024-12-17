@@ -37,7 +37,7 @@ module.exports = {
     ...(['50','100','200','300','400','500','600','700','800']
       .flatMap(number => Object.keys(themeColors).map( (colorName) => `${colorName}-${number}`) )
       .flatMap(color => [`bg-${color}`, `text-${color}`, `border-${color}`])
-      .flatMap(variant => [variant, `hover:${variant}`, `focus:${variant}`, `active:${variant}`])),
+      .flatMap(variant => [variant, `hover:${variant}`, `focus:${variant}`, `active:${variant}`, `placeholder:${variant}`])),
     "border-r-2", // For menu
     "font-thin","font-extralight","font-light","font-normal","font-medium","font-semibold","font-bold","font-extrabold","font-black",
     "w-full", "h-full" // For modal

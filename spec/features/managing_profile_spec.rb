@@ -11,8 +11,8 @@ describe 'When entering my workspace for the first time' do
     expect(page).to have_content("To start using the app, please setup your profile first.")
     expect(User.count).to eq(1)
 
+    select_from_select2(label_for: 'profile_timezone', option_text: "Rome (GMT+01:00)")
     within '.edit-profile' do
-      select "Rome", from: "profile_timezone"
       select "English", from: "profile_locale"
       click_button 'Update'
     end
@@ -31,8 +31,8 @@ describe 'When entering my workspace for the first time' do
       click_link 'Profile'
     end
 
+    select_from_select2(label_for: 'profile_timezone', option_text: "Rome (GMT+01:00)")
     within '.edit-profile' do
-      select "Rome", from: "profile_timezone"
       click_button 'Update'
     end
 
