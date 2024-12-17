@@ -1,0 +1,40 @@
+
+<%= turbo_frame_tag 'project_form' do %>
+<%= render_modal do %>
+
+  <div class="border-b border-body-200 pb-2 mb-4 dark:border-navy-500">
+    <div class="flex items-center space-x-2">
+      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
+        <%= icon_for(:projects) %>
+      </div>
+      <h4 class="text-lg font-medium text-body-700 dark:text-navy-100">
+        <%= project.persisted? ? "#{t("actions.edit")} #{Project.model_name.human}" : "#{t("actions.create")} #{Project.model_name.human}"%>
+      </h4>
+    </div>
+  </div>
+  <div class="space-y-4">
+    <%= form_for(project, html: { class: 'flex flex-col gap-2' }) do |f| %>
+      <% if project.errors.any? %>
+        <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm dark:bg-opacity-30 md:p-4 text-sm text-alert-500">
+          <%= project.errors.full_messages.to_sentence.capitalize %>
+        </div>
+      <% end %>
+
+      <div class="mb-4 flex flex-col items-stretch gap-2">
+        <%= f.label :name, Project.human_attribute_name(:name), class: "label-primary" %>
+        <%= f.text_field :name, autofocus: true, class: "input-primary" %>
+      </div>
+
+
+      <div class="flex gap-2 justify-center">
+        <a class="btn-cancel" data-action="click->modal#close">
+          <%= t('actions.cancel') %>
+        </a>
+
+        <% text = project.persisted? ? t('actions.update') : t('actions.create') %>
+        <%= f.submit text, class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<% end %>

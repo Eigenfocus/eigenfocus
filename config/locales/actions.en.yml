@@ -1,4 +1,8 @@
 en:
+  projects:
+    project:
+      enable_time_tracking: 'Enable time tracking'
+      disable_time_tracking: 'Disable time tracking'
   profiles:
     edit:
       setup_missing: 'To start using the app, please setup your profile first.'

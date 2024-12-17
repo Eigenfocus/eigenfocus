@@ -3,9 +3,15 @@ pt-BR:
     models:
       user:
         one: 'Usuário'
-        other: 'USuários'
+        other: 'Usuários'
+
+      project:
+        one: 'Projeto'
+        other: 'Projetos'
 
     attributes:
+      project:
+        name: 'Nome'
       user:
         timezone: 'Fuso horário'
         locale: 'Idioma'

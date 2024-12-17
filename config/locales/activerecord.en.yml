@@ -5,7 +5,13 @@ en:
         one: 'User'
         other: 'Users'
 
+      project:
+        one: 'Project'
+        other: 'Projects'
+
     attributes:
+      project:
+        name: 'Name'
       user:
         timezone: 'Timezone'
         locale: 'Language'

@@ -1,0 +1,8 @@
+<% if @project.persisted? %>
+  <%= turbo_stream.prepend "projects-list", partial: "projects/project", locals: { project: @project } %>
+  <%= turbo_stream.remove 'empty-row' %>
+  <%= turbo_stream.update 'project_form', "" %>
+  <%= new_turbo_stream_alert_message(:success, t_flash_message(@project)) %>
+<% else %>
+  <%= new_turbo_stream_alert_message(:error, @project.errors.full_messages.to_sentence) %>
+<% end %>

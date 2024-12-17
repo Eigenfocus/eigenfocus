@@ -5,15 +5,17 @@ const plugin = require('tailwindcss/plugin')
 const themeColors = {
   primary: tailwindColors.indigo,
   secondary: tailwindColors.emerald,
-  tertiary: tailwindColors.slate,
-  success: tailwindColors.green["500"],
-  notice: tailwindColors.green["500"],
-  danger: tailwindColors.red["500"],
-  error: tailwindColors.red["500"],
-  warning: tailwindColors.yellow["500"],
-  alert: tailwindColors.yellow["500"],
+  tertiary: tailwindColors.amber,
+  success: tailwindColors.green,
+  notice: tailwindColors.green,
+  danger: tailwindColors.red,
+  error: tailwindColors.red,
+  warning: tailwindColors.yellow,
+  alert: tailwindColors.yellow,
   body: tailwindColors.slate,
-  bodynegative: '#fff'
+  bodynegative: {
+    500: '#fff'
+  }
 }
 
 module.exports = {
@@ -24,13 +26,13 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   safelist: [
-    ...(['notice','alert','error','success','warning']
+    ...(['notice','alert', 'danger', 'error','success','warning']
       .flatMap(color => [`bg-${color}`, `text-${color}`, `border-${color}`])
       .flatMap(t => [t, `hover:${t}`, `focus:${t}`, `active:${t}`])),
-    ...(['50','100','200','300','400','500','600','700','800']
-      .flatMap(number => [`indigo-${number}`, `slate-${number}`, `emerald-${number}`, `sky-${number}`])
+    ...(['body']
       .flatMap(color => [`bg-${color}`, `text-${color}`, `border-${color}`])
-      .flatMap(variant => [variant, `hover:${variant}`, `focus:${variant}`, `active:${variant}`])),
+      .flatMap(t => [t, `hover:${t}`, `focus:${t}`, `active:${t}`])),
+    'body-negative-500',
     ...(['50','100','200','300','400','500','600','700','800']
       .flatMap(number => [`primary-${number}`, `secondary-${number}`, `tertiary-${number}`])
       .flatMap(color => [`bg-${color}`, `text-${color}`, `border-${color}`])

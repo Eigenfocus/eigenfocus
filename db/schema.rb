@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_17_121534) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_17_133111) do
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.datetime "archived_at"
+    t.boolean "time_tracking_enabled", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "locale", limit: 5
     t.string "timezone"

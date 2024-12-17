@@ -1,6 +1,6 @@
 module ApplicationHelper
   def new_turbo_stream_alert_message(type, message)
-    turbo_stream.append "alert-messages", partial: "layouts/company/alert",
+    turbo_stream.append "alert-messages", partial: "layouts/alert",
       locals: {
         type: type,
         message: message
@@ -34,7 +34,7 @@ module ApplicationHelper
               <a class="absolute text-xl top-4 right-4 cursor-pointer text-md text-body-500" data-action="click->modal#close">
                 <i class="fa fa-close"></i>
               </a>
-              <div class="m-1 bg-bodynegative rounded shadow">
+              <div class="m-1 bg-bodynegative-500 rounded shadow">
                 <div class="p-5">
             )
               output += capture(&block)
@@ -68,5 +68,10 @@ module ApplicationHelper
     %Q(
       <i class="#{icon_classes}"></i>
     ).html_safe
+  end
+
+  def t_flash_message(resource, flash_type: nil)
+    flash_type ||= :notice
+    t("flash.actions.#{action_name}.#{flash_type}", resource_name: resource.model_name.human)
   end
 end
