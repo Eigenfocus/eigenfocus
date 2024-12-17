@@ -14,7 +14,15 @@ const themeColors = {
   alert: tailwindColors.yellow,
   body: tailwindColors.slate,
   bodynegative: {
-    500: '#fff'
+    '50': '#fff',
+    '100': '#fff',
+    '200': '#fff',
+    '300': '#fff',
+    '400': '#fff',
+    '500': '#fff',
+    '600': '#fff',
+    '700': '#fff',
+    '800': '#fff'
   }
 }
 
@@ -26,15 +34,8 @@ module.exports = {
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   safelist: [
-    ...(['notice','alert', 'danger', 'error','success','warning']
-      .flatMap(color => [`bg-${color}`, `text-${color}`, `border-${color}`])
-      .flatMap(t => [t, `hover:${t}`, `focus:${t}`, `active:${t}`])),
-    ...(['body']
-      .flatMap(color => [`bg-${color}`, `text-${color}`, `border-${color}`])
-      .flatMap(t => [t, `hover:${t}`, `focus:${t}`, `active:${t}`])),
-    'body-negative-500',
     ...(['50','100','200','300','400','500','600','700','800']
-      .flatMap(number => [`primary-${number}`, `secondary-${number}`, `tertiary-${number}`])
+      .flatMap(number => Object.keys(themeColors).map( (colorName) => `${colorName}-${number}`) )
       .flatMap(color => [`bg-${color}`, `text-${color}`, `border-${color}`])
       .flatMap(variant => [variant, `hover:${variant}`, `focus:${variant}`, `active:${variant}`])),
     "border-r-2", // For menu
