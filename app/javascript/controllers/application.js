@@ -4,6 +4,7 @@ const application = Application.start()
 
 // Import and register all TailwindCSS Components
 import {
+  Dropdown,
   Modal
 } from "tailwindcss-stimulus-components"
 
@@ -27,6 +28,7 @@ class CustomModal extends Modal {
 }
 
 application.register('modal', CustomModal)
+application.register('dropdown', Dropdown)
 
 // Configure Stimulus development experience
 application.debug = false

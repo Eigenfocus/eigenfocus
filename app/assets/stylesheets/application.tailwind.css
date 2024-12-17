@@ -49,35 +49,35 @@
   }
 
   .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:bg-primary-600 active:bg-primary-600;
+    @apply btn bg-primary-600 text-bodynegative hover:bg-primary-700 focus:bg-primary-600 active:bg-primary-600;
   }
 
   .btn-primary-outline {
-    @apply btn-primary bg-white border border-primary-500 text-primary-500 hover:bg-primary-50 focus:bg-primary-50 active:bg-primary-50;
+    @apply btn-primary bg-bodynegative border border-primary-500 text-primary-500 hover:bg-primary-50 focus:bg-primary-50 active:bg-primary-50;
   }
 
   .btn-secondary {
-    @apply btn btn bg-emerald-600 py-2 px-6 text-center  text-white hover:bg-opacity-90 text-sm;
+    @apply btn btn bg-emerald-600 py-2 px-6 text-center  text-bodynegative hover:bg-opacity-90 text-sm;
   }
 
   .btn-tertiary {
-    @apply btn text-tertiary-500 border bg-white border-tertiary-200 rounded-md py-2 px-6 text-center hover:text-tertiary-700 hover:bg-tertiary-200 hover:border-tertiary-400;
+    @apply btn text-tertiary-500 border bg-bodynegative border-tertiary-200 rounded-md py-2 px-6 text-center hover:text-tertiary-700 hover:bg-tertiary-200 hover:border-tertiary-400;
   }
 
   .btn-neutral {
-    @apply btn bg-slate-800 py-2 px-6 text-center  text-white hover:bg-opacity-90 text-sm;
+    @apply btn bg-body-800 py-2 px-6 text-center  text-bodynegative hover:bg-opacity-90 text-sm;
   }
 
   .btn-danger {
-    @apply btn bg-danger py-2 px-6 text-center  text-white hover:bg-opacity-90 text-sm;
+    @apply btn bg-danger py-2 px-6 text-center  text-bodynegative hover:bg-opacity-90 text-sm;
   }
 
   .btn-success {
-    @apply btn bg-success py-2 px-6 text-center text-white hover:bg-opacity-90 text-sm;
+    @apply btn bg-success py-2 px-6 text-center text-bodynegative hover:bg-opacity-90 text-sm;
   }
 
   .btn-warning {
-    @apply  btn warning py-2 px-6 text-center  text-white hover:bg-opacity-90 text-sm;
+    @apply  btn warning py-2 px-6 text-center  text-bodynegative hover:bg-opacity-90 text-sm;
   }
 
   .btn-cancel {
@@ -119,7 +119,7 @@
   }
 
   .card {
-    @apply p-5 bg-white rounded-sm shadow-sm;
+    @apply p-5 bg-bodynegative rounded-sm shadow-sm;
   }
 
   .table-primary {
@@ -127,7 +127,7 @@
   }
 
   .table-primary thead th {
-    @apply whitespace-nowrap bg-slate-200 px-3 py-3 font-medium text-sm uppercase text-slate-500 lg:px-5;
+    @apply whitespace-nowrap bg-body-200 px-3 py-3 font-medium text-sm uppercase text-body-500 lg:px-5;
   }
 
   .table-primary.table-md thead th {
@@ -147,18 +147,18 @@
   }
 
   .table-primary tbody tr {
-    @apply border-y border-b-slate-200 hover:bg-gray-50 bg-white;
+    @apply border-y border-b-body-200 hover:bg-body-50 bg-bodynegative;
   }
   .table-primary tbody tr.inactive-row {
-    @apply bg-slate-50;
+    @apply bg-body-50;
   }
 
   .table-primary.table-striped tbody tr:nth-child(odd) {
-    @apply bg-gray-50 hover:bg-gray-100;
+    @apply bg-body-50 hover:bg-body-100;
   }
 
   .table-primary.table-striped tbody tr:nth-child(even) {
-    @apply bg-white hover:bg-gray-100;
+    @apply bg-bodynegative hover:bg-body-100;
   }
 
   .table-primary tbody tr:last-child {
@@ -179,11 +179,11 @@
   }
 
   .input-primary {
-    @apply w-full rounded-lg border border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary-500;
+    @apply w-full rounded-lg border border-body-300 px-3 py-2 placeholder:text-body-400/70 hover:border-body-400 focus:border-primary-500;
   }
 
   .input-secondary {
-    @apply w-full rounded-lg border border-slate-300 px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-secondary-500;
+    @apply w-full rounded-lg border border-body-300 px-3 py-2 placeholder:text-body-400/70 hover:border-body-400 focus:border-secondary-500;
   }
 
   .input-sm {

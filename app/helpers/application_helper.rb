@@ -31,10 +31,10 @@ module ApplicationHelper
           <!-- Modal Container -->
             <!-- Modal Inner Container -->
             <div class="max-h-screen w-full max-w-lg relative">
-              <a class="absolute text-xl top-4 right-4 cursor-pointer text-md text-gray-500" data-action="click->modal#close">
+              <a class="absolute text-xl top-4 right-4 cursor-pointer text-md text-body-500" data-action="click->modal#close">
                 <i class="fa fa-close"></i>
               </a>
-              <div class="m-1 bg-white rounded shadow">
+              <div class="m-1 bg-bodynegative rounded shadow">
                 <div class="p-5">
             )
               output += capture(&block)
@@ -47,5 +47,26 @@ module ApplicationHelper
         output.html_safe
       end
     end
+  end
+
+
+  def icon_for(name)
+    icon_classes = case name.to_sym
+
+    when :project_tasks
+      "fa-solid fa-list-check"
+    when :projects
+      "fa-solid fa-folder-closed"
+    when :user
+      "fa-solid fa-user"
+    when :report
+      "fa-solid fa-gauge"
+    else
+      raise "Icon class not defined for name #{name}"
+    end
+
+    %Q(
+      <i class="#{icon_classes}"></i>
+    ).html_safe
   end
 end

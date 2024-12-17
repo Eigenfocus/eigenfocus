@@ -1,0 +1,71 @@
+<div class="sidebar min-w-fit relative ">
+   <div data-sidebar-target="backdrop" class="fixed inset-0 bg-body-900 bg-opacity-30 z-40 hidden lg:hidden lg:z-auto transition-opacity duration-200" aria-hidden="true"></div>
+
+   <div data-sidebar-target="sidebar"
+      style="z-index: 1000;"
+      class="flex border-r border-body-200 lg:!flex flex-col justify-stretch absolute left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh]  w-64 lg:w-20 lg:sidebar-expanded:!w-64 shrink-0 bg-bodynegative transition-all duration-200 ease-in-out -translate-x-64 shadow-sm">
+      <div class="flex grow flex-col overflow-y-scroll lg:overflow-y-auto">
+         <div class="mb-4 md:mb-0 lg:sidebar-expanded:mb-8 relative cpy-sidebar-login-data">
+            <button data-action="click->sidebar#close" style="right: 15px; top: 20px" class="absolute z-20 md:hidden text-2xl text-body-400 hover:text-body-700">
+               <i class="fa fa-xmark"></i>
+            </button>
+            <div class="relative p-4 hidden sidebar-expanded:block flex-col items-center bg-body-100">
+
+               <p class="text-xs font-normal flex items-center mt-2 text-body-500">
+                  <span class="italic mr-2">Eigenfocus</span>
+               </p>
+            </div>
+         </div>
+         <div class="sidebar-expanded:mt-0">
+            <div class="px-4 sidebar-expanded:mb-2 sm:h-16 sm:sidebar-expanded:h-auto flex items-center sidebar-expanded:justify-between justify-center uppercase text-body-400 font-semibold">
+               <div class="text-xs">
+                  <span class="pl-3 block md:hidden lg:sidebar-expanded:block">Menu</span>
+               </div>
+               <div class="hidden lg:block justify-end">
+
+                  <button data-action="click->sidebar#toogleSidebarExpanded" class="text-body-400 hover:text-body-500">
+                     <i class="fa-solid fa-angles-left hidden sidebar-expanded:block"></i>
+                     <i class="fa-solid fa-angles-right sidebar-expanded:hidden"></i>
+                  </button>
+
+               </div>
+            </div>
+
+            <%= render partial: 'layouts/_sidebar/menu_group', locals: {
+               menu_items: [
+                  {
+                  text: t('.menu.projects'),
+                  icon: icon_for(:projects),
+                  main_controller: :projects,
+                  url: projects_path
+                  }
+               ]
+            } %>
+         </div>
+      </div>
+
+
+      <div class="border-t border-body-100">
+         <div class="flex flex-col items-stretch">
+            <% active_class = (controller_name == 'profiles') ? 'is-selected bg-body-100' : '' %>
+
+            <a href="#" class="<%= active_class %> group flex sm:justify-center items-center sidebar-expanded:justify-start space-x-3 py-2 px-4 ansition-all hover:bg-body-100">
+               <div class="flex justify-center text-body-500 items-center size-8  group-[.is-selected]:text-primary text-center group-hover:text-primary">
+                  <i class="fa-regular fa-id-card"></i>
+               </div>
+
+               <div class="lg:hidden lg:sidebar-expanded:block">
+                  <h2 class="font-medium text-body-500 transition-colors group-[.is-selected]:text-primary group-hover:text-primary group-focus:text-primary">
+                     <%= t("profile") %>
+                  </h2>
+                  <div class="text-xs text-body-400 line-clamp-1">
+                     <%= t(".profile_options") %>
+                  </div>
+               </div>
+            </a>
+         </div>
+      </div>
+
+   </div>
+
+</div>
