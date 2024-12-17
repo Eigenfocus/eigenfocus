@@ -1,0 +1,79 @@
+# Translations for Rails and global words
+
+en:
+  archived: 'archived'
+  active: 'active'
+  you: 'you'
+  yes: 'yes'
+  no: 'no'
+  hiding: 'hiding'
+  visible: 'visible'
+  select_one: 'Select one'
+  none_selected: 'None selected'
+  none_selected_f: 'None selected'
+  day: 'Day'
+  week: 'Week'
+  month: 'Month'
+  hours: 'hours'
+  minutes: 'minutes'
+  click_here: 'Click here'
+  zero_records: "You haven't created any %{resource_name} yet."
+  click_here_to_create_one: "Click here to create one"
+  click_here_to_create_one_f: "Click here to create one"
+  confirmations:
+    archive: "Do you want to archive this?"
+    unarchive: "Do you want to unarchive this?"
+  actions:
+    back: "back"
+    new: "New"
+    new_f: "New"
+    add: "Add"
+    create: "Create"
+    update: "Update"
+    edit: "Edit"
+    remove: "Remove"
+    archive: "Archive"
+    unarchive: "Unarchive"
+    cancel: "Cancel"
+    reload: "Reload"
+    close: "Close"
+    invite: "Invite"
+    activate: "Activate"
+    deactivate: "Deactivate"
+    start: "Start"
+    stop: "Stop"
+    select: "Select"
+    allocate: "Allocate"
+    deallocate: "Deallocate"
+    filter: "Filter"
+    clear_filter: "clear filter"
+  flash:
+    change_success: "Change successfully made."
+    change_error: "Change could not be made."
+    actions:
+      create:
+        notice: "%{resource_name} was successfully created."
+      update:
+        notice: "%{resource_name} was successfully updated."
+      archive:
+        notice: "%{resource_name} was successfully archived."
+      unarchive:
+        notice: "%{resource_name} was successfully unarchived."
+      destroy:
+        notice: "%{resource_name} was successfully destroyed."
+        alert: "%{resource_name} could not be destroyed."
+  time:
+    formats:
+      month_name_year: "%B %Y"
+      day_single_digit: "%e"
+      flatpickr: "%Y-%m-%d"
+      weekday_name: "%^A"
+  date:
+    formats:
+      short: "%e %B"
+      month_name_year: "%B %Y"
+      day_single_digit: "%e"
+      short_weekday_name: "%a"
+      weekday_name: "%^A"
+      flatpickr: "%Y-%m-%d"
+      default: "%b/%d/%Y"
