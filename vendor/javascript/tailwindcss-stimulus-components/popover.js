@@ -1,0 +1,68 @@
+// A simple inline popover to be used wherever needed, with a configurable offset.
+// Visit The Stimulus Handbook for more details
+// https://stimulusjs.org/handbook/introduction
+//
+// This example controller works with specially annotated HTML like:
+//
+//<p>
+//  Beginning in 2015, Google introduced what is called the
+//    <div class="popover inline-block" data-controller="popover" data-popover-translate-x="0" data-popover-translate-y="-128%" data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut">
+//      <span class="underline">'local snack pack',</span>
+//      <div class="content hidden absolute max-w-xs bg-grey-light rounded p-2" data-popover-target="content">
+//        Terrible name - we know. But the biggest name in SEO came up with it.
+//      </div>
+//    </div>
+//  which shows you local search results before normal organic results.
+//</p>
+//
+// You can also toggle the popover using the click action.
+// <div class="popover inline-block" data-controller="popover" data-action="click->popover#toggle" data-action="mouseover->popover#mouseOver mouseout->popover#mouseOut">
+
+import { Controller } from '@hotwired/stimulus'
+
+export default class extends Controller {
+  static values = {
+    dismissAfter: Number
+  }
+  static targets = ['content']
+
+  // Sets the popover offset using Stimulus data map objects.
+  initialize() {
+    this.contentTarget.setAttribute(
+      'style',
+      `transform:translate(${this.data.get('translateX')}, ${this.data.get('translateY')});`,
+    )
+  }
+
+  // Show the popover
+  mouseOver() {
+    this.contentTarget.classList.remove('hidden')
+  }
+  // Hide the popover
+  mouseOut() {
+    this.contentTarget.classList.add('hidden')
+  }
+
+  windowClick(e) {
+    if (e.target == this.element || this.element.contains(e.target)) {
+      return 
+    }
+    this.contentTarget.classList.add('hidden')
+  }
+
+  // Toggle the popover on demand
+  toggle() {
+    if (this.contentTarget.classList.contains('hidden')) {
+      this.contentTarget.classList.remove('hidden')
+
+      if (this.hasDismissAfterValue) {
+        setTimeout(() => {
+          this.contentTarget.classList.add('hidden')
+        }, this.dismissAfterValue)
+      }
+    } else {
+      this.contentTarget.classList.add('hidden')
+    }
+  }
+
+}

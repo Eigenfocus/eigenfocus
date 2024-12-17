@@ -8,3 +8,8 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+body, html {
+  font-family: "Nunito", sans-serif;
+}

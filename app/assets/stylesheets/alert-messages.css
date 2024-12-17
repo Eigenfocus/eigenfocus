@@ -1,0 +1,25 @@
+
+#alert-messages {
+  position: fixed;
+  right: 10px;
+  overflow: visible;
+  bottom: 10px;
+  z-index: 9999;
+}
+
+#alert-messages > * {
+  min-width: 330px;
+  transition: all 400ms ease-out;
+  opacity: 0;
+  translate: 320px;
+}
+
+#alert-messages > .showing {
+  opacity: 1;
+  translate: 0;
+}
+
+#alert-messages > .closed {
+  opacity: 0 !important;
+}
+

@@ -28,7 +28,6 @@ if ENV.has_key?("SELENIUM_REMOTE_HOST")
 
 
   Capybara.configure do |config|
-    
     config.default_driver = :remote_selenium
     config.javascript_driver = :remote_selenium
     config.always_include_port = true
@@ -37,13 +36,12 @@ if ENV.has_key?("SELENIUM_REMOTE_HOST")
   end
 
 else
-  
-  Capybara.register_driver :chrome do |app|
 
+  Capybara.register_driver :chrome do |app|
     options   = Selenium::WebDriver::Chrome::Options.new
     options.add_argument("--window-size=1400,800")
     options.add_argument("--no-sandbox")
-    
+
     if ENV["CHROME_BINARY_PATH"].present?
       options.binary = ENV["CHROME_BINARY_PATH"]
     end
@@ -52,14 +50,14 @@ else
       options.add_argument("--headless")
     end
     options.add_argument("--disable-dev-shm-usage")
-    
+
     Capybara::Selenium::Driver.new(
       app,
       browser: :chrome,
       options: options
     )
   end
-  
+
   Capybara.configure do |config|
     config.default_driver = :chrome
     config.javascript_driver = :chrome

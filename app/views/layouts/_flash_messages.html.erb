@@ -1,0 +1,3 @@
+<% flash.each do |key, value| %>
+  <%= render partial: "layouts/alert", locals: { type: key, message: value } %>
+<% end %>

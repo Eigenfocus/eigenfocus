@@ -12,5 +12,5 @@ module RSpec::Helpers
 end
 
 RSpec.configure do |config|
-  config.include(RSpec::Helpers::Features, :type => :feature)
+  config.include(RSpec::Helpers::Features, type: :feature)
 end
