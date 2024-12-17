@@ -16,6 +16,9 @@ FileUtils.chdir APP_ROOT do
   system("bundle check") || system!("bundle install")
 
   puts "\n== Copying sample files =="
+  unless File.exist?(".env")
+    FileUtils.cp "example.env", ".env"
+  end
   unless File.exist?("config/database.yml")
     FileUtils.cp "config/database.example.yml", "config/database.yml"
   end

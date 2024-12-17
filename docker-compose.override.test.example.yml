@@ -1,0 +1,22 @@
+services:
+  web:
+    environment:
+      - RAILS_ENV=test
+      - SELENIUM_REMOTE_HOST=selenium
+
+    depends_on:
+      - selenium
+    command: sleep infinity
+
+  selenium:
+    image: selenium/standalone-chrome:latest
+
+    environment:
+      - SE_VNC_NO_PASSWORD=true
+      - VNC_NO_PASSWORD=true
+      - SCREEN_WIDTH=1500
+      - SCREEN_HEIGHT=900
+    ports:
+      - 4444:4444
+      - 5900:5900
+      - 7900:7900

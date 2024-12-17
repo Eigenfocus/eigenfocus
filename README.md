@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development Environment Setup
 
-Things you may want to cover:
+## Copy a few example files because the real files are git ignored
 
-* Ruby version
+```sh
+cp example.env .env
+cp config/database.example.yml config/database.yml
+cp docker-compose.override.dev.example.yml docker-compose.override.yml
+```
 
-* System dependencies
+## Build everything using docker
 
-* Configuration
+*The first time you run this it's going to take 5-10 minutes depending on your
+internet connection speed and computer's hardware specs. That's because it's
+going to download a few Docker images and build the Ruby image
 
-* Database creation
+```sh
+docker compose build
+```
 
-* Database initialization
+## Run the containers:
 
-* How to run the test suite
+```sh
+docker compose up
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Setup the initial database:
 
-* Deployment instructions
+Now that everything is built and running we can treat it like any other Rails
+app.
 
-* ...
+```sh
+# You can run this from a 2nd terminal.
+docker compose run web bin/rails db:create db:migrate
+```
+
+
+## Running the Rails console
+When the app is already running with `docker compose` up, attach to the container:
+```
+docker compose exec web bin/rails c
+```
+
+## Running tests
+
+```
+docker compose run -e "RAILS_ENV=test" --rm web bundle exec rspec
+```
+
+view tests running on http://127.0.0.1:7900
