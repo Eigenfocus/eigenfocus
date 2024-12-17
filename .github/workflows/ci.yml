@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  brakeman:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy Env
+        run: cp example.env .env
+
+      - name: Copy database.yml
+        run: cp config/database.example.yml config/database.yml
+
+      - name: Scan for common Rails security vulnerabilities using static analysis
+        run: docker compose run web bin/brakeman --no-pager
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down
+
+  rubocop:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy Env
+        run: cp example.env .env
+
+      - name: Copy database.yml
+        run: cp config/database.example.yml config/database.yml
+
+      - name: Lint code for consistent style
+        run: docker compose run web bin/rubocop -f github
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down
+
+  tests:
+    needs: [rubocop, brakeman]
+    runs-on: self-hosted
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy Env
+        run: cp example.env .env
+
+      - name: Copy database.yml
+        run: cp config/database.example.yml config/database.yml
+
+      - name: Copy docker-compose.override.test.example.yml
+        run: cp docker-compose.override.test.example.yml docker-compose.override.yml
+
+      - name: Setup DB
+        run: |
+          docker compose run --rm web bin/rails db:create db:migrate
+
+      - name: Setup Assets
+        run: |
+          docker compose run --rm web bin/rake assets:precompile
+
+      - name: Run Rspec
+        run: |
+          docker compose run --rm web bundle exec rspec spec
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down
+
