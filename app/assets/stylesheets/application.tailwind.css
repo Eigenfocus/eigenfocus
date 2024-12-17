@@ -222,7 +222,6 @@
   .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
     @apply bg-primary-500 !important;
   }
-  }
 
   .select2-selection.select2-selection--multiple {
     @apply w-full rounded-lg border border-body-300 py-1;
@@ -251,4 +250,3 @@
   opacity: 0.3;
   pointer-events: none;
 }
-
