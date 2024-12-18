@@ -10,8 +10,8 @@ context "As a user, I want to manage my projects" do
   end
 
   specify "I can list them" do
-    project1 = FactoryBot.create(:project, name: 'Project Alpha')
-    project2 = FactoryBot.create(:project, name: 'Project Beta')
+    FactoryBot.create(:project, name: 'Project Alpha')
+    FactoryBot.create(:project, name: 'Project Beta')
 
     visit projects_path
 
@@ -19,7 +19,7 @@ context "As a user, I want to manage my projects" do
     expect(page).to have_content('Project Beta')
   end
 
-  specify "I can create one" do
+  specify "when I create one, a visualization is also created" do
     visit projects_path
 
     click_link "Create project"
@@ -28,6 +28,7 @@ context "As a user, I want to manage my projects" do
 
     expect(page).to have_content("Alpine")
     expect(Project.count).to eq(1)
+    expect(Project.last.visualizations.count).to eq(1)
   end
 
   specify "I can edit one" do
@@ -48,8 +49,6 @@ context "As a user, I want to manage my projects" do
   end
 
   specify "I can enable for time tracking" do
-    project1 = FactoryBot.create(:project)
-    project2 = FactoryBot.create(:project)
     project_to_enable = FactoryBot.create(:project, time_tracking_enabled: false)
     visit projects_path
 
@@ -66,8 +65,6 @@ context "As a user, I want to manage my projects" do
 
 
   specify "I can disable for time tracking" do
-    project1 = FactoryBot.create(:project)
-    project2 = FactoryBot.create(:project)
     project_to_disable = FactoryBot.create(:project, time_tracking_enabled: true)
     visit projects_path
 
@@ -83,8 +80,6 @@ context "As a user, I want to manage my projects" do
   end
 
   specify "I can archive" do
-    project1 = FactoryBot.create(:project)
-    project2 = FactoryBot.create(:project)
     project_to_archive = FactoryBot.create(:project)
 
 
@@ -109,8 +104,6 @@ context "As a user, I want to manage my projects" do
 
 
   specify "I can unarchive" do
-    project1 = FactoryBot.create(:project)
-    project2 = FactoryBot.create(:project)
     project_to_unarchive = FactoryBot.create(:project)
     project_to_unarchive.archive!
     project_to_unarchive.reload
