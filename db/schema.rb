@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_18_183634) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_18_192629) do
+  create_table "groupings", force: :cascade do |t|
+    t.string "title"
+    t.integer "visualization_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["visualization_id"], name: "index_groupings_on_visualization_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.datetime "archived_at"
@@ -41,5 +49,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_18_183634) do
     t.index ["project_id"], name: "index_visualizations_on_project_id"
   end
 
+  add_foreign_key "groupings", "visualizations"
   add_foreign_key "visualizations", "projects"
 end
