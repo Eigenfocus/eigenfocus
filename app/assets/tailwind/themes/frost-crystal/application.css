@@ -13,10 +13,34 @@
 
   body {
     @apply bg-body-50/10 text-body-600;
+
   }
 
   .btn {
-    @apply border cursor-pointer transition-colors inline-flex font-normal items-center justify-center rounded-md py-2 px-6 text-center text-sm;
+    @apply border cursor-pointer shadow-md shadow-primary-100/40 transition-colors inline-flex font-normal items-center justify-center rounded-md py-2 px-6 text-center text-sm;
+    overflow: hidden;
+    backdrop-filter: blur(2px);
+    position: relative;
+
+  }
+
+  /*
+    This doesn't work on input buttons
+    https://stackoverflow.com/questions/4574912/css-content-generation-before-or-after-input-elements
+   */
+  .btn::before {
+    content: '';
+    background: rgba(255, 255, 255, 0.45);
+    width: 30%;
+    height: 100%;
+    left: -35%;
+    transform: skew(45deg);
+    position: absolute;
+    transition: left 200ms ease-out;
+  }
+
+  .btn:hover::before {
+    left: 100%;
   }
 
   .btn-primary {
@@ -58,4 +82,9 @@
     @apply btn bg-body-100 border-body-300 text-body-500;
     @apply hover:border-body-600 hover:text-body-600 hover:bg-opacity-100;
   }
+
+  .btn-cancel {
+    @apply btn text-tertiary-500 bg-tertiary-50 border border-tertiary-200 rounded-md py-2 px-6 text-center hover:text-tertiary-700 hover:bg-tertiary-200 hover:border-tertiary-400;
+  }
+
 }

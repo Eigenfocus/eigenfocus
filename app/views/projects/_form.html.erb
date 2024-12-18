@@ -32,7 +32,7 @@
         </a>
 
         <% text = project.persisted? ? t('actions.update') : t('actions.create') %>
-        <%= f.submit text, class: "btn-primary" %>
+        <%= f.button text, class: "btn-primary" %>
       </div>
     <% end %>
   </div>

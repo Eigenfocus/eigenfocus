@@ -5,7 +5,7 @@ const plugin = require('tailwindcss/plugin')
 const themeColors = {
   primary: tailwindColors.blue,
   secondary: tailwindColors.cyan,
-  tertiary: tailwindColors.sky,
+  tertiary: tailwindColors.slate,
   success: tailwindColors.teal,
   notice: tailwindColors.teal,
   danger: tailwindColors.rose,
