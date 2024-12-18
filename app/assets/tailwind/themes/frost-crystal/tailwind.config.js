@@ -3,27 +3,17 @@ const tailwindColors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
 const themeColors = {
-  primary: tailwindColors.indigo,
-  secondary: tailwindColors.emerald,
-  tertiary: tailwindColors.amber,
-  success: tailwindColors.green,
-  notice: tailwindColors.green,
-  danger: tailwindColors.red,
-  error: tailwindColors.red,
-  warning: tailwindColors.yellow,
-  alert: tailwindColors.yellow,
-  body: tailwindColors.slate,
-  bodynegative: {
-    '50': '#fff',
-    '100': '#fff',
-    '200': '#fff',
-    '300': '#fff',
-    '400': '#fff',
-    '500': '#fff',
-    '600': '#fff',
-    '700': '#fff',
-    '800': '#fff'
-  }
+  primary: tailwindColors.blue,
+  secondary: tailwindColors.cyan,
+  tertiary: tailwindColors.sky,
+  success: tailwindColors.teal,
+  notice: tailwindColors.teal,
+  danger: tailwindColors.rose,
+  error: tailwindColors.rose,
+  warning: tailwindColors.amber,
+  alert: tailwindColors.amber,
+  body: tailwindColors.sky,
+  bodynegative: '#fff'
 }
 
 module.exports = {
@@ -44,6 +34,9 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
+    fontFamily: {
+      inter: ['Inter', 'sans-serif']
+    },
     container: {
       center: true,
       padding: "1rem",
@@ -59,6 +52,17 @@ module.exports = {
         9: '9',
         1: '1',
       },
+      borderRadius: {
+        none: '0px',
+        sm: '0.75rem',
+        DEFAULT: '0.125rem',
+        md: '0.25rem',
+        lg: '0.375rem',
+        xl: '0.5rem',
+        '2xl': '0.75rem',
+        '3xl': '1rem',
+        full: '9999px',
+      }
     }
   },
   plugins: [

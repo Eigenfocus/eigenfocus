@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_17_133111) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_18_171427) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.datetime "archived_at"
@@ -24,5 +24,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_17_133111) do
     t.string "timezone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "favorite_theme_key"
   end
 end

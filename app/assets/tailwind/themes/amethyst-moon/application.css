@@ -1,0 +1,54 @@
+@import '../base';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@layer components {
+  body, html {
+    @apply font-inter;
+  }
+
+  body {
+    @apply bg-body-50 text-body-600;
+  }
+
+  .btn {
+    @apply cursor-pointer transition-colors inline-flex font-normal items-center justify-center rounded-md py-2 px-6 text-center text-sm;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-bodynegative hover:bg-primary-700 focus:bg-primary-600 active:bg-primary-600;
+  }
+
+  .btn-secondary {
+    @apply btn btn bg-secondary-600 py-2 px-6 text-center  text-bodynegative hover:bg-opacity-90 text-sm;
+  }
+
+  .btn-tertiary {
+    @apply btn text-tertiary-500 border bg-bodynegative border-tertiary-200 rounded-md py-2 px-6 text-center hover:text-tertiary-700 hover:bg-tertiary-200 hover:border-tertiary-400;
+  }
+
+  .btn-neutral {
+    @apply btn bg-body-800 py-2 px-6 text-center  text-bodynegative hover:bg-opacity-90 text-sm;
+  }
+
+  .btn-danger {
+    @apply btn bg-danger-500 py-2 px-6 text-center text-bodynegative hover:bg-opacity-90 text-sm;
+  }
+
+  .btn-success {
+    @apply btn bg-success-500 py-2 px-6 text-center text-bodynegative hover:bg-opacity-90 text-sm;
+  }
+
+  .btn-warning {
+    @apply  btn bg-warning-500 py-2 px-6 text-center  text-bodynegative hover:bg-opacity-90 text-sm;
+  }
+
+  .btn-cancel {
+    @apply btn text-body-500 border bg-bodynegative border-body-200 rounded-md py-2 px-6 text-center hover:text-body-700 hover:bg-body-200 hover:border-body-400;
+  }
+
+}

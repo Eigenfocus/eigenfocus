@@ -17,16 +17,18 @@
     <link rel="icon" href="<%= asset_url('icon.svg') %>" type="image/svg+xml">
     <link rel="apple-touch-icon" href="<%= asset_url('icon.png') %>">
     <%# Vendors Files %>
+    <%= stylesheet_link_tag "animate.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "select2.min.css", "data-turbo-track": "reload" %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= current_theme_stylesheet_link_tag("data-turbo-track": "reload") %>
+    <%= stylesheet_link_tag "alert-messages.css", "data-turbo-track": "reload" %>
+
 
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="antialiased bg-body-50 text-body-600"
+  <body class="antialiased"
     data-controller="sidebar" >
     <div id="alert-messages">
       <%= render "layouts/flash_messages" %>

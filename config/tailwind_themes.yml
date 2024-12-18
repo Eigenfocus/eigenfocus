@@ -1,0 +1,12 @@
+# Rails loads items on shared keys for all environments
+shared:
+  - key: "amethyst-moon"
+    showcase_colors:
+      - "rgb(248 250 252)"
+      - "rgb(99 102 241)"
+      - "rgb(16 185 129)"
+  - key: "frost-crystal"
+    showcase_colors:
+      - "rgb(255 255 255)"
+      - "rgb(14 165 233)"
+      - "rgb(59 130 246)"
