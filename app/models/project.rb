@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  has_many :visualizations
+
   # Validations
   validates :name, presence: true
 
