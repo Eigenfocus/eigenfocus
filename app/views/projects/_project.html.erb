@@ -36,40 +36,54 @@
     </div>
   </div>
 
-  <% unless project.archived? %>
-    <div class="flex w-full flex-col lg:flex-row gap-4 justify-between items-stretch">
-      <div class="relative " data-controller="dropdown">
-        <button data-action="click->dropdown#toggle click@window->dropdown#hide"
-          data-dropdown-target="button"
-          class="w-full min-w-max	<%= project.time_tracking_enabled? ? "text-secondary-500" : "text-tertiary-500" %> inline-flex transition-colors justify-center items-center bg-body-100 hover:bg-body-200 rounded-md p-4">
-          <div class="flex items-center text-sm">
-            <% if project.time_tracking_enabled? %>
-              <i class="mr-2 fa-regular fa-eye"></i>
-              <span class=""><%= t(".enable_time_tracking") %></span>
+  <div class="flex w-full flex-col lg:flex-row gap-4 justify-between items-stretch">
+    <div class="flex items-stretch justify-center place-self-start gap-4">
 
-            <% else %>
-              <i class="mr-2 fa-regular fa-eye-slash"></i>
-              <span class=""><%= t(".disable_time_tracking") %></span>
-
-            <% end %>
-            <i class="ml-4 fa-solid fa-chevron-down"></i>
-          </div>
-        </button>
-        <div data-dropdown-target="menu" style="" class="z-1  w-full min-w-max text-nowrap bg-bodynegative-500 flex flex-col justify-stretch border border-body-300 text-body-500 text-sm bg-bodynegative-500 shadow-md rounded-md absolute left-0 top-[120%]">
-          <%= link_to project_path(project,
-            project: { time_tracking_enabled: !project.time_tracking_enabled }),
-            data: { turbo_method: :put },
-            class: "#{project.time_tracking_enabled? ? "text-tertiary-500" : "text-secondary-500" } p-4 flex text-md flex text-wrap justify-center text-center items-center border-b border-body-300 transition-colors last:border-0 hover:bg-body-100 "  do %>
-              <% if project.time_tracking_enabled? %>
-                <i class="mr-2 fa-regular fa-eye-slash"></i>
-                <%= t(".disable_time_tracking") %>
-              <% else %>
-                <i class="mr-2 fa-regular fa-eye"></i>
-                <%= t(".enable_time_tracking") %>
-              <% end %>
-          <% end %>
+      <%= link_to visualization_path(project.default_visualization), data: { turbo_frame: "_top" } do %>
+        <div class="relative">
+          <button class="w-full min-w-max inline-flex transition-colors justify-center items-center bg-body-100 hover:bg-body-200 rounded-md p-4">
+            <div class="flex items-center text-sm">
+              <i class="mr-2 fa-regular fa-brands fa-flipboard"></i>
+              <span class=""><%= t(".go_to_board") %></span>
+            </div>
+          </button>
         </div>
-      </div>
+      <% end %>
+
+      <% unless project.archived? %>
+        <div class="relative " data-controller="dropdown">
+          <button data-action="click->dropdown#toggle click@window->dropdown#hide"
+            data-dropdown-target="button"
+            class="w-full min-w-max	<%= project.time_tracking_enabled? ? "text-secondary-500" : "text-tertiary-500" %> inline-flex transition-colors justify-center items-center bg-body-100 hover:bg-body-200 rounded-md p-4">
+            <div class="flex items-center text-sm">
+              <% if project.time_tracking_enabled? %>
+                <i class="mr-2 fa-regular fa-eye"></i>
+                <span class=""><%= t(".enable_time_tracking") %></span>
+
+              <% else %>
+                <i class="mr-2 fa-regular fa-eye-slash"></i>
+                <span class=""><%= t(".disable_time_tracking") %></span>
+
+              <% end %>
+              <i class="ml-4 fa-solid fa-chevron-down"></i>
+            </div>
+          </button>
+          <div data-dropdown-target="menu" style="" class="z-1  w-full min-w-max text-nowrap bg-bodynegative-500 flex flex-col justify-stretch border border-body-300 text-body-500 text-sm bg-bodynegative-500 shadow-md rounded-md absolute left-0 top-[120%]">
+            <%= link_to project_path(project,
+              project: { time_tracking_enabled: !project.time_tracking_enabled }),
+              data: { turbo_method: :put },
+              class: "#{project.time_tracking_enabled? ? "text-tertiary-500" : "text-secondary-500" } p-4 flex text-md flex text-wrap justify-center text-center items-center border-b border-body-300 transition-colors last:border-0 hover:bg-body-100 "  do %>
+                <% if project.time_tracking_enabled? %>
+                  <i class="mr-2 fa-regular fa-eye-slash"></i>
+                  <%= t(".disable_time_tracking") %>
+                <% else %>
+                  <i class="mr-2 fa-regular fa-eye"></i>
+                  <%= t(".enable_time_tracking") %>
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

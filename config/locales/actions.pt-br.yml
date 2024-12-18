@@ -3,6 +3,7 @@ pt-BR:
     project:
       enable_time_tracking: 'Habilitar registro de tempo'
       disable_time_tracking: 'Desabilitar registro de tempo'
+      go_to_board: Ir para quadro
   profiles:
     edit:
       setup_missing: 'Para começar, precisamos que complete seu perfil.'

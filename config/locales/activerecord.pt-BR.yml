@@ -9,6 +9,9 @@ pt-BR:
         one: 'Projeto'
         other: 'Projetos'
 
+      visualization:
+        one: 'Quadro'
+        other: 'Quadros'
     attributes:
       project:
         name: 'Nome'

@@ -4,6 +4,10 @@ class Project < ApplicationRecord
   # Validations
   validates :name, presence: true
 
+  def default_visualization
+    visualizations.first
+  end
+
   def archived?
     archived_at.present?
   end

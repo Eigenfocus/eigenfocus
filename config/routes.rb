@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       put :unarchive
     end
   end
+  resources :visualizations, only: :show
 
   resource :profile, only: [ :edit, :update ]
 
