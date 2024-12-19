@@ -1,4 +1,4 @@
-<div id="<%= dom_id(project) %>" class='<%= project.archived? ? 'bg-body-100' : 'bg-bodynegative border-l-body-500' %> border-l-4 p-8 flex flex-col items-stretch gap-4 border border-body-200 rounded-md shadow-xs text-md'">
+<div id="<%= dom_id(project) %>" class='<%= project.archived? ? 'bg-body-100' : 'bg-body-contrast border-l-body-500' %> border-l-4 p-8 flex flex-col items-stretch gap-4 border border-body-200 rounded-md shadow-xs text-md'">
 
   <div class="flex mb-4 justify-between items-center">
     <div class="flex flex-col gap-4">
@@ -55,7 +55,7 @@
             <i class="ml-4 fa-solid fa-chevron-down"></i>
           </div>
         </button>
-        <div data-dropdown-target="menu" style="" class="z-1  w-full min-w-max text-nowrap bg-bodynegative flex flex-col justify-stretch border border-body-300 text-body-500 text-sm bg-bodynegative shadow-md rounded-md absolute left-0 top-[120%]">
+        <div data-dropdown-target="menu" style="" class="z-1  w-full min-w-max text-nowrap bg-body-contrast flex flex-col justify-stretch border border-body-300 text-body-500 text-sm bg-body-contrast shadow-md rounded-md absolute left-0 top-[120%]">
           <%= link_to project_path(project,
             project: { time_tracking_enabled: !project.time_tracking_enabled }),
             data: { turbo_method: :put },

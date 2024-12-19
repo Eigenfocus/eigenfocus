@@ -42,7 +42,7 @@ module ApplicationHelper
               <a class="absolute text-xl top-4 right-4 cursor-pointer text-md text-body-500" data-action="click->modal#close">
                 <i class="fa fa-close"></i>
               </a>
-              <div class="m-1 bg-bodynegative rounded shadow">
+              <div class="m-1 bg-body-contrast rounded shadow">
                 <div class="p-5">
             )
               output += capture(&block)

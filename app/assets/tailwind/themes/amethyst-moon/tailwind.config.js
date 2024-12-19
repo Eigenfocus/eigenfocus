@@ -16,7 +16,7 @@ const themeColors = {
   body: tailwindColors.slate,
   background: tailwindColors.slate,
   "background-menu": '#fff',
-  bodynegative: '#fff'
+  "body-contrast": '#fff'
 }
 
 module.exports = {

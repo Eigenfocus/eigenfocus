@@ -1,16 +1,16 @@
 <div class="flex items-stretch text-sm justify-between border rounded relative mb-4 text-<%= type %>-500 border-<%= type %>-500"
   data-controller="alert-message">
-  <div class="bg-<%= type %>-500 p-3 text-bodynegative flex items-center">
+  <div class="bg-<%= type %>-500 p-3 text-body-contrast flex items-center">
     <% if type.to_sym == :notice || type.to_sym == :success %>
       <i class="fa-solid fa-check"></i>
     <% else %>
       <i class="fa-solid fa-warning"></i>
     <% end %>
   </div>
-  <div class="px-4 grow bg-bodynegative py-3 sm:px-5 flex items-center">
+  <div class="px-4 grow bg-body-contrast py-3 sm:px-5 flex items-center">
     <span><%= message %></span>
   </div>
-  <div class="bg-bodynegative flex items-center pr-2">
+  <div class="bg-body-contrast flex items-center pr-2">
     <button data-action="click->alert-message#closeMessage"
       class="rounded-full p-0 w-7 h-7 text-md font-medium text-<%= type %>-500 hover:bg-<%= type %>-500 focus:bg-<%= type %>-500 active:bg-<%= type %>-500 hover:bg-opacity-20 active:bg-opacity-20 focus:bg-opacity-20">
       <i class="fa-solid fa-close"></i>
