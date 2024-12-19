@@ -6,6 +6,7 @@ const themeColors = {
   primary: tailwindColors.blue,
   secondary: tailwindColors.cyan,
   tertiary: tailwindColors.slate,
+  cancel: tailwindColors.slate,
   success: tailwindColors.teal,
   notice: tailwindColors.teal,
   danger: tailwindColors.rose,

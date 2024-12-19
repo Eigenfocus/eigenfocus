@@ -76,13 +76,9 @@
     @apply hover:border-warning-600 hover:text-warning-600 hover:bg-opacity-100;
   }
 
-  .btn-warning {
-    @apply btn bg-body-100 border-body-300 text-body-500;
-    @apply hover:border-body-600 hover:text-body-600 hover:bg-opacity-100;
-  }
-
   .btn-cancel {
-    @apply btn text-tertiary-500 bg-tertiary-50 border border-tertiary-200 rounded-md py-2 px-6 text-center hover:text-tertiary-700 hover:bg-tertiary-200 hover:border-tertiary-400;
+    @apply btn bg-cancel-100 border-cancel-300 text-cancel-500;
+    @apply hover:text-tertiary-700 hover:bg-tertiary-200 hover:border-tertiary-400;
   }
 
 }
