@@ -1,18 +1,18 @@
 <ul class="flex flex-col">
   <% menu_items.each do |menu_item|
       sub_menu = menu_item[:sub_menu] || []
-      link_active_class= "text-body-500"
+      link_active_class= "text-readable-content-500"
       text_class = ""
       if sub_menu.empty?
         if controller_name.to_sym == menu_item[:main_controller].to_sym
           if menu_item[:action_name].blank? || (action_name.to_sym == menu_item[:action_name].to_sym)
-            link_active_class = "border-r-2 text-primary-500 bg-body-100"
+            link_active_class = "border-r-2 text-primary-500 bg-background-100"
           end
         end
       else
         sub_menu.each do |menu_item|
           if controller_name.to_sym == menu_item[:main_controller].to_sym
-            link_active_class = "bg-body-100"
+            link_active_class = "bg-background-100"
           end
         end
       end
@@ -23,7 +23,7 @@
             wrapper_tag = sub_menu.empty? ? :a : :div
 
             wrapper_options = {
-              "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 group border-primary-500 hover:bg-body-100 hover:text-indgo-500 truncate transition duration-150"
+              "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 group border-primary-500 hover:bg-background-100 hover:text-indgo-500 truncate transition duration-150"
             }
 
             if sub_menu.empty?
@@ -66,7 +66,7 @@
                     end
                   end
                 %>
-                <a class="pl-2 hidden sidebar-expanded:block hover:bg-body-200 p-2 rounded-md block hover:text-primary-700 active:text-primary-700  <%= link_active_class %>" href="<%= menu_item[:url] %>">
+                <a class="pl-2 hidden sidebar-expanded:block hover:bg-background-200 p-2 rounded-md block hover:text-primary-700 active:text-primary-700  <%= link_active_class %>" href="<%= menu_item[:url] %>">
                   <span class="text-sm font-medium"> <%= menu_item[:text] %></span>
                 </a>
 

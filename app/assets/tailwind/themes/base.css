@@ -61,7 +61,7 @@
 }
 
 .table-primary thead th {
-  @apply whitespace-nowrap bg-body-200 px-3 py-3 font-medium text-sm uppercase text-body-500 lg:px-5;
+  @apply whitespace-nowrap bg-background-200 px-3 py-3 font-medium text-sm uppercase text-readable-content-500 lg:px-5;
 }
 
 .table-primary.table-md thead th {
@@ -81,18 +81,18 @@
 }
 
 .table-primary tbody tr {
-  @apply border-y border-b-body-200 hover:bg-body-50 bg-body-contrast;
+  @apply border-y border-b-background-200 hover:bg-background-50 bg-body-contrast;
 }
 .table-primary tbody tr.inactive-row {
-  @apply bg-body-50;
+  @apply bg-background-50;
 }
 
 .table-primary.table-striped tbody tr:nth-child(odd) {
-  @apply bg-body-50 hover:bg-body-100;
+  @apply bg-background-50 hover:bg-background-100;
 }
 
 .table-primary.table-striped tbody tr:nth-child(even) {
-  @apply bg-body-contrast hover:bg-body-100;
+  @apply bg-body-contrast hover:bg-background-100;
 }
 
 .table-primary tbody tr:last-child {
@@ -113,11 +113,11 @@
 }
 
 .input-primary {
-  @apply w-full rounded-lg border border-body-300 px-3 py-2 placeholder:text-body-400/70 hover:border-body-400 focus:border-primary-500;
+  @apply w-full rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
 }
 
 .input-secondary {
-  @apply w-full rounded-lg border border-body-300 px-3 py-2 placeholder:text-body-400/70 hover:border-body-400 focus:border-secondary-500;
+  @apply w-full rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-secondary-500;
 }
 
 .input-sm {

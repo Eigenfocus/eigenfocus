@@ -13,7 +13,7 @@ const themeColors = {
   error: tailwindColors.rose,
   warning: tailwindColors.amber,
   alert: tailwindColors.amber,
-  body: tailwindColors.sky,
+  "readable-content": tailwindColors.sky,
   background: tailwindColors.cyan,
   "background-menu": "rgb(236 254 255/0.5)", //tailwindColors.cyan["50"] with opacity
   "body-contrast": '#fff'
