@@ -12,6 +12,11 @@ pt-BR:
       visualization:
         one: 'Quadro'
         other: 'Quadros'
+
+      grouping:
+        one: 'Coluna'
+        other: 'Colunas'
+
     attributes:
       project:
         name: 'Nome'

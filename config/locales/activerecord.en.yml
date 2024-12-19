@@ -13,6 +13,10 @@ en:
         one: 'Board'
         other: 'Boards'
 
+      grouping:
+        one: 'Column'
+        other: 'Columns'
+
     attributes:
       project:
         name: 'Name'
