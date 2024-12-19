@@ -13,6 +13,8 @@ const themeColors = {
   warning: tailwindColors.yellow,
   alert: tailwindColors.yellow,
   body: tailwindColors.slate,
+  background: tailwindColors.slate,
+  "background-menu": '#fff',
   bodynegative: '#fff'
 }
 

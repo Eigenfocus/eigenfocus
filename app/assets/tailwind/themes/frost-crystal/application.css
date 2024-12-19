@@ -12,8 +12,7 @@
   }
 
   body {
-    @apply bg-body-50/10 text-body-600;
-
+    @apply bg-background-50 bg-opacity-40 text-body-600;
   }
 
   .btn {
@@ -21,7 +20,6 @@
     overflow: hidden;
     backdrop-filter: blur(2px);
     position: relative;
-
   }
 
   /*
