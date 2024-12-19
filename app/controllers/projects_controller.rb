@@ -11,6 +11,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
+    @project.visualizations.first_or_initialize
+
     @project.save
   end
 

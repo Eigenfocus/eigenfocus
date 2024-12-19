@@ -9,6 +9,10 @@ en:
         one: 'Project'
         other: 'Projects'
 
+      visualization:
+        one: 'Board'
+        other: 'Boards'
+
     attributes:
       project:
         name: 'Name'

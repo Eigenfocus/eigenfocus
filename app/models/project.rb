@@ -1,6 +1,12 @@
 class Project < ApplicationRecord
+  has_many :visualizations
+
   # Validations
   validates :name, presence: true
+
+  def default_visualization
+    visualizations.first_or_create
+  end
 
   def archived?
     archived_at.present?
