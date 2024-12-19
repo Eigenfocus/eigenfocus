@@ -20,15 +20,10 @@
         </div>
       </div>
       <div class="flex items-center space-x-4">
-        <div class="flex items-center space-x-4">
-          <%= link_to edit_profile_path, class: 'text-md text-body-500 hover:text-primary' do %>
-            <i class='fa-solid fa-globe'></i>
-          <% end %>
-        </div>
         <div class="relative inline-flex" data-controller="dropdown">
           <button data-action="click->dropdown#toggle click@window->dropdown#hide"
             role="button" data-dropdown-target="button"
-            class="cpy-header-theme-dropdown text-body-500 hover:text-primary"
+            class="cpy-header-theme-dropdown text-lg text-primary-300 hover:text-primary-700"
             aria-haspopup="true" aria-expanded="false">
             <%= icon_for(:theme) %>
           </button>
