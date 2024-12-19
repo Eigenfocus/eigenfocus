@@ -51,15 +51,15 @@
             <% active_class = (controller_name == 'profiles') ? 'is-selected bg-body-100' : '' %>
 
             <a href="<%= edit_profile_path %>" class="<%= active_class %> group flex sm:justify-center items-center sidebar-expanded:justify-start space-x-3 py-2 px-4 transition-all hover:bg-body-100">
-               <div class="flex justify-center text-body-500 items-center size-8  group-[.is-selected]:text-primary text-center group-hover:text-primary">
+               <div class="flex justify-center text-body-500 items-center size-8  group-[.is-selected]:text-primary-500 text-center group-hover:text-primary-500">
                   <i class="fa-regular fa-id-card"></i>
                </div>
 
-               <div class="lg:hidden lg:sidebar-expanded:block">
-                  <h2 class="font-medium text-body-500 transition-colors group-[.is-selected]:text-primary group-hover:text-primary group-focus:text-primary">
+               <div class="lg:hidden lg:sidebar-expanded:block group-[.is-selected]:text-primary-500 group-hover:text-primary-500 group-focus:text-primary">
+                  <h2 class="font-medium  transition-colors">
                      <%= t(".edit_profile") %>
                   </h2>
-                  <div class="text-xs text-body-400 line-clamp-1">
+                  <div class="text-xs  line-clamp-1">
                      <%= t(".profile_options") %>
                   </div>
                </div>

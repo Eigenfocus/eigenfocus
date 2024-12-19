@@ -23,7 +23,7 @@
             wrapper_tag = sub_menu.empty? ? :a : :div
 
             wrapper_options = {
-              "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 border-primary-500 hover:bg-body-100 hover:text-indgo-500 truncate transition duration-150"
+              "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 group border-primary-500 hover:bg-body-100 hover:text-indgo-500 truncate transition duration-150"
             }
 
             if sub_menu.empty?
@@ -36,14 +36,14 @@
         %>
         <%=
             content_tag(wrapper_tag, wrapper_options) do %>
-            <div class="group flex flex-col justify-between gap-2">
+            <div class="flex flex-col justify-between gap-2">
               <div class="flex items-center text-lg">
                   <% if sub_menu.empty? %>
 
                     <span class=" group-hover:text-primary-500">
                       <%= menu_item[:icon] %>
                     </span>
-                    <span class="group-hover:text-primary  group-hover:font-bold group-active:text-primary text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block"><%= menu_item[:text] %></span>
+                    <span class="group-hover:text-primary group-hover:font-bold group-active:text-primary text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block"><%= menu_item[:text] %></span>
                   <% else %>
                     <span class="">
                       <%= menu_item[:icon] %>
