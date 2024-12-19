@@ -4,6 +4,7 @@ class Visualization < ApplicationRecord
   VALID_TYPES = [ "board" ]
 
   belongs_to :project
+  has_many :groupings
 
   validates :type, inclusion: { in: VALID_TYPES }
 end
