@@ -6,7 +6,7 @@
       if sub_menu.empty?
         if controller_name.to_sym == menu_item[:main_controller].to_sym
           if menu_item[:action_name].blank? || (action_name.to_sym == menu_item[:action_name].to_sym)
-            link_active_class = "border-r-2 text-primary-500 bg-background-100"
+            link_active_class = "border-r-2 text-primary-700 bg-background-100"
           end
         end
       else
@@ -23,7 +23,7 @@
             wrapper_tag = sub_menu.empty? ? :a : :div
 
             wrapper_options = {
-              "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 group border-primary-500 hover:bg-background-100 hover:text-indgo-500 truncate transition duration-150"
+              "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 group border-primary-700 hover:bg-background-100 hover:text-primary-700 truncate transition duration-150"
             }
 
             if sub_menu.empty?
@@ -40,10 +40,10 @@
               <div class="flex items-center text-lg">
                   <% if sub_menu.empty? %>
 
-                    <span class=" group-hover:text-primary-500">
+                    <span class=" group-hover:text-primary-700">
                       <%= menu_item[:icon] %>
                     </span>
-                    <span class="group-hover:text-primary group-hover:font-bold group-active:text-primary text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block"><%= menu_item[:text] %></span>
+                    <span class="group-hover:text-primary-700 group-hover:font-bold group-active:text-primary-700 text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block"><%= menu_item[:text] %></span>
                   <% else %>
                     <span class="">
                       <%= menu_item[:icon] %>
@@ -62,7 +62,7 @@
                   link_active_class = ""
                   if controller_name.to_sym == menu_item[:main_controller].to_sym
                     if menu_item[:action_name].blank? || (action_name.to_sym == menu_item[:action_name].to_sym)
-                      link_active_class = "text-primary-500"
+                      link_active_class = "text-primary-700"
                     end
                   end
                 %>

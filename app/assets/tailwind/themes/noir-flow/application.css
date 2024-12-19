@@ -1,0 +1,59 @@
+@import '../base';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.light-themes-only {
+  display: none;
+}
+
+
+@layer components {
+
+  body, html {
+    @apply font-inter;
+  }
+
+  body {
+    @apply text-background-200;
+    background-color: #111;
+  }
+
+  .btn {
+    @apply cursor-pointer text-readable-content-50 border border-primary-300 transition-colors inline-flex font-normal items-center justify-center rounded-full py-2 px-6 text-center text-sm;
+    @apply hover:border-primary-200;
+    box-shadow: 0 0px 15px -2px rgba(24, 24, 22, 1);
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-500 hover:bg-primary-200 focus:bg-primary-600 active:bg-primary-600;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary-500 hover:bg-secondary-200 focus:bg-secondary-600 active:bg-secondary-600;
+  }
+
+  .btn-tertiary {
+    @apply btn bg-tertiary-500 hover:bg-tertiary-200 focus:bg-tertiary-600 active:bg-tertiary-600;
+  }
+
+  .btn-danger {
+    @apply btn bg-danger-500 hover:bg-danger-700 focus:bg-danger-600 active:bg-danger-600;
+  }
+
+  .btn-success {
+    @apply btn bg-success-500 hover:bg-success-200 focus:bg-success-600 active:bg-success-600;
+  }
+
+  .btn-cancel {
+    @apply btn text-cancel-500 border-cancel-500 hover:bg-cancel-700 hover:border-cancel-800;
+  }
+
+  .input-primary,
+  .input-secondary {
+    color: black;
+  }
+}

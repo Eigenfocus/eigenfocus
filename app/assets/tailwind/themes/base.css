@@ -113,11 +113,11 @@
 }
 
 .input-primary {
-  @apply w-full rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
+  @apply w-full text-readable-content-500 rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
 }
 
 .input-secondary {
-  @apply w-full rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-secondary-500;
+  @apply w-full text-readable-content-500 rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-secondary-500;
 }
 
 .input-sm {
@@ -125,5 +125,5 @@
 }
 
 .label-primary {
-  @apply block text-sm;
+  @apply block text-readable-content-500 text-sm;
 }

@@ -5,7 +5,7 @@
     <div class="flex gap-4">
       <button class="text-readable-content-500 hover:text-readable-content-600 lg:hidden" data-action="click->sidebar#open" aria-controls="sidebar" aria-expanded="false">
         <span class="sr-only">Open sidebar</span>
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-6 h-6 fill-readable-content-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <rect x="4" y="5" width="16" height="2"></rect>
           <rect x="4" y="11" width="16" height="2"></rect>
           <rect x="4" y="17" width="16" height="2"></rect>
@@ -23,7 +23,7 @@
       <div class="relative inline-flex" data-controller="dropdown">
         <button data-action="click->dropdown#toggle click@window->dropdown#hide"
           role="button" data-dropdown-target="button"
-          class="cpy-header-theme-dropdown text-lg text-primary-300 hover:text-primary-700"
+          class="cpy-header-theme-dropdown text-lg text-readable-content-500 hover:text-readable-content-700"
           aria-haspopup="true" aria-expanded="false">
           <%= icon_for(:theme) %>
         </button>
@@ -52,7 +52,7 @@
                     <span class="ml-2 py-1 px-2 text-xs text-secondary-400 bg-secondary-50 border border-secondary-400 rounded-full"><%= t("active") %></span>
                   <% end %>
                 </p>
-                <p class="mt-2 text-xs text-readable-content-400-1">
+                <p class="mt-2 text-xs text-readable-content-400">
                   <%= theme.description %>
                 </p>
                 <div class="mt-2 flex gap-2">
