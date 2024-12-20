@@ -1,0 +1,7 @@
+<% if @grouping.persisted? %>
+  <%= turbo_stream.before 'grouping_archor', partial: "visualizations/column", locals: { grouping: @grouping } %>
+  <%= turbo_stream.update 'grouping_form', "" %>
+  <%= new_turbo_stream_alert_message(:success, t_flash_message(@grouping)) %>
+<% else %>
+  <%= new_turbo_stream_alert_message(:error, @grouping.errors.full_messages.to_sentence) %>
+<% end %>

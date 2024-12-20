@@ -63,6 +63,8 @@ module ApplicationHelper
 
     when :project_tasks
       "fa-solid fa-list-check"
+    when :groupings
+      "fa-solid fa-table-columns"
     when :projects
       "fa-solid fa-folder-closed"
     when :user

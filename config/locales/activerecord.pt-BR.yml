@@ -23,3 +23,5 @@ pt-BR:
       user:
         timezone: 'Fuso horário'
         locale: 'Idioma'
+      grouping:
+        title: 'Título'
