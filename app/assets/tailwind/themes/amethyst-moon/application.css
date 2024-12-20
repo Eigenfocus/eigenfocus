@@ -40,8 +40,13 @@
     transition: left 200ms ease-out;
   }
 
-  .btn:hover::before {
+  .btn:hover::before,
+  .btn:focus::before {
     left: -100%;
+  }
+
+  .btn:active::before {
+    left: 90%;
   }
 
   .btn-primary {
