@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_18_193033) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_20_183735) do
   create_table "grouping_issue_allocations", force: :cascade do |t|
     t.integer "position"
     t.integer "issue_id", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_18_193033) do
     t.integer "visualization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position", null: false
     t.index ["visualization_id"], name: "index_groupings_on_visualization_id"
   end
 
