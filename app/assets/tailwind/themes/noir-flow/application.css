@@ -1,8 +1,6 @@
 @import '../base';
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+Rounded+1c&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +13,7 @@
 @layer components {
 
   body, html {
-    font-family: "Inconsolata", sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   body {
@@ -24,33 +22,62 @@
   }
 
   .btn {
-    @apply cursor-pointer text-readable-content-50 border border-primary-300 transition-colors inline-flex font-normal items-center justify-center rounded-full py-2 px-6 text-center text-sm;
-    @apply hover:border-primary-200;
-    box-shadow: 0 0px 15px -2px rgba(24, 24, 22, 1);
+    @apply cursor-pointer rounded-full text-readable-content-800 inline-flex font-normal items-center justify-center py-2 px-6 text-center text-sm;
+    @apply border border-background-300;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:hover {
+    @apply border-background-100;
+  }
+
+  /*
+  This doesn't work on input buttons
+  https://stackoverflow.com/questions/4574912/css-content-generation-before-or-after-input-elements
+  */
+  .btn::before {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+    content: '';
+    width: 100%;
+    height: 40%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    transition: height 200ms linear;
+  }
+
+  .btn:hover::before,
+  .btn:focus::before, {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    height: 120%;
+  }
+
+  .btn:active::before {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    height: 120%;
   }
 
   .btn-primary {
-    @apply btn bg-primary-500 hover:bg-primary-200 focus:bg-primary-600 active:bg-primary-600;
+    @apply btn border-primary-400 bg-primary-300;
   }
 
   .btn-secondary {
-    @apply btn bg-secondary-500 hover:bg-secondary-200 focus:bg-secondary-600 active:bg-secondary-600;
+    @apply btn border-secondary-400 bg-secondary-300;
   }
-
   .btn-tertiary {
-    @apply btn bg-tertiary-500 hover:bg-tertiary-200 focus:bg-tertiary-600 active:bg-tertiary-600;
+    @apply btn border-tertiary-400 bg-tertiary-300;
   }
-
   .btn-danger {
-    @apply btn bg-danger-500 hover:bg-danger-700 focus:bg-danger-600 active:bg-danger-600;
+    @apply btn border-danger-200 bg-danger-400;
   }
 
   .btn-success {
-    @apply btn bg-success-500 hover:bg-success-200 focus:bg-success-600 active:bg-success-600;
+    @apply btn border-success-400 bg-success-300;
   }
 
   .btn-cancel {
-    @apply btn text-cancel-500 border-cancel-500 hover:bg-cancel-700 hover:border-cancel-800;
+    @apply btn border-cancel-200 bg-cancel-400;
   }
 
   .input-primary,

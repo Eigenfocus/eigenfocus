@@ -35,118 +35,112 @@ function constantColor(color) {
   };
 }
 
-//https://tailcolor.com/?color=4B4376
-const deepPurple = {
-  "50": "#efecf7",
-  "100": "#e0daef",
-  "200": "#c1b4df",
-  "300": "#a18fce",
-  "400": "#8269be",
-  "500": "#6344ae",
-  "600": "#4f368b",
-  "700": "#3b2968",
-  "800": "#281b46",
-  "900": "#140e23"
+// https://tailcolor.com/?color=383A56
+const noirNavy = {
+  "50": "#ebebee",
+  "100": "#d7d8dd",
+  "200": "#afb0bb",
+  "300": "#88899a",
+  "400": "#606178",
+  "500": "#383a56",
+  "600": "#2d2e45",
+  "700": "#222334",
+  "800": "#161722",
+  "900": "#0b0c11"
 }
 
-//https://tailcolor.com/?color=AE445A
-const smoothWine = {
-  "50": "#f7ecef",
-  "100": "#efdade",
-  "200": "#dfb4bd",
-  "300": "#ce8f9c",
-  "400": "#be697b",
-  "500": "#ae445a",
-  "600": "#8b3648",
-  "700": "#682936",
-  "800": "#461b24",
-  "900": "#230e12"
+// https://tailcolor.com/?color=242529
+const noirBlack = {
+  "50": "#e9e9ea",
+  "100": "#d3d3d4",
+  "200": "#a7a8a9",
+  "300": "#7c7c7f",
+  "400": "#505154",
+  "500": "#242529",
+  "600": "#1d1e21",
+  "700": "#161619",
+  "800": "#0e0f10",
+  "900": "#070708"
 }
 
-// https://tailcolor.com/?color=445aae
-const deepBlue = {
-  "50": "#ebedf3",
-  "100": "#d7dae8",
-  "200": "#afb6d0",
-  "300": "#8691b9",
-  "400": "#5e6da1",
-  "500": "#36488a",
-  "600": "#2b3a6e",
-  "700": "#202b53",
-  "800": "#161d37",
-  "900": "#0b0e1c"
+const noirRed = {
+  "50": "#ece6e6",
+  "100": "#d8cccc",
+  "200": "#b19999",
+  "300": "#8b6666",
+  "400": "#643333",
+  "500": "#3d0000",
+  "600": "#310000",
+  "700": "#250000",
+  "800": "#180000",
+  "900": "#0c0000"
 }
 
-//https://tailcolor.com/?color=40a994
-const pastelGreen = {
-  "50": "#ecf6f4",
-  "100": "#d9eeea",
-  "200": "#b3ddd4",
-  "300": "#8ccbbf",
-  "400": "#66baa9",
-  "500": "#40a994",
-  "600": "#338776",
-  "700": "#266559",
-  "800": "#1a443b",
-  "900": "#0d221e"
+const noirGreen = {
+  "50": "#e6f2f2",
+  "100": "#cce4e4",
+  "200": "#99caca",
+  "300": "#66afaf",
+  "400": "#339595",
+  "500": "#007a7a",
+  "600": "#006262",
+  "700": "#004949",
+  "800": "#003131",
+  "900": "#001818"
 }
 
-//https://tailcolor.com/?color=E8BCB9
-const lightRose = {
-  "50": "#fdf8f8",
-  "100": "#faf2f1",
-  "200": "#f6e4e3",
-  "300": "#f1d7d5",
-  "400": "#edc9c7",
-  "500": "#e8bcb9",
-  "600": "#ba9694",
-  "700": "#8b716f",
-  "800": "#5d4b4a",
-  "900": "#2e2625"
+const noirBrown = {
+  "50": "#f2ece6",
+  "100": "#e4d8cc",
+  "200": "#cab199",
+  "300": "#af8b66",
+  "400": "#956433",
+  "500": "#7a3d00",
+  "600": "#623100",
+  "700": "#492500",
+  "800": "#311800",
+  "900": "#180c00"
 }
 
-//https://tailcolor.com/?color=a99440
-const arid = {
-  "50": "#f6f4ec",
-  "100": "#eeead9",
-  "200": "#ddd4b3",
-  "300": "#cbbf8c",
-  "400": "#baa966",
-  "500": "#a99440",
-  "600": "#877633",
-  "700": "#655926",
-  "800": "#443b1a",
-  "900": "#221e0d"
+const noirPurple = {
+  "50": "#eee9ee",
+  "100": "#dcd3de",
+  "200": "#baa7bc",
+  "300": "#977a9b",
+  "400": "#754e79",
+  "500": "#522258",
+  "600": "#421b46",
+  "700": "#311435",
+  "800": "#210e23",
+  "900": "#100712"
 }
 
-// https://tailcolor.com/?color=3C3D37
-const kernelBlack = {
-  "50": "#ececeb",
-  "100": "#d8d8d7",
-  "200": "#b1b1af",
-  "300": "#8a8b87",
-  "400": "#63645f",
-  "500": "#3c3d37",
-  "600": "#30312c",
-  "700": "#242521",
-  "800": "#181816",
-  "900": "#0c0c0b"
-}
 const themeColors = {
-  primary: invertColorIndexes(deepBlue),
-  secondary: invertColorIndexes(deepPurple),
-  tertiary: invertColorIndexes(pastelGreen),
-  cancel: lightRose,
-  success: pastelGreen,
-  notice: pastelGreen,
-  danger: lightRose,
-  error: lightRose,
-  warning: arid,
-  alert: arid,
-  "readable-content": constantColor('#fff'),
-  background: invertColorIndexes(kernelBlack),
-  "background-menu": kernelBlack["700"],
-  "body-contrast": kernelBlack["600"]
+  primary: invertColorIndexes(noirNavy),
+  secondary: invertColorIndexes(noirGreen),
+  tertiary: invertColorIndexes(noirPurple),
+  cancel: invertColorIndexes(noirBrown),
+  success: invertColorIndexes(noirGreen),
+  notice: invertColorIndexes(noirGreen),
+  danger: invertColorIndexes(noirBrown),
+  error: invertColorIndexes(noirRed),
+  warning: invertColorIndexes(noirBrown),
+  alert: invertColorIndexes(noirBrown),
+  "readable-content": {
+    "50": "rgba(255, 255, 255, 0.5)",
+    "100": "rgba(255, 255, 255, 0.6)",
+    "200": "rgba(255, 255, 255, 0.7)",
+    "300": "rgba(255, 255, 255, 0.8)",
+    "400": "rgba(255, 255, 255, 0.85)",
+    "500": "rgba(255, 255, 255, 0.9)",
+    "600": "rgba(255, 255, 255, 0.92)",
+    "700": "rgba(255, 255, 255, 0.94)",
+    "800": "rgba(255, 255, 255, 0.98)",
+    "900": "rgba(255, 255, 255, 1"
+  },
+  background: invertColorIndexes(noirBlack),
+  "background-menu": noirBlack["700"],
+  "body-contrast": noirBlack["600"]
 }
 
 module.exports = {
@@ -184,13 +178,13 @@ module.exports = {
       },
       borderRadius: {
         none: '0px',
-        sm: '0.75rem',
-        DEFAULT: '0.125rem',
-        md: '0.25rem',
-        lg: '0.375rem',
-        xl: '0.5rem',
-        '2xl': '0.75rem',
-        '3xl': '1rem',
+        sm: '0.95rem',
+        DEFAULT: '0.145rem',
+        md: '0.275rem',
+        lg: '0.45rem',
+        xl: '0.55rem',
+        '2xl': '0.85rem',
+        '3xl': '1.3rem',
         full: '9999px',
       }
     }

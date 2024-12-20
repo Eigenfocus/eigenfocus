@@ -14,9 +14,10 @@ shared:
       - "rgb(207 250 254)"
   - key: "noir-flow"
     showcase_colors:
-      - "#0c0c0b"
-      - "#30312c"
-      - "#b1b1af"
+      - "#161619"
+      - "#2d2e45"
+      - "#006262"
+      - "#421b46"
   - key: "kernel-mindset"
     showcase_colors:
       - "#242521"
