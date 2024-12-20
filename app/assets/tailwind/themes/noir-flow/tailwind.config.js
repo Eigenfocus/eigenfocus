@@ -133,14 +133,14 @@ const noirBlack = {
   "900": "#0c0c0b"
 }
 const themeColors = {
-  primary: invertColorIndexes(noirBlack),
+  primary: invertColorIndexes(deepBlue),
   secondary: invertColorIndexes(deepPurple),
   tertiary: invertColorIndexes(pastelGreen),
   cancel: lightRose,
   success: pastelGreen,
   notice: pastelGreen,
-  danger: smoothWine,
-  error: smoothWine,
+  danger: lightRose,
+  error: lightRose,
   warning: arid,
   alert: arid,
   "readable-content": constantColor('#fff'),
@@ -167,9 +167,6 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    fontFamily: {
-      inter: ['Inter', 'sans-serif']
-    },
     container: {
       center: true,
       padding: "1rem",
