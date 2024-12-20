@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def current_theme_key
+    Current.theme_key
+  end
+
+  def current_theme_stylesheet_link_tag(**kwargs)
+    stylesheet_link_tag "#{current_theme_key}.theme", **kwargs
+  end
+
   def new_turbo_stream_alert_message(type, message)
     turbo_stream.append "alert-messages", partial: "layouts/alert",
       locals: {
@@ -31,10 +39,10 @@ module ApplicationHelper
           <!-- Modal Container -->
             <!-- Modal Inner Container -->
             <div class="max-h-screen w-full max-w-lg relative">
-              <a class="absolute text-xl top-4 right-4 cursor-pointer text-md text-body-500" data-action="click->modal#close">
+              <a class="absolute text-xl top-4 right-4 cursor-pointer text-md text-readable-content-500" data-action="click->modal#close">
                 <i class="fa fa-close"></i>
               </a>
-              <div class="m-1 bg-bodynegative-500 rounded shadow">
+              <div class="m-1 bg-body-contrast rounded shadow">
                 <div class="p-5">
             )
               output += capture(&block)
@@ -61,6 +69,8 @@ module ApplicationHelper
       "fa-solid fa-user"
     when :report
       "fa-solid fa-gauge"
+    when :theme
+      "fa-solid fa-palette"
     else
       raise "Icon class not defined for name #{name}"
     end

@@ -5,6 +5,7 @@ const plugin = require('tailwindcss/plugin')
 const themeColors = {
   primary: tailwindColors.indigo,
   secondary: tailwindColors.emerald,
+  cancel: tailwindColors.slate,
   tertiary: tailwindColors.amber,
   success: tailwindColors.green,
   notice: tailwindColors.green,
@@ -12,18 +13,10 @@ const themeColors = {
   error: tailwindColors.red,
   warning: tailwindColors.yellow,
   alert: tailwindColors.yellow,
-  body: tailwindColors.slate,
-  bodynegative: {
-    '50': '#fff',
-    '100': '#fff',
-    '200': '#fff',
-    '300': '#fff',
-    '400': '#fff',
-    '500': '#fff',
-    '600': '#fff',
-    '700': '#fff',
-    '800': '#fff'
-  }
+  "readable-content": tailwindColors.slate,
+  background: tailwindColors.slate,
+  "background-menu": '#fff',
+  "body-contrast": '#fff'
 }
 
 module.exports = {

@@ -1,0 +1,14 @@
+en:
+  themes:
+    "amethyst-moon":
+      name: "Amethyst Moon"
+      description: "Embrace the calm clarity of a moonlit workspace theme that sparkles clarity and inspiration of a jewel."
+    "frost-crystal":
+      name: "Frost Crystal"
+      description: "Work in a space with cool, relaxing tones: eliminate distractions and focus with crystal-clear precision."
+    "noir-flow":
+      name: "Noir Flow"
+      description: "Let distractions fade into the dark as this theme guides you into a state of pure focus and creativity."
+    "kernel-mindset":
+      name: "Kernel Mindset"
+      description: "Enter the kernel of your mind. Amplify your focus, creativity and style with this terminal-inspired theme."

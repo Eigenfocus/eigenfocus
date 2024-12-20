@@ -1,0 +1,14 @@
+pt-BR:
+  themes:
+    amethyst-moon:
+      name: "Lua de Ametista"
+      description: "Abrace a calma e a clareza com ambiente de trabalho iluminado pela lua e adquira a clareza e a inspiração de uma joia."
+    frost-crystal:
+      name: "Cristal de Gelo"
+      description: "Trabalhe em um espaço de tons frios e relaxantes: elimine distrações e se concentre com uma precisão cristalina."
+    noir-flow:
+      name: "Fluxo Noturno"
+      description: "Deixe as distrações desaparecerem na escuridão enquanto este tema te guia para um estado de puro foco e criatividade."
+    kernel-mindset:
+      name: "Kernel Mental"
+      description: "Entre no núcleo da sua mente. Amplie seu foco, criatividade e estilo com este tema inspirado em shell terminal."

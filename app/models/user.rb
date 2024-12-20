@@ -1,5 +1,10 @@
 class User < ApplicationRecord
   # Validations
+  VALID_THEME_KEYS = TailwindTheme.all.map { |t| t.key }
+
+  validates :favorite_theme_key,
+    inclusion: { in:  VALID_THEME_KEYS },
+    if: -> { favorite_theme_key.present? }
 
   validates :locale,
     inclusion: { in:  I18n.available_locales.map(&:to_s) },
@@ -12,5 +17,13 @@ class User < ApplicationRecord
   def is_profile_complete?
     locale.present? and
     timezone.present?
+  end
+
+  def favorite_theme_key
+    # Default theme is a business rule that can
+    # change depending on future user conditions
+    # so we keep it here on the user model
+    saved_theme_key = super
+    saved_theme_key.blank? ? "amethyst-moon" : saved_theme_key
   end
 end

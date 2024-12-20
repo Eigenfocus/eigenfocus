@@ -1,29 +1,71 @@
-<header class="sticky z-999 top-0 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10 z-100 max-lg:shadow-sm bg-bodynegative-500 border-b border-body-200">
-  <div class="px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+<header class="sticky z-999 top-0 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10 z-100 max-lg:shadow-sm bg-background-menu border-b border-background-200">
 
-      <div class="flex gap-4">
-        <button class="text-body-500 hover:text-body-600 lg:hidden" data-action="click->sidebar#open" aria-controls="sidebar" aria-expanded="false">
-          <span class="sr-only">Open sidebar</span>
-          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="5" width="16" height="2"></rect>
-            <rect x="4" y="11" width="16" height="2"></rect>
-            <rect x="4" y="17" width="16" height="2"></rect>
-          </svg>
-        </button>
-        <div data-controller="request-loading" class="hidden">
-          <svg aria-hidden="true" class="inline w-8 h-8 text-body-200 animate-spin fill-primary-300" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-              <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
-          </svg>
-          <span class="sr-only">Loading...</span>
-        </div>
+  <div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+
+    <div class="flex gap-4">
+      <button class="text-readable-content-500 hover:text-readable-content-600 lg:hidden" data-action="click->sidebar#open" aria-controls="sidebar" aria-expanded="false">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="w-6 h-6 fill-readable-content-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="5" width="16" height="2"></rect>
+          <rect x="4" y="11" width="16" height="2"></rect>
+          <rect x="4" y="17" width="16" height="2"></rect>
+        </svg>
+      </button>
+      <div data-controller="request-loading" class="hidden">
+        <svg aria-hidden="true" class="inline w-8 h-8 text-readable-content-200 animate-spin fill-primary-300" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+        </svg>
+        <span class="sr-only">Loading...</span>
       </div>
-      <div class="flex items-center space-x-4">
-        <%= link_to edit_profile_path, class: 'text-md text-body-500 hover:text-primary' do %>
-          <i class='fa-solid fa-globe'></i>
-        <% end %>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="relative inline-flex" data-controller="dropdown">
+        <button data-action="click->dropdown#toggle click@window->dropdown#hide"
+          role="button" data-dropdown-target="button"
+          class="cpy-header-theme-dropdown text-lg text-readable-content-500 hover:text-readable-content-700"
+          aria-haspopup="true" aria-expanded="false">
+          <%= icon_for(:theme) %>
+        </button>
+        <div data-dropdown-target="menu" class="bg-body-contrast origin-top-right z-10 absolute top-full min-w-80 bg-white border border-background-400 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+          <div class="flex flex-col justify-stretch items-stretch text-sm text-left">
+            <% TailwindTheme.all.each do |theme| %>
+              <%
+                theme_is_selected = Current.theme_key == theme.key
+                options = {
+                  class: 'no-underline hover:bg-background-100 w-full block p-4 text-primary font-medium border-b border-b-primary-100 last:border-b-0 ',
+                  data: { turbo_reload: true }
+                }
+
+                item_tag = theme_is_selected ? :div : :a
+
+                if theme_is_selected
+                  options[:class] += "bg-primary-50"
+                else
+                  options[:href] = "?switch_theme_to=#{theme.key}"
+                end
+              %>
+              <%= content_tag item_tag, options do %>
+                <p class = "">
+                  <span class="font-medium text-base text-readable-content-500"><%= theme.name %></span>
+                  <% if theme_is_selected %>
+                    <span class="ml-2 py-1 px-2 text-xs text-secondary-400 bg-secondary-50 border border-secondary-400 rounded-full"><%= t("active") %></span>
+                  <% end %>
+                </p>
+                <p class="mt-2 text-xs text-readable-content-400">
+                  <%= theme.description %>
+                </p>
+                <div class="mt-2 flex gap-2">
+                  <% theme.showcase_colors.each do |color| %>
+                    <div class="h-4 w-4 rounded-full border border-background-800" style="background-color: <%= color %>;"></div>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
 </header>

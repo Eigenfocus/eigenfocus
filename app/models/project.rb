@@ -5,7 +5,7 @@ class Project < ApplicationRecord
   validates :name, presence: true
 
   def default_visualization
-    visualizations.first
+    visualizations.first_or_create
   end
 
   def archived?

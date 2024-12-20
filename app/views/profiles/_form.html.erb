@@ -12,7 +12,7 @@
 <%= form_with(**form_options) do |f| %>
 
   <% if current_user.errors.any? %>
-    <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm dark:bg-opacity-30 md:p-4 text-sm text-alert-500">
+    <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
       <%= current_user.errors.full_messages.to_sentence.capitalize %>
     </div>
   <% end %>
@@ -20,7 +20,7 @@
   <div class="flex flex-col gap-4">
     <div>
       <%= f.label :timezone, class: "mb-2 label-primary" do %>
-        <span class="text-body-700 mr-1"><i class='fa-solid fa-globe'></i></span>
+        <span class="text-readable-content-700 mr-1"><i class='fa-solid fa-globe'></i></span>
         <%= User.human_attribute_name(:timezone) %>
       <% end %>
       <div class="flex items-stretch gap-5">
@@ -33,7 +33,7 @@
 
     <div class="">
       <%= f.label :locale, class: "mb-2 label-primary" do %>
-        <span class="text-body-700 mr-1"><i class='fa-solid fa-globe'></i></span>
+        <span class="text-readable-content-700 mr-1"><i class='fa-solid fa-globe'></i></span>
         <%= User.human_attribute_name(:locale) %>
       <% end %>
       <div class="flex items-stretch gap-5">
@@ -43,7 +43,7 @@
 
 
     <div class="flex justify-center self-center	">
-      <%= f.submit t('actions.update'), class: "btn-primary" %>
+      <%= f.button t('actions.update'), class: "btn-primary" %>
     </div>
   </div>
 

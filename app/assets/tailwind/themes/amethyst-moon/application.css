@@ -1,0 +1,84 @@
+@import '../base';
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark-themes-only {
+  display: none;
+}
+
+@layer components {
+  body, html {
+    font-family: "Funel Display", sans-serif;
+  }
+
+  body {
+    @apply bg-background-50 text-readable-content-600;
+  }
+
+  .btn {
+    @apply cursor-pointer transition-colors inline-flex font-normal items-center justify-center rounded-md py-2 px-6 text-center text-sm;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /*
+  This doesn't work on input buttons
+  https://stackoverflow.com/questions/4574912/css-content-generation-before-or-after-input-elements
+  */
+  .btn::before {
+    @apply rounded-full;
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: -85%;
+    bottom: 0;
+    position: absolute;
+    transition: left 200ms ease-out;
+  }
+
+  .btn:hover::before,
+  .btn:focus::before {
+    left: -100%;
+  }
+
+  .btn:active::before {
+    left: 90%;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 hover:bg-primary-700 focus:bg-primary-700 active:bg-primary-700;
+    @apply before:bg-primary-400/20;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary-600 hover:bg-secondary-700 focus:bg-secondary-700 active:bg-secondary-700;
+    @apply before:bg-secondary-400/20;
+  }
+
+  .btn-tertiary {
+    @apply btn bg-tertiary-600 hover:bg-tertiary-700 focus:bg-tertiary-700 active:bg-tertiary-700;
+    @apply before:bg-tertiary-400/20;
+  }
+
+  .btn-danger {
+    @apply btn bg-danger-600 hover:bg-danger-700 focus:bg-danger-700 active:bg-danger-700;
+    @apply before:bg-danger-400/20;
+  }
+
+  .btn-success {
+    @apply btn bg-success-600 hover:bg-success-700 focus:bg-success-700 active:bg-success-700;
+    @apply before:bg-success-400/20;
+  }
+
+
+  .btn-cancel {
+    @apply btn text-cancel-500 border bg-cancel-100 border-cancel-200 rounded-md py-2 px-6 text-center;
+    @apply hover:text-cancel-700 hover:bg-cancel-200 hover:border-cancel-400;
+    @apply before:bg-cancel-400/20;
+  }
+
+}
