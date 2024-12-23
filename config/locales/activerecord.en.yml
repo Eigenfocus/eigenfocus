@@ -10,8 +10,12 @@ en:
         other: 'Projects'
 
       visualization:
-        one: 'Board'
-        other: 'Boards'
+        one: 'Board view'
+        other: 'Board views'
+
+      grouping:
+        one: 'Column'
+        other: 'Columns'
 
     attributes:
       project:
@@ -19,3 +23,5 @@ en:
       user:
         timezone: 'Timezone'
         locale: 'Language'
+      grouping:
+        title: 'Title'

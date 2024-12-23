@@ -55,7 +55,7 @@
             <i class="ml-4 fa-solid fa-chevron-down"></i>
           </div>
         </button>
-        <div data-dropdown-target="menu" style="" class="z-1  w-full min-w-max text-nowrap bg-body-contrast flex flex-col justify-stretch border border-background-300 text-readable-content-500 text-sm bg-body-contrast shadow-md rounded-md absolute left-0 top-[120%]">
+        <div data-dropdown-target="menu" style="" class="z-1  w-full min-w-max text-nowrap flex flex-col justify-stretch border border-background-300 text-readable-content-500 text-sm bg-body-contrast shadow-md rounded-md absolute left-0 top-[120%]">
           <%= link_to project_path(project,
             project: { time_tracking_enabled: !project.time_tracking_enabled }),
             data: { turbo_method: :put },

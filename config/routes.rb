@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       put :unarchive
     end
   end
-  resources :visualizations, only: :show
+  resources :visualizations, only: :show do
+    resources :groupings, only: [ :new, :create ]
+  end
 
   resource :profile, only: [ :edit, :update ]
 

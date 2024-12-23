@@ -10,11 +10,18 @@ pt-BR:
         other: 'Projetos'
 
       visualization:
-        one: 'Quadro'
-        other: 'Quadros'
+        one: 'Visão de quadro'
+        other: 'Visões de quadros'
+
+      grouping:
+        one: 'Coluna'
+        other: 'Colunas'
+
     attributes:
       project:
         name: 'Nome'
       user:
         timezone: 'Fuso horário'
         locale: 'Idioma'
+      grouping:
+        title: 'Título'
