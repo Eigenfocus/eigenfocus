@@ -1,4 +1,5 @@
 @import './select2';
+@import './flatpickr';
 
 .btn .loading-spinner,
 .btn-primary .loading-spinner,
