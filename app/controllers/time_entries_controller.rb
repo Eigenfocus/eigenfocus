@@ -20,9 +20,9 @@ class TimeEntriesController < ApplicationController
     render partial: "form", locals: { time_entry: @time_entry }
   end
 
-  def form_issues
+  def form_projects_dependent_fields
     @time_entry = TimeEntry.new
-    @time_entry.project = Project.find(params[:project_id])
+    @time_entry.project = Project.find(params[:project_id]) if params[:project_id].present?
   end
 
   def create

@@ -11,9 +11,9 @@ pt-BR:
     update:
       success: 'Perfil atualizado com sucesso.'
   time_entries:
-    form_tasks:
+    form_project_dependent_fields:
       select_a_project: "Selecione um projeto primeiro"
-      project_has_no_task: "Este projeto não possui nenhuma issue ativa"
+      project_has_no_issue: "Este projeto não possui nenhuma issue ativa"
     index:
       why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."
       goto_today: "Ir para data de hoje"
