@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "project_dependent_fields", data: {
+    update_url: form_projects_dependent_fields_time_entries_url,
+    request_param_name: 'project_id'
+  } do %>
+  <% time_entry = form.object %>
+  <div class="flex gap-2 flex-col">
+    <%= form.label :issue, TimeEntry.human_attribute_name(:issue), class: "label-primary" %>
+
+    <% if time_entry.project.present? %>
+      <% if time_entry.project.issues.any? %>
+        <%
+          issues = time_entry.project_id.present? ? time_entry.project.issues.to_a : []
+          # if it update action and current task is not time anymore
+          # we still show on select
+          if time_entry.issue && !issues.include?(time_entry.issue)
+            issues.push(time_entry.issue)
+          end
+        %>
+        <%= select_tag "time_entry[issue_id]", options_from_collection_for_select(issues, :id, :title, time_entry.issue_id), { include_blank: t('none_selected_f'), style: "width: 100%", data: {
+          "time-entry-form-target": 'projectsSelect',
+          controller: "select2"
+        } } %>
+      <% else %>
+        <p class="text-xs italic text-slate-500"><%= t(".project_has_no_issue") %></p>
+      <% end %>
+    <% else %>
+      <p class="text-xs italic text-slate-500"><%= t(".select_a_project") %></p>
+    <% end %>
+  </div>
+<% end %>

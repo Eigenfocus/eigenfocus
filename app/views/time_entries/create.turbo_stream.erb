@@ -1,0 +1,9 @@
+<% if @time_entry.persisted? %>
+  <%= turbo_stream.prepend "time-entries-tbody", partial: "time_entries/time_entry", locals: { time_entry: @time_entry } %>
+  <%= turbo_stream.update 'time_entry_form', "" %>
+  <%= turbo_stream.remove 'empty-row' %>
+  <%= new_turbo_stream_alert_message(:notice, t_flash_message(@time_entry)) %>
+<% else %>
+  <%= turbo_stream.replace 'time_entry_form', partial: "time_entries/form", locals: { time_entry: @time_entry } %>
+  <%= new_turbo_stream_alert_message(:alert, @time_entry.errors.full_messages.to_sentence) %>
+<% end %>
