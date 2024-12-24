@@ -60,8 +60,9 @@ module ApplicationHelper
 
   def icon_for(name)
     icon_classes = case name.to_sym
-
-    when :project_tasks
+    when :time_entries
+      "fa-solid fa-clock"
+    when :project_issues
       "fa-solid fa-list-check"
     when :groupings
       "fa-solid fa-table-columns"
@@ -85,5 +86,12 @@ module ApplicationHelper
   def t_flash_message(resource, flash_type: nil)
     flash_type ||= :notice
     t("flash.actions.#{action_name}.#{flash_type}", resource_name: resource.model_name.human)
+  end
+
+  def convert_minutes_to_human_readable_hour(number_of_minutes)
+    minutes = number_of_minutes % 60
+    hours = (number_of_minutes - minutes)/60
+
+    "#{sprintf '%02d', hours}:#{sprintf '%02d', minutes}"
   end
 end

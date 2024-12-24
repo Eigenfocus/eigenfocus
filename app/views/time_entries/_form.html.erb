@@ -1,0 +1,57 @@
+
+<%= turbo_frame_tag 'time_entry_form' do %>
+<%= render_modal do %>
+
+  <div class="border-b border-background-200 pb-2 mb-4">
+    <div class="flex items-center space-x-2">
+      <div class="flex size-6 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500">
+        <%= icon_for(:time_entries) %>
+      </div>
+      <h4 class="text-lg font-medium text-readable-content-700">
+        <%= time_entry.persisted? ? "#{t("actions.edit")} #{TimeEntry.model_name.human}" : "#{t("actions.create")} #{TimeEntry.model_name.human}"%> - <%= l(time_entry.reference_date) %>
+      </h4>
+    </div>
+  </div>
+  <div class="">
+    <%= form_for(time_entry, html: {
+        class: 'flex flex-col gap-4'
+      }) do |f| %>
+      <% if time_entry.errors.any? %>
+        <div class="flex ronded-md w-full border-l-6 border-alert bg-alert bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert">
+          <%= time_entry.errors.full_messages.to_sentence.capitalize %>
+        </div>
+      <% end %>
+
+      <%= f.hidden_field :reference_date %>
+
+      <div class="flex gap-2 flex-col cpy-project-list">
+        <%= f.label :project_id, TimeEntry.human_attribute_name(:project), class: "label-primary" %>
+
+        <%= f.select :project_id, options_from_collection_for_select(Project.all, :id, :name, time_entry.project_id), { include_blank: t('select_one') }, {required: true, style: "width: 100%", data: {
+          controller: 'select2'
+        } } %>
+      </div>
+
+      <div class="flex gap-2 flex-col">
+        <%= f.label :description, TimeEntry.human_attribute_name(:description), class: "label-primary" %>
+        <%= f.text_area :description, autofocus: true, class: "input-primary" %>
+      </div>
+
+      <div class="flex gap-2 flex-col">
+        <%= f.label :total_logged_time_in_minutes, "*"+ TimeEntry.human_attribute_name(:total_logged_time_in_minutes), class: "label-primary" %>
+        <%= f.number_field :total_logged_time_in_minutes, required: true, class: "input-primary" %>
+      </div>
+
+      <div class="flex gap-2 justify-center mt-2">
+        <a class="cursor-pointer btn-cancel" data-action="click->modal#close">
+          <%= t('actions.cancel') %>
+        </a>
+
+        <% text = time_entry.persisted? ? t('actions.update') : t('actions.create') %>
+        <%= f.button text, class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
+<% end %>

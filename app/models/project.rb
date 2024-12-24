@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   # Relations
   has_many :visualizations
+  has_many :issues
 
   # Validations
   validates :name, presence: true

@@ -50,12 +50,14 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_24_110639) do
   create_table "time_entries", force: :cascade do |t|
     t.integer "project_id"
     t.integer "user_id"
+    t.integer "issue_id"
     t.string "description", default: ""
     t.integer "total_logged_time_in_minutes", default: 0, null: false
     t.datetime "started_at"
     t.date "reference_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_time_entries_on_issue_id"
     t.index ["project_id"], name: "index_time_entries_on_project_id"
     t.index ["user_id"], name: "index_time_entries_on_user_id"
   end

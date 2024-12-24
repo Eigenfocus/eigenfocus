@@ -1,0 +1,88 @@
+<% running_class = time_entry.running? ? "border-secondary-500" : "border-background-100" %>
+<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> transition-all bg-body-contrast relative rounded-md flex-col lg:flex-row gap-4 flex justify-stretch shadow-sm border ">
+  <% if time_entry.running? %>
+    <span class="absolute left-[-7px] flex" style="width:16px; height:16px; top: calc(50% - 6px)">
+      <span class="relative  inline-flex rounded-full bg-body-contrast text-secondary-500" style="left:-2px;top:-2px;font-size:16px">
+        <i class="animate-spin fa-solid fa-clock"></i>
+      </span>
+      <span style='width:16px;height:16px;left: -2px; top:-2px;' class="animate-ping absolute inline-flex rounded-full bg-secondary-500"></span>
+    </span>
+  <% end %>
+  <div class="flex grow flex-col p-4 gap-4">
+    <div class="flex items-center justify-between">
+      <div class="flex flex-col gap-2">
+        <p class="font-medium text-xl text-background-600">
+          <%= time_entry.project.name %>
+        </p>
+        <% if time_entry.issue.present? %>
+          <p class="text-md italic text-background-500">
+            <%= time_entry.issue.title %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <div class="text-sm border-l-4 <%= time_entry.description.present? ? '' : '' %> italic grow border-background-200 text-background-500 py-2 pl-2">
+      <% if time_entry.description.blank? %>
+        <p class="italic text-xs"><%= t(".no_description") %></p>
+      <% else %>
+        <%= simple_format(time_entry.description) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary-500 font-bold animate-pulse" : "text-background-600" %>">
+    <div data-controller="clock-timer"
+      data-clock-timer-started-at-value="<%= time_entry.started_at %>"
+      data-clock-timer-logged-time-in-minutes-value="<%= time_entry.total_logged_time_in_minutes %>"
+      class="relative">
+
+      <%= convert_minutes_to_human_readable_hour(time_entry.total_time) %>
+
+    </div>
+
+  </div>
+
+  <div class="flex flex-row lg:flex-col lg:border-l border-t lg:border-t-0 border-background-200">
+    <% link_classes = "px-4 py-2 grow border-r lg:border-r-0 lg:border-b flex justify-center lg:justify-start items-center last:border-0 border-background-100 text-downcase text-sm font-medium cursor-pointer" %>
+
+    <% if time_entry.running? %>
+      <%= link_to stop_time_entry_path(time_entry),
+        class: link_classes + " text-alert-500 transition-colors hover:text-body-contrast hover:bg-alert-500",
+        data: { turbo_method: :put }  do %>
+
+        <span class="mr-2"><i class="fa-solid fa-stop"></i></span>
+        <span class=""><%= t('actions.stop') %></span>
+      <% end %>
+    <% else %>
+      <%= link_to start_time_entry_path(time_entry),
+        class: link_classes + " text-success-500 transition-colors hover:text-body-contrast hover:bg-success-500",
+        data: { turbo_method: :put }  do %>
+
+        <span class="mr-2"><i class="fa-solid fa-play"></i></span>
+        <span class=""><%= t('actions.start') %></span>
+      <% end %>
+    <% end %>
+
+    <% link_classes += " transition-colors text-readable-content-500 hover:text-readable-content-700 hover:bg-background-100 "%>
+
+    <%= link_to edit_time_entry_path(time_entry),
+      class: link_classes,
+      data: { turbo_frame: "time_entry_form" }  do %>
+
+      <span class="mr-2"><i class="fa-solid fa-edit"></i></span>
+      <span class=""><%= t('actions.edit') %></span>
+    <% end %>
+
+    <%= link_to time_entry_path(time_entry),
+      class: link_classes,
+      data: {
+        turbo_frame: "time_entry_form",
+        turbo_method: :delete,
+        turbo_confirm: t(".confirm_remove")
+
+      }  do %>
+
+      <span class="mr-2"><i class="fa-solid fa-trash"></i></span>
+      <span class=""><%= t('actions.remove') %></span>
+    <% end %>
+  </div>
+</div>
