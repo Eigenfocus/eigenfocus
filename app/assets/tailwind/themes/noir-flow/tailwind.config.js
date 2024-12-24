@@ -136,7 +136,7 @@ const themeColors = {
     "600": "rgba(255, 255, 255, 0.92)",
     "700": "rgba(255, 255, 255, 0.94)",
     "800": "rgba(255, 255, 255, 0.98)",
-    "900": "rgba(255, 255, 255, 1"
+    "900": "rgba(255, 255, 255, 1)"
   },
   background: invertColorIndexes(noirBlack),
   "background-menu": noirBlack["700"],
