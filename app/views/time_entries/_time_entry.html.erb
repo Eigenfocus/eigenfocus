@@ -31,7 +31,7 @@
   </div>
   <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary-500 font-bold animate-pulse" : "text-background-600" %>">
     <div data-controller="clock-timer"
-      data-clock-timer-started-at-value="<%= time_entry.started_at %>"
+      data-clock-timer-started-at-value="<%= format_datetime_to_momentjs(time_entry.started_at) %>"
       data-clock-timer-logged-time-in-minutes-value="<%= time_entry.total_logged_time_in_minutes %>"
       class="relative">
 

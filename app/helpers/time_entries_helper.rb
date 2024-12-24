@@ -10,4 +10,8 @@ module TimeEntriesHelper
 
     turbo_stream_tag.html_safe
   end
+
+  def format_datetime_to_momentjs(datetime)
+    datetime.strftime("%Y-%m-%dT%H:%M:%S%:z")
+  end
 end
