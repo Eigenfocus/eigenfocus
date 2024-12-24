@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  # Relations
   has_many :visualizations
 
   # Validations
