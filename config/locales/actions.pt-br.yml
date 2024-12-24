@@ -5,6 +5,8 @@ pt-BR:
       disable_time_tracking: 'Desabilitar registro de tempo'
       go_to_board: 'Ir para visão de quadro'
   profiles:
+    form:
+      why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."
     edit:
       setup_missing: 'Para começar, precisamos que complete seu perfil.'
       title: "Editar perfil"
@@ -15,7 +17,6 @@ pt-BR:
       select_a_project: "Selecione um projeto primeiro"
       project_has_no_issue: "Este projeto não possui nenhuma issue ativa"
     index:
-      why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."
       goto_today: "Ir para data de hoje"
       click_here_to_create: "Criar registro de tempo"
       other_time_entries_running: "Você possui entradas de tempo ativas em outras datas:"

@@ -29,6 +29,7 @@
       <% end %>
     </div>
   </div>
+
   <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary-500 font-bold animate-pulse" : "text-background-600" %>">
     <% if time_entry.running? %>
       <div data-controller="clock-timer"
@@ -43,7 +44,7 @@
   </div>
 
   <div class="flex flex-row lg:flex-col lg:border-l border-t lg:border-t-0 border-background-200">
-    <% link_classes = "px-4 py-2 grow border-r lg:border-r-0 lg:border-b flex justify-center lg:justify-start items-center last:border-0 border-background-100 text-downcase text-sm font-medium cursor-pointer" %>
+    <% link_classes = "px-4 py-4 grow border-r lg:border-r-0 lg:border-b flex justify-center lg:justify-start items-center last:border-0 border-background-100 text-downcase text-sm font-medium cursor-pointer" %>
 
     <% if time_entry.running? %>
       <%= link_to stop_time_entry_path(time_entry),

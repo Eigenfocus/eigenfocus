@@ -5,6 +5,8 @@ en:
       disable_time_tracking: 'Disable time tracking'
       go_to_board: 'Go to Board View'
   profiles:
+    form:
+      why_is_timezone_needed: 'This is needed in order to correctly display dates and hours for you.'
     edit:
       setup_missing: 'To start using the app, please setup your profile first.'
       title: "Edit profile"
@@ -15,7 +17,6 @@ en:
       select_a_project: "Select a project"
       project_has_no_issue: "There are no active issues for this project"
     index:
-      why_is_timezone_needed: 'This is needed in order to correctly display dates and hours for you.'
       goto_today: 'Go to today'
       other_time_entries_running: "You have time entres still running on other dates:"
       click_here_to_create: "New time entry"
