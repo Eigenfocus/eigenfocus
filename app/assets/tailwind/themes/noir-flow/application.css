@@ -17,7 +17,7 @@
   }
 
   body {
-    @apply text-background-200;
+    @apply text-readable-content-500;
     background-color: #111;
   }
 
@@ -81,7 +81,41 @@
   }
 
   .input-primary,
-  .input-secondary {
+  .flatpickr-input.input-primary {
+    @apply w-full rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
     color: black;
   }
+
+  .input-secondary {
+    @apply w-full rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-secondary-500;
+    color: black;
+  }
+
+  .input-sm {
+    @apply py-1;
+  }
+
+  .label-primary {
+    @apply block text-readable-content-500 text-sm;
+  }
+
 }
+
+.select2-container--default .select2-results__option--selectable {
+  color: black;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  @apply bg-primary-200 text-readable-content-400 !important;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  @apply placeholder-readable-content-400;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  @apply text-base;
+  color: black !important;
+  line-height: 20px;
+}
+

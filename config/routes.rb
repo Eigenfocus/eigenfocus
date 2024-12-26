@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :reports, only: [] do
+    get :total_time
+  end
+
   resources :visualizations, only: :show do
     resources :groupings, only: [ :new, :create, :edit, :update ] do
       collection do

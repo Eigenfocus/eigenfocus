@@ -47,6 +47,12 @@
                     icon: icon_for(:time_entries),
                     main_controller: :time_entries,
                     url: time_entries_path
+                  },
+                  {
+                    text: t('.menu.total_time_report'),
+                    icon: icon_for(:report),
+                    main_controller: :reports,
+                    url: total_time_reports_path
                   }
                ]
             } %>

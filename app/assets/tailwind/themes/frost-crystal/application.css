@@ -1,5 +1,6 @@
 @import '../base';
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,6 +12,16 @@
 
 @layer components {
   body, html {
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .btn {
     font-family: "Jura", sans-serif;
   }
 
@@ -87,4 +98,35 @@
     @apply shadow-cancel-100/40 active:shadow-cancel-300/40;
   }
 
+  .input-primary,
+  .flatpickr-input.input-primary {
+    @apply w-full text-readable-content-500 rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
+  }
+
+  .input-secondary {
+    @apply w-full text-readable-content-500 rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-secondary-500;
+  }
+
+  .input-sm {
+    @apply py-1;
+  }
+
+  .label-primary {
+    @apply block text-readable-content-500 text-sm;
+  }
+
 }
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  @apply bg-primary-500 !important;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  @apply placeholder-readable-content-400;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  @apply text-readable-content-700 text-base;
+  line-height: 20px;
+}
+
