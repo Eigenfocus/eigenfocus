@@ -1,0 +1,45 @@
+<%= form_with(scope: :report, url: total_time_reports_path, method: :get) do |f| %>
+  <div class="bg-body-contrast rounded-md border border-background-200 p-8 space-y-4">
+
+    <div class="flex flex-col w-full justify-stretch items-stretch lg:flex-row gap-8 ">
+      <div class="flex flex-col lg:w-2/4  lg:flex-row justify-stretch items-center gap-4">
+        <div class="flex  gap-2 w-full flex-col">
+          <%= f.label :project_ids, t(".filter_by_project"), class: "text-readable-content-500 text-sm " %>
+          <%
+            projects_data = Project.order(name: :asc).pluck(:name, :id)
+          %>
+          <%= f.select 'project_ids', options_for_select(projects_data, params[:report][:project_ids]), { multiple: true }, { class: "w-full", data: { controller: 'select2' } } %>
+        </div>
+      </div>
+
+      <div class="w-full flex flex-col lg:flex-row lg:w-2/4 justify-stretch items-stretch gap-4 ">
+        <div class="flex grow gap-2 flex-col">
+          <%= f.label :start_at, t(".entry_start_at"), class: "text-readable-content-500 text-sm " %>
+
+          <%= f.text_field :start_at, value: params[:report][:start_at], class: 'input-primary w-full',
+            autocomplete: 'off',
+            data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr" }
+          %>
+        </div>
+
+        <div class="flex grow gap-2 flex-col">
+
+          <%= f.label :end_at, t(".entry_end_at"), class: "text-readable-content-500 text-sm " %>
+
+          <%= f.text_field :end_at, value: params[:report][:end_at],
+            class: 'input-primary w-full',
+            autocomplete: 'off',
+            data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr" }
+          %>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-end gap-2">
+      <%= link_to total_time_reports_path, class: 'button-cancel text-sm mr-4' do %>
+        <%= t('actions.clear_filter') %>
+      <% end %>
+
+      <%= f.button t(".generate_report"), class: "btn-primary btn-sm" %>
+    </div>
+  </div>
+<% end %>

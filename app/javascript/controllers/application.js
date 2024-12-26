@@ -89,12 +89,18 @@ const yearDropdownPlugin = function (pluginConfig) {
       fp.yearSelectContainer.append(yearDropdown);
 
       return {
-          onReady: function onReady() {
-              var name = fp.monthNav.className;
-              const yearInputCollection = fp.calendarContainer.getElementsByClassName(name);
-              const el = yearInputCollection[0];
-              el.append(fp.yearSelectContainer);
-          }
+        onChange: (selectedDates, dateStr, instance) => {
+          // Close the Flatpickr instance when a date is selected
+          // This also helps integration tests for cases where
+          // the calendar picker closes after we fill the date input manually
+          instance.close();
+        },
+        onReady: function onReady() {
+            var name = fp.monthNav.className;
+            const yearInputCollection = fp.calendarContainer.getElementsByClassName(name);
+            const el = yearInputCollection[0];
+            el.append(fp.yearSelectContainer);
+        }
       };
   };
 }
