@@ -10,7 +10,12 @@
 
 
   <div class="relative grow">
-    <ul class="absolute top-0 -left-4 -right-4 -bottom-4 sm:-left-12 sm:-right-12 sm:-bottom-12 flex flex-row flex-nowrap gap-x-8 px-4 sm:px-12 items-stretch overflow-x-auto overflow-y-hidden scroll-smooth">
+    <ul
+        class="absolute top-0 -left-4 -right-4 -bottom-4 sm:-left-12 sm:-right-12 sm:-bottom-12 flex flex-row flex-nowrap gap-x-8 px-4 sm:px-12 items-stretch overflow-x-auto overflow-y-hidden scroll-smooth"
+        data-controller="sortable"
+        data-sortable-target="container"
+        data-sortable-move-path-value="<%= move_visualization_groupings_path(@visualization) %>"
+        >
       <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping %>
 
       <%= turbo_frame_tag('grouping_archor') {} %>
@@ -19,7 +24,7 @@
         <header class="flex flex-col max-h-full">
           <div class="flex items-center justify-between mb-4">
             <h2 class="grow font-semibold text-gray-800 dark:text-gray-100 truncate">
-              Add new list
+              <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
             </h2>
             <%= link_to new_visualization_grouping_path(@visualization), class: "shrink-0 ml-2", data: { turbo_frame: 'grouping_form' } do %>
               <svg class="fill-current" width="16" height="16" viewBox="0 0 16 16">

@@ -61,4 +61,28 @@ describe 'As a user, I want to manage my project kanban visualization' do
       expect(page).to have_content("TODO")
     end
   end
+
+  specify 'I can move groupings on the kanban visualization page' do
+    project = FactoryBot.create(:project)
+    first_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 0, title: "TODO")
+    second_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 1, title: "Doing")
+    third_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 2, title: "Done")
+
+    visit visualization_path(project.default_visualization)
+
+    first_column = find(dom_id(first_grouping))
+    second_column = find(dom_id(second_grouping))
+    third_column = find(dom_id(third_grouping))
+
+    first_column.drag_to(third_column)
+    second_column.drag_to(first_column)
+
+    project.reload
+
+    expect(project.default_visualization.groupings.pluck(:title)).to eq([
+      "Done",
+      "TODO",
+      "Doing"
+    ])
+  end
 end

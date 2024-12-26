@@ -21,6 +21,11 @@ class GroupingsController < ApplicationController
     @grouping.update(permitted_params)
   end
 
+  def move
+    position = params.require(:position)
+    current_visualization.move_grouping!(to: position["to"], from: position["from"])
+  end
+
   private
   def current_visualization
     @current_visualization ||= Visualization.find(params[:visualization_id])
