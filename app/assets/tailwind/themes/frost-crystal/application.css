@@ -87,4 +87,34 @@
     @apply shadow-cancel-100/40 active:shadow-cancel-300/40;
   }
 
+  .input-primary {
+    @apply w-full text-readable-content-500 rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
+  }
+
+  .input-secondary {
+    @apply w-full text-readable-content-500 rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-secondary-500;
+  }
+
+  .input-sm {
+    @apply py-1;
+  }
+
+  .label-primary {
+    @apply block text-readable-content-500 text-sm;
+  }
+
 }
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  @apply bg-primary-500 !important;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  @apply placeholder-readable-content-400;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  @apply text-readable-content-700 text-base;
+  line-height: 20px;
+}
+
