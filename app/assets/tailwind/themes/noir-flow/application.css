@@ -80,7 +80,8 @@
     @apply btn border-cancel-200 bg-cancel-400;
   }
 
-  .input-primary {
+  .input-primary,
+  .flatpickr-input.input-primary {
     @apply w-full rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
     color: black;
   }
