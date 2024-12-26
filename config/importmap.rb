@@ -12,5 +12,6 @@ pin "flatpickr" # @4.6.13
 pin "stimulus-flatpickr" # @3.0.0
 pin "select2" # @4.1.0
 pin "jquery" # @3.7.1
+pin "sortablejs" # @1.15.6
 
 pin_all_from "app/javascript/controllers", under: "controllers"
