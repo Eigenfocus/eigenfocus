@@ -11,6 +11,16 @@ Rails.application.routes.draw do
       put :unarchive
     end
   end
+
+  resources :time_entries do
+    get :form_projects_dependent_fields, on: :collection
+
+    member do
+      put :start
+      put :stop
+    end
+  end
+
   resources :visualizations, only: :show do
     resources :groupings, only: [ :new, :create ]
   end

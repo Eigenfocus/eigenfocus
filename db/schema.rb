@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_20_183735) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_24_110639) do
   create_table "grouping_issue_allocations", force: :cascade do |t|
     t.integer "position"
     t.integer "issue_id", null: false
@@ -35,6 +35,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_20_183735) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "project_id"
+    t.index ["project_id"], name: "index_issues_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -43,6 +45,21 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_20_183735) do
     t.boolean "time_tracking_enabled", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "time_entries", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "user_id"
+    t.integer "issue_id"
+    t.string "description", default: ""
+    t.integer "total_logged_time_in_minutes", default: 0, null: false
+    t.datetime "started_at"
+    t.date "reference_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_time_entries_on_issue_id"
+    t.index ["project_id"], name: "index_time_entries_on_project_id"
+    t.index ["user_id"], name: "index_time_entries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,5 +81,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_20_183735) do
   add_foreign_key "grouping_issue_allocations", "groupings"
   add_foreign_key "grouping_issue_allocations", "issues"
   add_foreign_key "groupings", "visualizations"
+  add_foreign_key "issues", "projects"
+  add_foreign_key "time_entries", "projects"
+  add_foreign_key "time_entries", "users"
   add_foreign_key "visualizations", "projects"
 end

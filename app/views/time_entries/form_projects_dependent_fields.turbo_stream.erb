@@ -1,0 +1,7 @@
+<%= form_with(model: @time_entry) do |form| %>
+  <%= turbo_stream.replace 'project_dependent_fields',
+    partial: "form_project_dependent_fields", locals: {
+      form: form,
+    }
+  %>
+<% end %>

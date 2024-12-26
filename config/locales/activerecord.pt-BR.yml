@@ -17,6 +17,9 @@ pt-BR:
         one: 'Coluna'
         other: 'Colunas'
 
+      time_entry:
+        one: 'Registro de tempo'
+        other: 'Registros de tempo'
     attributes:
       project:
         name: 'Nome'
@@ -25,3 +28,10 @@ pt-BR:
         locale: 'Idioma'
       grouping:
         title: 'Título'
+      time_entry:
+        decription: 'Descrição'
+        project_id: 'Projeto'
+        project: 'Projeto'
+        issue_id: 'Issue'
+        issue: 'Issue'
+        total_logged_time_in_minutes: 'Tempo registrado (minutos)'

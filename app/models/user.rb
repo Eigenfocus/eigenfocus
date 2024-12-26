@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # Relations
+  has_many :time_entries
+
   # Validations
   VALID_THEME_KEYS = TailwindTheme.all.map { |t| t.key }
 

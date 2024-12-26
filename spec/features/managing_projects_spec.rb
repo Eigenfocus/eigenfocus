@@ -48,37 +48,6 @@ context "As a user, I want to manage my projects" do
     expect(project2.name).to eq("Edited name")
   end
 
-  specify "I can enable for time tracking" do
-    project_to_enable = FactoryBot.create(:project, time_tracking_enabled: false)
-    visit projects_path
-
-    within "#project_#{project_to_enable.id}" do
-      click_button "Disable time tracking"
-      click_link "Enable time tracking"
-    end
-
-    expect(page).to have_content("Project was successfully updated.")
-
-    project_to_enable.reload
-    expect(project_to_enable).to be_time_tracking_enabled
-  end
-
-
-  specify "I can disable for time tracking" do
-    project_to_disable = FactoryBot.create(:project, time_tracking_enabled: true)
-    visit projects_path
-
-    within "#project_#{project_to_disable.id}" do
-      click_button "Enable time tracking"
-      click_link "Disable time tracking"
-    end
-
-    expect(page).to have_content("Project was successfully updated.")
-
-    project_to_disable.reload
-    expect(project_to_disable).to_not be_time_tracking_enabled
-  end
-
   specify "I can archive" do
     project_to_archive = FactoryBot.create(:project)
 

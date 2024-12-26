@@ -37,10 +37,16 @@
             <%= render partial: 'layouts/_sidebar/menu_group', locals: {
                menu_items: [
                   {
-                  text: t('.menu.projects'),
-                  icon: icon_for(:projects),
-                  main_controller: :projects,
-                  url: projects_path
+                    text: t('.menu.projects'),
+                    icon: icon_for(:projects),
+                    main_controller: :projects,
+                    url: projects_path
+                  },
+                  {
+                    text: t('.menu.timesheet'),
+                    icon: icon_for(:time_entries),
+                    main_controller: :time_entries,
+                    url: time_entries_path
                   }
                ]
             } %>

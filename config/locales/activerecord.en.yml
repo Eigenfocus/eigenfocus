@@ -17,11 +17,25 @@ en:
         one: 'Column'
         other: 'Columns'
 
+      time_entry:
+        one: 'Time entry'
+        other: 'Time entries'
+
     attributes:
       project:
         name: 'Name'
+
       user:
         timezone: 'Timezone'
         locale: 'Language'
+
       grouping:
         title: 'Title'
+
+      time_entry:
+        decription: 'Description'
+        project_id: 'Project'
+        issue_id: 'Issue'
+        issue: 'Issue'
+        project: 'Project'
+        total_logged_time_in_minutes: 'Logged time (minutes)'
