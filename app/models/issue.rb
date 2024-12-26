@@ -4,5 +4,4 @@ class Issue < ApplicationRecord
 
   # Validations
   validates :title, presence: true
-  validates :description, presence: true
 end
