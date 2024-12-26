@@ -17,6 +17,10 @@ pt-BR:
         one: 'Coluna'
         other: 'Colunas'
 
+      issue:
+        one: 'Atividade'
+        other: 'Atividades'
+
       time_entry:
         one: 'Registro de tempo'
         other: 'Registros de tempo'
@@ -28,8 +32,11 @@ pt-BR:
         locale: 'Idioma'
       grouping:
         title: 'Título'
+      issue:
+        title: 'Título'
+        description: 'Descrição'
       time_entry:
-        decription: 'Descrição'
+        description: 'Descrição'
         project_id: 'Projeto'
         project: 'Projeto'
         issue_id: 'Issue'

@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :groupings, only: [] do
+    resources :issues, only: [ :new, :create ]
+  end
+
   resource :profile, only: [ :edit, :update ]
 
   # Defines the root path route ("/")

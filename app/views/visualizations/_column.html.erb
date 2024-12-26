@@ -4,13 +4,13 @@
       <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
         <%= grouping.title %>
       <% end %>
-      <button class="shrink-0 ml-2 text-readable-content-500 hover:text-readable-content-700">
+      <%= link_to new_grouping_issue_path(grouping), class: "capy-new-issue shrink-0 ml-2 text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'issue_form' } do %>
         <i class="fa-solid fa-plus"></i>
-      </button>
+      <% end %>
     </div>
 
-    <div class="flex flex-col grow shrink basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y">
-      <%= render partial: 'visualizations/card', collection: grouping.allocations, as: :allocation %>
+    <div id="<%= dom_id(grouping) %>-cards-wrapper" class="flex flex-col grow shrink basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y">
+      <%= render partial: 'visualizations/card', collection: grouping.issues, as: :issue %>
     </div>
   </header>
 </li>

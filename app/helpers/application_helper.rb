@@ -66,6 +66,8 @@ module ApplicationHelper
       "fa-solid fa-list-check"
     when :groupings
       "fa-solid fa-table-columns"
+    when :issues
+      "fa-solid fa-rectangle-list"
     when :projects
       "fa-solid fa-folder-closed"
     when :user

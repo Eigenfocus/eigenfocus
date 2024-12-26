@@ -85,4 +85,30 @@ describe 'As a user, I want to manage my project kanban visualization' do
       "Doing"
     ])
   end
+
+  specify 'I can create issues inside a grouping' do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      find(".capy-new-issue").click
+    end
+
+    fill_in :issue_title, with: "Make this test pass"
+    fill_in :issue_description, with: "This is important to be happy"
+
+    click_button "Create"
+
+    expect(page).to have_content("Issue was successfully created.")
+
+    issue = Issue.last
+    expect(issue.title).to eq("Make this test pass")
+    expect(issue.description).to eq("This is important to be happy")
+
+    within dom_id(grouping) do
+      expect(page).to have_content("Make this test pass")
+    end
+  end
 end

@@ -17,6 +17,10 @@ en:
         one: 'Column'
         other: 'Columns'
 
+      issue:
+        one: 'Issue'
+        other: 'Issues'
+
       time_entry:
         one: 'Time entry'
         other: 'Time entries'
@@ -32,8 +36,12 @@ en:
       grouping:
         title: 'Title'
 
+      issue:
+        title: 'Title'
+        description: 'Description'
+
       time_entry:
-        decription: 'Description'
+        description: 'Description'
         project_id: 'Project'
         issue_id: 'Issue'
         issue: 'Issue'
