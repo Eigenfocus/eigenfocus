@@ -112,3 +112,18 @@
   @apply text-readable-content-700 text-base;
   line-height: 20px;
 }
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  @apply text-primary-800 border-primary-600;
+  background-color: theme(colors.primary.300) !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  @apply text-primary-800 border-primary-600;
+  background-color: theme(colors.primary.300) !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+  background-color: theme(colors.primary.500) !important;
+  @apply text-primary-800;
+}
