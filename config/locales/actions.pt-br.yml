@@ -31,3 +31,17 @@ pt-BR:
     time_entry:
       no_description: "sem descrição"
       confirm_remove: "Deseja realmente remover este registro de tempo? Esta ação não poderá ser desfeita."
+  reports:
+    total_time:
+      report:
+        no_entries_for: "Sem entradas de tempo para"
+        total: 'Total'
+        total_time_report: 'Tempo registrado'
+        date: 'Data'
+        no_entries: "Não existem entradas de tempo para o filtro aplicado."
+        waiting_filters: 'Para gerar um relatório, utilize o filtro acima.'
+      filters:
+        generate_report: "Gerar relatório"
+        filter_by_project: 'Filtrar por projeto'
+        entry_start_at: 'Começando em'
+        entry_end_at: 'Terminando em'

@@ -15,8 +15,8 @@ en:
   day: 'Day'
   week: 'Week'
   month: 'Month'
-  hours: 'hours'
-  minutes: 'minutes'
+  hours: 'Hours'
+  minutes: 'Mminutes'
   click_here: 'Click here'
   zero_records: "You haven't created any %{resource_name} yet."
   click_here_to_create_one: "Click here to create one"

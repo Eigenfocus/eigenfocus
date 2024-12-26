@@ -1,0 +1,83 @@
+<%= turbo_frame_tag 'report' do %>
+
+  <% if @time_entries %>
+    <h2 class="font-semibold mt-8 mb-4 text-xl text-readable-content-800">
+      <%= t(".total_time_report") %>
+    </h2>
+
+    <div class="flex flex-col lg:flex-row gap-4">
+      <div class="flex flex-col border border-background-200 rounded-md gap-2 bg-body-contrast p-4 lg:w-1/5">
+        <h4 class="text-xs text-readable-content-400 uppercase">
+          <%= t(".total") %>
+        </h4>
+        <span class="text-xl font-medium text-readable-content-600">
+          <%= @total_in_hours %> <%= t("hours").downcase %>
+        </span>
+      </div>
+    </div>
+
+    <div class="min-w-full mt-8 overflow-x-auto">
+      <% if @time_entries.any? %>
+        <table class="table-primary table-compact table-striped">
+          <thead>
+            <tr>
+              <th style="width: 30px;" class="text-center">#</th>
+              <th><%= t(".date") %></th>
+              <th><%= Project.model_name.human %></th>
+              <th><%= TimeEntry.human_attribute_name(:issue) %></th>
+              <th style="width: 30%;"><%= TimeEntry.human_attribute_name(:description) %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%
+              total = 0
+            %>
+            <% @time_entries.each_with_index do |entry, i| %>
+              <%
+                total += entry.total_logged_time_in_minutes
+              %>
+              <tr>
+                <td class="text-center">
+                  <%= i %>
+                </td>
+                <td>
+                  <%= l(entry.reference_date, format: :default) %>
+                </td>
+                <td>
+                  <% if entry.project.present? %>
+                    <%= entry.project.name %>
+                  <% else %>
+                    -
+                  <% end %>
+                </td>
+                <td>
+                  <%= entry.issue&.title %>
+                </td>
+                <td>
+
+                  <%= simple_format(entry.description) %>
+                </td>
+                <td>
+                  <%= entry.total_logged_time_in_minutes %> min
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+      <p class="text-2xl text-readable-content-600 text-center">
+        <%= t(".no_entries") %>
+      </p>
+      <% end %>
+    </div>
+
+  <% else %>
+    <div class="bg-body-contrast mt-16 shadow-sm rounded-md p-8 sm:p-16">
+      <p class="text-2xl text-readable-content-600 text-center">
+        <%= t(".waiting_filters") %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+
