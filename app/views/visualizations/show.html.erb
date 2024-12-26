@@ -10,7 +10,7 @@
 
 
   <div class="relative grow">
-    <div class="absolute top-0 -left-4 -right-4 -bottom-4 sm:-left-12 sm:-right-12 sm:-bottom-12 flex flex-row flex-nowrap gap-x-8 px-4 sm:px-12 items-stretch overflow-x-auto overflow-y-hidden scroll-smooth">
+    <ul class="absolute top-0 -left-4 -right-4 -bottom-4 sm:-left-12 sm:-right-12 sm:-bottom-12 flex flex-row flex-nowrap gap-x-8 px-4 sm:px-12 items-stretch overflow-x-auto overflow-y-hidden scroll-smooth">
       <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping %>
 
       <%= turbo_frame_tag('grouping_archor') {} %>
@@ -30,7 +30,7 @@
         </header>
       </div>
 
-    </div>
+    </ul>
   </div>
 
 </div>

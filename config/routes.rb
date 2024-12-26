@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :visualizations, only: :show do
-    resources :groupings, only: [ :new, :create ]
+    resources :groupings, only: [ :new, :create, :edit, :update ]
   end
 
   resource :profile, only: [ :edit, :update ]

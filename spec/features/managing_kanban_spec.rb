@@ -32,6 +32,31 @@ describe 'As a user, I want to manage my project kanban visualization' do
     expect(page).to have_content("Column was successfully created.")
 
     grouping = Grouping.last
+    expect(grouping.title).to eq("TODO")
+
+    within dom_id(grouping) do
+      expect(page).to have_content("TODO")
+    end
+  end
+
+  specify 'I can update groupings on the kanban visualization page' do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "CHANGEME")
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      click_link "CHANGEME"
+    end
+
+    fill_in :grouping_title, with: "TODO"
+    click_button "Update"
+
+    expect(page).to have_content("Column was successfully updated.")
+
+    grouping.reload
+    expect(grouping.title).to eq("TODO")
+
     within dom_id(grouping) do
       expect(page).to have_content("TODO")
     end

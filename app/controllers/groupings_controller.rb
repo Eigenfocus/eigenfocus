@@ -9,6 +9,18 @@ class GroupingsController < ApplicationController
     @grouping = current_visualization.create_grouping(permitted_params)
   end
 
+  def edit
+    @grouping = Grouping.find(params[:id])
+
+    render partial: "form", locals: { visualization: current_visualization, grouping: @grouping  }
+  end
+
+  def update
+    @grouping = Grouping.find(params[:id])
+
+    @grouping.update(permitted_params)
+  end
+
   private
   def current_visualization
     @current_visualization ||= Visualization.find(params[:visualization_id])
