@@ -17,7 +17,7 @@
   }
 
   body {
-    @apply text-background-200;
+    @apply text-readable-content-500;
     background-color: #111;
   }
 

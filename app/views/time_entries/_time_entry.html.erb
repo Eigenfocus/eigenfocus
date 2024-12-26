@@ -11,17 +11,17 @@
   <div class="flex grow flex-col p-4 gap-4">
     <div class="flex items-center justify-between">
       <div class="flex flex-col gap-2">
-        <p class="font-medium text-xl text-background-600">
+        <p class="font-medium text-xl text-readable-content-600">
           <%= time_entry.project.name %>
         </p>
         <% if time_entry.issue.present? %>
-          <p class="text-md italic text-background-500">
+          <p class="text-md italic text-readable-content-500">
             <%= time_entry.issue.title %>
           </p>
         <% end %>
       </div>
     </div>
-    <div class="text-sm border-l-4 <%= time_entry.description.present? ? '' : '' %> italic grow border-background-200 text-background-500 py-2 pl-2">
+    <div class="text-sm border-l-4 <%= time_entry.description.present? ? '' : '' %> italic grow border-background-200 text-readable-content-500 py-2 pl-2">
       <% if time_entry.description.blank? %>
         <p class="italic text-xs"><%= t(".no_description") %></p>
       <% else %>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary-500 font-bold animate-pulse" : "text-background-600" %>">
+  <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary-500 font-bold animate-pulse" : "text-readable-content-600" %>">
     <% if time_entry.running? %>
       <div data-controller="clock-timer"
         data-clock-timer-started-at-value="<%= format_datetime_to_momentjs(time_entry.started_at) %>"
