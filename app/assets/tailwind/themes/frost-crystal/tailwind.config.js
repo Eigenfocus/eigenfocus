@@ -2,10 +2,23 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const tailwindColors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
+const paleBlue = {
+  "50": "#ebeef4",
+  "100": "#d8ddea",
+  "200": "#b1bbd4",
+  "300": "#899abf",
+  "400": "#6278a9",
+  "500": "#3b5694",
+  "600": "#2f4576",
+  "700": "#233459",
+  "800": "#18223b",
+  "900": "#0c111e"
+}
+
 const themeColors = {
-  primary: tailwindColors.blue,
-  secondary: tailwindColors.cyan,
-  tertiary: tailwindColors.slate,
+  primary: tailwindColors.sky,
+  secondary: tailwindColors.teal,
+  tertiary: tailwindColors.cyan,
   cancel: tailwindColors.slate,
   success: tailwindColors.teal,
   notice: tailwindColors.teal,
@@ -13,9 +26,9 @@ const themeColors = {
   error: tailwindColors.rose,
   warning: tailwindColors.amber,
   alert: tailwindColors.amber,
-  "readable-content": tailwindColors.sky,
-  background: tailwindColors.cyan,
-  "background-menu": "rgb(236 254 255/0.5)", //tailwindColors.cyan["50"] with opacity
+  "readable-content": paleBlue,
+  background: tailwindColors.blue,
+  "background-menu": tailwindColors.blue["50"],
   "body-contrast": '#fff'
 }
 
