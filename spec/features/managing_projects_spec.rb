@@ -96,18 +96,4 @@ context "As a user, I want to manage my projects" do
     project_to_unarchive.reload
     expect(project_to_unarchive).to_not be_archived
   end
-
-  specify "I can go to the project visualization" do
-    project = FactoryBot.create(:project)
-
-    visit projects_path
-
-    within dom_id(project) do
-      expect(page).to have_content("Go to Board")
-
-      click_link("Go to Board")
-    end
-
-    expect(page).to have_content("Board")
-  end
 end

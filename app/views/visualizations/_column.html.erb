@@ -1,18 +1,16 @@
-<div class="h-full basis-60 shrink-0">
+<li class="basis-60 shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs cpy-grouping" id="<%= dom_id(grouping) %>">
   <header class="flex flex-col max-h-full">
     <div class="flex items-center justify-between mb-4">
-      <h2 class="grow font-semibold text-gray-800 dark:text-gray-100 truncate">
+      <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
         <%= grouping.title %>
-      </h2>
-      <button class="shrink-0 text-violet-500 hover:text-violet-600 dark:hover:text-violet-400 ml-2">
-        <svg class="fill-current" width="16" height="16" viewBox="0 0 16 16">
-          <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
-        </svg>
+      <% end %>
+      <button class="shrink-0 ml-2 text-readable-content-500 hover:text-readable-content-700">
+        <i class="fa-solid fa-plus"></i>
       </button>
     </div>
 
     <div class="flex flex-col grow shrink basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y">
-      <%= render partial: 'visualizations/card', collection: grouping.ordered_allocations, as: :allocation %>
+      <%= render partial: 'visualizations/card', collection: grouping.allocations, as: :allocation %>
     </div>
   </header>
-</div>
+</li>
