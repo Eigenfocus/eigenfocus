@@ -9,8 +9,16 @@
       <% end %>
     </div>
 
-    <div id="<%= dom_id(grouping) %>-cards-wrapper" class="flex flex-col grow shrink basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y">
+    <ul
+      id="<%= dom_id(grouping) %>-cards-wrapper"
+      class="flex flex-col grow shrink basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y"
+      data-controller="sortable"
+      data-sortable-target="container"
+      data-sortable-move-path-value="<%= move_grouping_issues_path(grouping) %>"
+      data-sortable-group-value="cards"
+      data-sortable-group-id-value="<%= grouping.id %>"
+      >
       <%= render partial: 'visualizations/card', collection: grouping.issues, as: :issue %>
-    </div>
+    </ul>
   </header>
 </li>
