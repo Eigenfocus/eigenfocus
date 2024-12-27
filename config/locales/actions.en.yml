@@ -5,6 +5,11 @@ en:
       disable_time_tracking: 'Disable time tracking'
       go_to_board: 'Go to Board View'
       go_to_time_tracking: "Go to time tracking"
+  visualizations:
+    column_menu:
+      actions: 'Actions'
+      delete: 'Delete column'
+      destroy_confirmation: 'Are you sure you want to delete "%{title}" column? It is going to delete all issues on this column!'
   profiles:
     form:
       why_is_timezone_needed: 'This is needed in order to correctly display dates and hours for you.'

@@ -62,11 +62,43 @@ describe 'As a user, I want to manage my project kanban visualization' do
     end
   end
 
+  specify 'I can destroy groupings on the Kanban visualization page, with all dependents destroyed too' do
+    project = FactoryBot.create(:project)
+    FactoryBot.create(:grouping, visualization: project.default_visualization)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization)
+    FactoryBot.create(:grouping, visualization: project.default_visualization)
+
+    3.times do
+      issue = FactoryBot.create(:issue, project: grouping.visualization.project)
+      FactoryBot.create(:grouping_issue_allocation, grouping: grouping, issue: issue)
+    end
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      find('.cpy-column-menu').click
+
+      expect(page).to have_content("Actions")
+
+      accept_confirm do
+        click_link "Delete column"
+      end
+    end
+
+    expect(page).to have_content("Column was successfully destroyed.")
+
+    expect(Grouping.where(id: grouping.id)).not_to be_present
+
+    expect(Grouping.count).to eq(2)
+    expect(GroupingIssueAllocation.count).to eq(0)
+    expect(Issue.count).to eq(0)
+  end
+
   specify 'I can move groupings on the kanban visualization page' do
     project = FactoryBot.create(:project)
-    first_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 0, title: "TODO")
-    second_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 1, title: "Doing")
-    third_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 2, title: "Done")
+    FactoryBot.create(:grouping, visualization: project.default_visualization, position: 1, title: "TODO")
+    FactoryBot.create(:grouping, visualization: project.default_visualization, position: 2, title: "Doing")
+    FactoryBot.create(:grouping, visualization: project.default_visualization, position: 3, title: "Done")
 
     visit visualization_path(project.default_visualization)
 

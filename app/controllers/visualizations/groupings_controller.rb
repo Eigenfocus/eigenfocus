@@ -1,4 +1,4 @@
-class Visualizations::GroupingsController < Visualizations::BaseController
+class Visualizations::GroupingsController < ApplicationController
   def new
     @grouping = Grouping.new
 
@@ -6,7 +6,7 @@ class Visualizations::GroupingsController < Visualizations::BaseController
   end
 
   def create
-    @grouping = current_visualization.create_grouping(permitted_params)
+    @grouping = current_visualization.groupings.create(permitted_params)
   end
 
   def edit
@@ -21,9 +21,15 @@ class Visualizations::GroupingsController < Visualizations::BaseController
     @grouping.update(permitted_params)
   end
 
+  def destroy
+    @grouping = current_visualization.groupings.find(params[:id])
+
+    @grouping.destroy
+  end
+
   def move
     position = params.require(:position)
-    current_visualization.move_grouping!(to: position["to"], from: position["from"])
+    current_visualization.groupings.find_by(position: position["from"] + 1).update(position: position["to"] + 1)
   end
 
   private
