@@ -70,12 +70,24 @@ describe 'As a user, I want to manage my project kanban visualization' do
 
     visit visualization_path(project.default_visualization)
 
-    first_column = find(dom_id(first_grouping))
-    second_column = find(dom_id(second_grouping))
-    third_column = find(dom_id(third_grouping))
+    all_columns = all(".cpy-grouping")
+
+    first_column = all_columns[0]
+    second_column = all_columns[1]
+    third_column = all_columns[2]
 
     first_column.drag_to(third_column)
     second_column.drag_to(first_column)
+
+    changes_columns = all(".cpy-grouping")
+
+    first_column = changes_columns[0]
+    second_column = changes_columns[1]
+    third_column = changes_columns[2]
+
+    expect(first_column).to have_content("Done")
+    expect(second_column).to have_content("TODO")
+    expect(third_column).to have_content("Doing")
 
     project.reload
 
