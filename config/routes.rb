@@ -26,9 +26,11 @@ Rails.application.routes.draw do
   end
 
   resources :visualizations, only: :show do
-    resources :groupings, only: [ :new, :create, :edit, :update ] do
-      collection do
-        post :move
+    scope module: :visualizations do
+      resources :groupings, only: [ :new, :create, :edit, :update, :destroy ] do
+        collection do
+          post :move
+        end
       end
     end
   end

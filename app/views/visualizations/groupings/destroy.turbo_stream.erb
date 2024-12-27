@@ -1,0 +1,6 @@
+<% if @grouping.destroyed? %>
+  <%= turbo_stream.remove dom_id(@grouping) %>
+  <%= new_turbo_stream_alert_message(:success, t_flash_message(@grouping)) %>
+<% else %>
+  <%= new_turbo_stream_alert_message(:error, @grouping.errors.full_messages.to_sentence) %>
+<% end %>
