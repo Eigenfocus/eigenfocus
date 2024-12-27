@@ -13,6 +13,11 @@ pt-BR:
       title: "Editar perfil"
     update:
       success: 'Perfil atualizado com sucesso.'
+  visualizations:
+    column_menu:
+      actions: 'Ações'
+      delete: 'Deletar coluna'
+      destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Isso vai deletar todos as atividades da coluna'
   time_entries:
     form_project_dependent_fields:
       select_a_project: "Selecione um projeto primeiro"
