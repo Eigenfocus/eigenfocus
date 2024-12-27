@@ -22,7 +22,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
 
     visit visualization_path(project.default_visualization)
 
-    within ".capy-header-wrapper" do
+    within ".cpy-header-wrapper" do
       click_link "Create column"
     end
 
