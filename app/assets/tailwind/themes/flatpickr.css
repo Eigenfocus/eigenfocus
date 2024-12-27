@@ -247,6 +247,7 @@ span.flatpickr-weekday {
 }
 
 .flatpickr-year-select select {
+  @apply input-primary;
   width: 85px;
 }
 
