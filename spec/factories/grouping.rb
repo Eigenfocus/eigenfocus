@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :grouping do
     sequence(:title) { |n| "Grouping #{n}" }
-    sequence(:position)
+    position { :last }
     visualization
   end
 end

@@ -64,9 +64,9 @@ describe 'As a user, I want to manage my project kanban visualization' do
 
   specify 'I can move groupings on the kanban visualization page' do
     project = FactoryBot.create(:project)
-    first_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 0, title: "TODO")
-    second_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 1, title: "Doing")
-    third_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 2, title: "Done")
+    FactoryBot.create(:grouping, visualization: project.default_visualization, position: 1, title: "TODO")
+    FactoryBot.create(:grouping, visualization: project.default_visualization, position: 2, title: "Doing")
+    FactoryBot.create(:grouping, visualization: project.default_visualization, position: 3, title: "Done")
 
     visit visualization_path(project.default_visualization)
 
