@@ -1,4 +1,4 @@
-class GroupingsController < ApplicationController
+class Visualizations::GroupingsController < Visualizations::BaseController
   def new
     @grouping = Grouping.new
 
