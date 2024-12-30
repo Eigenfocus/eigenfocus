@@ -5,14 +5,12 @@ import { FetchRequest } from '@rails/request.js'
 export default class extends Controller {
   static targets = ['container']
   static values = {
-    movePath: String,
-    group: { type: String, default: null }
+    movePath: String
   }
 
   connect() {
     this.sortable = new Sortable(this.containerTarget, {
       animation: 150,
-      group: this.groupValue,
       onEnd: this.onDragEnd.bind(this)
     })
   }
