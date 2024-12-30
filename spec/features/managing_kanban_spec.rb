@@ -137,7 +137,11 @@ describe 'As a user, I want to manage my project kanban visualization' do
     visit visualization_path(project.default_visualization)
 
     within dom_id(grouping) do
-      find(".capy-new-issue").click
+      find('.cpy-column-menu').click
+
+      expect(page).to have_content("Actions")
+
+      click_link "Create issue"
     end
 
     fill_in :issue_title, with: "Make this test pass"

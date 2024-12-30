@@ -10,4 +10,8 @@ class Grouping < ApplicationRecord
   has_many :issues, through: :allocations
 
   validates :title, presence: true
+
+  def allocate_issue(issue)
+    allocations.create(issue: issue, position: :last)
+  end
 end
