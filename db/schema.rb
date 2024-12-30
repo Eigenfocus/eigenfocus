@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_27_153604) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_30_142402) do
   create_table "grouping_issue_allocations", force: :cascade do |t|
-    t.integer "position"
+    t.integer "position", null: false
     t.integer "issue_id", null: false
     t.integer "grouping_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["grouping_id", "position"], name: "index_grouping_issue_allocations_on_grouping_id_and_position", unique: true
     t.index ["grouping_id"], name: "index_grouping_issue_allocations_on_grouping_id"
     t.index ["issue_id"], name: "index_grouping_issue_allocations_on_issue_id"
   end

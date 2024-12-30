@@ -9,6 +9,7 @@ en:
     column_menu:
       actions: 'Actions'
       delete: 'Delete column'
+      create_issue: 'Create issue'
       destroy_confirmation: 'Are you sure you want to delete "%{title}" column? It is going to delete all issues on this column!'
   profiles:
     form:

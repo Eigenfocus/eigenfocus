@@ -35,6 +35,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :groupings, only: [] do
+    scope module: :groupings do
+      resources :issues, only: [ :new, :create ]
+    end
+  end
+
   resource :profile, only: [ :edit, :update ]
 
   # Defines the root path route ("/")
