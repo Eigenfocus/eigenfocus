@@ -1,4 +1,4 @@
-class IssuesController < ApplicationController
+class Groupings::IssuesController < ApplicationController
   def new
     @issue = Issue.new
 

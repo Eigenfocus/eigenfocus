@@ -36,7 +36,9 @@ Rails.application.routes.draw do
   end
 
   resources :groupings, only: [] do
-    resources :issues, only: [ :new, :create ]
+    scope module: :groupings do
+      resources :issues, only: [ :new, :create ]
+    end
   end
 
   resource :profile, only: [ :edit, :update ]
