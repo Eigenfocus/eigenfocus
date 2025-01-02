@@ -5,11 +5,16 @@
   padding: 4px 0;
   gap: 4px;
 }
-.markdown-editor .editor-toolbar > * {
+.markdown-editor .editor-toolbar > a {
+  @apply text-readable-content-500 !important;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+.markdown-editor .editor-toolbar > a:hover {
+  @apply bg-background-50 !important;
 }
 
 :is(.markdown-content, .editor-preview) {
