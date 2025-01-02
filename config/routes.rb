@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   resources :groupings, only: [] do
     scope module: :groupings do
-      resources :issues, only: [ :new, :create, :show ], shallow: true
+      resources :issues, only: [ :new, :create, :edit, :update ]
     end
   end
 

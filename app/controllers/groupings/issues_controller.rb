@@ -1,4 +1,6 @@
 class Groupings::IssuesController < ApplicationController
+  helper_method :current_grouping
+
   def new
     @issue = Issue.new
 
@@ -15,9 +17,14 @@ class Groupings::IssuesController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @issue = Issue.find(params[:id])
-    render partial: "issue", locals: { issue: @issue  }
+    render partial: "form", locals: { grouping: current_grouping, issue: @issue  }
+  end
+
+  def update
+    @issue = Issue.find(params[:id])
+    @updated = @issue.update(permitted_params)
   end
 
   private

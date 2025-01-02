@@ -16,10 +16,14 @@
     <link rel="icon" href="<%= asset_url('icon.png') %>" type="image/png">
     <link rel="icon" href="<%= asset_url('icon.svg') %>" type="image/svg+xml">
     <link rel="apple-touch-icon" href="<%= asset_url('icon.png') %>">
+
     <%# Vendors Files %>
     <%= stylesheet_link_tag "animate.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "select2.min.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "flatpickr.min.css", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'simplemde.min' %>
+    <%= javascript_include_tag 'simplemde.override' %>
+    <%= stylesheet_link_tag 'simplemde.min' %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= current_theme_stylesheet_link_tag("data-turbo-track": "reload") %>

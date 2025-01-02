@@ -16,3 +16,4 @@ pin "sortablejs" # @1.15.6
 
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
+pin "marked" # @15.0.4
