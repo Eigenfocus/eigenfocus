@@ -233,4 +233,89 @@ describe 'As a user, I want to manage my project kanban visualization' do
       expect(page).to have_content("Updated title")
     end
   end
+
+  specify 'I can move issues within the same grouping' do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
+    3.times do |n|
+      issue = FactoryBot.create(:issue, project: project, title: "Issue #{n}")
+      FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+    end
+
+    visit visualization_path(project.default_visualization)
+
+    all_cards = all(".cpy-card")
+
+    first_issue = all_cards[0]
+    second_issue = all_cards[1]
+    third_issue = all_cards[2]
+
+    first_issue.drag_to(third_issue)
+    second_issue.drag_to(first_issue)
+
+    changes_issues = all(".cpy-card")
+
+    first_issue = changes_issues[0]
+    second_issue = changes_issues[1]
+    third_issue = changes_issues[2]
+
+    expect(first_issue).to have_content("Issue 2")
+    expect(second_issue).to have_content("Issue 0")
+    expect(third_issue).to have_content("Issue 1")
+
+    expect(grouping.allocations.map(&:issue).map(&:title)).to eq([
+      "Issue 2",
+      "Issue 0",
+      "Issue 1"
+    ])
+  end
+
+  specify 'I can move issues between groupings' do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, position: 1, title: "TODO")
+    FactoryBot.create(:grouping, visualization: project.default_visualization, position: 2, title: "Doing")
+    FactoryBot.create(:grouping, visualization: project.default_visualization, position: 3, title: "Done")
+    3.times do |n|
+      issue = FactoryBot.create(:issue, project: project, title: "Issue #{n}")
+      FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+    end
+
+    visit visualization_path(project.default_visualization)
+
+    all_columns = all(".cpy-grouping .cpy-drop-zone")
+
+    second_column_drop_zone = all_columns[1]
+    third_column_drop_zone = all_columns[2]
+
+    all_cards = all(".cpy-card")
+
+    first_issue = all_cards[0]
+    second_issue = all_cards[1]
+
+    first_issue.drag_to(second_column_drop_zone)
+    second_issue.drag_to(third_column_drop_zone)
+
+    all_columns = all(".cpy-grouping")
+
+    within all_columns[0] do
+      expect(page).to have_content("TODO")
+      expect(page).to have_content("Issue 2")
+    end
+
+    within all_columns[1] do
+      expect(page).to have_content("Doing")
+      expect(page).to have_content("Issue 0")
+    end
+
+    within all_columns[2] do
+      expect(page).to have_content("Done")
+      expect(page).to have_content("Issue 1")
+    end
+
+    expect(Grouping.count).to eq(3)
+    expect(Grouping.all.map(&:allocations).map(&:count)).to eq([ 1, 1, 1 ])
+    expect(Grouping.find_by(title: "TODO").allocations.first.issue.title).to eq("Issue 2")
+    expect(Grouping.find_by(title: "Doing").allocations.first.issue.title).to eq("Issue 0")
+    expect(Grouping.find_by(title: "Done").allocations.first.issue.title).to eq("Issue 1")
+  end
 end

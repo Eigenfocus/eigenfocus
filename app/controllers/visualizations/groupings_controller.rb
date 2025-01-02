@@ -28,8 +28,8 @@ class Visualizations::GroupingsController < ApplicationController
   end
 
   def move
-    position = params.require(:position)
-    current_visualization.groupings.find_by(position: position["from"] + 1).update(position: position["to"] + 1)
+    move_params = params.deep_transform_keys(&:to_sym)
+    current_visualization.groupings.find_by(position: move_params[:from][:position]).update(position: move_params[:to][:position])
   end
 
   private

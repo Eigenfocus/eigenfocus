@@ -1,5 +1,5 @@
 <% if @issue.persisted? %>
-  <%= turbo_stream.append "#{ dom_id(current_grouping) }-cards-wrapper", partial: "visualizations/card", locals: { grouping: current_grouping, issue: @issue } %>
+  <%= turbo_stream.replace dom_id(@issue), partial: "visualizations/card", locals: { grouping: current_grouping, issue: @issue } %>
   <%= turbo_stream.update 'issue_form', "" %>
   <%= new_turbo_stream_alert_message(:success, t_flash_message(@issue)) %>
 <% else %>

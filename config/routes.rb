@@ -35,6 +35,12 @@ Rails.application.routes.draw do
     end
   end
 
+  scope module: :visualizations do
+    resources :allocations, only: [] do
+      post :move, on: :collection
+    end
+  end
+
   resources :groupings, only: [] do
     scope module: :groupings do
       resources :issues, only: [ :new, :create, :edit, :update ]

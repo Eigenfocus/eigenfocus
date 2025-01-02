@@ -1,6 +1,4 @@
 class Grouping < ApplicationRecord
-  positioned on: :visualization, column: :position
-
   belongs_to :visualization
   has_one :project, through: :visualization
   has_many :allocations, -> { order(position: :asc) },
@@ -8,6 +6,8 @@ class Grouping < ApplicationRecord
             class_name: "GroupingIssueAllocation",
             dependent: :destroy
   has_many :issues, through: :allocations
+
+  positioned on: :visualization, column: :position
 
   validates :title, presence: true
 

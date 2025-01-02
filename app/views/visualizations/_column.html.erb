@@ -38,7 +38,12 @@
 
   <ul
     id="<%= dom_id(grouping) %>-cards-wrapper"
-    class="flex flex-col flex-auto basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y js-no-column-drag"
+    class="flex flex-col flex-auto basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y js-no-column-drag cpy-drop-zone"
+    data-controller="sortable"
+    data-sortable-target="container"
+    data-sortable-shared-group-value="cards"
+    data-sortable-move-path-value="<%= move_allocations_path %>"
+    data-sortable-grouping-id="<%= grouping.id %>"
     >
 
     <% grouping.issues.each do |issue| %>
