@@ -15,13 +15,13 @@ module ApplicationHelper
       }
   end
 
-  def render_modal(options = {}, container_options = {}, &block)
-    options = {
+  def render_modal(wrapper_options: {}, container_options: {}, inner_container_options: {}, &block)
+    wrapper_options = {
       data: {
         controller: "modal",
         'modal-allow-background-close': true
       }
-    }.deep_merge(options)
+    }.deep_merge(wrapper_options)
 
     container_options = {
       data: {
@@ -33,26 +33,25 @@ module ApplicationHelper
       style: "z-index: 9999; animation-duration: 200ms;"
     }.deep_merge(container_options)
 
-    content_tag(:div, options) do
+    inner_container_options = {
+      class: "max-h-screen w-full max-w-lg relative"
+    }.deep_merge(inner_container_options)
+
+    content_tag(:div, wrapper_options) do
       content_tag(:div, container_options) do
-        output = %Q(
-          <!-- Modal Container -->
-            <!-- Modal Inner Container -->
-            <div class="max-h-screen w-full max-w-lg relative">
-              <a class="absolute text-xl top-4 right-4 cursor-pointer text-md text-readable-content-500" data-action="click->modal#close">
-                <i class="fa fa-close"></i>
-              </a>
-              <div class="m-1 bg-body-contrast rounded shadow">
-                <div class="p-5">
-            )
-              output += capture(&block)
-              output += %Q(
-                </div>
+        content_tag(:div, inner_container_options) do
+          output = <<-HTML
+            <a class="absolute text-xl top-4 right-4 cursor-pointer text-md text-readable-content-500" data-action="click->modal#close">
+              <i class="fa fa-close"></i>
+            </a>
+            <div class="m-1 bg-body-contrast rounded shadow">
+              <div class="p-5">
+                #{capture(&block)}
               </div>
             </div>
-
-        )
-        output.html_safe
+          HTML
+          output.html_safe
+        end
       end
     end
   end
