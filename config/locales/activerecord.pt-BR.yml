@@ -18,8 +18,8 @@ pt-BR:
         other: 'Colunas'
 
       issue:
-        one: 'Atividade'
-        other: 'Atividades'
+        one: 'Issue'
+        other: 'Issues'
 
       time_entry:
         one: 'Registro de tempo'
