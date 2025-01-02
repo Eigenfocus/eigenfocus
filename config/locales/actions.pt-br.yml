@@ -17,6 +17,7 @@ pt-BR:
     column_menu:
       actions: 'Ações'
       delete: 'Deletar coluna'
+      edit_column: 'Editar coluna'
       create_issue: 'Criar atividade'
       destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Isso vai deletar todos as atividades da coluna!'
   time_entries:

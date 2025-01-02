@@ -1,46 +1,52 @@
-<li class="basis-60 shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs cpy-grouping" id="<%= dom_id(grouping) %>">
-  <header class="flex flex-col max-h-full">
-    <div class="flex items-center justify-between mb-4 px-2 relative" data-controller="dropdown">
-      <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
-        <%= grouping.title %>
-      <% end %>
+<li class="basis-60 max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs snap-center sm:snap-start cpy-grouping" id="<%= dom_id(grouping) %>">
+  <header class="flex flex-row flex-nowrap gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
+    <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
+      <%= grouping.title %>
+    <% end %>
 
-      <button class="text-readable-content-500 cpy-column-menu"
-              data-action="click->dropdown#toggle"
-              data-dropdown-target="button"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false">
-        <i class="fa-solid fa-ellipsis"></i>
-      </button>
+    <button class="text-readable-content-500 grow-0 shrink-0 cpy-column-menu-button"
+            data-action="click->dropdown#toggle click@window->dropdown#hide"
+            data-dropdown-target="button"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false">
+      <i class="fa-solid fa-ellipsis"></i>
+    </button>
 
-      <div class="bg-body-contrast z-10 absolute top-full min-w-60 border border-background-100 rounded-lg shadow-lg overflow-hidden left-0 hidden"
-        data-dropdown-target="menu">
-        <div class="flex flex-col justify-stretch items-stretch text-sm text-left py-2">
-          <div class="flex flex-row py-2 relative">
-            <h3 class="mx-auto">
-              <%= t('visualizations.column_menu.actions') %>
-            </h3>
-            <button class="absolute right-0 mr-4"
-                    data-action="click->dropdown#toggle"
-                    >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
+    <div class="bg-body-contrast z-10 absolute -left-2 top-full min-w-60 border border-background-100 rounded-lg shadow-lg overflow-hidden hidden cpy-column-menu"
+      data-dropdown-target="menu">
+      <div class="flex flex-col justify-stretch items-stretch text-sm text-left py-2">
+        <div class="flex flex-row py-2 relative">
+          <h3 class="mx-auto">
+            <%= t('visualizations.column_menu.actions') %>
+          </h3>
+          <button class="absolute right-0 mr-4"
+                  data-action="click->dropdown#toggle"
+                  >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
 
-          <div class="flex flex-col mt-2 justify-stretch items-stretch">
-            <%= link_to t('visualizations.column_menu.create_issue'), new_grouping_issue_path(grouping), class: "cpy-new-issue py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'issue_form', action: "click->dropdown#toggle" } %>
-            <%= link_to t('visualizations.column_menu.delete'), visualization_grouping_path(grouping.visualization_id, grouping), class: "py-2 px-4 hover:bg-background-100", data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %>
-          </div>
+        <div class="flex flex-col mt-2 justify-stretch items-stretch">
+          <%= link_to t('visualizations.column_menu.create_issue'), new_grouping_issue_path(grouping), class: "cpy-new-issue py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'issue_form', action: "click->dropdown#toggle" } %>
+          <%= link_to t('visualizations.column_menu.edit_column'), edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "cpy-edit-column py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'grouping_form', action: "click->dropdown#toggle" } %>
+          <%= link_to t('visualizations.column_menu.delete'), visualization_grouping_path(grouping.visualization_id, grouping), class: "py-2 px-4 hover:bg-background-100", data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %>
         </div>
       </div>
     </div>
-
-    <ul
-      id="<%= dom_id(grouping) %>-cards-wrapper"
-      class="flex flex-col grow shrink basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y"
-      >
-      <%= render partial: 'visualizations/card', collection: grouping.issues, as: :issue %>
-    </ul>
   </header>
+
+  <ul
+    id="<%= dom_id(grouping) %>-cards-wrapper"
+    class="flex flex-col flex-auto basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y js-no-column-drag"
+    >
+    <%= render partial: 'visualizations/card', collection: grouping.issues, as: :issue %>
+  </ul>
+
+  <%= link_to new_grouping_issue_path(grouping), class: "flex flex-row gap-x-1 mt-4 px-2", data: { turbo_frame: 'issue_form' } do %>
+    <p class="grow">
+      <%= t('visualizations.column_menu.create_issue') %>
+    </p>
+    <i class="self-center fa-solid fa-plus"></i>
+  <% end %>
 </li>

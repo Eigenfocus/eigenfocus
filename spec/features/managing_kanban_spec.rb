@@ -76,7 +76,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
     visit visualization_path(project.default_visualization)
 
     within dom_id(grouping) do
-      find('.cpy-column-menu').click
+      find('.cpy-column-menu-button').click
 
       expect(page).to have_content("Actions")
 
@@ -137,11 +137,13 @@ describe 'As a user, I want to manage my project kanban visualization' do
     visit visualization_path(project.default_visualization)
 
     within dom_id(grouping) do
-      find('.cpy-column-menu').click
+      find('.cpy-column-menu-button').click
 
-      expect(page).to have_content("Actions")
+      within '.cpy-column-menu' do
+        expect(page).to have_content("Actions")
 
-      click_link "Create issue"
+        click_link "Create issue"
+      end
     end
 
     fill_in :issue_title, with: "Make this test pass"
@@ -158,5 +160,23 @@ describe 'As a user, I want to manage my project kanban visualization' do
     within dom_id(grouping) do
       expect(page).to have_content("Make this test pass")
     end
+  end
+
+  specify 'I can see issues details' do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
+    issue = FactoryBot.create(:issue, title: "Issue testing title", description: "Issue description", project: project)
+    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      expect(page).to have_content("Issue testing title")
+
+      click_link "Issue testing title"
+    end
+
+    expect(page).to have_content("Issue testing title")
+    expect(page).to have_content("Issue description")
   end
 end

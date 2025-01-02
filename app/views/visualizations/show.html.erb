@@ -8,25 +8,28 @@
 
   <%= turbo_frame_tag('grouping_form') {} %>
   <%= turbo_frame_tag('issue_form') {} %>
+  <%= turbo_frame_tag('issue_card_display') {} %>
 
   <div class="relative grow">
     <ul
-        class="absolute top-0 -left-4 -right-4 -bottom-4 sm:-left-12 sm:-right-12 sm:-bottom-12 flex flex-row flex-nowrap gap-x-8 px-4 sm:px-12 items-start overflow-x-auto overflow-y-hidden scroll-smooth"
+        class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:-left-12 sm:-right-12 sm:-bottom-12 sm:scroll-pl-12 flex flex-row flex-nowrap gap-x-8 pb-2 sm:px-12 items-start overflow-x-auto overflow-y-hidden snap-mandatory snap-x scroll-smooth"
         data-controller="sortable"
         data-sortable-target="container"
+        data-sortable-ignore-drag-selector-value=".js-no-column-drag"
         data-sortable-move-path-value="<%= move_visualization_groupings_path(@visualization) %>"
         >
       <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping %>
 
-      <div class="order-last basis-60 shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs" id="grouping_archor">
-        <%= link_to new_visualization_grouping_path(@visualization), class: "shrink-0 ml-2 flex flex-col max-h-full text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
-          <div class="flex items-center justify-between mb-4">
+      <li class="order-last basis-60 shrink-0 p-2 border bg-background-200 text-readable-content-300 hover:bg-background-400 hover:text-readable-content-500 border-background-100 rounded-md shadow-xs snap-center sm:snap-start" id="js-create-new-column">
+        <%= link_to new_visualization_grouping_path(@visualization), class: "shrink-0 mx-2 flex flex-col max-h-full", data: { turbo_frame: 'grouping_form' } do %>
+          <div class="flex items-center justify-between">
             <h2 class="grow font-semibold truncate">
               <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
             </h2>
+            <i class="fa-solid fa-plus"></i>
           </div>
         <% end %>
-      </div>
+      </li>
 
     </ul>
   </div>

@@ -20,7 +20,7 @@
 
         <div class="mb-4 flex flex-col items-stretch gap-2">
           <%= f.label :title, Grouping.human_attribute_name(:title), class: "label-primary" %>
-          <%= f.text_field :title, autofocus: true, class: "input-primary" %>
+          <%= f.text_field :title, required: true, autofocus: true, class: "input-primary" %>
         </div>
 
 

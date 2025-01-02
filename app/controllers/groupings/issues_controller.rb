@@ -15,6 +15,11 @@ class Groupings::IssuesController < ApplicationController
     end
   end
 
+  def show
+    @issue = Issue.find(params[:id])
+    render partial: "issue", locals: { issue: @issue  }
+  end
+
   private
   def current_grouping
     @current_grouping ||= Grouping.find(params[:grouping_id])

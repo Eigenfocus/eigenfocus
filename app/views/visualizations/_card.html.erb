@@ -1,10 +1,12 @@
-<li class="snap-center text-readable-content-300 bg-background-700 hover:text-readable-content-400 hover:bg-background-600 cursor-pointer shadow-sm rounded-xl card p-4">
-  <div class="mb-3">
-    <h2 class="font-semibold mb-1">
+<li class="snap-center">
+  <%= link_to issue_path(issue), class: "flex flex-col gap-y-2 text-readable-content-300 bg-background-700 hover:text-readable-content-400 hover:bg-background-600 cursor-pointer shadow-sm rounded-xl card p-4", data: { turbo_frame: 'issue_card_display' } do %>
+    <h2 class="font-semibold">
       <%= issue.title %>
     </h2>
-    <div>
-      <div class="text-sm"><%= issue.description %></div>
+    <div class="flex flex-row">
+      <% if issue.description.present? %>
+        <i class="fa-solid fa-align-justify"></i>
+      <% end %>
     </div>
-  </div>
+  <% end %>
 </li>
