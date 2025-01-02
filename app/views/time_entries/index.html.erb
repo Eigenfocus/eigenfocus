@@ -1,6 +1,13 @@
 
-<%= turbo_frame_tag 'time_entry_form' do %>
-
+<% if params[:new_entry].present? %>
+  <%
+    new_entry = TimeEntry.new(project_id: params[:new_entry][:project_id])
+    new_entry.reference_date = @reference_date
+  %>
+  <%= render partial: 'form', locals: { time_entry: new_entry } %>
+<% else %>
+  <%= turbo_frame_tag 'time_entry_form' do %>
+  <% end %>
 <% end %>
 
 <%= turbo_frame_tag 'time_entries' do %>

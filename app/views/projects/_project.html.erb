@@ -38,7 +38,7 @@
 
   <% unless project.archived? %>
     <div class="flex w-full flex-col lg:flex-row gap-8 justify-end items-center">
-      <%= link_to time_entries_path, class: "link-primary", data: { turbo_frame: "_top" } do %>
+      <%= link_to time_entries_path(new_entry: { project_id: project.id }), class: "link-primary", data: { turbo_frame: "_top" } do %>
         <span class=" mr-2"><%= icon_for(:time_entries) %></span>
         <%= t(".go_to_time_tracking") %>
       <% end %>

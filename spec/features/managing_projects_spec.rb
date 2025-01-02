@@ -96,4 +96,24 @@ context "As a user, I want to manage my projects" do
     project_to_unarchive.reload
     expect(project_to_unarchive).to_not be_archived
   end
+
+  specify "I can start a new time entry for a specific project" do
+    project_alpha = FactoryBot.create :project
+    project_beta = FactoryBot.create :project
+
+    visit projects_path
+
+    within dom_id(project_beta) do
+      click_link "Go to time tracking"
+    end
+
+    within '#time_entry_form' do
+      expect(page).to have_select(
+        'time_entry_project_id',
+        selected: project_beta.name
+      )
+    end
+
+    should_be_on(time_entries_path)
+  end
 end
