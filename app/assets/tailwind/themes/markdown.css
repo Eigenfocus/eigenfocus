@@ -12,84 +12,84 @@
   justify-content: center;
 }
 
-.markdown-content {
+:is(.markdown-content, .editor-preview) {
   @apply bg-background-50 text-readable-content-800 font-sans leading-relaxed;
 }
 
 /* Headings */
-.markdown-content h1 {
+:is(.markdown-content, .editor-preview) h1 {
   @apply text-4xl font-bold text-readable-content-900 mb-4;
 }
-.markdown-content h2 {
+:is(.markdown-content, .editor-preview) h2 {
   @apply text-3xl font-semibold text-readable-content-800 mb-3;
 }
-.markdown-content h3 {
+:is(.markdown-content, .editor-preview) h3 {
   @apply text-2xl font-medium text-readable-content-700 mb-2;
 }
-.markdown-content h4 {
+:is(.markdown-content, .editor-preview) h4 {
   @apply text-xl font-medium text-readable-content-600 mb-2;
 }
-.markdown-content h5 {
+:is(.markdown-content, .editor-preview) h5 {
   @apply text-lg font-semibold text-readable-content-500 mb-1;
 }
-.markdown-content h6 {
+:is(.markdown-content, .editor-preview) h6 {
   @apply text-base font-semibold text-readable-content-400 mb-1;
 }
 
 /* Paragraphs */
-.markdown-content p {
+:is(.markdown-content, .editor-preview) p {
   @apply text-base text-readable-content-700 mb-4;
 }
 
 /* Links */
-.markdown-content a {
+:is(.markdown-content, .editor-preview) a {
   @apply text-primary-500 hover:text-primary-600 underline;
 }
-.markdown-content a:hover {
+:is(.markdown-content, .editor-preview) a:hover {
   @apply underline;
 }
 
 /* Blockquote */
-.markdown-content blockquote {
+:is(.markdown-content, .editor-preview) blockquote {
   @apply pl-4 border-l-4 border-background-300 italic text-readable-content-600;
 }
 
 /* Code */
-.markdown-content code {
+:is(.markdown-content, .editor-preview) code {
   @apply bg-background-100 text-readable-content-800 px-1 py-0.5 rounded font-mono text-sm;
 }
-.markdown-content pre {
+:is(.markdown-content, .editor-preview) pre {
   @apply bg-background-900 text-readable-content-100 p-4 rounded-md overflow-x-auto;
 }
 
 /* Lists */
-.markdown-content ul {
+:is(.markdown-content, .editor-preview) ul {
   @apply list-disc list-inside mb-4;
 }
-.markdown-content ol {
+:is(.markdown-content, .editor-preview) ol {
   @apply list-decimal list-inside mb-4;
 }
-.markdown-content li {
+:is(.markdown-content, .editor-preview) li {
   @apply mb-2;
 }
 
 /* Tables */
-.markdown-content table {
+:is(.markdown-content, .editor-preview) table {
   @apply table-auto border-collapse w-full mb-4;
 }
-.markdown-content th {
+:is(.markdown-content, .editor-preview) th {
   @apply bg-background-100 border border-background-300 px-4 py-2 text-left text-readable-content-600 font-medium;
 }
-.markdown-content td {
+:is(.markdown-content, .editor-preview) td {
   @apply border border-background-300 px-4 py-2 text-readable-content-700;
 }
 
 /* Images */
-.markdown-content img {
+:is(.markdown-content, .editor-preview) img {
   @apply max-w-full rounded-md shadow-md;
 }
 
 /* Horizontal Rules */
-.markdown-content hr {
+:is(.markdown-content, .editor-preview) hr {
   @apply border-t border-background-300 my-6;
 }

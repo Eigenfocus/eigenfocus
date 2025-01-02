@@ -27,7 +27,19 @@
         </div>
 
         <div class="mb-4 flex flex-col items-stretch gap-2 mardown">
-          <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
+          <div class="flex justify-between">
+            <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
+            <span class="cursor-pointer text-xs flex items-center" data-issue-form-target="showPreviewButton" data-action="click->issue-form#enablePreview">
+              <i class="fa fa-eye"></i>
+              <span class="ml-2"><%= t("actions.preview") %></span>
+            </span>
+
+            <span class="cursor-pointer text-xs hidden text-primary-500 flex items-center" data-issue-form-target="showEditorButton" data-action="click->issue-form#disablePreview">
+              <i class="fa fa-pencil"></i>
+              <span class="ml-2 "><%= t("actions.edit") %></span>
+            </span>
+          </div>
+
           <div class="markdown-editor">
             <div class="markdown-content hidden" data-issue-form-target="descriptionPreview">
             </div>

@@ -48,6 +48,7 @@ en:
     deallocate: "Deallocate"
     filter: "Filter"
     clear_filter: "clear filter"
+    preview: "Preview"
   flash:
     change_success: "Change successfully made."
     change_error: "Change could not be made."

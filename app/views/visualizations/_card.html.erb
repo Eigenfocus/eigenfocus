@@ -1,5 +1,5 @@
 <li class="snap-center">
-  <%= link_to issue_path(issue), class: "flex flex-col gap-y-2 text-readable-content-300 bg-background-700 hover:text-readable-content-400 hover:bg-background-600 cursor-pointer shadow-sm rounded-xl card p-4", data: { turbo_frame: 'issue_card_display' } do %>
+  <%= link_to edit_grouping_issue_path(grouping, issue), class: "flex flex-col gap-y-2 text-readable-content-300 bg-background-700 hover:text-readable-content-400 hover:bg-background-600 cursor-pointer shadow-sm rounded-xl card p-4", data: { turbo_frame: 'issue_form' } do %>
     <h2 class="font-semibold">
       <%= issue.title %>
     </h2>

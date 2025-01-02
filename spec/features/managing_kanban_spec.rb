@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'As a user, I want to manage my project kanban visualization' do
-  def fill_in_editor_field(text)
+  def write_in_md_editor_field(text)
     within ".CodeMirror" do
       # Click makes CodeMirror element active:
       current_scope.click
@@ -14,9 +14,8 @@ describe 'As a user, I want to manage my project kanban visualization' do
     end
   end
 
-  def have_editor_display(options)
-    editor_display_locator = ".CodeMirror-code"
-    have_css(editor_display_locator, options)
+  def markdown_editor_selector
+    ".CodeMirror-code"
   end
 
   let!(:user) { FactoryBot.create(:user) }
@@ -165,7 +164,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
     end
 
     fill_in :issue_title, with: "Make this test pass"
-    fill_in_editor_field("This is important to be happy")
+    write_in_md_editor_field("This is important to be happy")
 
     click_button "Create"
 
@@ -194,7 +193,44 @@ describe 'As a user, I want to manage my project kanban visualization' do
       click_link "Issue testing title"
     end
 
-    expect(page).to have_content("Issue testing title")
-    expect(page).to have_content("Issue description")
+    within '#issue_form' do
+      expect(page).to have_field(:issue_title, with: "Issue testing title")
+      within markdown_editor_selector do
+        expect(page).to have_content("Issue description")
+      end
+    end
+  end
+
+
+  specify 'I can edit an issue detail' do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
+    issue = FactoryBot.create(:issue, title: "Issue testing title", description: "Issue description", project: project)
+    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      expect(page).to have_content("Issue testing title")
+
+      click_link "Issue testing title"
+    end
+
+    within '#issue_form' do
+      fill_in :issue_title, with: "Updated title"
+      write_in_md_editor_field(" appending description")
+    end
+
+    click_button "Update"
+
+    expect(page).to have_content("Issue was successfully updated.")
+
+    issue = Issue.last
+    expect(issue.title).to eq("Updated title")
+    expect(issue.description).to eq("Issue description appending description")
+
+    within dom_id(grouping) do
+      expect(page).to have_content("Updated title")
+    end
   end
 end
