@@ -18,8 +18,8 @@ pt-BR:
       actions: 'Ações'
       delete: 'Deletar coluna'
       edit_column: 'Editar coluna'
-      create_issue: 'Criar atividade'
-      destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Isso vai deletar todos as atividades da coluna!'
+      create_issue: 'Criar issue'
+      destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Isso vai deletar todos as issues da coluna!'
   time_entries:
     form_project_dependent_fields:
       select_a_project: "Selecione um projeto primeiro"
