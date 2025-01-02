@@ -51,7 +51,7 @@
     <% end %>
   </ul>
 
-  <%= link_to new_grouping_issue_path(grouping), class: "flex flex-row gap-x-1 mt-4 px-2", data: { turbo_frame: 'issue_form' } do %>
+  <%= link_to new_grouping_issue_path(grouping), class: "flex flex-row gap-x-1 mt-4 p-2 hover:bg-background-100 rounded-md", data: { turbo_frame: 'issue_form' } do %>
     <p class="grow">
       <%= t('visualizations.column_menu.create_issue') %>
     </p>
