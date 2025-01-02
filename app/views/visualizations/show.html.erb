@@ -19,8 +19,8 @@
         >
       <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping %>
 
-      <li class="order-last basis-60 shrink-0 p-2 border text-primary-400 bg-readable-content-50 border border-primary-100  hover:text-primary-500 hover:border-primary-100 hover:bg-readable-content-100 rounded-md shadow-xs snap-center sm:snap-start" id="js-create-new-column">
-        <%= link_to new_visualization_grouping_path(@visualization), class: "shrink-0 mx-2 flex flex-col max-h-full", data: { turbo_frame: 'grouping_form' } do %>
+      <li class="order-last basis-60 shrink-0 snap-center sm:snap-start" id="js-create-new-column">
+        <%= link_to new_visualization_grouping_path(@visualization), class: "border text-primary-400 bg-readable-content-50 border border-primary-100  hover:text-primary-500 hover:border-primary-100 hover:bg-readable-content-100 rounded-md shadow-xs p-2 shrink-0 mx-2 flex flex-col max-h-full", data: { turbo_frame: 'grouping_form' } do %>
           <div class="flex items-center justify-between">
             <h2 class="grow font-semibold truncate">
               <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
