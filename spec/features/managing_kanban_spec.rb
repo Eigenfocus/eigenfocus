@@ -1,6 +1,24 @@
 require 'rails_helper'
 
 describe 'As a user, I want to manage my project kanban visualization' do
+  def fill_in_editor_field(text)
+    within ".CodeMirror" do
+      # Click makes CodeMirror element active:
+      current_scope.click
+
+      # Find the hidden textarea:
+      field = current_scope.find("textarea", visible: false)
+
+      # Mimic user typing the text:
+      field.send_keys text
+    end
+  end
+
+  def have_editor_display(options)
+    editor_display_locator = ".CodeMirror-code"
+    have_css(editor_display_locator, options)
+  end
+
   let!(:user) { FactoryBot.create(:user) }
 
   specify 'When I have a recent created project, I can access its default visualization page' do
@@ -147,7 +165,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
     end
 
     fill_in :issue_title, with: "Make this test pass"
-    fill_in :issue_description, with: "This is important to be happy"
+    fill_in_editor_field("This is important to be happy")
 
     click_button "Create"
 

@@ -1,5 +1,6 @@
 @import './select2';
 @import './flatpickr';
+@import './markdown';
 
 .btn .loading-spinner,
 .btn-primary .loading-spinner,
