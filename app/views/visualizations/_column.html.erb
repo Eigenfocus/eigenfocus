@@ -40,7 +40,10 @@
     id="<%= dom_id(grouping) %>-cards-wrapper"
     class="flex flex-col flex-auto basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y js-no-column-drag"
     >
-    <%= render partial: 'visualizations/card', collection: grouping.issues, as: :issue %>
+
+    <% grouping.issues.each do |issue| %>
+      <%= render partial: 'visualizations/card', locals: { issue: , grouping: } %>
+    <% end %>
   </ul>
 
   <%= link_to new_grouping_issue_path(grouping), class: "flex flex-row gap-x-1 mt-4 px-2", data: { turbo_frame: 'issue_form' } do %>

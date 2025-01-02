@@ -1,0 +1,95 @@
+.markdown-editor .editor-toolbar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 4px 0;
+  gap: 4px;
+}
+.markdown-editor .editor-toolbar > * {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+:is(.markdown-content, .editor-preview) {
+  @apply bg-background-50 text-readable-content-800 font-sans leading-relaxed;
+}
+
+/* Headings */
+:is(.markdown-content, .editor-preview) h1 {
+  @apply text-4xl font-bold text-readable-content-900 mb-4;
+}
+:is(.markdown-content, .editor-preview) h2 {
+  @apply text-3xl font-semibold text-readable-content-800 mb-3;
+}
+:is(.markdown-content, .editor-preview) h3 {
+  @apply text-2xl font-medium text-readable-content-700 mb-2;
+}
+:is(.markdown-content, .editor-preview) h4 {
+  @apply text-xl font-medium text-readable-content-600 mb-2;
+}
+:is(.markdown-content, .editor-preview) h5 {
+  @apply text-lg font-semibold text-readable-content-500 mb-1;
+}
+:is(.markdown-content, .editor-preview) h6 {
+  @apply text-base font-semibold text-readable-content-400 mb-1;
+}
+
+/* Paragraphs */
+:is(.markdown-content, .editor-preview) p {
+  @apply text-base text-readable-content-700 mb-4;
+}
+
+/* Links */
+:is(.markdown-content, .editor-preview) a {
+  @apply text-primary-500 hover:text-primary-600 underline;
+}
+:is(.markdown-content, .editor-preview) a:hover {
+  @apply underline;
+}
+
+/* Blockquote */
+:is(.markdown-content, .editor-preview) blockquote {
+  @apply pl-4 border-l-4 border-background-300 italic text-readable-content-600;
+}
+
+/* Code */
+:is(.markdown-content, .editor-preview) code {
+  @apply bg-background-100 text-readable-content-800 px-1 py-0.5 rounded font-mono text-sm;
+}
+:is(.markdown-content, .editor-preview) pre {
+  @apply bg-background-900 text-readable-content-100 p-4 rounded-md overflow-x-auto;
+}
+
+/* Lists */
+:is(.markdown-content, .editor-preview) ul {
+  @apply list-disc list-inside mb-4;
+}
+:is(.markdown-content, .editor-preview) ol {
+  @apply list-decimal list-inside mb-4;
+}
+:is(.markdown-content, .editor-preview) li {
+  @apply mb-2;
+}
+
+/* Tables */
+:is(.markdown-content, .editor-preview) table {
+  @apply table-auto border-collapse w-full mb-4;
+}
+:is(.markdown-content, .editor-preview) th {
+  @apply bg-background-100 border border-background-300 px-4 py-2 text-left text-readable-content-600 font-medium;
+}
+:is(.markdown-content, .editor-preview) td {
+  @apply border border-background-300 px-4 py-2 text-readable-content-700;
+}
+
+/* Images */
+:is(.markdown-content, .editor-preview) img {
+  @apply max-w-full rounded-md shadow-md;
+}
+
+/* Horizontal Rules */
+:is(.markdown-content, .editor-preview) hr {
+  @apply border-t border-background-300 my-6;
+}
