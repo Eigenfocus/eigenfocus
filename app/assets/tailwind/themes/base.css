@@ -1,6 +1,7 @@
 @import './select2';
 @import './flatpickr';
 @import './markdown';
+@import './sortablejs';
 
 .btn .loading-spinner,
 .btn-primary .loading-spinner,

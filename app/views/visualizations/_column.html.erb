@@ -1,4 +1,4 @@
-<li class="basis-60 max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs snap-center sm:snap-start cpy-grouping" id="<%= dom_id(grouping) %>">
+<li class="basis-60 max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs snap-center sm:snap-start cpy-grouping js-sortable-container" id="<%= dom_id(grouping) %>">
   <header class="flex flex-row flex-nowrap gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
       <%= grouping.title %>
@@ -44,6 +44,7 @@
     data-sortable-shared-group-value="cards"
     data-sortable-move-path-value="<%= move_allocations_path %>"
     data-sortable-grouping-id="<%= grouping.id %>"
+    data-sortable-ancestor-container-selector-value=".js-sortable-container"
     >
 
     <% grouping.issues.each do |issue| %>
