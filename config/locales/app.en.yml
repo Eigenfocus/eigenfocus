@@ -24,6 +24,9 @@ en:
   confirmations:
     archive: "Do you want to archive this?"
     unarchive: "Do you want to unarchive this?"
+    remove: "Are you sure you want to remove %{resource_name}?"
+  menu:
+    actions: "Actions"
   actions:
     back: "back"
     new: "New"

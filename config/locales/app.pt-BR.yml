@@ -25,6 +25,9 @@ pt-BR:
   confirmations:
     archive: "Deseja mesmo arquivar?"
     unarchive: "Deseja reativar?"
+    remove: "Tem certeza que deseja remover a/o %{resource_name}?"
+  menu:
+    actions: "Ações"
   actions:
     back: "Voltar"
     new: "Novo"

@@ -27,6 +27,12 @@ class Groupings::IssuesController < ApplicationController
     @updated = @issue.update(permitted_params)
   end
 
+  def destroy
+    @allocation = current_grouping.allocations.find_by(issue_id: params[:id])
+    @issue = @allocation.issue
+
+    @allocation.destroy
+  end
   private
   def current_grouping
     @current_grouping ||= Grouping.find(params[:grouping_id])

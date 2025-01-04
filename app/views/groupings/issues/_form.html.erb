@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'issue_form' do %>
-  <%= render_modal(inner_container_options: { class: "max-h-screen w-full max-w-3xl relative" }) do %>
+  <%= render_modal(inner_container_options: { class: "max-h-screen w-full max-w-3xl relative cpy-issue-form" }) do %>
     <div class="border-b border-background-200 pb-2 mb-4">
       <div class="flex items-center space-x-2">
         <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
@@ -10,9 +10,9 @@
         </h4>
       </div>
     </div>
-    <div class="space-y-4">
+    <div class="flex flex-row gap-8">
       <%= form_for([grouping, issue], html: {
-        class: 'flex flex-col gap-2',
+        class: 'flex flex-col gap-2 grow',
         data: { controller: "issue-form" }
         }) do |f| %>
         <% if issue.errors.any? %>
@@ -51,7 +51,7 @@
         </div>
 
 
-        <div class="flex gap-2 justify-center">
+        <div class="flex gap-2 justify-end">
           <a class="btn-cancel" data-action="click->modal#close">
             <%= t('actions.cancel') %>
           </a>
@@ -60,6 +60,18 @@
           <%= f.button text, class: "btn-primary" %>
         </div>
       <% end %>
+
+      <% if issue.persisted? %>
+        <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
+          <h5 class="w-full"><%= t("menu.actions") %></h5>
+
+          <%= link_to grouping_issue_path(grouping, issue), class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("confirmations.remove", resource_name: Issue.model_name.human.downcase) } do %>
+            <i class="fa-solid fa-trash"></i>
+            <%= t("actions.remove") %>
+          <% end %>
+        </div>
+      <% end %>
+
     </div>
   <% end %>
 <% end %>
