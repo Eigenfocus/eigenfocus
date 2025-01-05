@@ -1,7 +1,7 @@
 <div class="flex flex-col h-full">
   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 cpy-header-wrapper">
     <h2 class="text-readable-content-800 font-semibold text-3xl text-body-800">
-      <%= Visualization.model_name.human(count: 1) %>
+      <%= @visualization.project.name %> - <%= Visualization.model_name.human(count: 1) %>
     </h2>
     <%= link_to "#{t('actions.create')} #{Grouping.model_name.human.downcase}", new_visualization_grouping_path(@visualization), class: "btn-primary btn-xl", data: { turbo_frame: 'grouping_form' } %>
   </div>

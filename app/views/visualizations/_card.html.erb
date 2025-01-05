@@ -1,12 +1,12 @@
 <li class="snap-center cpy-card" id="<%= dom_id(issue) %>">
-  <%= link_to edit_grouping_issue_path(grouping, issue), class: "flex flex-col gap-y-2 text-sm text-content-500 border-2 border-background-200 bg-background-50 hover:bg-background-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-4", data: { turbo_frame: 'issue_form' } do %>
+  <%= link_to edit_grouping_issue_path(grouping, issue), class: "flex flex-col gap-2 text-sm text-content-500 border-2 border-background-200 bg-background-50 hover:bg-background-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-4", data: { turbo_frame: 'issue_form' } do %>
     <h2 class="font-normal">
       <%= issue.title %>
     </h2>
-    <div class="flex flex-row text-readable-content-500">
-      <% if issue.description.present? %>
+    <% if issue.description.present? %>
+      <div class="flex flex-row text-readable-content-500">
         <i class="fa-solid text-xs fa-align-justify"></i>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </li>
