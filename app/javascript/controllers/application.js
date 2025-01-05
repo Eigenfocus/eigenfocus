@@ -22,6 +22,7 @@ class CustomModal extends Modal {
     if (!this.data.get("disable-backdrop")) {
       document.body.insertAdjacentHTML('beforeend', this.backgroundHtml);
       this.background = document.querySelector(`#${this.backgroundId}`);
+      this.background.style.backgroundColor = "rgba(0, 0, 0, 0.35)"
     }
   }
 
