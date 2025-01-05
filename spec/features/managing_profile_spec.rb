@@ -8,7 +8,7 @@ describe 'When entering my workspace for the first time' do
 
     should_be_on edit_profile_path
 
-    expect(page).to have_content("To start using the app, please setup your profile first.")
+    expect(page).to have_content("Before starting, we need you to fill your preferred language and time zone.")
     expect(User.count).to eq(1)
 
     select_from_select2(label_for: 'profile_timezone', option_text: "Rome (GMT+01:00)")

@@ -4,11 +4,12 @@
       <%= "#{t('.title')}" %>
     </h2>
   </div>
+  <% unless current_user.is_profile_complete? %>
+  <p class="card mb-8 border-primary-500">
+    <%= t(".why_you_need_to_fill_profile_html") %>
+  </p>
+  <% end %>
   <div class="card p-5 rounded-lg">
-    <% unless current_user.is_profile_complete? %>
-      <%= render partial: "layouts/alert", locals: { type: 'alert', message: t(".setup_missing") } %>
-    <% end %>
-
     <%= render(partial: 'form') %>
   </div>
 </div>
