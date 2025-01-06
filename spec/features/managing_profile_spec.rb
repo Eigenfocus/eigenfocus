@@ -18,7 +18,10 @@ describe 'When entering my workspace for the first time' do
     end
 
     expect(page).to have_content("Profile succesfully updated.")
+
     should_be_on root_path
+
+    expect(page).to have_content("Here is an overview of our current features.")
   end
 
 

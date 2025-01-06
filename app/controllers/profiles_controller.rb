@@ -5,10 +5,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    was_first_update = !current_user.is_profile_complete?
     if current_user.update(user_params)
       I18n.locale = current_user.locale
       flash[:success] = t(".success")
-      redirect_to root_path
+      redirect_to root_path(show_guide_modal: was_first_update)
     else
       flash[:alert] = current_user.errors.full_messages.to_sentence
       redirect_to edit_profile_path

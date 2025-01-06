@@ -1,5 +1,27 @@
 en:
   layouts:
+    guide_modal:
+      title: "Our features"
+      description_html: "Here is an overview of our current features.<br/>We hope you enjoy it."
+      features:
+        project:
+          title: "Manage Projects and Issues"
+          description: "You can create, update and remove multiple Projects and Issues."
+        boards:
+          title: "Customizable Boards"
+          description: "Board with Customizable Columns so you can adjust to your workflow."
+        time_tracking:
+          title: "Time Tracking"
+          description: "Track time spent on each Project and Task."
+        reports:
+          title: "Reports"
+          description: "Generate time reports, control your budget and time."
+        themes:
+          title: "Themes"
+          description: "Customize the UI to your taste. Be more productive with style! 🎨"
+
+      thanks: "Thanks for using Eigenfocus."
+      like_us: "Like us on Github"
     sidebar:
       edit_profile: "Edit profile"
       profile_options: "Profile & Settings"
