@@ -11,6 +11,8 @@ import {
 class CustomModal extends Modal {
   static targets = [ "content" ]
   connect() {
+    this.element[this.identifier] = this
+
     super.connect()
     if (!this.containerTarget.classList.contains("hidden")) {
       this.insertBackdrop();
