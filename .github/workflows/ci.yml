@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Copy docker-compose
+        run: cp docker-compose.dev.example.yml docker-compose.yml
+
       - name: Copy Env
         run: cp example.env .env
 
@@ -31,6 +34,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Copy docker-compose
+        run: cp docker-compose.dev.example.yml docker-compose.yml
 
       - name: Copy Env
         run: cp example.env .env
@@ -53,6 +59,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Copy docker-compose
+        run: cp docker-compose.dev.example.yml docker-compose.yml
 
       - name: Copy Env
         run: cp example.env .env
@@ -78,4 +87,3 @@ jobs:
       - name: Stop containers
         if: always()
         run: docker compose down
-

@@ -28,4 +28,5 @@ test:
 # ensure the database is located in a persisted volume.
 production:
   <<: *default
+  database: app-data/production.sqlite3
   # database: path/to/persistent/storage/production.sqlite3

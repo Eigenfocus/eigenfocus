@@ -27,11 +27,58 @@ Here are some of our current features:
 ![Time Report](docs/images/features/report.png "Time Tracking")
 
 # Installation
-You can run our project using our docker image in a single command:
+You can run our project using our docker image directly with docker or docker compose:
 
-`TODO`
+## Docker
+```sh
+docker run \
+    --restart unless-stopped \
+    -v ./app-data:/eigenfocus-app/app-data \
+    -p 3001:3000 \
+    -e DEFAULT_HOST_URL=http://localhost:3001 \
+    -d \
+    eigenfocus/eigenfocus:latest
+```
 
-Alternatively, if you need to fine a config [Check the Development Guide](docs/DEVELOPMENT.md)
+## Docker Compose
+Or using a docker compose file:
+
+```docker-compose.yml
+services:
+  app:
+    image: eigenfocus/eigenfocus:latest
+    command: run
+    restart: unless-stopped
+    volumes:
+      - ./app-data:/eigenfocus-app/app-data
+    environment:
+     - DEFAULT_HOST_URL=http://localhost:3001
+    ports:
+      - 3001:3000
+```
+
+Then, running it with the CLI:
+
+```sh
+docker compose run -d app
+```
+
+## Commands
+To allow a more flexible setup, we have some pre configured commands on our image:
+
+- `setup`: Prepares the application database with the latest changes. Needs to be called only once before running the application.
+- `serve`: Starts the Rails App on port 3000.
+- `run`: Run setup and server commands. For most cases, this is the command you need to run.
+
+## Environment Configurations
+
+- `DEFAULT_HOST_URL`: URL that is going to be used to access your application.
+  - Example: "http://localhost:3001", "http://mydomain.com" or "https://mydomain.com"
+- `FORCE_SSL`: Defaults to `false`. If set to `true`, all incoming requests that are not HTTPS will be redirected to use HTTPS protocol.
+- `ASSUME_SSL_REVERSE_PROXY`: Defaults to `false`. If set to `true`, all incoming requests will be interpreted as HTTPS. This is useful for cases when you have `FORCE_SSL` set to `true` but are behind a reverse proxy that terminates the SSL. This means that our app will be receiving requests via HTTP. In order to avoid an infinite redirect loop to HTTPS you must set `ASSUME_SSL_REVERSE_PROXY` to `true`. For more information, check the conversation and changelog on https://github.com/rails/rails/pull/47139.
+
+# Development Guide
+Alternatively, if you need to fine tune a config [Check the Development Guide](docs/DEVELOPMENT.md).
 
 # Contact
 We are in *beta* and any feedbacks are welcome.

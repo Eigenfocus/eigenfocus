@@ -46,3 +46,5 @@
 # Ignore Docker-related files
 /.dockerignore
 /Dockerfile*
+
+/app-data/*

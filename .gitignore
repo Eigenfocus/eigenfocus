@@ -35,6 +35,9 @@ dump.rdb
 
 /public/assets
 
+# Ignore docker related files
+/app-data/
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 config/database.yml
@@ -47,5 +50,6 @@ config/database.yml
 .env*
 !.env.example
 docker-compose.override.yml
+docker-compose.yml
 */**/.DS_Store
 .vscode
