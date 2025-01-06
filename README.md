@@ -1,52 +1,42 @@
-# README
+<div align="center">
+    <h1><b>Eigenfocus</b></h1>
+    <p>
+        Free Self-Hosted All-in-One Management App: Kanban Boards, Time Tracking & Focus Tools.
+    </p>
+    <p>Manage your personal and work projects in one place.</p>
+    <br />
+    <a href="https://eigenfocus.com"><strong>Website</strong></a> |
+    <a href="#installation"><strong>Installation</strong></a>
+</div>
+<br />
 
-## Development Environment Setup
+# Our Features
+Here are some of our current features:
 
-## Copy a few example files because the real files are git ignored
+- Projects: create/edit/update/archive you projects
+- Boards: each project has a board where you can customize columns to your workflow
+- Issues: create issues using the project board
+- Workflow with Boards: Move issues between columns
+- Time Tracking: track time spent on a Project and a Specific Issue
+- Time Report: generate time reports by project and time periods
+- Themes: customize the UI to your taste
 
-```sh
-cp example.env .env
-cp config/database.example.yml config/database.yml
-cp docker-compose.override.dev.example.yml docker-compose.override.yml
-```
+# Some Screenshots
+![Board](docs/images/features/board.png "Project Board and Issues")
+![Time Tacking](docs/images/features/timetracking.png "Time Tracking")
+![Time Report](docs/images/features/report.png "Time Tracking")
 
-## Build everything using docker
+# Installation
+You can run our project using our docker image in a single command:
 
-*The first time you run this it's going to take 5-10 minutes depending on your
-internet connection speed and computer's hardware specs. That's because it's
-going to download a few Docker images and build the Ruby image
+`TODO`
 
-```sh
-docker compose build
-```
+Alternatively, if you need to fine a config [Check the Development Guide](docs/DEVELOPMENT.md)
 
-## Run the containers:
+# Contact
+We are in *beta* and any feedbacks are welcome.
 
-```sh
-docker compose up
-```
+Feel free to contact us `hi@eigenfocus.com` or open a issue.
 
-## Setup the initial database:
-
-Now that everything is built and running we can treat it like any other Rails
-app.
-
-```sh
-# You can run this from a 2nd terminal.
-docker compose run web bin/rails db:create db:migrate
-```
-
-
-## Running the Rails console
-When the app is already running with `docker compose` up, attach to the container:
-```
-docker compose exec web bin/rails c
-```
-
-## Running tests
-
-```
-docker compose run -e "RAILS_ENV=test" --rm web bundle exec rspec
-```
-
-view tests running on http://127.0.0.1:7900
+# Other
+[License](LICENSE)
