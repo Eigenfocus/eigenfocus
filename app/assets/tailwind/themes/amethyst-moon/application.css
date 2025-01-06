@@ -1,5 +1,6 @@
 @import '../base';
-@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+@import '../fonts/funnel-display';
+@import '../fonts/inter';
 
 @tailwind base;
 @tailwind components;
@@ -11,7 +12,16 @@
 
 @layer components {
   body, html {
-    font-family: "Funel Display", sans-serif;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .btn {
+    font-family: "Funnel Display", sans-serif;
   }
 
   body {
