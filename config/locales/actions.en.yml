@@ -18,6 +18,16 @@ en:
     edit:
       title: "Edit profile"
       why_you_need_to_fill_profile_html: "Hi. 👋<br/>Before starting, we need you to fill your preferred language and time zone.<br/>You can use the form below."
+      subscription:
+        title: "Subscribe to our Newsletter"
+        subscribe_action: "Subscribe"
+        description_html: >
+          We want to stay in touch and notify you about updates.
+          <br/>
+          Consider subscribing and giving us a star on <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="inline-flex link-primary">Github</a>.
+          <br/>
+          We hate spam and take emails very seriously. This step is completely optional, feel free to skip it.
+
     update:
       success: 'Profile succesfully updated.'
   time_entries:

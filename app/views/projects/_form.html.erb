@@ -22,7 +22,7 @@
 
       <div class="mb-4 flex flex-col items-stretch gap-2">
         <%= f.label :name, Project.human_attribute_name(:name), class: "label-primary" %>
-        <%= f.text_field :name, autofocus: true, class: "input-primary" %>
+        <%= f.text_field :name, autofocus: true, required: true, class: "input-primary" %>
       </div>
 
 
