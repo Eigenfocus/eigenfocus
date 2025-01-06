@@ -6,7 +6,6 @@ export default class extends Controller {
   initialize() {
     select2($);
     this.select2 = $(this.element).select2({
-      dropdownAutoWidth : true,
       placeholder: this.element.getAttribute('placeholder'),
       width: '100%'
     });
@@ -14,7 +13,6 @@ export default class extends Controller {
     this.select2.on('select2:select', function () {
       let event = new Event('change', { bubbles: true }) // fire a native event
       this.dispatchEvent(event);
-      console.log('change')
     });
 
     if (!window.__select2binded__) {
