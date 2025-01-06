@@ -18,7 +18,7 @@
         data: { controller: 'dependent-fields' }
       }) do |f| %>
       <% if time_entry.errors.any? %>
-        <div class="flex ronded-md w-full border-l-6 border-alert bg-alert bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert">
+        <div class="flex rounded-md w-full border-l-6 border-alert bg-alert bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert">
           <%= time_entry.errors.full_messages.to_sentence.capitalize %>
         </div>
       <% end %>

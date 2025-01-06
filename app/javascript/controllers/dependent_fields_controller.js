@@ -50,9 +50,21 @@ export default class extends Controller {
   }
 
   hasDependentsTargetDisconnected(element) {
-    const turboFrameSelector = element.getAttribute('data-dependant-turbo-frame-selector')
-    updateTurboFrames(turboFrameSelector, '')
+    // If the form using this controller is disconnecting
+    // We don't want to trigger this update
+    // This is for edge cases where a existing form is being replaced
+    // With a new instance of the same form
+    // Without this condition a request (with an empty param value) to update the dependent turbo frames will be triggered
+    // And the response will replace the content of the new form (which could already have the dependent content loaded)
+    // With an empty state dependent content
+    if (this.isDisconnecting != true) {
+      const turboFrameSelector = element.getAttribute('data-dependant-turbo-frame-selector')
+      updateTurboFrames(turboFrameSelector, '')
+    }
   }
 
+  disconnect() {
+    this.isDisconnecting = true
+  }
 
 }
