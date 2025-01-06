@@ -37,6 +37,9 @@ function generateConfig(themeColors) {
         }
       }
     },
+    variants: {
+      display: ['group-hover'],
+    },
     plugins: [
       require('@tailwindcss/forms'),
       require('@tailwindcss/aspect-ratio'),
