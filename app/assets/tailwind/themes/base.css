@@ -114,3 +114,15 @@
 .table-primary.table-compact tr td {
   @apply py-1 px-1 text-xs;
 }
+
+.input-with-icon-wrapper {
+  @apply relative flex items-stretch;
+}
+
+.input-with-icon-wrapper .icon-wrapper {
+  @apply absolute text-readable-content-500 inset-y-0 start-0 flex items-center ps-3 pointer-events-none;
+}
+
+.input-with-icon-wrapper input.input-primary {
+  @apply ps-10;
+}

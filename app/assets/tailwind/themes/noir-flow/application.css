@@ -86,6 +86,10 @@
     color: black;
   }
 
+  .input-with-icon-wrapper .icon-wrapper {
+    color: black;
+  }
+
   .input-secondary {
     @apply w-full rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-secondary-500;
     color: black;

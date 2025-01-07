@@ -13,24 +13,23 @@
 
 <%= turbo_frame_tag 'time_entries' do %>
 
-<div class="flex flex-col sm:flex-row justify-stretch items-stretch sm:justify-between gap-4 mb-6">
+<div class="flex flex-col md:flex-row justify-stretch items-stretch sm:justify-between gap-4 mb-6">
   <%= form_for(time_entries_path, method: :get,
     class: 'flex items-stretch justify-between flex-row-reverse sm:flex-row gap-4',
     data: { turbo_method: :get, turbo_frame: 'time_entries',
     controller: 'form'
   } ) do |f| %>
 
-    <label for="go-to-date" class="flex hidden text-body title items-center">
+    <label for="go-to-date" class="flex hidden text-readable-content-500 title items-center">
       <p><%= t(".goto_date") %></p>
     </label>
-    <div class="relative input-primary w-[160px] text-readable-content-500 bg-body-contrast flex items-stretch">
-      <div class="icon absolute" style="font-size: 17px; left:20px; top: calc(50% - 13px);">
+    <div class="input-with-icon-wrapper w-[160px]">
+      <div class="icon-wrapper">
         <i class="fa-regular fa-calendar"></i>
       </div>
       <input id="go-to-date"
       name="reference_date"
-      class="border-0 w-full"
-      style="padding-left: 32px; background: none;"
+      class="input-primary"
       placeholder="Reference Date"
       data-controller="flatpickr"
       data-action="change->form#submit"

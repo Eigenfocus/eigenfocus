@@ -96,6 +96,10 @@
     @apply w-full text-readable-content-500 rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
   }
 
+  .input-with-icon-wrapper .icon-wrapper {
+    @apply text-readable-content-500;
+  }
+
   .input-secondary {
     @apply w-full text-readable-content-500 rounded-lg border border-background-300 px-3 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-secondary-500;
   }
