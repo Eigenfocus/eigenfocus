@@ -1,4 +1,7 @@
-<li class="basis-60 max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs snap-center sm:snap-start cpy-grouping js-sortable-container" id="<%= dom_id(grouping) %>">
+<li class="basis-60 max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs snap-center sm:snap-start cpy-grouping js-sortable-container"
+  id="<%= dom_id(grouping) %>"
+  data-controller="grouping-column"
+  >
   <header class="flex flex-row flex-nowrap gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
       <%= grouping.title %>
@@ -52,10 +55,13 @@
     <% end %>
   </ul>
 
-  <%= link_to new_grouping_issue_path(grouping), class: "flex flex-row gap-x-1 mt-4 p-2 hover:bg-background-100 rounded-md", data: { turbo_frame: 'issue_form' } do %>
-    <p class="grow">
+  <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping: } %>
+  <button class="cpy-inline-create-button flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
+    data-grouping-column-target="showFormButton"
+    data-action="click->grouping-column#showInlineCardForm">
+    <i class="fa-solid fa-plus mr-2"></i>
+    <p class="grow text-left">
       <%= t('visualizations.column_menu.create_issue') %>
     </p>
-    <i class="self-center fa-solid fa-plus"></i>
-  <% end %>
+  </button>
 </li>

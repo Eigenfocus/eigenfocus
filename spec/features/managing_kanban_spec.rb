@@ -147,7 +147,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
     ])
   end
 
-  specify 'I can create issues inside a grouping' do
+  specify 'I can create issues using top grouping meno' do
     project = FactoryBot.create(:project)
     grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
 
@@ -177,6 +177,40 @@ describe 'As a user, I want to manage my project kanban visualization' do
     within dom_id(grouping) do
       expect(page).to have_content("Make this test pass")
     end
+  end
+
+  specify "I can create issues using the inline create" do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      find('.cpy-inline-create-button').click
+    end
+
+    within "#grouping-#{grouping.id}-inline-issue-form" do
+      fill_in 'issue[title]', with: "Issue 1"
+      click_button "Create"
+    end
+
+    expect(page).to have_content("Issue was successfully created.")
+
+
+    within "#grouping-#{grouping.id}-inline-issue-form" do
+      fill_in 'issue[title]', with: "Issue 2"
+      click_button "Create"
+    end
+
+    expect(page).to have_content("Issue was successfully created.")
+
+    within dom_id(grouping) do
+      expect(page).to have_content("Issue 1")
+      expect(page).to have_content("Issue 2")
+    end
+
+
+    expect(Issue.pluck(:title).sort).to eq([ "Issue 1", "Issue 2" ])
   end
 
   specify 'I can see issues details' do
