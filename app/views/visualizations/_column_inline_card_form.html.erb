@@ -1,13 +1,18 @@
 
 <%= form_for([grouping, Issue.new], html: {
-  class: 'flex flex-col mt-4'}) do |f| %>
+    class: 'flex flex-col mt-2 hidden',
+    id: "grouping-#{grouping.id}-inline-issue-form",
+    data: {
+      'grouping-column-target': 'inlineCardForm'
+    }
+  }) do |f| %>
 
   <div class="mb-2">
-    <%= f.text_field :title, required: true, autofocus: true, class: "input-primary" %>
+    <%= f.text_field :title, required: true, class: "input-primary", id: nil %>
   </div>
 
   <div class="flex gap-2 items-center justify-end">
-    <a class="btn-cancel btn-sm">
+    <a class="btn-cancel btn-sm" data-action="click->grouping-column#hideInlineCardForm">
       <i class="fa fa-close"></i>
     </a>
 
