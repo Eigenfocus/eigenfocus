@@ -114,10 +114,10 @@ const noirPurple = {
 }
 
 const themeColors = {
-  primary: invertColorIndexes(noirNavy),
+  primary: invertColorIndexes(noirPurple),
   secondary: invertColorIndexes(noirGreen),
-  tertiary: invertColorIndexes(noirPurple),
-  cancel: invertColorIndexes(noirBrown),
+  tertiary: invertColorIndexes(noirNavy),
+  cancel: invertColorIndexes(noirNavy),
   success: invertColorIndexes(noirGreen),
   notice: invertColorIndexes(noirGreen),
   danger: invertColorIndexes(noirBrown),
