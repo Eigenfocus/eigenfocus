@@ -45,9 +45,8 @@ Or using a docker compose file:
 
 ```docker-compose.yml
 services:
-  app:
+  web:
     image: eigenfocus/eigenfocus:v0.5.0
-    command: run
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
@@ -60,7 +59,7 @@ services:
 Then, running it with the CLI:
 
 ```sh
-docker compose run -d app
+docker compose up -d
 ```
 
 ## Commands
