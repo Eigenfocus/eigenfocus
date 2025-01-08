@@ -7,18 +7,20 @@
     }
   }) do |f| %>
 
-  <div class="mb-2">
-    <%= f.text_field :title, required: true, class: "input-primary", id: nil %>
+  <div class="mb-2 w-full">
+    <%= f.text_field :title, required: true, class: "border-2 border-primary-500 focus:border-primary-500 active:border-primary-500 hover:border-primary-500 bg-primary-50 p-4 rounded-xl text-sm w-full text-sm text-readable-content-500", id: nil %>
   </div>
 
-  <div class="flex gap-2 items-center justify-end">
-    <a class="btn-cancel btn-sm" data-action="click->grouping-column#hideInlineCardForm">
+  <div class="flex gap-2 items-stretch ">
+
+    <%= f.button class: "btn-primary flex items-center text-sm px-4" do %>
+      <i class="fa fa-add mr-2"></i> <%= t('actions.create') %>
+    <% end %>
+
+    <a class="btn-cancel text-sm px-4" data-action="click->grouping-column#hideInlineCardForm">
       <i class="fa fa-close"></i>
     </a>
 
-    <%= f.button class: "btn-primary btn-sm" do %>
-      <i class="fa fa-check"></i>
-    <% end %>
   </div>
 
 <% end %>

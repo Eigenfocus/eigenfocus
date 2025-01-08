@@ -56,11 +56,12 @@
   </ul>
 
   <%= render partial: 'column_inline_card_form', locals: { grouping: } %>
-  <button class="flex flex-row gap-x-1 mt-4 p-2 hover:bg-background-100 rounded-md"
+  <button class="flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
+    data-grouping-column-target="showFormButton"
     data-action="click->grouping-column#showInlineCardForm">
+    <i class="fa-solid fa-plus mr-2"></i>
     <p class="grow text-left">
       <%= t('visualizations.column_menu.create_issue') %>
     </p>
-    <i class="self-center fa-solid fa-plus"></i>
   </button>
 </li>
