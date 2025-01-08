@@ -3,7 +3,8 @@
     class: 'flex flex-col mt-2 hidden',
     id: "grouping-#{grouping.id}-inline-issue-form",
     data: {
-      'grouping-column-target': 'inlineCardForm'
+      'grouping-column-target': 'inlineCardForm',
+      action: "keydown.esc->grouping-column#closeForm"
     }
   }) do |f| %>
 

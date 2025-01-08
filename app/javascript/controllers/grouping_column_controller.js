@@ -22,10 +22,15 @@ export default class extends Controller {
   cardTargetConnected(cardElement) {
     if (this.isCardBeingCreated()) {
       cardElement.scrollIntoView({ behavior: "instant", block: "end" })
+      this.inlineCardFormTarget.querySelector("input[name='issue[title]'").value = ''
     }
   }
 
   isCardBeingCreated() {
     return !this.inlineCardFormTarget.classList.contains('hidden')
+  }
+
+  closeForm() {
+    this.hideInlineCardForm();
   }
 }
