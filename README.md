@@ -22,9 +22,14 @@ Here are some of our current features:
 - Themes: customize the UI to your taste
 
 # Some Screenshots
-![Board](docs/images/features/board.png "Project Board and Issues")
-![Time Tacking](docs/images/features/timetracking.png "Time Tracking")
-![Time Report](docs/images/features/report.png "Time Tracking")
+<div align="center">
+<img alt="time-track" src="https://github.com/user-attachments/assets/5cc6c4f9-2475-4586-a257-cfdc934a6fc4" width="75%"/>
+<img alt="board" src="https://github.com/user-attachments/assets/2e08e73e-3f1e-451d-a1f6-907e6a1280a0" width="75%"/>
+<img alt="reports" src="https://github.com/user-attachments/assets/d0ce92c5-613c-462e-87ea-184a0b487ab5" width="75%"/>
+
+<img alt="noir-time" src="https://github.com/user-attachments/assets/ed06ee87-3a74-45cb-a3f8-31324f4d9b17" width="75%"/>
+<img alt="noir-board" src="https://github.com/user-attachments/assets/536feec1-8ebc-4914-91df-c0b53d3b9c1e" width="75%"/>
+</div>
 
 # Installation
 You can run our project using our docker image directly with docker or docker compose:
@@ -75,7 +80,7 @@ Alternatively, if you need to fine tune a config [Check the Development Guide](d
 # Contact
 We are in *beta* and any feedbacks are welcome.
 
-Feel free to contact us `hi@eigenfocus.com` or open a issue.
+Feel free to contact us `hi@eigenfocus.com` or open an issue.
 
 # Other
 [License](LICENSE)
