@@ -62,13 +62,6 @@ Then, running it with the CLI:
 docker compose up -d
 ```
 
-## Commands
-To allow a more flexible setup, we have some pre configured commands on our image:
-
-- `setup`: Prepares the application database with the latest changes. Needs to be called only once before running the application.
-- `serve`: Starts the Rails App on port 3000.
-- `run`: Run setup and server commands. For most cases, this is the command you need to run.
-
 ## Environment Configurations
 
 - `DEFAULT_HOST_URL`: URL that is going to be used to access your application.
