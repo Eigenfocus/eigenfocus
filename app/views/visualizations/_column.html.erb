@@ -55,8 +55,8 @@
     <% end %>
   </ul>
 
-  <%= render partial: 'column_inline_card_form', locals: { grouping: } %>
-  <button class="flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
+  <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping: } %>
+  <button class="cpy-inline-create-button flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
     data-grouping-column-target="showFormButton"
     data-action="click->grouping-column#showInlineCardForm">
     <i class="fa-solid fa-plus mr-2"></i>
