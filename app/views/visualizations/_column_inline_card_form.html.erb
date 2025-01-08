@@ -1,0 +1,19 @@
+
+<%= form_for([grouping, Issue.new], html: {
+  class: 'flex flex-col mt-4'}) do |f| %>
+
+  <div class="mb-2">
+    <%= f.text_field :title, required: true, autofocus: true, class: "input-primary" %>
+  </div>
+
+  <div class="flex gap-2 items-center justify-end">
+    <a class="btn-cancel btn-sm">
+      <i class="fa fa-close"></i>
+    </a>
+
+    <%= f.button class: "btn-primary btn-sm" do %>
+      <i class="fa fa-check"></i>
+    <% end %>
+  </div>
+
+<% end %>
