@@ -18,4 +18,14 @@ export default class extends Controller {
     this.showFormButtonTarget.classList.remove('hidden')
     this.inlineCardFormTarget.classList.add('hidden')
   }
+
+  cardTargetConnected(cardElement) {
+    if (this.isCardBeingCreated()) {
+      cardElement.scrollIntoView({ behavior: "instant", block: "end" })
+    }
+  }
+
+  isCardBeingCreated() {
+    return !this.inlineCardFormTarget.classList.contains('hidden')
+  }
 }
