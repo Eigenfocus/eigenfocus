@@ -4,7 +4,7 @@
   <%= link_to edit_grouping_issue_path(grouping, issue), class: "group flex flex-col gap-2 text-sm text-content-500 border-2 border-background-200 bg-background-50 hover:bg-background-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-4", data: { turbo_frame: 'issue_form' } do %>
 
     <h2 class="font-normal grow">
-      <%= issue.title.truncate(120) %>
+      <%= issue.title %>
     </h2>
 
 
