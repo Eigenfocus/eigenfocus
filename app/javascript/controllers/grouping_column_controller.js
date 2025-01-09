@@ -33,4 +33,11 @@ export default class extends Controller {
   closeForm() {
     this.hideInlineCardForm();
   }
+
+  nWasPressed(e) {
+    if (document.activeElement == document.body && this.element.matches(':hover')) {
+      e.preventDefault()
+      this.showInlineCardForm()
+    }
+  }
 }

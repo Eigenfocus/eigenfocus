@@ -53,6 +53,7 @@ pt-BR:
     filter: "Filtrar"
     clear_filter: "Limpar filtro"
     preview: "Pré-visualização"
+    press: "Pressione"
   flash:
     change_success: "Alteração feita com sucesso."
     change_error: "Houve um erro na hora de realizar a alteração."

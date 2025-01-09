@@ -1,6 +1,7 @@
-<li class="basis-60 max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs snap-center cpy-grouping js-sortable-container"
+<li class="w-64 max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs snap-center cpy-grouping js-sortable-container"
   id="<%= dom_id(grouping) %>"
   data-controller="grouping-column"
+  data-action="keypress.n@window->grouping-column#nWasPressed"
   >
   <header class="flex flex-row flex-nowrap gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
@@ -41,7 +42,7 @@
 
   <ul
     id="<%= dom_id(grouping) %>-cards-wrapper"
-    class="flex flex-col flex-auto basis-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y js-no-column-drag cpy-drop-zone"
+    class="flex flex-col flex-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth snap-y js-no-column-drag cpy-drop-zone"
     data-controller="sortable"
     data-sortable-target="container"
     data-sortable-shared-group-value="cards"
@@ -56,12 +57,13 @@
   </ul>
 
   <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping: } %>
-  <button class="cpy-inline-create-button flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
+  <button class="cpy-inline-create-button group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
     data-grouping-column-target="showFormButton"
     data-action="click->grouping-column#showInlineCardForm">
     <i class="fa-solid fa-plus mr-2"></i>
     <p class="grow text-left">
       <%= t('visualizations.column_menu.create_issue') %>
     </p>
+    <span class="group-hover:flex hidden text-xs font-medium ml-2"><%= t("actions.press") %> N</span>
   </button>
 </li>
