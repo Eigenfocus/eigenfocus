@@ -46,9 +46,9 @@ docker run \
 ```
 
 ## Docker Compose
-Or using a docker compose file:
+Or using a `docker-compose.yml` file:
 
-```docker-compose.yml
+```yaml
 services:
   web:
     image: eigenfocus/eigenfocus:v0.5.1
