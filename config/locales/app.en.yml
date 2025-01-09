@@ -52,6 +52,7 @@ en:
     filter: "Filter"
     clear_filter: "clear filter"
     preview: "Preview"
+    press: "Press"
   flash:
     change_success: "Change successfully made."
     change_error: "Change could not be made."
