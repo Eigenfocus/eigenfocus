@@ -17,7 +17,6 @@
           <%= f.label :start_at, t(".entry_start_at"), class: "text-readable-content-500 text-sm " %>
 
           <%= f.text_field :start_at, value: params[:report][:start_at], class: 'input-primary w-full',
-            autocomplete: 'off',
             data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr" }
           %>
         </div>
@@ -28,7 +27,6 @@
 
           <%= f.text_field :end_at, value: params[:report][:end_at],
             class: 'input-primary w-full',
-            autocomplete: 'off',
             data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr" }
           %>
         </div>

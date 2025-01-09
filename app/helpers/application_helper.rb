@@ -3,6 +3,12 @@ module ApplicationHelper
     Current.theme_key
   end
 
+  def form_with(**options, &block)
+    options[:html] ||= {}
+    options[:html][:autocomplete] ||= "off"
+    super(**options, &block)
+  end
+
   def current_theme_stylesheet_link_tag(**kwargs)
     stylesheet_link_tag "#{current_theme_key}.theme", **kwargs
   end
