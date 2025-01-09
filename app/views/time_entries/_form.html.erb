@@ -27,7 +27,16 @@
 
       <div class="flex gap-2 flex-col">
         <%= f.label :description, TimeEntry.human_attribute_name(:description), autofocus: true, class: "label-primary" %>
-        <%= f.text_area :description, class: "input-primary" %>
+
+        <div data-controller='resizable-input' class="relative" >
+          <div data-resizable-input-target="replica" class=" text-sm p-2 whitespace-pre-line"></div>
+
+          <%= f.text_area :description, required: true,
+            autofocus: true,
+            class: "text-sm p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
+            "data-resizable-input-target": "input"
+            %>
+        </div>
       </div>
 
 
