@@ -14,7 +14,7 @@
 <%= turbo_frame_tag 'time_entries' do %>
 
 <div class="flex flex-col md:flex-row justify-stretch items-stretch sm:justify-between gap-4 mb-6">
-  <%= form_for(time_entries_path, method: :get,
+  <%= form_with(url: time_entries_path, method: :get,
     class: 'flex items-stretch justify-between flex-row-reverse sm:flex-row gap-4',
     data: { turbo_method: :get, turbo_frame: 'time_entries',
     controller: 'form'

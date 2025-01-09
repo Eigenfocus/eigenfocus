@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="">
-    <%= form_for(time_entry, html: {
+    <%= form_with(model: time_entry, html: {
         class: 'flex flex-col gap-4',
         data: { controller: 'dependent-fields' }
       }) do |f| %>

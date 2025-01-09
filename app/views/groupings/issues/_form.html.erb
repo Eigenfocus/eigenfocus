@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="flex flex-col md:flex-row gap-8">
-      <%= form_for([grouping, issue], html: {
+      <%= form_with(model: [grouping, issue], html: {
         class: 'flex flex-col gap-2 grow',
         data: { controller: "issue-form" }
         }) do |f| %>
