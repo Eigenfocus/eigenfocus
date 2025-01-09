@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="space-y-4">
-      <%= form_with(model: [visualization, grouping], html: { autocomplete: 'off', class: 'flex flex-col gap-2' }) do |f| %>
+      <%= form_with(model: [visualization, grouping], html: { class: 'flex flex-col gap-2' }) do |f| %>
         <% if grouping.errors.any? %>
           <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
             <%= grouping.errors.full_messages.to_sentence.capitalize %>
