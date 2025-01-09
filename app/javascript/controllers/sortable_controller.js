@@ -35,7 +35,7 @@ export default class extends Controller {
 
     if (didItemReallyMove) {
       this._performMoveRequest(evt).then(() => {
-        evt.item.scrollIntoView({ behavior: "smooth", inline: "center" })
+        evt.item.scrollIntoView({ behavior: "instant", inline: "center" })
       })
     }
   }
