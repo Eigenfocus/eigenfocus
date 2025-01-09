@@ -34,7 +34,9 @@ export default class extends Controller {
     let didItemReallyMove = didGroupingChanged || didPositionChanged
 
     if (didItemReallyMove) {
-      this._performMoveRequest(evt)
+      this._performMoveRequest(evt).then(() => {
+        evt.item.scrollIntoView({ behavior: "smooth", inline: "center" })
+      })
     }
   }
 
@@ -52,7 +54,7 @@ export default class extends Controller {
       })
     })
 
-    request.perform()
+    return request.perform()
   }
 
   onMove(evt) {
