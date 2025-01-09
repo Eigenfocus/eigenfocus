@@ -45,6 +45,8 @@ docker run \
     eigenfocus/eigenfocus:v0.5.2
 ```
 
+And access it at http://localhost:3001.
+
 ## Docker Compose
 Or using a `docker-compose.yml` file:
 
@@ -61,11 +63,13 @@ services:
       - 3001:3000
 ```
 
-Then, running it with the CLI:
+Then, run it with the CLI:
 
 ```sh
 docker compose up -d
 ```
+
+And access it at http://localhost:3001.
 
 ## Environment Configurations
 
