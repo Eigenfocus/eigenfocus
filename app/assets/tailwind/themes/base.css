@@ -115,6 +115,24 @@
   @apply py-1 px-1 text-xs;
 }
 
+.input-primary,
+input.input-primary,
+.flatpickr-input.input-primary {
+  @apply w-full rounded-lg border border-background-300 px-3 bg-background-50 text-readable-content-500 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
+}
+
+.input-with-icon-wrapper .icon-wrapper {
+  @apply text-readable-content-500;
+}
+
+.input-sm {
+  @apply py-1;
+}
+
+.label-primary {
+  @apply block text-readable-content-500 text-sm;
+}
+
 .input-with-icon-wrapper {
   @apply relative flex items-stretch;
 }
