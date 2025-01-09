@@ -5,6 +5,7 @@
   padding: 4px 0;
   gap: 4px;
 }
+
 .markdown-editor .editor-toolbar > a {
   @apply text-readable-content-500 !important;
   display: inline-flex;
@@ -13,8 +14,20 @@
   justify-content: center;
 }
 
+.markdown-editor .editor-toolbar > a.active {
+  @apply bg-primary-400 text-primary-800 border-primary-800;
+}
+
 .markdown-editor .editor-toolbar > a:hover {
   @apply bg-background-50 !important;
+}
+
+.markdown-editor .CodeMirror {
+  @apply text-readable-content-500 bg-background-50 !important;
+}
+
+.markdown-editor .CodeMirror-cursor {
+  @apply border-readable-content-500 !important;
 }
 
 :is(.markdown-content, .editor-preview) {
