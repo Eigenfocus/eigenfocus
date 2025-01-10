@@ -3,6 +3,8 @@
 <div
   class="dropzone-wrapper"
   data-controller="dropzone"
+  data-action="dropzone:complete->issue-form#fileUploadCompleted"
+  >
 
   <%= form.file_field(
     file_input_name,
@@ -15,7 +17,7 @@
     }
   ) %>
 
-  <div class="dz-message needsclick drop-container" data-action='dropzone:complete->issue-form#fileUploadCompleted'>
+  <div class="dz-message needsclick drop-container">
     <div class="message-container">
       <div>
         <a>Click to upload</a> or drag and drop your files here.

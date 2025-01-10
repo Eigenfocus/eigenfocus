@@ -49,7 +49,6 @@ export default class extends Controller {
     this.showEditorButtonTarget.classList.add("hidden")
   }
 
-  fileUploadCompleted() {
-    alert("inside")
+  fileUploadCompleted({ detail: { content } }) {
   }
 }

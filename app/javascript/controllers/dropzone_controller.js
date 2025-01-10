@@ -26,7 +26,7 @@ export default class extends Controller {
     })
 
     this.dropZone.on("complete", (file) => {
-      this.dispatch("complete")
+      this.dispatch("complete", { detail: { content: '123' } })
     })
   }
 
@@ -39,7 +39,7 @@ export default class extends Controller {
 
   get maxFiles() { return this.data.get("maxFiles") || 1 }
 
-  get maxFileSize() { return this.data.get("maxFileSize") || 256 }
+  get maxFileSize() { return this.data.get("maxFileSize") || 10000 }
 
   get acceptedFiles() { return this.data.get("acceptedFiles") }
 
