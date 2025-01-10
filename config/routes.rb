@@ -49,9 +49,8 @@ Rails.application.routes.draw do
 
   resources :issues, only: [] do
     scope module: "issues" do
-      resource :file do
+      resource :file, only: [:destroy] do
         post :attach, on: :collection
-        delete :destroy, on: :member
       end
     end
   end

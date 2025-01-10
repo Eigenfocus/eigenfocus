@@ -1,0 +1,3 @@
+
+<%= turbo_stream.remove "issue-file-#{@blob.signed_id}" %>
+<%= new_turbo_stream_alert_message(:success, t(".success")) %>

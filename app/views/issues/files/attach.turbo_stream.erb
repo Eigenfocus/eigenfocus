@@ -1,1 +1,6 @@
-  <%= new_turbo_stream_alert_message(:success, "ok") %>
+<%= turbo_stream.prepend "issue-#{@issue.id}-file-list",
+  partial: "file", locals: {
+    issue: @issue,
+    file: @blob
+  }
+%>

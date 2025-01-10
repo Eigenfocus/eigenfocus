@@ -26,29 +26,6 @@
   </div>
 
   <div id="dz-previews-container" data-dropzone-target="previewsContainer" class="previews-container">
-    <% issue.files.each do |attachment| %>
-      <div class="dz-preview dz-file-preview preview-file">
-        <%= form.hidden_field(file_input_name, value: attachment.signed_id, multiple: true) %>
-
-        <div class="dz-progress"><div class="dz-upload" data-dz-uploadprogress style="width: 100%;"></div></div>
-
-        <div class="dz-details file-details">
-          <div class="dz-preview-file">
-            <%= link_to rails_blob_path(attachment, description: "attachment"), class: "flex items-center", target: '_blank' do %>
-              <% if attachment.representable? %>
-                <%= image_tag rails_blob_path(attachment.variant(:thumb), description: "attachment"), class: 'max-w-[100px]' %>
-              <% else %>
-                <i class="fa fa-file"></i>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="dz-filename"><span><%= attachment.filename %></span></div>
-          <div class="dz-size"><%= number_to_human_size(attachment.byte_size, precision: 2) %></div>
-        </div>
-
-        <i class="fa fa-trash file-remove-icon" data-action="click->dropzone#removeExisting"></i>
-      </div>
-    <% end %>
   </div>
 
   <div class="hidden">

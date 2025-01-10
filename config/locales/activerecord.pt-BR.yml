@@ -35,6 +35,7 @@ pt-BR:
       issue:
         title: 'Título'
         description: 'Descrição'
+        files: "Arquivos"
       time_entry:
         description: 'Descrição'
         project_id: 'Projeto'
