@@ -24,10 +24,6 @@ export default class extends Controller {
     this.dropZone.on("canceled", (file) => {
       file.controller && file.controller.xhr.abort()
     })
-
-    this.dropZone.on("complete", (file) => {
-      this.dispatch("complete", { detail: { content: '123' } })
-    })
   }
 
   get headers() {
@@ -74,7 +70,7 @@ class DirectUploadController {
         this.emitDropzoneError(error)
       } else {
         this.hiddenInput.value = attributes.signed_id
-        this.emitDropzoneSuccess()
+        this.emitDropzoneSuccess(attributes)
       }
     })
   }
@@ -114,10 +110,10 @@ class DirectUploadController {
     this.source.dropZone.emit("complete", this.file)
   }
 
-  emitDropzoneSuccess() {
+  emitDropzoneSuccess(attributes) {
     this.file.status = Dropzone.SUCCESS
-    this.source.dropZone.emit("success", this.file)
-    this.source.dropZone.emit("complete", this.file)
+    this.source.dropZone.emit("success", attributes)
+    this.source.dropZone.emit("complete", attributes)
   }
 }
 
