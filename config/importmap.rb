@@ -13,6 +13,8 @@ pin "stimulus-flatpickr" # @3.0.0
 pin "select2" # @4.1.0
 pin "jquery" # @3.7.1
 pin "sortablejs" # @1.15.6
+pin "dropzone" # @6.0.0
+pin "just-extend" # @5.1.1
 
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
