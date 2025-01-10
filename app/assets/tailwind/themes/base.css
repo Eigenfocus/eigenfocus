@@ -2,6 +2,7 @@
 @import './flatpickr';
 @import './markdown';
 @import './sortablejs';
+@import './dropzone';
 
 .btn .loading-spinner,
 .btn-primary .loading-spinner,

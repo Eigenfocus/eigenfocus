@@ -1,0 +1,84 @@
+.dropzone-wrapper {
+  .drop-container {
+    border: 1px #999 solid;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .message-container {
+    margin: 2em 0;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+  }
+
+  .previews-container {
+    margin-top: 30px;
+  }
+
+  .preview-file {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px #999 solid;
+    padding: 15px 30px;
+    background-color: #ebebeb;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    .file-icon {
+      font-size: 24px;
+      z-index: 2;
+    }
+
+    .file-details {
+      flex-grow: 1;
+      margin-left: 20px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+
+      .dz-filename {
+        font-weight: 600;
+      }
+
+      .dz-size {
+        color: #7c7c7c;
+
+        strong {
+          font-weight: 100;
+        }
+      }
+    }
+
+    .file-remove-icon {
+      color: black;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .dz-progress {
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      .dz-upload {
+        background-color: #fff;
+        height: 100%;
+      }
+    }
+
+    .dz-error-message {
+      color: red;
+    }
+  }
+}

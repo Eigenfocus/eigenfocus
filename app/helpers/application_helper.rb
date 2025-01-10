@@ -101,4 +101,19 @@ module ApplicationHelper
 
     "#{sprintf '%02d', hours}:#{sprintf '%02d', minutes}"
   end
+
+  def dropzone_controller_div
+    data = {
+      controller: "dropzone",
+      'dropzone-max-file-size'=>"8",
+      'dropzone-max-files' => "10",
+      'dropzone-accepted-files' => 'image/jpeg,image/jpg,image/png,image/gif',
+      'dropzone-dict-file-too-big' => "File is too big. Max size is {{maxFilesize}} MB",
+      'dropzone-dict-invalid-file-type' => "Invalid file type",
+    }
+
+    content_tag :div, class: 'dropzone dropzone-default dz-clickable', data: data do
+      yield
+    end
+  end
 end

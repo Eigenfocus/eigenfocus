@@ -1,18 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
 import { marked } from "marked";
-import Dropzone from "dropzone";
-
-function createDropZone(controller) {
-  return new Dropzone(controller.element, {
-    url: controller.url,
-    headers: controller.headers,
-    maxFiles: controller.maxFiles,
-    maxFilesize: controller.maxFileSize,
-    acceptedFiles: controller.acceptedFiles,
-    addRemoveLinks: controller.addRemoveLinks,
-    autoQueue: false
-  });
-}
 
 export default class extends Controller {
   static targets = [
@@ -23,8 +10,6 @@ export default class extends Controller {
   ]
 
   connect() {
-    this.dropZone = createDropZone(this);
-
     this._simplemde = new SimpleMDE({
       element: this.descriptionInputTarget,
       spellChecker: false,
@@ -62,5 +47,9 @@ export default class extends Controller {
     this._simplemde.togglePreview();
     this.showPreviewButtonTarget.classList.remove("hidden")
     this.showEditorButtonTarget.classList.add("hidden")
+  }
+
+  fileUploadCompleted() {
+    alert("inside")
   }
 }

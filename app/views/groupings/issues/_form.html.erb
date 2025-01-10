@@ -60,19 +60,7 @@
 
 
         <div class="flex gap-2 flex-col">
-          <% issue.files.each do |file| %>
-            <%= f.hidden_field :files, multiple: true, value: file.signed_id %>
-            <p class="text-readable-content-500">
-              <%= link_to rails_blob_path(file, description: "attachment"), class: "flex items-center", target: '_blank' do %>
-                <% if file.representable? %>
-                  <%= image_tag rails_blob_path(file.variant(:thumb), description: "attachment"), class: 'max-w-[100px]' %>
-                <% end %>
-                <span><%= file.filename %></span>
-              <% end %>
-            </p>
-          <% end %>
-
-          <%= f.file_field :files, multiple: true %>
+          <%= render partial: 'files_drop', locals: { form: f, issue: } %>
         </div>
         <div class="flex gap-2 justify-end">
           <a class="btn-cancel" data-action="click->modal#close">
