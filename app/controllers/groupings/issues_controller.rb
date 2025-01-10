@@ -39,6 +39,6 @@ class Groupings::IssuesController < ApplicationController
   end
 
   def permitted_params
-    params.require(:issue).permit(:title, :description)
+    params.require(:issue).permit(:title, :description, files: [])
   end
 end
