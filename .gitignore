@@ -32,8 +32,7 @@ dump.rdb
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
-/upload-storage/*
-!/upload-storage/.keep
+
 /public/assets
 
 # Ignore docker related files
