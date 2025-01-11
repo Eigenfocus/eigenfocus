@@ -25,23 +25,8 @@
 
       <%= f.hidden_field :reference_date %>
 
-      <div class="flex gap-2 flex-col">
-        <%= f.label :description, TimeEntry.human_attribute_name(:description), autofocus: true, class: "label-primary" %>
-
-        <div data-controller='resizable-input' class="relative" >
-          <div data-resizable-input-target="replica" class=" text-sm p-2 whitespace-pre-line"></div>
-
-          <%= f.text_area :description, required: true,
-            autofocus: true,
-            class: "text-sm p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
-            "data-resizable-input-target": "input"
-            %>
-        </div>
-      </div>
-
-
       <div class="flex gap-2 flex-col cpy-project-list">
-        <%= f.label :project_id, TimeEntry.human_attribute_name(:project), class: "label-primary" %>
+        <%= f.label :project_id, TimeEntry.human_attribute_name(:project), autofocus: time_entry.new_record?, class: "label-primary" %>
 
         <%= f.select :project_id, options_from_collection_for_select(Project.all, :id, :name, time_entry.project_id), { include_blank: t('select_one') }, {required: true, style: "width: 100%", data: {
           controller: 'select2',
@@ -51,6 +36,19 @@
       </div>
 
       <%= render partial: 'form_project_dependent_fields', locals: { form: f } %>
+
+      <div class="flex gap-2 flex-col">
+        <%= f.label :description, TimeEntry.human_attribute_name(:description), autofocus: time_entry.persisted?, class: "label-primary" %>
+
+        <div data-controller='resizable-input' class="relative" >
+          <div data-resizable-input-target="replica" class=" text-sm p-2 whitespace-pre-line"></div>
+
+          <%= f.text_area :description,
+            class: "text-sm p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
+            "data-resizable-input-target": "input"
+            %>
+        </div>
+      </div>
 
       <div class="flex gap-2 flex-col">
         <%= f.label :total_logged_time_in_minutes, "*"+ TimeEntry.human_attribute_name(:total_logged_time_in_minutes), class: "label-primary" %>
