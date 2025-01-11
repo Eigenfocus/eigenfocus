@@ -1,5 +1,4 @@
 class Issues::FilesController < ApplicationController
-
   def attach
     issue.files.attach(params[:blob_signed_id])
     @blob = ActiveStorage::Blob.find_signed(params[:blob_signed_id])

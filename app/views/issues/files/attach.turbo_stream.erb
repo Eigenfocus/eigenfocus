@@ -5,5 +5,4 @@
   }
 %>
 
-# TODO: This should be removed after we start using ActionCable for card updates
 <%= turbo_stream.replace dom_id(@issue, 'card-icons'), partial: 'visualizations/groupings/_card/icons', locals: { issue: @issue } %>
