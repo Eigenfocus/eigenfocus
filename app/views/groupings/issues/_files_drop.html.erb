@@ -1,0 +1,61 @@
+<div class="mt-2">
+  <h3 class="text-xl text-readable-content-500">
+    <%= Issue.human_attribute_name(:files) %>
+  </h3>
+</div>
+
+<%= form_with(model: issue, url: '', html: { class: 'dropzone-wrapper'}) do |form| %>
+
+  <%= form.file_field(
+    :files,
+    class: 'hidden',
+    direct_upload: true,
+    multiple: true,
+    disabled: true,
+    data: {
+      "dropzone-target": 'input'
+    }
+  ) %>
+
+  <div class="dz-message cursor-pointer p-16 rounded-md border border-primary-200 hover:border-primary-400 bg-primary-50 hover:bg-primary-100">
+    <p class="text-lg text-center text-readable-content-500">
+      Click to upload or drag and drop your files here.
+    </p>
+  </div>
+
+  <div id="dz-previews-container" data-dropzone-target="previewsContainer" class="mt-4 previews-container">
+  </div>
+
+  <div class="hidden">
+    <div data-dropzone-target="previewTemplate">
+      <div class="flex flex-col gap-2">
+        <div class="dz-details file-details">
+          <div class="flex gap-4 items-center grow">
+            <div class="flex items-center w-[100px] items-center justify-center text-primary-200 text-4xl">
+              <div class="size-8">
+                <svg class="loading-spinner animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="text-readable-content-500 text-base flex grow flex-col">
+              <span class="text-xs text-italic" ><div class="dz-filename"><span data-dz-name></span></div></span>
+              <span  class="text-sm"><div class="dz-size" data-dz-size></div></span>
+              <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div class="bg-primary-600 h-2.5 rounded-full dz-upload" data-dz-uploadprogress style="width: 0%"></div>
+              </div>
+              <div class="dz-error-message text-error-500 text-sm"><span data-dz-errormessage></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div id="issue-<%= issue.id %>-file-list" class="flex flex-col gap-4">
+  <% issue.files.each do |file| %>
+    <%= render partial: 'issues/files/file', locals: { issue:, file: } %>
+  <% end %>
+</div>

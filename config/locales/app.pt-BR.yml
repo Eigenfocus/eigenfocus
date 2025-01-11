@@ -25,6 +25,7 @@ pt-BR:
   confirmations:
     archive: "Deseja mesmo arquivar?"
     unarchive: "Deseja reativar?"
+    delete_file: "Tem certeza que deseja remover este arquivo?"
     remove: "Tem certeza que deseja remover a/o %{resource_name}?"
   menu:
     actions: "Ações"
@@ -57,6 +58,7 @@ pt-BR:
   flash:
     change_success: "Alteração feita com sucesso."
     change_error: "Houve um erro na hora de realizar a alteração."
+    file_successfully_removed: "Arquivo removido com sucesso."
     actions:
       create:
         notice: "%{resource_name} criado(a) com sucesso."

@@ -1,0 +1,22 @@
+
+<%= turbo_frame_tag dom_id(issue, 'card-icons') do %>
+  <%
+    # Checking with only css like :empty doesn't work well because there
+    # is still a blank space and the pseudo class is not applied
+    # We need to hide this otherwise it will leave a little empty vertical space in the card UI
+    has_any_icon_showing = (
+      issue.description.present? ||
+      issue.files.any? )
+  %>
+
+  <% if has_any_icon_showing %>
+    <div class="flex mt-2 flex-row items-stretch justify-start gap-3 text-readable-content-500">
+      <% if issue.description.present? %>
+        <i class="fa-solid text-sm fa-align-justify"></i>
+      <% end %>
+      <% if issue.files.any? %>
+        <i class="fa-solid text-sm fa-file"></i>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,37 @@
+<div id="issue-file-<%= file.signed_id %>" class="p-4 flex gap-2 justify-between items-stretch hover:bg-primary-50">
+  <div class="flex gap-4 items-center grow">
+    <div class="flex items-center min-w-16 max-w-16 justify-center text-primary-200 text-4xl">
+      <%= link_to rails_blob_path(file, description: "attachment"), class: "flex items-center", target: '_blank' do %>
+        <% if file.representable? %>
+          <%= image_tag file.representation(resize_to_limit: [100, 100]), class: 'w-auto' %>
+        <% else %>
+          <i class="fa fa-file"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="text-readable-content-500 text-base flex grow flex-col">
+      <span class="text-xs text-italic" ><%= file.filename %></span>
+      <span  class="text-sm"><%= number_to_human_size(file.byte_size, precision: 2) %></span>
+    </div>
+  </div>
+
+  <div class="flex gap-4 items-center">
+    <%= link_to rails_blob_path(file, description: "attachment"),
+      class: "text-readable-content-500 text-center inline-flex items-center gap-2",
+      target: '_blank' do %>
+      <i class="fa-solid text-xl fa-download"></i>
+    <% end %>
+
+    <button data-issue-form-file-url-param="<%= rails_blob_url(file, description: "attachment") %>" data-action="click->issue-form#copyToClipboard" class="text-primary-500 items-center flex text-center inline-flex items-center gap-2">
+      <i class="hidden text-success-500 fa-solid fa-check"></i>
+      <i class="text-readable-content-500 fa-solid text-xl fa-copy"></i>
+    </button>
+
+    <%= link_to issue_file_path(issue, blob_signed_id: file.signed_id),
+      class: "text-danger-500 text-center inline-flex items-center gap-2",
+      data: { turbo_method: :delete,
+      turbo_confirm: t("confirmations.delete_file") } do %>
+      <i class="fa-solid text-xl fa-trash"></i>
+    <% end %>
+  </div>
+</div>

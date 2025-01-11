@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import { marked } from "marked";
+import { FetchRequest } from '@rails/request.js'
 
 export default class extends Controller {
   static targets = [
@@ -8,6 +9,10 @@ export default class extends Controller {
     "showEditorButton",
     "showPreviewButton"
   ]
+
+  static values = {
+    attachPath: String
+  }
 
   connect() {
     this._simplemde = new SimpleMDE({
@@ -47,5 +52,29 @@ export default class extends Controller {
     this._simplemde.togglePreview();
     this.showPreviewButtonTarget.classList.remove("hidden")
     this.showEditorButtonTarget.classList.add("hidden")
+  }
+
+  fileUploadCompleted(e) {
+    const fileSignedId = e.detail.args[0].signed_id
+
+    const request = new FetchRequest('post', this.attachPathValue, {
+      body: JSON.stringify({
+        blob_signed_id: fileSignedId
+      }),
+      responseKind: "turbo-stream"
+    })
+
+    return request.perform()
+  }
+
+  copyToClipboard(e) {
+    const button = e.currentTarget
+    navigator.clipboard.writeText(e.params.fileUrl)
+    button.querySelector(".fa-check").classList.remove('hidden')
+    button.querySelector(".fa-copy").classList.add('hidden')
+    setTimeout(() => {
+      button.querySelector(".fa-check").classList.add('hidden')
+      button.querySelector(".fa-copy").classList.remove('hidden')
+    }, 1500)
   }
 }

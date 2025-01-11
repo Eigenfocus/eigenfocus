@@ -114,12 +114,16 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
+    ffi (1.17.0-arm64-darwin)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     i18n-debug (1.2.0)
       i18n (< 2)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (2.1.0)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -141,6 +145,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
+    mini_magick (4.13.0)
     mini_mime (1.1.5)
     minitest (5.25.4)
     msgpack (1.7.5)
@@ -275,6 +280,8 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
+    ruby-vips (2.2.1)
+      ffi (~> 1.12)
     rubyzip (2.3.2)
     securerandom (0.4.1)
     selenium-webdriver (4.27.0)
@@ -357,6 +364,7 @@ DEPENDENCIES
   debug
   factory_bot_rails (~> 6.4)
   i18n-debug
+  image_processing (~> 1.2)
   importmap-rails
   positioning (~> 0.4)
   propshaft

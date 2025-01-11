@@ -24,6 +24,7 @@ en:
   confirmations:
     archive: "Do you want to archive this?"
     unarchive: "Do you want to unarchive this?"
+    delete_file: "Are you sure you want to delete this file?"
     remove: "Are you sure you want to remove %{resource_name}?"
   menu:
     actions: "Actions"
@@ -56,6 +57,7 @@ en:
   flash:
     change_success: "Change successfully made."
     change_error: "Change could not be made."
+    file_successfully_removed: "File was successfully removed."
     actions:
       create:
         notice: "%{resource_name} was successfully created."

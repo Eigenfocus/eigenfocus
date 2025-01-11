@@ -32,7 +32,11 @@
         </div>
 
         <div class="flex flex-col mt-2 justify-stretch items-stretch">
-          <%= link_to t('visualizations.column_menu.create_issue'), new_grouping_issue_path(grouping), class: "cpy-new-issue py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'issue_form', action: "click->dropdown#toggle" } %>
+
+          <button class="cpy-new-issue text-left py-2 px-4 hover:bg-background-100"
+              data-action="click->grouping-column#showInlineCardForm click->dropdown#toggle">
+              <%= t('visualizations.column_menu.create_issue') %>
+          </button>
           <%= link_to t('visualizations.column_menu.edit_column'), edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "cpy-edit-column py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'grouping_form', action: "click->dropdown#toggle" } %>
           <%= link_to t('visualizations.column_menu.delete'), visualization_grouping_path(grouping.visualization_id, grouping), class: "py-2 px-4 hover:bg-background-100", data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %>
         </div>
@@ -64,6 +68,6 @@
     <p class="grow text-left">
       <%= t('visualizations.column_menu.create_issue') %>
     </p>
-    <span class="group-hover:flex hidden text-xs font-medium ml-2"><%= t("actions.press") %> N</span>
+    <span class="group-hover:flex hidden text-xs font-medium ml-2 mr-2"><%= t("actions.press") %> N</span>
   </button>
 </li>

@@ -15,7 +15,6 @@ export default class extends Controller {
     }
 
     this.inputTarget.addEventListener('input', () => {
-      console.log(this.inputTarget.value)
       this.replicaTarget.innerText = this.inputTarget.value + '&nbsp;' // the ' ' avoid ui jumps
     })
   }

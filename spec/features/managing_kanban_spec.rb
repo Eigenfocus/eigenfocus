@@ -159,27 +159,22 @@ describe 'As a user, I want to manage my project kanban visualization' do
       within '.cpy-column-menu' do
         expect(page).to have_content("Actions")
 
-        click_link "Create issue"
+        click_button "Create issue"
       end
     end
 
-    fill_in :issue_title, with: "Make this test pass"
-    write_in_md_editor_field("This is important to be happy")
-
-    click_button "Create"
+    within "#grouping-#{grouping.id}-inline-issue-form" do
+      fill_in 'issue[title]', with: "Issue 1"
+      click_button "Create"
+    end
 
     expect(page).to have_content("Issue was successfully created.")
 
     issue = Issue.last
-    expect(issue.title).to eq("Make this test pass")
-    expect(issue.description).to eq("This is important to be happy")
-
-    within dom_id(grouping) do
-      expect(page).to have_content("Make this test pass")
-    end
+    expect(issue.title).to eq("Issue 1")
   end
 
-  specify "I can create issues using the inline create" do
+  specify "I can create issues using the footer button" do
     project = FactoryBot.create(:project)
     grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
 

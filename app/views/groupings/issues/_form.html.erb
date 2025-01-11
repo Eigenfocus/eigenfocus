@@ -1,86 +1,89 @@
 <%= turbo_frame_tag 'issue_form' do %>
-  <%= render_modal(inner_container_options: { class: "max-h-screen w-full max-w-3xl relative cpy-issue-form" }) do %>
-    <div class="border-b border-background-200 pb-2 mb-4">
-      <div class="flex items-center space-x-2">
-        <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
-          <%= icon_for(:issues) %>
+  <%= render_modal(inner_container_options: {
+    class: "max-h-screen w-full max-w-3xl relative cpy-issue-form",
+    data: {
+      controller: "issue-form",
+      "issue-form-attach-path-value": attach_issue_file_path(issue)
+    }
+  }) do %>
+    <div data-controller="dropzone" data-action="dropzone:complete->issue-form#fileUploadCompleted">
+      <div class="border-b border-background-200 pb-2 mb-4">
+        <div class="flex items-center space-x-2">
+          <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
+            <%= icon_for(:issues) %>
+          </div>
+          <h4 class="text-lg font-medium text-readable-content-700">
+            <%= issue.persisted? ? "#{t("actions.edit")} #{Issue.model_name.human}" : "#{t("actions.create")} #{Issue.model_name.human}"%>
+          </h4>
         </div>
-        <h4 class="text-lg font-medium text-readable-content-700">
-          <%= issue.persisted? ? "#{t("actions.edit")} #{Issue.model_name.human}" : "#{t("actions.create")} #{Issue.model_name.human}"%>
-        </h4>
       </div>
-    </div>
-    <div class="flex flex-col md:flex-row gap-8">
-      <%= form_with(model: [grouping, issue], html: {
-        class: 'flex flex-col gap-2 grow',
-        data: { controller: "issue-form" }
-        }) do |f| %>
-        <% if issue.errors.any? %>
-          <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
-            <%= issue.errors.full_messages.to_sentence.capitalize %>
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex flex-col">
+          <%= form_with(model: [grouping, issue], html: {
+            class: 'flex flex-col gap-2 grow'
+            }) do |f| %>
+
+            <div class="mb-4 flex flex-col items-stretch gap-2">
+              <%= f.label :title, Issue.human_attribute_name(:title), class: "label-primary" %>
+
+              <div data-controller='resizable-input' class="relative" >
+                <div data-resizable-input-target="replica" class=" text-base p-2 whitespace-pre-line"></div>
+
+                <%= f.text_area :title, required: true,
+                  autofocus: true,
+                  class: "text-base p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
+                  "data-resizable-input-target": "input"
+                  %>
+              </div>
+            </div>
+
+            <div class="mb-4 flex flex-col items-stretch gap-2 mardown">
+              <div class="flex justify-between">
+                <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
+                <span class="cursor-pointer text-xs flex items-center" data-issue-form-target="showPreviewButton" data-action="click->issue-form#enablePreview">
+                  <i class="fa fa-eye"></i>
+                  <span class="ml-2"><%= t("actions.preview") %></span>
+                </span>
+
+                <span class="cursor-pointer text-xs hidden text-primary-500 flex items-center" data-issue-form-target="showEditorButton" data-action="click->issue-form#disablePreview">
+                  <i class="fa fa-pencil"></i>
+                  <span class="ml-2 "><%= t("actions.edit") %></span>
+                </span>
+              </div>
+
+              <div class="markdown-editor">
+                <div class="markdown-content hidden" data-issue-form-target="descriptionPreview">
+                </div>
+
+                <%= f.text_area :description, class: "input-primary",
+                "data-issue-form-target": 'descriptionInput' %>
+              </div>
+
+            </div>
+
+            <div class="flex gap-2 justify-end">
+              <a class="btn-cancel" data-action="click->modal#close">
+                <%= t('actions.cancel') %>
+              </a>
+
+              <% text = issue.persisted? ? t('actions.update') : t('actions.create') %>
+              <%= f.button text, class: "btn-primary" %>
+            </div>
+          <% end %>
+          <%= render partial: 'files_drop', locals: { issue: } %>
+        </div>
+        <% if issue.persisted? %>
+          <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
+            <h5 class="w-full"><%= t("menu.actions") %></h5>
+
+            <%= link_to grouping_issue_path(grouping, issue), class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("confirmations.remove", resource_name: Issue.model_name.human.downcase) } do %>
+              <i class="fa-solid fa-trash"></i>
+              <%= t("actions.remove") %>
+            <% end %>
           </div>
         <% end %>
 
-        <div class="mb-4 flex flex-col items-stretch gap-2">
-          <%= f.label :title, Issue.human_attribute_name(:title), class: "label-primary" %>
-
-          <div data-controller='resizable-input' class="relative" >
-            <div data-resizable-input-target="replica" class=" text-base p-2 whitespace-pre-line"></div>
-
-            <%= f.text_area :title, required: true,
-              autofocus: true,
-              class: "text-base p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
-              "data-resizable-input-target": "input"
-              %>
-          </div>
-        </div>
-
-        <div class="mb-4 flex flex-col items-stretch gap-2 mardown">
-          <div class="flex justify-between">
-            <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
-            <span class="cursor-pointer text-xs flex items-center" data-issue-form-target="showPreviewButton" data-action="click->issue-form#enablePreview">
-              <i class="fa fa-eye"></i>
-              <span class="ml-2"><%= t("actions.preview") %></span>
-            </span>
-
-            <span class="cursor-pointer text-xs hidden text-primary-500 flex items-center" data-issue-form-target="showEditorButton" data-action="click->issue-form#disablePreview">
-              <i class="fa fa-pencil"></i>
-              <span class="ml-2 "><%= t("actions.edit") %></span>
-            </span>
-          </div>
-
-          <div class="markdown-editor">
-            <div class="markdown-content hidden" data-issue-form-target="descriptionPreview">
-            </div>
-
-            <%= f.text_area :description, class: "input-primary",
-            "data-issue-form-target": 'descriptionInput' %>
-          </div>
-
-        </div>
-
-
-        <div class="flex gap-2 justify-end">
-          <a class="btn-cancel" data-action="click->modal#close">
-            <%= t('actions.cancel') %>
-          </a>
-
-          <% text = issue.persisted? ? t('actions.update') : t('actions.create') %>
-          <%= f.button text, class: "btn-primary" %>
-        </div>
-      <% end %>
-
-      <% if issue.persisted? %>
-        <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
-          <h5 class="w-full"><%= t("menu.actions") %></h5>
-
-          <%= link_to grouping_issue_path(grouping, issue), class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("confirmations.remove", resource_name: Issue.model_name.human.downcase) } do %>
-            <i class="fa-solid fa-trash"></i>
-            <%= t("actions.remove") %>
-          <% end %>
-        </div>
-      <% end %>
-
+      </div>
     </div>
   <% end %>
 <% end %>

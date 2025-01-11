@@ -47,6 +47,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :issues, only: [] do
+    scope module: "issues" do
+      resource :file, only: [ :destroy ] do
+        post :attach, on: :collection
+      end
+    end
+  end
+
   resource :profile, only: [ :edit, :update ]
 
   # Defines the root path route ("/")

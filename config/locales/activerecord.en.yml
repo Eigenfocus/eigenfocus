@@ -39,6 +39,7 @@ en:
       issue:
         title: 'Title'
         description: 'Description'
+        files: "Files"
 
       time_entry:
         description: 'Description'

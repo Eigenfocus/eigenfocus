@@ -1,0 +1,8 @@
+<%= turbo_stream.prepend "issue-#{@issue.id}-file-list",
+  partial: "file", locals: {
+    issue: @issue,
+    file: @blob
+  }
+%>
+
+<%= turbo_stream.replace dom_id(@issue, 'card-icons'), partial: 'visualizations/groupings/_card/icons', locals: { issue: @issue } %>
