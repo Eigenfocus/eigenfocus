@@ -9,12 +9,8 @@
     <% if time_entry.project.present? %>
       <% if time_entry.project.issues.any? %>
         <%
-          issues = time_entry.project_id.present? ? time_entry.project.issues.to_a : []
-          # if it update action and current task is not time anymore
-          # we still show on select
-          if time_entry.issue && !issues.include?(time_entry.issue)
-            issues.push(time_entry.issue)
-          end
+          issues = time_entry.project_id.present? ? time_entry.project.issues.order(title: :asc) : []
+
         %>
         <%= select_tag "time_entry[issue_id]", options_from_collection_for_select(issues, :id, :title, time_entry.issue_id), { include_blank: t('none_selected_f'), style: "width: 100%", data: {
           "time-entry-form-target": 'projectsSelect',
