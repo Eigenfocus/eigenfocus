@@ -70,6 +70,7 @@ class DirectUploadController {
         this.emitDropzoneError(error)
       } else {
         this.hiddenInput.value = attributes.signed_id
+        this.file.previewTemplate.remove()
         this.emitDropzoneSuccess(attributes)
       }
     })
@@ -96,7 +97,9 @@ class DirectUploadController {
 
   uploadRequestDidProgress(event) {
     const progress = event.loaded / event.total * 100
-    document.querySelector(".dz-upload").style.width = `${progress}%`
+    console.log(progress)
+    console.log(event)
+    this.file.previewTemplate.querySelector(".dz-upload").style.width = `${progress}%`
   }
 
   emitDropzoneUploading() {
