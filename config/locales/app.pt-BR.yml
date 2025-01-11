@@ -55,6 +55,8 @@ pt-BR:
     clear_filter: "Limpar filtro"
     preview: "Pré-visualização"
     press: "Pressione"
+    go_to_board: 'Ir para visão de quadro'
+    go_to_time_tracking: "Ir para registro de tempo"
   flash:
     change_success: "Alteração feita com sucesso."
     change_error: "Houve um erro na hora de realizar a alteração."

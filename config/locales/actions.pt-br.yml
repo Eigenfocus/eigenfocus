@@ -3,8 +3,6 @@ pt-BR:
     project:
       enable_time_tracking: 'Habilitar registro de tempo'
       disable_time_tracking: 'Desabilitar registro de tempo'
-      go_to_board: 'Ir para visão de quadro'
-      go_to_time_tracking: "Ir para registro de tempo"
   profiles:
     form:
       why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."
