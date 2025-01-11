@@ -4,9 +4,7 @@
   </h3>
 </div>
 
-<div
-  class="dropzone-wrapper"
-  >
+<%= form_with(model: issue, url: '', html: { class: 'dropzone-wrapper'}) do |form| %>
 
   <%= form.file_field(
     :files,
@@ -20,10 +18,9 @@
   ) %>
 
   <div class="dz-message cursor-pointer p-16 rounded-md border border-primary-200 hover:border-primary-400 bg-primary-50 hover:bg-primary-100">
-
-      <p class="text-lg text-center text-readable-content-500">
-        Click to upload or drag and drop your files here.
-      </p>
+    <p class="text-lg text-center text-readable-content-500">
+      Click to upload or drag and drop your files here.
+    </p>
   </div>
 
   <div id="dz-previews-container" data-dropzone-target="previewsContainer" class="mt-4 previews-container">
@@ -50,7 +47,7 @@
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <div id="issue-<%= issue.id %>-file-list" class="flex flex-col gap-4">
   <% issue.files.each do |file| %>
