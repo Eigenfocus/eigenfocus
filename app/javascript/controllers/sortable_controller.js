@@ -16,6 +16,7 @@ export default class extends Controller {
 
   connect() {
     this.sortable = new Sortable(this.containerTarget, {
+      scroll: true, // Enable the plugin. Can be HTMLElement
       animation: 150,
       emptyInsertThreshold: 30,
       group: this.sharedGroupValue,
