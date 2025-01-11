@@ -30,6 +30,8 @@
   @apply border-readable-content-500 !important;
 }
 
+pre.CodeMirror-line { overflow-wrap: anywhere !important; }
+
 :is(.markdown-content, .editor-preview) {
   @apply bg-background-50 text-readable-content-800 font-sans leading-relaxed;
 }

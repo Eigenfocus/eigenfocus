@@ -1,6 +1,6 @@
 <%= turbo_frame_tag 'issue_form' do %>
   <%= render_modal(inner_container_options: {
-    class: "max-h-screen w-full max-w-3xl relative cpy-issue-form",
+    class: "max-h-screen w-full max-w-4xl relative cpy-issue-form",
     data: {
       controller: "issue-form",
       "issue-form-attach-path-value": attach_issue_file_path(issue)
@@ -18,9 +18,9 @@
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-8">
-        <div class="flex flex-col">
+        <div class="flex flex-col grow">
           <%= form_with(model: [grouping, issue], html: {
-            class: 'flex flex-col gap-2 grow'
+            class: 'flex flex-col gap-2'
             }) do |f| %>
 
             <div class="mb-4 flex flex-col items-stretch gap-2">
@@ -37,7 +37,7 @@
               </div>
             </div>
 
-            <div class="mb-4 flex flex-col items-stretch gap-2 mardown">
+            <div class="mb-4 flex flex-col items-stretch gap-2 markdown">
               <div class="flex justify-between">
                 <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
                 <span class="cursor-pointer text-xs flex items-center" data-issue-form-target="showPreviewButton" data-action="click->issue-form#enablePreview">
