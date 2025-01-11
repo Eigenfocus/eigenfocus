@@ -9,6 +9,7 @@ export default class extends Controller {
 
   connect() {
     this.replicaTarget.innerHTML = this.inputTarget.value
+    this.inputTarget.style.resize = 'none'
 
     if (this.inputTarget.value.trim() == '') {
       this.replicaTarget.innerHTML += '&nbsp;' // Avoid wrong height if input is empty
