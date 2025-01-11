@@ -3,8 +3,6 @@ en:
     project:
       enable_time_tracking: 'Enable time tracking'
       disable_time_tracking: 'Disable time tracking'
-      go_to_board: 'Go to Board View'
-      go_to_time_tracking: "Go to time tracking"
   visualizations:
     column_menu:
       actions: 'Actions'

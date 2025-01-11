@@ -3,18 +3,27 @@
     request_param_name: 'project_id'
   } do %>
   <% time_entry = form.object %>
+
+
   <div class="flex gap-2 flex-col">
-    <%= form.label :issue, TimeEntry.human_attribute_name(:issue), class: "label-primary" %>
+    <div class="flex justify-between items-center">
+      <%= form.label :issue, TimeEntry.human_attribute_name(:issue), class: "label-primary" %>
+
+      <% if time_entry.project.present? %>
+
+        <%= link_to visualization_path(time_entry.project.default_visualization), class: "link-primary text-xs", data: { turbo_frame: "_top" } do %>
+          <span class=" mr-2"><%= icon_for(:project_issues) %></span>
+          <%= t("actions.go_to_board") %>
+        <% end %>
+      <% end %>
+    </div>
+
 
     <% if time_entry.project.present? %>
       <% if time_entry.project.issues.any? %>
         <%
-          issues = time_entry.project_id.present? ? time_entry.project.issues.to_a : []
-          # if it update action and current task is not time anymore
-          # we still show on select
-          if time_entry.issue && !issues.include?(time_entry.issue)
-            issues.push(time_entry.issue)
-          end
+          issues = time_entry.project_id.present? ? time_entry.project.issues.order(title: :asc) : []
+
         %>
         <%= select_tag "time_entry[issue_id]", options_from_collection_for_select(issues, :id, :title, time_entry.issue_id), { include_blank: t('none_selected_f'), style: "width: 100%", data: {
           "time-entry-form-target": 'projectsSelect',
