@@ -1,15 +1,18 @@
 <div class="flex flex-col h-full">
-  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 cpy-header-wrapper">
-    <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800">
+  <div class="flex flex-col sm:flex-row items-stretch justify-between gap-3 mb-6">
+    <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
       <%= @visualization.project.name %> - <%= Visualization.model_name.human(count: 1) %>
     </h2>
-    <%= link_to "#{t('actions.create')} #{Grouping.model_name.human.downcase}", new_visualization_grouping_path(@visualization), class: "btn-primary btn-xl", data: { turbo_frame: 'grouping_form' } %>
+    <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "btn-secondary", data: { turbo_frame: "_top" } do %>
+      <span class=" mr-2"><%= icon_for(:time_entries) %></span>
+      <%= t("actions.go_to_time_tracking") %>
+    <% end %>
   </div>
 
   <%= turbo_frame_tag('grouping_form') {} %>
   <%= turbo_frame_tag('issue_form') {} %>
 
-  <div class="relative grow">
+  <div class="relative grow cpy-columns-wrapper">
     <ul
         class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:-left-12 sm:-right-12 sm:-bottom-12 sm:scroll-pl-12 flex flex-row flex-nowrap gap-x-8 pb-2 sm:px-12 items-start overflow-x-auto overflow-y-hidden snap-x scroll-smooth"
         data-controller="sortable"
