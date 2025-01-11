@@ -62,3 +62,7 @@ pt-BR:
         filter_by_project: 'Filtrar por projeto'
         entry_start_at: 'Começando em'
         entry_end_at: 'Terminando em'
+  groupings:
+    issues:
+      form:
+        remove_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
