@@ -6,8 +6,6 @@
 
 <div
   class="dropzone-wrapper"
-  data-controller="dropzone"
-  data-action="dropzone:complete->issue-form#fileUploadCompleted"
   >
 
   <%= form.file_field(
@@ -21,15 +19,14 @@
     }
   ) %>
 
-  <div class="dz-message needsclick drop-container">
-    <div class="message-container">
-      <div>
-        <a>Click to upload</a> or drag and drop your files here.
-      </div>
-    </div>
+  <div class="dz-message cursor-pointer p-16 rounded-md border border-primary-200 hover:border-primary-400 bg-primary-50 hover:bg-primary-100">
+
+      <p class="text-lg text-center text-readable-content-500">
+        Click to upload or drag and drop your files here.
+      </p>
   </div>
 
-  <div id="dz-previews-container" data-dropzone-target="previewsContainer" class="previews-container">
+  <div id="dz-previews-container" data-dropzone-target="previewsContainer" class="mt-4 previews-container">
   </div>
 
   <div class="hidden">

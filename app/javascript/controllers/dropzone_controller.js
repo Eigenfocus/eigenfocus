@@ -35,7 +35,7 @@ export default class extends Controller {
 
   get maxFiles() { return this.data.get("maxFiles") || 15 }
 
-  get maxFileSize() { return this.data.get("maxFileSize") || 10000 }
+  get maxFileSize() { return this.data.get("maxFileSize") || 4000 } // Max for Amazon S3 is 5GB
 
   get acceptedFiles() { return this.data.get("acceptedFiles") }
 
@@ -97,8 +97,6 @@ class DirectUploadController {
 
   uploadRequestDidProgress(event) {
     const progress = event.loaded / event.total * 100
-    console.log(progress)
-    console.log(event)
     this.file.previewTemplate.querySelector(".dz-upload").style.width = `${progress}%`
   }
 
