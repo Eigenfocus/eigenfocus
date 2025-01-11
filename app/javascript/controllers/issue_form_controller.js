@@ -66,4 +66,15 @@ export default class extends Controller {
 
     return request.perform()
   }
+
+  copyToClipboard(e) {
+    const button = e.currentTarget
+    navigator.clipboard.writeText(e.params.fileUrl)
+    button.querySelector(".fa-check").classList.remove('hidden')
+    button.querySelector(".fa-copy").classList.add('hidden')
+    setTimeout(() => {
+      button.querySelector(".fa-check").classList.add('hidden')
+      button.querySelector(".fa-copy").classList.remove('hidden')
+    }, 1500)
+  }
 }

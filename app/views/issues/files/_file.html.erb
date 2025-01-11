@@ -17,10 +17,16 @@
 
   <div class="flex gap-4 items-center">
     <%= link_to rails_blob_path(file, description: "attachment"),
-      class: "text-primary-500 text-center inline-flex items-center gap-2",
+      class: "text-readable-content-500 text-center inline-flex items-center gap-2",
       target: '_blank' do %>
       <i class="fa-solid text-xl fa-download"></i>
     <% end %>
+
+    <button data-issue-form-file-url-param="<%= rails_blob_url(file, description: "attachment") %>" data-action="click->issue-form#copyToClipboard" class="text-primary-500 items-center flex text-center inline-flex items-center gap-2">
+      <i class="hidden text-success-500 fa-solid fa-check"></i>
+      <i class="text-readable-content-500 fa-solid text-xl fa-copy"></i>
+    </button>
+
     <%= link_to issue_file_path(issue, blob_signed_id: file.signed_id),
       class: "text-danger-500 text-center inline-flex items-center gap-2",
       data: { turbo_method: :delete,
