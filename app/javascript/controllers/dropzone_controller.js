@@ -135,7 +135,7 @@ function createDropZone(controller) {
     acceptedFiles: controller.acceptedFiles,
     addRemoveLinks: false,
     autoQueue: false,
-    createImageThumbnails: true,
+    createImageThumbnails: false,
     previewsContainer: controller.previewsContainer,
     previewTemplate: controller.previewTemplate
   })
