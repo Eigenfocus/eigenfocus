@@ -3,15 +3,15 @@
     <div class="flex items-center w-16 justify-center text-primary-200 text-4xl">
       <%= link_to rails_blob_path(file, description: "attachment"), class: "flex items-center", target: '_blank' do %>
         <% if file.representable? %>
-          <%= image_tag rails_blob_path(file.variant(:thumb), description: "attachment"), class: 'w-auto' %>
+          <%= image_tag file.representation(resize_to_limit: [100, 100]), class: 'w-auto' %>
         <% else %>
           <i class="fa fa-file"></i>
         <% end %>
       <% end %>
     </div>
     <div class="text-readable-content-500 text-base flex grow flex-col">
-      <span ><%= file.filename %></span>
-      <span><%= number_to_human_size(file.byte_size, precision: 2) %></span>
+      <span class="text-xs text-italic" ><%= file.filename %></span>
+      <span  class="text-sm"><%= number_to_human_size(file.byte_size, precision: 2) %></span>
     </div>
   </div>
 

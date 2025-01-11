@@ -1,4 +1,8 @@
-<% file_input_name ||= :files %>
+<div class="mt-2">
+  <h3 class="text-xl text-readable-content-500">
+    <%= Issue.human_attribute_name(:files) %>
+  </h3>
+</div>
 
 <div
   class="dropzone-wrapper"
@@ -7,7 +11,7 @@
   >
 
   <%= form.file_field(
-    file_input_name,
+    :files,
     class: 'hidden',
     direct_upload: true,
     multiple: true,
@@ -44,4 +48,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div id="issue-<%= issue.id %>-file-list" class="flex flex-col gap-4">
+  <% issue.files.each do |file| %>
+    <%= render partial: 'issues/files/file', locals: { issue:, file: } %>
+  <% end %>
 </div>

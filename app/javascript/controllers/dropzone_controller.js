@@ -33,7 +33,7 @@ export default class extends Controller {
 
   get url() { return this.inputTarget.getAttribute("data-direct-upload-url") }
 
-  get maxFiles() { return this.data.get("maxFiles") || 1 }
+  get maxFiles() { return this.data.get("maxFiles") || 15 }
 
   get maxFileSize() { return this.data.get("maxFileSize") || 10000 }
 

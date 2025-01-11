@@ -61,10 +61,6 @@
 
         </div>
 
-
-        <div class="flex gap-2 flex-col">
-          <%= render partial: 'files_drop', locals: { form: f, issue: } %>
-        </div>
         <div class="flex gap-2 justify-end">
           <a class="btn-cancel" data-action="click->modal#close">
             <%= t('actions.cancel') %>
@@ -74,11 +70,8 @@
           <%= f.button text, class: "btn-primary" %>
         </div>
 
-        <div id="issue-<%= issue.id %>-file-list" class="mt-4 flex flex-col gap-4">
-          <% issue.files.each do |file| %>
-            <%= render partial: 'issues/files/file', locals: { issue:, file: } %>
-          <% end %>
-        </div>
+        <%= render partial: 'files_drop', locals: { form: f, issue: } %>
+
       <% end %>
 
       <% if issue.persisted? %>
