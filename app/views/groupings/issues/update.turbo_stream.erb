@@ -1,6 +1,8 @@
 <% if @issue.persisted? %>
   <%= turbo_stream.replace dom_id(@issue), partial: "visualizations/card", locals: { grouping: current_grouping, issue: @issue } %>
-  <%= turbo_stream.update 'issue_form', "" %>
+  <% if params[:button] == "update-and-close-modal" %>
+    <%= turbo_stream.update 'issue_form', "" %>
+  <% end %>
   <%= new_turbo_stream_alert_message(:success, t_flash_message(@issue)) %>
 <% else %>
   <%= new_turbo_stream_alert_message(:error, @issue.errors.full_messages.to_sentence) %>

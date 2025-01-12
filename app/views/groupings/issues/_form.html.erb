@@ -20,7 +20,11 @@
       <div class="flex flex-col md:flex-row gap-8">
         <div class="flex flex-col grow">
           <%= form_with(model: [grouping, issue], html: {
-            class: 'flex flex-col gap-2'
+            class: 'flex flex-col gap-2',
+            data: {
+              turbo: true,
+              "issue-detail-target": "form"
+            }
             }) do |f| %>
 
             <div class="mb-4 flex flex-col items-stretch gap-2">
@@ -30,9 +34,9 @@
                 <div data-resizable-input-target="replica" class=" text-base p-2 whitespace-pre-line"></div>
 
                 <%= f.text_area :title, required: true,
-                  autofocus: true,
                   class: "text-base p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
-                  "data-resizable-input-target": "input"
+                  "data-resizable-input-target": "input",
+                  "data-action": "keydown.enter->issue-detail#onTitleFieldEnter blur->issue-detail#onTitleFieldBlur"
                   %>
               </div>
             </div>
@@ -67,7 +71,7 @@
               </a>
 
               <% text = issue.persisted? ? t('actions.update') : t('actions.create') %>
-              <%= f.button text, class: "btn-primary" %>
+              <%= f.button text, class: "btn-primary", value: "update-and-close-modal" %>
             </div>
           <% end %>
           <%= render partial: 'files_drop', locals: { issue: } %>
