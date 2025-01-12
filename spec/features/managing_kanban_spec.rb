@@ -263,6 +263,33 @@ describe 'As a user, I want to manage my project kanban visualization' do
     end
   end
 
+  specify "I can update the title via auto saving" do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
+    issue = FactoryBot.create(:issue, title: "Issue testing title", description: "Issue description", project: project)
+    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      expect(page).to have_content("Issue testing title")
+
+      click_link "Issue testing title"
+    end
+
+    within '#issue_form' do
+      fill_in :issue_title, with: "Updated title"
+      find('#issue_title').send_keys :enter
+    end
+
+    expect(page).to have_content("Issue was successfully updated.")
+    # Modal is still open
+    expect(page).to have_selector('#issue_form', visible: true)
+
+    issue = Issue.last
+    expect(issue.title).to eq("Updated title")
+  end
+
   specify 'I can move issues within the same grouping' do
     project = FactoryBot.create(:project)
     grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
@@ -358,7 +385,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
 
     click_link "DELETE ME"
 
-    within ".cpy-issue-form" do
+    within ".cpy-issue-detail" do
       accept_confirm do
         click_link "Remove"
       end

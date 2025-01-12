@@ -4,6 +4,8 @@ import { FetchRequest } from '@rails/request.js'
 
 export default class extends Controller {
   static targets = [
+    "form",
+    "titleField",
     "descriptionPreview",
     "descriptionInput",
     "showEditorButton",
@@ -40,6 +42,32 @@ export default class extends Controller {
       this.descriptionInputTarget.value = this._simplemde.value();
       this.descriptionPreviewTarget.innerHTML = marked.parse(this._simplemde.value());
     });
+  }
+
+  onTitleFieldEnter(e) {
+    e.preventDefault() // Do not allow textarea to capture the new line
+    e.stopPropagation()
+    this.handleTitleUpdate(e.currentTarget);
+  }
+
+  onTitleFieldBlur(e) {
+    this.handleTitleUpdate(e.currentTarget);
+  }
+
+  handleTitleUpdate(titleField) {
+    const titleChanged = this.lastTitleWas != titleField.value
+    const shouldUpdate = titleChanged && titleField.value.trim() != ""
+
+    if (shouldUpdate) {
+      this.lastTitleWas = titleField.value
+      this.formTarget.requestSubmit()
+    }
+
+    titleField.blur()
+  }
+
+  titleFieldTargetConnected(element) {
+    this.lastTitleWas = element.value
   }
 
   enablePreview() {
