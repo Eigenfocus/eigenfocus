@@ -1,12 +1,12 @@
 <%= turbo_frame_tag 'issue_form' do %>
   <%= render_modal(inner_container_options: {
-    class: "max-h-screen w-full max-w-4xl relative cpy-issue-form",
+    class: "max-h-screen w-full max-w-4xl relative cpy-issue-detail",
     data: {
-      controller: "issue-form",
-      "issue-form-attach-path-value": attach_issue_file_path(issue)
+      controller: "issue-detail",
+      "issue-detail-attach-path-value": attach_issue_file_path(issue)
     }
   }) do %>
-    <div data-controller="dropzone" data-action="dropzone:complete->issue-form#fileUploadCompleted">
+    <div data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
       <div class="border-b border-background-200 pb-2 mb-4">
         <div class="flex items-center space-x-2">
           <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
@@ -40,23 +40,23 @@
             <div class="mb-4 flex flex-col items-stretch gap-2 markdown">
               <div class="flex justify-between">
                 <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
-                <span class="cursor-pointer text-xs flex items-center" data-issue-form-target="showPreviewButton" data-action="click->issue-form#enablePreview">
+                <span class="cursor-pointer text-xs flex items-center" data-issue-detail-target="showPreviewButton" data-action="click->issue-detail#enablePreview">
                   <i class="fa fa-eye"></i>
                   <span class="ml-2"><%= t("actions.preview") %></span>
                 </span>
 
-                <span class="cursor-pointer text-xs hidden text-primary-500 flex items-center" data-issue-form-target="showEditorButton" data-action="click->issue-form#disablePreview">
+                <span class="cursor-pointer text-xs hidden text-primary-500 flex items-center" data-issue-detail-target="showEditorButton" data-action="click->issue-detail#disablePreview">
                   <i class="fa fa-pencil"></i>
                   <span class="ml-2 "><%= t("actions.edit") %></span>
                 </span>
               </div>
 
               <div class="markdown-editor">
-                <div class="markdown-content hidden" data-issue-form-target="descriptionPreview">
+                <div class="markdown-content hidden" data-issue-detail-target="descriptionPreview">
                 </div>
 
                 <%= f.text_area :description, class: "input-primary",
-                "data-issue-form-target": 'descriptionInput' %>
+                "data-issue-detail-target": 'descriptionInput' %>
               </div>
 
             </div>

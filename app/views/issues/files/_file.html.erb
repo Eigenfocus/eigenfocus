@@ -22,7 +22,7 @@
       <i class="fa-solid text-xl fa-download"></i>
     <% end %>
 
-    <button data-issue-form-file-url-param="<%= rails_blob_url(file, description: "attachment") %>" data-action="click->issue-form#copyToClipboard" class="text-primary-500 items-center flex text-center inline-flex items-center gap-2">
+    <button data-issue-detail-file-url-param="<%= rails_blob_url(file, description: "attachment") %>" data-action="click->issue-detail#copyToClipboard" class="text-primary-500 items-center flex text-center inline-flex items-center gap-2">
       <i class="hidden text-success-500 fa-solid fa-check"></i>
       <i class="text-readable-content-500 fa-solid text-xl fa-copy"></i>
     </button>
