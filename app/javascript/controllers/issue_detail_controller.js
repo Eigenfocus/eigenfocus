@@ -5,6 +5,7 @@ import { FetchRequest } from '@rails/request.js'
 export default class extends Controller {
   static targets = [
     "form",
+    "titleField",
     "descriptionPreview",
     "descriptionInput",
     "showEditorButton",
@@ -46,17 +47,27 @@ export default class extends Controller {
   onTitleFieldEnter(e) {
     e.preventDefault() // Do not allow textarea to capture the new line
     e.stopPropagation()
-    if (e.currentTarget.value.trim() != "") {
-      this.formTarget.requestSubmit()
-      e.currentTarget.blur()
-    }
+    this.handleTitleUpdate(e.currentTarget);
   }
 
   onTitleFieldBlur(e) {
-    if (e.currentTarget.value.trim() != "") {
+    this.handleTitleUpdate(e.currentTarget);
+  }
+
+  handleTitleUpdate(titleField) {
+    const titleChanged = this.lastTitleWas != titleField.value
+    const shouldUpdate = titleChanged && titleField.value.trim() != ""
+
+    if (shouldUpdate) {
+      this.lastTitleWas = titleField.value
       this.formTarget.requestSubmit()
-      e.currentTarget.blur()
     }
+
+    titleField.blur()
+  }
+
+  titleFieldTargetConnected(element) {
+    this.lastTitleWas = element.value
   }
 
   enablePreview() {
