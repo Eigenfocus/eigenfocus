@@ -17,65 +17,33 @@
         end
       end
   %>
-
-      <li class="">
+      <li class="relative group">
         <%
-            wrapper_tag = sub_menu.empty? ? :a : :div
-
-            wrapper_options = {
-              "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 group border-primary-700 hover:bg-background-100 hover:text-primary-700 truncate transition duration-150"
-            }
-
-            if sub_menu.empty?
-              wrapper_options[:href] = menu_item[:url]
-              wrapper_options[:data] = menu_item[:data]
-            else
-              wrapper_options[:data] = { action: "click->sidebar#expand" }
-            end
+          wrapper_options = {
+            "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 border-primary-700 hover:bg-background-100 hover:text-primary-700 truncate transition duration-150",
+            href: menu_item[:url]
+          }
 
         %>
-        <%=
-            content_tag(wrapper_tag, wrapper_options) do %>
-            <div class="flex flex-col justify-between gap-2">
-              <div class="flex items-center text-lg">
-                  <% if sub_menu.empty? %>
+        <%= content_tag(:a, wrapper_options) do %>
+          <div class="flex  flex-col justify-between gap-2">
+            <div class="flex items-center text-lg">
 
-                    <span class=" group-hover:text-primary-700">
-                      <%= menu_item[:icon] %>
-                    </span>
-                    <span class="group-hover:text-primary-700 group-hover:font-bold group-active:text-primary-700 text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block"><%= menu_item[:text] %></span>
-                  <% else %>
-                    <span class="">
-                      <%= menu_item[:icon] %>
-                    </span>
-                    <span class="text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block"><%= menu_item[:text] %></span>
-                  <% end %>
-              </div>
-
-
-
-              <%
-                sub_menu.each do |menu_item|
-              %>
-
-                <%
-                  link_active_class = ""
-                  if controller_name.to_sym == menu_item[:main_controller].to_sym
-                    if menu_item[:action_name].blank? || (action_name.to_sym == menu_item[:action_name].to_sym)
-                      link_active_class = "text-primary-700"
-                    end
-                  end
-                %>
-                <a class="pl-2 hidden sidebar-expanded:block hover:bg-background-200 p-2 rounded-md block hover:text-primary-700 active:text-primary-700  <%= link_active_class %>" href="<%= menu_item[:url] %>">
-                  <span class="text-sm font-medium"> <%= menu_item[:text] %></span>
-                </a>
-
-              <% end %>
-
-
+              <span class=" group-hover:text-primary-700">
+                <%= menu_item[:icon] %>
+              </span>
+              <span class="group-hover:text-primary-700 group-hover:font-bold group-active:text-primary-700 text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block"><%= menu_item[:text] %></span>
             </div>
+          </div>
         <% end %>
-
+        <% if menu_item[:hover_menu] %>
+          <div class="hidden group-hover:flex w-max flex-col border border-primary-200 bg-background-menu absolute top-0 left-[100%] rounded-sm">
+            <%  menu_item[:hover_menu].each do |menu_item| %>
+              <%= link_to menu_item[:text], menu_item[:url],
+                class: "text-sm font-medium text-readable-content-500 p-4 pr-8 hover:bg-primary-300 hover:text-primary-800" %>
+            <% end %>
+          </div>
+        <% end %>
       </li>
 
   <% end %>
