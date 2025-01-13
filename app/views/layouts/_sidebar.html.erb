@@ -1,10 +1,10 @@
-<div class="sidebar min-w-fit relative ">
+<div class="sidebar min-w-fit z-10 relative">
    <div data-sidebar-target="backdrop" class="fixed inset-0 bg-background-900 bg-opacity-30 z-40 hidden lg:hidden lg:z-auto transition-opacity duration-200" aria-hidden="true"></div>
 
    <div data-sidebar-target="sidebar"
       style="z-index: 1000;"
       class="flex border-r border-background-200 bg-background-menu lg:!flex flex-col justify-stretch absolute left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh]  w-64 lg:w-20 lg:sidebar-expanded:!w-64 shrink-0 transition-all duration-200 ease-in-out -translate-x-64 shadow-sm">
-      <div class="flex grow flex-col overflow-y-scroll lg:overflow-y-auto">
+      <div class="flex grow flex-col overflow-visible">
          <div class="h-16 mb-4 md:mb-0 lg:sidebar-expanded:mb-8 relative cpy-sidebar-login-data">
             <button data-action="click->sidebar#close" style="right: 15px; top: calc(50% - 16px);" class="absolute z-20 md:hidden text-2xl text-readable-content-400 opacity-80 hover:text-readable-content-700">
                <i class="fa fa-xmark"></i>
@@ -39,8 +39,15 @@
                   {
                     text: t('.menu.projects'),
                     icon: icon_for(:projects),
+                    url: projects_path,
                     main_controller: :projects,
-                    url: projects_path
+                    hover_menu: Project.order(name: :asc).all.map { |p|
+                      {
+                        text: p.name,
+                        url: visualization_path(p.default_visualization)
+                      }
+                    }
+
                   },
                   {
                     text: t('.menu.timesheet'),
