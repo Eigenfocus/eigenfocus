@@ -41,4 +41,20 @@ describe AppMetadata do
   specify '#last_released_version' do
     expect(subject.last_released_version).to be_an_instance_of(Gem::Version)
   end
+
+  describe '#is_app_outdated?' do
+    specify do
+      expect(subject).to receive(:current_version).and_return(Gem::Version.new("0.77.0"))
+      subject.last_released_version = "0.112.0"
+      expect(subject.is_app_outdated?).to be(true)
+    end
+
+    specify do
+      expect(subject).to receive(:current_version).twice.and_return(Gem::Version.new("0.77.0-beta1"))
+      subject.last_released_version = "0.77.0-alpha2"
+      expect(subject.is_app_outdated?).to be(false)
+      subject.last_released_version = "0.77.0-beta2"
+      expect(subject.is_app_outdated?).to be(true)
+    end
+  end
 end

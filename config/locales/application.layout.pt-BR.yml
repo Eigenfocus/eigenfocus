@@ -26,6 +26,7 @@ pt-BR:
     header:
       current_version: "Versão atual"
       check_our_github: "Veja nosso Github"
+      outdated_alert_html: "Sua versão está desatualizada.<br/>Nossa versão mais atual é %{newest_version}."
     sidebar:
       edit_profile: "Editar perfil"
       profile_options: "Perfil e configurações"

@@ -14,6 +14,10 @@ class AppMetadata < ApplicationRecord
     Gem::Version.new(super)
   end
 
+  def is_app_outdated?
+    last_released_version > current_version
+  end
+
   private def assign_fields
     self.token = SecureRandom.uuid
     self.last_released_version = current_version
