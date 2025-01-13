@@ -22,6 +22,9 @@ en:
 
       thanks: "Thanks for using Eigenfocus."
       like_us: "Like us on Github"
+    header:
+      current_version: "Current Version"
+      check_our_github: "Check our Github"
     sidebar:
       edit_profile: "Edit profile"
       profile_options: "Profile & Settings"

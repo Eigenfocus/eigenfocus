@@ -18,6 +18,22 @@
         class="cpy-open-guide text-lg text-readable-content-500 hover:text-primary-500">
         <i class="fa-solid fa-star"></i>
       </button>
+
+
+      <div class="relative inline-flex" data-controller="dropdown">
+        <button data-action="click->dropdown#toggle click@window->dropdown#hide"
+          role="button" data-dropdown-target="button"
+          class="cpy-header-theme-dropdown text-lg text-readable-content-500 hover:text-primary-500"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <div data-dropdown-target="menu" class="bg-body-contrast origin-top-right z-10 absolute top-full min-w-max bg-white border border-background-400 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+          <div class="flex flex-col justify-stretch items-stretch text-left text-readable-content-500">
+            <p class="py-2 px-4 text-sm font-bold bg-background-200"><%= t(".current_version") %>: <%= AppMetadata.instance.current_version %></p>
+            <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="py-2 px-4 text-sm text-primary-500 hover:bg-background-100"><i class="fa-brands fa-github mr-1"></i> <%= t(".check_our_github") %></a>
+          </div>
+        </div>
+      </div>
       <div class="relative inline-flex" data-controller="dropdown">
         <button data-action="click->dropdown#toggle click@window->dropdown#hide"
           role="button" data-dropdown-target="button"
