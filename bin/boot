@@ -1,28 +1,5 @@
 #!/bin/bash -e
 
-load_or_create_secret_env()
-{
-  mkdir -p ./app-data
-
-  if ! [ -e ./app-data/secret.txt ]
-  then
-    echo "Creating application secret on app-data/secret.txt..."
-    bundle exec rails secret > ./app-data/secret.txt
-  fi
-
-  export SECRET_KEY_BASE=$(cat ./app-data/secret.txt)
-}
-
-setup_upload_folder()
-{
-  echo "Creating application upload-storage folder..."
-  mkdir -p ./app-data/upload-storage
-}
-
-load_or_create_secret_env
-setup_upload_folder
-
-cp config/database.example.yml config/database.yml
 rm -f tmp/pids/server.pid
 
 ./bin/rails db:prepare
