@@ -49,4 +49,5 @@ group :test do
   gem "rspec-rails", "~> 7.1"
   gem "selenium-webdriver", "4.27"
   gem "timecop"
+  gem "webmock"
 end

@@ -25,11 +25,11 @@ describe AppMetadata do
       expect(subject.token).to match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/)
     end
 
-    it "sets last_released_version_updated_at to now" do
+    it "sets last_released_version_checked_at to now" do
       current_time = DateTime.current
 
       Timecop.freeze(current_time) do
-        expect(subject.last_released_version_updated_at.utc.to_s).to eq(current_time.utc.to_s)
+        expect(subject.last_released_version_checked_at.utc.to_s).to eq(current_time.utc.to_s)
       end
     end
   end

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   # Hooks
   before_action :ensure_user_profile_is_complete
   before_action :set_favorite_theme, if: -> { params[:switch_theme_to].present? }
+  before_action :fetch_newest_app_version
   around_action :switch_locale
   around_action :switch_time_zone
 
@@ -32,6 +33,15 @@ class ApplicationController < ActionController::Base
     unless current_user.is_profile_complete?
       redirect_to edit_profile_path
     end
+  end
+
+  def fetch_newest_app_version
+    Thread.new {
+      updater = AppVersionUpdater.new(AppMetadata.instance)
+      if updater.should_fetch_newest_release?
+        updater.update_newest_release_metadata!
+      end
+    }
   end
 
   def set_favorite_theme

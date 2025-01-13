@@ -42,7 +42,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_13_114608) do
   create_table "app_metadata", force: :cascade do |t|
     t.string "token"
     t.string "last_released_version"
-    t.datetime "last_released_version_updated_at"
+    t.datetime "last_released_version_checked_at"
   end
 
   create_table "grouping_issue_allocations", force: :cascade do |t|
