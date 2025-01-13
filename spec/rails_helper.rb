@@ -13,6 +13,8 @@ require 'rspec/rails'
 require 'factory_bot_rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true, allow: %r{selenium:4444})
 
 Timecop.safe_mode = true
 
