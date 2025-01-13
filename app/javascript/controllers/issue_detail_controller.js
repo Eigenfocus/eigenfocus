@@ -50,11 +50,20 @@ export default class extends Controller {
     this.handleTitleUpdate(e.currentTarget);
   }
 
+  onTitleFieldEsc() {
+    this.skipAutoSave = true
+  }
+
   onTitleFieldBlur(e) {
     this.handleTitleUpdate(e.currentTarget);
   }
 
   handleTitleUpdate(titleField) {
+    if (this.skipAutoSave) {
+      this.skipAutoSave = false
+      return
+    }
+
     const titleChanged = this.lastTitleWas != titleField.value
     const shouldUpdate = titleChanged && titleField.value.trim() != ""
 
