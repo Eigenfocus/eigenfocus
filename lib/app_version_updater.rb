@@ -24,7 +24,7 @@ class AppVersionUpdater
 
   private def fetch_newest_version
     begin
-      uri = URI("https://eigenfocus.com/api/v1/app_version/latest")
+      uri = URI("https://eigenfocus.com/api/v1/app_versions/latest")
 
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = (uri.scheme == "https")
