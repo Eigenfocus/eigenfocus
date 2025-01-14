@@ -42,7 +42,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:v0.5.2
+    eigenfocus/eigenfocus:0.6.0
 ```
 
 And access it at http://localhost:3001.
@@ -53,7 +53,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:v0.5.2
+    image: eigenfocus/eigenfocus:0.6.0
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
