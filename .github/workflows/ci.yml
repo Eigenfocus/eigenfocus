@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 
 jobs:
-  brakeman:
+  quality:
     runs-on: self-hosted
 
     steps:
@@ -21,28 +21,12 @@ jobs:
 
       - name: Copy database.yml
         run: cp config/database.example.yml config/database.yml
+
+      - name: Build the app
+        run: docker compose build web
 
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: docker compose run web bin/brakeman --no-pager
-
-      - name: Stop containers
-        if: always()
-        run: docker compose down
-
-  rubocop:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Copy docker-compose
-        run: cp docker-compose.dev.example.yml docker-compose.yml
-
-      - name: Copy Env
-        run: cp example.env .env
-
-      - name: Copy database.yml
-        run: cp config/database.example.yml config/database.yml
 
       - name: Lint code for consistent style
         run: docker compose run web bin/rubocop -f github
@@ -52,7 +36,7 @@ jobs:
         run: docker compose down
 
   tests:
-    needs: [rubocop, brakeman]
+    needs: [quality]
     runs-on: self-hosted
     timeout-minutes: 10
 
@@ -71,6 +55,9 @@ jobs:
 
       - name: Copy docker-compose.override.test.example.yml
         run: cp docker-compose.override.test.example.yml docker-compose.override.yml
+
+      - name: Build the app
+        run: docker compose build web
 
       - name: Setup DB
         run: |
