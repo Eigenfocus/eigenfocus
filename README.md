@@ -15,11 +15,45 @@ Here are some of our current features:
 
 - Projects: create/edit/update/archive you projects
 - Boards: each project has a board where you can customize columns to your workflow
-- Issues: create issues using the project board
+- Issues: create issues, write markdown descriptions and attach files
 - Workflow with Boards: Move issues between columns
 - Time Tracking: track time spent on a Project and a Specific Issue
 - Time Report: generate time reports by project and time periods
 - Themes: customize the UI to your taste
+
+# Our Vision
+We're building an All-In-One Self-Hosted solution to manage projects, time and teams.
+
+We've been working with product development for more than a decade so this product is built on the wisdom, pain and scars that we've gathered over the years. Our philosophy is to create a tool that is both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
+
+Any new ideas are welcome.
+
+# Our Roadmap
+
+## FREE Edition
+Here is what is coming next:
+
+- Timers and time alerts for better focus (Pomodoro, drinking water, stretching)
+- Focus playlist sounds/songs
+- Better Integration between Boards <> Time Tracking
+- Better UX for handling multiple cards/issues at once
+
+<div align="center">
+⭐️ this repository and stay up to date.
+</div>
+
+## Supporter Edition
+
+We're building a Supporter Edition with features for managing more complex projects and teams.
+
+- Inviting members
+- Other types of project views  (boards, lists, custom matrices, calendar)
+- Multiple views per project
+- Project Hierarchization
+
+<div align="center">
+<a href="https://eigenfocus.com/#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
+</div>
 
 # Some Screenshots
 <div align="center">
