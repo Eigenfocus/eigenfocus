@@ -6,7 +6,7 @@
     <p>Manage your personal and work projects in one place.</p>
     <br />
     <a href="https://eigenfocus.com"><strong>Website</strong></a> |
-    <a href="#installation"><strong>Installation</strong></a>
+    <a href="#installation"><strong>Docker Installation</strong></a>
 </div>
 <br />
 
