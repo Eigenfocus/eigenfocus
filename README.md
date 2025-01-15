@@ -1,14 +1,23 @@
 <div align="center">
-    <h1><b>Eigenfocus</b></h1>
-    <p>
-        Free Self-Hosted All-in-One Management App: Kanban Boards, Time Tracking & Focus Tools.
-    </p>
-    <p>Manage your personal and work projects in one place.</p>
-    <br />
-    <a href="https://eigenfocus.com"><strong>Website</strong></a> |
-    <a href="#installation"><strong>Docker Installation</strong></a>
+  <h1><b>Eigenfocus</b></h1>
+  <p>
+      Free Self-Hosted All-in-One Management App: Kanban Boards, Time Tracking & Focus Tools.
+  </p>
+  <a href="https://eigenfocus.com"><strong>Website</strong></a> |
+  <a href="#installation"><strong>Docker Installation</strong></a>
 </div>
 <br />
+<div align="center">
+  <img src="https://img.shields.io/badge/Made with care-Rails.svg?style=flat&logo=undertale&labelColor=%235E6AD2&color=%235E6AD2"/>
+</div>
+<br />
+<div align="center">
+  <img src="https://github.com/Eigenfocus/eigenfocus/actions/workflows/ci.yml/badge.svg"></img>
+  <img src="https://img.shields.io/badge/Ruby-Ruby.svg?style=flat&logo=ruby&labelColor=%23CC342D&color=%23333"/>
+  <img src="https://img.shields.io/badge/Ruby on Rails-Rails.svg?style=flat&logo=rubyonrails&labelColor=%23CC342D&color=%23333"/>
+
+</div>
+
 
 # Our Features
 Here are some of our current features:
