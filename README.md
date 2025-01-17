@@ -1,7 +1,7 @@
 <div align="center">
   <h1><b>Eigenfocus</b></h1>
   <p>
-      Free Self-Hosted All-in-One Management App: Kanban Boards, Time Tracking & Focus Tools.
+      Self-Hosted All-in-One Project Management App: Boards, Time Tracking & Focus Tools.
   </p>
   <a href="https://eigenfocus.com"><strong>Website</strong></a> |
   <a href="#installation"><strong>Docker Installation</strong></a>
@@ -19,7 +19,15 @@
 </div>
 
 
-# Our Features
+# Our Vision
+We're building an All-In-One Self-Hosted solution to manage projects, time and teams.
+
+We've been working with product development for more than a decade so this product is built on the wisdom, pain and scars that we've gathered over the years. Our philosophy is to create a tool that is both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
+
+Any new ideas are welcome.
+
+# FREE EDITION (this repo)
+## FREE EDITION - Features
 Here are some of our current features:
 
 - Projects: create/edit/update/archive you projects
@@ -30,41 +38,41 @@ Here are some of our current features:
 - Time Report: generate time reports by project and time periods
 - Themes: customize the UI to your taste
 
-# Our Vision
-We're building an All-In-One Self-Hosted solution to manage projects, time and teams.
+## FREE EDITION - Roadmap
 
-We've been working with product development for more than a decade so this product is built on the wisdom, pain and scars that we've gathered over the years. Our philosophy is to create a tool that is both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
-
-Any new ideas are welcome.
-
-# Our Roadmap
-
-## FREE Edition
 Here is what is coming next:
-
-- Timers and time alerts for better focus (Pomodoro, drinking water, stretching)
+- Seamless Integration between Boards <> Time Tracking
+- Managing Logged Time Inside a Issue
+- UX enhancements for handling multiple cards/issues at once in a board
+- View Issues as List
+- Long running time tracking alerts
+- Timers and time alerts to improve focus (Pomodoro, drinking water, stretching)
 - Focus playlist sounds/songs
-- Better Integration between Boards <> Time Tracking
-- Better UX for handling multiple cards/issues at once
 
 <div align="center">
 ⭐️ this repository and stay up to date.
 </div>
 
-## Supporter Edition
+<br/>
 
-We're building a Supporter Edition with features for managing more complex projects and teams.
+# Supporter Edition (another repo)
+## Supporter Edition - Roadmap
+We're building a Supporter Edition (Paid) with features for managing more complex projects and teams.
 
 - Inviting members
-- Other types of project views  (boards, lists, custom matrices, calendar)
+- User/Project Permissions
+- More types of views (boards, lists, custom matrices, timeline)
 - Multiple views per project
-- Project Hierarchization
+- Issue Tagging
+- More types of reports
 
 <div align="center">
 <a href="https://eigenfocus.com/#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
 </div>
 
-# Some Screenshots
+<br/>
+
+# FREE EDITION - Some Screenshots
 <div align="center">
 <img alt="time-track" src="https://github.com/user-attachments/assets/5cc6c4f9-2475-4586-a257-cfdc934a6fc4" width="75%"/>
 <img alt="board" src="https://github.com/user-attachments/assets/2e08e73e-3f1e-451d-a1f6-907e6a1280a0" width="75%"/>
@@ -130,4 +138,12 @@ We are in *beta* and any feedbacks are welcome.
 Feel free to contact us `hi@eigenfocus.com` or open an issue.
 
 # Other
-[License](LICENSE)
+## Contributions
+Thank you for your interest in contributing to the project.
+
+Feel free to open an issue with any idea, suggestion or comment.
+
+As we offer a paid version of Eigenfocus, we don't think it's fair to accept code contributions from other people so we're not accepting pull requests.
+
+## License
+We're a free self-hosted project that you can use but we're not open source. Check our [License](LICENSE).
