@@ -8,7 +8,6 @@ Copy and inspect a few example files because the real files are git ignored
 cp example.env .env
 cp config/database.example.yml config/database.yml
 cp docker-compose.dev.example.yml docker-compose.yml
-cp docker-compose.override.dev.example.yml docker-compose.override.yml
 ```
 
 ## Build everything using docker

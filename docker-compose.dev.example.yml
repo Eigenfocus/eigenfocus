@@ -12,5 +12,33 @@ services:
       - "${RAILS_HOST_PORT}:${RAILS_HOST_PORT}"
     env_file:
       - "./.env"
+    environment:
+      - SELENIUM_REMOTE_HOST=selenium
+    depends_on:
+      - selenium
+  css:
+    build:
+      dockerfile: 'Dockerfile.dev'
+    volumes:
+      - .:/usr/src/app
+    tty: true
+
+    env_file:
+      - "./.env"
+    command: "bin/rails tailwindcss:watch"
+
+  selenium:
+    image: selenium/standalone-chrome:latest
+    platform: linux/amd64
+    environment:
+      - SE_VNC_NO_PASSWORD=true
+      - VNC_NO_PASSWORD=true
+      - SCREEN_WIDTH=1500
+      - SCREEN_HEIGHT=900
+    ports:
+      - 4444:4444
+      - 5900:5900
+      - 7900:7900
+
 volumes:
   bundle:
