@@ -54,4 +54,10 @@ docker compose exec web bin/rails c
 docker compose run -e "RAILS_ENV=test" --rm web bundle exec rspec
 ```
 
+If you want to see the tests running in a browser
+
+```
+docker compose run -e "RAILS_ENV=test" -e "HEADLESS=false"  --rm web bundle exec rspec
+```
+
 View tests running on http://127.0.0.1:7900
