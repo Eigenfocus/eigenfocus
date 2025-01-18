@@ -13,23 +13,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Copy docker-compose
-        run: cp docker-compose.dev.example.yml docker-compose.yml
-
-      - name: Copy Env
-        run: cp example.env .env
-
-      - name: Copy database.yml
-        run: cp config/database.example.yml config/database.yml
+      - name: Prepare CI files
+        run: bin/prepare-ci
 
       - name: Build the app
         run: docker compose build web
 
       - name: Scan for common Rails security vulnerabilities using static analysis
-        run: docker compose run web bin/brakeman --no-pager
+        run: docker compose run --rm --remove-orphans web bin/brakeman --no-pager
 
       - name: Lint code for consistent style
-        run: docker compose run web bin/rubocop -f github
+        run: docker compose run --rm --remove-orphans web bin/rubocop -f github
 
       - name: Stop containers
         if: always()
@@ -44,32 +38,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Copy docker-compose
-        run: cp docker-compose.dev.example.yml docker-compose.yml
-
-      - name: Copy Env
-        run: cp example.env .env
-
-      - name: Copy database.yml
-        run: cp config/database.example.yml config/database.yml
-
-      - name: Copy docker-compose.override.test.example.yml
-        run: cp docker-compose.override.test.example.yml docker-compose.override.yml
+      - name: Prepare CI files
+        run: bin/prepare-ci
 
       - name: Build the app
         run: docker compose build web
 
       - name: Setup DB
-        run: |
-          docker compose run --rm web bin/rails db:create db:migrate
+        run: docker compose run --rm --remove-orphans web bin/rails db:prepare
 
       - name: Setup Assets
-        run: |
-          docker compose run --rm web bin/rake assets:precompile
+        run: docker compose run --rm --remove-orphans web bin/rake assets:precompile
 
       - name: Run Rspec
-        run: |
-          docker compose run --rm web bundle exec rspec spec
+        run: docker compose run -e "RAILS_ENV=test" --rm --remove-orphans web bundle exec rspec spec
 
       - name: Stop containers
         if: always()
