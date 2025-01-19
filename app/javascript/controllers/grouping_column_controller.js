@@ -9,6 +9,27 @@ export default class extends Controller {
     "inlineCardFormTitle"
   ]
 
+  static values = {
+    scrollToOnConnect: Boolean
+  }
+
+  connect() {
+    if (this.scrollToOnConnectValue) {
+      let board = this.element.parentNode
+      const maxScrollX = board.scrollWidth - board.clientWidth;
+
+      board.scrollTo({
+        top: 0,
+        left: maxScrollX,
+        behavior: "instant"
+      });
+
+      // Without this, if we create and move the column after
+      // it will cause buggy scroll with sortablejs
+      this.scrollToOnConnectValue = false
+    }
+  }
+
   showInlineCardForm() {
     this.inlineCardFormTarget.classList.remove('hidden')
     this.showFormButtonTarget.classList.add('hidden')

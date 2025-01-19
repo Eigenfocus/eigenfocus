@@ -1,6 +1,10 @@
-<li class="w-64 max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs cpy-grouping js-sortable-container"
+<% animation_css = local_assigns[:recently_created] ? "animate__animated animate__zoomIn" : "" %>
+<li class="max-h-full w-64 flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs cpy-grouping js-sortable-container <%= animation_css %>"
+  style="animation-duration: 240ms;"
   id="<%= dom_id(grouping) %>"
   data-controller="grouping-column"
+  data-grouping-column-scroll-to-on-connect-value="<%= local_assigns[:recently_created] == true %>"
+
   data-action="keypress.n@window->grouping-column#nWasPressed"
   >
   <header class="flex flex-row flex-nowrap gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
@@ -60,14 +64,16 @@
     <% end %>
   </ul>
 
-  <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping: } %>
-  <button class="cpy-inline-create-button group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
-    data-grouping-column-target="showFormButton"
-    data-action="click->grouping-column#showInlineCardForm">
-    <i class="fa-solid fa-plus mr-2"></i>
-    <p class="grow text-left">
-      <%= t('visualizations.column_menu.create_issue') %>
-    </p>
-    <span class="group-hover:flex hidden text-xs font-medium ml-2 mr-2"><%= t("actions.press") %> N</span>
-  </button>
+  <div class="sticky bottom-0 w-full">
+    <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping: } %>
+    <button class="cpy-inline-create-button w-full group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
+      data-grouping-column-target="showFormButton"
+      data-action="click->grouping-column#showInlineCardForm">
+      <i class="fa-solid fa-plus mr-2"></i>
+      <p class="grow text-left">
+        <%= t('visualizations.column_menu.create_issue') %>
+      </p>
+      <span class="group-hover:flex hidden text-xs font-medium ml-2 mr-2"><%= t("actions.press") %> N</span>
+    </button>
+  </div>
 </li>
