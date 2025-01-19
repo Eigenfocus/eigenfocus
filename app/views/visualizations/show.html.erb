@@ -14,7 +14,7 @@
 
   <div class="relative grow cpy-columns-wrapper">
     <ul
-        class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:-left-12 sm:-right-12 sm:-bottom-12 sm:scroll-pl-12 grid gap-x-8 justify-start grid-flow-col pb-2 sm:px-12 items-start overflow-x-auto overflow-y-hidden scroll-smooth"
+        class="grid gap-x-8 justify-start grid-flow-col pb-2 items-start overflow-auto scroll-smooth"
         data-controller="sortable"
         data-sortable-target="container"
         data-sortable-ignore-drag-selector-value=".js-no-column-drag"
@@ -22,14 +22,14 @@
         >
       <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping %>
 
-      <li class="order-last w-64 shrink-0" id="js-create-new-column">
-        <%= link_to new_visualization_grouping_path(@visualization), class: "border text-primary-400 bg-primary-50 border border-primary-100  hover:text-primary-500 hover:border-primary-100 hover:bg-primary-100 rounded-md shadow-xs p-2 shrink-0 mx-2 flex flex-col max-h-full", data: { turbo_frame: 'grouping_form' } do %>
-          <div class="flex items-center justify-between">
-            <h2 class="grow font-semibold truncate">
-              <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
-            </h2>
-            <i class="fa-solid fa-plus"></i>
-          </div>
+      <li class="order-last w-64 shrink-0 sticky right-0" id="js-create-new-column">
+        <%= link_to new_visualization_grouping_path(@visualization), class: "flex p-2 border items-center justify-between bg-body-contrast border-body-contrast-500 hover:border-primary-800 rounded-md shadow-xs text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
+
+          <h2 class="grow font-semibold truncate">
+            <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
+          </h2>
+          <i class="fa-solid fa-plus"></i>
+
         <% end %>
       </li>
 
