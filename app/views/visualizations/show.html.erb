@@ -1,11 +1,12 @@
 <div class="flex flex-col h-full">
-  <div class="flex flex-col sm:flex-row items-stretch justify-between gap-3 mb-6">
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6">
     <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
       <%= @visualization.project.name %> - <%= Visualization.model_name.human(count: 1) %>
     </h2>
-    <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "btn-secondary", data: { turbo_frame: "_top" } do %>
-      <span class=" mr-2"><%= icon_for(:time_entries) %></span>
-      <%= t("actions.go_to_time_tracking") %>
+
+    <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "link-secondary group flex p-4", data: { turbo_frame: "_top" } do %>
+      <span class="text-lg mr-2"><%= icon_for(:time_entries) %></span>
+      <span class="group-hover:block sm:block md:hidden"><%= t("actions.go_to_time_tracking") %></span>
     <% end %>
   </div>
 
@@ -14,7 +15,7 @@
 
   <div class="relative grow cpy-columns-wrapper">
     <ul
-        class="grid gap-x-8 justify-start grid-flow-col pb-2 items-start overflow-auto scroll-smooth"
+        class="min-h-full grid gap-x-8 justify-start grid-flow-col pb-2 items-start overflow-auto scroll-smooth"
         data-controller="sortable"
         data-sortable-target="container"
         data-sortable-ignore-drag-selector-value=".js-no-column-drag"
