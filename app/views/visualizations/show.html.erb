@@ -1,4 +1,4 @@
-<main class="grow mb-12">
+<main class="grow">
   <div class="flex flex-col h-full">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 p-4 sm:px-12 pt-12">
       <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
@@ -26,7 +26,7 @@
 
     <div class="relative grow cpy-columns-wrapper">
       <ul
-          class="min-h-full max-h-full grid gap-x-8 justify-start grid-flow-col pb-2 items-start overflow-auto scroll-smooth"
+          class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-12 sm:pr-12 sm:pb-4 sm:scroll-pr-12 flex flex-row flex-nowrap gap-x-8 pb-2 sm:px-12 items-start overflow-x-auto overflow-y-hidden scroll-smoot"
           data-controller="sortable"
           data-sortable-target="container"
           data-sortable-ignore-drag-selector-value=".js-no-column-drag"
@@ -34,7 +34,7 @@
           >
         <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping %>
 
-        <li class="order-last sm:mr-12 w-64 shrink-0" id="js-create-new-column">
+        <li class="order-last w-64 shrink-0" id="js-create-new-column">
           <%= link_to new_visualization_grouping_path(@visualization), class: "flex p-2 border items-center justify-between bg-body-contrast border-body-contrast-500 hover:border-primary-800 rounded-md shadow-xs text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
 
             <h2 class="grow font-semibold truncate">
