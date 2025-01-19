@@ -1,5 +1,5 @@
-import { Controller } from "@hotwired/stimulus";
-import { marked } from "marked";
+import { Controller } from "@hotwired/stimulus"
+import { marked } from "marked"
 
 export default class extends Controller {
   static targets = [
@@ -24,6 +24,8 @@ export default class extends Controller {
     if (this.isCardBeingCreated()) {
       cardElement.scrollIntoView({ behavior: "instant", block: "end" })
       this.inlineCardFormTitleTarget.value = ''
+      // Needed because of resizable input
+      this.inlineCardFormTitleTarget.dispatchEvent(new Event('input', { bubbles: true }));
     }
   }
 
@@ -31,8 +33,13 @@ export default class extends Controller {
     return !this.inlineCardFormTarget.classList.contains('hidden')
   }
 
+  submitInlineForm(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    this.inlineCardFormTarget.requestSubmit()
+  }
   closeForm() {
-    this.hideInlineCardForm();
+    this.hideInlineCardForm()
   }
 
   nWasPressed(e) {
