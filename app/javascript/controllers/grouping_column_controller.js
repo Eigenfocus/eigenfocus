@@ -5,13 +5,14 @@ export default class extends Controller {
   static targets = [
     "card",
     "showFormButton",
-    "inlineCardForm"
+    "inlineCardForm",
+    "inlineCardFormTitle"
   ]
 
   showInlineCardForm() {
     this.inlineCardFormTarget.classList.remove('hidden')
     this.showFormButtonTarget.classList.add('hidden')
-    this.inlineCardFormTarget.querySelector("input[name='issue[title]'").focus()
+    this.inlineCardFormTitleTarget.focus()
   }
 
   hideInlineCardForm() {
@@ -22,7 +23,7 @@ export default class extends Controller {
   cardTargetConnected(cardElement) {
     if (this.isCardBeingCreated()) {
       cardElement.scrollIntoView({ behavior: "instant", block: "end" })
-      this.inlineCardFormTarget.querySelector("input[name='issue[title]'").value = ''
+      this.inlineCardFormTitleTarget.value = ''
     }
   }
 
