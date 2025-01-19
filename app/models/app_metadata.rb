@@ -25,6 +25,5 @@ class AppMetadata < ApplicationRecord
   private def assign_fields
     self.token = SecureRandom.uuid
     self.last_released_version = current_version
-    self.last_released_version_checked_at = DateTime.current
   end
 end
