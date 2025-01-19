@@ -25,7 +25,7 @@ services:
 
     env_file:
       - "./.env"
-    command: "bin/rails tailwindcss:watch"
+    command: "bin/rails themed_tailwindcss:watch"
 
   selenium:
     image: selenium/standalone-chrome:latest
