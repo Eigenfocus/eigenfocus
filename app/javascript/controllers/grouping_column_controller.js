@@ -21,6 +21,8 @@ export default class extends Controller {
   }
 
   cardTargetConnected(cardElement) {
+    // Only scrolls to card when adding via inline form
+    // and not when page is loaded (it would trigger for all cards)
     if (this.isCardBeingCreated()) {
       cardElement.scrollIntoView({ behavior: "instant", block: "end" })
       this.inlineCardFormTitleTarget.value = ''
