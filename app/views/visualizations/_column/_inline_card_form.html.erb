@@ -9,9 +9,17 @@
   }) do |f| %>
 
   <div class="mb-2 w-full">
-    <%= f.text_field :title,
-      required: true,
-      class: "border-2 border-primary-500 focus:border-primary-500 active:border-primary-500 hover:border-primary-500 bg-primary-50 p-4 rounded-xl text-sm w-full text-sm text-readable-content-500", id: nil %>
+    <div data-controller='resizable-input' class="relative" >
+      <div data-resizable-input-target="replica" class="break-all text-sm p-4 whitespace-pre-line"></div>
+
+      <%= f.textarea :title,
+        required: true,
+        class: "border-2 border-primary-500 focus:border-primary-500 active:border-primary-500 hover:border-primary-500 bg-primary-50 p-4 rounded-xl text-sm w-full text-sm text-readable-content-500 absolute w-full left-0 top-0 right-0 bottom-0 ",
+        "data-resizable-input-target": "input",
+        "data-action": "keydown.enter->grouping-column#submitInlineForm",
+        id: nil,
+        'data-grouping-column-target': 'inlineCardFormTitle' %>
+    </div>
   </div>
 
   <div class="flex gap-2 items-stretch ">

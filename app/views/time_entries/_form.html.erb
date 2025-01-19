@@ -41,7 +41,7 @@
         <%= f.label :description, TimeEntry.human_attribute_name(:description), autofocus: time_entry.persisted?, class: "label-primary" %>
 
         <div data-controller='resizable-input' class="relative" >
-          <div data-resizable-input-target="replica" class=" text-sm p-2 whitespace-pre-line"></div>
+          <div data-resizable-input-target="replica" class="break-all text-sm p-2 whitespace-pre-line"></div>
 
           <%= f.text_area :description,
             class: "text-sm p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
