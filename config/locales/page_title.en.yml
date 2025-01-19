@@ -1,0 +1,7 @@
+en:
+  page_title:
+    time_tracking: "Time Tracking"
+    projects: "Projects"
+    project_board: "%{project_name} - Board"
+    reports: "Reports"
+    edit_profile: "Profile and Newsletter"

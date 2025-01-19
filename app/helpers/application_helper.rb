@@ -4,5 +4,6 @@ module ApplicationHelper
   include ApplicationHelper::Modal
   include ApplicationHelper::Themes
   include ApplicationHelper::Icons
+  include ApplicationHelper::PageTitle
   include ApplicationHelper::TimeTracking
 end
