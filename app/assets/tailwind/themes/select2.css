@@ -71,3 +71,19 @@
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
   @apply text-readable-content-500 bg-background-50 border-background-400 !important;
 }
+
+/*
+  If its appearing inside a modal we want to animate it
+  to appear together with the modal animation
+*/
+#modal-background + .select2-container {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: var(--animate-duration);
+  animation-duration: var(--animate-duration);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-duration: 300ms;
+}
