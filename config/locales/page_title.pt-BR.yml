@@ -1,0 +1,7 @@
+pt-BR:
+  page_title:
+    time_tracking: "Registro de Tempo"
+    projects: "Projetos"
+    project_board: "%{project_name} - Quadro"
+    reports: "Relatórios"
+    edit_profile: "Perfil e Newsletter"
