@@ -20,11 +20,14 @@ class AppVersionUpdater
   end
 
   def update_newest_release_metadata!
+    # Even if the fetch fails, we set this
+    # in order to try again after the date period expires
+    app_metadata.update(last_released_version_checked_at: DateTime.current)
+
     newest_version = fetch_newest_version
+
     unless newest_version.blank?
-      app_metadata.last_released_version = newest_version
-      app_metadata.last_released_version_checked_at = DateTime.current
-      app_metadata.save
+      app_metadata.update(last_released_version: newest_version)
     end
   end
 
