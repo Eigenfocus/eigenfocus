@@ -9,11 +9,17 @@ class AppVersionUpdater
   end
 
   def should_fetch_newest_release?
+    return false if Rails.env.development?
+    return false if Rails.env.test?
+    last_release_check_expired?
+  end
+
+  def last_release_check_expired?
+    app_metadata.last_released_version_checked_at.nil? ||
     app_metadata.last_released_version_checked_at.before?(1.day.ago)
   end
 
   def update_newest_release_metadata!
-    return if Rails.env.development?
     newest_version = fetch_newest_version
     unless newest_version.blank?
       app_metadata.last_released_version = newest_version
@@ -23,6 +29,7 @@ class AppVersionUpdater
   end
 
   private def fetch_newest_version
+    return if Rails.env.development?
     begin
       uri = URI("https://eigenfocus.com/api/v1/app_versions/latest")
 
@@ -31,6 +38,7 @@ class AppVersionUpdater
 
       request = Net::HTTP::Get.new(uri)
       request["App-Token"] = app_metadata.token
+      request["App-Version"] = app_metadata.current_version.to_s
 
       response = http.request(request)
       response = JSON.parse(response.body)

@@ -15,7 +15,6 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true, allow: %r{selenium:4444})
-
 Timecop.safe_mode = true
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

@@ -10,19 +10,22 @@ describe AppVersionUpdater do
 
   subject { AppVersionUpdater.new(app_metadata) }
 
-  specify '#should_fetch_newest_release?' do
+  specify '#last_release_check_expired?' do
     Timecop.freeze do
       app_metadata.last_released_version_checked_at = DateTime.current
-      expect(subject.should_fetch_newest_release?).to be(false)
+      expect(subject.last_release_check_expired?).to be(false)
+
+      app_metadata.last_released_version_checked_at = nil
+      expect(subject.last_release_check_expired?).to be(true)
 
       app_metadata.last_released_version_checked_at = 25.hours.ago
-      expect(subject.should_fetch_newest_release?).to be(true)
+      expect(subject.last_release_check_expired?).to be(true)
 
       app_metadata.last_released_version_checked_at = 2.days.ago
-      expect(subject.should_fetch_newest_release?).to be(true)
+      expect(subject.last_release_check_expired?).to be(true)
 
       app_metadata.last_released_version_checked_at = 10.days.ago
-      expect(subject.should_fetch_newest_release?).to be(true)
+      expect(subject.last_release_check_expired?).to be(true)
     end
   end
 
