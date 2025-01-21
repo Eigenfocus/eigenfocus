@@ -15,7 +15,13 @@
   <img src="https://github.com/Eigenfocus/eigenfocus/actions/workflows/ci.yml/badge.svg"></img>
   <img src="https://img.shields.io/badge/Ruby-Ruby.svg?style=flat&logo=ruby&labelColor=%23CC342D&color=%23333"/>
   <img src="https://img.shields.io/badge/Ruby on Rails-Rails.svg?style=flat&logo=rubyonrails&labelColor=%23CC342D&color=%23333"/>
+</div>
+<br />
 
+<div align="center">
+
+  <img src="https://img.shields.io/badge/0.6.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
+  <img src="https://img.shields.io/badge/0.7.0.alpha1-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
 </div>
 
 
