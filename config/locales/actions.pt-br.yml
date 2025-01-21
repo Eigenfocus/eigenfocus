@@ -28,6 +28,9 @@ pt-BR:
       edit_column: 'Editar coluna'
       create_issue: 'Criar issue'
       destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Isso vai deletar todos as issues da coluna!'
+    issues:
+      form:
+        destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
   time_entries:
     form_project_dependent_fields:
       select_a_project: "Selecione um projeto primeiro"
@@ -60,7 +63,3 @@ pt-BR:
         filter_by_project: 'Filtrar por projeto'
         entry_start_at: 'Começando em'
         entry_end_at: 'Terminando em'
-  groupings:
-    issues:
-      form:
-        remove_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"

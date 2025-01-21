@@ -34,7 +34,9 @@
           data-sortable-ignore-drag-selector-value=".js-no-column-drag"
           data-sortable-move-path-value="<%= move_visualization_groupings_path(@visualization) %>"
           >
-        <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping %>
+        <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping, locals: {
+          visualization: @visualization
+        } %>
 
         <li class="order-last w-64 shrink-0" id="js-create-new-column">
           <%= link_to new_visualization_grouping_path(@visualization), class: "flex p-2 border items-center justify-between bg-body-contrast border-body-contrast-500 hover:border-primary-800 rounded-md shadow-xs text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>

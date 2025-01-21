@@ -19,7 +19,7 @@
       </div>
       <div class="flex flex-col md:flex-row gap-8">
         <div class="flex flex-col grow">
-          <%= form_with(model: [grouping, issue], html: {
+          <%= form_with(model: [visualization, issue], html: {
             class: 'flex flex-col gap-2',
             data: {
               turbo: true,
@@ -81,7 +81,7 @@
           <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
             <h5 class="w-full"><%= t("menu.actions") %></h5>
 
-            <%= link_to grouping_issue_path(grouping, issue), class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t(".remove_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
+            <%= link_to visualization_issue_path(visualization, issue), class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t(".destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
               <i class="fa-solid fa-trash"></i>
               <%= t("actions.remove") %>
             <% end %>

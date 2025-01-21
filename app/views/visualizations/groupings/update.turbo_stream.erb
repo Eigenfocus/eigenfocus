@@ -1,5 +1,8 @@
 <% if @grouping.persisted? %>
-  <%= turbo_stream.replace dom_id(@grouping), partial: "visualizations/column", locals: { grouping: @grouping } %>
+  <%= turbo_stream.replace dom_id(@grouping), partial: "visualizations/column", locals: {
+    visualization: current_visualization,
+    grouping: @grouping }
+  %>
   <%= turbo_stream.update 'grouping_form', "" %>
   <%= new_turbo_stream_alert_message(:success, t_flash_message(@grouping)) %>
 <% else %>
