@@ -3,9 +3,10 @@
     class: "max-h-screen w-full max-w-4xl relative cpy-issue-detail",
     data: {
       controller: "issue-detail",
+      action: "modal:closed@window->issue-detail#goBackHistory",
+      "issue-detail-visualization-path-value": visualization_path(visualization),
       "issue-detail-attach-path-value": attach_issue_file_path(issue)
-    }
-  }) do %>
+    }}) do %>
     <div data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
       <div class="border-b border-background-200 pb-2 mb-4">
         <div class="flex items-center space-x-2">
@@ -75,7 +76,7 @@
               <%= f.button text, class: "btn-primary", value: "update-and-close-modal" %>
             </div>
           <% end %>
-          <%= render partial: 'files_drop', locals: { issue: } %>
+          <%= render partial: '/visualizations/issues/files_drop', locals: { issue: } %>
         </div>
         <% if issue.persisted? %>
           <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">

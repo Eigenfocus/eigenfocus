@@ -25,6 +25,11 @@ Rails.application.routes.draw do
     get :total_time
   end
 
+  get "visualizations/:id/issues/:issue_id",
+      as: :show_visualization_issue,
+      controller: :visualizations,
+      action: :show
+
   resources :visualizations, only: :show do
     scope module: :visualizations do
       resources :groupings, only: [ :new, :create, :edit, :update, :destroy ] do
@@ -33,7 +38,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :issues, only: [ :new, :create, :edit, :update, :destroy ]
+      resources :issues, only: [ :create, :update, :destroy ]
     end
   end
 
