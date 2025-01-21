@@ -25,12 +25,12 @@ Rails.application.routes.draw do
     get :total_time
   end
 
-  get "visualizations/:id/issues/:issue_id",
+  get "v/:id/i/:issue_id",
       as: :show_visualization_issue,
       controller: :visualizations,
       action: :show
 
-  resources :visualizations, only: :show do
+  resources :visualizations, path: "v", only: :show do
     scope module: :visualizations do
       resources :groupings, only: [ :new, :create, :edit, :update, :destroy ] do
         collection do
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :issues, only: [ :create, :update, :destroy ]
+      resources :issues, path: "i", only: [ :create, :update, :destroy ]
     end
   end
 
