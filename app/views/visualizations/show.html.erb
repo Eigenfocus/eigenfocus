@@ -24,7 +24,12 @@
     </div>
 
     <%= turbo_frame_tag('grouping_form') {} %>
-    <%= turbo_frame_tag('issue_form') {} %>
+
+    <% if @open_issue.present? %>
+      <%= render partial: 'visualizations/issues/form', locals: { issue: @open_issue, visualization: @visualization } %>
+    <% else %>
+      <%= turbo_frame_tag('issue_form') {} %>
+    <% end %>
 
     <div class="relative grow cpy-columns-wrapper">
       <ul

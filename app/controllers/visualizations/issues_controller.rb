@@ -12,11 +12,6 @@ class Visualizations::IssuesController < ApplicationController
     end
   end
 
-  def edit
-    @issue = Issue.find(params[:id])
-    render partial: "form", locals: { visualization: current_visualization, issue: @issue  }
-  end
-
   def update
     @issue = Issue.find(params[:id])
     @updated = @issue.update(permitted_params)
