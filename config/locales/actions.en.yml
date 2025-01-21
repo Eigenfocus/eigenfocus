@@ -29,6 +29,8 @@ en:
     update:
       success: 'Profile succesfully updated.'
   time_entries:
+    form:
+      save_on_command_enter: press (CTRL + Enter) or (CMD + Enter) to save
     form_project_dependent_fields:
       select_a_project: "Select a project"
       project_has_no_issue: "There are no active issues for this project"
