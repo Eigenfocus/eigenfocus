@@ -4,7 +4,6 @@
   id="<%= dom_id(grouping) %>"
   data-controller="grouping-column"
   data-grouping-column-scroll-to-on-connect-value="<%= local_assigns[:recently_created] == true %>"
-
   data-action="keypress.n@window->grouping-column#nWasPressed"
   >
   <header class="flex flex-row flex-nowrap gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
@@ -60,12 +59,12 @@
     >
 
     <% grouping.issues.each do |issue| %>
-      <%= render partial: 'visualizations/card', locals: { issue: , grouping: } %>
+      <%= render partial: 'visualizations/card', locals: { issue:, grouping: , visualization: } %>
     <% end %>
   </ul>
 
   <div class="sticky bottom-0 w-full">
-    <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping: } %>
+    <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping:, visualization: } %>
     <button class="cpy-inline-create-button w-full group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
       data-grouping-column-target="showFormButton"
       data-action="click->grouping-column#showInlineCardForm">

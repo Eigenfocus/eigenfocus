@@ -10,6 +10,9 @@ en:
       edit_column: 'Edit column'
       create_issue: 'Create issue'
       destroy_confirmation: 'Are you sure you want to delete "%{title}" column? It is going to delete all issues on this column!'
+    issues:
+      form:
+        destroy_confirmation: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"
   profiles:
     form:
       why_is_timezone_needed: 'This is needed in order to correctly display dates and hours for you.'
@@ -63,7 +66,3 @@ en:
         filter_by_project: 'Filter by project'
         entry_start_at: 'Starting at'
         entry_end_at: 'Ending at'
-  groupings:
-    issues:
-      form:
-        remove_confirmation: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"

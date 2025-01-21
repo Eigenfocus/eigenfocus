@@ -1,5 +1,5 @@
 
-<%= form_with(model: [grouping, Issue.new], html: {
+<%= form_with(model: [visualization, Issue.new], html: {
     class: 'flex flex-col mt-2 hidden',
     id: "grouping-#{grouping.id}-inline-issue-form",
     data: {
@@ -23,6 +23,7 @@
   </div>
 
   <div class="flex gap-2 items-stretch ">
+    <%= hidden_field_tag :allocate_to_grouping_id, grouping.id, id: nil %>
 
     <%= f.button class: "btn-primary flex items-center text-sm px-4" do %>
       <i class="fa fa-add mr-2"></i> <%= t('actions.create') %>

@@ -1,4 +1,6 @@
 class Visualizations::GroupingsController < ApplicationController
+  helper_method :current_visualization
+
   def new
     @grouping = Grouping.new
 
