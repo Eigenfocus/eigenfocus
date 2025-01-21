@@ -29,6 +29,8 @@ pt-BR:
       create_issue: 'Criar issue'
       destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Isso vai deletar todos as issues da coluna!'
   time_entries:
+    form:
+      save_on_command_enter: Pressione (CTRL + Enter) ou (CMD + Enter) para salvar
     form_project_dependent_fields:
       select_a_project: "Selecione um projeto primeiro"
       project_has_no_issue: "Este projeto não possui nenhuma issue ativa"

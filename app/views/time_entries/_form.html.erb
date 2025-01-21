@@ -15,7 +15,7 @@
   <div class="">
     <%= form_with(model: time_entry, html: {
         class: 'flex flex-col gap-4',
-        data: { controller: 'dependent-fields' }
+        data: { controller: 'dependent-fields form' }
       }) do |f| %>
       <% if time_entry.errors.any? %>
         <div class="flex rounded-md w-full border-l-6 border-alert bg-alert bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert">
@@ -45,8 +45,12 @@
 
           <%= f.text_area :description,
             class: "text-sm p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
-            "data-resizable-input-target": "input"
+            "data-resizable-input-target": "input",
+            "data-action": "keydown.ctrl+enter->form#submit keydown.meta+enter->form#submit"
             %>
+        </div>
+        <div class="text-right text-xs text-italic text-readable-content-500">
+          <span><%= t('.save_on_command_enter') %></span>
         </div>
       </div>
 

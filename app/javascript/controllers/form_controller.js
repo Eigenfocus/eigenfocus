@@ -5,6 +5,8 @@ export default class extends Controller {
   }
 
   submit() {
-    this.element.submit()
+    // Should use the polyfill
+    // https://github.com/hotwired/turbo/pull/439
+    this.element.requestSubmit()
   }
 }
