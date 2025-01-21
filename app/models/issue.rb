@@ -7,4 +7,8 @@ class Issue < ApplicationRecord
 
   # Validations
   validates :title, presence: true
+
+  def to_param
+    [ id, title.parameterize ].join("-")
+  end
 end
