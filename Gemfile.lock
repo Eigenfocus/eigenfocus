@@ -147,7 +147,7 @@ GEM
       reline (>= 0.4.2)
     json (2.9.0)
     language_server-protocol (3.17.0.3)
-    logger (1.6.4)
+    logger (1.6.5)
     loofah (2.23.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -296,9 +296,9 @@ GEM
     ruby-vips (2.2.2)
       ffi (~> 1.12)
       logger
-    rubyzip (2.3.2)
+    rubyzip (2.4.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.27.0)
+    selenium-webdriver (4.28.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -390,7 +390,7 @@ DEPENDENCIES
   rails (~> 8.0.0)
   rspec-rails (~> 7.1)
   rubocop-rails-omakase
-  selenium-webdriver (= 4.27)
+  selenium-webdriver (= 4.28.0)
   sqlite3 (>= 2.1)
   stimulus-rails
   tailwindcss-ruby
