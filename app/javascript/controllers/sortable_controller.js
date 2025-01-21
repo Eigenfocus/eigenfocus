@@ -41,6 +41,9 @@ export default class extends Controller {
 
   _performMoveRequest(evt) {
     const request = new FetchRequest('post', this.movePathValue, {
+      headers: {
+        "Accept": "text/vnd.turbo-stream.html", // Tell the server to respond with Turbo Stream
+      },
       body: JSON.stringify({
         from: {
           group: evt.from.dataset.sortableGroupingId,
