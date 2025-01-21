@@ -13,7 +13,8 @@ export default class extends Controller {
   ]
 
   static values = {
-    attachPath: String
+    attachPath: String,
+    visualizationPath: String
   }
 
   connect() {
@@ -113,5 +114,18 @@ export default class extends Controller {
       button.querySelector(".fa-check").classList.add('hidden')
       button.querySelector(".fa-copy").classList.remove('hidden')
     }, 1500)
+  }
+
+  goBackHistory() {
+
+    Turbo.visit(this.visualizationPathValue, {
+      action: 'advance',
+      // Rendering in a frame prevents the page reloading
+      // This also keeps the restoration visits (back button)
+      // working. But if the user goes back to a state showing
+      // only the board the horizontal scroll is affected
+      // https://turbo.hotwired.dev/handbook/drive#restoration-visits
+      frame: 'issue_form'
+    })
   }
 }

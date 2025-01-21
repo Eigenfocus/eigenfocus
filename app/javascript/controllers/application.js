@@ -28,6 +28,10 @@ class CustomModal extends Modal {
     }
   }
 
+  close(e) {
+    super.close(e)
+    this.dispatch("closed")
+  }
 }
 
 application.register('modal', CustomModal)

@@ -3,6 +3,8 @@
     class: "max-h-screen w-full max-w-4xl relative cpy-issue-detail",
     data: {
       controller: "issue-detail",
+      action: "modal:closed@window->issue-detail#goBackHistory",
+      "issue-detail-visualization-path-value": visualization_path(visualization),
       "issue-detail-attach-path-value": attach_issue_file_path(issue)
     }}) do %>
     <div data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
