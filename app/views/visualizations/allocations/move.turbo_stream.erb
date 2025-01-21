@@ -1,1 +1,5 @@
-<%= turbo_stream.replace dom_id(@issue), partial: "visualizations/card", locals: { grouping: @grouping, issue: @issue } %>
+<%= turbo_stream.replace dom_id(@issue), partial: "visualizations/card", locals: {
+  visualization: @grouping.visualization,
+  grouping: @grouping,
+  issue: @issue
+} %>
