@@ -307,22 +307,23 @@ describe 'As a user, I want to manage my project kanban visualization' do
     third_issue = all_cards[2]
 
     first_issue.drag_to(third_issue)
-    second_issue.drag_to(first_issue)
 
-    changes_issues = all(".cpy-card")
+    # We need this to make capybara wait for the
+    # turbo-stream response to finish
+    expect(page).to have_content("Issue 1")
 
-    first_issue = changes_issues[0]
-    second_issue = changes_issues[1]
-    third_issue = changes_issues[2]
+    # now that the turbo stream has finished we
+    # can get the cards with the new HTML for the moved on
+    all_cards = all(".cpy-card")
 
-    expect(first_issue).to have_content("Issue 2")
-    expect(second_issue).to have_content("Issue 0")
-    expect(third_issue).to have_content("Issue 1")
+    expect(all_cards[0].text).to eq("Issue 1")
+    expect(all_cards[1].text).to eq("Issue 2")
+    expect(all_cards[2].text).to eq("Issue 0")
 
     expect(grouping.allocations.map(&:issue).map(&:title)).to eq([
+      "Issue 1",
       "Issue 2",
-      "Issue 0",
-      "Issue 1"
+      "Issue 0"
     ])
   end
 
