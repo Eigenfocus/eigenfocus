@@ -33,7 +33,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :issues, only: [ :new, :create, :edit, :update, :destroy ]
+      resources :issues, only: [ :create, :edit, :update, :destroy ]
     end
   end
 

@@ -1,12 +1,6 @@
 class Visualizations::IssuesController < ApplicationController
   helper_method :current_visualization
 
-  def new
-    @issue = Issue.new
-
-    render partial: "form", locals: { visualization: current_visualization, issue: @issue  }
-  end
-
   def create
     @issue = Issue.new(permitted_params.merge(project_id: current_visualization.project.id))
     @grouping = Grouping.find params[:allocate_to_grouping_id]
