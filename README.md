@@ -19,9 +19,7 @@
 <br />
 
 <div align="center">
-
-  <img src="https://img.shields.io/badge/0.6.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
-  <img src="https://img.shields.io/badge/0.7.0.rc1-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
+  <img src="https://img.shields.io/badge/0.7.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
 </div>
 
 
@@ -99,7 +97,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:0.6.0
+    eigenfocus/eigenfocus:0.7.0
 ```
 
 And access it at http://localhost:3001.
@@ -110,7 +108,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:0.6.0
+    image: eigenfocus/eigenfocus:0.7.0
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
