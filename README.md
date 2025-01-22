@@ -133,6 +133,12 @@ And access it at http://localhost:3001.
 - `FORCE_SSL`: Defaults to `false`. If set to `true`, all incoming requests that are not HTTPS will be redirected to use HTTPS protocol.
 - `ASSUME_SSL_REVERSE_PROXY`: Defaults to `false`. If set to `true`, all incoming requests will be interpreted as HTTPS. This is useful for cases when you have `FORCE_SSL` set to `true` but are behind a reverse proxy that terminates the SSL. This means that our app will be receiving requests via HTTP. In order to avoid an infinite redirect loop to HTTPS you must set `ASSUME_SSL_REVERSE_PROXY` to `true`. For more information, check the conversation and changelog on https://github.com/rails/rails/pull/47139.
 
+### Optional http basic auth
+You can enable HTTP Basic Auth by setting these two env variables:
+
+- `HTTP_AUTH_USER` - For the username
+- `HTTP_AUTH_PASSWORD` - For the password
+
 # Development Guide
 Alternatively, if you need to fine tune a config [Check the Development Guide](docs/DEVELOPMENT.md).
 
