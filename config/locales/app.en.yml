@@ -54,7 +54,8 @@ en:
     clear_filter: "clear filter"
     preview: "Preview"
     press: "Press"
-    go_to_board: 'Go to Board View'
+    go_to_board: 'Go to Board'
+    go_to_issue: 'Go to Issue'
     go_to_time_tracking: "Go to time tracking"
   flash:
     change_success: "Change successfully made."

@@ -17,10 +17,16 @@
           <p class="text-sm italic text-readable-content-500">
             <%= time_entry.issue.title %>
           </p>
-        <% end %>
-        <%= link_to visualization_path(time_entry.project.default_visualization), class: "link-primary text-xs", data: { turbo_frame: "_top" } do %>
-          <span class=" mr-1"><%= icon_for(:project_issues) %></span>
-          <%= t("actions.go_to_board") %>
+
+          <%= link_to visualization_issue_path(time_entry.project.default_visualization, time_entry.issue), class: "flex items-center link-primary text-xs", data: { turbo_frame: "_top" } do %>
+            <span class="mr-1"><%= icon_for(:issues) %></span>
+            <%= t("actions.go_to_issue") %>
+          <% end %>
+        <% else %>
+          <%= link_to visualization_path(time_entry.project.default_visualization), class: "flex items-center link-primary text-xs", data: { turbo_frame: "_top" } do %>
+            <span class="mr-1"><%= icon_for(:boards) %></span>
+            <%= t("actions.go_to_board") %>
+          <% end %>
         <% end %>
 
       </div>

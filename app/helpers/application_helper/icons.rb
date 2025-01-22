@@ -4,12 +4,13 @@ module Icons
     icon_classes = case name.to_sym
     when :time_entries
       "fa-solid fa-clock"
-    when :project_issues
-      "fa-solid fa-list-check"
+
     when :groupings
       "fa-solid fa-table-columns"
+    when :boards
+      "fa-solid fa-chart-simple rotate-180"
     when :issues
-      "fa-solid fa-rectangle-list"
+      "fa-solid fa-check-double"
     when :projects
       "fa-solid fa-folder-closed"
     when :user

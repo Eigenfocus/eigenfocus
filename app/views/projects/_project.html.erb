@@ -43,7 +43,7 @@
         <%= t("actions.go_to_time_tracking") %>
       <% end %>
       <%= link_to visualization_path(project.default_visualization), class: "btn-secondary py-4", data: { turbo_frame: "_top" } do %>
-        <span class=" mr-2"><%= icon_for(:project_issues) %></span>
+        <span class=" mr-2"><%= icon_for(:boards) %></span>
         <%= t("actions.go_to_board") %>
       <% end %>
     </div>
