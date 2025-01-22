@@ -12,7 +12,7 @@
       <% if time_entry.project.present? %>
 
         <%= link_to visualization_path(time_entry.project.default_visualization), class: "link-primary text-xs", tabindex: '-1', data: { turbo_frame: "_top" } do %>
-          <span class=" mr-2"><%= icon_for(:project_issues) %></span>
+          <span class=" mr-2"><%= icon_for(:issues) %></span>
           <%= t("actions.go_to_board") %>
         <% end %>
       <% end %>
