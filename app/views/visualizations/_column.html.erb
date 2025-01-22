@@ -59,7 +59,12 @@
     >
 
     <% grouping.issues.each do |issue| %>
-      <%= render partial: 'visualizations/card', locals: { issue:, grouping: , visualization: } %>
+      <%= render partial: 'visualizations/card', locals: {
+        issue:,
+        grouping: ,
+        visualization: ,
+        scroll_on_connect: local_assigns[:open_issue] == issue
+      } %>
     <% end %>
   </ul>
 

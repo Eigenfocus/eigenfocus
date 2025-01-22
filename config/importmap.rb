@@ -20,5 +20,6 @@ pin "dropzone" # @6.0.0
 pin "just-extend" # @5.1.1 required by dropzone
 
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin_all_from "app/javascript/controllers/visualizations", under: "controllers"
 pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
 pin "marked" # @15.0.4

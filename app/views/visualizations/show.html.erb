@@ -40,7 +40,8 @@
           data-sortable-move-path-value="<%= move_visualization_groupings_path(@visualization) %>"
           >
         <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping, locals: {
-          visualization: @visualization
+          visualization: @visualization,
+          open_issue:  @open_issue
         } %>
 
         <li class="order-last w-64 shrink-0" id="js-create-new-column">
