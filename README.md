@@ -21,7 +21,7 @@
 <div align="center">
 
   <img src="https://img.shields.io/badge/0.6.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
-  <img src="https://img.shields.io/badge/0.7.0.alpha1-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
+  <img src="https://img.shields.io/badge/0.7.0.rc1-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
 </div>
 
 
