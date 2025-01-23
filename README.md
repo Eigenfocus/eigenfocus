@@ -4,7 +4,8 @@
       Self-Hosted All-in-One Project Management App: Boards, Time Tracking & Focus Tools.
   </p>
   <a href="https://eigenfocus.com"><strong>Website</strong></a> |
-  <a href="#installation"><strong>Docker Installation</strong></a>
+  <a href="#installation"><strong>Docker Installation</strong></a> |
+  <a href="#live-demo"><strong>Live Demo</strong></a>
 </div>
 <br />
 <div align="center">
@@ -73,6 +74,17 @@ We're building a PRO Edition (Paid) with features for managing more complex proj
 
 <div align="center">
 <a href="https://eigenfocus.com/#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
+</div>
+
+<br/>
+
+# Live Demo
+There's a live demo for the FREE Edition where you can test our features.
+
+In this demo uploads are disabled and all data will expire after 30 minutes.
+
+<div align="center">
+<a href="https://demo.eigenfocus.com/">👀 <strong>Check the live demo</strong></a>
 </div>
 
 <br/>
