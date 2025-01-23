@@ -20,6 +20,10 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/0.7.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
+  <br/>
+  <br/>
+  <a href="https://eigenfocus.com/blog/articles/we-believe-in-what-we-re-building-release-0-7-0?utm_source=github_home"><strong>See what is new in our 0.7.0</strong></a>
+
 </div>
 
 
@@ -30,8 +34,8 @@ We've been working with product development for more than a decade so this produ
 
 Any new ideas are welcome.
 
-# FREE EDITION (this repo)
-## FREE EDITION - Features
+
+# FREE EDITION (this repo) - Features
 Here are some of our current features:
 
 - Projects: create/edit/update/archive you projects
@@ -42,7 +46,7 @@ Here are some of our current features:
 - Time Report: generate time reports by project and time periods
 - Themes: customize the UI to your taste
 
-## FREE EDITION - Roadmap
+# FREE EDITION - Roadmap
 
 Here is what is coming next:
 - Seamless Integration between Boards <> Time Tracking
@@ -59,16 +63,15 @@ Here is what is coming next:
 
 <br/>
 
-# Supporter Edition (another repo)
-## Supporter Edition - Roadmap
-We're building a Supporter Edition (Paid) with features for managing more complex projects and teams.
+# PRO Edition (another repo) - Roadmap
+We're building a PRO Edition (Paid) with features for managing more complex projects and bigger teams.
 
 - Inviting members
 - User/Project Permissions
 - More types of views (boards, lists, custom matrices, timeline)
 - Multiple views per project
 - Issue Tagging
-- More types of reports
+- More types of reports and insights
 
 <div align="center">
 <a href="https://eigenfocus.com/#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
