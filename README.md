@@ -46,16 +46,14 @@ Here are some of our current features:
 - Time Report: generate time reports by project and time periods
 - Themes: customize the UI to your taste
 
-# FREE EDITION - Roadmap
+# FREE EDITION (this repo) - Roadmap
 
 Here is what is coming next:
-- Seamless Integration between Boards <> Time Tracking
-- Managing Logged Time Inside a Issue
-- UX enhancements for handling multiple cards/issues at once in a board
 - View Issues as List
+- Features to help handling multiple issues at once in a board
+- Seamless Integration between Boards <> Time Tracking
+- Focus Space
 - Long running time tracking alerts
-- Timers and time alerts to improve focus (Pomodoro, drinking water, stretching)
-- Focus playlist sounds/songs
 
 <div align="center">
 ⭐️ this repository and stay up to date.
@@ -141,6 +139,8 @@ You can enable HTTP Basic Auth by setting these two env variables:
 
 - `HTTP_AUTH_USER` - For the username
 - `HTTP_AUTH_PASSWORD` - For the password
+
+➜ If you're exposing the service to the internet don't forget to setup a certificate and use HTTPS.
 
 # Development Guide
 Alternatively, if you need to fine tune a config [Check the Development Guide](docs/DEVELOPMENT.md).
