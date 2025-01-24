@@ -53,7 +53,12 @@
 
     <div class="text-readable-content-700 text-lg font-medium text-center mt-4">
       <%= t(".thanks") %><br/>
-      <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="mt-4 btn-primary"><i class="fa-brands fa-github mr-2"></i> <%= t(".like_us") %></a>
+    </div>
+    <div class="text-center mt-2">
+      <div class="flex gap-4 justify-center items-center flex-col">
+        <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="btn-primary"><i class="fa-brands fa-github mr-2"></i> <%= t(".like_us") %></a>
+        <button class="text-sm" data-action="click->modal#close"><%= t(".close") %></button>
+      </div>
     </div>
   </div>
 <% end %>
