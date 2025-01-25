@@ -84,7 +84,7 @@ There's a live demo for the FREE Edition where you can test our features.
 In this demo uploads are disabled and all data will expire after 30 minutes.
 
 <div align="center">
-<a href="https://demo.eigenfocus.com/">👀 <strong>Check the live demo</strong></a>
+<a href="https://demo.eigenfocus.com/" rel="nofollow">👀 <strong>Check the live demo</strong></a>
 </div>
 
 <br/>
