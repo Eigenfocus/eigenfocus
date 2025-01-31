@@ -2,7 +2,7 @@
 # and seeing results in the browser, you must do so from the web console (running inside the dev process),
 # not a terminal started via bin/rails console! Add "console" to any action or any ERB template view
 # to make the web console appear.
-solid_cable_default: &solid_cable_default
+default: &default
   adapter: solid_cable
   connects_to:
     database:
@@ -11,10 +11,10 @@ solid_cable_default: &solid_cable_default
   message_retention: 1.day
 
 development:
-  <<: *solid_cable_default
+  <<: *default
 
 test:
   adapter: test
 
 production:
-  <<: *solid_cable_default
+  <<: *default
