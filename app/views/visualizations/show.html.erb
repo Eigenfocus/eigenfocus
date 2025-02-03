@@ -1,6 +1,6 @@
 <% set_page_title(:project_board, project_name: @visualization.project.name ) %>
 
-<%= turbo_stream_from :groupings %>
+<%= turbo_stream_from :visualization %>
 
 <main class="grow">
   <div class="flex flex-col h-full">

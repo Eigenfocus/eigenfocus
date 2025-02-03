@@ -16,7 +16,7 @@ class Grouping < ApplicationRecord
   # Broadcasts
   after_create_commit -> {
     broadcast_append_later_to(
-      "groupings",
+      "visualization",
       partial: "visualizations/column",
       locals: {
         grouping: self,
@@ -25,13 +25,13 @@ class Grouping < ApplicationRecord
       target: "kanban-board"
     )
   }
-  after_update_commit -> { broadcast_replace_later_to "groupings", partial: "visualizations/column",
+  after_update_commit -> { broadcast_replace_later_to "visualization", partial: "visualizations/column",
       locals: {
         grouping: self,
         visualization: visualization
       }
   }
-  after_destroy_commit -> { broadcast_remove_to "groupings" }
+  after_destroy_commit -> { broadcast_remove_to "visualization" }
 
   def allocate_issue(issue)
     allocations.create(issue: issue, position: :last)
