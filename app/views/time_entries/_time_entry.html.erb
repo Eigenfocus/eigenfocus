@@ -1,5 +1,5 @@
 <% running_class = time_entry.running? ? "border-secondary-500" : "border-background-100" %>
-<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> transition-all bg-body-contrast relative rounded-md flex-col lg:flex-row gap-4 flex justify-stretch shadow-sm border ">
+<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> transition-all bg-body-contrast relative rounded-md flex-col lg:flex-row gap-4 flex justify-stretch shadow-sm border peer peer-exists">
   <% if time_entry.running? %>
     <span class="absolute left-[-7px] flex" style="width:16px; height:16px; top: calc(50% - 6px)">
       <span class="relative  inline-flex rounded-full bg-body-contrast text-secondary-500" style="left:-2px;top:-2px;font-size:16px">
