@@ -30,6 +30,9 @@ gem "image_processing", "~> 1.13"
 
 gem "positioning", "~> 0.4"
 
+# Real-time updates
+gem "solid_cable", "~> 3.0"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
