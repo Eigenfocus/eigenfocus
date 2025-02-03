@@ -303,7 +303,6 @@ describe 'As a user, I want to manage my project kanban visualization' do
     all_cards = all(".cpy-card")
 
     first_issue = all_cards[0]
-    second_issue = all_cards[1]
     third_issue = all_cards[2]
 
     first_issue.drag_to(third_issue)
