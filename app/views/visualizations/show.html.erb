@@ -1,5 +1,7 @@
 <% set_page_title(:project_board, project_name: @visualization.project.name ) %>
 
+<%= turbo_stream_from :groupings %>
+
 <main class="grow">
   <div class="flex flex-col h-full">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 p-4 sm:px-12 pt-12">
@@ -52,6 +54,7 @@
     <div class="relative grow cpy-columns-wrapper">
       <ul
           class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-12 sm:pr-12 sm:pb-4 sm:scroll-pr-12 flex flex-row flex-nowrap gap-x-8 pb-2 sm:px-12 items-start overflow-x-auto overflow-y-hidden scroll-smoot"
+          id="kanban-board"
           data-controller="sortable"
           data-sortable-target="container"
           data-sortable-ignore-drag-selector-value=".js-no-column-drag"
