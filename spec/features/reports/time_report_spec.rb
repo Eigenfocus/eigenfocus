@@ -7,7 +7,7 @@ context "As a user, I want to generate time reports" do
     end
   end
 
-  let!(:user) { FactoryBot.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   let(:project_alpha) { FactoryBot.create(:project, name: 'Alpha') }
   let(:project_beta) { FactoryBot.create(:project, name: 'Beta') }
