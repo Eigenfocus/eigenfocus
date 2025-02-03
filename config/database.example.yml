@@ -10,8 +10,13 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: storage/development.sqlite3
+  primary:
+    <<: *default
+    database: storage/development.sqlite3
+  cable:
+    <<: *default
+    database: storage/development_cable.sqlite3
+    migrations_paths: db/cable_migrate
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +32,10 @@ test:
 # Similarly, if you deploy your application as a Docker container, you must
 # ensure the database is located in a persisted volume.
 production:
-  <<: *default
-  database: app-data/database/production.sqlite3
-  # database: path/to/persistent/storage/production.sqlite3
+  primary:
+    <<: *default
+    database: app-data/database/production.sqlite3
+  cable:
+    <<: *default
+    database: app-data/database/production_cable.sqlite3
+    migrations_paths: db/cable_migrate
