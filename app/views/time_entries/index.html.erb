@@ -1,5 +1,7 @@
 <% set_page_title(:time_tracking) %>
 
+<%= turbo_stream_from :time_entries %>
+
 <% if params[:new_entry].present? %>
   <%
     new_entry = TimeEntry.new
@@ -85,20 +87,18 @@
 
 
 <div class="flex flex-col gap-4" id="time-entries-tbody">
-  <% if @time_entries.count.zero? %>
-    <div id="empty-row" class="card">
-      <p class='text-center text-readable-content-500'>
-        <%= t(".zero_records", date: l(@reference_date, format: :long )) %>
-      </p>
-      <p class="mt-3 text-center mb-4">
-        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn-primary py-4 inline-block", data: { turbo_frame: 'time_entry_form' } do %>
-          <i class="fa-solid fa-circle-plus mr-1"></i>
-          <%= t('.click_here_to_create') %>
-        <% end %>
-      </p>
-    </tr>
-  <% else %>
-    <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
-  <% end %>
+  <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
+
+  <div id="empty-row" class="card peer-[.peer-exists]:hidden">
+    <p class='text-center text-readable-content-500'>
+      <%= t(".zero_records", date: l(@reference_date, format: :long )) %>
+    </p>
+    <p class="mt-3 text-center mb-4">
+      <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn-primary py-4 inline-block", data: { turbo_frame: 'time_entry_form' } do %>
+        <i class="fa-solid fa-circle-plus mr-1"></i>
+        <%= t('.click_here_to_create') %>
+      <% end %>
+    </p>
+  </tr>
 </div>
 <% end %>

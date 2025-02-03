@@ -28,9 +28,11 @@ class TimeEntriesController < ApplicationController
   def create
     @time_entry = current_user.time_entries.new(time_entry_params)
 
-    if @time_entry.save
+    if @time_entry.valid?
       if @time_entry.total_logged_time_in_minutes.zero?
         @time_entry.start!
+      else
+        @time_entry.save!
       end
 
       @total_logged_time = current_user.time_entries.by_date(@time_entry.reference_date).sum(:total_logged_time_in_minutes)
