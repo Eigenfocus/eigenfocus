@@ -1,5 +1,5 @@
 <% if @issue.persisted? %>
-  <%= turbo_stream.append "#{ dom_id(@grouping) }-cards-wrapper", partial: "visualizations/card", locals: {
+  <%= turbo_stream.append "#{ @grouping.id }-cards-wrapper", partial: "visualizations/card", locals: {
     visualization: current_visualization,
     issue: @issue
   } %>

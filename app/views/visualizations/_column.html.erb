@@ -48,7 +48,7 @@
   </header>
 
   <ul
-    id="<%= dom_id(grouping) %>-cards-wrapper"
+    id="<%= grouping.id %>-cards-wrapper"
     class="flex flex-col flex-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth js-no-column-drag cpy-drop-zone"
     data-controller="sortable"
     data-sortable-target="container"
@@ -61,7 +61,6 @@
     <% grouping.issues.each do |issue| %>
       <%= render partial: 'visualizations/card', locals: {
         issue:,
-        grouping: ,
         visualization: ,
         scroll_on_connect: local_assigns[:open_issue] == issue
       } %>
