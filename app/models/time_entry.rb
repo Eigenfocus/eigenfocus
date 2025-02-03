@@ -14,6 +14,9 @@ class TimeEntry < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
 
+  # Broadcasts
+  broadcasts_to ->(time_entry) { "time_entries" }, inserts_by: :prepend, target: "time-entries-tbody"
+
   def start!
     fail "You can only start stopped time entries" if started_at.present?
     self.started_at = DateTime.current
