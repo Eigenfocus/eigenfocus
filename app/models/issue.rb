@@ -39,12 +39,14 @@ class Issue < ApplicationRecord
 
   # Broadcasts
   after_update_commit -> {
-    broadcast_replace_later_to "visualization",
-    partial: "visualizations/card",
-    locals: {
-      issue: self,
-      visualization: project.default_visualization
-    }
+    broadcast_replace_later_to(
+      project.default_visualization,
+      partial: "visualizations/card",
+      locals: {
+        issue: self,
+        visualization: project.default_visualization
+      }
+    )
   }
   after_destroy_commit -> { broadcast_remove_to "visualization" }
 
