@@ -36,7 +36,7 @@ export default class extends Controller {
         ...this.liveUpdateChannelParamsValue
       }
       this.subscription = consumer.subscriptions.create(subscriptionConfig, {
-        received: this._onLiveUpdate.bind(this)
+        received: this.onLiveUpdate.bind(this)
       })
     }
   }
@@ -76,7 +76,7 @@ export default class extends Controller {
   }
 
   onMove(evt) {
-    const targetElement = evt.related; // The element you're trying to drop onto
+    const targetElement = evt.related; // Element that is the current drop target
     if (this.ignoreDragSelectorValue && targetElement.matches(this.ignoreDragSelectorValue)) {
       return false
     }
@@ -92,7 +92,7 @@ export default class extends Controller {
     }
   }
 
-  _onLiveUpdate(data) {
+  onLiveUpdate(data) {
     const isEventFromThisTab = this.tabId === data.origin
     if (isEventFromThisTab) return
 
