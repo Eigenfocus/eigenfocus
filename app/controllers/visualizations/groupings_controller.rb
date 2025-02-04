@@ -32,6 +32,8 @@ class Visualizations::GroupingsController < ApplicationController
   def move
     move_params = params.deep_transform_keys(&:to_sym)
     current_visualization.groupings.find_by(position: move_params[:from][:position]).update(position: move_params[:to][:position])
+
+    broadcast_move(current_visualization, params)
   end
 
   private
@@ -41,5 +43,12 @@ class Visualizations::GroupingsController < ApplicationController
 
   def permitted_params
     params.require(:grouping).permit(:title)
+  end
+
+  def broadcast_move(visualization, params)
+    Visualizations::GroupingsChannel.broadcast_move(
+      current_visualization.id,
+      params.permit(:origin, from: [ :position, :group ], to: [ :position, :group ])
+    )
   end
 end
