@@ -34,7 +34,7 @@ class Grouping < ApplicationRecord
         visualization: visualization
       }
     )
-  }
+  }, unless: :saved_change_to_position?
   after_destroy_commit -> { broadcast_remove_to "visualization" }
 
   def allocate_issue(issue)
