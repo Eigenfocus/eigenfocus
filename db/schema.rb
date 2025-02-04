@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_13_114608) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_03_235312) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,6 +66,24 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_13_114608) do
     t.index ["visualization_id"], name: "index_groupings_on_visualization_id"
   end
 
+  create_table "issue_labels", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_issue_labels_on_project_id"
+    t.index ["title"], name: "index_issue_labels_on_title"
+  end
+
+  create_table "issue_labels_links", force: :cascade do |t|
+    t.integer "issue_id", null: false
+    t.integer "issue_label_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_issue_labels_links_on_issue_id"
+    t.index ["issue_label_id"], name: "index_issue_labels_links_on_issue_label_id"
+  end
+
   create_table "issues", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -119,6 +137,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_13_114608) do
   add_foreign_key "grouping_issue_allocations", "groupings"
   add_foreign_key "grouping_issue_allocations", "issues"
   add_foreign_key "groupings", "visualizations"
+  add_foreign_key "issue_labels_links", "issue_labels"
+  add_foreign_key "issue_labels_links", "issues"
   add_foreign_key "issues", "projects"
   add_foreign_key "time_entries", "projects"
   add_foreign_key "time_entries", "users"
