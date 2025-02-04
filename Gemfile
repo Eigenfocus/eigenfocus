@@ -28,7 +28,9 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.13"
 
+# Features
 gem "positioning", "~> 0.4"
+gem 'acts-as-taggable-on'
 
 # Real-time updates
 gem "solid_cable", "~> 3.0"

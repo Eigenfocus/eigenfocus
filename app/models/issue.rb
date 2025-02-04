@@ -1,4 +1,6 @@
 class Issue < ApplicationRecord
+  acts_as_taggable_on :labels
+
   # Relations
   belongs_to :project
   has_many_attached :files
