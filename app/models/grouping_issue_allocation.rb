@@ -7,11 +7,10 @@ class GroupingIssueAllocation < ApplicationRecord
   # Broadcasts
   after_create_commit -> {
     broadcast_append_later_to(
-      "visualization",
+      grouping.visualization,
       partial: "visualizations/card",
       locals: {
         issue: issue,
-        grouping: grouping,
         visualization: grouping.visualization
       },
       target: "#{grouping.id}-cards-wrapper"

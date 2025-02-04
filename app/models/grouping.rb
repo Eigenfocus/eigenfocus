@@ -16,7 +16,7 @@ class Grouping < ApplicationRecord
   # Broadcasts
   after_create_commit -> {
     broadcast_append_later_to(
-      "visualization",
+      visualization,
       partial: "visualizations/column",
       locals: {
         grouping: self,
@@ -27,7 +27,7 @@ class Grouping < ApplicationRecord
   }
   after_update_commit -> {
     broadcast_replace_later_to(
-      "visualization",
+      visualization,
       partial: "visualizations/column",
       locals: {
         grouping: self,
@@ -35,7 +35,7 @@ class Grouping < ApplicationRecord
       }
     )
   }, unless: :saved_change_to_position?
-  after_destroy_commit -> { broadcast_remove_to "visualization" }
+  after_destroy_commit -> { broadcast_remove_to visualization }
 
   def allocate_issue(issue)
     allocations.create(issue: issue, position: :last)
