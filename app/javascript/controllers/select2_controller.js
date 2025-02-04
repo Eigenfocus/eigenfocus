@@ -7,7 +7,8 @@ export default class extends Controller {
     select2($);
     this.select2 = $(this.element).select2({
       placeholder: this.element.getAttribute('placeholder'),
-      width: '100%'
+      width: '100%',
+      tags: (this.element.dataset.tags == "true")
     });
 
     this.select2.on('select2:select', function () {

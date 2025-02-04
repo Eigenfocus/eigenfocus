@@ -25,7 +25,7 @@
 
 .select2-container--default.select2-container--focus .select2-selection--multiple,
 .select2-container--default .select2-selection--single {
-  @apply border border-background-300 px-3 py-2;
+  @apply border border-background-300;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {

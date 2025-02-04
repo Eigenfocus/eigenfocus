@@ -28,6 +28,6 @@ class Visualizations::IssuesController < ApplicationController
   end
 
   def permitted_params
-    params.require(:issue).permit(:title, :description, files: [])
+    params.require(:issue).permit(:title, :description, label_list: [], files: [])
   end
 end

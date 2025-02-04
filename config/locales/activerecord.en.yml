@@ -40,6 +40,7 @@ en:
         title: 'Title'
         description: 'Description'
         files: "Files"
+        label_list: 'Labels'
 
       time_entry:
         description: 'Description'
