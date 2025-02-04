@@ -16,6 +16,7 @@ function generateConfig(themeColors) {
         .flatMap(variant => [variant, `hover:${variant}`, `focus:${variant}`, `active:${variant}`, `placeholder:${variant}`])),
       "border-r-2", // For menu
       "font-thin","font-extralight","font-light","font-normal","font-medium","font-semibold","font-bold","font-extrabold","font-black",
+      "has-[li]",
       "w-full", "h-full", "max-w-lg", "max-w-xl", "max-w-2xl", "max-w-3xl", "max-w-4xl" // For modal
     ],
     darkMode: "class",
