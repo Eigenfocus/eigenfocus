@@ -4,3 +4,10 @@ import "controllers"
 
 import "@fortawesome/fontawesome-free"
 import "channels"
+
+import jquery from 'jquery';
+import select2 from 'select2';
+
+window.jQuery = jquery
+window.$ = jquery
+select2($);
