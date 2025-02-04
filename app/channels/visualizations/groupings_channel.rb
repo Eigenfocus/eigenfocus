@@ -6,8 +6,4 @@ class Visualizations::GroupingsChannel < ApplicationCable::Channel
   def subscribed
     stream_from "visualizations/#{params[:visualization_id]}/groupings/move"
   end
-
-  def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
-  end
 end
