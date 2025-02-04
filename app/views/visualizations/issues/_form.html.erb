@@ -45,7 +45,8 @@
 
             <div class="mb-4 flex flex-col items-stretch gap-2">
               <%= f.label :label_list, Issue.human_attribute_name(:label_list), class: "label-primary" %>
-              <%= f.select :label_list, options_from_collection_for_select(ActsAsTaggableOn::Tag.for_context(:labels).order(name: :asc), :name, :name, issue.label_list),
+              <%= f.select :label_list,
+                    options_from_collection_for_select(ActsAsTaggableOn::Tag.for_tenant(issue.project_id).for_context(:labels).order(name: :asc), :name, :name, issue.label_list),
                     { include_blank: false },
                     {
                       class: 'input-primary', multiple: true,
