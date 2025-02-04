@@ -3,18 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   initialize() {
 
-    // Dirty patch to remove tag when pressing backspace
-    // https://github.com/select2/select2/issues/3354#issuecomment-101853485
-    // https://github.com/select2/select2/issues/3354#issuecomment-132389291
-    $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
-      var oldRemoveChoice = Search.prototype.searchRemoveChoice;
-
-      Search.prototype.searchRemoveChoice = function () {
-          console.log('aa')
-          oldRemoveChoice.apply(this, arguments);
-          this.$search.val('');
-      };
-    });
 
     this.select2 = $(this.element).select2({
       placeholder: this.element.getAttribute('placeholder'),
