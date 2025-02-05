@@ -75,7 +75,7 @@ export default class extends Controller {
   _getVisualizationBoardColumnController(columnTarget) {
     return this.application.getControllerForElementAndIdentifier(
       columnTarget,
-      'visualization--board--column'
+      'grouping-column'
     )
   }
 

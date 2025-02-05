@@ -2,8 +2,8 @@
   id="<%= dom_id(issue) %>"
   data-controller="visualization--board--card"
   data-visualization--board--card-scroll-on-connect-value="<%= local_assigns[:scroll_on_connect] == true %>"
-  data-visualization--board--column-target="card"
-  data-visualization--board--column-issue-id-value="<%= issue.id %>"
+  data-grouping-column-target="card"
+  data-grouping-column-issue-id-value="<%= issue.id %>"
   >
   <%= link_to show_visualization_issue_path(visualization, issue),
     class: "group relative flex flex-col text-sm text-content-500 border-2 border-background-200 bg-background-50 hover:bg-background-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-3",
