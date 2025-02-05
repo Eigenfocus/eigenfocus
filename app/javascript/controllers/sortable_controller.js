@@ -11,7 +11,7 @@ export default class extends Controller {
     sharedGroup: String,
     groupingId: String,
     ignoreDragSelector: String,
-    ancestorContainerSelector: String,
+    ancestorContainerSelector: String
   }
 
   connect() {
@@ -71,6 +71,10 @@ export default class extends Controller {
         this.container.classList.add(SELECTED_CONTAINER_CSS_CLASS)
       }
     }
+  }
+
+  _getOrInitializeTabId() {
+    return sessionStorage.tabID ? sessionStorage.tabID : sessionStorage.tabID = Math.random()
   }
 
   _clearSelectedContainer() {
