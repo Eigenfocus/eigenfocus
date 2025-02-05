@@ -15,7 +15,6 @@ export default class extends Controller {
   }
 
   connect() {
-    this.tabId = this._getOrInitializeTabId()
     this.sortable = new Sortable(this.containerTarget, {
       scroll: true, // Enable the plugin. Can be HTMLElement
       animation: 150,
@@ -46,7 +45,6 @@ export default class extends Controller {
         "Accept": "text/vnd.turbo-stream.html", // Tell the server to respond with Turbo Stream
       },
       body: JSON.stringify({
-        origin: this.tabId,
         from: {
           group: evt.from.dataset.sortableGroupingIdValue,
           position: evt.oldIndex + 1
@@ -71,10 +69,6 @@ export default class extends Controller {
         this.container.classList.add(SELECTED_CONTAINER_CSS_CLASS)
       }
     }
-  }
-
-  _getOrInitializeTabId() {
-    return sessionStorage.tabID ? sessionStorage.tabID : sessionStorage.tabID = Math.random()
   }
 
   _clearSelectedContainer() {
