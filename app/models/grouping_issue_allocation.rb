@@ -16,4 +16,7 @@ class GroupingIssueAllocation < ApplicationRecord
       target: "#{grouping.id}-cards-wrapper"
     )
   }
+  after_update_commit -> {
+    Visualizations::AllocationsChannel.broadcast_update(self)
+  }
 end

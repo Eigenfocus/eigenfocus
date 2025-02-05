@@ -30,9 +30,7 @@ export default class extends Controller {
     })
   }
 
-  onGroupingMove(grouping) {
-    const { id, position } = grouping
-
+  onGroupingMove({ id, position }) {
     const movingColumn = this._findColumnByGroupingId(id)
     const movingColumnCurrentPosition = this.columnTargets.indexOf(movingColumn)
     const movingColumnNewPosition = position - 1 // Positioning gem use indexes starting on 1
@@ -55,30 +53,22 @@ export default class extends Controller {
     })
   }
 
-  onCardMove(data) {
-    const { from, to } = data
-    const isMoveWithinSameGrouping = from.group === to.group
+  onCardMove({ issue_id, grouping_id, position }) {
+    const destinationColumn = this._findColumnByGroupingId(grouping_id)
 
-    const columnControllers = this.columnTargets.map(this._getVisualizationBoardColumnController.bind(this))
-    const originController = columnControllers.find(controller => controller.groupingIdValue === from.group)
-    const destinationController = columnControllers.find(controller => controller.groupingIdValue === to.group)
+    const movingCard = this._findCardByIssueId(issue_id)
+    const movingCardNewPosition = position - 1 // Positioning gem use indexes starting on 1
 
-    const originCard = originController.getCardOn(from.position - 1)
+    const destinationController = this._getVisualizationBoardColumnController(destinationColumn)
 
-    if (isMoveWithinSameGrouping) {
-      const destinationCard = originController.getCardOn(to.position - 1)
-
-      this._moveWithinSameGrouping({ from, to, originEl: originCard, destinationEl: destinationCard })
-    } else {
-      destinationController.putCardOn(originCard, to.position - 1)
-    }
+    destinationController.addCard(movingCard, movingCardNewPosition)
   }
 
-  _moveWithinSameGrouping({ from, to, originEl, destinationEl }) {
-    if (from.position > to.position) {
-      destinationEl.insertAdjacentElement('beforebegin', originEl)
-    } else {
-      destinationEl.insertAdjacentElement('afterend', originEl)
+  _findCardByIssueId(id) {
+    for (let columnTarget of this.columnTargets) {
+      const controller = this._getVisualizationBoardColumnController(columnTarget)
+      const card = controller.getCardById(id)
+      if (card) return card
     }
   }
 
