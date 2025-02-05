@@ -9,9 +9,8 @@ export default class extends Controller {
   static values = {
     movePath: String,
     sharedGroup: String,
-    groupingId: String,
-    ignoreDragSelector: String,
-    ancestorContainerSelector: String
+    groupingId: String, // Not used by stimulus directly
+    ignoreDragSelector: String
   }
 
   connect() {
@@ -29,7 +28,7 @@ export default class extends Controller {
   onDragEnd(evt) {
     this._clearSelectedContainer()
 
-    let didGroupingChanged = evt.from.dataset.sortableGroupingIdValue !== evt.to.dataset.sortableGroupingIdValue
+    let didGroupingChanged = evt.from.dataset.sortableGroupingId !== evt.to.dataset.sortableGroupingId
     let didPositionChanged = evt.oldIndex !== evt.newIndex
 
     let didItemReallyMove = didGroupingChanged || didPositionChanged
@@ -46,11 +45,11 @@ export default class extends Controller {
       },
       body: JSON.stringify({
         from: {
-          group: evt.from.dataset.sortableGroupingIdValue,
+          group: evt.from.dataset.sortableGroupingId,
           position: evt.oldIndex + 1
         },
         to: {
-          group: evt.to.dataset.sortableGroupingIdValue,
+          group: evt.to.dataset.sortableGroupingId,
           position: evt.newIndex + 1
         }
       })
