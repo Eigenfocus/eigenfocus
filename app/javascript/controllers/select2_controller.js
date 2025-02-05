@@ -1,13 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
-import $ from 'jquery';
-import select2 from 'select2';
 
 export default class extends Controller {
   initialize() {
-    select2($);
     this.select2 = $(this.element).select2({
       placeholder: this.element.getAttribute('placeholder'),
-      width: '100%'
+      width: '100%',
+      tags: (this.element.dataset.tags == "true")
     });
 
     this.select2.on('select2:select', function () {
@@ -22,6 +20,16 @@ export default class extends Controller {
           document.querySelector('input.select2-search__field').focus();
         }
       }, 0);
+    });
+
+    // avoids opening select2
+    this.select2.on('select2:unselecting', function() {
+      $(this).data('unselecting', true);
+    }).on('select2:opening', function(e) {
+      if ($(this).data('unselecting')) {
+        $(this).removeData('unselecting');
+        e.preventDefault();
+      }
     });
 
     if (!window.__select2binded__) {

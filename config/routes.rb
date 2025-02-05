@@ -44,6 +44,18 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :projects, path: "p", only: [] do
+    scope module: :projects do
+      resources :issues, only: [] do
+        member do
+          post :add_label
+          delete :remove_label
+        end
+      end
+    end
+  end
+
   scope module: :visualizations do
     resources :allocations, only: [] do
       post :move, on: :collection
