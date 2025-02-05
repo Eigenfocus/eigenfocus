@@ -36,6 +36,9 @@ pt-BR:
         title: 'Título'
         description: 'Descrição'
         files: "Arquivos"
+        labels: 'Rótulos'
+        label_ids: 'Rótulos'
+
       time_entry:
         description: 'Descrição'
         project_id: 'Projeto'

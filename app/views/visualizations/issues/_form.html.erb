@@ -43,6 +43,18 @@
               </div>
             </div>
 
+
+            <div class="mb-4 flex flex-col items-stretch gap-2">
+              <%= f.label :label_ids, Issue.human_attribute_name(:label_ids), class: "label-primary" %>
+              <%= f.select :label_ids,
+                    options_from_collection_for_select(issue.project.issue_labels, :id, :title, issue.label_ids),
+                    { include_blank: false },
+                    {
+                      class: 'input-primary', multiple: true,
+                      data: { controller: 'select2', tags: true }
+                    } %>
+            </div>
+
             <div class="mb-4 flex flex-col items-stretch gap-2 markdown">
               <div class="flex justify-between">
                 <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
