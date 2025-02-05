@@ -19,7 +19,6 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
   var oldRemoveChoice = Search.prototype.searchRemoveChoice;
 
   Search.prototype.searchRemoveChoice = function () {
-      console.log('aa')
       oldRemoveChoice.apply(this, arguments);
       this.$search.val('');
   };

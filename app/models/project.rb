@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   # Relations
   has_many :visualizations
   has_many :issues
-  has_many :issue_labels, -> { order(title: :asc) }
+  has_many :issue_labels, dependent: :destroy
 
   # Validations
   validates :name, presence: true

@@ -4,9 +4,10 @@ class IssueLabel < ApplicationRecord
   scope :with_title, ->(title) { where("lower(title) LIKE ?", title) }
 
   # Relationships
-  has_and_belongs_to_many :issues,
-    join_table: :issue_labels_links,
-    class_name: "Issue"
+  has_many :issue_links, class_name: "IssueLabelLink", dependent: :destroy
+  has_many :issues, through: :issue_links, source: :issue
+
+  belongs_to :project
 
   # Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false, scope: [ :project_id ] }

@@ -22,6 +22,16 @@ export default class extends Controller {
       }, 0);
     });
 
+    // avoids opening select2
+    this.select2.on('select2:unselecting', function() {
+      $(this).data('unselecting', true);
+    }).on('select2:opening', function(e) {
+      if ($(this).data('unselecting')) {
+        $(this).removeData('unselecting');
+        e.preventDefault();
+      }
+    });
+
     if (!window.__select2binded__) {
       $(document).on('focus', '.select2-selection.select2-selection--single', function (e) {
         $(this).closest(".select2-container").siblings('select:enabled').select2('open');

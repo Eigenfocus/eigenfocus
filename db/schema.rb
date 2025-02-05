@@ -66,6 +66,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_235312) do
     t.index ["visualization_id"], name: "index_groupings_on_visualization_id"
   end
 
+  create_table "issue_label_links", force: :cascade do |t|
+    t.integer "issue_id", null: false
+    t.integer "issue_label_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id", "issue_label_id"], name: "index_issue_label_links_on_issue_id_and_issue_label_id", unique: true
+    t.index ["issue_id"], name: "index_issue_label_links_on_issue_id"
+    t.index ["issue_label_id"], name: "index_issue_label_links_on_issue_label_id"
+  end
+
   create_table "issue_labels", force: :cascade do |t|
     t.string "title", null: false
     t.integer "project_id"
@@ -73,15 +83,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_235312) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_issue_labels_on_project_id"
     t.index ["title"], name: "index_issue_labels_on_title"
-  end
-
-  create_table "issue_labels_links", force: :cascade do |t|
-    t.integer "issue_id", null: false
-    t.integer "issue_label_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["issue_id"], name: "index_issue_labels_links_on_issue_id"
-    t.index ["issue_label_id"], name: "index_issue_labels_links_on_issue_label_id"
   end
 
   create_table "issues", force: :cascade do |t|
@@ -137,8 +138,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_03_235312) do
   add_foreign_key "grouping_issue_allocations", "groupings"
   add_foreign_key "grouping_issue_allocations", "issues"
   add_foreign_key "groupings", "visualizations"
-  add_foreign_key "issue_labels_links", "issue_labels"
-  add_foreign_key "issue_labels_links", "issues"
+  add_foreign_key "issue_label_links", "issue_labels"
+  add_foreign_key "issue_label_links", "issues"
   add_foreign_key "issues", "projects"
   add_foreign_key "time_entries", "projects"
   add_foreign_key "time_entries", "users"
