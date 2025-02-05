@@ -8,8 +8,6 @@ export default class extends Controller {
   }
 
   connect() {
-    this.tabId = this._getOrInitializeTabId()
-
     this.groupingsSubscription = this._subscribeToGroupings()
     this.allocationsSubscription = this._subscribeToAllocations()
   }
@@ -32,24 +30,32 @@ export default class extends Controller {
     })
   }
 
-  onGroupingMove(data) {
-    if (this._isEventFromThisTab(data)) return
+  onGroupingMove(grouping) {
+    const { id, position } = grouping
 
-    const { from, to } = data
-    const originColumn = this.columnTargets[from.position - 1]
-    const destinationColumn = this.columnTargets[to.position - 1]
+    const movingColumn = this._findColumnByGroupingId(id)
+    const movingColumnCurrentPosition = this.columnTargets.indexOf(movingColumn)
+    const movingColumnNewPosition = position - 1 // Positioning gem use indexes starting on 1
 
-    this._moveWithinSameGrouping({
-      from,
-      to,
-      originEl: originColumn,
-      destinationEl: destinationColumn
+    const destinationColumn = this.columnTargets[movingColumnNewPosition]
+
+    if (movingColumn == destinationColumn) return;
+
+    if (movingColumnCurrentPosition > movingColumnNewPosition) {
+      destinationColumn.insertAdjacentElement('beforebegin', movingColumn)
+    } else {
+      destinationColumn.insertAdjacentElement('afterend', movingColumn)
+    }
+  }
+
+  _findColumnByGroupingId(id) {
+    return this.columnTargets.find(columnTarget => {
+      const controller = this._getVisualizationBoardColumnController(columnTarget)
+      return controller.groupingIdValue == id
     })
   }
 
   onCardMove(data) {
-    if (this._isEventFromThisTab(data)) return
-
     const { from, to } = data
     const isMoveWithinSameGrouping = from.group === to.group
 
@@ -81,14 +87,6 @@ export default class extends Controller {
       columnTarget,
       'visualization--board--column'
     )
-  }
-
-  _isEventFromThisTab(data) {
-    return this.tabId === data.origin
-  }
-
-  _getOrInitializeTabId() {
-    return sessionStorage.tabID ? sessionStorage.tabID : sessionStorage.tabID = Math.random()
   }
 
   disconnect() {
