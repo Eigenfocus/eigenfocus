@@ -26,7 +26,7 @@ class Issue < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    [ "title" ]
+    [ "title", "created_at", "updated_at" ]
   end
 
   def self.ransackable_associations(auth_object = nil)
