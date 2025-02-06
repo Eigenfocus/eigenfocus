@@ -1,14 +1,8 @@
-<% set_page_title do %>
-  <%= current_project.name %>
-  -
-  <%= t(:all_issues, scope: :page_title) %>
-<% end %>
+<% set_page_title(:project_all_issues, project_name: current_project.name) %>
 
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
   <h2 class="font-semibold text-3xl text-readable-content-800">
-    <%= current_project.name %>
-    -
-    <%= t(:all_issues, scope: :page_title) %>
+    <%= t(:project_all_issues, scope: :page_title, project_name: current_project.name) %>
   </h2>
 </div>
 
@@ -17,12 +11,12 @@
   <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
     <li class="mr-6">
       <%= link_to project_issues_path(current_project), class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
-        <%= t(:all_issues, scope: :page_title) %>
+        <%= t(:all_issues, scope: :nav) %>
       <% end %>
     </li>
     <li class="mr-6">
       <%= link_to visualization_path(current_project.default_visualization), class: "block pb-2 whitespace-nowrap" do %>
-        <%= Visualization.model_name.human(count: 1) %>
+        <%= t(:board_view, scope: :nav) %>
       <% end %>
     </li>
   </ul>

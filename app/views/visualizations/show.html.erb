@@ -29,12 +29,12 @@
         <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
           <li class="mr-6">
             <%= link_to project_issues_path(@visualization.project), class: "block pb-2 whitespace-nowrap" do %>
-              <%= t(:all_issues, scope: :page_title) %>
+              <%= t(:all_issues, scope: :nav) %>
             <% end %>
           </li>
           <li class="mr-6">
             <%= link_to visualization_path(@visualization), class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
-              <%= Visualization.model_name.human(count: 1) %>
+              <%= t(:board_view, scope: :nav) %>
             <% end %>
           </li>
         </ul>

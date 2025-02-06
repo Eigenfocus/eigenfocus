@@ -5,4 +5,4 @@ en:
     project_board: "%{project_name} - Board"
     reports: "Reports"
     edit_profile: "Profile and Newsletter"
-    all_issues: "All issues"
+    project_all_issues: "%{project_name} - All issues"
