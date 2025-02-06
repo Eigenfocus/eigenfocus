@@ -8,4 +8,5 @@ module ApplicationHelper
   include ApplicationHelper::Icons
   include ApplicationHelper::PageTitle
   include ApplicationHelper::TimeTracking
+  include ApplicationHelper::Labels
 end
