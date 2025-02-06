@@ -84,13 +84,13 @@ export default class extends Controller {
     const isCardFromThisColumn = this.cardTargets.includes(card)
 
     if (isCardFromThisColumn) {
-      this._moveCardWithinColumn(card, position)
+      this.#moveCardWithinColumn(card, position)
     } else {
-      this._addCardFromAnotherColumn(card, position)
+      this.#addCardFromAnotherColumn(card, position)
     }
   }
 
-  _moveCardWithinColumn(card, position) {
+  #moveCardWithinColumn(card, position) {
     const cardCurrentPosition = this.cardTargets.indexOf(card)
     const destinationCard = this.cardTargets[position]
 
@@ -103,7 +103,7 @@ export default class extends Controller {
     }
   }
 
-  _addCardFromAnotherColumn(card, position) {
+  #addCardFromAnotherColumn(card, position) {
     const isColumnEmpty = this.cardTargets.length === 0
     const shouldCardGoToLastPosition = this.cardTargets.length === position
 

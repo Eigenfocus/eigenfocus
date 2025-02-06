@@ -8,11 +8,11 @@ export default class extends Controller {
   }
 
   connect() {
-    this.groupingsSubscription = this._subscribeToGroupings()
-    this.allocationsSubscription = this._subscribeToAllocations()
+    this.groupingsSubscription = this.#subscribeToGroupings()
+    this.allocationsSubscription = this.#subscribeToAllocations()
   }
 
-  _subscribeToGroupings() {
+  #subscribeToGroupings() {
     return consumer.subscriptions.create({
       channel: "Visualizations::GroupingsChannel",
       visualization_id: this.visualizationIdValue
@@ -21,7 +21,7 @@ export default class extends Controller {
     })
   }
 
-  _subscribeToAllocations() {
+  #subscribeToAllocations() {
     return consumer.subscriptions.create({
       channel: "Visualizations::AllocationsChannel",
       visualization_id: this.visualizationIdValue
@@ -31,7 +31,7 @@ export default class extends Controller {
   }
 
   onGroupingMove({ id, position }) {
-    const movingColumn = this._findColumnByGroupingId(id)
+    const movingColumn = this.#findColumnByGroupingId(id)
     const movingColumnCurrentPosition = this.columnTargets.indexOf(movingColumn)
     const movingColumnNewPosition = position - 1 // Positioning gem use indexes starting on 1
 
@@ -46,33 +46,33 @@ export default class extends Controller {
     }
   }
 
-  _findColumnByGroupingId(id) {
+  #findColumnByGroupingId(id) {
     return this.columnTargets.find(columnTarget => {
-      const controller = this._getVisualizationBoardColumnController(columnTarget)
+      const controller = this.#getVisualizationBoardColumnController(columnTarget)
       return controller.groupingIdValue == id
     })
   }
 
   onCardMove({ issue_id, grouping_id, position }) {
-    const destinationColumn = this._findColumnByGroupingId(grouping_id)
+    const destinationColumn = this.#findColumnByGroupingId(grouping_id)
 
-    const movingCard = this._findCardByIssueId(issue_id)
+    const movingCard = this.#findCardByIssueId(issue_id)
     const movingCardNewPosition = position - 1 // Positioning gem use indexes starting on 1
 
-    const destinationController = this._getVisualizationBoardColumnController(destinationColumn)
+    const destinationController = this.#getVisualizationBoardColumnController(destinationColumn)
 
     destinationController.addCard(movingCard, movingCardNewPosition)
   }
 
-  _findCardByIssueId(id) {
+  #findCardByIssueId(id) {
     for (let columnTarget of this.columnTargets) {
-      const controller = this._getVisualizationBoardColumnController(columnTarget)
+      const controller = this.#getVisualizationBoardColumnController(columnTarget)
       const card = controller.getCardById(id)
       if (card) return card
     }
   }
 
-  _getVisualizationBoardColumnController(columnTarget) {
+  #getVisualizationBoardColumnController(columnTarget) {
     return this.application.getControllerForElementAndIdentifier(
       columnTarget,
       'grouping-column'
