@@ -69,7 +69,6 @@
             <th><%= Issue.human_attribute_name(:labels) %></th>
             <th><%= sort_link(@q, :created_at, Issue.human_attribute_name(:created_at)) %></th>
             <th><%= sort_link(@q, :updated_at, Issue.human_attribute_name(:updated_at)) %></th>
-            <th><%= t("menu.actions") %></th>
           </tr>
         </thead>
         <tbody class="text-sm divide-y">
