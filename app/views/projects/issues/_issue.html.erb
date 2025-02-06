@@ -1,0 +1,12 @@
+<tr>
+  <td><%= issue.id %></td>
+  <td><%= issue.title %></td>
+  <td>
+    <% issue.labels.each do |label| %>
+      <%= badge_for_label(label) %>
+    <% end %>
+  </td>
+  <td><%= issue.created_at %></td>
+  <td><%= issue.updated_at %></td>
+  <td></td>
+</tr>

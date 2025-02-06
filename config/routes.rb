@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
   resources :projects, path: "p", only: [] do
     scope module: :projects do
-      resources :issues, only: [] do
+      resources :issues, only: [ :index ] do
         member do
           post :add_label
           delete :remove_label

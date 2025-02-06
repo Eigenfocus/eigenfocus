@@ -11,6 +11,32 @@ class Issue < ApplicationRecord
   # Validations
   validates :title, presence: true
 
+  # Scopes
+  scope :by_label_titles, ->(*label_titles) do
+    # This scope is using splat operator because ransack has a buggy behavior
+    # for array values with scopes.
+    # See more: https://github.com/activerecord-hackery/ransack/issues/404
+    from(
+      joins(:labels)
+        .where("LOWER(issue_labels.title) IN (?)", label_titles.map(&:downcase))
+        .group("issues.id")
+        .having("COUNT(DISTINCT issue_labels.id) = ?", label_titles.size),
+      :issues
+    )
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "title" ]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    [ "labels" ]
+  end
+
+  def self.ransackable_scopes(auth_object = nil)
+    [ "by_label_titles" ]
+  end
+
   def to_param
     [ id, title.parameterize ].join("-")
   end

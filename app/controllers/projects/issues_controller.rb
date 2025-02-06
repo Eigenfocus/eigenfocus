@@ -1,6 +1,11 @@
 class Projects::IssuesController < ApplicationController
   helper_method :current_project
 
+  def index
+    @q = current_project.issues.ransack(params[:q])
+    @pagy, @issues = pagy(@q.result.includes(:labels))
+  end
+
   def add_label
     issue = Issue.find(params[:id])
     label = IssueLabel.find_or_create_by({
