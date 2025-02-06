@@ -42,10 +42,16 @@
         <span class=" mr-2"><%= icon_for(:time_entries) %></span>
         <%= t("actions.go_to_time_tracking") %>
       <% end %>
-      <%= link_to visualization_path(project.default_visualization), class: "btn-secondary py-4", data: { turbo_frame: "_top" } do %>
-        <span class=" mr-2"><%= icon_for(:boards) %></span>
-        <%= t("actions.go_to_board") %>
-      <% end %>
+      <div class="inline-flex gap-2">
+        <%= link_to project_issues_path(project), class: "btn-secondary py-4", data: { turbo_frame: "_top" } do %>
+          <span class=" mr-2"><%= icon_for(:issues) %></span>
+          <%= t("actions.go_to_all_issues") %>
+        <% end %>
+        <%= link_to visualization_path(project.default_visualization), class: "btn-secondary py-4", data: { turbo_frame: "_top" } do %>
+          <span class=" mr-2"><%= icon_for(:boards) %></span>
+          <%= t("actions.go_to_board") %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
