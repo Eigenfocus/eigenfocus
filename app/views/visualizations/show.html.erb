@@ -2,7 +2,11 @@
 
 <%= turbo_stream_from @visualization %>
 
-<main class="grow">
+<main class="grow" data-controller="visualization--issue-filtering">
+  <input type="text"
+    class="input-primary"
+    data-visualization--issue-filtering-target="searchInput"
+    data-action="input->visualization--issue-filtering#filterIssues"/>
   <div class="flex flex-col h-full">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 p-4 sm:px-12 pt-12">
       <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">

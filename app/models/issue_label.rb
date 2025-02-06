@@ -18,4 +18,8 @@ class IssueLabel < ApplicationRecord
   def strip_title_whitepaces
     self.title = self.title&.strip
   end
+
+  def to_s
+    title
+  end
 end
