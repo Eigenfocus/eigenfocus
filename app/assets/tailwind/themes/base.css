@@ -4,6 +4,11 @@
 @import './sortablejs';
 @import './pagy.tailwind';
 
+/* :empty does't work if element has any text */
+.hide-if-empty:not(:has(:first-child)) {
+  display: none;
+}
+
 .btn .loading-spinner,
 .btn-primary .loading-spinner,
 .btn-secondary .loading-spinner,

@@ -21,8 +21,10 @@
     </h2>
 
 
-    <p class="font-normal grow break-all" data-issue-label>
-      <%= issue.labels.join(" | ") %>
+    <p class="mt-2 hide-if-empty" data-issue-label>
+      <% issue.labels.each do |label| %>
+        <%= badge_for_label(label) %>
+      <% end %>
     </p>
 
     <%= render partial: 'visualizations/groupings/_card/icons', locals: { issue: } %>
