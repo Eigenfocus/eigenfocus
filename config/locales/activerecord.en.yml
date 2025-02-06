@@ -10,8 +10,8 @@ en:
         other: 'Projects'
 
       visualization:
-        one: 'Board view'
-        other: 'Board views'
+        one: 'Workflow Board'
+        other: 'Workflow Board'
 
       grouping:
         one: 'Column'

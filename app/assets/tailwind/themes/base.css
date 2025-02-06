@@ -24,12 +24,12 @@
   @apply w-3 h-3 mr-2;
 }
 
-.btn-primary.btn-sm,
-.btn-secondary.btn-sm,
-.btn-tertiary.btn-sm,
-.btn-danger.btn-sm,
-.btn-cancel.btn-sm {
+.btn.btn-sm {
   @apply py-1 px-2 text-xs h-7;
+}
+
+.btn.btn-md {
+  @apply py-1 px-2 text-sm h-9;
 }
 
 .btn-primary.btn-xl,

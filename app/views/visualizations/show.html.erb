@@ -3,33 +3,22 @@
 <%= turbo_stream_from @visualization %>
 
 <main class="grow" data-controller="visualization--issue-filtering">
-  <input type="text"
-    class="input-primary"
-    data-visualization--issue-filtering-target="searchInput"
-    data-action="input->visualization--issue-filtering#filterIssues"/>
   <div class="flex flex-col h-full">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 p-4 sm:px-12 pt-12">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 sm:px-12 pt-4">
       <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
-        <%= @visualization.project.name %> - <%= Visualization.model_name.human(count: 1) %>
+        <%= @visualization.project.name %>
       </h2>
 
       <div class="flex items-stretch flex-col sm:flex-row gap-4">
         <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "flex items-center link-secondary flex p-4", data: { turbo_frame: "_top" } do %>
           <span class="text-sm mr-2"><%= icon_for(:time_entries) %></span>
-          <span class="sm:block"><%= t("actions.go_to_time_tracking") %></span>
-        <% end %>
-        <%= link_to new_visualization_grouping_path(@visualization), class: "flex text-sm btn-primary", data: { turbo_frame: 'grouping_form' } do %>
-          <i class="fa-solid fa-plus mr-2"></i>
-
-          <h2 class="grow font-semibold truncate">
-            <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
-          </h2>
-
+          <span class="text-sm sm:block"><%= t("actions.go_to_time_tracking") %></span>
         <% end %>
       </div>
     </div>
 
-    <div class="mb-4 px-4 sm:px-12">
+
+    <div class="px-4 sm:px-12">
       <div class="relative">
         <div class="absolute w-full bottom-0 h-px bg-body-contrast" aria-hidden="true"></div>
         <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
@@ -39,7 +28,7 @@
             <% end %>
           </li>
           <li class="mr-6">
-            <%= link_to visualization_path(@visualization), class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
+            <%= link_to '#', class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
               <%= t(:board_view, scope: :nav) %>
             <% end %>
           </li>
@@ -54,6 +43,43 @@
     <% else %>
       <%= turbo_frame_tag('issue_form') {} %>
     <% end %>
+    <div class="px-12 flex justify-between items-center">
+      <div class="flex items-stretch gap-4">
+        <form class="relative">
+            <label for="action-search" class="sr-only">Search</label>
+            <input
+            class="input-primary"
+            data-visualization--issue-filtering-target="searchInput"
+            data-action="input->visualization--issue-filtering#filterIssues"
+            class="form-input pl-9 bg-body-contrast dark:bg-gray-800" type="search" placeholder="Search…">
+            <button class="absolute inset-0 right-auto group" type="submit" aria-label="Search">
+                <svg class="shrink-0 fill-current text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400 ml-3 mr-2" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z"></path>
+                    <path d="M15.707 14.293L13.314 11.9a8.019 8.019 0 01-1.414 1.414l2.393 2.393a.997.997 0 001.414 0 .999.999 0 000-1.414z"></path>
+                </svg>
+            </button>
+        </form>
+      </div>
+      <div class="flex items-stretch flex-col sm:flex-row gap-4 my-4">
+        <%= link_to new_visualization_grouping_path(@visualization), class: "flex text-sm btn-md btn-primary", data: { turbo_frame: 'grouping_form' } do %>
+          <i class="fa-solid fa-plus mr-2"></i>
+
+          <h2 class="grow font-semibold truncate">
+            <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
+          </h2>
+
+        <% end %>
+      </div>
+    </div>
+
+    <%= turbo_frame_tag('grouping_form') {} %>
+
+    <% if @open_issue.present? %>
+      <%= render partial: 'visualizations/issues/form', locals: { issue: @open_issue, visualization: @visualization } %>
+    <% else %>
+      <%= turbo_frame_tag('issue_form') {} %>
+    <% end %>
+
 
     <div class="relative grow cpy-columns-wrapper">
       <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-12 sm:pr-12 sm:pb-4 sm:scroll-pr-12 pb-2 sm:px-12 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth">
@@ -70,7 +96,6 @@
             visualization: @visualization,
             open_issue:  @open_issue
           } %>
-
         </ul>
 
         <div class="w-64 shrink-0">
