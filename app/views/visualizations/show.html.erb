@@ -4,37 +4,30 @@
 
 <main class="grow" data-controller="visualization--issue-filtering">
   <div class="flex flex-col h-full">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-2 sm:px-12 pt-4">
-      <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
-        <%= @visualization.project.name %>
-      </h2>
+    <div class="flex flex-col sm:px-12 pt-4">
+      <div class="flex  items-end justify-between gap-2">
+        <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
+          <%= @visualization.project.name %>
+        </h2>
 
-      <div class="flex items-stretch flex-col sm:flex-row gap-4">
-        <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "flex items-center link-secondary flex p-4", data: { turbo_frame: "_top" } do %>
-          <span class="text-sm mr-2"><%= icon_for(:time_entries) %></span>
-          <span class="text-sm sm:block"><%= t("actions.go_to_time_tracking") %></span>
+        <div class="flex items-stretch flex-col sm:flex-row gap-4">
+          <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "flex items-center link-secondary flex", data: { turbo_frame: "_top" } do %>
+            <span class="text-sm mr-2"><%= icon_for(:time_entries) %></span>
+            <span class="text-sm sm:block"><%= t("actions.go_to_time_tracking") %></span>
+          <% end %>
+        </div>
+        </div>
+      <div class="mt-2 flex gap-4 text-sm font-medium border-b border-readable-content-300">
+        <%= link_to project_issues_path(@visualization.project), class: "px-2 pb-1 whitespace-nowrap" do %>
+          <%= t(:all_issues, scope: :nav) %>
+        <% end %>
+
+        <%= link_to '#', class: "px-2 pb-1 border-b-2 border-primary-500 text-primary-500 whitespace-nowrap" do %>
+          <%= t(:board_view, scope: :nav) %>
         <% end %>
       </div>
     </div>
 
-
-    <div class="px-4 sm:px-12">
-      <div class="relative">
-        <div class="absolute w-full bottom-0 h-px bg-body-contrast" aria-hidden="true"></div>
-        <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
-          <li class="mr-6">
-            <%= link_to project_issues_path(@visualization.project), class: "block pb-2 whitespace-nowrap" do %>
-              <%= t(:all_issues, scope: :nav) %>
-            <% end %>
-          </li>
-          <li class="mr-6">
-            <%= link_to '#', class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
-              <%= t(:board_view, scope: :nav) %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
 
     <%= turbo_frame_tag('grouping_form') {} %>
 
@@ -43,23 +36,20 @@
     <% else %>
       <%= turbo_frame_tag('issue_form') {} %>
     <% end %>
-    <div class="px-12 flex justify-between items-center">
+    <div class="px-4 sm:px-12 flex justify-between items-center">
       <div class="flex items-stretch gap-4">
-        <form class="relative">
-            <label for="action-search" class="sr-only">Search</label>
-            <input
-            class="input-primary"
+        <div class="input-with-icon-wrapper w-64">
+          <div class="icon-wrapper">
+            <i class="text-readable-content-300 fa fa-search"></i>
+          </div>
+          <input class="input-contrast input-sm active"
+            placeholder="Search issue"
             data-visualization--issue-filtering-target="searchInput"
             data-action="input->visualization--issue-filtering#filterIssues"
             class="form-input pl-9 bg-body-contrast dark:bg-gray-800" type="search" placeholder="Search…">
-            <button class="absolute inset-0 right-auto group" type="submit" aria-label="Search">
-                <svg class="shrink-0 fill-current text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400 ml-3 mr-2" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z"></path>
-                    <path d="M15.707 14.293L13.314 11.9a8.019 8.019 0 01-1.414 1.414l2.393 2.393a.997.997 0 001.414 0 .999.999 0 000-1.414z"></path>
-                </svg>
-            </button>
-        </form>
+        </div>
       </div>
+
       <div class="flex items-stretch flex-col sm:flex-row gap-4 my-4">
         <%= link_to new_visualization_grouping_path(@visualization), class: "flex text-sm btn-md btn-primary", data: { turbo_frame: 'grouping_form' } do %>
           <i class="fa-solid fa-plus mr-2"></i>
