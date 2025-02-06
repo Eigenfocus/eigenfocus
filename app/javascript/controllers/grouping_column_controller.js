@@ -4,13 +4,15 @@ import { marked } from "marked"
 export default class extends Controller {
   static targets = [
     "card",
+    "cardContainer",
     "showFormButton",
     "inlineCardForm",
     "inlineCardFormTitle"
   ]
 
   static values = {
-    scrollToOnConnect: Boolean
+    scrollToOnConnect: Boolean,
+    groupingId: String
   }
 
   connect() {
@@ -69,6 +71,51 @@ export default class extends Controller {
     if (document.activeElement == document.body && this.element.matches(':hover')) {
       e.preventDefault()
       this.showInlineCardForm()
+    }
+  }
+
+  getCardById(id) {
+    return this.cardTargets.find(cardTarget => {
+      return cardTarget.getAttribute("data-grouping-column-issue-id-value") == id
+    })
+  }
+
+  addCard(card, position) {
+    const isCardFromThisColumn = this.cardTargets.includes(card)
+
+    if (isCardFromThisColumn) {
+      this.#moveCardWithinColumn(card, position)
+    } else {
+      this.#addCardFromAnotherColumn(card, position)
+    }
+  }
+
+  #moveCardWithinColumn(card, position) {
+    const cardCurrentPosition = this.cardTargets.indexOf(card)
+    const destinationCard = this.cardTargets[position]
+
+    if (card == destinationCard) return;
+
+    if (cardCurrentPosition > position) {
+      destinationCard.insertAdjacentElement('beforebegin', card)
+    } else {
+      destinationCard.insertAdjacentElement('afterend', card)
+    }
+  }
+
+  #addCardFromAnotherColumn(card, position) {
+    const isColumnEmpty = this.cardTargets.length === 0
+    const shouldCardGoToLastPosition = this.cardTargets.length === position
+
+    if (isColumnEmpty || shouldCardGoToLastPosition) {
+      this.cardContainerTarget.append(card)
+    } else {
+      // Card should take the position of another card
+      const destinationCard = this.cardTargets[position]
+
+      if (card == destinationCard) return;
+
+      destinationCard.insertAdjacentElement('beforebegin', card)
     }
   }
 }

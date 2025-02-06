@@ -4,7 +4,9 @@
   id="<%= dom_id(grouping) %>"
   data-controller="grouping-column"
   data-grouping-column-scroll-to-on-connect-value="<%= local_assigns[:recently_created] == true %>"
+  data-grouping-column-grouping-id-value="<%= grouping.id %>"
   data-action="keypress.n@window->grouping-column#nWasPressed"
+  data-visualization--board-target="column"
   >
   <header class="flex flex-row flex-nowrap gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
@@ -48,20 +50,19 @@
   </header>
 
   <ul
-    id="<%= dom_id(grouping) %>-cards-wrapper"
+    id="<%= grouping.id %>-cards-wrapper"
     class="flex flex-col flex-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth js-no-column-drag cpy-drop-zone"
     data-controller="sortable"
     data-sortable-target="container"
     data-sortable-shared-group-value="cards"
     data-sortable-move-path-value="<%= move_allocations_path %>"
     data-sortable-grouping-id="<%= grouping.id %>"
-    data-sortable-ancestor-container-selector-value=".js-sortable-container"
+    data-grouping-column-target="cardContainer"
     >
 
     <% grouping.issues.each do |issue| %>
       <%= render partial: 'visualizations/card', locals: {
         issue:,
-        grouping: ,
         visualization: ,
         scroll_on_connect: local_assigns[:open_issue] == issue
       } %>

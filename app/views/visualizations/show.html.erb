@@ -1,5 +1,7 @@
 <% set_page_title(:project_board, project_name: @visualization.project.name ) %>
 
+<%= turbo_stream_from @visualization %>
+
 <main class="grow">
   <div class="flex flex-col h-full">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 p-4 sm:px-12 pt-12">
@@ -50,19 +52,24 @@
     <% end %>
 
     <div class="relative grow cpy-columns-wrapper">
-      <ul
-          class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-12 sm:pr-12 sm:pb-4 sm:scroll-pr-12 flex flex-row flex-nowrap gap-x-8 pb-2 sm:px-12 items-start overflow-x-auto overflow-y-hidden scroll-smoot"
-          data-controller="sortable"
-          data-sortable-target="container"
-          data-sortable-ignore-drag-selector-value=".js-no-column-drag"
-          data-sortable-move-path-value="<%= move_visualization_groupings_path(@visualization) %>"
-          >
-        <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping, locals: {
-          visualization: @visualization,
-          open_issue:  @open_issue
-        } %>
+      <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-12 sm:pr-12 sm:pb-4 sm:scroll-pr-12 pb-2 sm:px-12 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth">
+        <ul
+            class="hidden has-[li]:flex flex-row flex-nowrap gap-x-8 items-start"
+            id="js-kanban-board"
+            data-controller="sortable visualization--board"
+            data-sortable-target="container"
+            data-sortable-ignore-drag-selector-value=".js-no-column-drag"
+            data-sortable-move-path-value="<%= move_visualization_groupings_path(@visualization) %>"
+            data-visualization--board-visualization-id-value="<%= @visualization.id %>"
+            >
+          <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping, locals: {
+            visualization: @visualization,
+            open_issue:  @open_issue
+          } %>
 
-        <li class="order-last w-64 shrink-0" id="js-create-new-column">
+        </ul>
+
+        <div class="w-64 shrink-0">
           <%= link_to new_visualization_grouping_path(@visualization), class: "flex p-2 border items-center justify-between bg-body-contrast border-body-contrast-500 hover:border-primary-800 rounded-md shadow-xs text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
 
             <h2 class="grow font-semibold truncate">
@@ -71,9 +78,8 @@
             <i class="fa-solid fa-plus"></i>
 
           <% end %>
-        </li>
-
-      </ul>
+        </div>
+      </div>
     </div>
 
   </div>

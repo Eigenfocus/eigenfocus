@@ -10,8 +10,7 @@ export default class extends Controller {
     movePath: String,
     sharedGroup: String,
     groupingId: String, // Not used by stimulus directly
-    ignoreDragSelector: String,
-    ancestorContainerSelector: String
+    ignoreDragSelector: String
   }
 
   connect() {
