@@ -8,11 +8,15 @@ module PageTitle
     end
   end
 
-  def set_page_title(key, options = {})
-    options[:scope] = [ :page_title ]
-    options[:default] = ""
-    title_text = I18n.t(key, **options)
-    content_for(:title) { title_text }
+  def set_page_title(key = "", options = {})
+    if block_given?
+      content_for(:title) { yield }
+    else
+      options[:scope] = [ :page_title ]
+      options[:default] = ""
+      title_text = I18n.t(key, **options)
+      content_for(:title) { title_text }
+    end
   end
 end
 end

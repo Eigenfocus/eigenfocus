@@ -1,7 +1,13 @@
-<% set_page_title(:project_issues) %>
+<% set_page_title do %>
+  <%= current_project.name %>
+  -
+  <%= Issue.model_name.human(count: 2) %>
+<% end %>
 
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
   <h2 class="font-semibold text-3xl text-readable-content-800">
+    <%= current_project.name %>
+    -
     <%= Issue.model_name.human(count: 2) %>
   </h2>
 </div>
@@ -41,10 +47,10 @@
         <thead class="text-xs font-semibold uppercase ">
           <tr>
             <th><%= Issue.human_attribute_name(:id) %></th>
-            <th><%= Issue.human_attribute_name(:title) %></th>
+            <th><%= sort_link(@q, :title, Issue.human_attribute_name(:title)) %></th>
             <th><%= Issue.human_attribute_name(:labels) %></th>
-            <th><%= Issue.human_attribute_name(:created_at) %></th>
-            <th><%= Issue.human_attribute_name(:updated_at) %></th>
+            <th><%= sort_link(@q, :created_at, Issue.human_attribute_name(:created_at)) %></th>
+            <th><%= sort_link(@q, :updated_at, Issue.human_attribute_name(:updated_at)) %></th>
             <th><%= t("menu.actions") %></th>
           </tr>
         </thead>
