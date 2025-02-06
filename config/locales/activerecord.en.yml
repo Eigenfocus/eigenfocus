@@ -42,6 +42,8 @@ en:
         files: "Files"
         labels: 'Labels'
         label_ids: 'Labels'
+        created_at: 'Created at'
+        updated_at: 'Updated at'
 
       time_entry:
         description: 'Description'
