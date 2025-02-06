@@ -22,7 +22,7 @@ class Grouping < ApplicationRecord
         grouping: self,
         visualization: visualization
       },
-      target: "kanban-board"
+      target: "js-kanban-board"
     )
   }
   after_update_commit -> {

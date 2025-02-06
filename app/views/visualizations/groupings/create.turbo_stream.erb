@@ -1,5 +1,5 @@
 <% if @grouping.persisted? %>
-  <%= turbo_stream.append 'kanban-board', partial: "visualizations/column", locals: {
+  <%= turbo_stream.append 'js-kanban-board', partial: "visualizations/column", locals: {
     visualization: current_visualization,
     grouping: @grouping,
     recently_created: true
