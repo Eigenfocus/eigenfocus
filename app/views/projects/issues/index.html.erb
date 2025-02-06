@@ -1,14 +1,14 @@
 <% set_page_title do %>
   <%= current_project.name %>
   -
-  <%= Issue.model_name.human(count: 2) %>
+  <%= t(:all_issues, scope: :page_title) %>
 <% end %>
 
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
   <h2 class="font-semibold text-3xl text-readable-content-800">
     <%= current_project.name %>
     -
-    <%= Issue.model_name.human(count: 2) %>
+    <%= t(:all_issues, scope: :page_title) %>
   </h2>
 </div>
 
@@ -17,7 +17,7 @@
   <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
     <li class="mr-6">
       <%= link_to project_issues_path(current_project), class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
-        <%= t("actions.go_to_project_all_issues") %>
+        <%= t(:all_issues, scope: :page_title) %>
       <% end %>
     </li>
     <li class="mr-6">
