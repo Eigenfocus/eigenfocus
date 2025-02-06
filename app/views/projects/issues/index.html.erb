@@ -1,0 +1,76 @@
+<% set_page_title(:project_all_issues, project_name: current_project.name) %>
+
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+  <h2 class="font-semibold text-3xl text-readable-content-800">
+    <%= t(:project_all_issues, scope: :page_title, project_name: current_project.name) %>
+  </h2>
+</div>
+
+<div class="mb-4 relative">
+  <div class="absolute w-full bottom-0 h-px bg-body-contrast" aria-hidden="true"></div>
+  <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
+    <li class="mr-6">
+      <%= link_to project_issues_path(current_project), class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
+        <%= t(:all_issues, scope: :nav) %>
+      <% end %>
+    </li>
+    <li class="mr-6">
+      <%= link_to visualization_path(current_project.default_visualization), class: "block pb-2 whitespace-nowrap" do %>
+        <%= t(:board_view, scope: :nav) %>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<%= turbo_frame_tag 'issues', data: { turbo_action: "advance" } do %>
+  <%= search_form_for @q, url: project_issues_path(project_id: current_project.id), class: "bg-body-contrast rounded-md border border-background-200 p-4 space-y-4  mb-6" do |f| %>
+    <div class="flex flex-col w-full justify-stretch items-stretch md:flex-row gap-2">
+      <div class="w-full flex flex-col md:flex-row justify-stretch items-stretch gap-2">
+        <div class="flex grow gap-2 flex-col">
+          <%= f.label :title_cont, class: "text-readable-content-500 text-sm" %>
+          <%= f.search_field :title_cont, class: 'input-primary w-full' %>
+        </div>
+      </div>
+
+      <div class="w-full flex flex-col md:flex-row justify-stretch items-stretch gap-2">
+        <div class="flex grow gap-2 flex-col">
+          <%= f.label :by_label_titles, class: "text-readable-content-500 text-sm" %>
+          <%= f.select :by_label_titles, current_project.issue_labels.pluck(:title),
+                    { include_blank: true, include_hidden: false },
+                    class: 'input-primary',
+                    multiple: true,
+                    data: { controller: 'select2' }
+                  %>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-end gap-2">
+      <%= link_to project_issues_path(current_project), class: "button-cancel text-sm mr-4" do %>
+        <%= t('actions.clear_filter').capitalize %>
+      <% end %>
+      <%= f.submit class: "btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="flex flex-col gap-3 lg:gap-6 flex-wrap justify-stretch">
+    <% if @issues.empty? %>
+    <% else %>
+      <table class="table-auto table-primary table-striped">
+        <thead class="text-xs font-semibold uppercase ">
+          <tr>
+            <th><%= sort_link(@q, :title, Issue.human_attribute_name(:title)) %></th>
+            <th><%= Issue.human_attribute_name(:labels) %></th>
+            <th><%= sort_link(@q, :created_at, Issue.human_attribute_name(:created_at)) %></th>
+            <th><%= sort_link(@q, :updated_at, Issue.human_attribute_name(:updated_at)) %></th>
+          </tr>
+        </thead>
+        <tbody class="text-sm divide-y">
+          <%= render partial: 'issue', collection: @issues, as: :issue %>
+        </tbody>
+      </table>
+
+      <%== pagy_nav(@pagy) %>
+    <% end %>
+  </div>
+<% end %>

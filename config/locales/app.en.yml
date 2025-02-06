@@ -28,6 +28,9 @@ en:
     remove: "Are you sure you want to remove %{resource_name}?"
   menu:
     actions: "Actions"
+  nav:
+    all_issues: "All issues"
+    board_view: "Board view"
   actions:
     back: "back"
     new: "New"

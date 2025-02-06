@@ -23,6 +23,24 @@
       </div>
     </div>
 
+    <div class="mb-4 px-4 sm:px-12">
+      <div class="relative">
+        <div class="absolute w-full bottom-0 h-px bg-body-contrast" aria-hidden="true"></div>
+        <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
+          <li class="mr-6">
+            <%= link_to project_issues_path(@visualization.project), class: "block pb-2 whitespace-nowrap" do %>
+              <%= t(:all_issues, scope: :nav) %>
+            <% end %>
+          </li>
+          <li class="mr-6">
+            <%= link_to visualization_path(@visualization), class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
+              <%= t(:board_view, scope: :nav) %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <%= turbo_frame_tag('grouping_form') {} %>
 
     <% if @open_issue.present? %>

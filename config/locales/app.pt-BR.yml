@@ -29,6 +29,9 @@ pt-BR:
     remove: "Tem certeza que deseja remover a/o %{resource_name}?"
   menu:
     actions: "Ações"
+  nav:
+    all_issues: "Todas as issues"
+    board_view: "Visão de quadro"
   actions:
     back: "Voltar"
     new: "Novo"

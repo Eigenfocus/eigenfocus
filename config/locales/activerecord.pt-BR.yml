@@ -38,6 +38,8 @@ pt-BR:
         files: "Arquivos"
         labels: 'Rótulos'
         label_ids: 'Rótulos'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
 
       time_entry:
         description: 'Descrição'

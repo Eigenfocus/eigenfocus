@@ -1,0 +1,14 @@
+pt-BR:
+  ransack:
+    asc: ascendente
+    desc: descendente
+    predicates:
+      cont: contém
+      not_cont: não contém
+      start: começa com
+      end: termina com
+      gt: maior que
+      lt: menor que
+    attributes:
+      issue:
+        by_label_titles: Com rótulos
