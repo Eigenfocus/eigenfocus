@@ -34,14 +34,14 @@ export default class extends Controller {
 
   filterIssues() {
     if (this.searchTerm === "") {
-      this.issueTargets.forEach(issue => (issue.style.display = "block"));
+      this.issueTargets.forEach(issue => (issue.dataset.isIssueSearchMatch = true));
       return;
     }
 
     const issuesMatches = this.fuse.search(this.searchTerm).map(result => result.item.issue)
 
     this.issueTargets.forEach(issue => {
-      issue.style.display = issuesMatches.includes(issue) ? "block" : "none"
+      issue.dataset.isIssueSearchMatch = issuesMatches.includes(issue)
     });
   }
 

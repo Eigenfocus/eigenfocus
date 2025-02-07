@@ -21,7 +21,7 @@
     </h2>
 
 
-    <p class="mt-2 hide-if-empty" data-issue-label>
+    <p class="mt-2 flex gap-2 flex-wrap hide-if-empty" data-issue-label>
       <% issue.labels.each do |label| %>
         <%= badge_for_label(label) %>
       <% end %>

@@ -9,6 +9,10 @@
   display: none;
 }
 
+[data-is-issue-search-match="false"] {
+  display: none;
+}
+
 .btn .loading-spinner,
 .btn-primary .loading-spinner,
 .btn-secondary .loading-spinner,
