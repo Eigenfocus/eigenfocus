@@ -1,4 +1,4 @@
-<tr>
+<tr id="<%= dom_id(issue) %>">
   <td><%= issue.title %></td>
   <td>
     <%= labels_list_for(issue) %>
@@ -7,9 +7,12 @@
   <td><%= l issue.updated_at, format: :short %></td>
   <td>
     <div class="flex gap-4 text-lg opacity-80">
-      <button class="link-base">
+      <%= link_to project_issue_path(project, issue), class: "link-base cpy-edit-button", data: {
+          turbo_frame: 'issue',
+          turbo_action: 'advance'
+      } do %>
         <i class="fa fa-edit"></i>
-      </button>
+      <% end %>
       <button class="link-danger">
         <i class="fa fa-trash-can"></i>
       </button>

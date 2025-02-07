@@ -5,7 +5,13 @@
   project: current_project
 } %>
 
-<%= turbo_frame_tag 'issue_form' do %>
+<% if @open_issue.present? %>
+  <%= render partial: 'issues/issue', locals: {
+    issue: @open_issue,
+    project: current_project
+  } %>
+<% else %>
+  <%= turbo_frame_tag('issue') {} %>
 <% end %>
 
 <%= turbo_frame_tag 'issues', data: { turbo_action: "advance" } do %>
@@ -18,7 +24,7 @@
           <%= t("zero_records", resource_name: Issue.model_name.human) %>
         </p>
         <p class="mt-3 text-center mb-4">
-          <%= link_to t('click_here_to_create_one'), "link", class: "btn-primary inline-block", data: { turbo_frame: 'issue_form' } %>
+          <%= link_to t('click_here_to_create_one'), "link", class: "btn-primary inline-block", data: { turbo_frame: 'issue' } %>
         </p>
       </div>
     <% else %>
@@ -33,7 +39,9 @@
           </tr>
         </thead>
         <tbody class="text-sm divide-y">
-          <%= render partial: 'issue', collection: @issues, as: :issue %>
+          <% @issues.each do |issue| %>
+            <%= render partial: 'issue', locals: { issue: issue, project: current_project } %>
+          <% end %>
         </tbody>
       </table>
 

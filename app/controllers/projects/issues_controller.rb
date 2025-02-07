@@ -4,6 +4,15 @@ class Projects::IssuesController < ApplicationController
   def index
     @q = current_project.issues.ransack(params[:q])
     @pagy, @issues = pagy(@q.result.includes(:labels))
+
+    if params[:id]
+      @open_issue = Issue.find(params[:id])
+    end
+  end
+
+  def update
+    @issue = Issue.find(params[:id])
+    @updated = @issue.update(permitted_params)
   end
 
   def add_label

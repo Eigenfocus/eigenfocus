@@ -82,4 +82,33 @@ describe 'As a project manager, I want to manage my issues from List Boards' do
     expect(page).not_to have_content("Second issue")
     expect(page).not_to have_content("Third issue")
   end
+
+  specify "I can update issues" do
+    project = FactoryBot.create(:project)
+
+    issue = FactoryBot.create(:issue, title: "Issue testing title", project: project)
+
+    visit project_issues_path(project)
+
+    within dom_id(issue) do
+      expect(page).to have_content("Issue testing title")
+
+      find(".cpy-edit-button").click
+    end
+
+    within '#issue' do
+      fill_in :issue_title, with: "Updated title"
+    end
+
+    click_button "Update"
+
+    expect(page).to have_content("Issue was successfully updated.")
+
+    issue = Issue.last
+    expect(issue.title).to eq("Updated title")
+
+    within dom_id(issue) do
+      expect(page).to have_content("Updated title")
+    end
+  end
 end
