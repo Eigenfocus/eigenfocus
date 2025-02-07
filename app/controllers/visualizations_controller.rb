@@ -1,9 +1,5 @@
 class VisualizationsController < ApplicationController
-  def update
-    @visualization = Visualization.find(params[:id])
-
-    @updated = @visualization.update(visualization_params)
-  end
+  include IssuesHelper
 
   def show
     @visualization = Visualization.includes(groupings: :issues).find(params[:id])
@@ -13,6 +9,13 @@ class VisualizationsController < ApplicationController
     skip_layout_content_wrapper!
   end
 
+  def update
+    @visualization = Visualization.find(params[:id])
+
+    @updated = @visualization.update(visualization_params)
+  end
+
+  private
   def visualization_params
     params.require(:visualization).permit(favorite_issue_labels: [])
   end

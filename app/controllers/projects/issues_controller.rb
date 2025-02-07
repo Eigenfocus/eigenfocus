@@ -1,4 +1,6 @@
 class Projects::IssuesController < ApplicationController
+  include IssuesHelper
+
   helper_method :current_project
 
   def index
