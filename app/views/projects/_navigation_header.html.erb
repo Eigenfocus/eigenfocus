@@ -9,13 +9,27 @@
       <span class="text-sm sm:block"><%= t("actions.go_to_time_tracking") %></span>
     <% end %>
   </div>
-  </div>
-<div class="mt-2 flex gap-4 text-sm font-medium border-b border-readable-content-300">
-  <%= link_to project_issues_path(project), class: "px-2 pb-1 whitespace-nowrap" do %>
-    <%= t(:all_issues, scope: :nav) %>
-  <% end %>
+</div>
+<div class="mt-2 mb-4 flex gap-4 text-sm font-medium border-b border-readable-content-300">
+  <%
+    default_classes = "px-2 pb-1 whitespace-nowrap"
+    tabs = [{
+        text: t(:all_issues, scope: :nav),
+        options: { href: project_issues_path(project) },
+        is_selected: controller_name.downcase == 'issues'
+      },{
+        text: t(:board_view, scope: :nav),
+        options: { href: visualization_path(project.default_visualization) },
+        is_selected: controller_name.downcase == 'visualizations'
+      }
+    ].each do |tab|
 
-  <%= link_to visualization_path(project.default_visualization), class: "px-2 pb-1 border-b-2 border-primary-500 text-primary-500 whitespace-nowrap" do %>
-    <%= t(:board_view, scope: :nav) %>
+    tab[:options][:class] = "px-2 pb-1 whitespace-nowrap"
+
+    if tab[:is_selected]
+      tab[:options][:class] += "border-b-2 border-primary-500 text-primary-500"
+    end
+  %>
+    <%= content_tag :a, tab[:text], tab[:options] %>
   <% end %>
 </div>

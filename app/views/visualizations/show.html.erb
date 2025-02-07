@@ -2,7 +2,7 @@
 
 <%= turbo_stream_from @visualization %>
 
-<div class="flex mt-8  flex-col sm:px-8">
+<div class="flex mt-8 flex-col sm:px-8">
   <%= render partial: 'projects/navigation_header', locals: {
     project: @visualization.project
   } %>
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div class="flex items-stretch flex-col sm:flex-row gap-4 my-4">
+      <div class="flex items-stretch flex-col sm:flex-row gap-4">
         <%= link_to new_visualization_grouping_path(@visualization), class: "flex text-sm btn-md btn-primary", data: { turbo_frame: 'grouping_form' } do %>
           <i class="fa-solid fa-plus mr-2"></i>
 
@@ -52,7 +52,7 @@
     <% end %>
 
 
-    <div class="relative grow cpy-columns-wrapper">
+    <div class="mt-4 relative grow cpy-columns-wrapper">
       <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-8 sm:pr-8 sm:pb-4 sm:scroll-pr-8 pb-2 sm:px-8 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth">
         <ul
             class="hidden has-[li]:flex flex-row flex-nowrap gap-x-8 items-start"
