@@ -1,4 +1,4 @@
-<%= search_form_for q, url: project_issues_path(project_id: current_project.id), class: "mt-8 mb-8" do |f| %>
+<%= search_form_for q, url: project_issues_path(project_id: current_project.id), class: "mt-8 mb-8 cpy-filter-form" do |f| %>
   <div class="flex flex-col md:flex-row justify-start items-stretch gap-4">
     <div class="flex gap-2 w-62 items-center">
       <%= f.label :title_cont, class: "text-readable-content-500 text-nowrap font-medium text-xs" %>
@@ -6,7 +6,7 @@
     </div>
 
 
-    <div class="flex grow gap-2 items-center">
+    <div class="flex grow gap-2 items-center cpy-by-labels-titles">
       <%= f.label :by_label_titles, class: "text-readable-content-500 text-nowrap font-medium text-xs" %>
       <%= f.select :by_label_titles, current_project.issue_labels.pluck(:title),
                 { include_hidden: false },
