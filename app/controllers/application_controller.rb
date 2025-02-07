@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
     locale = current_user&.locale
     locale = I18n.default_locale if locale.blank?
     response.set_header "Content-Language", locale
+    @pagy_locale = locale
     I18n.with_locale locale, &action
   end
 
