@@ -1,0 +1,39 @@
+
+.table-primary {
+  @apply text-left w-full border-collapse;
+}
+
+.table-primary thead th {
+  @apply whitespace-nowrap bg-readable-content-200 first:pl-5 last:pr-5 py-3 font-medium text-xs uppercase text-readable-content-500;
+}
+
+.table-primary thead th:first-child {
+  @apply rounded-tl-lg;
+}
+
+.table-primary thead th:last-child {
+  @apply rounded-tr-lg;
+}
+
+.table-primary tbody tr {
+  @apply border-b border-readable-content-200 hover:bg-readable-content-50 bg-body-contrast;
+}
+.table-primary tbody tr.inactive-row {
+  @apply bg-readable-content-50;
+}
+
+.table-primary.table-striped tbody tr:nth-child(odd) {
+  @apply bg-readable-content-50 hover:bg-readable-content-100;
+}
+
+.table-primary.table-striped tbody tr:nth-child(even) {
+  @apply bg-body-contrast hover:bg-readable-content-100;
+}
+
+.table-primary tbody tr:last-child {
+  @apply border-0;
+}
+
+.table-primary tbody tr td {
+  @apply first:pl-5 last:pr-5 py-3;
+}

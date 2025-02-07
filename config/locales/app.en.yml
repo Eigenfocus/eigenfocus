@@ -30,7 +30,6 @@ en:
     actions: "Actions"
   nav:
     all_issues: "All issues"
-    board_view: "Board view"
   actions:
     back: "back"
     new: "New"

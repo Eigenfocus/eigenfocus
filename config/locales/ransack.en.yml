@@ -11,4 +11,5 @@ en:
       lt: less than
     attributes:
       issue:
+        title_cont: With title
         by_label_titles: With labels

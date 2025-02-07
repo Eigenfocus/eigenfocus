@@ -1,0 +1,35 @@
+<div class="flex items-end justify-between gap-2">
+  <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
+    <%= project.name %>
+  </h2>
+
+  <div class="flex items-stretch flex-col sm:flex-row gap-4">
+    <%= link_to time_entries_path(new_entry: { project_id: project.id }), class: "flex items-center link-secondary flex", data: { turbo_frame: "_top" } do %>
+      <span class="text-sm mr-2"><%= icon_for(:time_entries) %></span>
+      <span class="text-sm sm:block"><%= t("actions.go_to_time_tracking") %></span>
+    <% end %>
+  </div>
+</div>
+<div class="mt-2 mb-4 flex gap-4 text-sm font-medium border-b border-readable-content-300">
+  <%
+    default_classes = "px-2 pb-1 whitespace-nowrap"
+    tabs = [{
+        text: t(:all_issues, scope: :nav),
+        options: { href: project_issues_path(project) },
+        is_selected: controller_name.downcase == 'issues'
+      },{
+        text: Visualization.model_name.human,
+        options: { href: visualization_path(project.default_visualization) },
+        is_selected: controller_name.downcase == 'visualizations'
+      }
+    ].each do |tab|
+
+    tab[:options][:class] = "px-2 pb-1 whitespace-nowrap"
+
+    if tab[:is_selected]
+      tab[:options][:class] += "border-b-2 border-primary-500 text-primary-500"
+    end
+  %>
+    <%= content_tag :a, tab[:text], tab[:options] %>
+  <% end %>
+</div>
