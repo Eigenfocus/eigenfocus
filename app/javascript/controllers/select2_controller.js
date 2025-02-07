@@ -22,6 +22,10 @@ export default class extends Controller {
       tags: (this.element.dataset.tags == "true")
     });
 
+    if (this.element.dataset.select2AdditionalClasses) {
+      this.select2.data('select2').$container.addClass(this.element.dataset.select2AdditionalClasses);
+    }
+
     this.select2.on('select2:select', function () {
       let event = new Event('change', { bubbles: true }) // fire a native event
       this.dispatchEvent(event);
