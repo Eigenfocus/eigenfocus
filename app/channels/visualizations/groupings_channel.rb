@@ -1,14 +1,14 @@
 class Visualizations::GroupingsChannel < ApplicationCable::Channel
   class << self
     def broadcast_update(grouping)
-      broadcard(
+      broadcast(
         "visualizations:#{grouping.visualization_id}:groupings#update",
         grouping
       )
     end
 
     private
-    def broadcard(stream_id, payload)
+    def broadcast(stream_id, payload)
       ActionCable.server.broadcast(stream_id, payload)
     end
   end
