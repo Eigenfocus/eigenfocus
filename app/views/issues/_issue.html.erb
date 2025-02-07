@@ -1,11 +1,11 @@
-<%= turbo_frame_tag 'issue_form' do %>
+<%= turbo_frame_tag 'issue' do %>
   <%= render_modal(inner_container_options: {
     class: "max-h-screen w-full max-w-4xl relative cpy-issue-detail",
     data: {
       controller: "issue-detail",
       action: "modal:closed@window->issue-detail#goBackHistory",
-      "issue-detail-visualization-path-value": visualization_path(visualization),
-      "issue-detail-attach-path-value": attach_issue_file_path(issue)
+      "issue-detail-attach-path-value": attach_issue_file_path(issue),
+      "issue-detail-path-for-modal-closed-value": contextualized_back_path(local_assigns)
     }}) do %>
     <div data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
       <div class="border-b border-background-200 pb-2 mb-4">
@@ -20,7 +20,7 @@
       </div>
       <div class="flex flex-col md:flex-row gap-8">
         <div class="flex flex-col grow">
-          <%= form_with(model: [visualization, issue], html: {
+          <%= form_with(model: issue, url: contextualized_form_path(local_assigns), html: {
             class: 'flex flex-col gap-2',
             data: {
               turbo: true,
@@ -88,16 +88,16 @@
               </a>
 
               <% text = issue.persisted? ? t('actions.update') : t('actions.create') %>
-              <%= f.button text, class: "btn-primary", value: "update-and-close-modal" %>
+              <%= f.button text, class: "btn-primary", value: "save-and-close-modal" %>
             </div>
           <% end %>
-          <%= render partial: '/visualizations/issues/files_drop', locals: { issue: } %>
+          <%= render partial: 'issues/files_drop', locals: { issue: } %>
         </div>
         <% if issue.persisted? %>
           <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
             <h5 class="w-full"><%= t("menu.actions") %></h5>
 
-            <%= link_to visualization_issue_path(visualization, issue), class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t(".destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
+            <%= link_to contextualized_form_path(local_assigns), class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t(".destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
               <i class="fa-solid fa-trash"></i>
               <%= t("actions.remove") %>
             <% end %>
