@@ -1,26 +1,8 @@
 <% set_page_title(:project_all_issues, project_name: current_project.name) %>
 
-<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
-  <h2 class="font-semibold text-3xl text-readable-content-800">
-    <%= t(:project_all_issues, scope: :page_title, project_name: current_project.name) %>
-  </h2>
-</div>
-
-<div class="mb-4 relative">
-  <div class="absolute w-full bottom-0 h-px bg-body-contrast" aria-hidden="true"></div>
-  <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
-    <li class="mr-6">
-      <%= link_to project_issues_path(current_project), class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
-        <%= t(:all_issues, scope: :nav) %>
-      <% end %>
-    </li>
-    <li class="mr-6">
-      <%= link_to visualization_path(current_project.default_visualization), class: "block pb-2 whitespace-nowrap" do %>
-        <%= t(:board_view, scope: :nav) %>
-      <% end %>
-    </li>
-  </ul>
-</div>
+<%= render partial: 'projects/navigation_header', locals: {
+  project: current_project
+} %>
 
 <%= turbo_frame_tag 'issues', data: { turbo_action: "advance" } do %>
   <%= search_form_for @q, url: project_issues_path(project_id: current_project.id), class: "bg-body-contrast rounded-md border border-background-200 p-4 space-y-4  mb-6" do |f| %>

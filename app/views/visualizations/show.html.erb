@@ -2,12 +2,14 @@
 
 <%= turbo_stream_from @visualization %>
 
+<div class="flex mt-8  flex-col sm:px-8">
+  <%= render partial: 'projects/navigation_header', locals: {
+    project: @visualization.project
+  } %>
+</div>
+
 <main class="grow" data-controller="visualization--issue-filtering">
   <div class="flex flex-col h-full">
-    <%= render partial: 'projects/navigation_header', locals: {
-      project: @visualization.project
-    } %>
-
     <%= turbo_frame_tag('grouping_form') {} %>
 
     <% if @open_issue.present? %>
@@ -15,7 +17,7 @@
     <% else %>
       <%= turbo_frame_tag('issue_form') {} %>
     <% end %>
-    <div class="px-4 sm:px-12 flex justify-between items-center">
+    <div class="px-4 sm:px-8 flex justify-between items-center">
       <div class="flex items-stretch gap-4">
         <div class="input-with-icon-wrapper w-64">
           <div class="icon-wrapper">
@@ -51,7 +53,7 @@
 
 
     <div class="relative grow cpy-columns-wrapper">
-      <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-12 sm:pr-12 sm:pb-4 sm:scroll-pr-12 pb-2 sm:px-12 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth">
+      <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-8 sm:pr-8 sm:pb-4 sm:scroll-pr-8 pb-2 sm:px-8 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth">
         <ul
             class="hidden has-[li]:flex flex-row flex-nowrap gap-x-8 items-start"
             id="js-kanban-board"
