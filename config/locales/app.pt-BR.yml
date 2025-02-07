@@ -31,7 +31,6 @@ pt-BR:
     actions: "Ações"
   nav:
     all_issues: "Todas as issues"
-    board_view: "Visão de quadro"
   actions:
     back: "Voltar"
     new: "Novo"

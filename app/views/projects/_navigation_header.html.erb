@@ -18,7 +18,7 @@
         options: { href: project_issues_path(project) },
         is_selected: controller_name.downcase == 'issues'
       },{
-        text: t(:board_view, scope: :nav),
+        text: Visualization.model_name.human,
         options: { href: visualization_path(project.default_visualization) },
         is_selected: controller_name.downcase == 'visualizations'
       }
