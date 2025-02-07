@@ -15,6 +15,7 @@
 }
 
 .select2-container .select2-selection--single {
+  @apply py-2;
   height: 37px;
 }
 
