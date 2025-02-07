@@ -4,30 +4,9 @@
 
 <main class="grow" data-controller="visualization--issue-filtering">
   <div class="flex flex-col h-full">
-    <div class="flex flex-col sm:px-12 pt-4">
-      <div class="flex  items-end justify-between gap-2">
-        <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
-          <%= @visualization.project.name %>
-        </h2>
-
-        <div class="flex items-stretch flex-col sm:flex-row gap-4">
-          <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "flex items-center link-secondary flex", data: { turbo_frame: "_top" } do %>
-            <span class="text-sm mr-2"><%= icon_for(:time_entries) %></span>
-            <span class="text-sm sm:block"><%= t("actions.go_to_time_tracking") %></span>
-          <% end %>
-        </div>
-        </div>
-      <div class="mt-2 flex gap-4 text-sm font-medium border-b border-readable-content-300">
-        <%= link_to project_issues_path(@visualization.project), class: "px-2 pb-1 whitespace-nowrap" do %>
-          <%= t(:all_issues, scope: :nav) %>
-        <% end %>
-
-        <%= link_to '#', class: "px-2 pb-1 border-b-2 border-primary-500 text-primary-500 whitespace-nowrap" do %>
-          <%= t(:board_view, scope: :nav) %>
-        <% end %>
-      </div>
-    </div>
-
+    <%= render partial: 'projects/navigation_header', locals: {
+      project: @visualization.project
+    } %>
 
     <%= turbo_frame_tag('grouping_form') {} %>
 
