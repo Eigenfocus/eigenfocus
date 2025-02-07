@@ -26,7 +26,10 @@
         </tbody>
       </table>
 
-      <%== pagy_nav(@pagy) %>
+      <div class="pagy-summary">
+        <%== pagy_info(@pagy) %>
+        <%== pagy_nav(@pagy) %>
+      </div>
     <% end %>
   </div>
 <% end %>
