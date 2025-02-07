@@ -15,22 +15,24 @@ export default class extends Controller {
   #subscribeToGroupings() {
     return consumer.subscriptions.create({
       channel: "Visualizations::GroupingsChannel",
-      visualization_id: this.visualizationIdValue
+      visualization_id: this.visualizationIdValue,
+      action: 'update'
     }, {
-      received: this.onGroupingMove.bind(this)
+      received: this.onGroupingUpdate.bind(this)
     })
   }
 
   #subscribeToAllocations() {
     return consumer.subscriptions.create({
       channel: "Visualizations::AllocationsChannel",
-      visualization_id: this.visualizationIdValue
+      visualization_id: this.visualizationIdValue,
+      action: 'update'
     }, {
       received: this.onCardMove.bind(this)
     })
   }
 
-  onGroupingMove({ id, position }) {
+  onGroupingUpdate({ id, position }) {
     const movingColumn = this.#findColumnByGroupingId(id)
     const movingColumnCurrentPosition = this.columnTargets.indexOf(movingColumn)
     const movingColumnNewPosition = position - 1 // Positioning gem use indexes starting on 1

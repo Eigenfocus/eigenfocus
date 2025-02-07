@@ -1,10 +1,20 @@
 class Visualizations::AllocationsChannel < ApplicationCable::Channel
-  def self.broadcast_update(allocation)
-    visualization_id = allocation.grouping.visualization_id
-    ActionCable.server.broadcast("visualizations/#{visualization_id}/allocations/updated", allocation)
+  class << self
+    def broadcast_update(allocation)
+      visualization_id = allocation.grouping.visualization_id
+      broadcast(
+        "visualizations:#{visualization_id}:allocations#update",
+        allocation
+      )
+    end
+
+    private
+    def broadcast(stream_id, payload)
+      ActionCable.server.broadcast(stream_id, payload)
+    end
   end
 
   def subscribed
-    stream_from "visualizations/#{params[:visualization_id]}/allocations/updated"
+    stream_from "visualizations:#{params[:visualization_id]}:allocations##{params[:action]}"
   end
 end

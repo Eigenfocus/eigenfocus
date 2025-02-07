@@ -37,7 +37,7 @@ class Grouping < ApplicationRecord
   }, unless: :saved_change_to_position?
   after_update_commit -> {
     Visualizations::GroupingsChannel.broadcast_update(self)
-  }, if: :saved_change_to_position?
+  }
   after_destroy_commit -> { broadcast_remove_to visualization }
 
   def allocate_issue(issue)
