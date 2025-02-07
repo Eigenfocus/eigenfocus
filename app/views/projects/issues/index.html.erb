@@ -5,11 +5,22 @@
   project: current_project
 } %>
 
+<%= turbo_frame_tag 'issue_form' do %>
+<% end %>
+
 <%= turbo_frame_tag 'issues', data: { turbo_action: "advance" } do %>
   <%= render partial: 'filter', locals: { q: @q } %>
 
   <div class="flex flex-col gap-3 lg:gap-6 flex-wrap justify-stretch">
     <% if @issues.empty? %>
+      <div class="bg-body-contrast rounded-md border border-background-200 p-4 space-y-4 shadow-xs items-center">
+        <p class='text-center text-readable-content-500'>
+          <%= t("zero_records", resource_name: Issue.model_name.human) %>
+        </p>
+        <p class="mt-3 text-center mb-4">
+          <%= link_to t('click_here_to_create_one'), "link", class: "btn-primary inline-block", data: { turbo_frame: 'issue_form' } %>
+        </p>
+      </div>
     <% else %>
       <table class="table-primary table-striped">
         <thead class="text-xs font-semibold uppercase ">

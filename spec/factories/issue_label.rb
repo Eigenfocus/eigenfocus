@@ -1,5 +1,7 @@
+# coding: utf-8
+
 FactoryBot.define do
   factory :issue_label do
-    sequence(:title) { |n| "Label #{n}" }
+    sequence(:title) { |i| "Label #{i}" }
   end
 end
