@@ -23,6 +23,11 @@
   min-height: 43px;
 }
 
+.select2-sm .select2-selection.select2-selection--multiple,
+.select2-sm .select2-selection.select2-selection--single {
+  min-height: 34px;
+}
+
 .select2-contrast .select2-selection {
   @apply bg-body-contrast !important;
 }
