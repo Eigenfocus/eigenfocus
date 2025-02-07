@@ -4,9 +4,6 @@
 .select2-dropdown {
   font-size: 14px !important;
 }
-.select2-container--default .select2-results__option[aria-selected=true] {
-  display: none !important;
-}
 
 .select2-container--open {
   z-index: 9999999

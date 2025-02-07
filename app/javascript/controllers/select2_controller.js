@@ -4,6 +4,20 @@ export default class extends Controller {
   initialize() {
     this.select2 = $(this.element).select2({
       placeholder: this.element.getAttribute('placeholder'),
+      matcher: (params, data) => {
+        // If there are no search terms, return all options
+        if ($.trim(params.term) === '') {
+          return data;
+        }
+
+        // Do not show selected options in the search results
+        if ($(this.element).val().includes(data.id.toString())) {
+          return null;
+        }
+
+        // Apply default matching logic
+        return $.fn.select2.defaults.defaults.matcher(params, data);
+      },
       width: '100%',
       tags: (this.element.dataset.tags == "true")
     });
