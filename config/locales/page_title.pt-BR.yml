@@ -2,7 +2,7 @@ pt-BR:
   page_title:
     time_tracking: "Registro de Tempo"
     projects: "Projetos"
-    project_board: "%{project_name} - Quadro"
+    project_board: "%{project_name} - Quadro de Trabalho"
     reports: "Relatórios"
     edit_profile: "Perfil e Newsletter"
     project_all_issues: "%{project_name} - Todas as issues"

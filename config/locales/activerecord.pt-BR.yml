@@ -10,8 +10,8 @@ pt-BR:
         other: 'Projetos'
 
       visualization:
-        one: 'Visão de quadro'
-        other: 'Visões de quadros'
+        one: 'Quadro de Trabalho'
+        other: 'Quadro de Trabalho'
 
       grouping:
         one: 'Coluna'

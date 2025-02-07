@@ -4,6 +4,15 @@
 @import './sortablejs';
 @import './pagy.tailwind';
 
+/* :empty does't work if element has any text */
+.hide-if-empty:not(:has(:first-child)) {
+  display: none;
+}
+
+[data-is-issue-search-match="false"] {
+  display: none;
+}
+
 .btn .loading-spinner,
 .btn-primary .loading-spinner,
 .btn-secondary .loading-spinner,
@@ -24,12 +33,12 @@
   @apply w-3 h-3 mr-2;
 }
 
-.btn-primary.btn-sm,
-.btn-secondary.btn-sm,
-.btn-tertiary.btn-sm,
-.btn-danger.btn-sm,
-.btn-cancel.btn-sm {
+.btn.btn-sm {
   @apply py-1 px-2 text-xs h-7;
+}
+
+.btn.btn-md {
+  @apply py-1 px-2 text-sm h-9;
 }
 
 .btn-primary.btn-xl,
@@ -122,12 +131,19 @@ input.input-primary,
   @apply w-full rounded-lg border border-background-300 px-3 bg-background-50 text-readable-content-500 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
 }
 
+
+.input-contrast,
+input.input-contrast,
+.flatpickr-input.input-contrast {
+  @apply w-full rounded-lg border border-background-300 px-3 bg-body-contrast text-readable-content-500 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
+}
+
 .input-with-icon-wrapper .icon-wrapper {
-  @apply text-readable-content-500;
+  @apply text-readable-content-400;
 }
 
 .input-sm {
-  @apply py-1;
+  @apply py-2 text-xs !important;
 }
 
 .label-primary {
@@ -142,6 +158,7 @@ input.input-primary,
   @apply absolute text-readable-content-500 inset-y-0 start-0 flex items-center ps-3 pointer-events-none;
 }
 
+.input-with-icon-wrapper input,
 .input-with-icon-wrapper input.input-primary {
   @apply ps-10;
 }

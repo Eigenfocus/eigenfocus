@@ -2,19 +2,56 @@
 
 <%= turbo_stream_from @visualization %>
 
-<main class="grow">
+<main class="grow" data-controller="visualization--issue-filtering">
   <div class="flex flex-col h-full">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 p-4 sm:px-12 pt-12">
-      <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
-        <%= @visualization.project.name %> - <%= Visualization.model_name.human(count: 1) %>
-      </h2>
+    <div class="flex flex-col sm:px-12 pt-4">
+      <div class="flex  items-end justify-between gap-2">
+        <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
+          <%= @visualization.project.name %>
+        </h2>
 
-      <div class="flex items-stretch flex-col sm:flex-row gap-4">
-        <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "flex items-center link-secondary flex p-4", data: { turbo_frame: "_top" } do %>
-          <span class="text-sm mr-2"><%= icon_for(:time_entries) %></span>
-          <span class="sm:block"><%= t("actions.go_to_time_tracking") %></span>
+        <div class="flex items-stretch flex-col sm:flex-row gap-4">
+          <%= link_to time_entries_path(new_entry: { project_id: @visualization.project.id }), class: "flex items-center link-secondary flex", data: { turbo_frame: "_top" } do %>
+            <span class="text-sm mr-2"><%= icon_for(:time_entries) %></span>
+            <span class="text-sm sm:block"><%= t("actions.go_to_time_tracking") %></span>
+          <% end %>
+        </div>
+        </div>
+      <div class="mt-2 flex gap-4 text-sm font-medium border-b border-readable-content-300">
+        <%= link_to project_issues_path(@visualization.project), class: "px-2 pb-1 whitespace-nowrap" do %>
+          <%= t(:all_issues, scope: :nav) %>
         <% end %>
-        <%= link_to new_visualization_grouping_path(@visualization), class: "flex text-sm btn-primary", data: { turbo_frame: 'grouping_form' } do %>
+
+        <%= link_to '#', class: "px-2 pb-1 border-b-2 border-primary-500 text-primary-500 whitespace-nowrap" do %>
+          <%= t(:board_view, scope: :nav) %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <%= turbo_frame_tag('grouping_form') {} %>
+
+    <% if @open_issue.present? %>
+      <%= render partial: 'visualizations/issues/form', locals: { issue: @open_issue, visualization: @visualization } %>
+    <% else %>
+      <%= turbo_frame_tag('issue_form') {} %>
+    <% end %>
+    <div class="px-4 sm:px-12 flex justify-between items-center">
+      <div class="flex items-stretch gap-4">
+        <div class="input-with-icon-wrapper w-64">
+          <div class="icon-wrapper">
+            <i class="text-readable-content-300 fa fa-search"></i>
+          </div>
+          <input class="input-contrast input-sm active cpy-issues-search"
+            placeholder="Search issue"
+            data-visualization--issue-filtering-target="searchInput"
+            data-action="input->visualization--issue-filtering#filterIssues"
+            type="search" placeholder="Search…">
+        </div>
+      </div>
+
+      <div class="flex items-stretch flex-col sm:flex-row gap-4 my-4">
+        <%= link_to new_visualization_grouping_path(@visualization), class: "flex text-sm btn-md btn-primary", data: { turbo_frame: 'grouping_form' } do %>
           <i class="fa-solid fa-plus mr-2"></i>
 
           <h2 class="grow font-semibold truncate">
@@ -25,24 +62,6 @@
       </div>
     </div>
 
-    <div class="mb-4 px-4 sm:px-12">
-      <div class="relative">
-        <div class="absolute w-full bottom-0 h-px bg-body-contrast" aria-hidden="true"></div>
-        <ul class="relative text-sm font-medium flex flex-nowrap overflow-hidden no-scrollbar">
-          <li class="mr-6">
-            <%= link_to project_issues_path(@visualization.project), class: "block pb-2 whitespace-nowrap" do %>
-              <%= t(:all_issues, scope: :nav) %>
-            <% end %>
-          </li>
-          <li class="mr-6">
-            <%= link_to visualization_path(@visualization), class: "block pb-2 border-b-2 border-primary whitespace-nowrap" do %>
-              <%= t(:board_view, scope: :nav) %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-
     <%= turbo_frame_tag('grouping_form') {} %>
 
     <% if @open_issue.present? %>
@@ -50,6 +69,7 @@
     <% else %>
       <%= turbo_frame_tag('issue_form') {} %>
     <% end %>
+
 
     <div class="relative grow cpy-columns-wrapper">
       <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-12 sm:pr-12 sm:pb-4 sm:scroll-pr-12 pb-2 sm:px-12 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth">
@@ -66,7 +86,6 @@
             visualization: @visualization,
             open_issue:  @open_issue
           } %>
-
         </ul>
 
         <div class="w-64 shrink-0">
