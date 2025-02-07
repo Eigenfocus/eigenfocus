@@ -11,7 +11,7 @@
   <div class="flex flex-col gap-3 lg:gap-6 flex-wrap justify-stretch">
     <% if @issues.empty? %>
     <% else %>
-      <table class="table-auto table-primary table-striped">
+      <table class="table-primary table-striped">
         <thead class="text-xs font-semibold uppercase ">
           <tr>
             <th><%= sort_link(@q, :title, Issue.human_attribute_name(:title)) %></th>
