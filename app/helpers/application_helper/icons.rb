@@ -10,7 +10,7 @@ module Icons
     when :boards
       "fa-solid fa-chart-simple rotate-180"
     when :issues
-      "fa-solid fa-check-double"
+      "fa-solid fa-list-ul"
     when :projects
       "fa-solid fa-folder-closed"
     when :user
