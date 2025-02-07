@@ -13,9 +13,10 @@
       } do %>
         <i class="fa fa-edit"></i>
       <% end %>
-      <button class="link-danger">
+
+      <%= link_to project_issue_path(project, issue), class: "link-danger cpy-delete-button", data: { turbo_method: :delete, turbo_confirm: t(".destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
         <i class="fa fa-trash-can"></i>
-      </button>
+      <% end %>
     </div>
   </td>
 </tr>

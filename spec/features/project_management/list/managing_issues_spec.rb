@@ -111,4 +111,48 @@ describe 'As a project manager, I want to manage my issues from List Boards' do
       expect(page).to have_content("Updated title")
     end
   end
+
+  specify "I can delete issues directly from list" do
+    project = FactoryBot.create(:project)
+
+    issue = FactoryBot.create(:issue, title: "Issue testing title", project: project)
+
+    visit project_issues_path(project)
+
+    within dom_id(issue) do
+      accept_confirm do
+        find(".cpy-delete-button").click
+      end
+    end
+
+    expect(page).not_to have_content("Issue testing title")
+
+    expect(page).to have_content("Issue was successfully destroyed.")
+
+    expect(Issue.where(id: issue.id)).not_to be_present
+  end
+
+  specify "I can delete issue from issue modal" do
+    project = FactoryBot.create(:project)
+
+    issue = FactoryBot.create(:issue, title: "Issue testing title", project: project)
+
+    visit project_issues_path(project)
+
+    within dom_id(issue) do
+      find(".cpy-edit-button").click
+    end
+
+    within ".cpy-issue-detail" do
+      accept_confirm do
+        click_link "Remove"
+      end
+    end
+
+    expect(page).not_to have_content("Issue testing title")
+
+    expect(page).to have_content("Issue was successfully destroyed.")
+
+    expect(Issue.where(id: issue.id)).not_to be_present
+  end
 end

@@ -15,6 +15,11 @@ class Projects::IssuesController < ApplicationController
     @updated = @issue.update(permitted_params)
   end
 
+  def destroy
+    @issue = Issue.find(params[:id])
+    @issue.destroy
+  end
+
   def add_label
     issue = Issue.find(params[:id])
     label = current_project.issue_labels.with_title(params[:label][:title]).first

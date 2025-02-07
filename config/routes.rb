@@ -53,7 +53,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :issues, path: "i", only: [ :index, :update ] do
+      resources :issues, path: "i", only: [ :index, :update, :destroy ] do
         member do
           get :show, action: :index
           post :add_label
