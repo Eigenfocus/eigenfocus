@@ -1,0 +1,36 @@
+
+.btn .loading-spinner,
+.btn-primary .loading-spinner,
+.btn-secondary .loading-spinner,
+.btn-tertiary .loading-spinner {
+  width: 0;
+  overflow: hidden;
+  transition: width 400ms linear;
+}
+
+.btn[disabled] .loading-spinner,
+.btn-primary[disabled] .loading-spinner,
+.btn-secondary[disabled] .loading-spinner,
+.btn-tertiary[disabled] .loading-spinner  {
+  @apply w-5 -ml-1 mr-3 -ml-1 h-5 animate-spin;
+}
+
+.btn.btn-sm[disabled] .loading-spinner {
+  @apply w-3 h-3 mr-2;
+}
+
+.btn.btn-sm {
+  @apply py-1 px-2 text-xs h-7;
+}
+
+.btn.btn-md {
+  @apply py-1 px-2 text-sm h-9;
+}
+
+.btn-primary.btn-xl,
+.btn-secondary.btn-xl,
+.btn-tertiary.btn-xl,
+.btn-danger.btn-xl,
+.btn-cancel.btn-xl {
+  @apply py-4;
+}
