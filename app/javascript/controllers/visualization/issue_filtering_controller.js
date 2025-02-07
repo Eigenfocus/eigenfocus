@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import  Fuse  from 'fuse.js'
 
 const fuseOptions = {
-  isCaseSensitive: false,
+  // isCaseSensitive: false,
   // includeScore: false,
   // ignoreDiacritics: false,
   // shouldSort: true,
@@ -10,16 +10,22 @@ const fuseOptions = {
   findAllMatches: true, //show all matches
   // minMatchCharLength: 1,
   // location: 0,
-  threshold: 0.42,
+  threshold: 0.3,
   // distance: 100,
   // useExtendedSearch: false,
   ignoreLocation: true, // matches anywhere
   // ignoreFieldNorm: false,
   // fieldNormWeight: 1,
   keys: [
-    "title",
-    "labels"
+    "title"
   ]
+}
+
+function normalizeText(text) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")        // Decompose characters to their base form
+    .replace(/[\u0300-\u036f]/g, "");  // Remove diacritical marks (accents)
 }
 
 export default class extends Controller {
@@ -38,10 +44,14 @@ export default class extends Controller {
       return;
     }
 
-    const issuesMatches = this.fuse.search(this.searchTerm).map(result => result.item.issue)
+    const titleMatches = this.fuse.search(this.searchTerm).map(result => result.item.issue)
+
+    const labelMatches = this.fuse._docs.filter(fuseItem =>
+      this.searchTerms.some((term) => fuseItem.labels.some((label) => label.includes(term)))
+    ).map(fuseItem => fuseItem.issue)
 
     this.issueTargets.forEach(issue => {
-      issue.dataset.isIssueSearchMatch = issuesMatches.includes(issue)
+      issue.dataset.isIssueSearchMatch = titleMatches.includes(issue) || labelMatches.includes(issue)
     });
   }
 
@@ -50,7 +60,11 @@ export default class extends Controller {
   }
 
   get searchTerm() {
-    return this.searchInputTarget.value.trim()
+    return normalizeText(this.searchInputTarget.value.trim())
+  }
+
+  get searchTerms() {
+    return this.searchTerm.split(/\s+/)
   }
 
   issueTargetConnected(issue) {
@@ -64,7 +78,7 @@ export default class extends Controller {
   #addIssueToFuse(issue) {
     const issueData = {
       title: issue.querySelector("[data-issue-title]").textContent.toLowerCase(),
-      labels: [...issue.querySelectorAll("[data-issue-label]")].map(label => label.textContent.toLowerCase()),
+      labels: [...issue.querySelectorAll("[data-issue-label]")].map(label => normalizeText(label.textContent.toLowerCase())),
       issue
     }
 

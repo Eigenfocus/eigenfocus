@@ -16,7 +16,7 @@ describe 'As a project manager, I want to filter my issues from Workflow Boards'
   let!(:issue_deploy) { FactoryBot.create(:issue, title: "Deploy", project: project) }
 
   let!(:label_development) { project.issue_labels.create!(title: 'DeveloPment') }
-  let!(:label_urgent) { project.issue_labels.create!(title: 'UrRgent') }
+  let!(:label_urgent) { project.issue_labels.create!(title: 'URgent') }
 
   before(:each) do
     issue_setup.labels << label_urgent
