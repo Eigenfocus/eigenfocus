@@ -14,22 +14,27 @@
   <%
     default_classes = "px-2 pb-1 whitespace-nowrap"
     tabs = [{
+        icon: icon_for(:issues),
         text: t(:all_issues, scope: :nav),
         options: { href: project_issues_path(project) },
         is_selected: controller_name.downcase == 'issues'
       },{
+        icon: icon_for(:boards),
         text: Visualization.model_name.human,
         options: { href: visualization_path(project.default_visualization) },
         is_selected: controller_name.downcase == 'visualizations'
       }
     ].each do |tab|
 
-    tab[:options][:class] = "px-2 pb-1 whitespace-nowrap"
+    tab[:options][:class] = "flex items-center gap-1 px-2 pb-2 whitespace-nowrap"
 
     if tab[:is_selected]
       tab[:options][:class] += "border-b-2 border-primary-500 text-primary-500"
     end
   %>
-    <%= content_tag :a, tab[:text], tab[:options] %>
+    <%= content_tag :a, tab[:options] do %>
+      <span class="text-xs"><%= tab[:icon] %></span>
+      <%= tab[:text] %>
+    <% end %>
   <% end %>
 </div>

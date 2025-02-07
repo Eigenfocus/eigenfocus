@@ -26,9 +26,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
     visit projects_path
 
     within dom_id(project) do
-      expect(page).to have_content("Go to Board")
-
-      click_link "Go to Board"
+      click_link "Go to workflow board"
     end
 
     expect(page).to have_content("Board")
