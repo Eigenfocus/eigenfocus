@@ -20,7 +20,7 @@
     <%= turbo_frame_tag('grouping_form') {} %>
 
     <% if @open_issue.present? %>
-      <%= render partial: 'issues/issue', locals: {
+      <%= render partial: 'issues/issue_detail', locals: {
         issue: @open_issue,
         visualization: @visualization
       } %>
