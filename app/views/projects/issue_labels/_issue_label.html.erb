@@ -1,0 +1,12 @@
+<tr id="<%= dom_id(issue_label) %>" >
+  <td><%= issue_label.title %></td>
+
+  <td>
+    <div class="flex gap-4 text-lg opacity-80">
+      <%= link_to t('actions.edit'),
+                  edit_project_issue_label_path(issue_label.project_id, issue_label.id),
+                  class: "btn-primary ",
+                  data: { turbo_frame: "issue_label_form" }  %>
+    </div>
+  </td>
+</tr>

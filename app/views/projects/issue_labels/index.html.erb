@@ -1,0 +1,37 @@
+<% set_page_title(:project_all_issues_labels, project_name: current_project.name) %>
+
+<%= turbo_frame_tag 'issue_label_form' do %>
+<% end %>
+
+<%= render partial: 'projects/navigation_header', locals: {
+  project: current_project
+} %>
+
+
+<%= turbo_frame_tag 'issue_labels' do %>
+  <div class="flex flex-col gap-4 lg:gap-8 flex-wrap justify-stretch" id='issue_labels-list'>
+    <% if @issue_labels.count.zero? %>
+      <div class="border p-8 bg-body-contrast border-background-100 rounded-md shadow-xs items-center w-full p-6 "id='empty-row'>
+        <p class='text-center text-readable-content-500'>
+          <%= t("zero_records", resource_name: Project.model_name.human) %>
+        </p>
+        <p class="mt-3 text-center mb-4">
+          <%= link_to t('click_here_to_create_one'), new_project_path, class: "btn-primary inline-block", data: { turbo_frame: 'project_form' } %>
+        </p>
+      </div>
+    <% else %>
+      <table class="table-primary table-striped">
+        <thead class="text-xs font-semibold uppercase ">
+          <tr>
+            <th><%= sort_link(@q, :title, Issue.human_attribute_name(:title)) %></th>
+            <th><%= t(:actions, scope: :menu) %></th>
+          </tr>
+        </thead>
+        <tbody class="text-sm divide-y">
+          <%= render partial: 'issue_label', collection: @issue_labels, as: :issue_label %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+
+<% end %>

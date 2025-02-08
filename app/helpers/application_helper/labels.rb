@@ -1,10 +1,9 @@
 module ApplicationHelper
   module Labels
-    def badge_for_label(label, tag_options = {})
+    def badge_for_issue_label(label, tag_options = {})
       options = {
         class: "inline-flex rounded-full border-readable-content-400 text-readable-content-400 border border py-1 px-2 text-xs font-medium",
-        style: ""
-
+        style: "" # In the future we will have custom colors
       }.merge(tag_options)
 
       content_tag(:span, options) do
@@ -21,7 +20,7 @@ module ApplicationHelper
       }.merge(tag_options)
 
       content_tag(:div, options) do
-        issue.labels.each { concat badge_for_label(_1, "data": { "issue-label": true }) }
+        issue.labels.each { concat badge_for_issue_label(_1) }
       end
     end
   end

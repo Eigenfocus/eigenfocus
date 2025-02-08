@@ -6,3 +6,4 @@ en:
     reports: "Reports"
     edit_profile: "Profile and Newsletter"
     project_all_issues: "%{project_name} - All issues"
+    project_all_issue_labels: "%{project_name} - All issues labels"

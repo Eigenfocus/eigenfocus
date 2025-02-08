@@ -15,6 +15,11 @@ class IssueLabel < ApplicationRecord
   # Hooks
   before_validation :strip_title_whitepaces
 
+  # Ransack
+  def self.ransackable_attributes(auth_object = nil)
+    [ "title" ]
+  end
+
   def strip_title_whitepaces
     self.title = self.title&.strip
   end

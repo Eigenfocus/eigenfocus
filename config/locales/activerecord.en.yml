@@ -21,6 +21,10 @@ en:
         one: 'Issue'
         other: 'Issues'
 
+      issue_label:
+        one: 'Issue Label'
+        other: 'Issue Labels'
+
       time_entry:
         one: 'Time entry'
         other: 'Time entries'
@@ -44,6 +48,9 @@ en:
         label_ids: 'Labels'
         created_at: 'Created at'
         updated_at: 'Updated at'
+
+      issue_label:
+        title: 'Title'
 
       time_entry:
         description: 'Description'
