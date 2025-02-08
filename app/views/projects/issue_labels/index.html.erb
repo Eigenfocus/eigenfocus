@@ -3,6 +3,9 @@
 <%= turbo_frame_tag 'issue_label_form' do %>
 <% end %>
 
+<%= turbo_frame_tag 'issue_label_removal_confirmation' do %>
+<% end %>
+
 <%= render partial: 'projects/navigation_header', locals: {
   project: current_project,
   sub_section: {

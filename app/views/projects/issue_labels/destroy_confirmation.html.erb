@@ -1,5 +1,5 @@
 
-<%= turbo_frame_tag 'issue_label_form' do %>
+<%= turbo_frame_tag 'issue_label_removal_confirmation' do %>
 <%= render_modal do %>
   <div class="border-b border-background-200">
     <div class="flex items-center space-x-2">
@@ -14,8 +14,9 @@
   </div>
   <div class="mt-4">
     <p class="text-base mb-4">
-      <%= t(".associations", count: @issue_label.issues.count ) %>
+      <%= t(".associations", count_text: "#{@issue_label.issues.count} #{IssueLabel.model_name.human(count: @issue_label.issues.count)}" ) %>
     </p>
+
     <p class="text-sm text-readable-content-500"><%= t(".explanation") %></p>
     <p class="mt-2 text-sm text-readable-content-500"><%= t("confirmations.want_to_proceed") %></p>
 
