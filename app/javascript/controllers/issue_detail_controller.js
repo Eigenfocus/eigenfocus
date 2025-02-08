@@ -14,7 +14,8 @@ export default class extends Controller {
 
   static values = {
     attachPath: String,
-    pathForModalClosed: String
+    pathForModalClosed: String,
+    submitOnTitleChange: { type: Boolean, default: true }
   }
 
   connect() {
@@ -60,6 +61,8 @@ export default class extends Controller {
   }
 
   handleTitleUpdate(titleField) {
+    if (!this.submitOnTitleChangeValue) return;
+
     if (this.skipAutoSave) {
       this.skipAutoSave = false
       return
