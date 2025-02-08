@@ -7,6 +7,17 @@ class Projects::IssueLabelsController < ApplicationController
     @pagy, @issue_labels = pagy(@q.result)
   end
 
+  def new
+    @issue_label = current_project.issue_labels.new
+    render partial: "form", locals: { project: current_project, issue_label: @issue_label }
+  end
+
+  def create
+    @issue_label = current_project.issue_labels.new(label_params)
+
+    @issue_label.save
+  end
+
   def edit
     @issue_label = current_project.issue_labels.find(params[:id])
 
