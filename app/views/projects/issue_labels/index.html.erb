@@ -37,6 +37,8 @@
           <%= render partial: 'issue_label', collection: @issue_labels, as: :issue_label %>
         </tbody>
       </table>
+
+      <%== pagy_summary(@pagy) %>
     <% end %>
   </div>
 
