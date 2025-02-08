@@ -46,9 +46,11 @@ export default class extends Controller {
 
     const titleMatches = this.fuse.search(this.searchTerm).map(result => result.item.issue)
 
-    const labelMatches = this.fuse._docs.filter(fuseItem =>
-      this.searchTerms.some((term) => fuseItem.labels.some((label) => label.includes(term)))
-    ).map(fuseItem => fuseItem.issue)
+    const labelMatches = this.issueTargets.filter(issue => {
+      const labels = [...issue.querySelectorAll("[data-issue-label]")].map(label => normalizeText(label.textContent.toLowerCase()))
+
+      return this.searchTerms.some((term) => labels.some((label) => label.includes(term)))
+    })
 
     this.issueTargets.forEach(issue => {
       issue.dataset.isIssueSearchMatch = titleMatches.includes(issue) || labelMatches.includes(issue)
@@ -78,7 +80,6 @@ export default class extends Controller {
   #addIssueToFuse(issue) {
     const issueData = {
       title: issue.querySelector("[data-issue-title]").textContent.toLowerCase(),
-      labels: [...issue.querySelectorAll("[data-issue-label]")].map(label => normalizeText(label.textContent.toLowerCase())),
       issue
     }
 
