@@ -31,12 +31,12 @@
         </p>
       </div>
     <% else %>
-      <table class="table-primary table-striped" >
+      <table class="table-primary table-compact table-striped" >
         <thead>
           <tr>
-            <th><%= sort_link(@q, :title, IssueLabel.human_attribute_name(:title)) %></th>
-            <th><%= sort_link(@q, :updated_at, IssueLabel.human_attribute_name(:updated_at)) %></th>
-            <th><%= t(:actions, scope: :menu) %></th>
+            <th style="width: 40%"><%= sort_link(@q, :title, IssueLabel.model_name.human) %></th>
+            <th style="width: 20%"><%= sort_link(@q, :updated_at, IssueLabel.human_attribute_name(:updated_at)) %></th>
+            <th style="width: 30%"><%= t(:actions, scope: :menu) %></th>
           </tr>
         </thead>
         <tbody id='issue-labels-list'>
