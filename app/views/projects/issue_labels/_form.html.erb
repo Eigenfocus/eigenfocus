@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="space-y-4">
-    <%= form_with(model: [current_project, issue_label], html: { class: 'flex flex-col gap-2' }) do |f| %>
+    <%= form_with(model: [current_project, issue_label], html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
       <% if issue_label.errors.any? %>
         <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
           <%= issue_label.errors.full_messages.to_sentence.capitalize %>

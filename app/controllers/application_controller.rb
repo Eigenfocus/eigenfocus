@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   # Helpers
   helper_method :current_user
   helper_method :skip_layout_content_wrapper?
+  helper_method :t_flash_message
 
   # Hooks
   before_action :ensure_user_profile_is_complete
@@ -63,5 +64,10 @@ class ApplicationController < ActionController::Base
 
   def skip_layout_content_wrapper?
     @skip_layout_content_wrapper
+  end
+
+  def t_flash_message(resource, flash_type: nil)
+    flash_type ||= :notice
+    t("flash.actions.#{action_name}.#{flash_type}", resource_name: resource.model_name.human)
   end
 end

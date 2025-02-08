@@ -3,6 +3,7 @@ class Projects::IssueLabelsController < ApplicationController
 
   def index
     @q = current_project.issue_labels.ransack(params[:q])
+    @q.sorts = "updated_at desc" if @q.sorts.empty?
 
     @pagy, @issue_labels = pagy(@q.result)
   end
@@ -15,7 +16,14 @@ class Projects::IssueLabelsController < ApplicationController
   def create
     @issue_label = current_project.issue_labels.new(label_params)
 
-    @issue_label.save
+    if @issue_label.save
+      redirect_to project_issue_labels_path, notice: t_flash_message(@issue_label)
+    else
+      render turbo_stream: turbo_stream.replace(
+        "issue_label_form",
+        partial: "form", locals: { project: current_project, issue_label: @issue_label }
+      )
+    end
   end
 
   def edit
