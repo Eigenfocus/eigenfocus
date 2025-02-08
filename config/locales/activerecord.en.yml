@@ -1,4 +1,8 @@
 en:
+  attributes:
+    created_at: 'Created at'
+    updated_at: 'Last modified'
+
   activerecord:
     models:
       user:

@@ -3,6 +3,7 @@ class Projects::IssueLabelsController < ApplicationController
 
   def index
     @q = current_project.issue_labels.ransack(params[:q])
+
     @pagy, @issue_labels = pagy(@q.result)
   end
 

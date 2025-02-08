@@ -17,7 +17,7 @@ class IssueLabel < ApplicationRecord
 
   # Ransack
   def self.ransackable_attributes(auth_object = nil)
-    [ "title" ]
+    [ "title", "updated_at" ]
   end
 
   def strip_title_whitepaces

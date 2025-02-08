@@ -16,7 +16,7 @@ module Icons
       "fa-solid fa-user"
     when :report
       "fa-solid fa-gauge"
-    when :labels
+    when :issue_labels
       "fa-solid fa-tags"
     when :theme
       "fa-solid fa-palette"

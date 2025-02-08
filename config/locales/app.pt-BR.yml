@@ -31,6 +31,7 @@ pt-BR:
     actions: "Ações"
   nav:
     all_issues: "Todas as issues"
+    manage_issue_labels: "Rótulos de issues"
   actions:
     back: "Voltar"
     new: "Novo"

@@ -7,8 +7,9 @@
   project: current_project
 } %>
 
-
 <%= turbo_frame_tag 'issue_labels' do %>
+  <%= render partial: 'filter', locals: { q: @q } %>
+
   <div class="flex flex-col gap-4 lg:gap-8 flex-wrap justify-stretch" id='issue_labels-list'>
     <% if @issue_labels.count.zero? %>
       <div class="border p-8 bg-body-contrast border-background-100 rounded-md shadow-xs items-center w-full p-6 "id='empty-row'>
@@ -23,7 +24,8 @@
       <table class="table-primary table-striped">
         <thead class="text-xs font-semibold uppercase ">
           <tr>
-            <th><%= sort_link(@q, :title, Issue.human_attribute_name(:title)) %></th>
+            <th><%= sort_link(@q, :title, IssueLabel.human_attribute_name(:title)) %></th>
+            <th><%= sort_link(@q, :updated_at, IssueLabel.human_attribute_name(:updated_at)) %></th>
             <th><%= t(:actions, scope: :menu) %></th>
           </tr>
         </thead>

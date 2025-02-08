@@ -30,6 +30,7 @@ en:
     actions: "Actions"
   nav:
     all_issues: "All issues"
+    manage_issue_labels: "Issue Labels"
   actions:
     back: "back"
     new: "New"

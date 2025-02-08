@@ -3,7 +3,10 @@ module ApplicationHelper
     def badge_for_issue_label(label, tag_options = {})
       options = {
         class: "inline-flex rounded-full border-readable-content-400 text-readable-content-400 border border py-1 px-2 text-xs font-medium",
-        style: "" # In the future we will have custom colors
+        style: "", # In the future we will have custom colors
+        data: {
+          "issue-label": label.id
+        }
       }.merge(tag_options)
 
       content_tag(:span, options) do

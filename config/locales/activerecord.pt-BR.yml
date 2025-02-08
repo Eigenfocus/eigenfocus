@@ -1,4 +1,8 @@
 pt-BR:
+  attributes:
+    created_at: 'Data de criação'
+    updated_at: 'Última atualização'
+
   activerecord:
     models:
       user:
