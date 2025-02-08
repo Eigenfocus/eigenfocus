@@ -24,6 +24,15 @@ class IssueLabel < ApplicationRecord
     self.title = self.title&.strip
   end
 
+  # Broadcasts
+  after_update_commit -> {
+    broadcast_update_later_to(
+      project.default_visualization,
+      targets: "[data-issue-label='#{id}']".html_safe,
+      html: title
+    )
+  }
+
   def to_s
     title
   end
