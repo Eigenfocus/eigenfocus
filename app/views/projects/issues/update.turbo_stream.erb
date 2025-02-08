@@ -1,7 +1,7 @@
 <% if @issue.persisted? %>
   <%= turbo_stream.replace dom_id(@issue), partial: "projects/issues/issue", locals: { issue: @issue, project: current_project } %>
   <% if params[:button] == "save-and-close-modal" %>
-    <%= turbo_stream.update 'issue', "" %>
+    <%= turbo_stream.update 'issue_detail', "" %>
   <% end %>
   <%= new_turbo_stream_alert_message(:success, t_flash_message(@issue)) %>
 <% else %>

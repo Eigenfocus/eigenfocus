@@ -11,7 +11,7 @@
     project: current_project
   } %>
 <% else %>
-  <%= turbo_frame_tag('issue') {} %>
+  <%= turbo_frame_tag('issue_detail') {} %>
 <% end %>
 
 <%= turbo_frame_tag 'issues', data: { turbo_action: "advance" } do %>

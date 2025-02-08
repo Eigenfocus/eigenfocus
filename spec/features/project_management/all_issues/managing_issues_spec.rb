@@ -96,7 +96,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
       find(".cpy-edit-button").click
     end
 
-    within '#issue' do
+    within '#issue_detail' do
       fill_in :issue_title, with: "Updated title"
     end
 

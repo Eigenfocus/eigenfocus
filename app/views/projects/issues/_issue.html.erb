@@ -8,7 +8,7 @@
   <td>
     <div class="flex gap-4 text-lg opacity-80">
       <%= link_to project_show_issue_path(project, issue), class: "link-base cpy-edit-button", data: {
-          turbo_frame: 'issue',
+          turbo_frame: 'issue_detail',
           turbo_action: 'advance'
       } do %>
         <i class="fa fa-edit"></i>
