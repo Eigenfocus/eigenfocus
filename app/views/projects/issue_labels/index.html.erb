@@ -4,7 +4,11 @@
 <% end %>
 
 <%= render partial: 'projects/navigation_header', locals: {
-  project: current_project
+  project: current_project,
+  sub_section: {
+    title: IssueLabel.model_name.human,
+    icon: :issue_labels
+  }
 } %>
 
 <%= turbo_frame_tag 'issue_labels' do %>
@@ -14,10 +18,10 @@
     <% if @issue_labels.count.zero? %>
       <div class="border p-8 bg-body-contrast border-background-100 rounded-md shadow-xs items-center w-full p-6 "id='empty-row'>
         <p class='text-center text-readable-content-500'>
-          <%= t("zero_records", resource_name: Project.model_name.human) %>
+          <%= t("zero_records", resource_name: IssueLabel.model_name.human) %>
         </p>
         <p class="mt-3 text-center mb-4">
-          <%= link_to t('click_here_to_create_one'), new_project_path, class: "btn-primary inline-block", data: { turbo_frame: 'project_form' } %>
+          <%= link_to t('click_here_to_create_one'), new_project_issue_label_path, class: "btn-primary inline-block", data: { turbo_frame: 'issue_label_form' } %>
         </p>
       </div>
     <% else %>

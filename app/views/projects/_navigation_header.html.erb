@@ -1,6 +1,16 @@
 <div class="flex items-end justify-between gap-2">
-  <h2 class="text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
-    <%= project.name %>
+  <h2 class="flex items-center text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
+    <% if local_assigns[:sub_section] %>
+      <div class="flex gap-2 items-center">
+        <% if sub_section[:icon] %>
+          <%= icon_for(sub_section[:icon]) %>
+        <% end %>
+        <span><%= sub_section[:title] %> - <%= project.name %></span>
+      </div>
+    <% else %>
+      <%= project.name %>
+    <% end %>
+
   </h2>
 
   <div class="flex items-stretch flex-col sm:flex-row text-xs gap-6">
@@ -16,6 +26,8 @@
     <% end %>
   </div>
 </div>
+
+
 <div class="mt-2 mb-4 flex gap-4 text-sm font-medium border-b border-readable-content-300">
   <%
     default_classes = "px-2 pb-1 whitespace-nowrap"
