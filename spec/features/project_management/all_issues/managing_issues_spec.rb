@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'As a project manager, I want to manage my issues from List Boards' do
+describe 'As a project manager, I want to manage my issues from all issues' do
   let!(:user) { FactoryBot.create(:user) }
 
   specify "I can see a no issues feedback message when there are no issues" do
