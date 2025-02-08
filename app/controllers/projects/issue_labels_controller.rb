@@ -38,6 +38,18 @@ class Projects::IssueLabelsController < ApplicationController
     @updated = @issue_label.update(label_params)
   end
 
+  def destroy_confirmation
+    @issue_label = current_project.issue_labels.find(params[:id])
+  end
+
+  def destroy
+    @issue_label = current_project.issue_labels.find(params[:id])
+
+    @issue_label.destroy
+
+    redirect_to project_issue_labels_path, notice: t_flash_message(@issue_label)
+  end
+
   private
   def current_project
     @current_project ||= Project.find(params[:project_id])

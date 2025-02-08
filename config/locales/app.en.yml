@@ -26,6 +26,7 @@ en:
     unarchive: "Do you want to unarchive this?"
     delete_file: "Are you sure you want to delete this file?"
     remove: "Are you sure you want to remove %{resource_name}?"
+    want_to_proceed: "Are you sure that you want to proceed?"
   menu:
     actions: "Actions"
   nav:

@@ -27,6 +27,7 @@ pt-BR:
     unarchive: "Deseja reativar?"
     delete_file: "Tem certeza que deseja remover este arquivo?"
     remove: "Tem certeza que deseja remover a/o %{resource_name}?"
+    want_to_proceed: "Deseja mesmo prosseguir?"
   menu:
     actions: "Ações"
   nav:
