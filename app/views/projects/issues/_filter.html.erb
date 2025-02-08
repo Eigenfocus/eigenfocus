@@ -30,5 +30,15 @@
       <% end %>
     </div>
 
+    <div class="flex">
+      <%= link_to new_project_issue_path(current_project), class: "btn-primary", data: { turbo_frame: "issue" } do %>
+        <i class="fa-solid fa-plus mr-2"></i>
+
+        <h2 class="grow font-semibold truncate">
+          <%= "#{t('actions.create')} #{Issue.model_name.human.downcase}" %>
+        </h2>
+      <% end %>
+    </div>
+
   </div>
 <% end %>

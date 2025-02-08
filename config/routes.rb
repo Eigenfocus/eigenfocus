@@ -53,13 +53,17 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :issues, path: "i", only: [ :index, :update, :destroy ] do
+      resources :issues, only: [ :index, :new, :create, :update, :destroy ] do
         member do
-          get :show, action: :index
           post :add_label
           delete :remove_label
         end
       end
+
+      get "i/:id",
+          as: :show_issue,
+          controller: :issues,
+          action: :index
     end
   end
 

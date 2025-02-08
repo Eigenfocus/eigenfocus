@@ -51,6 +51,8 @@ class Issue < ApplicationRecord
   after_destroy_commit -> { broadcast_remove_to "visualization" }
 
   def to_param
-    [ id, title.parameterize ].join("-")
+    if persisted?
+      [ id, title.parameterize ].join("-")
+    end
   end
 end

@@ -3,7 +3,11 @@ module IssuesHelper
     if local_assigns[:visualization].present?
       visualization_issue_path(local_assigns[:visualization], local_assigns[:issue])
     elsif local_assigns[:project].present?
-      project_issue_path(local_assigns[:project], local_assigns[:issue])
+      if local_assigns[:issue].persisted?
+        project_issue_path(local_assigns[:project], local_assigns[:issue])
+      else
+        project_issues_path(local_assigns[:project])
+      end
     else
       # No other case yet
     end
