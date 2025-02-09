@@ -26,8 +26,8 @@ pt-BR:
         other: 'Issues'
 
       issue_label:
-        one: 'Rótulo de Issues'
-        other: 'Rótulos de Issues'
+        one: 'Label de Issues'
+        other: 'Labels de Issues'
 
       time_entry:
         one: 'Registro de tempo'
@@ -48,8 +48,8 @@ pt-BR:
         title: 'Título'
         description: 'Descrição'
         files: "Arquivos"
-        labels: 'Rótulos'
-        label_ids: 'Rótulos'
+        labels: 'Labels'
+        label_ids: 'Labels'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'
 
@@ -65,4 +65,4 @@ pt-BR:
         total_logged_time_in_minutes: 'Tempo registrado (minutos)'
 
       visualization:
-        favorite_issue_labels: "Rótulos favoritos"
+        favorite_issue_labels: "Labels favoritas"
