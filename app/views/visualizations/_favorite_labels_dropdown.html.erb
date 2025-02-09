@@ -9,12 +9,16 @@
       <span class="mr-1"><%= icon_for(:issue_labels) %></span>
       <%= Visualization.human_attribute_name(:favorite_issue_labels) %>
     </div>
-    <%= form_with(model: visualization, html: { class: 'mt-4 flex flex-col gap-2' } ) do |f| %>
+    <%= form_with(model: visualization, html: {
+      class: 'mt-4 flex flex-col gap-2',
+      data: { controller: 'form' }
+      } ) do |f| %>
 
       <% 6.times do |i| %>
         <div class="px-4 flex gap-2 items-stretch">
           <span class="flex items-center bg-background-50 w-4 text-center text-readable-content-500 text-xs font-bold"><%= i + 1 %></span>
           <input type="text" name="visualization[favorite_issue_labels][]"
+            data-action="change->form#submit"
             data-visualization--favorite-issue-labels-target="favoriteLabelInput"
             value="<%= visualization.favorite_issue_labels[i] %>"
             class="input-primary h-8 text-xs input-sm">
@@ -26,10 +30,7 @@
         <span class="text-readable-content-500 text-xs text-italic"><%= t(".pro_tip.description") %></span>
       </p>
       <div class="px-4 py-2 border-t border-readable-content-200 flex items-center text-xs bg-readable-content-100 justify-between">
-          <a class="link-base cursor-pointer" data-action="click->dropdown#toggle"><%= t(:close, scope: :actions) %></a>
-
-          <button class="btn-sm btn-primary" data-action="click->dropdown#toggle"><%= t(:save, scope: :actions) %></button>
-
+        <button class="btn-sm btn-primary" data-action="click->dropdown#toggle"><%= t(:save, scope: :actions) %></button>
       </div>
     <% end %>
 
