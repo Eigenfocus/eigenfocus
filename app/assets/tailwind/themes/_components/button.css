@@ -13,7 +13,7 @@
 }
 
 .btn-contrast {
-  @apply border border-readable-content-500 bg-body-contrast text-sm text-readable-content-500 hover:text-readable-content-700 hover:bg-readable-content-100/50 px-4 py-2 rounded-md;
+  @apply border border-readable-content-300 bg-body-contrast text-sm text-readable-content-400 hover:text-readable-content-500 hover:bg-readable-content-100/50 px-4 py-2 rounded-md;
 }
 
 .btn[disabled] .loading-spinner,
