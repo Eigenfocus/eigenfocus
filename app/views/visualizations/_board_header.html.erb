@@ -13,7 +13,7 @@
   </div>
 
   <div class="flex items-stretch flex-col sm:flex-row gap-4">
-    <%= render partial: 'keyboard_shortcuts', favorite_labels: visualization.favorite_labels %>
+    <%= render partial: 'favorite_labels_dropdown', locals: { visualization: visualization } %>
 
     <%= link_to new_visualization_grouping_path(visualization), class: "flex text-sm btn-md btn-primary", data: { turbo_frame: 'grouping_form' } do %>
       <i class="fa-solid fa-plus mr-2"></i>
