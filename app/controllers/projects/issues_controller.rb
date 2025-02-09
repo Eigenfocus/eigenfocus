@@ -8,10 +8,8 @@ class Projects::IssuesController < ApplicationController
 
   def add_label
     issue = Issue.find(params[:id])
-    label = IssueLabel.find_or_create_by({
-      title: params[:label][:title],
-      project_id: issue.project_id
-    })
+    label = current_project.issue_labels.with_title(params[:label][:title]).first
+    label ||= current_project.issue_labels.create(title: params[:label][:title])
 
     if issue.labels.exclude?(label)
       issue.labels << label
@@ -22,7 +20,7 @@ class Projects::IssuesController < ApplicationController
 
   def remove_label
     issue = Issue.find(params[:id])
-    label = issue.labels.find_by(title: params[:label][:title])
+    label = issue.labels.with_title(params[:label][:title]).first
 
     # "Prevents" (at least for % 99,42 of the cases)
     # Simultaneous requests/crazy multiple clicks

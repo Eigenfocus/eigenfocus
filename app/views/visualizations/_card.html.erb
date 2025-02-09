@@ -1,6 +1,7 @@
 <li class="cpy-card"
   id="<%= dom_id(issue) %>"
   data-controller="visualization--board--card"
+  data-favorite-issue-labels-issue-id="<%= issue.id %>"
   data-visualization--board--card-scroll-on-connect-value="<%= local_assigns[:scroll_on_connect] == true %>"
   data-grouping-column-target="card"
   data-grouping-column-issue-id-value="<%= issue.id %>"

@@ -1,0 +1,38 @@
+
+<div class="relative inline-flex cpy-keyboard-shortcuts" data-controller="dropdown">
+  <button class="btn-contrast btn-md" data-action="click->dropdown#toggle click@window->dropdown#hide"
+    data-dropdown-target="button">
+    <i class="fa-regular fa-keyboard"></i>
+  </button>
+  <div data-dropdown-target="menu" class=" origin-top-left pt-4 z-10 absolute top-full border border-background-300 right-0 min-w-64 bg-background-50 rounded-md shadow-lg overflow-hidden mt-2">
+    <div class="px-4 text-xs font-semibold text-readable-content-500 uppercase">
+      <span class="mr-1"><%= icon_for(:issue_labels) %></span>
+      <%= Visualization.human_attribute_name(:favorite_issue_labels) %>
+    </div>
+    <%= form_with(model: visualization, html: {
+      class: 'mt-4 flex flex-col gap-2',
+      data: { controller: 'form' }
+      } ) do |f| %>
+
+      <% 6.times do |i| %>
+        <div class="px-4 flex gap-2 items-stretch">
+          <span class="flex items-center bg-background-50 w-4 text-center text-readable-content-500 text-xs font-bold"><%= i + 1 %></span>
+          <input type="text" name="visualization[favorite_issue_labels][]"
+            data-action="change->form#submit"
+            data-visualization--favorite-issue-labels-target="favoriteLabelInput"
+            value="<%= visualization.favorite_issue_labels[i] %>"
+            class="input-primary h-8 text-xs input-sm">
+        </div>
+      <% end %>
+      <p class="px-4 mt-2 font-base">
+        <span class="text-primary-500 font-bold text-xs"><i class="fa-solid fa-wand-magic-sparkles"></i> <%= t(".pro_tip.title") %></span>
+        <br/>
+        <span class="text-readable-content-500 text-xs text-italic"><%= t(".pro_tip.description") %></span>
+      </p>
+      <div class="px-4 py-2 border-t border-readable-content-200 flex items-center text-xs bg-readable-content-100 justify-between">
+        <button class="btn-sm btn-primary" data-action="click->dropdown#toggle"><%= t(:save, scope: :actions) %></button>
+      </div>
+    <% end %>
+
+  </div>
+</div>

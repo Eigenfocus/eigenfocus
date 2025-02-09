@@ -6,4 +6,4 @@ pt-BR:
     reports: "Relatórios"
     edit_profile: "Perfil e Newsletter"
     project_all_issues: "%{project_name} - Todas as issues"
-    project_all_issue_labels: "%{project_name} - Todos os rótulos de issues"
+    project_all_issue_labels: "%{project_name} - Todos os labels de issues"

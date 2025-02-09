@@ -5,8 +5,8 @@ pt-BR:
       disable_time_tracking: 'Desabilitar registro de tempo'
     issue_labels:
       destroy_confirmation:
-        explanation: "Deletar esse rótulo removerá todas as suas associações com issues, mas não removerá as issues."
-        associations: "Este rótulo está associado com %{count_text)"
+        explanation: "Deletar essa label removerá todas as suas associações com issues, mas não removerá as issues."
+        associations: "Esta label está associado com %{count_text)"
   profiles:
     form:
       why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."
@@ -35,6 +35,10 @@ pt-BR:
     issues:
       form:
         destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
+    favorite_labels_dropdown:
+      pro_tip:
+        title: "DICA RÁPIDA"
+        description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar/remover uma label."
   time_entries:
     form:
       save_on_command_enter: Pressione (CTRL + Enter) ou (CMD + Enter) para salvar
