@@ -8,7 +8,7 @@ Capybara.server_port = '3001'
 if ENV.has_key?("SELENIUM_REMOTE_HOST")
   Capybara.register_driver :remote_selenium do |app|
     options   = Selenium::WebDriver::Chrome::Options.new
-    options.add_argument("--window-size=1320,830")
+    options.add_argument("--window-size=1400,1000")
     # options.add_argument('--start-maximized')
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
