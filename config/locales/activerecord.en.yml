@@ -63,3 +63,6 @@ en:
         issue: 'Issue'
         project: 'Project'
         total_logged_time_in_minutes: 'Logged time (minutes)'
+
+      visualization:
+        favorite_issue_labels: "Favorite labels"

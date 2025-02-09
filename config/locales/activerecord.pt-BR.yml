@@ -63,3 +63,6 @@ pt-BR:
         issue_id: 'Issue'
         issue: 'Issue'
         total_logged_time_in_minutes: 'Tempo registrado (minutos)'
+
+      visualization:
+        favorite_issue_labels: "Rótulos favoritos"

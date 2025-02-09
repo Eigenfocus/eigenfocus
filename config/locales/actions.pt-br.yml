@@ -35,6 +35,10 @@ pt-BR:
     issues:
       form:
         destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
+    favorite_labels_dropdown:
+      pro_tip:
+        title: "DICA RÁPIDA"
+        description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar uma label."
   time_entries:
     form:
       save_on_command_enter: Pressione (CTRL + Enter) ou (CMD + Enter) para salvar

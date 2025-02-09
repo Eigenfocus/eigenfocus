@@ -17,6 +17,10 @@ en:
     issues:
       form:
         destroy_confirmation: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"
+    favorite_labels_dropdown:
+      pro_tip:
+        title: "PRO TIP"
+        description: "Hover over a card and press any number from 1 to 6 on your keyboard to apply a label."
   profiles:
     form:
       why_is_timezone_needed: 'This is needed in order to correctly display dates and hours for you.'

@@ -4,10 +4,10 @@
     data-dropdown-target="button">
     <i class="fa-regular fa-keyboard"></i>
   </button>
-  <div data-dropdown-target="menu" class=" origin-top-left pt-4 z-10 absolute top-full border border-background-300 right-0 min-w-56 bg-background-50 rounded-md shadow-lg overflow-hidden mt-2">
+  <div data-dropdown-target="menu" class=" origin-top-left pt-4 z-10 absolute top-full border border-background-300 right-0 min-w-64 bg-background-50 rounded-md shadow-lg overflow-hidden mt-2">
     <div class="px-4 text-xs font-semibold text-readable-content-500 uppercase">
       <span class="mr-1"><%= icon_for(:issue_labels) %></span>
-      Favorite Labels
+      <%= Visualization.human_attribute_name(:favorite_issue_labels) %>
     </div>
     <%= form_with(model: visualization, html: { class: 'mt-4 flex flex-col gap-2' } ) do |f| %>
 
@@ -19,10 +19,15 @@
             class="input-primary h-8 text-xs input-sm">
         </div>
       <% end %>
+      <p class="px-4 mt-2 font-base">
+        <span class="text-primary-500 font-bold text-xs"><i class="fa-solid fa-wand-magic-sparkles"></i> <%= t(".pro_tip.title") %></span>
+        <br/>
+        <span class="text-readable-content-500 text-xs text-italic"><%= t(".pro_tip.description") %></span>
+      </p>
       <div class="px-4 py-2 border-t border-readable-content-200 flex items-center text-xs bg-readable-content-100 justify-between">
-          <a class="link-base cursor-pointer" data-action="click->dropdown#toggle">Close</a>
+          <a class="link-base cursor-pointer" data-action="click->dropdown#toggle"><%= t(:close, scope: :actions) %></a>
 
-          <button class="btn-sm btn-primary" data-action="click->dropdown#toggle">Save</button>
+          <button class="btn-sm btn-primary" data-action="click->dropdown#toggle"><%= t(:save, scope: :actions) %></button>
 
       </div>
     <% end %>
