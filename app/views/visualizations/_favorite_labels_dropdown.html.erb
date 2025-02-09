@@ -15,6 +15,7 @@
         <div class="px-4 flex gap-2 items-stretch">
           <span class="flex items-center bg-background-50 w-4 text-center text-readable-content-500 text-xs font-bold"><%= i + 1 %></span>
           <input type="text" name="visualization[favorite_issue_labels][]"
+            data-visualization--favorite-issue-labels-target="favoriteLabelInput"
             value="<%= visualization.favorite_issue_labels[i] %>"
             class="input-primary h-8 text-xs input-sm">
         </div>
