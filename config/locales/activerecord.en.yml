@@ -1,4 +1,8 @@
 en:
+  attributes:
+    created_at: 'Created at'
+    updated_at: 'Last modified'
+
   activerecord:
     models:
       user:
@@ -20,6 +24,10 @@ en:
       issue:
         one: 'Issue'
         other: 'Issues'
+
+      issue_label:
+        one: 'Issue Label'
+        other: 'Issue Labels'
 
       time_entry:
         one: 'Time entry'
@@ -44,6 +52,9 @@ en:
         label_ids: 'Labels'
         created_at: 'Created at'
         updated_at: 'Updated at'
+
+      issue_label:
+        title: 'Title'
 
       time_entry:
         description: 'Description'

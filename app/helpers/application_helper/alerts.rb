@@ -7,10 +7,5 @@ module Alerts
         message: message
       }
   end
-
-  def t_flash_message(resource, flash_type: nil)
-    flash_type ||= :notice
-    t("flash.actions.#{action_name}.#{flash_type}", resource_name: resource.model_name.human)
-  end
 end
 end

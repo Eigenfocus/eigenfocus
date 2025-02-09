@@ -3,6 +3,10 @@ pt-BR:
     project:
       enable_time_tracking: 'Habilitar registro de tempo'
       disable_time_tracking: 'Desabilitar registro de tempo'
+    issue_labels:
+      destroy_confirmation:
+        explanation: "Deletar esse rótulo removerá todas as suas associações com issues, mas não removerá as issues."
+        associations: "Este rótulo está associado com %{count_text)"
   profiles:
     form:
       why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."

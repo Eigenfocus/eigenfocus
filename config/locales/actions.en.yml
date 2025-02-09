@@ -3,6 +3,10 @@ en:
     project:
       enable_time_tracking: 'Enable time tracking'
       disable_time_tracking: 'Disable time tracking'
+    issue_labels:
+      destroy_confirmation:
+        explanation: "Deleting this label will remove all of its associations with issues, but will not remove the issues."
+        associations: "This label is associated with %{count_text}"
   visualizations:
     column_menu:
       actions: 'Actions'

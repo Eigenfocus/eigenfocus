@@ -10,10 +10,14 @@ FactoryBot.define do
 
     transient do
       visualization_counts { 1 }
+      with_issue_labels { [] }
     end
 
     after(:create) do |project, evaluator|
       create_list(:visualization, evaluator.visualization_counts, project: project)
+      evaluator.with_issue_labels.each do |label|
+        create(:issue_label, title: label, project:)
+      end
     end
   end
 end

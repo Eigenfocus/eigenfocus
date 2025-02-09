@@ -1,0 +1,54 @@
+<% set_page_title(:project_all_issues_labels, project_name: current_project.name) %>
+
+<%= turbo_frame_tag 'issue_label_form' do %>
+<% end %>
+
+<%= turbo_frame_tag 'issue_label_removal_confirmation' do %>
+<% end %>
+
+<%= render partial: 'projects/navigation_header', locals: {
+  project: current_project,
+  sub_section: {
+    title: IssueLabel.model_name.human,
+    icon: :issue_labels
+  }
+} %>
+
+<%= turbo_frame_tag 'issue_labels' do %>
+  <div class="mt-8 mb-8 flex justify-between gap-4 flex-col md:flex-row">
+    <%= render partial: 'filter', locals: { q: @q } %>
+
+    <%= link_to "#{t('actions.create')} #{IssueLabel.model_name.human.downcase}", new_project_issue_label_path(current_project), class: "btn-primary btn-md", data: { turbo_frame: 'issue_label_form' } %>
+
+  </div>
+
+
+  <div class="flex flex-col gap-4 lg:gap-8 flex-wrap justify-stretch">
+    <% if @issue_labels.count.zero? %>
+      <div class="border p-8 bg-body-contrast border-background-100 rounded-md shadow-xs items-center w-full p-6 "id='empty-row'>
+        <p class='text-center text-readable-content-500'>
+          <%= t("zero_records", resource_name: IssueLabel.model_name.human) %>
+        </p>
+        <p class="mt-3 text-center mb-4">
+          <%= link_to t('click_here_to_create_one'), new_project_issue_label_path, class: "btn-primary inline-block", data: { turbo_frame: 'issue_label_form' } %>
+        </p>
+      </div>
+    <% else %>
+      <table class="table-primary table-compact table-striped" >
+        <thead>
+          <tr>
+            <th style="width: 40%"><%= sort_link(@q, :title, IssueLabel.model_name.human) %></th>
+            <th style="width: 20%"><%= sort_link(@q, :updated_at, IssueLabel.human_attribute_name(:updated_at)) %></th>
+            <th style="width: 30%"><%= t(:actions, scope: :menu) %></th>
+          </tr>
+        </thead>
+        <tbody id='issue-labels-list'>
+          <%= render partial: 'issue_label', collection: @issue_labels, as: :issue_label %>
+        </tbody>
+      </table>
+
+      <%== pagy_summary(@pagy) %>
+    <% end %>
+  </div>
+
+<% end %>

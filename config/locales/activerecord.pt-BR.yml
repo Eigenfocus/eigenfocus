@@ -1,4 +1,8 @@
 pt-BR:
+  attributes:
+    created_at: 'Data de criação'
+    updated_at: 'Última atualização'
+
   activerecord:
     models:
       user:
@@ -21,17 +25,25 @@ pt-BR:
         one: 'Issue'
         other: 'Issues'
 
+      issue_label:
+        one: 'Rótulo de Issues'
+        other: 'Rótulos de Issues'
+
       time_entry:
         one: 'Registro de tempo'
         other: 'Registros de tempo'
+
     attributes:
       project:
         name: 'Nome'
+
       user:
         timezone: 'Fuso horário'
         locale: 'Idioma'
+
       grouping:
         title: 'Título'
+
       issue:
         title: 'Título'
         description: 'Descrição'
@@ -40,6 +52,9 @@ pt-BR:
         label_ids: 'Rótulos'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'
+
+      issue_label:
+        title: 'Título'
 
       time_entry:
         description: 'Descrição'

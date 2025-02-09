@@ -1,0 +1,12 @@
+<% if @updated %>
+<%= turbo_stream.replace @issue_label, partial: "projects/issue_labels/issue_label", locals: {
+    project: current_project,
+    issue_label: @issue_label
+  } %>
+
+  <%= turbo_stream.update 'issue_label_form', "" %>
+
+  <%= new_turbo_stream_alert_message(:success, t_flash_message(@issue_label)) %>
+<% else %>
+  <%= new_turbo_stream_alert_message(:error, @issue_label.errors.full_messages.to_sentence) %>
+<% end %>

@@ -4,7 +4,6 @@ module Icons
     icon_classes = case name.to_sym
     when :time_entries
       "fa-solid fa-clock"
-
     when :groupings
       "fa-solid fa-table-columns"
     when :boards
@@ -17,6 +16,8 @@ module Icons
       "fa-solid fa-user"
     when :report
       "fa-solid fa-gauge"
+    when :issue_labels
+      "fa-solid fa-tags"
     when :theme
       "fa-solid fa-palette"
     else
