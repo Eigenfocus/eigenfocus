@@ -10,7 +10,7 @@
 
 <main class="grow"
   data-controller="visualization--issue-filtering visualization--favorite-issue-labels"
-  data-action="keypress@window->visualization--favorite-issue-labels#onKeyPress"
+  data-action="keydown@window->visualization--favorite-issue-labels#onKeyPress"
   data-visualization--favorite-issue-labels-add-path-value="<%= add_label_project_issue_path(@visualization.project, 'ISSUE_ID_PLACEHOLDER') %>"
   data-visualization--favorite-issue-labels-remove-path-value="<%= remove_label_project_issue_path(@visualization.project, 'ISSUE_ID_PLACEHOLDER') %>"
   >

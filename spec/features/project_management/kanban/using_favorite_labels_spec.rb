@@ -12,6 +12,10 @@ describe 'As a project manager, I want to use favorite issue labels' do
   let!(:label_marketing) { project.issue_labels.create!(title: 'Marketing') }
   let!(:label_urgent) { project.issue_labels.create!(title: 'Urgent') }
 
+  before(:each) do
+    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+  end
+
   specify "I can add a favorite tag" do
     visit visualization_path(project.default_visualization)
 
@@ -41,5 +45,33 @@ describe 'As a project manager, I want to use favorite issue labels' do
     expect(input_values[3]).to eq("Another")
     expect(input_values[4]).to eq("")
     expect(input_values[5]).to eq("")
+  end
+
+
+  specify "I can apply a favorit tag using my keyboard" do
+    visualization.favorite_issue_labels = [ "Development", "Urgent", nil, "Another" ]
+    visualization.save!
+
+    visit visualization_path(project.default_visualization)
+
+    card_selector = "[data-favorite-issue-labels-issue-id='#{issue.id}']"
+
+    card_element = find(card_selector)
+
+    card_element.hover
+
+    page.send_keys('2')
+    page.send_keys('4')
+
+    # The card is updated via websockets so it's not possible to test right now
+    # within card_selector do
+    #   expect(page).to have_content('Urgent')
+    #   expect(page).to have_content('Another')
+    # end
+
+    # Wait for ajax to end
+    expect(page).to have_content(issue.title)
+    issue.reload
+    expect(issue.labels.to_a.map(&:title)).to eq([ "Another", "Urgent" ])
   end
 end
