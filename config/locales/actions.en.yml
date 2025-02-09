@@ -20,7 +20,7 @@ en:
     favorite_labels_dropdown:
       pro_tip:
         title: "PRO TIP"
-        description: "Hover over a card and press any number from 1 to 6 on your keyboard to apply a label."
+        description: "Hover over a card and press any number from 1 to 6 on your keyboard to apply/remove a label."
   profiles:
     form:
       why_is_timezone_needed: 'This is needed in order to correctly display dates and hours for you.'
