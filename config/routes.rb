@@ -32,7 +32,7 @@ Rails.application.routes.draw do
       controller: :visualizations,
       action: :show
 
-  resources :visualizations, path: "v", only: :show do
+  resources :visualizations, path: "v", only: [ :show, :update ] do
     scope module: :visualizations do
       resources :groupings, only: [ :new, :create, :edit, :update, :destroy ] do
         collection do

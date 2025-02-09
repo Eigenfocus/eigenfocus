@@ -1,24 +1,31 @@
 
-<div class="relative inline-flex">
-  <button class="btn-contrast btn-md">
+<div class="relative inline-flex cpy-keyboard-shortcuts" data-controller="dropdown">
+  <button class="btn-contrast btn-md" data-action="click->dropdown#toggle click@window->dropdown#hide"
+    data-dropdown-target="button">
     <i class="fa-regular fa-keyboard"></i>
   </button>
-  <div class="origin-top-left px-4 py-4 z-10 absolute top-full border border-background-300 right-0 min-w-56 bg-background-50 rounded-md shadow-lg overflow-hidden mt-2">
-    <div class="text-xs font-semibold text-readable-content-500 uppercase">
-      <span><i class="fa fa-tags mr-1"></i></span>
+  <div data-dropdown-target="menu" class=" origin-top-left pt-4 z-10 absolute top-full border border-background-300 right-0 min-w-56 bg-background-50 rounded-md shadow-lg overflow-hidden mt-2">
+    <div class="px-4 text-xs font-semibold text-readable-content-500 uppercase">
+      <span class="mr-1"><%= icon_for(:issue_labels) %></span>
       Favorite Labels
     </div>
-    <div class="mt-4 flex flex-col gap-2">
+    <%= form_with(model: visualization, html: { class: 'mt-4 flex flex-col gap-2' } ) do |f| %>
+
       <% 6.times do |i| %>
-        <div class="flex gap-2 items-stretch">
-          <span class="flex items-center bg-background-50 w-4 text-center text-readable-content-500 text-xs font-bold"><%= i %></span>
-          <input type="text" class="input-primary h-8 text-xs input-sm" value="<%= visualization.favorite_issue_labels[i] %>">
-          <button class="btn-contrast btn-md">
-            <i class="fa fa-check"></i>
-          </button>
+        <div class="px-4 flex gap-2 items-stretch">
+          <span class="flex items-center bg-background-50 w-4 text-center text-readable-content-500 text-xs font-bold"><%= i + 1 %></span>
+          <input type="text" name="visualization[favorite_issue_labels][]"
+            value="<%= visualization.favorite_issue_labels[i] %>"
+            class="input-primary h-8 text-xs input-sm">
         </div>
       <% end %>
-    </div>
+      <div class="px-4 py-2 border-t border-readable-content-200 flex items-center text-xs bg-readable-content-100 justify-between">
+          <a class="link-base cursor-pointer" data-action="click->dropdown#toggle">Close</a>
+
+          <button class="btn-sm btn-primary" data-action="click->dropdown#toggle">Save</button>
+
+      </div>
+    <% end %>
 
   </div>
 </div>
