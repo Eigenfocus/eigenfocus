@@ -1,5 +1,5 @@
 <% if @issue.persisted? %>
-  <%= turbo_stream.replace dom_id(@issue), partial: "visualizations/card", locals: { visualization: current_visualization, issue: @issue } %>
+  <%= turbo_stream.replace dom_id(@issue), partial: "projects/issues/issue", locals: { issue: @issue, project: current_project } %>
   <% if params[:button] == "save-and-close-modal" %>
     <%= turbo_stream.update 'issue_detail', "" %>
   <% end %>

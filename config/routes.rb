@@ -53,12 +53,17 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :issues, only: [ :index ] do
+      resources :issues, only: [ :index, :new, :create, :update, :destroy ] do
         member do
           post :add_label
           delete :remove_label
         end
       end
+
+      get "i/:id",
+          as: :show_issue,
+          controller: :issues,
+          action: :index
     end
   end
 
@@ -68,7 +73,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :issues, only: [] do
+  resources :issues, only: [ :destroy ] do
     scope module: "issues" do
       resource :file, only: [ :destroy ] do
         post :attach, on: :collection

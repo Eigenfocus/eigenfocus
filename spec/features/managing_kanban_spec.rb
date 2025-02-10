@@ -220,7 +220,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
       click_link "Issue testing title"
     end
 
-    within '#issue_form' do
+    within '#issue_detail' do
       expect(page).to have_field(:issue_title, with: "Issue testing title")
       within markdown_editor_selector do
         expect(page).to have_content("Issue description")
@@ -243,7 +243,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
       click_link "Issue testing title"
     end
 
-    within '#issue_form' do
+    within '#issue_detail' do
       fill_in :issue_title, with: "Updated title"
       write_in_md_editor_field(" appending description")
     end
@@ -275,14 +275,14 @@ describe 'As a user, I want to manage my project kanban visualization' do
       click_link "Issue testing title"
     end
 
-    within '#issue_form' do
+    within '#issue_detail' do
       fill_in :issue_title, with: "Updated title"
       find('#issue_title').send_keys :enter
     end
 
     expect(page).to have_content("Issue was successfully updated.")
     # Modal is still open
-    expect(page).to have_selector('#issue_form', visible: true)
+    expect(page).to have_selector('#issue_detail', visible: true)
 
     issue = Issue.last
     expect(issue.title).to eq("Updated title")

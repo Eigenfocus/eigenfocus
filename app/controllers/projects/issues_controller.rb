@@ -1,9 +1,33 @@
 class Projects::IssuesController < ApplicationController
+  include IssueEmbeddable
+
   helper_method :current_project
 
   def index
     @q = current_project.issues.ransack(params[:q])
     @pagy, @issues = pagy(@q.result.includes(:labels))
+
+    if params[:id]
+      @issue = Issue.find(params[:id])
+      open_issue(
+        @issue,
+        back_path: project_issues_path(current_project),
+        form_path: project_issue_path(current_project, @issue)
+      )
+    end
+  end
+
+  def new
+    @issue = Issue.new
+  end
+
+  def create
+    @issue = Issue.create(permitted_params.merge(project: current_project))
+  end
+
+  def update
+    @issue = Issue.find(params[:id])
+    @updated = @issue.update(permitted_params)
   end
 
   def add_label

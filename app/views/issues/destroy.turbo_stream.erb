@@ -1,8 +1,5 @@
-<% if @issue.persisted? %>
-  <%= turbo_stream.append "#{ @grouping.id }-cards-wrapper", partial: "visualizations/card", locals: {
-    visualization: current_visualization,
-    issue: @issue
-  } %>
+<% if @issue.destroyed? %>
+  <%= turbo_stream.remove dom_id(@issue) %>
   <%= turbo_stream.update 'issue_detail', "" %>
   <%= new_turbo_stream_alert_message(:success, t_flash_message(@issue)) %>
 <% else %>

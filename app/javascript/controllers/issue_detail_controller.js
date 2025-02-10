@@ -14,7 +14,8 @@ export default class extends Controller {
 
   static values = {
     attachPath: String,
-    visualizationPath: String
+    pathForModalClosed: String,
+    submitOnTitleChange: { type: Boolean, default: true }
   }
 
   connect() {
@@ -60,6 +61,8 @@ export default class extends Controller {
   }
 
   handleTitleUpdate(titleField) {
+    if (!this.submitOnTitleChangeValue) return;
+
     if (this.skipAutoSave) {
       this.skipAutoSave = false
       return
@@ -117,15 +120,16 @@ export default class extends Controller {
   }
 
   goBackHistory() {
+    if (!this.pathForModalClosedValue) return;
 
-    Turbo.visit(this.visualizationPathValue, {
+    Turbo.visit(this.pathForModalClosedValue, {
       action: 'advance',
       // Rendering in a frame prevents the page reloading
       // This also keeps the restoration visits (back button)
       // working. But if the user goes back to a state showing
       // only the board the horizontal scroll is affected
       // https://turbo.hotwired.dev/handbook/drive#restoration-visits
-      frame: 'issue_form'
+      frame: 'issue_detail'
     })
   }
 }

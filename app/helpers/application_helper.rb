@@ -11,4 +11,5 @@ module ApplicationHelper
   include ApplicationHelper::TimeTracking
   include ApplicationHelper::Labels
   include ApplicationHelper::WebsocketsSecurity
+  include ApplicationHelper::IssueEmbedded
 end

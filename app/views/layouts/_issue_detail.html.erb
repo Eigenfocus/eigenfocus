@@ -1,0 +1,5 @@
+<% if local_assigns[:issue].present? %>
+  <%= render partial: 'issues/issue_detail', locals: local_assigns %>
+<% else %>
+  <%= turbo_frame_tag('issue_detail') {} %>
+<% end %>
