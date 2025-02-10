@@ -10,7 +10,7 @@ en:
         explanation: "Deleting this label will remove all of its associations with issues, but will not remove the issues."
         associations: "This label is associated with %{count_text}"
     issues:
-      index:
+      issue:
         no_grouping: "No column"
   visualizations:
     column_menu:
@@ -45,9 +45,10 @@ en:
     update:
       success: 'Profile succesfully updated.'
   issues:
-    pick_grouping:
-      in_grouping: "In column"
-      no_grouping: "No column"
+    issue_detail:
+      grouping_picker:
+        in_grouping: "In column"
+        no_grouping: "No column"
   time_entries:
     form:
       save_on_command_enter: press (CTRL + Enter) or (CMD + Enter) to save

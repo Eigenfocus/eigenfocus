@@ -10,7 +10,7 @@ pt-BR:
         explanation: "Deletar essa label removerá todas as suas associações com issues, mas não removerá as issues."
         associations: "Esta label está associado com %{count_text)"
     issues:
-      index:
+      issue:
         no_grouping: "Sem coluna"
   profiles:
     form:
@@ -45,9 +45,10 @@ pt-BR:
         title: "DICA RÁPIDA"
         description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar/remover uma label."
   issues:
-    pick_grouping:
-      in_grouping: "Na coluna"
-      no_grouping: "Sem coluna"
+    issue_detail:
+      grouping_picker:
+        in_grouping: "Na coluna"
+        no_grouping: "Sem coluna"
   time_entries:
     form:
       save_on_command_enter: Pressione (CTRL + Enter) ou (CMD + Enter) para salvar

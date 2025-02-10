@@ -7,7 +7,7 @@
     <% if issue.groupings.present? %>
       <%= issue.groupings.first.title %>
     <% else %>
-      <%= t("no_grouping", scope: "projects.issues.index") %>
+      <%= t(".no_grouping") %>
     <% end %>
   </td>
   <td><%= l issue.created_at, format: :short %></td>
