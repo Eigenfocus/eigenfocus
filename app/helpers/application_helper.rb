@@ -11,8 +11,5 @@ module ApplicationHelper
   include ApplicationHelper::TimeTracking
   include ApplicationHelper::Labels
   include ApplicationHelper::WebsocketsSecurity
-
-  def issue_detail_context
-    @issue_detail_context ||= {}
-  end
+  include ApplicationHelper::IssueEmbedded
 end
