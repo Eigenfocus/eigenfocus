@@ -1,0 +1,4 @@
+<%= turbo_stream.update 'issue_grouping_picker',
+  partial: 'issues/issue_detail/grouping_picker',
+  locals: { issue: @allocation.issue } %>
+<%= new_turbo_stream_alert_message(:success, t("flash.issues.pick_grouping.success")) %>

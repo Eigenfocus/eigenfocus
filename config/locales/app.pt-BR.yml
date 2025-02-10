@@ -67,6 +67,9 @@ pt-BR:
     change_success: "Alteração feita com sucesso."
     change_error: "Houve um erro na hora de realizar a alteração."
     file_successfully_removed: "Arquivo removido com sucesso."
+    issues:
+      pick_grouping:
+        success: "Coluna da issue atualizada com sucesso."
     actions:
       create:
         notice: "%{resource_name} criado(a) com sucesso."

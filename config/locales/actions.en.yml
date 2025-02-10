@@ -38,6 +38,10 @@ en:
 
     update:
       success: 'Profile succesfully updated.'
+  issues:
+    pick_grouping:
+      in_grouping: "In column"
+      no_grouping: "No column"
   time_entries:
     form:
       save_on_command_enter: press (CTRL + Enter) or (CMD + Enter) to save

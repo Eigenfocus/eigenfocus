@@ -66,6 +66,9 @@ en:
     change_success: "Change successfully made."
     change_error: "Change could not be made."
     file_successfully_removed: "File was successfully removed."
+    issues:
+      pick_grouping:
+        success: "Issue column was successfully updated."
     actions:
       create:
         notice: "%{resource_name} was successfully created."
