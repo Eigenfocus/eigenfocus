@@ -15,7 +15,6 @@ module MarkdownEditorHelper
   def markdown_editor_selector
     ".CodeMirror-code"
   end
-
 end
 
 RSpec.configure do |config|

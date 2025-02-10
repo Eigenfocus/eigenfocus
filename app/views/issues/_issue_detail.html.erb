@@ -68,29 +68,7 @@
               </div>
             <% end %>
 
-            <div class="mb-4 flex flex-col items-stretch gap-2 markdown">
-              <div class="flex justify-between">
-                <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
-                <span class="cursor-pointer text-xs flex items-center" data-issue-detail-target="showPreviewButton" data-action="click->issue-detail#enablePreview">
-                  <i class="fa fa-eye"></i>
-                  <span class="ml-2"><%= t("actions.preview") %></span>
-                </span>
-
-                <span class="cursor-pointer text-xs hidden text-primary-500 flex items-center" data-issue-detail-target="showEditorButton" data-action="click->issue-detail#disablePreview">
-                  <i class="fa fa-pencil"></i>
-                  <span class="ml-2 "><%= t("actions.edit") %></span>
-                </span>
-              </div>
-
-              <div class="markdown-editor">
-                <div class="markdown-content hidden" data-issue-detail-target="descriptionPreview">
-                </div>
-
-                <%= f.text_area :description, class: "input-primary",
-                "data-issue-detail-target": 'descriptionInput' %>
-              </div>
-
-            </div>
+            <%= render partial: 'issues/description_field', locals: { f:, issue: } %>
 
             <div class="flex gap-2 justify-end">
               <a class="btn-cancel" data-action="click->modal#close">

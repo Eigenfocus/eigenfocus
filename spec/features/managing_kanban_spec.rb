@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'As a user, I want to manage my project kanban visualization' do
-
   let!(:user) { FactoryBot.create(:user) }
 
   specify 'When I have a recent created project, I can access its default visualization page' do
