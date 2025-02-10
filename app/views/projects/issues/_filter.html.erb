@@ -1,4 +1,4 @@
-<%= search_form_for q, url: project_issues_path(project_id: current_project.id), class: "mt-8 mb-8 cpy-filter-form" do |f| %>
+<%= search_form_for q, url: project_issues_path(project_id: current_project.id), class: "cpy-filter-form" do |f| %>
   <div class="flex flex-col lg:flex-row justify-between items-stretch gap-4">
     <div class="flex flex-col md:flex-row justify-start items-stretch gap-4">
       <div class="flex gap-2 md:w-60 items-center">
@@ -31,16 +31,5 @@
         <% end %>
       </div>
     </div>
-
-    <div class="flex">
-      <%= link_to new_project_issue_path(current_project), class: "btn-primary grow", data: { turbo_frame: "issue_detail" } do %>
-        <i class="fa-solid fa-plus mr-2"></i>
-
-        <h2 class="grow font-semibold truncate">
-          <%= "#{t('actions.create')} #{Issue.model_name.human.downcase}" %>
-        </h2>
-      <% end %>
-    </div>
-
   </div>
 <% end %>

@@ -1,6 +1,1 @@
-<%= render partial: "issues/issue_detail",
-  locals: {
-    issue: @issue,
-    submit_on_title_change: false,
-    form_path: project_issues_path(current_project)
-  } %>
+<%= render partial: "issues/create", locals: { issue: @issue } %>
