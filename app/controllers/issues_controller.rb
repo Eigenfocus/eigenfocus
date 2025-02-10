@@ -8,7 +8,7 @@ class IssuesController < ApplicationController
       @allocation.update(grouping: grouping, position: :last)
     else
       @allocation = issue.grouping_issue_allocations.first_or_initialize
-      @allocation.delete
+      @allocation.destroy
     end
   end
 

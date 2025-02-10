@@ -52,6 +52,7 @@ pt-BR:
         label_ids: 'Labels'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'
+        grouping: 'Coluna'
 
       issue_label:
         title: 'Título'
