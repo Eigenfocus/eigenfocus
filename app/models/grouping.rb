@@ -40,6 +40,10 @@ class Grouping < ApplicationRecord
   }
   after_destroy_commit -> { broadcast_remove_to visualization }
 
+  def self.ransackable_attributes(auth_object = nil)
+    [ "title" ]
+  end
+
   def allocate_issue(issue)
     allocations.create(issue: issue, position: :last)
   end
