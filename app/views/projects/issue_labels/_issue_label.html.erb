@@ -1,5 +1,5 @@
 <tr id="<%= dom_id(issue_label) %>" >
-  <td><%= badge_for_issue_label(issue_label) %></td>
+  <td><%= badge_for_issue_label(issue_label, { class: "issue-label big" }) %></td>
   <td><%= l issue_label.updated_at, format: :short %></td>
   <td>
     <div class="flex gap-4 text-lg opacity-80">
