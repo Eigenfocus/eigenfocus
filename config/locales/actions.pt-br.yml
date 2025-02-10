@@ -1,4 +1,6 @@
 pt-BR:
+  issue:
+    destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
   projects:
     project:
       enable_time_tracking: 'Habilitar registro de tempo'
@@ -32,9 +34,6 @@ pt-BR:
       edit_column: 'Editar coluna'
       create_issue: 'Criar issue'
       destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Isso vai deletar todos as issues da coluna!'
-    issues:
-      form:
-        destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
     favorite_labels_dropdown:
       pro_tip:
         title: "DICA RÁPIDA"

@@ -110,7 +110,7 @@
           <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
             <h5 class="w-full"><%= t("menu.actions") %></h5>
 
-            <%= link_to destroy_path, class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t(".destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
+            <%= link_to destroy_path, class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
               <i class="fa-solid fa-trash"></i>
               <%= t("actions.remove") %>
             <% end %>
