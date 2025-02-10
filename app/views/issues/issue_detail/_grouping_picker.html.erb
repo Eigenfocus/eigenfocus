@@ -25,21 +25,28 @@
           <% css_classes = "hover:bg-background-100 py-2 px-4" %>
           <% is_selected = issue.groupings.first == grouping %>
           <% css_classes += " bg-background-50" if is_selected %>
-
-          <%= link_to pick_grouping_issue_path(issue, grouping_id: grouping.try(:id)),
-            data: { turbo_method: :patch, turbo_frame: 'issue_pick_grouping' },
-            class: css_classes do %>
-            <span class=""><%= grouping.title %></span>
+          <% if is_selected %>
+            <span class="<%= css_classes %>"><%= grouping.title %></span>
+          <% else %>
+            <%= link_to pick_grouping_issue_path(issue, grouping_id: grouping.try(:id)),
+              data: { turbo_method: :patch, turbo_frame: 'issue_pick_grouping' },
+              class: css_classes do %>
+              <span><%= grouping.title %></span>
+            <% end %>
           <% end %>
         <% end %>
 
         <% css_classes = "hover:bg-background-100 py-2 px-4" %>
         <% is_selected = issue.groupings.empty? %>
         <% css_classes += " bg-background-50" if is_selected %>
-        <%= link_to pick_grouping_issue_path(issue, grouping_id: nil),
-          data: { turbo_method: :patch, turbo_frame: 'issue_pick_grouping' },
-          class: css_classes do %>
-          <p><%= t(".no_grouping") %></p>
+        <% if is_selected %>
+            <span class="<%= css_classes %>"><%= t(".no_grouping") %></span>
+        <% else %>
+          <%= link_to pick_grouping_issue_path(issue, grouping_id: nil),
+            data: { turbo_method: :patch, turbo_frame: 'issue_pick_grouping' },
+            class: css_classes do %>
+            <p><%= t(".no_grouping") %></p>
+          <% end %>
         <% end %>
       </div>
     </div>
