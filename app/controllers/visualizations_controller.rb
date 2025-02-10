@@ -1,12 +1,18 @@
 class VisualizationsController < ApplicationController
-  include IssuesHelper
+  include IssueEmbeddable
 
   def show
     @visualization = Visualization.includes(groupings: :issues).find(params[:id])
-    if params[:issue_id]
-      @open_issue = Issue.find(params[:issue_id])
-    end
     skip_layout_content_wrapper!
+
+    if params[:issue_id]
+      @issue = Issue.find(params[:issue_id])
+      open_issue(
+        @issue,
+        back_path: visualization_path(@visualization),
+        form_path: visualization_issue_path(@visualization, @issue)
+      )
+    end
   end
 
   def update

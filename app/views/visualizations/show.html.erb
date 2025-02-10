@@ -19,15 +19,6 @@
 
     <%= turbo_frame_tag('grouping_form') {} %>
 
-    <% if @open_issue.present? %>
-      <%= render partial: 'issues/issue_detail', locals: {
-        issue: @open_issue,
-        visualization: @visualization
-      } %>
-    <% else %>
-      <%= turbo_frame_tag('issue_detail') {} %>
-    <% end %>
-
     <div class="mt-4 relative grow cpy-columns-wrapper">
       <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-8 sm:pr-8 sm:pb-4 sm:scroll-pr-8 pb-2 sm:px-8 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth">
         <ul

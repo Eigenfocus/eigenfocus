@@ -5,7 +5,7 @@
       controller: "issue-detail",
       action: "modal:closed@window->issue-detail#goBackHistory",
       "issue-detail-submit-on-title-change-value": local_assigns[:submit_on_title_change],
-      "issue-detail-path-for-modal-closed-value": contextualized_back_path(local_assigns)
+      "issue-detail-path-for-modal-closed-value": local_assigns[:back_path]
     }
   %>
 
@@ -28,7 +28,7 @@
       </div>
       <div class="flex flex-col md:flex-row gap-8">
         <div class="flex flex-col grow">
-          <%= form_with(model: issue, url: contextualized_form_path(local_assigns), html: {
+          <%= form_with(model: issue, url: local_assigns[:form_path], html: {
             class: 'flex flex-col gap-2',
             data: {
               turbo: true,
@@ -110,7 +110,7 @@
           <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
             <h5 class="w-full"><%= t("menu.actions") %></h5>
 
-            <%= link_to contextualized_form_path(local_assigns), class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t(".destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
+            <%= link_to destroy_path, class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t(".destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
               <i class="fa-solid fa-trash"></i>
               <%= t("actions.remove") %>
             <% end %>

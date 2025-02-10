@@ -1,5 +1,5 @@
 class Projects::IssuesController < ApplicationController
-  include IssuesHelper
+  include IssueEmbeddable
 
   helper_method :current_project
 
@@ -8,7 +8,12 @@ class Projects::IssuesController < ApplicationController
     @pagy, @issues = pagy(@q.result.includes(:labels))
 
     if params[:id]
-      @open_issue = Issue.find(params[:id])
+      @issue = Issue.find(params[:id])
+      open_issue(
+        @issue,
+        back_path: project_issues_path(current_project),
+        form_path: project_issue_path(current_project, @issue)
+      )
     end
   end
 
@@ -23,11 +28,6 @@ class Projects::IssuesController < ApplicationController
   def update
     @issue = Issue.find(params[:id])
     @updated = @issue.update(permitted_params)
-  end
-
-  def destroy
-    @issue = Issue.find(params[:id])
-    @issue.destroy
   end
 
   def add_label

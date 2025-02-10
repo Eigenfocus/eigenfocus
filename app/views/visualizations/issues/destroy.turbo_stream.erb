@@ -1,7 +1,0 @@
-<% if @issue.destroyed? %>
-  <%= turbo_stream.remove dom_id(@issue) %>
-  <%= turbo_stream.update 'issue_detail', "" %>
-  <%= new_turbo_stream_alert_message(:success, t_flash_message(@issue)) %>
-<% else %>
-  <%= new_turbo_stream_alert_message(:error, @issue.errors.full_messages.to_sentence) %>
-<% end %>

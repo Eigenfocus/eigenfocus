@@ -17,11 +17,6 @@ class Visualizations::IssuesController < ApplicationController
     @updated = @issue.update(permitted_params)
   end
 
-  def destroy
-    @issue = Issue.find(params[:id])
-    @issue.destroy
-  end
-
   private
   def current_visualization
     @current_visualization ||= Visualization.find(params[:visualization_id])

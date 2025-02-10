@@ -5,15 +5,6 @@
   project: current_project
 } %>
 
-<% if @open_issue.present? %>
-  <%= render partial: 'issues/issue_detail', locals: {
-    issue: @open_issue,
-    project: current_project
-  } %>
-<% else %>
-  <%= turbo_frame_tag('issue_detail') {} %>
-<% end %>
-
 <%= turbo_frame_tag 'issues', data: { turbo_action: "advance" } do %>
   <%= render partial: 'filter', locals: { q: @q } %>
 
