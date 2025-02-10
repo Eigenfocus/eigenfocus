@@ -2,8 +2,8 @@ module ApplicationHelper
   module Labels
     def badge_for_issue_label(label, tag_options = {})
       options = {
-        class: "inline-flex rounded-full border-readable-content-400 text-readable-content-400 border border py-1 px-2 text-xs font-medium",
-        style: "", # In the future we will have custom colors
+        class: "inline-flex bg-background-100 border-background-400 text-readable-content-500 border border font-base",
+        style: "font-size: 11px; border-radius: 4px; padding: 1px 4px;", # In the future we will have custom colors
         data: {
           "issue-label": label.id
         }
