@@ -18,7 +18,7 @@
 
     <div class="min-w-full mt-8 overflow-x-auto">
       <% if @time_entries.any? %>
-        <table class="table-primary table-compact table-striped">
+        <table class="table-primary table-striped">
           <thead>
             <tr>
               <th style="width: 30px;" class="text-center">#</th>
@@ -29,7 +29,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="text-xs">
             <%
               total = 0
             %>
@@ -80,4 +80,3 @@
     </div>
   <% end %>
 <% end %>
-

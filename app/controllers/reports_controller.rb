@@ -12,6 +12,10 @@ class ReportsController < ApplicationController
         @time_entries = @time_entries.where("reference_date <= ?", params[:report][:end_at].to_date)
       end
 
+      if params[:report][:issue_labels].present?
+        @time_entries = @time_entries.by_issue_labels_title(params[:report][:issue_labels])
+      end
+
       project_ids = (params[:report][:project_ids] || []).reject(&:blank?)
 
       if project_ids.any?

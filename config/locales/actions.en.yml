@@ -72,5 +72,6 @@ en:
       filters:
         generate_report: "Generate report"
         filter_by_project: 'Filter by project'
+        filter_by_issue_labels: 'Filter by issue labels'
         entry_start_at: 'Starting at'
         entry_end_at: 'Ending at'

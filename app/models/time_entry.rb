@@ -7,6 +7,9 @@ class TimeEntry < ApplicationRecord
   # Scopes
   scope :by_date, ->(date) { where(reference_date: date) }
   scope :running, -> { where.not(started_at: nil) }
+  scope :by_issue_labels_title, ->(labels) {
+    where(issue_id: Issue.by_label_titles(labels).select(:id))
+  }
 
   # Validations
   validates :reference_date, presence: true

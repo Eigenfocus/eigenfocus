@@ -16,6 +16,10 @@ class Issue < ApplicationRecord
     # This scope is using splat operator because ransack has a buggy behavior
     # for array values with scopes.
     # See more: https://github.com/activerecord-hackery/ransack/issues/404
+
+    # If we call without using ransack it need flatten the array
+    # Issue.by_label_titles("dev", "test")
+    label_titles.flatten!
     from(
       joins(:labels)
         .where("LOWER(issue_labels.title) IN (?)", label_titles.map(&:downcase))
