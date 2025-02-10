@@ -9,4 +9,15 @@ class Visualization < ApplicationRecord
 
   # Validations
   validates :type, inclusion: { in: VALID_TYPES }
+
+  # Broadcasts
+  after_update_commit :broadcast_favorite_issue_labels, if: -> { saved_change_to_favorite_issue_labels? }
+  def broadcast_favorite_issue_labels
+    broadcast_replace_later_to(
+      self,
+      targets: "[data-visualization-favorite-labels-list='#{id}']".html_safe,
+      partial: "visualizations/favorite_labels_dropdown",
+      locals: { visualization: self }
+    )
+  end
 end
