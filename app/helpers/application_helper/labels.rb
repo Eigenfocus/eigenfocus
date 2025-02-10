@@ -1,29 +1,29 @@
 module ApplicationHelper
   module Labels
-    def badge_for_issue_label(label, tag_options = {})
+    def badge_for_issue_label(label, label_tag_options = {})
       options = {
-        class: "inline-flex bg-background-100 border-background-400 text-readable-content-500 border border font-base",
-        style: "font-size: 11px; border-radius: 4px; padding: 1px 4px;", # In the future we will have custom colors
+        class: "issue-label",
+        style: "", # In the future we will have custom colors
         data: {
           "issue-label": label.id
         }
-      }.merge(tag_options)
+      }.merge(label_tag_options)
 
       content_tag(:span, options) do
         label.title
       end
     end
 
-    def labels_list_for(issue, tag_options = {})
+    def labels_list_for(issue, list_tag_options = {}, label_tag_options = {})
       options = {
         class: "flex-wrap flex gap-1",
         data: {
           "issue-labels-list": true
         }
-      }.merge(tag_options)
+      }.merge(list_tag_options)
 
       content_tag(:div, options) do
-        issue.labels.each { concat badge_for_issue_label(_1) }
+        issue.labels.each { concat badge_for_issue_label(_1, label_tag_options) }
       end
     end
   end

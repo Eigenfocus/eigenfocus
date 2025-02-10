@@ -1,3 +1,4 @@
-@import "./table";
 @import "./button";
+@import "./issue-label";
 @import "./link";
+@import "./table";
