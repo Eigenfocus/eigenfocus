@@ -10,4 +10,5 @@ module ApplicationHelper
   include ApplicationHelper::PageTitle
   include ApplicationHelper::TimeTracking
   include ApplicationHelper::Labels
+  include ApplicationHelper::WebsocketsSecurity
 end

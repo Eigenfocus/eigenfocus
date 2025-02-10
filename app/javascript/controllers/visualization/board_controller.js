@@ -4,7 +4,8 @@ import consumer from "channels/consumer"
 export default class extends Controller {
   static targets = ['column']
   static values = {
-    visualizationId: String,
+    signedGroupingsStreamToken: String,
+    signedAllocationsStreamToken: String
   }
 
   connect() {
@@ -15,8 +16,7 @@ export default class extends Controller {
   #subscribeToGroupings() {
     return consumer.subscriptions.create({
       channel: "Visualizations::GroupingsChannel",
-      visualization_id: this.visualizationIdValue,
-      action: 'update'
+      token: this.signedGroupingsStreamTokenValue
     }, {
       received: this.onGroupingUpdate.bind(this)
     })
@@ -25,8 +25,7 @@ export default class extends Controller {
   #subscribeToAllocations() {
     return consumer.subscriptions.create({
       channel: "Visualizations::AllocationsChannel",
-      visualization_id: this.visualizationIdValue,
-      action: 'update'
+      token: this.signedAllocationsStreamTokenValue
     }, {
       received: this.onCardMove.bind(this)
     })
