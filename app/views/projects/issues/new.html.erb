@@ -1,1 +1,4 @@
-<%= render partial: "issues/create", locals: { issue: @issue } %>
+<%= render partial: "issues/create", locals: {
+  issue: @issue,
+  create_issue_url: project_issues_path(current_project)
+} %>

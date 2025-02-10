@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="space-y-4">
-    <%= form_with(model: [current_project, issue], html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
+    <%= form_with(model: issue, url: create_issue_url, html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
       <% if issue.errors.any? %>
         <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
           <%= issue.errors.full_messages.to_sentence.capitalize %>
