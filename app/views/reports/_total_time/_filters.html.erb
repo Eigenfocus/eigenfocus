@@ -2,7 +2,7 @@
   <div class="bg-body-contrast rounded-md border border-background-200 p-8 space-y-4">
 
     <div class="flex flex-col w-full justify-stretch items-stretch lg:flex-row gap-8 ">
-      <div class="flex flex-col lg:w-2/4  lg:flex-row justify-stretch items-center gap-4">
+      <div class="flex grow flex-col lg:flex-row justify-stretch items-center gap-4">
         <div class="flex  gap-2 w-full flex-col">
           <%= f.label :project_ids, t(".filter_by_project"), class: "text-readable-content-500 text-sm " %>
           <%
@@ -12,7 +12,22 @@
         </div>
       </div>
 
-      <div class="w-full flex flex-col lg:flex-row lg:w-2/4 justify-stretch items-stretch gap-4 ">
+      <div class="flex grow flex-col lg:flex-row justify-stretch cpy-tags-select items-center gap-4">
+        <div class="flex  gap-2 w-full flex-col">
+          <%= f.label :issue_labels, t(".filter_by_issue_labels"), class: "text-readable-content-500 text-sm " %>
+          <%= f.select :issue_labels,
+            options_for_select(IssueLabel.select(:title).distinct.pluck(:title), params[:report][:issue_labels]),
+            { include_hidden: false },
+            class: 'input-primary',
+            multiple: true,
+            data: {
+              controller: 'select2'
+            }
+                %>
+        </div>
+      </div>
+
+      <div class="w-full flex flex-col lg:flex-row lg:w-2/5 justify-stretch items-stretch gap-4 ">
         <div class="flex grow gap-2 flex-col">
           <%= f.label :start_at, t(".entry_start_at"), class: "text-readable-content-500 text-sm " %>
 

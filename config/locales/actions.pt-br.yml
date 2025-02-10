@@ -71,5 +71,6 @@ pt-BR:
       filters:
         generate_report: "Gerar relatório"
         filter_by_project: 'Filtrar por projeto'
+        filter_by_issue_labels: 'Filtrar por labels de issues'
         entry_start_at: 'Começando em'
         entry_end_at: 'Terminando em'

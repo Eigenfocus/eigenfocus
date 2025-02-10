@@ -46,6 +46,46 @@ context "As a user, I want to generate time reports" do
     expect(all("table tbody tr").count).to eq(4)
   end
 
+  specify "I can filter by issue labels" do
+    alpha_issue = FactoryBot.create(:issue, title: "Dev-Issue", project: project_alpha)
+    label_marketing = project_alpha.issue_labels.create!(title: 'Marketing')
+    label_marketing.issues << alpha_issue
+    project_alpha.issue_labels.create!(title: 'Development')
+    FactoryBot.create(:time_entry, user:, project: project_alpha, issue: alpha_issue, total_logged_time_in_minutes: 30, reference_date: 7.days.ago)
+
+    beta_issue = FactoryBot.create(:issue, title: "Dev-Issue", project: project_beta)
+    label_development = project_beta.issue_labels.create!(title: 'Development')
+    label_marketing = project_beta.issue_labels.create!(title: 'Marketing')
+    label_development.issues << beta_issue
+    label_marketing.issues << beta_issue
+    FactoryBot.create(:time_entry, user:, project: project_beta, issue: beta_issue, total_logged_time_in_minutes: 30, reference_date: 7.days.ago)
+
+
+    visit total_time_reports_path
+
+
+    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Marketing")
+    click_button "Generate report"
+
+
+    within '#report' do
+      expect(page).to have_content("1.0 hours")
+    end
+
+    visit total_time_reports_path
+
+    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Marketing")
+    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Development")
+    click_button "Generate report"
+
+
+    within '#report' do
+      expect(page).to have_content("0.5 hours")
+    end
+
+    expect(all("table tbody tr").count).to eq(1)
+  end
+
   specify "I can filter by time period" do
     visit total_time_reports_path
 
