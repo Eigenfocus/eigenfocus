@@ -8,8 +8,7 @@ module IssueEmbeddable
     def open_issue(issue, **opts)
       @issue_detail_context = {
         issue: issue,
-        destroy_path: issue_path(issue),
-        form_path: issue_path(issue)
+        destroy_path: issue_path(issue)
       }.merge(opts)
     end
   end
