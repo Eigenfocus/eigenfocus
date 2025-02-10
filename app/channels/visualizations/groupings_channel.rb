@@ -14,6 +14,6 @@ class Visualizations::GroupingsChannel < ApplicationCable::Channel
   end
 
   def subscribed
-    stream_from "visualizations:#{params[:visualization_id]}:groupings##{params[:action]}"
+    stream_from "visualizations:#{signed_params[:visualization_id]}:groupings##{signed_params[:action]}"
   end
 end

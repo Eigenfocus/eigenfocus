@@ -44,6 +44,9 @@
             data-sortable-ignore-drag-selector-value=".js-no-column-drag"
             data-sortable-move-path-value="<%= move_visualization_groupings_path(@visualization) %>"
             data-visualization--board-visualization-id-value="<%= @visualization.id %>"
+            data-visualization--board-test-value="<%= signed_stream_token({action: 'update', visualization_id: @visualization.id}) %>"
+            data-visualization--board-signed-groupings-stream-token-value="<%= signed_stream_token({action: 'update', visualization_id: @visualization.id}) %>"
+            data-visualization--board-signed-allocations-stream-token-value="<%= signed_stream_token({action: 'update', visualization_id: @visualization.id}) %>"
             >
           <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping, locals: {
             visualization: @visualization,
