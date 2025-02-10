@@ -120,6 +120,7 @@ export default class extends Controller {
   }
 
   goBackHistory() {
+    if (!this.pathForModalClosedValue) return;
 
     Turbo.visit(this.pathForModalClosedValue, {
       action: 'advance',
@@ -128,7 +129,7 @@ export default class extends Controller {
       // working. But if the user goes back to a state showing
       // only the board the horizontal scroll is affected
       // https://turbo.hotwired.dev/handbook/drive#restoration-visits
-      frame: 'issue'
+      frame: 'issue_detail'
     })
   }
 }
