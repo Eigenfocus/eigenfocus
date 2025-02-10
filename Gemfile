@@ -34,7 +34,7 @@ gem "positioning", "~> 0.4"
 gem "solid_cable", "~> 3.0"
 
 # Filter and pagination
-gem "ransack", "~> 4.2"
+gem "ransack", "~> 4.3"
 gem "pagy", "~> 9.3"
 
 group :development, :test do
