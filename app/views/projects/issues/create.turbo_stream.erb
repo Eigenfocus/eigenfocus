@@ -1,8 +1,0 @@
-<% if @issue.persisted? %>
-  <% if params[:button] == "save-and-close-modal" %>
-    <%= turbo_stream.update 'issue_detail', "" %>
-  <% end %>
-  <%= new_turbo_stream_alert_message(:success, t_flash_message(@issue)) %>
-<% else %>
-  <%= new_turbo_stream_alert_message(:error, @issue.errors.full_messages.to_sentence) %>
-<% end %>

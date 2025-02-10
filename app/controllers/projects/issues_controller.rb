@@ -5,6 +5,8 @@ class Projects::IssuesController < ApplicationController
 
   def index
     @q = current_project.issues.ransack(params[:q])
+    @q.sorts = "updated_at desc" if @q.sorts.empty?
+
     @pagy, @issues = pagy(@q.result.includes(:labels))
 
     if params[:id]
@@ -22,7 +24,16 @@ class Projects::IssuesController < ApplicationController
   end
 
   def create
-    @issue = Issue.create(permitted_params.merge(project: current_project))
+    @issue = current_project.issues.new(permitted_params)
+
+    if @issue.save
+      redirect_to project_issues_path, notice: t_flash_message(@issue)
+    else
+      render turbo_stream: turbo_stream.replace(
+        "new_issue_form",
+        partial: "issues/create", locals: { issue: @issue }
+      )
+    end
   end
 
   def update

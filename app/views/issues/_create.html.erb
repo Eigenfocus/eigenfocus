@@ -1,0 +1,42 @@
+
+<%= turbo_frame_tag 'new_issue_form' do %>
+<%= render_modal do %>
+  <div class="border-b border-background-200 pb-2 mb-4">
+    <div class="flex items-center space-x-2">
+      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
+        <%= icon_for(:issues) %>
+      </div>
+
+      <h4 class="text-lg font-medium text-readable-content-700">
+        <%= issue.persisted? ? "#{t("actions.edit")} #{Issue.model_name.human}" : "#{t("actions.create")} #{Issue.model_name.human}"%>
+      </h4>
+    </div>
+  </div>
+  <div class="space-y-4">
+    <%= form_with(model: issue, url: create_issue_url, html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
+      <% if issue.errors.any? %>
+        <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
+          <%= issue.errors.full_messages.to_sentence.capitalize %>
+        </div>
+      <% end %>
+
+      <div class="mb-4 flex flex-col items-stretch gap-2">
+        <%= f.label :title, Issue.human_attribute_name(:title), class: "label-primary" %>
+        <%= f.text_field :title, autofocus: true, class: "input-primary" %>
+      </div>
+
+      <%= render partial: 'issues/description_field', locals: { f:, issue: } %>
+
+      <div class="flex gap-2 justify-center">
+        <a class="btn-cancel" data-action="click->modal#close">
+          <%= t('actions.cancel') %>
+        </a>
+
+        <% text = issue.persisted? ? t('actions.update') : t('actions.create') %>
+        <%= f.button text, class: "btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
+<% end %>

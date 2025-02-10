@@ -68,29 +68,7 @@
               </div>
             <% end %>
 
-            <div class="mb-4 flex flex-col items-stretch gap-2 markdown">
-              <div class="flex justify-between">
-                <%= f.label :description, Issue.human_attribute_name(:description), class: "label-primary" %>
-                <span class="cursor-pointer text-xs flex items-center" data-issue-detail-target="showPreviewButton" data-action="click->issue-detail#enablePreview">
-                  <i class="fa fa-eye"></i>
-                  <span class="ml-2"><%= t("actions.preview") %></span>
-                </span>
-
-                <span class="cursor-pointer text-xs hidden text-primary-500 flex items-center" data-issue-detail-target="showEditorButton" data-action="click->issue-detail#disablePreview">
-                  <i class="fa fa-pencil"></i>
-                  <span class="ml-2 "><%= t("actions.edit") %></span>
-                </span>
-              </div>
-
-              <div class="markdown-editor">
-                <div class="markdown-content hidden" data-issue-detail-target="descriptionPreview">
-                </div>
-
-                <%= f.text_area :description, class: "input-primary",
-                "data-issue-detail-target": 'descriptionInput' %>
-              </div>
-
-            </div>
+            <%= render partial: 'issues/description_field', locals: { f:, issue: } %>
 
             <div class="flex gap-2 justify-end">
               <a class="btn-cancel" data-action="click->modal#close">
@@ -110,7 +88,7 @@
           <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
             <h5 class="w-full"><%= t("menu.actions") %></h5>
 
-            <%= link_to destroy_path, class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t(".destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
+            <%= link_to destroy_path, class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
               <i class="fa-solid fa-trash"></i>
               <%= t("actions.remove") %>
             <% end %>
