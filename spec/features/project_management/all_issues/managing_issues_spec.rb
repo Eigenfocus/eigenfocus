@@ -83,6 +83,27 @@ describe 'As a project manager, I want to manage my issues from all issues' do
     expect(page).not_to have_content("Third issue")
   end
 
+  specify "I can add a new issue" do
+    project = FactoryBot.create(:project)
+
+    visit project_issues_path(project)
+
+    click_link "Create issue"
+
+    within '#new_issue_form' do
+      fill_in 'issue_title', with: "My issue"
+      write_in_md_editor_field("My description")
+      click_button 'Create'
+    end
+
+    within 'table' do
+      expect(page).to have_content("My issue")
+    end
+
+    expect(Issue.last.title).to eq("My issue")
+    expect(Issue.last.description).to eq("My description")
+  end
+
   specify "I can update issues" do
     project = FactoryBot.create(:project)
 

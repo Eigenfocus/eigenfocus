@@ -1,22 +1,6 @@
 require 'rails_helper'
 
 describe 'As a user, I want to manage my project kanban visualization' do
-  def write_in_md_editor_field(text)
-    within ".CodeMirror" do
-      # Click makes CodeMirror element active:
-      current_scope.click
-
-      # Find the hidden textarea:
-      field = current_scope.find("textarea", visible: false)
-
-      # Mimic user typing the text:
-      field.send_keys text
-    end
-  end
-
-  def markdown_editor_selector
-    ".CodeMirror-code"
-  end
 
   let!(:user) { FactoryBot.create(:user) }
 
