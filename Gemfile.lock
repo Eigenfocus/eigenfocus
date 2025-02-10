@@ -255,7 +255,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
-    ransack (4.2.1)
+    ransack (4.3.0)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
@@ -412,7 +412,7 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0)
-  ransack (~> 4.2)
+  ransack (~> 4.3)
   rspec-rails (~> 7.1)
   rubocop-rails-omakase
   selenium-webdriver (= 4.27)
