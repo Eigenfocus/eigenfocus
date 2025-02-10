@@ -74,6 +74,9 @@ Rails.application.routes.draw do
   end
 
   resources :issues, only: [ :destroy ] do
+    member do
+      patch :pick_grouping
+    end
     scope module: "issues" do
       resource :file, only: [ :destroy ] do
         post :attach, on: :collection

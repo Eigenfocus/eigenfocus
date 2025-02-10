@@ -31,6 +31,7 @@
           <tr>
             <th><%= sort_link(@q, :title, Issue.human_attribute_name(:title)) %></th>
             <th><%= Issue.human_attribute_name(:labels) %></th>
+            <th><%= sort_link(@q, :groupings_title, Issue.human_attribute_name(:grouping)) %></th>
             <th><%= sort_link(@q, :created_at, Issue.human_attribute_name(:created_at)) %></th>
             <th><%= sort_link(@q, :updated_at, Issue.human_attribute_name(:updated_at)) %></th>
             <th><%= t(:actions, scope: :menu) %></th>

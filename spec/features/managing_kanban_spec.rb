@@ -60,7 +60,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
     end
   end
 
-  specify 'I can destroy groupings on the Kanban visualization page, with all dependents destroyed too' do
+  specify 'I can destroy groupings on the Kanban visualization page, with all issues going to the "No column" state' do
     project = FactoryBot.create(:project)
     FactoryBot.create(:grouping, visualization: project.default_visualization)
     grouping = FactoryBot.create(:grouping, visualization: project.default_visualization)
@@ -89,7 +89,7 @@ describe 'As a user, I want to manage my project kanban visualization' do
 
     expect(Grouping.count).to eq(2)
     expect(GroupingIssueAllocation.count).to eq(0)
-    expect(Issue.count).to eq(0)
+    expect(Issue.count).to eq(3)
   end
 
   specify 'I can move groupings on the kanban visualization page' do
@@ -375,5 +375,29 @@ describe 'As a user, I want to manage my project kanban visualization' do
     expect(page).to have_content("Issue was successfully destroyed.")
 
     expect(Issue.where(id: issue.id)).not_to be_present
+  end
+
+  specify 'I can change issue grouping on the issue detail modal' do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "First grouping")
+    issue = FactoryBot.create(:issue, project: project, title: "Change grouping")
+    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+
+    FactoryBot.create(:grouping, visualization: project.default_visualization, title: "Second grouping")
+
+    visit visualization_path(project.default_visualization)
+
+    click_link "Change grouping"
+
+    find(".cpy-grouping-picker-button").click
+
+    within ".cpy-grouping-picker-container" do
+      click_link "Second grouping"
+    end
+
+    expect(page).to have_content("Issue column was successfully updated.")
+
+    issue.reload
+    expect(issue.grouping_issue_allocations.first.grouping.title).to eq("Second grouping")
   end
 end

@@ -9,6 +9,9 @@ pt-BR:
       destroy_confirmation:
         explanation: "Deletar essa label removerá todas as suas associações com issues, mas não removerá as issues."
         associations: "Esta label está associado com %{count_text)"
+    issues:
+      issue:
+        no_grouping: "Sem coluna"
   profiles:
     form:
       why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."
@@ -33,11 +36,19 @@ pt-BR:
       delete: 'Deletar coluna'
       edit_column: 'Editar coluna'
       create_issue: 'Criar issue'
-      destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Isso vai deletar todos as issues da coluna!'
+      destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Todas as issues dela serão movidas para "Sem coluna"!'
+    issues:
+      form:
+        destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
     favorite_labels_dropdown:
       pro_tip:
         title: "DICA RÁPIDA"
         description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar/remover uma label."
+  issues:
+    issue_detail:
+      grouping_picker:
+        in_grouping: "Na coluna"
+        no_grouping: "Sem coluna"
   time_entries:
     form:
       save_on_command_enter: Pressione (CTRL + Enter) ou (CMD + Enter) para salvar

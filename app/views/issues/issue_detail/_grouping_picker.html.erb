@@ -1,0 +1,47 @@
+<%= turbo_frame_tag 'issue_grouping_picker' do %>
+  <div class="mb-2 flex flex-row items-stretch gap-2" data-controller="dropdown">
+    <span><%= t(".in_grouping") %></span>
+
+    <div
+      class="relative flex cpy-grouping-picker-button"
+      data-action="click->dropdown#toggle click@window->dropdown#hide"
+      role="button" aria-haspopup="true" aria-expanded="false"
+      data-dropdown-target="button"
+      >
+      <div class="rounded-md shadow-md border-background-300 bg-background-50 border px-2">
+        <span>
+          <% if issue.groupings.empty? %>
+            <%= t(".no_grouping") %>
+          <% else %>
+            <%= issue.groupings.first.title %>
+          <% end %>
+        </span>
+
+        <i class="fa-solid fa-angle-down"></i>
+      </div>
+
+      <div data-dropdown-target="menu" class="flex flex-col bg-body-contrast absolute z-10 top-full left-0 border border-background-300 rounded-lg shadow-lg overflow-hidden whitespace-nowrap mt-1 hidden cpy-grouping-picker-container">
+        <% issue.project.default_visualization.groupings.each do |grouping| %>
+          <% css_classes = "hover:bg-background-100 py-2 px-4" %>
+          <% is_selected = issue.groupings.first == grouping %>
+          <% css_classes += " bg-background-50" if is_selected %>
+
+          <%= link_to pick_grouping_issue_path(issue, grouping_id: grouping.try(:id)),
+            data: { turbo_method: :patch, turbo_frame: 'issue_pick_grouping' },
+            class: css_classes do %>
+            <p><%= grouping.title %></p>
+          <% end %>
+        <% end %>
+
+        <% css_classes = "hover:bg-background-100 py-2 px-4" %>
+        <% is_selected = issue.groupings.empty? %>
+        <% css_classes += " bg-background-50" if is_selected %>
+        <%= link_to pick_grouping_issue_path(issue, grouping_id: nil),
+          data: { turbo_method: :patch, turbo_frame: 'issue_pick_grouping' },
+          class: css_classes do %>
+          <p><%= t(".no_grouping") %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

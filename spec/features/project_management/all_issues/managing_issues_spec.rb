@@ -18,7 +18,10 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     FactoryBot.create(:issue, project: project, title: "First issue")
     FactoryBot.create(:issue, project: project, title: "Second issue")
-    FactoryBot.create(:issue, project: project, title: "Third issue")
+    issue = FactoryBot.create(:issue, project: project, title: "Third issue") do |issue|
+      grouping = FactoryBot.create(:grouping, title: "Custom grouping")
+      FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+    end
 
     visit project_issues_path(project)
 
@@ -27,6 +30,10 @@ describe 'As a project manager, I want to manage my issues from all issues' do
     expect(page).to have_content("First issue")
     expect(page).to have_content("Second issue")
     expect(page).to have_content("Third issue")
+
+    within dom_id(issue) do
+      expect(page).to have_content("Custom grouping")
+    end
   end
 
   specify "I can filter issues by name" do

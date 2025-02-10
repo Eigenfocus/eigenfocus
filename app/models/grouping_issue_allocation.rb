@@ -1,5 +1,5 @@
 class GroupingIssueAllocation < ApplicationRecord
-  belongs_to :issue, dependent: :destroy
+  belongs_to :issue
   belongs_to :grouping
 
   positioned on: :grouping, column: :position

@@ -3,6 +3,13 @@
   <td>
     <%= labels_list_for(issue) %>
   </td>
+  <td>
+    <% if issue.groupings.present? %>
+      <%= issue.groupings.first.title %>
+    <% else %>
+      <%= t(".no_grouping") %>
+    <% end %>
+  </td>
   <td><%= l issue.created_at, format: :short %></td>
   <td><%= l issue.updated_at, format: :short %></td>
   <td>

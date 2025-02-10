@@ -36,7 +36,7 @@
             }
             }) do |f| %>
 
-            <div class="mb-4 flex flex-col items-stretch gap-2">
+            <div class="mb-2 flex flex-col items-stretch gap-2">
               <%= f.label :title, Issue.human_attribute_name(:title), class: "label-primary" %>
 
               <div data-controller='resizable-input' class="relative" >
@@ -51,6 +51,9 @@
               </div>
             </div>
 
+            <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>
+              <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
+            <% end %>
 
             <% if issue.persisted? %>
               <div data-controller='issue--labels'

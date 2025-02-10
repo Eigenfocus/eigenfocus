@@ -9,13 +9,19 @@ en:
       destroy_confirmation:
         explanation: "Deleting this label will remove all of its associations with issues, but will not remove the issues."
         associations: "This label is associated with %{count_text}"
+    issues:
+      issue:
+        no_grouping: "No column"
   visualizations:
     column_menu:
       actions: 'Actions'
       delete: 'Delete column'
       edit_column: 'Edit column'
       create_issue: 'Create issue'
-      destroy_confirmation: 'Are you sure you want to delete "%{title}" column? It is going to delete all issues on this column!'
+      destroy_confirmation: 'Are you sure you want to delete "%{title}" column? All its issues are going to be moved to "No column"!'
+    issues:
+      form:
+        destroy_confirmation: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"
     favorite_labels_dropdown:
       pro_tip:
         title: "PRO TIP"
@@ -38,6 +44,11 @@ en:
 
     update:
       success: 'Profile succesfully updated.'
+  issues:
+    issue_detail:
+      grouping_picker:
+        in_grouping: "In column"
+        no_grouping: "No column"
   time_entries:
     form:
       save_on_command_enter: press (CTRL + Enter) or (CMD + Enter) to save

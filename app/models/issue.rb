@@ -4,6 +4,7 @@ class Issue < ApplicationRecord
   has_many_attached :files
   has_many :time_entries, dependent: :nullify
   has_many :grouping_issue_allocations, dependent: :destroy
+  has_many :groupings, through: :grouping_issue_allocations
   ## Relations/Labels
   has_many :label_links, class_name: "IssueLabelLink", dependent: :destroy
   has_many :labels, through: :label_links, source: :issue_label
@@ -34,7 +35,7 @@ class Issue < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    [ "labels" ]
+    [ "labels", "grouping_issue_allocations", "groupings" ]
   end
 
   def self.ransackable_scopes(auth_object = nil)
