@@ -19,4 +19,7 @@ class GroupingIssueAllocation < ApplicationRecord
   after_update_commit -> {
     Visualizations::AllocationsChannel.broadcast_update(self)
   }
+  after_destroy_commit -> {
+    issue.broadcast_remove_to grouping.visualization
+  }
 end
