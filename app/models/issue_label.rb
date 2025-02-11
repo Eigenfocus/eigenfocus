@@ -1,7 +1,7 @@
 class IssueLabel < ApplicationRecord
   # Scopes
   default_scope { order(title: :asc) }
-  scope :with_title, ->(title) { where("lower(title) LIKE ?", title) }
+  scope :with_title, ->(title) { where("lower(title) LIKE :search", search: title.downcase) }
 
   # Relationships
   has_many :issue_links, class_name: "IssueLabelLink", dependent: :destroy
@@ -12,16 +12,12 @@ class IssueLabel < ApplicationRecord
   # Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false, scope: [ :project_id ] }
 
-  # Hooks
-  before_validation :strip_title_whitepaces
+  # Normalizations
+  normalizes :title, with: -> { _1.strip }
 
   # Ransack
   def self.ransackable_attributes(auth_object = nil)
     [ "title", "updated_at" ]
-  end
-
-  def strip_title_whitepaces
-    self.title = self.title&.strip
   end
 
   # Broadcasts
