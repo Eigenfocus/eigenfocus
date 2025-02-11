@@ -27,7 +27,7 @@
       }
 
       &.current {
-        @apply bg-primary-500/20 font-bold;
+        @apply bg-primary-500/20 text-readable-content-700 font-bold;
       }
 
       &:first-child {
