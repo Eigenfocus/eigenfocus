@@ -39,7 +39,7 @@ else
 
   Capybara.register_driver :chrome do |app|
     options   = Selenium::WebDriver::Chrome::Options.new
-    options.add_argument("--window-size=1400,800")
+    options.add_argument("--window-size=1400,1000")
     options.add_argument("--no-sandbox")
 
     if ENV["CHROME_BINARY_PATH"].present?

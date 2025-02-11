@@ -26,6 +26,8 @@ describe 'As a project manager, I want to use favorite issue labels' do
 
     all(".cpy-keyboard-shortcuts form button")[0].click
 
+    expect(page).to have_content("Workflow Board was successfully updated.")
+
     visualization.reload
     expect(visualization.favorite_issue_labels).to eq([ "", "", 'Development', 'New Tag', "", "" ])
   end
