@@ -7,7 +7,7 @@
   project: current_project
 } %>
 
-<%= turbo_frame_tag 'issues', data: { turbo_action: "advance" } do %>
+<%= turbo_frame_tag 'issues', autoscroll: true, 'autoblock-scroll': 'start', data: { turbo_action: "advance" } do %>
   <div class="mt-8 mb-8 flex justify-between gap-4 items-center flex-col md:flex-row">
     <%= render partial: 'filter', locals: { q: @q } %>
 

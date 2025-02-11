@@ -14,7 +14,7 @@
   }
 } %>
 
-<%= turbo_frame_tag 'issue_labels' do %>
+<%= turbo_frame_tag 'issue_labels', autoscroll: true, 'data-autoblock-scroll': 'start' do %>
   <div class="mt-8 mb-8 flex justify-between gap-4 flex-col md:flex-row">
     <%= render partial: 'filter', locals: { q: @q } %>
 
