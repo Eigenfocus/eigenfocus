@@ -21,7 +21,6 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/0.8.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
-  <img src="https://img.shields.io/badge/coming soon-blue.svg?style=flat&label=Alpha Release&labelColor=%23333&color=%23242F2F"/>
   <br/>
   <br/>
   <a href="https://eigenfocus.com/blog/articles/its-free-to-be-a-pro-issues-list-labels-live-updates?utm_source=github_home"><strong>See what is new in our 0.8.0</strong></a>
@@ -36,21 +35,21 @@ We've been working with product development for more than a decade so this produ
 Any new ideas are welcome.
 
 
-# FREE EDITION (this repo) - Features
+# FREE EDITION (this repo)
+
 Here are some of our current features:
 
 - Projects: create/edit/update/archive you projects
 - Boards: each project has a board where you can customize columns to your workflow
 - Issues: create issues, write markdown descriptions and attach files
-- Workflow with Boards: Move issues between columns
+- Workflow with Boards: Make changes to your boards and see changes in real-time
+- Issue Labels and Shortcuts: Organize your issues and workflow with labels
 - Time Tracking: track time spent on a Project and a Specific Issue
 - Time Report: generate time reports by project and time periods
 - Themes: customize the UI to your taste
 
-# FREE EDITION (this repo) - Roadmap
 
 Here is what is coming next:
-- View Issues as List
 - Features to help handling multiple issues at once in a board
 - Seamless Integration between Boards <> Time Tracking
 - Focus Space
@@ -67,9 +66,8 @@ We're building a PRO Edition (Paid) with features for managing more complex proj
 
 - Inviting members
 - User/Project Permissions
-- More types of views (boards, lists, custom matrices, timeline)
 - Multiple views per project
-- Issue Tagging
+- More types of views (boards, lists, custom matrices, timeline)
 - More types of reports and insights
 
 <div align="center">
@@ -89,14 +87,14 @@ In this demo uploads are disabled and all data will expire after 30 minutes.
 
 <br/>
 
-# FREE EDITION - Some Screenshots
+# FREE EDITION - Some Screenshots/Recordings
 <div align="center">
-<img alt="time-track" src="https://github.com/user-attachments/assets/5cc6c4f9-2475-4586-a257-cfdc934a6fc4" width="75%"/>
-<img alt="board" src="https://github.com/user-attachments/assets/2e08e73e-3f1e-451d-a1f6-907e6a1280a0" width="75%"/>
-<img alt="reports" src="https://github.com/user-attachments/assets/d0ce92c5-613c-462e-87ea-184a0b487ab5" width="75%"/>
+<img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/time-tracking.gif" width="75%"/>
 
-<img alt="noir-time" src="https://github.com/user-attachments/assets/ed06ee87-3a74-45cb-a3f8-31324f4d9b17" width="75%"/>
-<img alt="noir-board" src="https://github.com/user-attachments/assets/536feec1-8ebc-4914-91df-c0b53d3b9c1e" width="75%"/>
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/board-1.gif" width="75%"/>
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/all-issues-1.gif" width="75%"/>
+
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/themes-2.gif" width="75%"/>
 </div>
 
 # Installation
