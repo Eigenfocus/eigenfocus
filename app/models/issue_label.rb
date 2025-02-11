@@ -12,16 +12,12 @@ class IssueLabel < ApplicationRecord
   # Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false, scope: [ :project_id ] }
 
-  # Hooks
-  before_validation :strip_title_whitepaces
+  # Normalizations
+  normalizes :title, with: -> { _1.strip }
 
   # Ransack
   def self.ransackable_attributes(auth_object = nil)
     [ "title", "updated_at" ]
-  end
-
-  def strip_title_whitepaces
-    self.title = self.title&.strip
   end
 
   # Broadcasts
