@@ -53,7 +53,6 @@ class Issue < ApplicationRecord
       }
     )
   }
-  after_destroy_commit -> { broadcast_remove_to "visualization" }
 
   def to_param
     if persisted?
