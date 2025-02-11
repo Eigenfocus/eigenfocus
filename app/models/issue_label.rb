@@ -1,7 +1,7 @@
 class IssueLabel < ApplicationRecord
   # Scopes
   default_scope { order(title: :asc) }
-  scope :with_title, ->(title) { where("lower(title) LIKE ?", title) }
+  scope :with_title, ->(title) { where("lower(title) LIKE :search", search: title.downcase) }
 
   # Relationships
   has_many :issue_links, class_name: "IssueLabelLink", dependent: :destroy
