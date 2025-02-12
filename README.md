@@ -1,7 +1,7 @@
 <div align="center">
   <h1><b>Eigenfocus</b></h1>
   <p>
-      Self-Hosted All-in-One Project Management App: Boards, Time Tracking & Focus Tools.
+    All-in-One Self-Hosted<br/>Project Management, Time Tracking and Focus App
   </p>
   <a href="https://eigenfocus.com"><strong>Website</strong></a> |
   <a href="#installation"><strong>Docker Installation</strong></a> |
@@ -28,9 +28,9 @@
 
 
 # Our Vision
-We're building an All-In-One Self-Hosted solution to manage projects, time and teams.
+We're building an All-In-One Self-Hosted solution to manage projects, time, teams and focus.
 
-We've been working with product development for more than a decade so this product is built on the wisdom, pain and scars that we've gathered over the years. Our philosophy is to create a tool that is both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
+We've been working with product development for a while so this product is built on the wisdom, pain and scars that we've gathered over the years. Our philosophy is to create a tool that is both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
 
 Any new ideas are welcome.
 
@@ -67,7 +67,7 @@ This is what we're planning for our first release:
 - Invite Users to your workspace
 - Users Permissions
 - Create New Views with custom filters
-- View Types: visualize issues in lists, mtrices and other types of groupings
+- View Types: visualize issues in lists, matrices and other types of groupings
 - More Reports and Insights
 - (We have more ideas to come)
 
