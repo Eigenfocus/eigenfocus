@@ -89,12 +89,12 @@ In this demo uploads are disabled and all data will expire after 30 minutes.
 
 # FREE EDITION - Some Screenshots/Recordings
 <div align="center">
-<img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/time-tracking.gif" width="75%"/>
+<img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/time-track-black-3.gif" width="75%"/>
 
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/board-1.gif" width="75%"/>
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/all-issues-1.gif" width="75%"/>
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/board-2.gif" width="75%"/>
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
 
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/themes-2.gif" width="75%"/>
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/themes-1.gif" width="75%"/>
 </div>
 
 # Installation
