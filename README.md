@@ -51,9 +51,7 @@ Here are some of our current features:
 
 Here is what is coming next:
 - Features to help handling multiple issues at once in a board
-- Seamless Integration between Boards <> Time Tracking
 - Focus Space
-- Long running time tracking alerts
 
 <div align="center">
 ⭐️ this repository and stay up to date.
@@ -64,11 +62,14 @@ Here is what is coming next:
 # PRO Edition (another repo) - Roadmap
 We're building a PRO Edition (Paid) with features for managing more complex projects and bigger teams.
 
-- Inviting members
-- User/Project Permissions
-- Multiple views per project
-- More types of views (boards, lists, custom matrices, timeline)
-- More types of reports and insights
+This is what we're planning for our first release:
+
+- Invite Users to your workspace
+- Users Permissions
+- Create New Views with custom filters
+- View Types: visualize issues in lists, mtrices and other types of groupings
+- More Reports and Insights
+- (We have more ideas to come)
 
 <div align="center">
 <a href="https://eigenfocus.com/#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
