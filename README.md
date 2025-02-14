@@ -14,6 +14,7 @@
 <br />
 <div align="center">
   <img src="https://github.com/Eigenfocus/eigenfocus/actions/workflows/ci.yml/badge.svg"></img>
+  <img src="https://img.shields.io/docker/pulls/eigenfocus/eigenfocus.svg"></img>
   <img src="https://img.shields.io/badge/Ruby-Ruby.svg?style=flat&logo=ruby&labelColor=%23CC342D&color=%23333"/>
   <img src="https://img.shields.io/badge/Ruby on Rails-Rails.svg?style=flat&logo=rubyonrails&labelColor=%23CC342D&color=%23333"/>
 </div>
