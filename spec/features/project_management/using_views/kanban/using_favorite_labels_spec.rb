@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'As a project manager, I want to use favorite issue labels' do
+describe 'As a project manager, I want to use favorite issue labels from kanban boards' do
   let!(:user) { FactoryBot.create(:user) }
 
   let!(:project) { FactoryBot.create(:project) }

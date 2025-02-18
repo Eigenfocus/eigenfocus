@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-# TODO: split 'managing_kanban_spec' into more files and move some specs to here
-describe 'As a project manager, I want to filter my issues from Workflow Boards' do
+describe 'As a project manager, I want to filter my issues from kanban boards' do
   let!(:user) { FactoryBot.create(:user) }
 
   let!(:project) { FactoryBot.create(:project) }
