@@ -1,3 +1,4 @@
+require 'rails_helper'
 
 describe 'As a user, I want to manage my kanban view columns' do
   let!(:user) { FactoryBot.create(:user) }
