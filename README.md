@@ -58,22 +58,61 @@ Here is what is coming next:
 ⭐️ this repository and stay up to date.
 </div>
 
+
+## FREE EDITION - Some Screenshots/Recordings
+<div align="center">
+<img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/time-track-black-3.gif" width="75%"/>
+
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/board-2.gif" width="75%"/>
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
+
+<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/themes-1.gif" width="75%"/>
+</div>
+
 <br/>
 
-# PRO Edition (another repo) - Roadmap
-We're building a PRO Edition (Paid) with features for managing more complex projects and bigger teams.
+# PRO Edition (another repo)
+We're building a PRO Edition (Paid) with advanced features for managing complex projects and larger teams.
 
-This is what we're planning for our first release:
+Coming in the First Release:
 
-- Invite Users to your workspace
-- Users Permissions
-- Create New Views with custom filters
-- View Types: visualize issues in lists, matrices and other types of groupings
-- More Reports and Insights
-- (We have more ideas to come)
+- Multiple Users with Permission Control
+- Custom Issue Statuses & Types
+- Create Views with Pre-Saved Filters
+- Multiple View Types: Boards and Matrices
+- Reports & Insights for Smarter Decisions
 
 <div align="center">
-<a href="https://eigenfocus.com/#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
+  <a href="https://eigenfocus.com?utm_source=github-readme#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
+</div>
+
+## It fits your workflow
+Tailor your views using status, people or labels to match how you work.
+
+- Plan Ideas & Initiatives
+- Prioritize Work & Features
+- Allocate by Quarters or Sprints
+- Streamline Daily Workflows
+- Track Team Workload
+- ...and more!
+
+<br/>
+
+<div align="center">
+  <img width="90%" src="https://assets.eigenfocus.com/github-readme/pro-demo-preview/matrix-workflow.png"/>
+  <br/>
+</div>
+<br/>
+
+----
+
+<br/>
+<div align="center">
+  The best tool is the one that doesn't stay in your way.</p>
+</div>
+
+<div align="center">
+  <a href="https://eigenfocus.com?utm_source=github-readme#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
 </div>
 
 <br/>
@@ -88,16 +127,6 @@ In this demo uploads are disabled and all data will expire after 30 minutes.
 </div>
 
 <br/>
-
-# FREE EDITION - Some Screenshots/Recordings
-<div align="center">
-<img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/time-track-black-3.gif" width="75%"/>
-
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/board-2.gif" width="75%"/>
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
-
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/themes-1.gif" width="75%"/>
-</div>
 
 # Installation
 You can run our project using our docker image directly with docker or docker compose:
