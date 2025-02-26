@@ -16,7 +16,7 @@ class Visualization < ApplicationRecord
     broadcast_replace_later_to(
       self,
       targets: "[data-visualization-favorite-labels-list='#{id}']".html_safe,
-      partial: "visualizations/favorite_labels_dropdown",
+      partial: "visualizations/favorite_labels_dropdown_list",
       locals: { visualization: self }
     )
   end
