@@ -1,5 +1,5 @@
 .issue-label {
-  @apply inline-flex bg-background-100 border-readable-content-400/40 text-readable-content-500 border border;
+  @apply inline-flex bg-background-100 items-center border-readable-content-400/40 text-readable-content-500 border border;
   font-size: 12px;
   border-radius: 4px;
   padding: 1px 4px;
