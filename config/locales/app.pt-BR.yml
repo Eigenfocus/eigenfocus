@@ -20,6 +20,7 @@ pt-BR:
   minutes: 'Minutos'
   click_here: 'Clique aqui'
   zero_records: "Você ainda não criou nenhum(a) %{resource_name}."
+  zero_records_for_this_search: "Nenhum registro foi encontrado para sua busca."
   click_here_to_create_one: "Clique aqui para criar um"
   click_here_to_create_one_f: "Clique aqui para criar uma"
   confirmations:

@@ -36,6 +36,20 @@ describe 'As a project manager, I want to manage my issues from all issues' do
     end
   end
 
+  specify "There is a custom message for zero results when filtering" do
+    project = FactoryBot.create(:project, name: "Project Alpha")
+
+    visit project_issues_path(project)
+
+    within ".cpy-filter-form" do
+      fill_in 'q[title_cont]', with: "NOMATCH"
+
+      click_button "Search"
+    end
+
+    expect(page).to have_content("No records were found for your search.")
+  end
+
   specify "I can filter issues by name" do
     project = FactoryBot.create(:project)
 
