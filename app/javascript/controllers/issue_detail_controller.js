@@ -87,4 +87,15 @@ export default class extends Controller {
       frame: 'issue_detail'
     })
   }
+
+  onFormSubmit({detail: detail}) {
+    if (detail.success && this.closeOnSubmit) {
+      this.closeOnSubmit = false
+      this.goBackHistory()
+    }
+  }
+
+  trackUpdateButton(event) {
+    this.closeOnSubmit = true;
+  }
 }
