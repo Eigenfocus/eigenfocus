@@ -32,7 +32,8 @@
             class: 'flex flex-col gap-2',
             data: {
               turbo: true,
-              "issue-detail-target": "form"
+              "issue-detail-target": "form",
+              action: "turbo:submit-end->issue-detail#onFormSubmit",
             }
             }) do |f| %>
 
@@ -79,7 +80,7 @@
               </a>
 
               <% text = issue.persisted? ? t('actions.update') : t('actions.create') %>
-              <%= f.button text, class: "btn-primary", value: "save-and-close-modal" %>
+              <%= f.button text, class: "btn-primary", data: { action: "issue-detail#trackUpdateButton" } %>
             </div>
           <% end %>
 
