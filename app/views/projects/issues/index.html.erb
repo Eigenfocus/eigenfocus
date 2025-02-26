@@ -17,13 +17,21 @@
 
   <div class="flex flex-col gap-3 lg:gap-6 flex-wrap justify-stretch">
     <% if @issues.empty? %>
-      <div class="bg-body-contrast rounded-md border border-background-200 p-4 space-y-4 shadow-xs items-center">
-        <p class='text-center text-readable-content-500'>
-          <%= t("zero_records", resource_name: Issue.model_name.human) %>
-        </p>
-        <p class="mt-3 text-center mb-4">
-          <%= link_to t('click_here_to_create_one'), new_project_issue_path(current_project), class: "btn-primary inline-block", data: { turbo_frame: 'new_issue_form' } %>
-        </p>
+      <div class="bg-body-contrast flex flex-col rounded-md border border-background-200 p-4 space-y-4 shadow-xs items-center">
+        <% if params[:q].present? %>
+          <p class='text-center text-readable-content-500'>
+            <%= t("zero_records_for_this_search", resource_name: Issue.model_name.human) %>
+          </p>
+        <% else %>
+          <p class='text-center text-readable-content-500'>
+            <%= t("zero_records", resource_name: Issue.model_name.human) %>
+          </p>
+          <p class="mt-3 text-center mb-4">
+            <%= link_to t('click_here_to_create_one'), new_project_issue_path(current_project), class: "btn-primary inline-block", data: { turbo_frame: 'new_issue_form' } %>
+          </p>
+
+        <% end %>
+
       </div>
     <% else %>
       <table class="table-primary table-striped">
