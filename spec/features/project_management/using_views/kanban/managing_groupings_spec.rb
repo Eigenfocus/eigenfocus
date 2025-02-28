@@ -145,7 +145,7 @@ describe 'As a user, I want to manage my kanban view columns' do
       expect(page).to have_content("Current column")
 
       # Click on the target column
-      click_button "Done"
+      click_link "Done"
     end
 
     # Verify the success message

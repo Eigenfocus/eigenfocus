@@ -37,14 +37,28 @@
         </div>
 
         <div class="flex flex-col mt-2 justify-stretch items-stretch">
+          <div class="flex flex-col justify-stretch border-b border-background-100 pb-2 mb-2">
+            <h4 class="text-sm font-bold text-readable-content-400 px-4 mb-2">Issues</h4>
+            <%= link_to t('visualizations.column_menu.create_issue'), "#",
+                class: "cpy-new-issue text-left py-2 px-4 hover:bg-background-100 w-full",
+                data: { action: "click->grouping-column#showInlineCardForm click->dropdown#toggle" } %>
+            <%= link_to t('visualizations.column_menu.move_all_issues'),
+                move_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
+                class: "py-2 px-4 hover:bg-background-100 w-full",
+                data: { turbo_frame: 'move_all_issues_modal', action: "click->dropdown#toggle" } %>
+          </div>
 
-          <button class="cpy-new-issue text-left py-2 px-4 hover:bg-background-100"
-              data-action="click->grouping-column#showInlineCardForm click->dropdown#toggle">
-              <%= t('visualizations.column_menu.create_issue') %>
-          </button>
-          <%= link_to t('visualizations.column_menu.edit_column'), edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "cpy-edit-column py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'grouping_form', action: "click->dropdown#toggle" } %>
-          <%= link_to t('visualizations.column_menu.move_all_issues'), move_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'move_all_issues_modal', action: "click->dropdown#toggle" } %>
-          <%= link_to t('visualizations.column_menu.delete'), visualization_grouping_path(grouping.visualization_id, grouping), class: "py-2 px-4 hover:bg-background-100", data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %>
+          <div class="flex flex-col justify-stretch">
+            <h4 class="text-sm font-bold text-readable-content-400 px-4 mb-2">Column</h4>
+            <%= link_to t('visualizations.column_menu.edit_column'),
+                edit_visualization_grouping_path(grouping.visualization_id, grouping.id),
+                class: "cpy-edit-column py-2 px-4 hover:bg-background-100 w-full",
+                data: { turbo_frame: 'grouping_form', action: "click->dropdown#toggle" } %>
+            <%= link_to t('visualizations.column_menu.delete'),
+                visualization_grouping_path(grouping.visualization_id, grouping),
+                class: "py-2 px-4 hover:bg-background-100 w-full text-red-600",
+                data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %>
+          </div>
         </div>
       </div>
     </div>

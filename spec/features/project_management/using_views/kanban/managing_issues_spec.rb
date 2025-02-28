@@ -27,7 +27,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
       within '.cpy-column-menu' do
         expect(page).to have_content("Actions")
 
-        click_button "Create issue"
+        click_link "Create issue"
       end
     end
 
