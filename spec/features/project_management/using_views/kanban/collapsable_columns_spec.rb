@@ -27,11 +27,11 @@ describe 'As a user, I want to collapse and expand columns on my kanban board' d
       expect(page).to have_css('.fa-chevron-right')
     end
 
-    expect(grouping_todo.reload.collapsed).to be_true
+    expect(grouping_todo.reload.hidden).to be_true
   end
 
   specify 'I can expand a previously collapsed column' do
-    grouping_todo.update!(collapsed: true)
+    grouping_todo.update!(hidden: true)
 
     visit visualization_path(visualization)
 
@@ -46,12 +46,12 @@ describe 'As a user, I want to collapse and expand columns on my kanban board' d
       expect(page).to have_css('.fa-chevron-left')
     end
 
-    expect(grouping_todo.reload.collapsed).to be_false
+    expect(grouping_todo.reload.hidden).to be_false
   end
 
   specify 'Multiple columns can be collapsed independently' do
-    grouping_todo.update!(collapsed: true)
-    grouping_done.update!(collapsed: true)
+    grouping_todo.update!(hidden: true)
+    grouping_done.update!(hidden: true)
 
     visit visualization_path(visualization)
 
