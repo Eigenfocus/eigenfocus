@@ -43,6 +43,7 @@
               <%= t('visualizations.column_menu.create_issue') %>
           </button>
           <%= link_to t('visualizations.column_menu.edit_column'), edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "cpy-edit-column py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'grouping_form', action: "click->dropdown#toggle" } %>
+          <%= link_to t('visualizations.column_menu.move_all_issues'), move_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "py-2 px-4 hover:bg-background-100", data: { turbo_frame: 'move_all_issues_modal', action: "click->dropdown#toggle" } %>
           <%= link_to t('visualizations.column_menu.delete'), visualization_grouping_path(grouping.visualization_id, grouping), class: "py-2 px-4 hover:bg-background-100", data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %>
         </div>
       </div>

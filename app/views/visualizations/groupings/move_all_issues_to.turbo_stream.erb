@@ -1,0 +1,14 @@
+<%= turbo_stream.update "#{@source_grouping.id}-cards-wrapper", "" %>
+
+<%= turbo_stream.update "#{@target_grouping.id}-cards-wrapper" do %>
+  <% @target_grouping.issues.each do |issue| %>
+    <%= render partial: 'visualizations/card', locals: {
+      issue: issue,
+      visualization: current_visualization
+    } %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update 'move_all_issues_modal', "" %>
+
+<%= new_turbo_stream_alert_message(:success, t("flash.groupings.move_all_issues.success")) %>

@@ -115,4 +115,47 @@ describe 'As a user, I want to manage my kanban view columns' do
       "Doing"
     ])
   end
+
+  specify 'I can move all issues from one column to another' do
+    project = FactoryBot.create(:project)
+    source_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
+    target_grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "Done")
+
+    # Create some issues in the source grouping
+    3.times do |n|
+      issue = FactoryBot.create(:issue, project: project, title: "Issue #{n}")
+      FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: source_grouping)
+    end
+
+    visit visualization_path(project.default_visualization)
+
+    # Open the column menu and click "Move all issues"
+    within dom_id(source_grouping) do
+      find('.cpy-column-menu-button').click
+      click_link "Move all issues"
+    end
+
+    # Verify the modal content
+    within '#move_all_issues_modal' do
+      expect(page).to have_content("Move all issues from TODO")
+      expect(page).to have_content("Select a target column to move all issues to:")
+
+      # Current column should be shown but not clickable
+      expect(page).to have_content("TODO")
+      expect(page).to have_content("Current column")
+
+      # Click on the target column
+      click_button "Done"
+    end
+
+    # Verify the success message
+    expect(page).to have_content("All issues were successfully moved")
+
+    # Verify that all issues were moved
+    source_grouping.reload
+    target_grouping.reload
+    expect(source_grouping.issues.count).to eq(0)
+    expect(target_grouping.issues.count).to eq(3)
+    expect(target_grouping.issues.pluck(:title)).to match_array([ "Issue 0", "Issue 1", "Issue 2" ])
+  end
 end

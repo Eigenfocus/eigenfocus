@@ -69,6 +69,9 @@ en:
     issues:
       pick_grouping:
         success: "Issue column was successfully updated."
+    groupings:
+      move_all_issues:
+        success: "All issues were successfully moved"
     actions:
       create:
         notice: "%{resource_name} was successfully created."

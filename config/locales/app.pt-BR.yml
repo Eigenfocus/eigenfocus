@@ -64,12 +64,15 @@ pt-BR:
     go_to_issues_list: 'Ir para lista de issues'
     go_to_time_tracking: "Ir para registro de tempo"
   flash:
-    change_success: "Alteração feita com sucesso."
-    change_error: "Houve um erro na hora de realizar a alteração."
+    change_success: "Alteração realizada com sucesso."
+    change_error: "Alteração não pôde ser realizada."
     file_successfully_removed: "Arquivo removido com sucesso."
     issues:
       pick_grouping:
         success: "Coluna da issue atualizada com sucesso."
+    groupings:
+      move_all_issues:
+        success: "Todas as issues foram movidas com sucesso"
     actions:
       create:
         notice: "%{resource_name} criado(a) com sucesso."

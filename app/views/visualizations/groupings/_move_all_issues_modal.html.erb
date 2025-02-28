@@ -1,0 +1,54 @@
+<%= turbo_frame_tag 'move_all_issues_modal' do %>
+  <%= render_modal do %>
+    <div class="border-b border-background-200 pb-2 mb-4">
+      <div class="flex items-center space-x-2">
+        <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
+          <%= icon_for(:groupings) %>
+        </div>
+        <h4 class="text-lg font-medium text-readable-content-700">
+          <%= t(".title", grouping: source_grouping.title) %>
+        </h4>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <p class="text-sm text-readable-content-500">
+        <%= t(".description") %>
+      </p>
+
+      <div class="flex flex-col gap-2 mt-4">
+        <% current_visualization.groupings.each do |g| %>
+          <% is_current = g == source_grouping %>
+          <% if is_current %>
+            <div class="w-full text-left py-3 px-4 rounded-md border border-background-200 bg-background-50">
+              <div class="flex items-center gap-3">
+                <span class="text-readable-content-700 font-medium">
+                  <%= g.title %>
+                </span>
+                <span class="ml-auto text-xs bg-primary-100 text-primary-700 px-2 py-1 rounded-full font-medium">
+                  <%= t(".current_column") %>
+                </span>
+              </div>
+            </div>
+          <% else %>
+            <%= link_to move_all_issues_to_visualization_grouping_path(visualization, source_grouping, target_grouping_id: g.id),
+              data: { turbo_method: :post },
+              class: "w-full text-left py-3 px-4 hover:bg-primary-50 rounded-md border border-background-200 hover:border-primary-200 transition-colors duration-150 group" do %>
+              <div class="flex items-center gap-3">
+                <span class="text-readable-content-700 group-hover:text-primary-700 font-medium">
+                  <%= g.title %>
+                </span>
+                <i class="fa-solid fa-arrow-right ml-auto text-readable-content-400 group-hover:text-primary-500"></i>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="flex gap-2 justify-center mt-6 pt-4 border-t border-background-200">
+        <a class="btn-cancel" data-action="click->modal#close">
+          <%= t('actions.cancel') %>
+        </a>
+      </div>
+    </div>
+  <% end %>
+<% end %>
