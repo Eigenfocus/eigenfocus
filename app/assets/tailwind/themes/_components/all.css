@@ -2,3 +2,4 @@
 @import "./issue-label";
 @import "./link";
 @import "./table";
+@import "./visualizations/board";
