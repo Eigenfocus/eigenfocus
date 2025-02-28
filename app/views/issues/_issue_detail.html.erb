@@ -12,7 +12,7 @@
   <% data.merge!("issue-detail-attach-path-value": attach_issue_file_path(issue)) if issue.persisted? %>
 
   <%= render_modal(inner_container_options: {
-    class: "max-h-screen w-full max-w-4xl relative cpy-issue-detail",
+    class: "max-h-screen w-full max-w-3xl relative cpy-issue-detail",
     data: data
   }) do %>
     <div data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
@@ -52,9 +52,6 @@
               </div>
             </div>
 
-            <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>
-              <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
-            <% end %>
 
             <% if issue.persisted? %>
               <div data-controller='issue--labels'
@@ -89,13 +86,24 @@
           <% end %>
         </div>
         <% if issue.persisted? %>
-          <div class="flex flex-col gap-2 text-sm font-medium text-readable-content-700 text-center">
-            <h5 class="w-full"><%= t("menu.actions") %></h5>
+          <div class="flex flex-col gap-2 items-stretch w-1/4 text-sm font-medium text-readable-content-700 text-left">
 
-            <%= link_to destroy_path, class: "btn-danger text-center inline-flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
-              <i class="fa-solid fa-trash"></i>
-              <%= t("actions.remove") %>
+            <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>
+              <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
             <% end %>
+
+            <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "mt-8 btn-outline-primary text-nowrap flex items-center py-2", data: { turbo_frame: "_top" } do %>
+              <span class="mr-2"><%= icon_for(:time_entries) %></span>
+              <span class="sm:block"><%= t("actions.start_time_tracking") %></span>
+            <% end %>
+
+            <div class="mt-4 flex flex-col items-stretch">
+              <h5 class="w-full mb-2"><%= t("menu.actions") %></h5>
+              <%= link_to destroy_path, class: "btn-danger flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
+                <i class="fa-solid fa-trash"></i>
+                <%= t("actions.remove") %>
+              <% end %>
+            </div>
           </div>
         <% end %>
 

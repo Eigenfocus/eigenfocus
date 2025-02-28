@@ -64,6 +64,7 @@ pt-BR:
     go_to_issue: 'Ir para issue'
     go_to_issues_list: 'Ir para lista de issues'
     go_to_time_tracking: "Ir para registro de tempo"
+    start_time_tracking: "Iniciar registro de tempo"
   flash:
     change_success: "Alteração feita com sucesso."
     change_error: "Houve um erro na hora de realizar a alteração."

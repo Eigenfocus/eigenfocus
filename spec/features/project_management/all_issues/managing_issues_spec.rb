@@ -197,4 +197,24 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     expect(Issue.where(id: issue.id)).not_to be_present
   end
+
+  specify "I can start time tracking for an issue" do
+    project = FactoryBot.create(:project)
+
+    issue = FactoryBot.create(:issue, title: "Issue testing title", project: project)
+
+    visit project_issues_path(project)
+
+    within dom_id(issue) do
+      find(".cpy-edit-button").click
+    end
+
+    within ".cpy-issue-detail" do
+      click_link "Start time tracking"
+    end
+
+    expect(page).to have_content("Create Time entry")
+
+    should_be_on(time_entries_path(new_entry: { project_id: project.id, issue_id: issue.id }))
+  end
 end

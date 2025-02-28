@@ -63,6 +63,7 @@ en:
     go_to_issue: 'Go to Issue'
     go_to_issues_list: 'Go to issues list'
     go_to_time_tracking: "Go to time tracking"
+    start_time_tracking: "Start time tracking"
   flash:
     change_success: "Change successfully made."
     change_error: "Change could not be made."

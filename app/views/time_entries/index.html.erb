@@ -6,6 +6,7 @@
   <%
     new_entry = TimeEntry.new
     new_entry.project = Project.find(params[:new_entry][:project_id])
+    new_entry.issue = new_entry.project.issues.find_by_id(params[:new_entry][:issue_id])
     new_entry.reference_date = @reference_date
   %>
   <%= render partial: 'form', locals: { time_entry: new_entry } %>
