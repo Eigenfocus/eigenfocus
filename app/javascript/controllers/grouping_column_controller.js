@@ -8,7 +8,7 @@ export default class extends Controller {
     "showFormButton",
     "inlineCardForm",
     "inlineCardFormTitle",
-    "collapseButton"
+    "content"
   ]
 
   static values = {
@@ -65,6 +65,7 @@ export default class extends Controller {
     e.stopPropagation()
     this.inlineCardFormTarget.requestSubmit()
   }
+
   closeForm() {
     this.hideInlineCardForm()
   }
@@ -123,6 +124,7 @@ export default class extends Controller {
 
   toggleCollapse() {
     this.collapsedValue = !this.collapsedValue
-    this.cardContainerTarget.classList.toggle('hidden')
+    this.contentTarget.classList.toggle('hidden')
+    this.element.style.width = this.collapsedValue ? '90px' : '256px'
   }
 }
