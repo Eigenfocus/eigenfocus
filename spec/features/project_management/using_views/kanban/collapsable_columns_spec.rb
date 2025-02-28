@@ -19,12 +19,12 @@ describe 'As a user, I want to collapse and expand columns on my kanban board' d
     within dom_id(grouping_todo) do
       expect(page).to have_content("Test issue")
 
-      find('.fa-chevron-left').click
+      find('.fa-down-left-and-up-right-to-center').click
     end
 
     within "#{dom_id(grouping_todo)}.collapsed" do
       expect(page).to_not have_content("Test issue")
-      expect(page).to have_css('.fa-chevron-right')
+      expect(page).to have_css('.fa-arrows-left-right-to-line')
     end
 
     expect(grouping_todo.reload.hidden).to be true
@@ -38,12 +38,12 @@ describe 'As a user, I want to collapse and expand columns on my kanban board' d
     within "#{dom_id(grouping_todo)}.collapsed" do
       expect(page).to_not have_content("Test issue")
 
-      find('.fa-chevron-right').click
+      find('.fa-arrows-left-right-to-line').click
     end
 
     within dom_id(grouping_todo) do
       expect(page).to have_content("Test issue")
-      expect(page).to have_css('.fa-chevron-left')
+      expect(page).to have_css('.fa-down-left-and-up-right-to-center')
     end
 
     expect(grouping_todo.reload.hidden).to be false
