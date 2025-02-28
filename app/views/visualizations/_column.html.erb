@@ -5,12 +5,23 @@
   data-controller="grouping-column"
   data-grouping-column-scroll-to-on-connect-value="<%= local_assigns[:recently_created] == true %>"
   data-grouping-column-grouping-id-value="<%= grouping.id %>"
+  data-grouping-column-collapsed-value="<%= grouping.collapsed %>"
   data-action="keypress.n@window->grouping-column#nWasPressed"
   data-visualization--board-target="column"
   >
   <header class="flex flex-row flex-nowrap gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id), class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700", data: { turbo_frame: 'grouping_form' } do %>
       <%= grouping.title %>
+    <% end %>
+
+    <%= link_to visualization_grouping_path(grouping.visualization_id, grouping, grouping: { collapsed: !grouping.collapsed }),
+          class: "text-readable-content-500 hover:text-readable-content-700 grow-0 shrink-0",
+          data: {
+            turbo_method: :patch,
+            grouping_column_target: "collapseButton",
+            action: "click->grouping-column#toggleCollapse"
+          } do %>
+      <i class="fa-solid <%= grouping.collapsed ? 'fa-chevron-down' : 'fa-chevron-up' %>"></i>
     <% end %>
 
     <button class="text-readable-content-500 grow-0 shrink-0 cpy-column-menu-button"
@@ -64,36 +75,38 @@
     </div>
   </header>
 
-  <ul
-    id="<%= grouping.id %>-cards-wrapper"
-    class="flex flex-col flex-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth js-no-column-drag cpy-drop-zone"
-    data-controller="sortable"
-    data-sortable-target="container"
-    data-sortable-shared-group-value="cards"
-    data-sortable-move-path-value="<%= move_allocations_path %>"
-    data-sortable-grouping-id="<%= grouping.id %>"
-    data-grouping-column-target="cardContainer"
-    >
+  <div>
+    <ul
+      id="<%= grouping.id %>-cards-wrapper"
+      class="<%= 'hidden' if grouping.collapsed %>" flex flex-col flex-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth js-no-column-drag cpy-drop-zone"
+      data-controller="sortable"
+      data-sortable-target="container"
+      data-sortable-shared-group-value="cards"
+      data-sortable-move-path-value="<%= move_allocations_path %>"
+      data-sortable-grouping-id="<%= grouping.id %>"
+      data-grouping-column-target="cardContainer"
+      >
 
-    <% grouping.issues.each do |issue| %>
-      <%= render partial: 'visualizations/card', locals: {
-        issue:,
-        visualization: ,
-        scroll_on_connect: local_assigns[:open_issue] == issue
-      } %>
-    <% end %>
-  </ul>
+      <% grouping.issues.each do |issue| %>
+        <%= render partial: 'visualizations/card', locals: {
+          issue:,
+          visualization: ,
+          scroll_on_connect: local_assigns[:open_issue] == issue
+        } %>
+      <% end %>
+    </ul>
 
-  <div class="sticky bottom-0 w-full">
-    <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping:, visualization: } %>
-    <button class="cpy-inline-create-button w-full group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
-      data-grouping-column-target="showFormButton"
-      data-action="click->grouping-column#showInlineCardForm">
-      <i class="fa-solid fa-plus mr-2"></i>
-      <p class="grow text-left">
-        <%= t('visualizations.column_menu.create_issue') %>
-      </p>
-      <span class="group-hover:flex hidden text-xs font-medium ml-2 mr-2"><%= t("actions.press") %> N</span>
-    </button>
+    <div class="sticky bottom-0 w-full">
+      <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping:, visualization: } %>
+      <button class="cpy-inline-create-button w-full group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
+        data-grouping-column-target="showFormButton"
+        data-action="click->grouping-column#showInlineCardForm">
+        <i class="fa-solid fa-plus mr-2"></i>
+        <p class="grow text-left">
+          <%= t('visualizations.column_menu.create_issue') %>
+        </p>
+        <span class="group-hover:flex hidden text-xs font-medium ml-2 mr-2"><%= t("actions.press") %> N</span>
+      </button>
+    </div>
   </div>
 </li>

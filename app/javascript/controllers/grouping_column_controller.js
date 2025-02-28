@@ -7,12 +7,14 @@ export default class extends Controller {
     "cardContainer",
     "showFormButton",
     "inlineCardForm",
-    "inlineCardFormTitle"
+    "inlineCardFormTitle",
+    "collapseButton"
   ]
 
   static values = {
     scrollToOnConnect: Boolean,
-    groupingId: String
+    groupingId: String,
+    collapsed: Boolean
   }
 
   connect() {
@@ -117,5 +119,10 @@ export default class extends Controller {
 
       destinationCard.insertAdjacentElement('beforebegin', card)
     }
+  }
+
+  toggleCollapse() {
+    this.collapsedValue = !this.collapsedValue
+    this.cardContainerTarget.classList.toggle('hidden')
   }
 }
