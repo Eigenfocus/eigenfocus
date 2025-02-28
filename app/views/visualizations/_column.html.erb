@@ -76,40 +76,40 @@
     </div>
   </header>
 
-  <div data-grouping-column-target="content" class="flex-1 flex flex-col <%= 'hidden' if grouping.hidden %>">
-    <ul
-      id="<%= grouping.id %>-cards-wrapper"
-      class="flex flex-col flex-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth js-no-column-drag cpy-drop-zone"
-      data-controller="sortable"
-      data-sortable-target="container"
-      data-sortable-shared-group-value="cards"
-      data-sortable-move-path-value="<%= move_allocations_path %>"
-      data-sortable-grouping-id="<%= grouping.id %>"
-      data-grouping-column-target="cardContainer"
-      >
 
-      <% unless grouping.hidden %>
-        <% grouping.issues.each do |issue| %>
-          <%= render partial: 'visualizations/card', locals: {
-            issue:,
-            visualization: ,
-            scroll_on_connect: local_assigns[:open_issue] == issue
-          } %>
-        <% end %>
+  <ul
+    id="<%= grouping.id %>-cards-wrapper"
+    class="flex <%= 'hidden' if grouping.hidden %> flex-col flex-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth js-no-column-drag cpy-drop-zone"
+    data-controller="sortable"
+    data-sortable-target="container"
+    data-sortable-shared-group-value="cards"
+    data-sortable-move-path-value="<%= move_allocations_path %>"
+    data-sortable-grouping-id="<%= grouping.id %>"
+    data-grouping-column-target="cardContainer"
+    >
+
+    <% unless grouping.hidden %>
+      <% grouping.issues.each do |issue| %>
+        <%= render partial: 'visualizations/card', locals: {
+          issue:,
+          visualization: ,
+          scroll_on_connect: local_assigns[:open_issue] == issue
+        } %>
       <% end %>
-    </ul>
+    <% end %>
+  </ul>
 
-    <div class="sticky bottom-0 w-full">
-      <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping:, visualization: } %>
-      <button class="cpy-inline-create-button w-full group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
-        data-grouping-column-target="showFormButton"
-        data-action="click->grouping-column#showInlineCardForm">
-        <i class="fa-solid fa-plus mr-2"></i>
-        <p class="grow text-left">
-          <%= t('visualizations.column_menu.create_issue') %>
-        </p>
-        <span class="group-hover:flex hidden text-xs font-medium ml-2 mr-2"><%= t("actions.press") %> N</span>
-      </button>
-    </div>
+  <div class="sticky bottom-0 w-full">
+    <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping:, visualization: } %>
+    <button class="cpy-inline-create-button w-full group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
+      data-grouping-column-target="showFormButton"
+      data-action="click->grouping-column#showInlineCardForm">
+      <i class="fa-solid fa-plus mr-2"></i>
+      <p class="grow text-left">
+        <%= t('visualizations.column_menu.create_issue') %>
+      </p>
+      <span class="group-hover:flex hidden text-xs font-medium ml-2 mr-2"><%= t("actions.press") %> N</span>
+    </button>
   </div>
+
 </li>
