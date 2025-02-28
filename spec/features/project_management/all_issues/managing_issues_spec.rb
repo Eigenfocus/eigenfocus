@@ -106,6 +106,9 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
   specify "I can add a new issue" do
     project = FactoryBot.create(:project)
+    project.issue_labels.create(title: "Development")
+    project.issue_labels.create(title: "Testing")
+    project.issue_labels.create(title: "Bug")
 
     visit project_issues_path(project)
 
@@ -114,14 +117,18 @@ describe 'As a project manager, I want to manage my issues from all issues' do
     within '#new_issue_form' do
       fill_in 'issue_title', with: "My issue"
       write_in_md_editor_field("My description")
-      click_button 'Create'
     end
+
+    select_from_select2(selector: '.cpy-by-labels-titles .select2', option_text: "Development")
+
+    click_button 'Create'
 
     within 'table' do
       expect(page).to have_content("My issue")
     end
 
     expect(Issue.last.title).to eq("My issue")
+    expect(Issue.last.labels_list).to eq([ "Development" ])
     expect(Issue.last.description).to eq("My description")
   end
 

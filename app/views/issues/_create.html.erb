@@ -25,6 +25,19 @@
         <%= f.text_field :title, autofocus: true, class: "input-primary" %>
       </div>
 
+      <div class="mb-4 cpy-by-labels-titles flex flex-col items-stretch gap-2">
+        <%= f.label :labels_list, Issue.human_attribute_name(:label_ids), class: "label-primary" %>
+
+        <% available_options = (issue.labels_list + issue.project.issue_labels.map(&:title)).uniq.sort %>
+        <%= f.select :labels_list,
+            available_options,
+            { include_blank: false },
+            {
+              class: 'input-primary', multiple: true,
+              data: { controller: 'select2', tags: true }
+            } %>
+      </div>
+
       <%= render partial: 'issues/description_field', locals: { f:, issue: } %>
 
       <div class="flex gap-2 justify-center">

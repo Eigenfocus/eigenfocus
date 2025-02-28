@@ -20,7 +20,7 @@ class Projects::IssuesController < ApplicationController
   end
 
   def new
-    @issue = Issue.new
+    @issue = current_project.issues.new
   end
 
   def create
@@ -31,7 +31,8 @@ class Projects::IssuesController < ApplicationController
     else
       render turbo_stream: turbo_stream.replace(
         "new_issue_form",
-        partial: "issues/create", locals: { issue: @issue }
+        partial: "issues/create", locals: { issue: @issue,
+        create_issue_url: project_issues_path(current_project) }
       )
     end
   end
@@ -72,6 +73,6 @@ class Projects::IssuesController < ApplicationController
   end
 
   def permitted_params
-    params.require(:issue).permit(:title, :description, files: [])
+    params.require(:issue).permit(:title, :description, files: [], labels_list: [])
   end
 end
