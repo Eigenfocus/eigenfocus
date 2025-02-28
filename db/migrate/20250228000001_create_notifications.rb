@@ -4,6 +4,7 @@ class CreateNotifications < ActiveRecord::Migration[8.0]
       t.string :title, null: false
       t.text :content
       t.json :announcement_modes, null: false, default: []
+      t.boolean :external_link, default: false
       t.string :external_id
       t.datetime :read_at
       t.datetime :published_at
