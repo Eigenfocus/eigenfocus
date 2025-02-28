@@ -1,0 +1,17 @@
+<div id="<%= dom_id(notification) %>" class="cpy-notification p-4 border-b border-background-200 last:border-b-0 hover:bg-background-50">
+  <div class="flex items-start gap-3">
+    <div class="flex-1">
+      <p class="text-sm text-readable-content-600"><%= notification.content %></p>
+      <p class="text-xs text-readable-content-400 mt-1">
+        <%= time_ago_in_words(notification.published_at) %> ago
+      </p>
+    </div>
+    <% unless notification.read? %>
+      <%= button_to mark_as_read_notification_path(notification),
+          class: "text-xs text-primary-500 hover:text-primary-600 cpy-mark-as-read",
+          data: { turbo_method: :post } do %>
+        <i class="fa-solid fa-circle-check"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

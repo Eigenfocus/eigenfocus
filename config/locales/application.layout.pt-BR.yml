@@ -1,6 +1,5 @@
 pt-BR:
   layouts:
-
     guide_modal:
       title: "Nossas funcionalidades"
       description_html: "Visão geral das nossas funcionalidades.<br/>Esperamos que você goste."
@@ -28,6 +27,8 @@ pt-BR:
       current_version: "Versão atual"
       check_our_github: "Veja nosso Github"
       outdated_alert_html: "Sua versão está desatualizada.<br/>Nossa versão mais atual é %{newest_version}."
+      notifications: "Notificações"
+      mark_all_as_read: "Marcar tudo como lido"
     sidebar:
       edit_profile: "Editar perfil"
       profile_options: "Perfil e configurações"

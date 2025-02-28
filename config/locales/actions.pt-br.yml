@@ -95,3 +95,6 @@ pt-BR:
         filter_by_issue_labels: 'Filtrar por labels de issues'
         entry_start_at: 'Começando em'
         entry_end_at: 'Terminando em'
+  notifications:
+    list:
+      no_notifications: "Sem notificações ainda"

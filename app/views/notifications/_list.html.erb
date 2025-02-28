@@ -1,0 +1,9 @@
+<div id="notifications" class="notifications-list max-h-96 overflow-y-auto divide-y divide-background-200">
+  <% if notifications.any? %>
+    <%= render partial: "notifications/notification", collection: notifications %>
+  <% else %>
+    <div class="p-4 text-center text-readable-content-400">
+      <p class="text-sm"><%= t(".no_notifications") %></p>
+    </div>
+  <% end %>
+</div>

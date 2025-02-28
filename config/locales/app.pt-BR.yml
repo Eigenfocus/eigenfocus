@@ -87,6 +87,10 @@ pt-BR:
       destroy:
         notice: "%{resource_name} removido(a) com sucesso."
         alert: "%{resource_name} não pode ser removido(a)."
+      mark_as_read:
+        notice: "Notificação foi marcada como lida"
+      mark_all_as_read:
+        notice: "Todas as notificações foram marcadas como lida"
 
   date:
     abbr_day_names:
