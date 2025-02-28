@@ -8,17 +8,6 @@ class AppVersionUpdater
     @app_metadata = app_metadata
   end
 
-  def should_fetch_newest_release?
-    return false if Rails.env.development?
-    return false if Rails.env.test?
-    last_release_check_expired?
-  end
-
-  def last_release_check_expired?
-    app_metadata.last_released_version_checked_at.nil? ||
-    app_metadata.last_released_version_checked_at.before?(1.day.ago)
-  end
-
   def update_newest_release_metadata!
     # Even if the fetch fails, we set this
     # in order to try again after the date period expires
