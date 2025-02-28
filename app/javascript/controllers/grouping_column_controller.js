@@ -63,6 +63,7 @@ export default class extends Controller {
     e.stopPropagation()
     this.inlineCardFormTarget.requestSubmit()
   }
+
   closeForm() {
     this.hideInlineCardForm()
   }

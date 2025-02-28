@@ -60,6 +60,6 @@ class Visualizations::GroupingsController < ApplicationController
   end
 
   def permitted_params
-    params.require(:grouping).permit(:title)
+    params.require(:grouping).permit(:title, :hidden)
   end
 end
