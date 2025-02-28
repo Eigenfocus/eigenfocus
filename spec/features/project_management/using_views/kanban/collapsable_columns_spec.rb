@@ -27,7 +27,6 @@ describe 'As a user, I want to collapse and expand columns on my kanban board' d
       expect(page).to have_css('.fa-chevron-right')
     end
 
-
     expect(grouping_todo.reload.hidden).to be true
   end
 

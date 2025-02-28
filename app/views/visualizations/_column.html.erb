@@ -12,8 +12,7 @@
   >
   <header class="flex flex-row flex-nowrap justify-between items-center gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id),
-          class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700 #{'text-wrap text-center' if grouping.hidden}",
-          style: "word-break: break-all;text-transform: uppercase;",
+          class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700 #{'text-wrap uppercase text-center text-uppcase break-all' if grouping.hidden}",
           data: { turbo_frame: 'grouping_form' } do %>
       <%= grouping.title %>
     <% end %>
