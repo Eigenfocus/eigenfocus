@@ -1,5 +1,5 @@
 <% animation_css = local_assigns[:recently_created] ? "animate__animated animate__zoomIn" : "" %>
-<li class="max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs cpy-grouping js-sortable-container <%= animation_css %> transition-all duration-200"
+<li class="max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs cpy-grouping js-sortable-container <%= animation_css %> <%= 'collapsed' if grouping.collapsed %> transition-all duration-200"
   style="animation-duration: 240ms; width: <%= grouping.collapsed ? '70px' : '256px' %>;"
   id="<%= dom_id(grouping) %>"
   data-controller="grouping-column"
@@ -11,7 +11,7 @@
   >
   <header class="flex flex-row flex-nowrap justify-between items-center gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id),
-          class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700 #{'text-wrap' if grouping.collapsed}",
+          class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700 #{'text-wrap text-center' if grouping.collapsed}",
           style: "word-break: break-all;text-transform: uppercase;",
           data: { turbo_frame: 'grouping_form' } do %>
       <%= grouping.title %>
@@ -21,9 +21,7 @@
       <%= link_to visualization_grouping_path(grouping.visualization_id, grouping, grouping: { collapsed: !grouping.collapsed }),
             class: "ml-2 text-readable-content-500 hover:text-readable-content-700 ",
             data: {
-              turbo_method: :patch,
-              grouping_column_target: "collapseButton",
-              action: "click->grouping-column#toggleCollapse"
+              turbo_method: :patch
             } do %>
         <i class="fa-solid <%= grouping.collapsed ? 'fa-chevron-right' : 'fa-chevron-left' %>"></i>
       <% end %>
