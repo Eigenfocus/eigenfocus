@@ -59,4 +59,28 @@ class Issue < ApplicationRecord
       [ id, title.parameterize ].join("-")
     end
   end
+
+  def labels_list=(labels_input)
+    return if labels_input.blank?
+
+    label_titles = if labels_input.is_a?(Array)
+      labels_input
+    else
+      labels_input.split(",").map(&:strip)
+    end
+
+    @labels_list = label_titles.reject(&:blank?)
+  end
+
+  def labels_list
+    @labels_list || labels.map(&:title)
+  end
+
+  before_commit :apply_labels_list, unless: -> { labels_list.blank? }
+
+  def apply_labels_list
+    self.labels = @labels_list.map do |title|
+      project.issue_labels.with_title(title).first_or_create
+    end
+  end
 end
