@@ -1,4 +1,5 @@
 <% animation_css = local_assigns[:recently_created] ? "animate__animated animate__zoomIn" : "" %>
+
 <li class="max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs cpy-grouping js-sortable-container <%= animation_css %> <%= 'collapsed' if grouping.hidden %> transition-all duration-200"
   style="animation-duration: 240ms; width: <%= grouping.hidden ? '70px' : '256px' %>;"
   id="<%= dom_id(grouping) %>"
