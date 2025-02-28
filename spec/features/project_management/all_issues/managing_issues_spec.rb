@@ -210,7 +210,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
     end
 
     within ".cpy-issue-detail" do
-      click_link "Start time tracking"
+      click_link "Track time"
     end
 
     expect(page).to have_content("Create Time entry")

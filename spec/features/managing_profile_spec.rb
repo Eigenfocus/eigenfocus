@@ -23,9 +23,9 @@ describe 'When entering my workspace for the first time' do
     should_be_on root_path
 
     project = Project.first
-    expect(project.name).to eq("Eigenfocus - Tour Project")
+    expect(project.name).to eq("Eigenfocus - Tour Example Project")
 
-    expect(page).to have_content("Eigenfocus - Tour Project")
+    expect(page).to have_content("Eigenfocus - Tour Example Project")
   end
 
   specify "I can update my profile" do

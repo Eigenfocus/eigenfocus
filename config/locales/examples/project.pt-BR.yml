@@ -1,0 +1,32 @@
+pt-BR:
+  examples:
+    project_template:
+      project:
+      name: "Eigenfocus - Projeto de Exemplo"
+      groupings:
+        to_do: "Pendente"
+        in_progress: "Em Andamento"
+        done: "Concluído"
+      issues:
+        create_project:
+          title: "Criar um novo projeto"
+          description: "Você já completou esta etapa! O projeto foi criado automaticamente para você."
+        enter_board:
+          title: "Entrar no quadro do projeto"
+          description: "Você já está aqui! Esta visualização de quadro te ajuda a organizar suas issues em colunas."
+        move_issue:
+          title: "Mover uma issue de Em Andamento para Concluído"
+          description: "Tente arrastar este cartão para a coluna Concluído. Você pode mover qualquer issue entre as colunas para acompanhar seu progresso."
+        create_issue:
+          title: "Criar uma nova issue"
+          description: "Clique no botão + na parte inferior de qualquer coluna para criar uma nova issue."
+        open_issue:
+          title: "Abrir o cartão da issue"
+          description: |
+            Clique em qualquer cartão de issue para ver seus detalhes. Você pode:
+            - Adicionar labels (etiquetas) para categorizar suas issues
+            - Fazer upload de arquivos e anexos
+            - Adicionar descrições detalhadas usando markdown
+        track_time:
+          title: "Começar a registrar tempo"
+          description: "O registro de tempo ajuda você a monitorar quanto tempo gasta em cada tarefa. Clique em 'Registrar tempo' para testar."
