@@ -7,9 +7,12 @@ import "channels"
 
 import jquery from 'jquery';
 import select2 from 'select2';
+import dispatcher from "./services/dispatcher";
+import "./services/turbo_stream_dispatcher";
 
 window.jQuery = jquery
 window.$ = jquery
+window.dispatcher = dispatcher
 select2($);
 
 // Dirty patch to remove tag when pressing backspace
