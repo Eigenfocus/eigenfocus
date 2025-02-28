@@ -99,6 +99,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_28_114444) do
     t.string "title", null: false
     t.text "content"
     t.json "announcement_modes", default: [], null: false
+    t.boolean "external_link", default: false
     t.string "external_id"
     t.datetime "read_at"
     t.datetime "published_at"
