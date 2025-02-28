@@ -33,6 +33,9 @@ gem "positioning", "~> 0.4"
 # Real-time updates
 gem "solid_cable", "~> 3.0"
 
+# Background job processing
+gem "solid_queue", "~> 1.1"
+
 # Filter and pagination
 gem "ransack", "~> 4.3"
 gem "pagy", "~> 9.3"
