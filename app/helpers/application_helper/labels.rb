@@ -16,7 +16,7 @@ module ApplicationHelper
 
     def labels_list_for(issue, list_tag_options = {}, label_tag_options = {})
       options = {
-        class: "flex-wrap flex gap-1",
+        class: "flex-wrap flex gap-1 hide-if-empty",
         data: {
           "issue-labels-list": true
         }

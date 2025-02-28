@@ -37,6 +37,17 @@ pt-BR:
       edit_column: 'Editar coluna'
       create_issue: 'Criar issue'
       destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Todas as issues dela serão movidas para "Sem coluna"!'
+      current_column: 'Coluna atual'
+      move_all_issues: 'Mover todas as issues'
+    groupings:
+      move_all_issues_modal:
+        title: "Mover todas as issues de %{grouping}"
+        description: "Selecione uma coluna para mover todas as issues:"
+        current_column: "Coluna atual"
+      flash:
+        groupings:
+          move_all_issues:
+            success: "Todas as issues foram movidas com sucesso"
     issues:
       form:
         destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"

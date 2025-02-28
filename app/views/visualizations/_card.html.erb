@@ -7,7 +7,7 @@
   data-grouping-column-issue-id-value="<%= issue.id %>"
   data-visualization--issue-filtering-target="issue">
   <%= link_to show_visualization_issue_path(visualization, issue),
-    class: "group relative flex flex-col text-sm text-content-500 border-2 border-background-200 bg-background-50 hover:bg-background-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-3",
+    class: "group relative flex flex-col gap-2 text-sm text-content-500 border-2 border-background-200 bg-background-50 hover:bg-background-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-3",
     data: {
       turbo_frame: 'issue_detail',
       turbo_action: 'advance'
@@ -21,9 +21,7 @@
       <%= issue.title %>
     </h2>
 
-    <div class="mt-2 hide-if-empty">
-      <%= labels_list_for(issue) %>
-    </div>
+    <%= labels_list_for(issue) %>
 
     <%= render partial: 'visualizations/groupings/_card/icons', locals: { issue: } %>
   <% end %>

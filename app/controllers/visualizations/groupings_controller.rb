@@ -34,6 +34,26 @@ class Visualizations::GroupingsController < ApplicationController
     current_visualization.groupings.find_by(position: move_params[:from][:position]).update(position: move_params[:to][:position])
   end
 
+  def move_all_issues
+    @source_grouping = current_visualization.groupings.find(params[:id])
+
+    render partial: "move_all_issues_modal", locals: {
+      visualization: current_visualization,
+      source_grouping: @source_grouping
+    }
+  end
+
+  def move_all_issues_to
+    @source_grouping = current_visualization.groupings.find(params[:id])
+    @target_grouping = current_visualization.groupings.includes(:allocations).find(params[:target_grouping_id])
+
+    ActiveRecord::Base.transaction do
+      @source_grouping.allocations.each do |allocation|
+        allocation.update(grouping: @target_grouping, position: :last)
+      end
+    end
+  end
+
   private
   def current_visualization
     @current_visualization ||= Visualization.find(params[:visualization_id])

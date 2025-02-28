@@ -35,6 +35,10 @@ Rails.application.routes.draw do
   resources :visualizations, path: "v", only: [ :show, :update ] do
     scope module: :visualizations do
       resources :groupings, only: [ :new, :create, :edit, :update, :destroy ] do
+        member do
+          get :move_all_issues
+          post :move_all_issues_to
+        end
         collection do
           post :move
         end

@@ -19,6 +19,17 @@ en:
       edit_column: 'Edit column'
       create_issue: 'Create issue'
       destroy_confirmation: 'Are you sure you want to delete "%{title}" column? All its issues are going to be moved to "No column"!'
+      current_column: 'Current column'
+      move_all_issues: Move all issues
+    groupings:
+      move_all_issues_modal:
+        title: "Move all issues from %{grouping}"
+        description: "Select a target column to move all issues to:"
+        current_column: "Current column"
+      flash:
+        groupings:
+          move_all_issues:
+            success: "All issues were successfully moved"
     issues:
       form:
         destroy_confirmation: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"

@@ -1,5 +1,5 @@
 
-<%= turbo_frame_tag dom_id(issue, 'card-icons') do %>
+<%= turbo_frame_tag dom_id(issue, 'card-icons'), class: "hide-if-empty" do %>
   <%
     # Checking with only css like :empty doesn't work well because there
     # is still a blank space and the pseudo class is not applied
@@ -10,7 +10,7 @@
   %>
 
   <% if has_any_icon_showing %>
-    <div class="flex mt-2 flex-row items-stretch justify-start gap-3 text-readable-content-500">
+    <div class="flex flex-row items-stretch justify-start gap-3 text-readable-content-500">
       <% if issue.description.present? %>
         <i class="fa-solid text-sm fa-align-justify"></i>
       <% end %>
