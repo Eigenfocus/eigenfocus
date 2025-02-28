@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'When entering my workspace for the first time' do
   specify "I should be direct to edit a new profile" do
     expect(User.count).to eq(0)
+    expect(Project.count).to eq(0)
 
     visit projects_path
 
@@ -21,9 +22,11 @@ describe 'When entering my workspace for the first time' do
 
     should_be_on root_path
 
-    expect(page).to have_content("Here is an overview of our current features.")
-  end
+    project = Project.first
+    expect(project.name).to eq("Eigenfocus - Tour Example Project")
 
+    expect(page).to have_content("Eigenfocus - Tour Example Project")
+  end
 
   specify "I can update my profile" do
     user = FactoryBot.create(:user, timezone: 'Cairo')
@@ -42,5 +45,8 @@ describe 'When entering my workspace for the first time' do
     user.reload
     expect(user.timezone).to eq('Rome')
     expect(page).to have_content("Profile succesfully updated.")
+
+    # Verify no example project is created on subsequent updates
+    expect(Project.count).to eq(0)
   end
 end

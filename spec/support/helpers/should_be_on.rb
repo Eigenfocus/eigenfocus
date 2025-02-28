@@ -2,11 +2,11 @@
 module RSpec::Helpers
   module Features
     def should_be_on(path)
-      expect(URI.parse(current_url).path).to eq(path)
+      expect(URI.parse(current_url).request_uri).to eq(path)
     end
 
     def should_not_be_on(path)
-      expect(URI.parse(current_url).path).to_not eq(path)
+      expect(URI.parse(current_url).request_uri).to_not eq(path)
     end
   end
 end

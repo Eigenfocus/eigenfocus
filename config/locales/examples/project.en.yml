@@ -1,0 +1,33 @@
+en:
+  examples:
+    project_template:
+      project:
+        name: "Eigenfocus - Tour Example Project"
+      groupings:
+        to_do: "To Do"
+        in_progress: "In Progress"
+        done: "Done"
+      issues:
+        create_project:
+          title: "Create a new project"
+          description: "You've already completed this step! The project was created automatically for you."
+        enter_board:
+          title: "Enter the project board"
+          description: "You're already here! This board view helps you organize your issues in columns."
+        move_issue:
+          title: "Move an issue from In Progress to Done"
+          description: "Try dragging this card to the Done column. You can move any issue between columns to track its progress."
+        create_issue:
+          title: "Create a new issue"
+          description: "Click the + button at the bottom of any column to create a new issue."
+        open_issue:
+          title: "Open the issue card"
+          description: |
+            Click on any issue card to see its details. You can:
+
+            - Add labels to categorize your issues
+            - Upload files and attachments
+            - Add detailed descriptions using markdown
+        track_time:
+          title: "Start tracking time"
+          description: "Time tracking helps you monitor how long you spend on each task. Click the 'Track time' to test it out."

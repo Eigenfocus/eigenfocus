@@ -114,6 +114,6 @@ context "As a user, I want to manage my projects" do
       )
     end
 
-    should_be_on(time_entries_path)
+    should_be_on(time_entries_path(new_entry: { project_id: project_beta.id }))
   end
 end
