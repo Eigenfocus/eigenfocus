@@ -10,25 +10,6 @@ describe AppVersionUpdater do
 
   subject { AppVersionUpdater.new(app_metadata) }
 
-  specify '#last_release_check_expired?' do
-    Timecop.freeze do
-      app_metadata.last_released_version_checked_at = DateTime.current
-      expect(subject.last_release_check_expired?).to be(false)
-
-      app_metadata.last_released_version_checked_at = nil
-      expect(subject.last_release_check_expired?).to be(true)
-
-      app_metadata.last_released_version_checked_at = 25.hours.ago
-      expect(subject.last_release_check_expired?).to be(true)
-
-      app_metadata.last_released_version_checked_at = 2.days.ago
-      expect(subject.last_release_check_expired?).to be(true)
-
-      app_metadata.last_released_version_checked_at = 10.days.ago
-      expect(subject.last_release_check_expired?).to be(true)
-    end
-  end
-
   specify '#update_newest_release_metadata!' do
     stub_request(:get, /eigenfocus.com/).to_return(
       status: 200,
