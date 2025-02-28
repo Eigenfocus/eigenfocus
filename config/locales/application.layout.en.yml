@@ -38,6 +38,8 @@ en:
         board: "Using the workflow board"
         features_list: "Features overview"
         more: "More Guides"
+      notifications: "Notifications"
+      mark_all_as_read: "Mark all as read"
     sidebar:
       edit_profile: "Edit profile"
       profile_options: "Profile & Settings"

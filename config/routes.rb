@@ -90,6 +90,15 @@ Rails.application.routes.draw do
 
   resource :profile, only: [ :edit, :update ]
 
+  resources :notifications, only: [] do
+    member do
+      post :mark_as_read
+    end
+    collection do
+      post :mark_all_as_read
+    end
+  end
+
   # Defines the root path route ("/")
   root "projects#index"
 end

@@ -86,6 +86,10 @@ en:
       destroy:
         notice: "%{resource_name} was successfully destroyed."
         alert: "%{resource_name} could not be destroyed."
+      mark_as_read:
+        notice: "Notification was marked as read"
+      mark_all_as_read:
+        notice: "All notification were marked as read"
   time:
     formats:
       month_name_year: "%B %Y"
