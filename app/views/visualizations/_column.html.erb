@@ -1,7 +1,7 @@
 <% animation_css = local_assigns[:recently_created] ? "animate__animated animate__zoomIn" : "" %>
 
-<li class="max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-background-100 rounded-md shadow-xs cpy-grouping js-sortable-container <%= animation_css %> <%= 'collapsed' if grouping.hidden %> transition-all duration-200"
-  style="animation-duration: 240ms; width: <%= grouping.hidden ? '50px' : '256px' %>;"
+<li class="board--column cpy-grouping <%= animation_css %> <%= 'collapsed' if grouping.hidden %>"
+  style="animation-duration: 240ms;"
   id="<%= dom_id(grouping) %>"
   data-controller="grouping-column"
   data-grouping-column-scroll-to-on-connect-value="<%= local_assigns[:recently_created] == true %>"
@@ -9,14 +9,20 @@
   data-action="keypress.n@window->grouping-column#nWasPressed"
   data-visualization--board-target="column"
   >
-  <header class="flex <%= grouping.hidden ? 'flex-col' : 'flex-row' %> flex-nowrap justify-between items-center gap-x-1 mb-4 px-2 relative" data-controller="dropdown">
+  <header class="board--column--header" data-controller="dropdown">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id),
-          class: "grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700 #{'text-wrap uppercase text-center break-all' if grouping.hidden}",
+          class: "board--column--header-title",
           data: { turbo_frame: 'grouping_form' } do %>
-      <%= grouping.title %>
+      <% if grouping.hidden %>
+        <% grouping.title.each_char do |char| %>
+          <span><%= char %></span>
+        <% end %>
+      <% else %>
+        <%= grouping.title %>
+      <% end %>
     <% end %>
 
-    <div class="flex <%= grouping.hidden ? 'order-first' : '' %> flex-row gap-4 grow-0 shrink-0 relative">
+    <div class="board--column--header-actions">
       <%= link_to visualization_grouping_path(grouping.visualization_id, grouping, grouping: { hidden: !grouping.hidden }),
             class: "text-readable-content-500 hover:text-readable-content-700 ",
             data: {
@@ -76,10 +82,9 @@
     </div>
   </header>
 
-
   <ul
     id="<%= grouping.id %>-cards-wrapper"
-    class="flex <%= 'hidden' if grouping.hidden %> flex-col flex-auto flex-nowrap gap-y-2 items-stretch overflow-y-auto overflow-x-hidden scroll-smooth js-no-column-drag cpy-drop-zone"
+    class="board--column--card-list js-no-column-drag cpy-drop-zone"
     data-controller="sortable"
     data-sortable-target="container"
     data-sortable-shared-group-value="cards"
@@ -99,17 +104,16 @@
     <% end %>
   </ul>
 
-  <div class="sticky bottom-0 w-full">
+  <div class="board--column--footer">
     <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping:, visualization: } %>
-    <button class="cpy-inline-create-button w-full group flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md"
+    <button class="board--column--create-button cpy-inline-create-button"
       data-grouping-column-target="showFormButton"
       data-action="click->grouping-column#showInlineCardForm">
       <i class="fa-solid fa-plus mr-2"></i>
       <p class="grow text-left">
         <%= t('visualizations.column_menu.create_issue') %>
       </p>
-      <span class="group-hover:flex hidden text-xs font-medium ml-2 mr-2"><%= t("actions.press") %> N</span>
+      <span class="board--column--create-button-shortcut"><%= t("actions.press") %> N</span>
     </button>
   </div>
-
 </li>
