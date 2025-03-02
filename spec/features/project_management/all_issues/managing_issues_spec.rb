@@ -222,6 +222,6 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     expect(page).to have_content("Create Time entry")
 
-    should_be_on(time_entries_path(new_entry: { project_id: project.id, issue_id: issue.id }))
+    expect(page).to have_current_path(time_entries_path(new_entry: { project_id: project.id, issue_id: issue.id }))
   end
 end
