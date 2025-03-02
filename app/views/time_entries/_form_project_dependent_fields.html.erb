@@ -9,26 +9,26 @@
       <%= form.label :issue, TimeEntry.human_attribute_name(:issue), class: "label-primary" %>
 
       <% if time_entry.project.present? %>
-        <%= link_to visualization_path(time_entry.project.default_visualization),
-                    class: "link-primary text-xs",
+        <%= link_to project_issues_path(time_entry.project),
+                    class: "link-primary flex items-center gap-1 text-xs",
                     tabindex: '-1',
                     data: {
                       turbo_frame: "_top",
-                      time_entry__form_target: "boardLink"
+                      time_entry__form_target: "allIssuesLink"
                     } do %>
-          <span class="mr-1"><%= icon_for(:boards) %></span>
-          <%= t("actions.go_to_board") %>
+          <%= icon_for(:issues) %>
+          <%= t("actions.go_to_issues_list") %>
         <% end %>
 
         <%= link_to '',
-                    class: "link-primary text-xs hidden",
+                    class: "link-primary flex items-center gap-1 text-xs hidden",
                     tabindex: '-1',
                     data: {
                       issue_url: project_show_issue_path(time_entry.project, 'REPLACE_WITH_ISSUE_ID'),
                       turbo_frame: "_top",
                       time_entry__form_target: "issueLink"
                     } do %>
-          <span class="mr-1"><%= icon_for(:issues) %></span>
+          <%= icon_for(:issues) %>
           <%= t("actions.go_to_issue") %>
         <% end %>
       <% end %>
@@ -45,7 +45,7 @@
               data: {
                 controller: "select2",
                 time_entry__form_target: 'issuesSelect',
-                action: "change->time-entry--form#toggleLinks"
+                action: "change->time-entry--form#toggleIssueLinks"
               }
             } %>
       <% else %>

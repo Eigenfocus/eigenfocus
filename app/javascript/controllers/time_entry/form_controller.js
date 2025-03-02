@@ -1,28 +1,27 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["boardLink", "issueLink", "issuesSelect"]
+  static targets = ["allIssuesLink", "issueLink", "issuesSelect"]
 
   connect() {
-    this.toggleLinks()
+    this.toggleIssueLinks()
   }
 
-  toggleLinks() {
-    const hasIssue = this.issueIdValue !== ''
-    this.updateLinks()
-    console.log(this.issueIdValue)
-    this.boardLinkTarget.classList.toggle('hidden', hasIssue)
+  toggleIssueLinks() {
+    const hasIssue = this.selectedIssueId !== ''
+    this.updateIssueLinks()
+    this.allIssuesLinkTarget.classList.toggle('hidden', hasIssue)
     this.issueLinkTarget.classList.toggle('hidden', !hasIssue)
   }
 
-  updateLinks() {
-    if (this.issueIdValue) {
-      const newUrl = this.issueLinkTarget.dataset.issueUrl.replace('REPLACE_WITH_ISSUE_ID', this.issueIdValue)
+  updateIssueLinks() {
+    if (this.selectedIssueId) {
+      const newUrl = this.issueLinkTarget.dataset.issueUrl.replace('REPLACE_WITH_ISSUE_ID', this.selectedIssueId)
       this.issueLinkTarget.href = newUrl
     }
   }
 
-  get issueIdValue() {
+  get selectedIssueId() {
     return this.issuesSelectTarget.value
   }
 }
