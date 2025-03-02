@@ -32,7 +32,8 @@ const timeEntriesIndexTour = [
     popover: {
       title: "Time Entry Actions",
       description: "Start, stop, edit or remove your time entries."
-    }
+    },
+    disableActiveInteraction: false
   }
 ]
 

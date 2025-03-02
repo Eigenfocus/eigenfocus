@@ -17,9 +17,16 @@ class AppTour {
       animate: true,
       showProgress: true,
       allowClose: true,
+      overlayClickBehavior: 'nextStep',
       disableActiveInteraction: true,
       onCloseClick: () => {
         this.driverObj.destroy()
+      }
+    })
+
+    window.addEventListener('click', (event) => {
+      if (this.driverObj.isActive()) {
+        this.driverObj.moveNext()
       }
     })
   }
@@ -41,7 +48,7 @@ class AppTour {
       return
     }
 
-    this.reset()
+    this.stopTour()
 
     if (TOUR_CONFIGS[tourKey]) {
       this.markTourAsCompleted(tourKey)
@@ -52,7 +59,7 @@ class AppTour {
     }
   }
 
-  reset() {
+  stopTour() {
     this.driverObj.destroy()
   }
 
