@@ -4,7 +4,7 @@ module ApplicationHelper
       capture do
         output = ""
         output += start_app_tour_tag(params[:activate_tour]) if params[:activate_tour].present?
-        output += mark_app_tours_as_pending_tag if params[:mark_app_tours_as_pending] == "true"
+        output += mark_all_app_tours_as_pending_tag if params[:mark_app_tours_as_pending] == "true"
         output.html_safe
       end
     end
@@ -27,7 +27,7 @@ module ApplicationHelper
       JS
     end
 
-    def mark_app_tours_as_pending_tag
+    def mark_all_app_tours_as_pending_tag
       javascript_tag <<~JS
         document.addEventListener("turbo:load", () => {
           if (window.appTour) {
