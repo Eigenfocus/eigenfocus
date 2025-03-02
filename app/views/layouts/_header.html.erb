@@ -20,8 +20,8 @@
     </div>
     <div class="flex items-center space-x-4">
       <button role="button" onclick="document.getElementById('guide-modal').modal.open()"
-        class="cpy-open-guide text-lg text-readable-content-500 hover:text-primary-500">
-        <i class="fa-solid fa-star"></i>
+        class="cpy-open-guide text-lg flex items-center text-readable-content-500 hover:text-primary-500">
+        <i class="fa-solid fa-circle-info"></i>
       </button>
 
       <div class="relative inline-flex" data-controller="dropdown">
@@ -53,10 +53,10 @@
           </div>
         </div>
       </div>
-      <div class="relative inline-flex" data-controller="dropdown">
+      <div class="relative  inline-flex" data-controller="dropdown">
         <button data-action="click->dropdown#toggle click@window->dropdown#hide"
           role="button" data-dropdown-target="button"
-          class="cpy-header-theme-dropdown text-lg text-readable-content-500 hover:text-primary-500"
+          class="cpy-header-theme-dropdown flex items-center text-lg text-readable-content-500 hover:text-primary-500"
           aria-haspopup="true" aria-expanded="false">
           <%= icon_for(:theme) %>
         </button>

@@ -10,26 +10,36 @@
     </div>
   </div>
   <div class="text-base flex flex-col gap-4">
-    <p class="text-readable-content-700 text-lg font-medium text-center my-4"><%= t(".description_html") %></p>
+    <div class="text-readable-content-700 text-lg font-medium text-center mt-4">
+      <%= t(".thanks") %><br/>
+    </div>
     <article class="flex flex-col">
       <h3 class="font-medium text-primary-500 flex items-center space-x-2">
-        <svg class="svg-inline--fa fa-list-check" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="list-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg>
+        <%= icon_for(:projects) %>
         <span><%= t(".features.project.title") %></span>
       </h3>
       <p class="text-sm text-readable-content-500"><%= t(".features.project.description") %></p>
     </article>
+
     <article class="flex flex-col">
       <h3 class="font-medium text-primary-500 flex items-center space-x-2">
-        <svg class="svg-inline--fa fa-bars-progress" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars-progress" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M448 160H320V128H448v32zM48 64C21.5 64 0 85.5 0 112v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zM448 352v32H192V352H448zM48 288c-26.5 0-48 21.5-48 48v64c0 26.5 21.5 48 48 48H464c26.5 0 48-21.5 48-48V336c0-26.5-21.5-48-48-48H48z"></path></svg>
-        <span><%= t(".features.boards.title") %></span>
+        <%= icon_for(:issues) %>
+        <span><%= t(".features.all_issues.title") %></span>
       </h3>
-      <p class="text-sm text-readable-content-500"><%= t(".features.boards.description") %></p>
-
+      <p class="text-sm text-readable-content-500"><%= t(".features.all_issues.description") %></p>
     </article>
 
     <article class="flex flex-col">
       <h3 class="font-medium text-primary-500 flex items-center space-x-2">
-        <svg class="svg-inline--fa fa-clock" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg>
+        <%= icon_for(:boards) %>
+        <span><%= t(".features.boards.title") %></span>
+      </h3>
+      <p class="text-sm text-readable-content-500"><%= t(".features.boards.description") %></p>
+    </article>
+
+    <article class="flex flex-col">
+      <h3 class="font-medium text-primary-500 flex items-center space-x-2">
+        <%= icon_for(:time_entries) %>
         <span><%= t(".features.time_tracking.title") %></span>
       </h3>
       <p class="text-sm text-readable-content-500"><%= t(".features.time_tracking.description") %></p>
@@ -37,7 +47,7 @@
 
     <article class="flex flex-col">
       <h3 class="font-medium text-primary-500 flex items-center space-x-2">
-        <svg class="svg-inline--fa fa-clock" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"></path></svg>
+        <%= icon_for(:report) %>
         <span><%= t(".features.reports.title") %></span>
       </h3>
       <p class="text-sm text-readable-content-500"><%= t(".features.reports.description") %></p>
@@ -45,20 +55,15 @@
 
     <article class="flex flex-col">
       <h3 class="font-medium text-primary-500 flex items-center space-x-2">
-        <i class="fa fa-palette"></i>
+        <%= icon_for(:theme) %>
         <span><%= t(".features.themes.title") %></span>
       </h3>
       <p class="text-sm text-readable-content-500"><%= t(".features.themes.description") %></p>
     </article>
 
-    <div class="text-readable-content-700 text-lg font-medium text-center mt-4">
-      <%= t(".thanks") %><br/>
-    </div>
-    <div class="text-center mt-2">
-      <div class="flex gap-4 justify-center items-center flex-col">
-        <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="btn-primary"><i class="fa-brands fa-github mr-2"></i> <%= t(".like_us") %></a>
-        <button class="text-sm" data-action="click->modal#close"><%= t(".close") %></button>
-      </div>
+    <div class="flex flex-col justify-center items-center gap-4 mt-2">
+      <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="link-primary"><i class="fa-brands fa-github mr-1"></i> <%= t(".like_us") %></a>
+      <button class="text-sm" data-action="click->modal#close"><%= t(".close") %></button>
     </div>
   </div>
 <% end %>

@@ -1,13 +1,14 @@
 pt-BR:
   layouts:
-
     guide_modal:
       title: "Nossas funcionalidades"
-      description_html: "Visão geral das nossas funcionalidades.<br/>Esperamos que você goste."
       features:
         project:
-          title: "Gerencie Projetos e Issues"
-          description: "Você pode criar, atualizar e remover vários Projetos e Issues."
+          title: "Projetos, Issues e Labels"
+          description: "Você pode criar, atualizar e remover vários Projetos, Issues e Labels."
+        all_issues:
+          title: "Todas as Issues"
+          description: "Veja todas as issues em uma lista."
         boards:
           title: "Quadros Personalizáveis"
           description: "Quadros com Colunas Personalizáveis para que você possa ajustá-lo ao seu fluxo de trabalho."
