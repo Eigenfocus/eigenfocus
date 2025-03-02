@@ -2,14 +2,16 @@ en:
   layouts:
     guide_modal:
       title: "Our features"
-      description_html: "Here is an overview of our current features.<br/>We hope you enjoy it."
       features:
         project:
-          title: "Manage Projects and Issues"
-          description: "You can create, update and remove multiple Projects and Issues."
+          title: "Manage Projects, Issues and Labels"
+          description: "You can create, update and remove multiple Projects, Issues and Labels."
+        all_issues:
+          title: "All Issues"
+          description: "View all issues in a list."
         boards:
-          title: "Customizable Boards"
-          description: "Board with Customizable Columns so you can adjust to your workflow."
+          title: "Workflow Boards"
+          description: "Board with customizable columns so you can adjust to your workflow."
         time_tracking:
           title: "Time Tracking"
           description: "Track time spent on each Project and Task."
@@ -19,8 +21,7 @@ en:
         themes:
           title: "Themes"
           description: "Customize the UI to your taste. Be more productive with style! 🎨"
-
-      thanks: "Thanks for using Eigenfocus."
+      thanks: "Thanks for using Eigenfocus!"
       like_us: "Like us on Github"
       close: "Close this guide"
     header:
@@ -29,6 +30,14 @@ en:
       current_version: "Current Version"
       check_our_github: "Check our Github"
       outdated_alert_html: "You version is outdated.<br/>Our newest version is %{newest_version}."
+      tours:
+        title: "Guided Tours"
+        projects: "Managing projects"
+        time_entries: "Tracking time"
+        issues: "Managing issues"
+        board: "Using the workflow board"
+        features_list: "Features overview"
+        more: "More Guides"
     sidebar:
       edit_profile: "Edit profile"
       profile_options: "Profile & Settings"

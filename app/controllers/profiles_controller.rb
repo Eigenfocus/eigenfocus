@@ -10,11 +10,11 @@ class ProfilesController < ApplicationController
       I18n.locale = current_user.locale
 
       if was_first_update
-        ExampleProjectCreator.()
+        ExampleProjectCreator.(current_user)
       end
 
       flash[:success] = t(".success")
-      redirect_to root_path
+      redirect_to projects_path(mark_app_tours_as_pending: was_first_update)
     else
       flash[:alert] = current_user.errors.full_messages.to_sentence
       redirect_to edit_profile_path

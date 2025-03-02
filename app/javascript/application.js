@@ -12,6 +12,10 @@ window.jQuery = jquery
 window.$ = jquery
 select2($);
 
+import { AppTour } from "app-tours"
+
+window.appTour = new AppTour()
+
 // Dirty patch to remove tag when pressing backspace
 // https://github.com/select2/select2/issues/3354#issuecomment-101853485
 // https://github.com/select2/select2/issues/3354#issuecomment-132389291

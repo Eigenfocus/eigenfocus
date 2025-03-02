@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'issue_detail' do %>
-
+  <%= start_pending_app_tour_tag("issues/detail") %>
   <%
     data = {
       controller: "issue-detail",
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-8">
-        <div class="flex flex-col w-3/4">
+        <div class="flex flex-col w-3/4 tour--issue-detail-fields">
           <%= form_with(model: issue, url: local_assigns[:form_path], html: {
             class: 'flex flex-col gap-2',
             data: {
@@ -86,13 +86,13 @@
           <% end %>
         </div>
         <% if issue.persisted? %>
-          <div class="flex flex-col gap-2 items-stretch w-1/4 text-sm font-medium text-readable-content-700 text-left">
+          <div class="flex flex-col gap-2 items-stretch w-1/4 text-sm font-medium text-readable-content-700 text-left tour--issue-detail-actions">
 
             <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>
               <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
             <% end %>
 
-            <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "mt-8 btn-outline-primary text-nowrap flex gap-2 items-center py-2", data: { turbo_frame: "_top" } do %>
+            <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "mt-8 btn-outline-primary text-nowrap flex gap-2 items-center py-2 tour--issue-detail-time-tracking", data: { turbo_frame: "_top" } do %>
               <%= icon_for(:time_entries) %>
               <span class="sm:block"><%= t("actions.start_time_tracking") %></span>
             <% end %>

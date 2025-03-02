@@ -1,7 +1,8 @@
-
 <%= turbo_frame_tag 'time_entry_form' do %>
-<%= render_modal do %>
 
+<%= start_pending_app_tour_tag("time_entries/form") %>
+
+<%= render_modal do %>
   <div class="border-b border-background-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
       <div class="flex size-6 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500">
@@ -15,7 +16,10 @@
   <div class="">
     <%= form_with(model: time_entry, html: {
         class: 'flex flex-col gap-4',
-        data: { controller: 'dependent-fields form  time-entry--form' }
+        data: {
+          controller: 'dependent-fields form  time-entry--form',
+          action: "modal:closed@window->time-entry--form#continueTour"
+        }
       }) do |f| %>
       <% if time_entry.errors.any? %>
         <div class="flex rounded-md w-full border-l-6 border-alert bg-alert bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert">
@@ -25,7 +29,7 @@
 
       <%= f.hidden_field :reference_date %>
 
-      <div class="flex gap-2 flex-col cpy-project-list">
+      <div class="flex gap-2 flex-col cpy-project-list tour--project-selection">
         <%= f.label :project_id, TimeEntry.human_attribute_name(:project), autofocus: (time_entry.new_record? && time_entry.project_id.blank?), class: "label-primary" %>
 
         <%= f.select :project_id, options_from_collection_for_select(Project.order(name: :asc).all, :id, :name, time_entry.project_id), { include_blank: t('select_one') }, {required: true, style: "width: 100%", data: {
@@ -37,7 +41,7 @@
 
       <%= render partial: 'form_project_dependent_fields', locals: { form: f } %>
 
-      <div class="flex gap-2 flex-col">
+      <div class="flex gap-2 flex-col tour--description-field">
         <%= f.label :description, TimeEntry.human_attribute_name(:description), autofocus: time_entry.persisted?, class: "label-primary" %>
 
         <div data-controller='resizable-input' class="relative" >
@@ -54,12 +58,12 @@
         </div>
       </div>
 
-      <div class="flex gap-2 flex-col">
+      <div class="flex gap-2 flex-col tour--logged-time">
         <%= f.label :total_logged_time_in_minutes, "*"+ TimeEntry.human_attribute_name(:total_logged_time_in_minutes), class: "label-primary" %>
         <%= f.number_field :total_logged_time_in_minutes, required: true, class: "input-primary" %>
       </div>
 
-      <div class="flex gap-2 justify-center mt-2">
+      <div class="flex gap-2 justify-center mt-2 tour--form-actions">
         <a class="cursor-pointer btn-cancel" data-action="click->modal#close">
           <%= t('actions.cancel') %>
         </a>
@@ -69,6 +73,5 @@
       </div>
     <% end %>
   </div>
-
 <% end %>
 <% end %>

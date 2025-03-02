@@ -21,6 +21,16 @@ export default class extends Controller {
     }
   }
 
+  disconnect() {
+    this.continueTour()
+  }
+
+  continueTour() {
+    if (window.appTour) {
+      window.appTour.startIfPending("time_entries/index");
+    }
+  }
+
   get selectedIssueId() {
     return this.issuesSelectTarget.value
   }

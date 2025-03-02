@@ -2,7 +2,10 @@ pt-BR:
   examples:
     project_template:
       project:
-      name: "Eigenfocus - Projeto de Exemplo"
+        name: "Eigenfocus - Projeto de Exemplo"
+      time_entry:
+        create_project:
+          description: "Você pode iniciar/parar o cronômetro clicando no botão Iniciar/Parar."
       groupings:
         to_do: "Pendente"
         in_progress: "Em Andamento"

@@ -2,13 +2,15 @@
 
 <%= turbo_stream_from @visualization %>
 
+<%= start_pending_app_tour_tag("visualization/board") %>
+
 <div class="flex mt-8 flex-col sm:px-8">
   <%= render partial: 'projects/navigation_header', locals: {
     project: @visualization.project
   } %>
 </div>
 
-<main class="grow visualization--board"
+<main class="grow visualization--board tour--visualization-board"
   data-controller="visualization--issue-filtering visualization--favorite-issue-labels"
   data-action="keydown@window->visualization--favorite-issue-labels#onKeyPress"
   data-visualization--favorite-issue-labels-add-path-value="<%= add_label_project_issue_path(@visualization.project, 'ISSUE_ID_PLACEHOLDER') %>"

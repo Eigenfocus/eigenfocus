@@ -20,12 +20,16 @@ describe 'When entering my workspace for the first time' do
 
     expect(page).to have_content("Profile succesfully updated.")
 
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(projects_path(mark_app_tours_as_pending: true))
 
     project = Project.first
     expect(project.name).to eq("Eigenfocus - Tour Example Project")
 
     expect(page).to have_content("Eigenfocus - Tour Example Project")
+
+    within ".driver-popover" do
+      expect(page).to have_content("Quick tip:")
+    end
   end
 
   specify "I can update my profile" do

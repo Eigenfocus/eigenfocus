@@ -24,6 +24,7 @@
     <%= stylesheet_link_tag "animate.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "select2.min.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "flatpickr.min.css", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "driverjs.css", "data-turbo-track": "reload" %>
     <%= javascript_include_tag 'simplemde.min' %>
     <%= javascript_include_tag 'simplemde.override' %>
     <%= stylesheet_link_tag 'simplemde.min' %>
@@ -36,8 +37,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="antialiased"
-    data-controller="sidebar" >
+  <body class="antialiased" data-controller="sidebar">
+    <%= app_tour_tags %>
+
     <div id="alert-messages">
       <%= render "layouts/flash_messages" %>
     </div>
@@ -59,7 +61,6 @@
         <% end %>
       </div>
     </main>
-
     <%= render partial: "layouts/issue_detail", locals: issue_detail_context %>
   </body>
 </html>
