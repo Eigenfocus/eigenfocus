@@ -24,10 +24,4 @@ class ProfilesController < ApplicationController
   def user_params
     params.require(:profile).permit(:timezone, :locale)
   end
-
-  def resend_confirmation
-    unless current_user.confirmed?
-      current_user.send_confirmation_instructions
-    end
-  end
 end
