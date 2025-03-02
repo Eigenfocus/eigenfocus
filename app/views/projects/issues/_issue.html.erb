@@ -15,13 +15,13 @@
   <td>
     <div class="flex gap-4 text-lg opacity-80">
       <%= link_to project_show_issue_path(project, issue),
-          class: "link-base tour--edit-issue",
+          class: "link-base tour--edit-issue cpy-edit-button",
           data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>
         <i class="fa fa-edit"></i>
       <% end %>
 
       <%= link_to issue_path(issue),
-          class: "link-danger tour--delete-issue",
+          class: "link-danger tour--delete-issue cpy-delete-button",
           data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation") } do %>
         <i class="fa fa-trash-can"></i>
       <% end %>

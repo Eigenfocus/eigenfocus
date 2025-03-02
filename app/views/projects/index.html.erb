@@ -19,7 +19,7 @@
 <% end %>
 
 <%= turbo_frame_tag 'projects', class: "tour--projects-list" do %>
-  <div class="flex flex-col gap-4 lg:gap-8 flex-wrap justify-stretch">
+  <div class="flex flex-col gap-4 lg:gap-8 flex-wrap justify-stretch" id="projects-list">
     <% if @projects.count.zero? %>
       <div class="border p-8 bg-body-contrast border-background-100 rounded-md shadow-xs items-center w-full p-6 "id='empty-row'>
         <p class='text-center text-readable-content-500'>

@@ -6,6 +6,6 @@ describe 'While accessing my workspace' do
 
     find(".cpy-open-guide").click
 
-    expect(page).to have_content("Here is an overview of our current features.")
+    expect(page).to have_content("Thanks for using Eigenfocus!")
   end
 end
