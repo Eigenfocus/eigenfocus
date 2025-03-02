@@ -1,10 +1,12 @@
 module ApplicationHelper
   module AppTour
-    def start_app_tour_command(tour_key = nil)
-      javascript_tag(<<~JS)
-        if (window.appTour) {
-          window.appTour.start("#{tour_key}");
-        }
+    def show_app_tour_for(tour_key = nil)
+      javascript_tag <<~JS
+        document.addEventListener("turbo:load", () => {
+          if (window.appTour) {
+            window.appTour.start("#{tour_key}");
+          }
+        }, { once: true });
       JS
     end
   end

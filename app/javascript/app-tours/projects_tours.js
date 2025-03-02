@@ -4,35 +4,35 @@ export default {
       element: ".tour--add-project",
       popover: {
         title: "Create New Project",
-        description: "Start a new project by clicking this button"
+        description: "You can create a new project by clicking this button"
       }
     },
     {
       element: ".tour--projects-list",
       popover: {
         title: "Your Projects",
-        description: "View all your projects here."
+        description: "This is the list of all your projects."
       }
     },
     {
       element: ".tour--time-tracking",
       popover: {
         title: "Time Tracking",
-        description: "Track the time spent on your project tasks and activities"
+        description: "Click here to track the time spent on your project tasks and activities"
       }
     },
     {
       element: ".tour--issues-list",
       popover: {
         title: "Issues List",
-        description: "Manage and track all issues related to this project"
+        description: "Click here to manage all issues related to this project"
       }
     },
     {
-      element: ".tour--workflow",
+      element: ".tour--workflow-board",
       popover: {
         title: "Project Workflow",
-        description: "Visualize and manage your project's workflow in a board view"
+        description: "Click here to visualize and manage your project's workflow in a board view"
       }
     }
   ]
