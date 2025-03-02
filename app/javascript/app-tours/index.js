@@ -1,10 +1,12 @@
 import { driver } from "driver.js"
 import projectTours from "app-tours/projects_tours"
 import issuesTour from "app-tours/issues_tour"
+import visualizationBoardTour from "app-tours/visualization_board_tour"
 
 const TOUR_CONFIGS = {
   ...projectTours,
-  ...issuesTour
+  ...issuesTour,
+  ...visualizationBoardTour
 }
 
 class AppTour {
