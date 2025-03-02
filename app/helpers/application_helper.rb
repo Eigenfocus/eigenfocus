@@ -12,4 +12,5 @@ module ApplicationHelper
   include ApplicationHelper::Labels
   include ApplicationHelper::WebsocketsSecurity
   include ApplicationHelper::IssueEmbedded
+  include ApplicationHelper::AppTour
 end

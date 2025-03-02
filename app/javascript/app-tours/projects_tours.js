@@ -35,9 +35,5 @@ export default {
         description: "Visualize and manage your project's workflow in a board view"
       }
     }
-  ],
-  "projects/show": [
-    // ... project show tour steps
   ]
-  // ... other project-related tours
 }
