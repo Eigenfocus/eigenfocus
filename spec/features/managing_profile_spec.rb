@@ -7,7 +7,7 @@ describe 'When entering my workspace for the first time' do
 
     visit projects_path
 
-    should_be_on edit_profile_path
+    expect(page).to have_current_path(edit_profile_path)
 
     expect(page).to have_content("Before starting, we need you to fill your preferred language and time zone.")
     expect(User.count).to eq(1)
@@ -20,7 +20,7 @@ describe 'When entering my workspace for the first time' do
 
     expect(page).to have_content("Profile succesfully updated.")
 
-    should_be_on root_path
+    expect(page).to have_current_path(root_path)
 
     project = Project.first
     expect(project.name).to eq("Eigenfocus - Tour Example Project")

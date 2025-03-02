@@ -18,14 +18,14 @@
             <%= time_entry.issue.title %>
           </p>
 
-          <%= link_to visualization_issue_path(time_entry.project.default_visualization, time_entry.issue), class: "flex items-center link-primary text-xs", data: { turbo_frame: "_top" } do %>
-            <span class="mr-1"><%= icon_for(:issues) %></span>
+          <%= link_to visualization_issue_path(time_entry.project.default_visualization, time_entry.issue), class: "flex gap-1 items-center link-primary text-xs", data: { turbo_frame: "_top" } do %>
+            <%= icon_for(:issues) %>
             <%= t("actions.go_to_issue") %>
           <% end %>
         <% else %>
-          <%= link_to visualization_path(time_entry.project.default_visualization), class: "flex items-center link-primary text-xs", data: { turbo_frame: "_top" } do %>
-            <span class="mr-1"><%= icon_for(:boards) %></span>
-            <%= t("actions.go_to_board") %>
+          <%= link_to project_issues_path(time_entry.project), class: "flex gap-1 items-center link-primary text-xs", data: { turbo_frame: "_top" } do %>
+            <%= icon_for(:issues) %>
+            <%= t("actions.go_to_all_issues") %>
           <% end %>
         <% end %>
 

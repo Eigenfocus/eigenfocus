@@ -4,31 +4,50 @@
   } do %>
   <% time_entry = form.object %>
 
-
   <div class="flex gap-2 flex-col">
     <div class="flex justify-between items-center">
       <%= form.label :issue, TimeEntry.human_attribute_name(:issue), class: "label-primary" %>
 
       <% if time_entry.project.present? %>
+        <%= link_to project_issues_path(time_entry.project),
+                    class: "link-primary flex items-center gap-1 text-xs",
+                    tabindex: '-1',
+                    data: {
+                      turbo_frame: "_top",
+                      time_entry__form_target: "allIssuesLink"
+                    } do %>
+          <%= icon_for(:issues) %>
+          <%= t("actions.go_to_issues_list") %>
+        <% end %>
 
-        <%= link_to visualization_path(time_entry.project.default_visualization), class: "link-primary text-xs", tabindex: '-1', data: { turbo_frame: "_top" } do %>
-          <span class=" mr-1"><%= icon_for(:boards) %></span>
-          <%= t("actions.go_to_board") %>
+        <%= link_to '',
+                    class: "link-primary flex items-center gap-1 text-xs hidden",
+                    tabindex: '-1',
+                    data: {
+                      issue_url: project_show_issue_path(time_entry.project, 'REPLACE_WITH_ISSUE_ID'),
+                      turbo_frame: "_top",
+                      time_entry__form_target: "issueLink"
+                    } do %>
+          <%= icon_for(:issues) %>
+          <%= t("actions.go_to_issue") %>
         <% end %>
       <% end %>
     </div>
 
-
     <% if time_entry.project.present? %>
       <% if time_entry.project.issues.any? %>
-        <%
-          issues = time_entry.project_id.present? ? time_entry.project.issues.order(title: :asc) : []
-
-        %>
-        <%= select_tag "time_entry[issue_id]", options_from_collection_for_select(issues, :id, :title, time_entry.issue_id), { include_blank: t('none_selected_f'), style: "width: 100%", data: {
-          "time-entry-form-target": 'projectsSelect',
-          controller: "select2"
-        } } %>
+        <% issues = time_entry.project_id.present? ? time_entry.project.issues.order(title: :asc) : [] %>
+        <%= select_tag "time_entry[issue_id]",
+            options_from_collection_for_select(issues, :id, :title, time_entry.issue_id),
+            {
+              include_blank: t('none_selected_f'),
+              style: "width: 100%",
+              data: {
+                controller: "select2",
+                time_entry__form_target: 'issuesSelect',
+                action: "change->time-entry--form#toggleIssueLinks"
+              }
+            } %>
       <% else %>
         <p class="text-xs italic text-readable-content-500"><%= t(".project_has_no_issue") %></p>
       <% end %>
