@@ -34,6 +34,11 @@ const timeEntriesIndexTour = [
       description: "Start, stop, edit or remove your time entries."
     },
     disableActiveInteraction: false
+  }, {
+    popover: {
+      title: "🥳 You've completed the tour!",
+      description: "We hope you enjoy Eigenfocus. If you have any feedback, please let us know."
+    }
   }
 ]
 

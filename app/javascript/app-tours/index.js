@@ -20,7 +20,7 @@ class AppTour {
       overlayClickBehavior: 'nextStep',
       disableActiveInteraction: true,
       onCloseClick: () => {
-        this.driverObj.destroy()
+        this.stopTour()
       }
     })
 
@@ -34,11 +34,8 @@ class AppTour {
   startIfPending(targetTourKey) {
     const pendingTours = this.getPendingTours()
 
-    for (const tourKey of pendingTours) {
-      if (targetTourKey == tourKey) {
-        this.start(tourKey)
-        return
-      }
+    if (pendingTours.includes(targetTourKey)) {
+      this.start(targetTourKey)
     }
   }
 
