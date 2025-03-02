@@ -1,6 +1,6 @@
 <% set_page_title(:project_all_issues, project_name: current_project.name) %>
 
-<%= show_app_tour_for("issues/index") %>
+<%= start_pending_app_tour_tag("issues/index") %>
 
 <%= turbo_frame_tag 'new_issue_form' do %>
 <% end %>

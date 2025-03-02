@@ -12,7 +12,7 @@
 
   <%= render partial: 'form', locals: { time_entry: new_entry } %>
 <% else %>
-  <%= show_app_tour_for("time_entries/index") %>
+  <%= start_pending_app_tour_tag("time_entries/index") %>
 
   <%= turbo_frame_tag 'time_entry_form' do %>
   <% end %>

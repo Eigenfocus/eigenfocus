@@ -2,7 +2,7 @@
 
 <%= turbo_stream_from @visualization %>
 
-<%= show_app_tour_for("visualization/board") %>
+<%= start_pending_app_tour_tag("visualization/board") %>
 
 <div class="flex mt-8 flex-col sm:px-8">
   <%= render partial: 'projects/navigation_header', locals: {
