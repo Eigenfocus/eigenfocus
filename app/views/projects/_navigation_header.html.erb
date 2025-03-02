@@ -20,7 +20,9 @@
       <span class="sm:block"><%= t("actions.go_to_time_tracking") %></span>
     <% end %>
 
-    <%= link_to project_issue_labels_path(project.id), class: "flex items-center btn-sm btn-outline-primary flex", data: { turbo_frame: "_top" } do %>
+    <%= link_to project_issue_labels_path(project.id),
+      class: "flex items-center btn-sm btn-outline-primary flex tour--issue-labels",
+      data: { turbo_frame: "_top" } do %>
       <span class="mr-2"><%= icon_for(:issue_labels) %></span>
       <span class="sm:block"><%= t(:manage_issue_labels, scope: :nav) %></span>
     <% end %>

@@ -14,17 +14,17 @@ const issuesIndexTour = [
     }
   },
   {
-    element: ".tour--edit-issue",
+    element: ".tour--issue-labels",
     popover: {
-      title: "Edit Issue",
-      description: "Click here to view and edit issue details."
+      title: "Issue Labels",
+      description: "Here you can manage the existing issue labels for this project"
     }
   },
   {
-    element: ".tour--delete-issue",
+    element: ".tour--issue-actions",
     popover: {
-      title: "Delete Issue",
-      description: "Click here to delete an issue."
+      title: "Issue Actions",
+      description: "These actions are available for each issue."
     }
   },
   {
