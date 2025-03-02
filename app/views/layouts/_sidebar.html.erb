@@ -41,7 +41,7 @@
                     icon: icon_for(:projects),
                     url: projects_path,
                     main_controller: :projects,
-                    hover_menu: Project.order(name: :asc).all.map { |p|
+                    hover_menu: [{ text: t('.menu.all_projects'), url: projects_path }] + Project.order(name: :asc).all.map { |p|
                       {
                         text: p.name,
                         url: visualization_path(p.default_visualization)
