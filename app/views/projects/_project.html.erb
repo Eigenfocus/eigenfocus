@@ -38,16 +38,23 @@
 
   <% unless project.archived? %>
     <div class="flex w-full flex-col lg:flex-row gap-8 text-sm justify-end items-center">
-      <%= link_to time_entries_path(new_entry: { project_id: project.id }), class: "link-base", data: { turbo_frame: "_top" } do %>
+      <%= link_to time_entries_path(new_entry: { project_id: project.id }),
+          class: "link-base tour--time-tracking",
+          data: { turbo_frame: "_top" } do %>
         <span class="mr-1"><%= icon_for(:time_entries) %></span>
         <%= t("actions.go_to_time_tracking") %>
       <% end %>
-      <%= link_to project_issues_path(project), class: "link-primary", data: { turbo_frame: "_top" } do %>
+
+      <%= link_to project_issues_path(project),
+          class: "link-primary tour--issues-list",
+          data: { turbo_frame: "_top" } do %>
         <span class="mr-1"><%= icon_for(:issues) %></span>
         <%= t("actions.go_to_issues_list") %>
       <% end %>
 
-      <%= link_to visualization_path(project.default_visualization), class: "link-secondary", data: { turbo_frame: "_top" } do %>
+      <%= link_to visualization_path(project.default_visualization),
+          class: "link-secondary tour--workflow",
+          data: { turbo_frame: "_top" } do %>
         <span class="mr-1"><%= icon_for(:boards) %></span>
         <%= t("actions.go_to_board") %>
       <% end %>

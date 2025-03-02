@@ -1,29 +1,35 @@
 import { Controller } from "@hotwired/stimulus"
 import { driver } from "driver.js"
 
+import TOUR_CONFIGS from "app-tours"
+
 export default class extends Controller {
   connect() {
-    this.driverObj = driver()
-    this.start()
-  }
+    window.driverObj = driver({
+      animate: true,
+      showProgress: true,
+      allowClose: true,
+      disableActiveInteraction: true,
+      onCloseClick: () => {
+        window.driverObj.destroy()
+      }
+    })
 
-  disconnect() {
-    if (this.driverObj) {
-      // Destroy the driver instance to clean up event listeners and DOM elements
-      this.driverObj.destroy()
-      this.driverObj = null
+    if (this.autoStartValue) {
+      this.start()
     }
   }
 
-  start() {
-    if (this.driverObj) {
-      this.driverObj.highlight({
-        element: "#sidebar-bottom-menu",
-        popover: {
-          title: "Title",
-          description: "Description"
-        }
-      })
+  disconnect() {
+    window.driverObj.destroy()
+  }
+
+  start(event) {
+    const tourKey = event.params.tourKey
+
+    if (TOUR_CONFIGS[tourKey]) {
+      window.driverObj.setSteps(TOUR_CONFIGS[tourKey])
+      window.driverObj.drive()
     }
   }
 }
