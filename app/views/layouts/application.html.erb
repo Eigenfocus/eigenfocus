@@ -38,6 +38,8 @@
   </head>
 
   <body class="antialiased" data-controller="sidebar app-tour">
+    <%= mark_app_tours_as_pending if params[:mark_app_tours_as_pending] == "true" %>
+
     <div id="alert-messages">
       <%= render "layouts/flash_messages" %>
     </div>

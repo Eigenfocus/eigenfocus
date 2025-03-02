@@ -1,6 +1,11 @@
 class ExampleProjectCreator
-  def self.call
-    new.()
+  attr_reader :user
+  def initialize(user)
+    @user = user
+  end
+
+  def self.call(user)
+    new(user).()
   end
 
   def call
@@ -9,6 +14,7 @@ class ExampleProjectCreator
       create_visualization!
       create_groupings!
       create_tutorial_issues!
+      create_example_time_entry!
     end
 
     @to_do.update(position: 1)
@@ -47,7 +53,7 @@ class ExampleProjectCreator
 
   def create_tutorial_issues!
     # Create completed issues
-    create_issue!(
+    @create_project_issue = create_issue!(
       "create_project",
       @done
     )
@@ -77,6 +83,17 @@ class ExampleProjectCreator
     create_issue!(
       "track_time",
       @to_do
+    )
+  end
+
+  def create_example_time_entry!
+    TimeEntry.create!(
+      project: @project,
+      issue: @create_project_issue,
+      description: t("time_entry.create_project.description"),
+      total_logged_time_in_minutes: 8,
+      reference_date: Date.current,
+      user: user
     )
   end
 

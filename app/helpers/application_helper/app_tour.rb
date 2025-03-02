@@ -10,4 +10,14 @@ module ApplicationHelper
       JS
     end
   end
+
+  def mark_app_tours_as_pending
+    javascript_tag <<~JS
+      document.addEventListener("turbo:load", () => {
+        if (window.appTour) {
+          window.appTour.markAllToursAsPending();
+        }
+      }, { once: true });
+    JS
+  end
 end

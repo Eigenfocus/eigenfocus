@@ -3,6 +3,9 @@ en:
     project_template:
       project:
         name: "Eigenfocus - Tour Example Project"
+      time_entry:
+        create_project:
+          description: "You can start/stop the timer by clicking the Start/Stop button."
       groupings:
         to_do: "To Do"
         in_progress: "In Progress"

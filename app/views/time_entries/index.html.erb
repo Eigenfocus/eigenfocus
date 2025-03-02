@@ -9,7 +9,6 @@
     new_entry.issue = new_entry.project.issues.find_by_id(params[:new_entry][:issue_id])
     new_entry.reference_date = @reference_date
   %>
-  <%= show_app_tour_for("time_entries/form") %>
 
   <%= render partial: 'form', locals: { time_entry: new_entry } %>
 <% else %>
