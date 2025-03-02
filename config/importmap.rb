@@ -21,6 +21,7 @@ pin "just-extend" # @5.1.1 required by dropzone
 pin "fuse.js" # @7.1.0
 pin "driver.js" # @1.3.5
 
+pin_all_from "app/javascript/app-tours", under: "app-tours"
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin_all_from "app/javascript/controllers/visualizations", under: "controllers"
 pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
