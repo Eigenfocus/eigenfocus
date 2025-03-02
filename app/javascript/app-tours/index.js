@@ -25,20 +25,24 @@ class AppTour {
   }
 
   start(tourKey) {
-    if (!this.driverObj || !tourKey) return
+    if (!tourKey) {
+      console.log("No tour key provided")
+      return
+    }
+
 
     this.reset()
 
     if (TOUR_CONFIGS[tourKey]) {
       this.driverObj.setSteps(TOUR_CONFIGS[tourKey])
       this.driverObj.drive()
+    } else {
+      console.log("No tour config found for key:", tourKey)
     }
   }
 
   reset() {
-    if (this.driverObj) {
-      this.driverObj.destroy()
-    }
+    this.driverObj.destroy()
   }
 }
 

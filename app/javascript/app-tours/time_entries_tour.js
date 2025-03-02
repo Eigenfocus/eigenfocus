@@ -35,5 +35,42 @@ export default {
         description: "Start, stop, edit or remove your time entries"
       }
     }
+  ],
+  "time_entries/form": [
+    {
+      element: ".tour--project-selection",
+      popover: {
+        title: "Project Selection",
+        description: "Choose which project you're tracking time for"
+      }
+    },
+    {
+      element: ".tour--issue-selection",
+      popover: {
+        title: "Issue Selection",
+        description: "Optionally link this time entry to a specific issue"
+      }
+    },
+    {
+      element: ".tour--description-field",
+      popover: {
+        title: "Description",
+        description: "Describe what you worked on during this time"
+      }
+    },
+    {
+      element: ".tour--logged-time",
+      popover: {
+        title: "Logged Time",
+        description: "Enter the already tracked time in minutes. If left empty, the timer will start running automatically"
+      }
+    },
+    {
+      element: ".tour--form-actions",
+      popover: {
+        title: "Save or Cancel",
+        description: "Save your time entry or cancel to discard changes"
+      }
+    }
   ]
 }

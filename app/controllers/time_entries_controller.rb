@@ -17,6 +17,7 @@ class TimeEntriesController < ApplicationController
 
   def new
     @time_entry = current_user.time_entries.new(reference_date: params[:reference_date])
+
     render partial: "form", locals: { time_entry: @time_entry }
   end
 
