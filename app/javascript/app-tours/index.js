@@ -24,16 +24,27 @@ class AppTour {
     })
   }
 
+  startIfPending(targetTourKey) {
+    const pendingTours = this.getPendingTours()
+
+    for (const tourKey of pendingTours) {
+      if (targetTourKey == tourKey) {
+        this.start(tourKey)
+        return
+      }
+    }
+  }
+
   start(tourKey) {
     if (!tourKey) {
       console.log("No tour key provided")
       return
     }
 
-
     this.reset()
 
     if (TOUR_CONFIGS[tourKey]) {
+      this.markTourAsCompleted(tourKey)
       this.driverObj.setSteps(TOUR_CONFIGS[tourKey])
       this.driverObj.drive()
     } else {
@@ -43,6 +54,21 @@ class AppTour {
 
   reset() {
     this.driverObj.destroy()
+  }
+
+  markAllToursAsPending() {
+    sessionStorage.setItem('pendingTours', JSON.stringify(Object.keys(TOUR_CONFIGS)))
+  }
+
+  markTourAsCompleted(tourKey) {
+    const pendingTours = this.getPendingTours()
+    const updatedPendingTours = pendingTours.filter(tour => tour !== tourKey)
+    sessionStorage.setItem('pendingTours', JSON.stringify(updatedPendingTours))
+  }
+
+  getPendingTours() {
+    const storedPendingTours = sessionStorage.getItem('pendingTours')
+    return storedPendingTours ? JSON.parse(storedPendingTours) : []
   }
 }
 

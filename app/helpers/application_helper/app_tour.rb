@@ -4,7 +4,7 @@ module ApplicationHelper
       javascript_tag <<~JS
         document.addEventListener("turbo:load", () => {
           if (window.appTour) {
-            window.appTour.start("#{tour_key}");
+            window.appTour.startIfPending("#{tour_key}");
           }
         }, { once: true });
       JS

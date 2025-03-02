@@ -1,7 +1,6 @@
 <% set_page_title(:time_tracking) %>
 
 <%= turbo_stream_from :time_entries %>
-<%= show_app_tour_for("time_entries/index") %>
 
 <% if params[:new_entry].present? %>
   <%
@@ -10,8 +9,12 @@
     new_entry.issue = new_entry.project.issues.find_by_id(params[:new_entry][:issue_id])
     new_entry.reference_date = @reference_date
   %>
+  <%= show_app_tour_for("time_entries/form") %>
+
   <%= render partial: 'form', locals: { time_entry: new_entry } %>
 <% else %>
+  <%= show_app_tour_for("time_entries/index") %>
+
   <%= turbo_frame_tag 'time_entry_form' do %>
   <% end %>
 <% end %>
