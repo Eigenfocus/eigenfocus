@@ -19,6 +19,7 @@ pin "sortablejs" # @1.15.6
 pin "dropzone" # @6.0.0
 pin "just-extend" # @5.1.1 required by dropzone
 pin "fuse.js" # @7.1.0
+pin "driver.js" # @1.3.5
 
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin_all_from "app/javascript/controllers/visualizations", under: "controllers"
