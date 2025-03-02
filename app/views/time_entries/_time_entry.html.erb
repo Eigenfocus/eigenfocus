@@ -1,5 +1,5 @@
 <% running_class = time_entry.running? ? "border-secondary-500" : "border-background-100" %>
-<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> transition-all bg-body-contrast relative rounded-md flex-col lg:flex-row gap-4 flex justify-stretch shadow-sm border peer peer-exists">
+<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> transition-all bg-body-contrast relative rounded-md flex-col lg:flex-row gap-4 flex justify-stretch shadow-sm border peer peer-exists tour--time-entry">
   <% if time_entry.running? %>
     <span class="absolute left-[-7px] flex" style="width:16px; height:16px; top: calc(50% - 6px)">
       <span class="relative  inline-flex rounded-full bg-body-contrast text-secondary-500" style="left:-2px;top:-2px;font-size:16px">
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary-500 font-bold animate-pulse" : "text-readable-content-600" %>">
+  <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary-500 font-bold animate-pulse" : "text-readable-content-600" %> tour--time-entry-duration">
     <% if time_entry.running? %>
       <div data-controller="clock-timer"
         data-clock-timer-started-at-value="<%= format_datetime_to_momentjs(time_entry.started_at) %>"
@@ -53,7 +53,7 @@
     <% end %>
   </div>
 
-  <div class="flex flex-row lg:flex-col lg:border-l border-t lg:border-t-0 border-background-200">
+  <div class="flex flex-row lg:flex-col lg:border-l border-t lg:border-t-0 border-background-200 tour--time-entry-actions">
     <% link_classes = "px-4 py-4 md:py-2 grow border-r lg:border-r-0 lg:border-b flex justify-center lg:justify-start items-center last:border-0 border-background-100 text-downcase text-sm font-medium cursor-pointer" %>
 
     <% if time_entry.running? %>
