@@ -11,7 +11,7 @@ const visualizationBoardTour = [
   {
     element: ".tour--column",
     popover: {
-      title: "Workflow Column",
+      title: "Board Column",
       description: "You can create multiple columns."
     }
   },

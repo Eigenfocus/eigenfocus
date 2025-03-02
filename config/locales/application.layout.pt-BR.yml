@@ -33,12 +33,12 @@ pt-BR:
       outdated_alert_html: "Sua versão está desatualizada.<br/>Nossa versão mais atual é %{newest_version}."
       tours:
         title: "Guided Tours"
-        projects: "Gerenciando Projetos, Issues e Labels"
-        time_entries: "Registrando Tempo"
-        issues: "Gerenciando Issues"
-        board: "Usando o Quadro de Fluxo de Trabalho"
-        features_list: "Visão Geral das Funcionalidades"
-        more: "Mais Guias"
+        projects: "Gerenciando projetos"
+        time_entries: "Registrando tempo"
+        issues: "Gerenciando issues"
+        board: "Usando o quadro de fluxo de trabalho"
+        features_list: "Visão geral das funcionalidades"
+        more: "Mais guias"
     sidebar:
       edit_profile: "Editar perfil"
       profile_options: "Perfil e configurações"

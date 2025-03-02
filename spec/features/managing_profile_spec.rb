@@ -28,7 +28,7 @@ describe 'When entering my workspace for the first time' do
     expect(page).to have_content("Eigenfocus - Tour Example Project")
 
     within ".driver-popover" do
-      expect(page).to have_content("Create New Project")
+      expect(page).to have_content("Quick tip:")
     end
   end
 
