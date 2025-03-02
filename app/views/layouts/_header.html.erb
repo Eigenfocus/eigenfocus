@@ -11,14 +11,21 @@
           <rect x="4" y="17" width="16" height="2"></rect>
         </svg>
       </button>
+
     </div>
     <div class="flex items-center space-x-4">
+
+      <a href="https://eigenfocus.com?utm_source=free_edition#plans"
+         target="_blank"
+         class="flex items-center text-left gap-2 text-xs text-readable-content-500 hover:bg-background-200 transition-all px-3 py-3 rounded-sm">
+        <i class="fa-solid fa-rocket"></i>
+        <span>Join PRO Edition waitlist</span>
+      </a>
 
       <button role="button" onclick="document.getElementById('guide-modal').modal.open()"
         class="cpy-open-guide text-lg text-readable-content-500 hover:text-primary-500">
         <i class="fa-solid fa-star"></i>
       </button>
-
 
       <div class="relative inline-flex" data-controller="dropdown">
         <button data-action="click->dropdown#toggle click@window->dropdown#hide"
