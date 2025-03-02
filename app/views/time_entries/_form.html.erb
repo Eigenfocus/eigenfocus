@@ -15,7 +15,7 @@
   <div class="">
     <%= form_with(model: time_entry, html: {
         class: 'flex flex-col gap-4',
-        data: { controller: 'dependent-fields form' }
+        data: { controller: 'dependent-fields form  time-entry--form' }
       }) do |f| %>
       <% if time_entry.errors.any? %>
         <div class="flex rounded-md w-full border-l-6 border-alert bg-alert bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert">
