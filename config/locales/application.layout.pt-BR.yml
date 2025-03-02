@@ -31,6 +31,13 @@ pt-BR:
       current_version: "Versão atual"
       check_our_github: "Veja nosso Github"
       outdated_alert_html: "Sua versão está desatualizada.<br/>Nossa versão mais atual é %{newest_version}."
+      tours:
+        title: "Guided Tours"
+        projects: "Gerenciando Projetos, Issues e Labels"
+        time_entries: "Registrando Tempo"
+        issues: "Gerenciando Issues"
+        board: "Usando o Quadro de Fluxo de Trabalho"
+        features_list: "Visão Geral das Funcionalidades"
     sidebar:
       edit_profile: "Editar perfil"
       profile_options: "Perfil e configurações"

@@ -21,16 +21,22 @@ en:
         themes:
           title: "Themes"
           description: "Customize the UI to your taste. Be more productive with style! 🎨"
-
+    header:
       thanks: "Thanks for using Eigenfocus!"
       like_us: "Like us on Github"
       close: "Close this guide"
-    header:
       join_pro_edition: "Join PRO Edition waitlist"
       new_version: "New version"
       current_version: "Current Version"
       check_our_github: "Check our Github"
       outdated_alert_html: "You version is outdated.<br/>Our newest version is %{newest_version}."
+      tours:
+        title: "Guided Tours"
+        projects: "Managing Projects, Issues and Labels"
+        time_entries: "Tracking Time"
+        issues: "Managing Issues"
+        board: "Using the Workflow Board"
+        features_list: "Features Overview"
     sidebar:
       edit_profile: "Edit profile"
       profile_options: "Profile & Settings"
