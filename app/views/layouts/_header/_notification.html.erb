@@ -5,7 +5,10 @@
     aria-haspopup="true" aria-expanded="false">
     <i class="fa-solid fa-bell"></i>
     <% if notifications.unread.exists? %>
-      <span class="absolute -top-1 -right-1 w-2 h-2 bg-primary-500 rounded-full"></span>
+      <span class="absolute -top-1 -left-1 flex size-3">
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary-400 opacity-75"></span>
+        <span class="relative inline-flex size-3 rounded-full bg-secondary-500"></span>
+      </span>
     <% end %>
   </button>
   <div data-dropdown-target="menu" class="bg-body-contrast origin-top-right z-10 absolute top-full w-80 bg-white border border-background-400 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
