@@ -1,0 +1,25 @@
+<div id="<%= dom_id(notification) %>" class="cpy-notification p-4 border-b border-background-200 last:border-b-0 hover:bg-background-50">
+  <div class="flex justify-stretch items-stretch gap-3">
+    <div class="flex grow flex-col">
+      <p class="text-sm font-bold text-readable-content-700"><%= notification.title %></p>
+      <p class="text-xs mt-1 text-italic  text-readable-content-600"><%= notification.content %></p>
+      <p class="text-xs text-readable-content-400 mt-1">
+        <%= time_ago_in_words(notification.published_at) %> ago
+      </p>
+    </div>
+    <div class="flex flex-col gap-4 justify-center">
+      <% if notification.external_link? %>
+        <%= link_to "https://notifications.eigenfocus.com/#{notification.external_id}", target: "_blank", class: "cpy-external-link text-sm text-primary-500 hover:text-primary-600" do %>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <% end %>
+      <% end %>
+      <% unless notification.read? %>
+        <%= button_to mark_as_read_notification_path(notification),
+            class: "text-sm text-primary-500 hover:text-primary-600 cpy-mark-as-read",
+            data: { turbo_method: :post } do %>
+          <i class="fa-solid fa-check"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

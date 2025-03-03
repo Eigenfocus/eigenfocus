@@ -95,6 +95,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_28_114444) do
     t.index ["project_id"], name: "index_issues_on_project_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content"
+    t.json "announcement_modes", default: [], null: false
+    t.boolean "external_link", default: false
+    t.string "external_id"
+    t.datetime "read_at"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.datetime "archived_at"

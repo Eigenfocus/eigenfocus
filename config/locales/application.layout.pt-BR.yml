@@ -39,6 +39,10 @@ pt-BR:
         board: "Usando o quadro de fluxo de trabalho"
         features_list: "Visão geral das funcionalidades"
         more: "Mais guias"
+      notification:
+        notifications: "Notificações"
+        mark_all_as_read: "Marcar tudo como lido"
+        no_notifications: "Ainda não existem notificações."
     sidebar:
       edit_profile: "Editar perfil"
       profile_options: "Perfil e configurações"
