@@ -9,6 +9,7 @@ RSpec.describe EigenfocusNewsFetcherJob, type: :job do
         "title" => "Important Update",
         "content" => "New features released",
         "announcement_modes" => [ "sound", "modal" ],
+        "external_link" => true,
         "published_at" => Time.current.iso8601
       },
       {
@@ -36,14 +37,16 @@ RSpec.describe EigenfocusNewsFetcherJob, type: :job do
       expect(first_notification).to have_attributes(
         title: "Important Update",
         content: "New features released",
-        announcement_modes: ["sound", "modal"]
+        external_link: true,
+        announcement_modes: [ "sound", "modal" ]
       )
 
       second_notification = Notification.find_by(external_id: "news-2")
       expect(second_notification).to have_attributes(
         title: "System Maintenance",
         content: "Scheduled maintenance notice",
-        announcement_modes: ["modal"]
+        external_link: false,
+        announcement_modes: [ "modal" ]
       )
     end
 

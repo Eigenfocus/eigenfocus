@@ -10,6 +10,7 @@ class EigenfocusNewsFetcherJob < ApplicationJob
         content: news["content"],
         announcement_modes: news["announcement_modes"],
         external_id: news["id"],
+        external_link: !!news["external_link"],
         published_at: news["published_at"]
       )
     end
