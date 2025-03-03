@@ -10,11 +10,7 @@ class EigenfocusNotificationsFetcher
   end
 
   def call
-    begin
-      client.get("/notifications?last_fetched_at=#{last_fetched_at.iso8601}")
-    rescue
-      []
-    end
+    client.get("/notifications?last_fetched_at=#{last_fetched_at.iso8601}").to_a
   end
 
   private
