@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EigenfocusNewsFetcherJob, type: :job do
+describe EigenfocusNotificationsFetcherJob, type: :job do
   let(:app_metadata) { double(AppMetadata, token: "123", current_version: "0.0.1") }
   let(:news_data) do
     [
@@ -24,7 +24,7 @@ RSpec.describe EigenfocusNewsFetcherJob, type: :job do
 
   before do
     allow(AppMetadata).to receive(:instance).and_return(app_metadata)
-    allow(EigenfocusNewsFetcher).to receive(:call).with(app_metadata).and_return(news_data)
+    allow(EigenfocusNotificationsFetcher).to receive(:call).with(app_metadata).and_return(news_data)
   end
 
   describe '#perform' do
@@ -70,7 +70,7 @@ RSpec.describe EigenfocusNewsFetcherJob, type: :job do
 
     context 'when the fetcher returns empty or invalid data' do
       before do
-        allow(EigenfocusNewsFetcher).to receive(:call).with(app_metadata).and_return([])
+        allow(EigenfocusNotificationsFetcher).to receive(:call).with(app_metadata).and_return([])
       end
 
       it 'handles empty response gracefully' do
@@ -82,7 +82,7 @@ RSpec.describe EigenfocusNewsFetcherJob, type: :job do
 
     context 'when the fetcher raises an error' do
       before do
-        allow(EigenfocusNewsFetcher).to receive(:call).with(app_metadata).and_raise(StandardError)
+        allow(EigenfocusNotificationsFetcher).to receive(:call).with(app_metadata).and_raise(StandardError)
       end
 
       it 'raises the error to be handled by job retry mechanism' do

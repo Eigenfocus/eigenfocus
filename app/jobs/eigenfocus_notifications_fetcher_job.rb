@@ -1,6 +1,6 @@
-class EigenfocusNewsFetcherJob < ApplicationJob
+class EigenfocusNotificationsFetcherJob < ApplicationJob
   def perform
-    lastest_news = EigenfocusNewsFetcher.call(AppMetadata.instance)
+    lastest_news = EigenfocusNotificationsFetcher.call(AppMetadata.instance)
 
     lastest_news.each do |news|
       next if Notification.exists?(external_id: news["id"])
