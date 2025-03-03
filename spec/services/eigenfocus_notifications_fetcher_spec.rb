@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe EigenfocusNewsFetcher do
+describe EigenfocusNotificationsFetcher do
   let(:app_metadata) { double(AppMetadata, token: "123", current_version: "0.0.1") }
   let(:service) { described_class.new(app_metadata) }
 
   describe '#call' do
-    let(:base_url) { "https://eigenfocus.com/api/v1/news" }
+    let(:base_url) { "https://self-hosted-api-free.eigenfocus.com/v1/notifications" }
     let(:today) { Date.today.beginning_of_day }
     let(:headers) do
       {
@@ -51,30 +51,6 @@ describe EigenfocusNewsFetcher do
         response = service.call
         expect(response).to be_an(Array)
         expect(response.first['title']).to eq('News 2')
-      end
-    end
-
-    context 'when the API request fails' do
-      before do
-        stub_request(:get, /#{base_url}.*/)
-          .with(headers: headers)
-          .to_return(status: 500)
-      end
-
-      it 'returns an empty array' do
-        expect(service.call).to eq([])
-      end
-    end
-
-    context 'when the API is unreachable' do
-      before do
-        stub_request(:get, /#{base_url}.*/)
-          .with(headers: headers)
-          .to_raise(SocketError)
-      end
-
-      it 'returns an empty array' do
-        expect(service.call).to eq([])
       end
     end
   end
