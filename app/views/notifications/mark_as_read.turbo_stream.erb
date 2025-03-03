@@ -1,2 +1,5 @@
 <%= turbo_stream.replace dom_id(@notification), partial: "layouts/_header/notification_item", locals: { notification: @notification } %>
 <%= new_turbo_stream_alert_message(:success, t_flash_message(@notification)) %>
+<% if Notification.unread.none? %>
+  <%= turbo_stream.remove_all ".js-notifications-ping" %>
+<% end %>
