@@ -6,7 +6,7 @@ describe EigenfocusNotificationsFetcher do
 
   describe '#call' do
     let(:base_url) { "https://self-hosted-api-free.eigenfocus.com/v1/notifications" }
-    let(:today) { Date.today.beginning_of_day }
+    let(:today) { Date.current.beginning_of_day }
 
     let(:headers) do
       {

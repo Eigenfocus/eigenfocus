@@ -18,6 +18,6 @@ class EigenfocusNotificationsFetcher
     lastest_notification = Notification.order(published_at: :desc).first
 
     return lastest_notification.published_at if lastest_notification.present?
-    Date.today.beginning_of_day
+    Date.current.beginning_of_day
   end
 end
