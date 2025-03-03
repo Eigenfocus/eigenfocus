@@ -5,18 +5,18 @@ RSpec.describe EigenfocusNewsFetcherJob, type: :job do
   let(:news_data) do
     [
       {
-        id: "news-1",
-        title: "Important Update",
-        content: "New features released",
-        announcement_modes: ["sound", "modal"],
-        published_at: Time.current.iso8601
+        "id" => "news-1",
+        "title" => "Important Update",
+        "content" => "New features released",
+        "announcement_modes" => [ "sound", "modal" ],
+        "published_at" => Time.current.iso8601
       },
       {
-        id: "news-2",
-        title: "System Maintenance",
-        content: "Scheduled maintenance notice",
-        announcement_modes: ["modal"],
-        published_at: 1.hour.ago.iso8601
+        "id" => "news-2",
+        "title" => "System Maintenance",
+        "content" => "Scheduled maintenance notice",
+        "announcement_modes" => [ "modal" ],
+        "published_at" => 1.hour.ago.iso8601
       }
     ]
   end
