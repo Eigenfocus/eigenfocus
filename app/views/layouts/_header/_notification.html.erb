@@ -12,7 +12,7 @@
     <div class="flex flex-col">
       <div class="p-3 bg-background-50 border-b border-background-200">
         <div class="flex items-center justify-between">
-          <h3 class="font-medium text-readable-content-600"><%= t(".notifications") %></h3>
+          <h3 class="text-sm font-medium text-readable-content-600"><%= t(".notifications") %></h3>
           <% if notifications.unread.exists? %>
             <%= button_to mark_all_as_read_notifications_path,
                 class: "text-xs text-primary-500 hover:text-primary-600",
