@@ -36,13 +36,15 @@
               <%= t('.tours.projects') %>
             <% end %>
 
-            <% if example_project = Project.first %>
-              <%= link_to project_issues_path(example_project, activate_tour: "issues/index"), class: "flex items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100", data: { turbo_frame: "_top" } do %>
+            <% if example_project_id = Issue.first&.project_id %>
+              <%= link_to project_issues_path(example_project_id, activate_tour: "issues/index"), class: "flex items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100", data: { turbo_frame: "_top" } do %>
                 <%= icon_for(:issues) %>
                 <%= t('.tours.issues') %>
               <% end %>
+            <% end %>
 
-              <%= link_to visualization_path(example_project.default_visualization, activate_tour: "visualization/board"), class: "flex items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100", data: { turbo_frame: "_top" } do %>
+            <% if example_visualization = Visualization.first %>
+              <%= link_to visualization_path(example_visualization, activate_tour: "visualization/board"), class: "flex items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100", data: { turbo_frame: "_top" } do %>
                 <%= icon_for(:boards) %>
                 <%= t('.tours.board') %>
               <% end %>
