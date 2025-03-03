@@ -96,6 +96,3 @@ en:
         filter_by_issue_labels: 'Filter by issue labels'
         entry_start_at: 'Starting at'
         entry_end_at: 'Ending at'
-  notifications:
-    list:
-      no_notifications: "No notifications yet"
