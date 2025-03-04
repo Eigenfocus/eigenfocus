@@ -12,6 +12,9 @@ en:
     issues:
       issue:
         no_grouping: "No column"
+  survey_responses:
+    thanks:
+      answer_submitted: "Thank you! Your answers have been submitted."
   visualizations:
     column_menu:
       actions: 'Actions'
@@ -52,7 +55,26 @@ en:
           Consider subscribing and giving us a star on <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="inline-flex link-primary">Github</a>.
           <br/>
           We hate spam and take emails very seriously. This step is completely optional, feel free to skip it.
-
+    onboarding_survey:
+      submit_answers: "Submit answers"
+      title: "Could you answer a few questions anonymously?"
+      team_size: "What's your team size?"
+      utilization_context: "What will you primarily use it for?"
+      usage_purposes: "For what kind of purposes?"
+      answer_labels:
+        team_size:
+          one: "1 (One person)"
+          one_to_ten: "Up to 10 people"
+          ten_plus: "10+ people"
+        utilization_context:
+          personal_projects: "Personal projects"
+          work_software_development: "Work: Software Development"
+          work_it_related: "Work: IT Related Areas"
+          work_other_areas: "Work: Other Areas"
+        usage_purposes:
+          time_tracking: "For Time Tracking"
+          project_management: "For Project Management"
+          focus: "As a Focus Tool"
     update:
       success: 'Profile succesfully updated.'
   issues:

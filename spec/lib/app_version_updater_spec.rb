@@ -11,11 +11,9 @@ describe AppVersionUpdater do
   subject { AppVersionUpdater.new(app_metadata) }
 
   specify '#update_newest_release_metadata!' do
-    stub_request(:get, /eigenfocus.com/).to_return(
-      status: 200,
-      body: { latest_version: "0.15.0" }.to_json,
-      headers: { "Content-Type"=> "application/json" }
-    )
+    expect_any_instance_of(SelfHostedApiClient).to receive(:get).with("/app_versions/latest").and_return({
+      "latest_version" => "0.15.0"
+    })
 
     subject.update_newest_release_metadata!
 

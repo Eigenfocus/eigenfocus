@@ -1,6 +1,7 @@
 class AppMetadata < ApplicationRecord
   # Hooks
   before_create :assign_fields
+  before_save :set_survey_token
 
   def self.instance
     first_or_create
@@ -30,5 +31,9 @@ class AppMetadata < ApplicationRecord
   private def assign_fields
     self.token = SecureRandom.uuid
     self.last_released_version = current_version
+  end
+
+  private def set_survey_token
+    self.survey_token ||= SecureRandom.uuid
   end
 end
