@@ -70,4 +70,16 @@ describe AppMetadata do
       expect(subject.is_app_outdated?).to be(true)
     end
   end
+
+  it "sets survey_token if it's not set" do
+    expect(subject.survey_token).to be_present
+
+    subject.update_column(:survey_token, nil)
+
+    subject.reload
+
+    expect(subject.survey_token).to be_nil
+    subject.save!
+    expect(subject.survey_token).to be_present
+  end
 end
