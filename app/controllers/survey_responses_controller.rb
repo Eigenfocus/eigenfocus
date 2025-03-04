@@ -1,4 +1,6 @@
 class SurveyResponsesController < ApplicationController
+  skip_before_action :ensure_user_profile_is_complete
+
   def create
     survey_data = {
       team_size: params[:team_size],
