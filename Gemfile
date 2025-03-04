@@ -41,6 +41,7 @@ gem "ransack", "~> 4.3"
 gem "pagy", "~> 9.3"
 
 group :development, :test do
+  gem "dotenv"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
   gem "i18n-debug"
