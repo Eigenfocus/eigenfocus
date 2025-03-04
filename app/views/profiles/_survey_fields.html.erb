@@ -1,0 +1,95 @@
+<div class="card p-5 rounded-lg mb-6">
+  <h3 class="text-base  text-readable-content-500 border-b border-readable-content-200 pb-1">
+    <%= t(".title") %>
+  </h3>
+  <p class="mt-4 text-sm  text-readable-content-500">
+    <%= t(".team_size") %>
+  </p>
+  <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+    <%
+      [
+        {
+          label: "1 (One)",
+          value: "1"
+        },{
+          label: "Up to 10",
+          value: "1-to-10"
+        },{
+          label: "10+ people",
+          value: "10+"
+        }
+      ].each do |option|
+    %>
+      <li class="flex text-xs items-center min-w-32">
+        <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+          <%= radio_button_tag :team_size,
+            option[:value],
+            class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+            <span><%= option[:label] %></span>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+  <p class="mt-2 text-sm  text-readable-content-500">
+    <%= t(".utilization_context") %>
+  </p>
+
+  <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+    <%
+      [
+        {
+          label: "Personal projects",
+          value: "personal_projects"
+        },{
+          label: "Work: Software Development",
+          value: "work_software_development"
+        },{
+          label: "Work: IT Related Areas",
+          value: "work_it_related"
+        },{
+          label: "Work: Other Areas",
+          value: "work_other_areas"
+        }
+      ].each do |option|
+    %>
+      <li class="flex text-xs items-center min-w-32">
+        <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+          <%= radio_button_tag :utilization_context,
+            option[:value],
+            class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+            <span><%= option[:label] %></span>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+
+  <p class="mt-2 text-sm  text-readable-content-500">
+    <%= t(".usage_purposes") %>
+  </p>
+
+  <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+    <%
+      [
+        {
+          label: "For Time Tracking",
+          value: "time_tracking"
+        },{
+          label: "For Project Management",
+          value: "project_management"
+        },{
+          label: "As a Focus Tool",
+          value: "focus"
+        }
+      ].each do |option|
+    %>
+      <li class="flex text-xs items-center min-w-32">
+        <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+          <%= check_box_tag 'usage_purposes[]',
+            option[:value],
+            class: "w-4 h-4 mr-2 bg-background-100 border-background-300 rounded-sm focus:ring-blue-500" %>
+            <span><%= option[:label] %></span>
+        </label>
+      </li>
+    <% end %>
+  </ul>
+</div>
