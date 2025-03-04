@@ -12,11 +12,12 @@
   </p>
   <% end %>
 
-  <%= render "survey_fields" %>
-
   <div class="card p-5 rounded-lg">
     <%= render(partial: 'form') %>
   </div>
+
+  <%= render "onboarding_survey" %>
+
   <div class="card mt-8 p-5 rounded-lg">
     <div class="text-center w-full flex flex-row justify-start items-center gap-2 pb-2 border-b border-readable-content-100">
       <div class="text-md size-8 rounded-full bg-primary-50 text-primary-400 flex items-center justify-center">

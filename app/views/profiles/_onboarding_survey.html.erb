@@ -1,0 +1,110 @@
+<div class="card p-5 rounded-lg my-8">
+
+  <div class="text-center w-full flex flex-row justify-start items-center gap-2 pb-2 border-b border-readable-content-100">
+    <div class="text-md size-8 rounded-full bg-primary-50 text-primary-400 flex items-center justify-center">
+      <i class="fa fa-lightbulb"></i>
+    </div>
+    <h4 class="text-lg font-medium text-readable-content-700">
+      <%= t(".title") %>
+    </h4>
+  </div>
+
+  <%= turbo_frame_tag "survey_form" do %>
+    <%= form_with url: survey_responses_path, method: :post do |f| %>
+      <p class="mt-4 text-sm  text-readable-content-500">
+        <%= t(".team_size") %>
+    </p>
+    <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+      <%
+        [
+          {
+            label: t(".answer_labels.team_size.one"),
+            value: "1"
+          },{
+            label: t(".answer_labels.team_size.one_to_ten"),
+            value: "1-to-10"
+          },{
+            label: t(".answer_labels.team_size.ten_plus"),
+            value: "10+"
+          }
+        ].each do |option|
+      %>
+        <li class="flex text-xs items-center min-w-32">
+          <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+            <%= radio_button_tag :team_size,
+              option[:value],
+              class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+              <span><%= option[:label] %></span>
+          </label>
+        </li>
+      <% end %>
+    </ul>
+    <p class="mt-2 text-sm  text-readable-content-500">
+      <%= t(".utilization_context") %>
+    </p>
+
+    <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+      <%
+        [
+          {
+            label: t(".answer_labels.utilization_context.personal_projects"),
+            value: "personal_projects"
+          },{
+            label: t(".answer_labels.utilization_context.work_software_development"),
+            value: "work_software_development"
+          },{
+            label: t(".answer_labels.utilization_context.work_it_related"),
+            value: "work_it_related"
+          },{
+            label: t(".answer_labels.utilization_context.work_other_areas"),
+            value: "work_other_areas"
+          }
+        ].each do |option|
+      %>
+        <li class="flex text-xs items-center min-w-32">
+          <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+            <%= radio_button_tag :utilization_context,
+              option[:value],
+              class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+              <span><%= option[:label] %></span>
+          </label>
+        </li>
+      <% end %>
+    </ul>
+
+    <p class="mt-2 text-sm  text-readable-content-500">
+      <%= t(".usage_purposes") %>
+    </p>
+
+    <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+      <%
+        [
+          {
+            label: t(".answer_labels.usage_purposes.time_tracking"),
+            value: "time_tracking"
+          },{
+            label: t(".answer_labels.usage_purposes.project_management"),
+            value: "project_management"
+          },{
+            label: t(".answer_labels.usage_purposes.focus"),
+            value: "focus"
+          }
+        ].each do |option|
+      %>
+        <li class="flex text-xs items-center min-w-32">
+          <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+            <%= check_box_tag 'usage_purposes[]',
+              option[:value],
+              class: "w-4 h-4 mr-2 bg-background-100 border-background-300 rounded-sm focus:ring-blue-500" %>
+              <span><%= option[:label] %></span>
+          </label>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="flex justify-center self-center	">
+        <%= f.submit t('.submit_answers'), class: "btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     get :total_time
   end
 
+  resources :survey_responses, only: [ :create ]
+
   get "v/:id/i/:issue_id",
       as: :show_visualization_issue,
       controller: :visualizations,

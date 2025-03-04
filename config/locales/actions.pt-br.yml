@@ -12,6 +12,9 @@ pt-BR:
     issues:
       issue:
         no_grouping: "Sem coluna"
+  survey_responses:
+    thanks:
+      answer_submitted: "Obrigado! Suas respostas foram enviadas com sucesso."
   profiles:
     form:
       why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."
@@ -28,7 +31,8 @@ pt-BR:
           <br/>
           Ninguém gosta de spam e levamos e-mails muito a sério. Este passo é completamente opcional, sinta-se à vontade para pulá-lo.
 
-    survey_fields:
+    onboarding_survey:
+      submit_answers: "Enviar respostas"
       title: "Pode responder algumas perguntas anonimamente?"
       team_size: "Qual é o tamanho da sua equipe?"
       utilization_context: "Para que você vai usar o registro de tempo?"
