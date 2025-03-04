@@ -1,7 +1,7 @@
 production:
   new_version_check:
     class: NewVersionCheckJob
-    schedule: every 3 hours
+    schedule: every 1 hour
   eigenfocus_notifications_check:
     class: EigenfocusNotificationsFetcherJob
     schedule: every 1 hour

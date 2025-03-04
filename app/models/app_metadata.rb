@@ -22,6 +22,11 @@ class AppMetadata < ApplicationRecord
     last_released_version > current_version
   end
 
+  def touch_usage!
+    self.last_used_at = DateTime.current
+    save
+  end
+
   private def assign_fields
     self.token = SecureRandom.uuid
     self.last_released_version = current_version
