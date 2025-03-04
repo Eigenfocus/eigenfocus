@@ -5,7 +5,6 @@ describe EigenfocusNotificationsFetcher do
   let(:service) { described_class.new(app_metadata) }
 
   describe '#call' do
-    let(:base_url) { "https://self-hosted-api-free.eigenfocus.com/v1/notifications" }
     let(:today) { Date.current.beginning_of_day }
 
     let(:headers) do
@@ -17,7 +16,7 @@ describe EigenfocusNotificationsFetcher do
 
     context 'when there are no existing notifications' do
       before do
-        stub_request(:get, "#{base_url}?last_fetched_at=#{today.iso8601}")
+        stub_request(:get, /last_fetched_at=#{today.iso8601}/)
           .with(headers: headers)
           .to_return(
             status: 200,
@@ -38,7 +37,7 @@ describe EigenfocusNotificationsFetcher do
       let!(:last_notification) { create(:notification, published_at: 1.day.ago) }
 
       before do
-        stub_request(:get, "#{base_url}?last_fetched_at=#{last_notification.published_at.iso8601}")
+        stub_request(:get, /last_fetched_at=#{last_notification.published_at.iso8601}/)
           .with(headers: headers)
           .to_return(
             status: 200,

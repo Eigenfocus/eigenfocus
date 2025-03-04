@@ -7,7 +7,7 @@ class SubmitSurveyResponseJob < ApplicationJob
 
     client = SelfHostedApiClient.new(app_metadata)
 
-    client.post("/v1/survey_responses/submit", {
+    client.post("/survey_responses/submit", {
       responder_token: app_metadata.survey_token,
       survey_response: {
         team_size: survey_response["team_size"],

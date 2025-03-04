@@ -33,7 +33,7 @@ RSpec.describe SubmitSurveyResponseJob, type: :job do
         }
       }
 
-      expect(client).to receive(:post).with("/v1/survey_responses/submit", expected_payload)
+      expect(client).to receive(:post).with("/survey_responses/submit", expected_payload)
 
       described_class.perform_now
     end
