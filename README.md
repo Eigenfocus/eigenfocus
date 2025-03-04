@@ -22,6 +22,8 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/0.8.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
+  <img src="https://img.shields.io/badge/0.9.0.rc2-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
+
   <br/>
   <br/>
   <a href="https://eigenfocus.com/blog/articles/its-free-to-be-a-pro-issues-list-labels-live-updates?utm_source=github_home"><strong>See what is new in our 0.8.0</strong></a>
