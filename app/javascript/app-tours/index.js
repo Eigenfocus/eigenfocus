@@ -1,14 +1,19 @@
 import { driver } from "driver.js"
-import projectTours from "app-tours/projects_tours"
-import issuesTour from "app-tours/issues_tour"
-import visualizationBoardTour from "app-tours/visualization_board_tour"
-import timeEntriesTour from "app-tours/time_entries_tour"
+import { getTourConfigs } from "app-tours/tour_config"
 
-const TOUR_CONFIGS = {
-  ...projectTours,
-  ...issuesTour,
-  ...visualizationBoardTour,
-  ...timeEntriesTour
+const translations = {
+  en: {
+    skipBtnText: 'Close tour',
+    nextBtnText: '—›',
+    prevBtnText: '‹—',
+    doneBtnText: '✕',
+  },
+  'pt-BR': {
+    skipBtnText: 'Fechar tour',
+    nextBtnText: '—›',
+    prevBtnText: '‹—',
+    doneBtnText: '✕',
+  }
 }
 
 class AppTour {
@@ -19,9 +24,21 @@ class AppTour {
       allowClose: true,
       overlayClickBehavior: 'nextStep',
       disableActiveInteraction: true,
+      nextBtnText: translations[this.language].nextBtnText,
+      prevBtnText: translations[this.language].prevBtnText,
+      doneBtnText: translations[this.language].doneBtnText,
       onCloseClick: () => {
         this.stopTour()
-      }
+      },
+      onPopoverRender: (popover, { config, state }) => {
+        const firstButton = document.createElement("button");
+        firstButton.innerText = translations[this.language].skipBtnText;
+        popover.footerButtons.appendChild(firstButton);
+
+        firstButton.addEventListener("click", () => {
+          this.stopTour()
+        });
+      },
     })
 
     window.addEventListener('click', (event) => {
@@ -47,9 +64,9 @@ class AppTour {
 
     this.stopTour()
 
-    if (TOUR_CONFIGS[tourKey]) {
+    if (this.tourConfigs[tourKey]) {
       this.markTourAsCompleted(tourKey)
-      this.driverObj.setSteps(TOUR_CONFIGS[tourKey])
+      this.driverObj.setSteps(this.tourConfigs[tourKey])
       this.driverObj.drive()
     } else {
       console.log("No tour config found for key:", tourKey)
@@ -61,7 +78,7 @@ class AppTour {
   }
 
   markAllToursAsPending() {
-    sessionStorage.setItem('pendingTours', JSON.stringify(Object.keys(TOUR_CONFIGS)))
+    sessionStorage.setItem('pendingTours', JSON.stringify(Object.keys(this.tourConfigs)))
   }
 
   markTourAsCompleted(tourKey) {
@@ -73,6 +90,15 @@ class AppTour {
   getPendingTours() {
     const storedPendingTours = sessionStorage.getItem('pendingTours')
     return storedPendingTours ? JSON.parse(storedPendingTours) : []
+  }
+
+  get tourConfigs() {
+    return getTourConfigs(this.language);
+  }
+
+  get language() {
+    const metaTag = document.querySelector('meta[name="tour-language"]');
+    return metaTag ? metaTag.getAttribute('content') : 'en';
   }
 }
 
