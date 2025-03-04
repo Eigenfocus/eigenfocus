@@ -28,6 +28,26 @@ pt-BR:
           <br/>
           Ninguém gosta de spam e levamos e-mails muito a sério. Este passo é completamente opcional, sinta-se à vontade para pulá-lo.
 
+    survey_fields:
+      title: "Pode responder algumas perguntas anonimamente?"
+      team_size: "Qual é o tamanho da sua equipe?"
+      utilization_context: "Para que você vai usar o registro de tempo?"
+      usage_purposes: "Para que você vai usar o registro de tempo?"
+      answer_labels:
+        team_size:
+          one: "1 (uma pessoa)"
+          one_to_ten: "Até 10 pessoas"
+          ten_plus: "10+ pessoas"
+        utilization_context:
+          personal_projects: "Projetos pessoais"
+          work_software_development: "Trabalho: Desenvolvimento de software"
+          work_it_related: "Trabalho: Áreas relacionadas à TI"
+          work_other_areas: "Trabalho: Outras áreas"
+        usage_purposes:
+          time_tracking: "Para registro de tempo"
+          project_management: "Para gerenciamento de projetos"
+          focus: "Para foco"
+
     update:
       success: 'Perfil atualizado com sucesso.'
   visualizations:

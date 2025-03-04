@@ -1,7 +1,8 @@
 <div class="card p-5 rounded-lg mb-6">
-  <h3 class="text-base  text-readable-content-500 border-b border-readable-content-200 pb-1">
+  <h3 class="text-base  text-readable-content-500 pb-1">
     <%= t(".title") %>
   </h3>
+
   <p class="mt-4 text-sm  text-readable-content-500">
     <%= t(".team_size") %>
   </p>
@@ -9,13 +10,13 @@
     <%
       [
         {
-          label: "1 (One)",
+          label: t(".answer_labels.team_size.one"),
           value: "1"
         },{
-          label: "Up to 10",
+          label: t(".answer_labels.team_size.one_to_ten"),
           value: "1-to-10"
         },{
-          label: "10+ people",
+          label: t(".answer_labels.team_size.ten_plus"),
           value: "10+"
         }
       ].each do |option|
@@ -38,16 +39,16 @@
     <%
       [
         {
-          label: "Personal projects",
+          label: t(".answer_labels.utilization_context.personal_projects"),
           value: "personal_projects"
         },{
-          label: "Work: Software Development",
+          label: t(".answer_labels.utilization_context.work_software_development"),
           value: "work_software_development"
         },{
-          label: "Work: IT Related Areas",
+          label: t(".answer_labels.utilization_context.work_it_related"),
           value: "work_it_related"
         },{
-          label: "Work: Other Areas",
+          label: t(".answer_labels.utilization_context.work_other_areas"),
           value: "work_other_areas"
         }
       ].each do |option|
@@ -71,13 +72,13 @@
     <%
       [
         {
-          label: "For Time Tracking",
+          label: t(".answer_labels.usage_purposes.time_tracking"),
           value: "time_tracking"
         },{
-          label: "For Project Management",
+          label: t(".answer_labels.usage_purposes.project_management"),
           value: "project_management"
         },{
-          label: "As a Focus Tool",
+          label: t(".answer_labels.usage_purposes.focus"),
           value: "focus"
         }
       ].each do |option|
