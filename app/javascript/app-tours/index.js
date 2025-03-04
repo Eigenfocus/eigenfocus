@@ -1,15 +1,5 @@
 import { driver } from "driver.js"
-import projectTours from "app-tours/projects_tours"
-import issuesTour from "app-tours/issues_tour"
-import visualizationBoardTour from "app-tours/visualization_board_tour"
-import timeEntriesTour from "app-tours/time_entries_tour"
-
-const TOUR_CONFIGS = {
-  ...projectTours,
-  ...issuesTour,
-  ...visualizationBoardTour,
-  ...timeEntriesTour
-}
+import { getTourConfigs } from "app-tours/tour_config"
 
 class AppTour {
   constructor() {
@@ -47,9 +37,9 @@ class AppTour {
 
     this.stopTour()
 
-    if (TOUR_CONFIGS[tourKey]) {
+    if (this.tourConfigs[tourKey]) {
       this.markTourAsCompleted(tourKey)
-      this.driverObj.setSteps(TOUR_CONFIGS[tourKey])
+      this.driverObj.setSteps(this.tourConfigs[tourKey])
       this.driverObj.drive()
     } else {
       console.log("No tour config found for key:", tourKey)
@@ -61,7 +51,7 @@ class AppTour {
   }
 
   markAllToursAsPending() {
-    sessionStorage.setItem('pendingTours', JSON.stringify(Object.keys(TOUR_CONFIGS)))
+    sessionStorage.setItem('pendingTours', JSON.stringify(Object.keys(this.tourConfigs)))
   }
 
   markTourAsCompleted(tourKey) {
@@ -73,6 +63,12 @@ class AppTour {
   getPendingTours() {
     const storedPendingTours = sessionStorage.getItem('pendingTours')
     return storedPendingTours ? JSON.parse(storedPendingTours) : []
+  }
+
+  get tourConfigs() {
+    const metaTag = document.querySelector('meta[name="tour-language"]');
+    const language = metaTag ? metaTag.getAttribute('content') : 'en';
+    return getTourConfigs(language);
   }
 }
 

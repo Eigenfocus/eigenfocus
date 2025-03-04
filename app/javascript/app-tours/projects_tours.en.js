@@ -27,14 +27,14 @@ const projectsIndexTour = [
   {
     popover: {
       title: "Project Issues",
-      description: "Issues are items that you need to accomplish in your project. Think them as tasks, bugs, features, etc."
+      description: "Issues are items that you need to accomplish in your project. Think them as tasks, bugs, features, ideas, etc."
     }
   },
   {
     element: ".tour--time-tracking",
     popover: {
       title: "Time Tracking",
-      description: "Click here to track the time spent on your project activities and issues."
+      description: "Click here to track the time spent on your project and issues."
     }
   },
   {

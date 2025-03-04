@@ -30,7 +30,7 @@ const issuesIndexTour = [
   {
     element: ".tour--project-navigation-tabs > *:last-child",
     popover: {
-      title: "Project Navigation",
+      title: "Project Navigation Tabs",
       description: "Next: navigate through your project views."
     },
     disableActiveInteraction: false
