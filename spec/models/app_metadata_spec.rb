@@ -34,6 +34,27 @@ describe AppMetadata do
     expect(subject.last_released_version).to be_an_instance_of(Gem::Version)
   end
 
+  describe '#touch_usage!' do
+    it 'updates last_used_at to current time' do
+      Timecop.freeze(reference_time = DateTime.current) do
+        subject.last_used_at = nil
+        subject.save!
+        subject.touch_usage!
+        expect(subject.last_used_at).to be_within(1.second).of(reference_time)
+      end
+    end
+
+    it "doesn't update to an older date" do
+      Timecop.freeze(tomorrow = DateTime.current + 1.day) do
+        subject.last_used_at = DateTime.current
+        subject.save!
+
+        subject.touch_usage!
+        expect(subject.last_used_at).to be_within(1.second).of(tomorrow)
+      end
+    end
+  end
+
   describe '#is_app_outdated?' do
     specify do
       expect(subject).to receive(:current_version).and_return(Gem::Version.new("0.77.0"))

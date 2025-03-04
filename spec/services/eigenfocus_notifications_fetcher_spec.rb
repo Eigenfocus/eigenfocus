@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe EigenfocusNotificationsFetcher do
-  let(:app_metadata) { double(AppMetadata, token: "123", current_version: "0.0.1") }
+  let(:app_metadata) { double(AppMetadata, token: "123", current_version: "0.0.1", last_used_at: DateTime.current) }
   let(:service) { described_class.new(app_metadata) }
 
   describe '#call' do

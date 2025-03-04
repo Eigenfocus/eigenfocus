@@ -19,6 +19,7 @@ class SelfHostedApiClient
     request = Net::HTTP::Get.new(uri)
     request["App-Token"] = @app_metadata.token
     request["App-Version"] = @app_metadata.current_version.to_s
+    request["Last-Used-At"] = @app_metadata.last_used_at.iso8601 if @app_metadata.last_used_at.present?
 
     response = http.request(request)
     JSON.parse(response.body)
