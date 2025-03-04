@@ -1,6 +1,21 @@
 import { driver } from "driver.js"
 import { getTourConfigs } from "app-tours/tour_config"
 
+const translations = {
+  en: {
+    skipBtnText: 'Close tour',
+    nextBtnText: '—›',
+    prevBtnText: '‹—',
+    doneBtnText: '✕',
+  },
+  'pt-BR': {
+    skipBtnText: 'Fechar tour',
+    nextBtnText: '—›',
+    prevBtnText: '‹—',
+    doneBtnText: '✕',
+  }
+}
+
 class AppTour {
   constructor() {
     this.driverObj = driver({
@@ -9,9 +24,21 @@ class AppTour {
       allowClose: true,
       overlayClickBehavior: 'nextStep',
       disableActiveInteraction: true,
+      nextBtnText: translations[this.language].nextBtnText,
+      prevBtnText: translations[this.language].prevBtnText,
+      doneBtnText: translations[this.language].doneBtnText,
       onCloseClick: () => {
         this.stopTour()
-      }
+      },
+      onPopoverRender: (popover, { config, state }) => {
+        const firstButton = document.createElement("button");
+        firstButton.innerText = translations[this.language].skipBtnText;
+        popover.footerButtons.appendChild(firstButton);
+
+        firstButton.addEventListener("click", () => {
+          this.stopTour()
+        });
+      },
     })
 
     window.addEventListener('click', (event) => {
@@ -66,9 +93,12 @@ class AppTour {
   }
 
   get tourConfigs() {
+    return getTourConfigs(this.language);
+  }
+
+  get language() {
     const metaTag = document.querySelector('meta[name="tour-language"]');
-    const language = metaTag ? metaTag.getAttribute('content') : 'en';
-    return getTourConfigs(language);
+    return metaTag ? metaTag.getAttribute('content') : 'en';
   }
 }
 
