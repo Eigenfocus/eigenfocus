@@ -1,0 +1,48 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "7bc6d75e6e3af59b0c63e57ab6ab5627d417bc002cbf066d95ab070c5b090c3d",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/layouts/_header/_notification_item.html.erb",
+      "line": 5,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "(Unresolved Model).new.content",
+      "render_path": [
+        {
+          "type": "template",
+          "name": "layouts/_header",
+          "line": 73,
+          "file": "app/views/layouts/_header.html.erb",
+          "rendered": {
+            "name": "layouts/_header/_notification",
+            "file": "app/views/layouts/_header/_notification.html.erb"
+          }
+        },
+        {
+          "type": "template",
+          "name": "layouts/_header/_notification",
+          "line": 30,
+          "file": "app/views/layouts/_header/_notification.html.erb",
+          "rendered": {
+            "name": "layouts/_header/_notification_item",
+            "file": "app/views/layouts/_header/_notification_item.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "layouts/_header/_notification_item"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "cwe_id": [
+        79
+      ],
+      "note": ""
+    }
+  ],
+  "brakeman_version": "7.0.0"
+}

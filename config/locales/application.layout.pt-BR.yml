@@ -43,6 +43,10 @@ pt-BR:
         notifications: "Notificações"
         mark_all_as_read: "Marcar tudo como lido"
         no_notifications: "Ainda não existem notificações."
+      notification_item:
+        visit_link: "Visite o link"
+        mark_as_read: "Marcar como lida"
+
     sidebar:
       edit_profile: "Editar perfil"
       profile_options: "Perfil e configurações"

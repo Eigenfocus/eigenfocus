@@ -42,6 +42,9 @@ en:
         notifications: "Notifications"
         mark_all_as_read: "Mark all as read"
         no_notifications: "There are no notifications yet."
+      notification_item:
+        visit_link: "Visit link"
+        mark_as_read: "Mark as read"
 
     sidebar:
       edit_profile: "Edit profile"
