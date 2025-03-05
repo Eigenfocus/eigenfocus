@@ -11,9 +11,9 @@
       </span>
     <% end %>
   </button>
-  <div data-dropdown-target="menu" class="bg-body-contrast origin-top-right z-10 absolute top-full w-80 bg-white border border-background-400 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+  <div data-dropdown-target="menu" class="bg-body-contrast origin-top-right z-10 absolute top-full w-96 md:w-124 bg-white border border-background-400 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
     <div class="flex flex-col">
-      <div class="p-3 bg-background-50 border-b border-background-200">
+      <div class="px-3 py-2 bg-background-50 border-b border-background-200">
         <div class="flex items-center justify-between">
           <h3 class="text-sm font-medium text-readable-content-600"><%= t(".notifications") %></h3>
           <% if notifications.unread.exists? %>
