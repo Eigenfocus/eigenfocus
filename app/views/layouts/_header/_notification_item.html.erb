@@ -2,7 +2,7 @@
   <div class="flex justify-stretch items-stretch gap-3">
     <div class="flex grow flex-col">
       <p class="text-sm font-bold text-readable-content-700"><%= notification.title %></p>
-      <div class="text-xs mt-1 text-italic  text-readable-content-600"><%= notification.content.html_safe %></div>
+      <div class="text-xs mt-1 text-italic  text-readable-content-600"><%= notification.content %></div>
       <div class="text-xs flex mt-1 justify-between gap-4">
         <span>
           <% if notification.external_link? %>
