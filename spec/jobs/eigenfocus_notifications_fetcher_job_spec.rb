@@ -52,7 +52,7 @@ describe EigenfocusNotificationsFetcherJob, type: :job do
 
     context 'when some notifications already exist' do
       before do
-        create(:notification, external_id: "news-1")
+        create(:notification, title: "Incorrect t1tl3", external_id: "news-1")
       end
 
       it 'only creates notifications for new items' do
@@ -64,6 +64,15 @@ describe EigenfocusNotificationsFetcherJob, type: :job do
         expect(new_notification).to have_attributes(
           external_id: "news-2",
           title: "System Maintenance"
+        )
+      end
+
+      it 'updates existing notifications' do
+        described_class.perform_now
+
+        previous_notification = Notification.find_by_external_id("news-1")
+        expect(previous_notification).to have_attributes(
+          title: "Important Update"
         )
       end
     end
