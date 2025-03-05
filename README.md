@@ -21,12 +21,10 @@
 <br />
 
 <div align="center">
-  <img src="https://img.shields.io/badge/0.8.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
-  <img src="https://img.shields.io/badge/0.9.0.rc3-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
-
+  <img src="https://img.shields.io/badge/0.9.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
   <br/>
   <br/>
-  <a href="https://eigenfocus.com/blog/articles/its-free-to-be-a-pro-issues-list-labels-live-updates?utm_source=github_home"><strong>See what is new in our 0.8.0</strong></a>
+  <a href="https://github.com/Eigenfocus/eigenfocus/releases/tag/v0.9.0"><strong>See what is new in our 0.9.0</strong></a>
 </div>
 
 
@@ -141,7 +139,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:0.8.0
+    eigenfocus/eigenfocus:0.9.0
 ```
 
 And access it at http://localhost:3001.
@@ -152,7 +150,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:0.8.0
+    image: eigenfocus/eigenfocus:0.9.0
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
