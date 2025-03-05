@@ -3,9 +3,9 @@ class EigenfocusNotificationsFetcherJob < ApplicationJob
     lastest_news = EigenfocusNotificationsFetcher.call(AppMetadata.instance)
 
     lastest_news.each do |news|
-      next if Notification.exists?(external_id: news["id"])
+      notification = Notification.find_or_initialize_by(external_id: news["id"])
 
-      Notification.create!(
+      notification.update!(
         title: news["title"],
         content: news["content"],
         announcement_modes: news["announcement_modes"],
