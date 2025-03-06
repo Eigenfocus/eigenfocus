@@ -51,7 +51,6 @@ Here are some of our current features:
 
 
 Here is what is coming next:
-- Features to help handling multiple issues at once in a board
 - Focus Space
 
 <div align="center">
