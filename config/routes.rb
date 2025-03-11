@@ -47,6 +47,9 @@ Rails.application.routes.draw do
       end
 
       resources :issues, path: "i", only: [ :create, :update, :destroy ]
+      resources :allocations, only: [] do
+        post :move, on: :collection
+      end
     end
   end
 
@@ -70,12 +73,6 @@ Rails.application.routes.draw do
           as: :show_issue,
           controller: :issues,
           action: :index
-    end
-  end
-
-  scope module: :visualizations do
-    resources :allocations, only: [] do
-      post :move, on: :collection
     end
   end
 

@@ -1,7 +1,5 @@
-class Projects::IssuesController < ApplicationController
+class Projects::IssuesController < Projects::BaseController
   include IssueEmbeddable
-
-  helper_method :current_project
 
   def index
     @q = current_project.issues.ransack(params[:q])
@@ -68,10 +66,6 @@ class Projects::IssuesController < ApplicationController
   end
 
   private
-  def current_project
-    @current_project ||= Project.find(params[:project_id])
-  end
-
   def permitted_params
     params.require(:issue).permit(:title, :description, files: [], labels_list: [])
   end
