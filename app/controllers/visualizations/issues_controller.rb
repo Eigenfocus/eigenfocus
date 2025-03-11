@@ -1,6 +1,4 @@
-class Visualizations::IssuesController < ApplicationController
-  helper_method :current_visualization
-
+class Visualizations::IssuesController < Visualizations::BaseController
   def create
     @issue = Issue.new(permitted_params.merge(project_id: current_visualization.project.id))
     @grouping = Grouping.find params[:allocate_to_grouping_id]
@@ -18,10 +16,6 @@ class Visualizations::IssuesController < ApplicationController
   end
 
   private
-  def current_visualization
-    @current_visualization ||= Visualization.find(params[:visualization_id])
-  end
-
   def permitted_params
     params.require(:issue).permit(:title, :description, files: [])
   end

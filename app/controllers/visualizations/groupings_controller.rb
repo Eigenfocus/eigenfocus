@@ -1,6 +1,4 @@
-class Visualizations::GroupingsController < ApplicationController
-  helper_method :current_visualization
-
+class Visualizations::GroupingsController < Visualizations::BaseController
   def new
     @grouping = Grouping.new
 
@@ -55,10 +53,6 @@ class Visualizations::GroupingsController < ApplicationController
   end
 
   private
-  def current_visualization
-    @current_visualization ||= Visualization.find(params[:visualization_id])
-  end
-
   def permitted_params
     params.require(:grouping).permit(:title, :hidden)
   end
