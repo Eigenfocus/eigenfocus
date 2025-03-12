@@ -1,5 +1,10 @@
 FROM ruby:3.3.1-slim
 
+ARG UID=1000
+ARG GID=1000
+
+WORKDIR /app
+
 RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     build-essential \
     gnupg2 \
@@ -10,11 +15,16 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
 
 ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=4 \
-  BUNDLE_RETRY=3
+  BUNDLE_RETRY=3 \
+  BUNDLE_PATH="/app/.bundle" \
+  BUNDLE_INSTALL_FLAGS="--no-document"
+
+RUN mkdir -p /app/node_modules /app/.bundle
+RUN chown -R ${UID}:${GID} /app/node_modules /app/.bundle
+
+USER ${UID}:${GID}
 
 RUN gem update --system && gem install bundler
-
-WORKDIR /usr/src/app
 
 ENTRYPOINT ["bin/docker-entrypoint-dev"]
 

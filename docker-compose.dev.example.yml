@@ -6,8 +6,9 @@ services:
     stdin_open: true
     command: bash -c "rm -f tmp/pids/server.pid && bin/rails s -p ${RAILS_HOST_PORT} -b '0.0.0.0'"
     volumes:
-      - .:/usr/src/app
-      - bundle:/usr/local/bundle
+      - .:/app
+      - bundle:/app/.bundle
+      - node_modules:/app/node_modules
     ports:
       - "${RAILS_HOST_PORT}:${RAILS_HOST_PORT}"
     env_file:
@@ -20,7 +21,9 @@ services:
     build:
       dockerfile: 'Dockerfile.dev'
     volumes:
-      - .:/usr/src/app
+      - .:/app
+      - bundle:/app/.bundle
+      - node_modules:/app/node_modules
     tty: true
 
     env_file:
@@ -42,3 +45,4 @@ services:
 
 volumes:
   bundle:
+  node_modules:
