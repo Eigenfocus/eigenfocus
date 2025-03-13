@@ -17,13 +17,13 @@ jobs:
         run: bin/prepare-ci
 
       - name: Build the app
-        run: docker compose build web
+        run: docker compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) web
 
       - name: Scan for common Rails security vulnerabilities using static analysis
-        run: docker compose run --rm --remove-orphans web bin/brakeman --no-pager
+        run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/brakeman --no-pager
 
       - name: Lint code for consistent style
-        run: docker compose run --rm --remove-orphans web bin/rubocop -f github
+        run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/rubocop -f github
 
       - name: Stop containers
         if: always()
@@ -42,16 +42,16 @@ jobs:
         run: bin/prepare-ci
 
       - name: Build the app
-        run: docker compose build web
+        run: docker compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) web
 
       - name: Setup DB
-        run: docker compose run --rm --remove-orphans web bin/rails db:prepare
+        run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/rails db:prepare
 
       - name: Setup Assets
-        run: docker compose run --rm --remove-orphans web bin/rake assets:precompile
+        run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/rake assets:precompile
 
       - name: Run Rspec
-        run: docker compose run -e "RAILS_ENV=test" --rm --remove-orphans web bundle exec rspec spec
+        run: docker compose run --user $(id -u):$(id -g) -e "RAILS_ENV=test" --rm --remove-orphans web bundle exec rspec spec
 
       - name: Stop containers
         if: always()
