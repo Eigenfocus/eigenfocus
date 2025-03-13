@@ -8,7 +8,6 @@ services:
     volumes:
       - .:/app
       - bundle:/app/.bundle
-      - node_modules:/app/node_modules
     ports:
       - "${RAILS_HOST_PORT}:${RAILS_HOST_PORT}"
     env_file:
@@ -23,7 +22,6 @@ services:
     volumes:
       - .:/app
       - bundle:/app/.bundle
-      - node_modules:/app/node_modules
     tty: true
 
     env_file:
@@ -45,4 +43,3 @@ services:
 
 volumes:
   bundle:
-  node_modules:

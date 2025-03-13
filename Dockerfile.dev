@@ -19,8 +19,8 @@ ENV LANG=C.UTF-8 \
   BUNDLE_PATH="/app/.bundle" \
   BUNDLE_INSTALL_FLAGS="--no-document"
 
-RUN mkdir -p /app/node_modules /app/.bundle
-RUN chown -R ${UID}:${GID} /app/node_modules /app/.bundle
+RUN mkdir -p /app/.bundle
+RUN chown -R ${UID}:${GID} /app/.bundle
 
 USER ${UID}:${GID}
 
