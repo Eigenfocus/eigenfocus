@@ -8,7 +8,7 @@ pt-BR:
     issue_labels:
       destroy_confirmation:
         explanation: "Deletar essa label removerá todas as suas associações com issues, mas não removerá as issues."
-        associations: "Esta label está associado com %{count_text)"
+        associations: "Esta label está associada com %{count_text}"
     issues:
       issue:
         no_grouping: "Sem coluna"
