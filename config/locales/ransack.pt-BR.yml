@@ -11,4 +11,5 @@ pt-BR:
       lt: menor que
     attributes:
       issue:
+        title_cont: Com título
         by_label_titles: Com labels
