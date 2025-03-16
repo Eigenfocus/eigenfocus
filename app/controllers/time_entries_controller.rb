@@ -17,7 +17,12 @@ class TimeEntriesController < ApplicationController
 
   def new
     @time_entry = current_user.time_entries.new(reference_date: params[:reference_date])
-    render partial: "form", locals: { time_entry: @time_entry }
+
+    if turbo_frame_request?
+      render partial: "form", locals: { time_entry: @time_entry }
+    else
+      redirect_to time_entries_path(new_entry: { reference_date: params[:reference_date] })
+    end
   end
 
   def form_projects_dependent_fields
