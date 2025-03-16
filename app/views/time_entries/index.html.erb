@@ -11,6 +11,8 @@
   %>
 
   <%= render partial: 'form', locals: { time_entry: new_entry } %>
+<% elsif params[:time_entry_id].present? %>
+  <%= render partial: 'form', locals: { time_entry: TimeEntry.find(params[:time_entry_id]) } %>
 <% else %>
   <%= start_pending_app_tour_tag("time_entries/index") %>
 

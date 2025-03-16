@@ -47,7 +47,11 @@ class TimeEntriesController < ApplicationController
   def edit
     @time_entry = current_user.time_entries.find(params[:id])
 
-    render partial: "form", locals: { time_entry: @time_entry }
+    if turbo_frame_request?
+      render partial: "form", locals: { time_entry: @time_entry }
+    else
+      redirect_to time_entries_path(time_entry_id: params[:id])
+    end
   end
 
   def update
