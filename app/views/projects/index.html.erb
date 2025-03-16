@@ -15,7 +15,7 @@
       data: { turbo_frame: 'project_form' } %>
 </div>
 
-<%= turbo_frame_tag 'project_form' do %>
+<%= turbo_frame_tag 'project_form', src: (params[:open_form] ? params[:form_project_id] ? edit_project_path(params[:form_project_id]) : new_project_path : nil) do %>
 <% end %>
 
 <%= turbo_frame_tag 'projects', class: "tour--projects-list" do %>

@@ -65,4 +65,8 @@ class ApplicationController < ActionController::Base
     flash_type ||= :notice
     t("flash.actions.#{action_name}.#{flash_type}", resource_name: resource.model_name.human)
   end
+
+  def turbo_frame_request?
+    request.headers["Turbo-Frame"]
+  end
 end
