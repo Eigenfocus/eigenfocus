@@ -8,7 +8,12 @@ class Projects::IssueLabelsController < Projects::BaseController
 
   def new
     @issue_label = current_project.issue_labels.new
-    render partial: "form", locals: { project: current_project, issue_label: @issue_label }
+
+    if turbo_frame_request?
+      render partial: "form", locals: { project: current_project, issue_label: @issue_label }
+    else
+      redirect_to project_issue_labels_path(current_project, open_form: true)
+    end
   end
 
   def create
@@ -27,7 +32,11 @@ class Projects::IssueLabelsController < Projects::BaseController
   def edit
     @issue_label = current_project.issue_labels.find(params[:id])
 
-    render partial: "form", locals: { project: current_project, issue_label: @issue_label }
+    if turbo_frame_request?
+      render partial: "form", locals: { project: current_project, issue_label: @issue_label }
+    else
+      redirect_to project_issue_labels_path(current_project, open_form: true, form_issue_label_id: @issue_label.id)
+    end
   end
 
   def update

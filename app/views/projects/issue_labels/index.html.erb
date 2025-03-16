@@ -1,6 +1,6 @@
 <% set_page_title(:project_all_issues_labels, project_name: current_project.name) %>
 
-<%= turbo_frame_tag 'issue_label_form' do %>
+<%= turbo_frame_tag 'issue_label_form', src: (params[:open_form] ? params[:form_issue_label_id] ? edit_project_issue_label_path(current_project, params[:form_issue_label_id]) : new_project_issue_label_path(current_project) : nil) do %>
 <% end %>
 
 <%= turbo_frame_tag 'issue_label_removal_confirmation' do %>

@@ -5,7 +5,12 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    render partial: "form", locals: { project: @project  }
+
+    if turbo_frame_request?
+      render partial: "form", locals: { project: @project }
+    else
+      redirect_to projects_path(open_form: true)
+    end
   end
 
   def create
@@ -18,7 +23,12 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    render partial: "form", locals: { project: @project }
+
+    if turbo_frame_request?
+      render partial: "form", locals: { project: @project }
+    else
+      redirect_to projects_path(open_form: true, form_project_id: @project.id)
+    end
   end
 
   def update

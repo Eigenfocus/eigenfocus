@@ -19,6 +19,10 @@ class Projects::IssuesController < Projects::BaseController
 
   def new
     @issue = current_project.issues.new
+
+    unless turbo_frame_request?
+      redirect_to project_issues_path(current_project, open_form: true)
+    end
   end
 
   def create

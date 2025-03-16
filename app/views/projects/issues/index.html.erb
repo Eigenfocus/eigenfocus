@@ -2,7 +2,7 @@
 
 <%= start_pending_app_tour_tag("issues/index") %>
 
-<%= turbo_frame_tag 'new_issue_form' do %>
+<%= turbo_frame_tag 'new_issue_form', src: (params[:open_form] ? new_project_issue_path(current_project) : nil) do %>
 <% end %>
 
 <%= render partial: 'projects/navigation_header', locals: {
