@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  include Project::Templatable
+
   # Relations
   has_many :visualizations
   has_many :issues
