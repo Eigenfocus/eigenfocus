@@ -2,6 +2,10 @@ en:
   issue:
     destroy_confirmation: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"
   projects:
+    form:
+      select_template: "Select a project template"
+      no_template: "No template"
+      start_from_scratch: "Start with a blank project without any predefined structure."
     project:
       enable_time_tracking: 'Enable time tracking'
       disable_time_tracking: 'Disable time tracking'

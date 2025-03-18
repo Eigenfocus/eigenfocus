@@ -1,5 +1,5 @@
 name: "Kanban Básico"
-description: "Um fluxo de trabalho simples com TODO, FAZENDO, FEITO e etiquetas de prioridade"
+description: "Um fluxo de trabalho simples com TODO, FAZENDO, FEITO e labels de prioridade"
 groupings:
   - "A FAZER"
   - "FAZENDO"

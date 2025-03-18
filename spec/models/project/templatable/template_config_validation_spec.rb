@@ -15,7 +15,7 @@ describe "Template configuration validation" do
     end
   }
 
-  Project::Templatable::AVAILABLE_TEMPLATES.product(I18n.available_locales).each do |template, locale|
+  Project::Templatable::Template::AVAILABLE_TEMPLATES.product(I18n.available_locales).each do |template, locale|
     specify "Project template #{template} with locale #{locale} is valid" do
       file_path = Rails.root.join("config", "project_templates", "#{template}.#{locale}.yml")
       expect(File.exist?(file_path)).to be_truthy
