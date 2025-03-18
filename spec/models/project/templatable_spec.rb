@@ -3,6 +3,30 @@ require 'rails_helper'
 describe Project::Templatable do
   let(:project) { build(:project, visualization_counts: 0, with_issue_labels: []) }
 
+  describe '#use_template=' do
+    it "allows nil" do
+      project.use_template = nil
+      expect(project.use_template).to be_nil
+    end
+
+    it "allows empty string" do
+      project.use_template = ""
+      expect(project.use_template).to be_nil
+
+      project.use_template = "   "
+      expect(project.use_template).to be_nil
+    end
+
+    it "allows only a valid template" do
+      project.use_template = "basic_kanban"
+      expect(project.use_template).to eq(:basic_kanban)
+    end
+
+    it "rejects invalid templates" do
+      expect { project.use_template = "invalid_template" }.to raise_error(ArgumentError, "Invalid project template")
+    end
+  end
+
   context 'when creating a project with a valid template, it applies the template' do
     specify 'using the basic_kanban template' do
       project.use_template = :basic_kanban
@@ -22,7 +46,7 @@ describe Project::Templatable do
 
   context 'when creating a project without a selected template' do
     it "doesn't create anything by default" do
-      project.use_template = nil
+      project.use_template = ""
       project.save!
 
       expect(project.visualizations.count).to eq(0)

@@ -5,7 +5,7 @@ class Visualization < ApplicationRecord
 
   # Associations
   belongs_to :project
-  has_many :groupings, -> { order(position: :asc) }
+  has_many :groupings, -> { order(position: :asc) }, dependent: :destroy
 
   # Validations
   validates :type, inclusion: { in: VALID_TYPES }

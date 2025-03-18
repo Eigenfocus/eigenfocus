@@ -124,9 +124,22 @@ module Project::Templatable
   }
 
   included do
-    attr_accessor :use_template
-    validates :use_template, inclusion: { in: TEMPLATES.keys }, on: :create, allow_nil: true
-    after_create :apply_template, if: :use_template
+    validates :use_template, inclusion: { in: TEMPLATES.keys }, on: :create, if: -> { use_template.present? }
+    after_create :apply_template, if: -> { use_template.present? }
+  end
+
+  def use_template=(value)
+    return if value.blank?
+
+    unless TEMPLATES.keys.map(&:to_s).include?(value.to_s)
+      raise ArgumentError, "Invalid project template"
+    end
+
+    @use_template = value.to_sym
+  end
+
+  def use_template
+    @use_template
   end
 
   private

@@ -25,17 +25,19 @@
         <%= f.text_field :name, autofocus: true, required: true, class: "input-primary" %>
       </div>
 
-      <div class="mb-4 flex flex-col items-stretch gap-2">
-        <%= f.label :use_template, "Project Template", class: "label-primary" %>
-        <%= f.select :use_template,
-            options_for_select(
-              Project::TEMPLATES.map { |key, template| [template[:name], key] }.unshift(["None", ""]),
-              project.template
-            ),
-            {},
-            class: "input-primary"
-        %>
-      </div>
+      <% if project.new_record? %>
+        <div class="mb-4 flex flex-col items-stretch gap-2">
+          <%= f.label :use_template, "Project Template", class: "label-primary" %>
+          <%= f.select :use_template,
+              options_for_select(
+                Project::TEMPLATES.keys.map { |key| [Project::TEMPLATES[key][:name], key] },
+                project.use_template
+              ),
+              { include_blank: true },
+              class: "input-primary"
+          %>
+        </div>
+      <% end %>
 
       <div class="flex gap-2 justify-center">
         <a class="btn-cancel" data-action="click->modal#close">

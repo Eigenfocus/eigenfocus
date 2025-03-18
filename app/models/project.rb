@@ -2,8 +2,9 @@ class Project < ApplicationRecord
   include Project::Templatable
 
   # Relations
-  has_many :visualizations
-  has_many :issues
+  has_many :visualizations, dependent: :destroy
+  has_many :time_entries, dependent: :destroy
+  has_many :issues, dependent: :destroy
   has_many :issue_labels, dependent: :destroy
 
   # Validations

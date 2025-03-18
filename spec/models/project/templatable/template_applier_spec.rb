@@ -52,7 +52,7 @@ describe Project::Templatable::TemplateApplier do
     end
 
     it 'performs operations in a transaction' do
-      allow(project.visualizations).to receive(:create!).and_raise(ActiveRecord::RecordInvalid)
+      allow(project.visualizations).to receive(:first_or_create!).and_raise(ActiveRecord::RecordInvalid)
 
       expect { applier.apply }.to raise_error(ActiveRecord::RecordInvalid)
 
