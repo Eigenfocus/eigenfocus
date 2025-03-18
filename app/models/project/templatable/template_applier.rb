@@ -1,7 +1,7 @@
 class Project::Templatable::TemplateApplier
-  def initialize(project, template_config)
+  def initialize(project, template)
     @project = project
-    @template_config = template_config
+    @template = template
   end
 
   def apply
@@ -9,26 +9,26 @@ class Project::Templatable::TemplateApplier
       create_board
       create_groupings
       create_labels
-      create_sample_issues if template_config[:sample_issues].present?
+      create_sample_issues if template[:sample_issues].present?
     end
   end
 
   private
 
-  attr_reader :project, :template_config
+  attr_reader :project, :template
 
   def create_board
     @board = project.visualizations.create!(type: "board")
   end
 
   def create_groupings
-    template_config[:groupings].each do |grouping_name|
+    template.groupings.each do |grouping_name|
       @board.groupings.create!(title: grouping_name)
     end
   end
 
   def create_labels
-    template_config[:labels].each do |label_title|
+    template.labels.each do |label_title|
       project.issue_labels.create!(title: label_title)
     end
   end
@@ -36,13 +36,13 @@ class Project::Templatable::TemplateApplier
   def create_sample_issues
     first_grouping = @board.groupings.first
 
-    template_config[:sample_issues].each do |issue_data|
+    template.sample_issues.each do |sample_issue|
       issue = project.issues.create!(
-        title: issue_data[:title],
-        description: issue_data[:description]
+        title: sample_issue.title,
+        description: sample_issue.description
       )
 
-      issue_data[:labels].each do |label_title|
+      sample_issue.labels.each do |label_title|
         label = project.issue_labels.find_or_create_by(title: label_title)
         issue.labels << label
       end

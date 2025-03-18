@@ -6,6 +6,8 @@ describe Project::Templatable::TemplateApplier do
 
     let(:template_config) do
       {
+        name: "Template 1",
+        description: "Template 1 description",
         groupings: [ "Group1", "Group2" ],
         labels: [ "Label1", "Label2" ],
         sample_issues: [
@@ -23,7 +25,9 @@ describe Project::Templatable::TemplateApplier do
       }
     end
 
-    subject(:applier) { described_class.new(project, template_config) }
+    let(:template) { Project::Templatable::Template.new(template_config) }
+
+    subject(:applier) { described_class.new(project, template) }
 
     it 'creates all template components' do
       applier.apply
@@ -34,10 +38,10 @@ describe Project::Templatable::TemplateApplier do
       expect(board.type).to eq("board")
 
       grouping_titles = board.groupings.pluck(:title)
-      expect(grouping_titles).to match_array(template_config[:groupings])
+      expect(grouping_titles).to match_array(template.groupings)
 
       label_titles = project.issue_labels.pluck(:title)
-      expect(label_titles).to match_array(template_config[:labels])
+      expect(label_titles).to match_array(template.labels)
 
       expect(project.issues.count).to eq(2)
 

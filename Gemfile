@@ -40,6 +40,9 @@ gem "solid_queue", "~> 1.1"
 gem "ransack", "~> 4.3"
 gem "pagy", "~> 9.3"
 
+# For configuration files
+gem "dry-struct", "~> 1.8"
+
 group :development, :test do
   gem "dotenv"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

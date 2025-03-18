@@ -26,7 +26,8 @@ module Project::Templatable
 
   def apply_template
     template_config = load_template_config
-    Project::Templatable::TemplateApplier.new(self, template_config).apply
+    template = Project::Templatable::Template.new(template_config)
+    Project::Templatable::TemplateApplier.new(self, template).apply
   end
 
   def load_template_config
