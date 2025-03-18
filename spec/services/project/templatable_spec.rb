@@ -49,6 +49,7 @@ describe Project::Templatable do
 
   context 'when creating a project without a selected template' do
     it "doesn't create anything by default" do
+      expect(project).not_to receive(:apply_template)
       project.use_template = ""
       project.save!
 
