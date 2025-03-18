@@ -6,30 +6,33 @@ describe Project::Templatable do
   describe '#use_template=' do
     it "allows nil" do
       project.use_template = nil
-      expect(project.use_template).to be_nil
+      expect(project.use_template).to be_blank
     end
 
     it "allows empty string" do
       project.use_template = ""
-      expect(project.use_template).to be_nil
+      expect(project.use_template).to be_blank
 
       project.use_template = "   "
-      expect(project.use_template).to be_nil
+      expect(project.use_template).to be_blank
     end
 
     it "allows only a valid template" do
       project.use_template = "basic_kanban"
-      expect(project.use_template).to eq(:basic_kanban)
+      expect(project.use_template).to eq('basic_kanban')
     end
 
     it "rejects invalid templates" do
-      expect { project.use_template = "invalid_template" }.to raise_error(ArgumentError, "Invalid project template")
+      project.use_template = "invalid_template"
+
+      expect(project).to be_invalid
+      expect(project.errors.full_messages).to include("Use template is not included in the list")
     end
   end
 
   context 'when creating a project with a valid template, it applies the template' do
     specify 'using the basic_kanban template' do
-      project.use_template = :basic_kanban
+      project.use_template = 'basic_kanban'
       project.save!
 
       expect(project.visualizations.count).to eq(1)

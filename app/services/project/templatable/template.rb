@@ -1,11 +1,17 @@
 class Project::Templatable::Template < Dry::Struct
-  AVAILABLE_TEMPLATES = [ :basic_kanban, :bug_tracking, :software_development, :customer_support, :crm ].freeze
+  AVAILABLE_TEMPLATES = %w[
+    basic_kanban
+    bug_tracking
+    software_development
+    customer_support
+    crm
+  ].freeze
 
   module Types
     include Dry::Types()
   end
 
-  attribute :key, Types::Symbol
+  attribute :key, Types::String
   attribute :name, Types::String
   attribute :description, Types::String
   attribute :groupings, Types::Array.of(Types::String)
@@ -25,7 +31,7 @@ class Project::Templatable::Template < Dry::Struct
   end
 
   def self.load_template_config_for(template_name)
-    locale = I18n.locale.to_s.downcase
+    locale = I18n.locale.to_s
     file_path = Rails.root.join("config", "project_templates", "#{template_name}.#{locale}.yml")
 
     unless File.exist?(file_path)
