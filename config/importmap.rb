@@ -23,7 +23,9 @@ pin "driver.js" # @1.3.5
 
 pin_all_from "app/javascript/app-tours", under: "app-tours"
 pin_all_from "app/javascript/controllers", under: "controllers"
+pin_all_from "app/javascript/initializers", under: "initializers"
 pin_all_from "app/javascript/controllers/visualizations", under: "controllers"
+pin_all_from "app/javascript/services", under: "services"
 pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
 pin "marked" # @15.0.4
 pin "@rails/actioncable", to: "actioncable.esm.js"
