@@ -7,7 +7,19 @@ describe Project::Templatable::TemplateApplier do
     let(:template_config) do
       {
         groupings: [ "Group1", "Group2" ],
-        labels: [ "Label1", "Label2" ]
+        labels: [ "Label1", "Label2" ],
+        sample_issues: [
+          {
+            title: "Issue 1",
+            description: "Description 1",
+            labels: [ "Label1" ]
+          },
+          {
+            title: "Issue 2",
+            description: "Description 2",
+            labels: []
+          }
+        ]
       }
     end
 
@@ -26,6 +38,17 @@ describe Project::Templatable::TemplateApplier do
 
       label_titles = project.issue_labels.pluck(:title)
       expect(label_titles).to match_array(template_config[:labels])
+
+      expect(project.issues.count).to eq(2)
+
+      expect(project.issues.first.title).to eq("Issue 1")
+      expect(project.issues.first.description).to eq("Description 1")
+      expect(project.issues.first.labels.count).to eq(1)
+      expect(project.issues.first.labels.first.title).to eq("Label1")
+
+      expect(project.issues.last.title).to eq("Issue 2")
+      expect(project.issues.last.description).to eq("Description 2")
+      expect(project.issues.last.labels.count).to eq(0)
     end
 
     it 'performs operations in a transaction' do

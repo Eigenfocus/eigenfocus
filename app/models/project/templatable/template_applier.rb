@@ -9,6 +9,7 @@ class Project::Templatable::TemplateApplier
       create_board
       create_groupings
       create_labels
+      create_sample_issues if template_config[:sample_issues].present?
     end
   end
 
@@ -29,6 +30,24 @@ class Project::Templatable::TemplateApplier
   def create_labels
     template_config[:labels].each do |label_title|
       project.issue_labels.create!(title: label_title)
+    end
+  end
+
+  def create_sample_issues
+    first_grouping = @board.groupings.first
+
+    template_config[:sample_issues].each do |issue_data|
+      issue = project.issues.create!(
+        title: issue_data[:title],
+        description: issue_data[:description]
+      )
+
+      issue_data[:labels].each do |label_name|
+        label = project.issue_labels.find_or_create_by(title: label_name)
+        issue.labels << label
+      end
+
+      first_grouping.allocate_issue(issue)
     end
   end
 end
