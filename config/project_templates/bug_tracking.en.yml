@@ -1,0 +1,29 @@
+name: "Bug Tracking"
+description: "Track and manage software bugs with severity levels"
+groupings:
+  - "Reported"
+  - "Investigating"
+  - "In Progress"
+  - "QA Testing"
+  - "Resolved"
+labels:
+  - "severity:critical"
+  - "severity:high"
+  - "severity:medium"
+  - "severity:low"
+  - "regression"
+  - "needs-reproduction"
+sample_issues:
+  - title: "App crashes on user profile update"
+    description: "Users report app crash when updating profile picture. Steps: 1. Go to profile 2. Click edit 3. Upload new image"
+    labels:
+      - "severity:high"
+      - "needs-reproduction"
+  - title: "Login page shows incorrect error message"
+    description: "When entering wrong password, error message says 'Username not found' instead of 'Invalid credentials'"
+    labels:
+      - "severity:low"
+  - title: "Payment processing timeout"
+    description: "Payment gateway timeout occurring during high traffic periods causing failed transactions"
+    labels:
+      - "severity:critical"

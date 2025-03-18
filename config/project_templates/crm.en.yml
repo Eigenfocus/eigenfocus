@@ -1,0 +1,37 @@
+name: "CRM Pipeline"
+description: "Customer relationship management and sales pipeline"
+groupings:
+  - "Lead"
+  - "Initial Contact"
+  - "Meeting Scheduled"
+  - "Proposal Sent"
+  - "Negotiation"
+  - "Won"
+  - "Lost"
+labels:
+  - "value:high"
+  - "value:medium"
+  - "value:low"
+  - "source:referral"
+  - "source:website"
+  - "source:conference"
+  - "type:new-business"
+  - "type:upsell"
+sample_issues:
+  - title: "Enterprise Solution for TechCorp Inc."
+    description: "Potential enterprise client interested in full platform deployment. Annual contract value: $250K"
+    labels:
+      - "value:high"
+      - "source:conference"
+      - "type:new-business"
+  - title: "Additional Licenses for Acme Co"
+    description: "Existing client requesting quote for 25 additional user licenses"
+    labels:
+      - "value:medium"
+      - "type:upsell"
+  - title: "Startup Package for InnovateLab"
+    description: "Startup referred by existing client, interested in basic package with potential for growth"
+    labels:
+      - "value:low"
+      - "source:referral"
+      - "type:new-business"

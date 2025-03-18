@@ -1,6 +1,7 @@
-
 <%= turbo_frame_tag 'project_form' do %>
-<%= render_modal do %>
+<%= render_modal(inner_container_options: {
+    class: "max-h-screen w-full max-w-2xl"
+  }) do %>
 
   <div class="border-b border-background-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
@@ -13,7 +14,7 @@
     </div>
   </div>
   <div class="space-y-4">
-    <%= form_with(model: project, html: { class: 'flex flex-col gap-2' }) do |f| %>
+    <%= form_with(model: project, html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
       <% if project.errors.any? %>
         <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
           <%= project.errors.full_messages.to_sentence.capitalize %>
@@ -25,6 +26,37 @@
         <%= f.text_field :name, autofocus: true, required: true, class: "input-primary" %>
       </div>
 
+      <% if project.new_record? %>
+        <div class="mb-4">
+          <label class="label-primary mb-2 block">
+            <%= t('.select_template') %>
+          </label>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-stretch items-stretch text-readable-content-400">
+            <div class="relative flex items-stretch justify-stretch">
+              <%= f.radio_button :use_template, "", class: "hidden peer", id: "template_none" %>
+              <label for="template_none" class="block p-4 border rounded-lg border-background-100 cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
+                <div class="font-medium text-readable-content-600 mb-1"><%= t('.no_template') %></div>
+                <p class="text-sm">
+                  <%= t('.start_from_scratch') %>
+                </p>
+              </label>
+            </div>
+
+            <% Project::Templatable::Template.all.each do |template| %>
+              <div class="relative flex items-stretch justify-stretch">
+                <%= f.radio_button :use_template, template.key, class: "hidden peer", id: "template_#{template.key}" %>
+                <label for="template_<%= template.key %>" class="block p-4 border border-background-100 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
+                  <div class="font-medium mb-1 text-readable-content-600 "><%= template.name %></div>
+                  <p class="text-sm">
+                    <%= template.description %>
+                  </p>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 
       <div class="flex gap-2 justify-center">
         <a class="btn-cancel" data-action="click->modal#close">

@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-
+    @project.use_template = :basic_kanban
     if turbo_frame_request?
       render partial: "form", locals: { project: @project }
     else
@@ -15,10 +15,14 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.use_template = params[:project][:use_template]
 
-    @project.visualizations.first_or_initialize
-
-    @project.save
+    if @project.save
+      flash[:success] = t_flash_message(@project)
+      redirect_to project_issues_path(@project)
+    else
+      render partial: "form", locals: { project: @project }
+    end
   end
 
   def edit

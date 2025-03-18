@@ -1,0 +1,29 @@
+name: "Rastreamento de Bugs"
+description: "Acompanhe e gerencie bugs de software com níveis de severidade"
+groupings:
+  - "Reportado"
+  - "Investigando"
+  - "Em Andamento"
+  - "Teste de QA"
+  - "Resolvido"
+labels:
+  - "severidade:crítica"
+  - "severidade:alta"
+  - "severidade:média"
+  - "severidade:baixa"
+  - "regressão"
+  - "precisa-reprodução"
+sample_issues:
+  - title: "App trava ao atualizar perfil do usuário"
+    description: "Usuários relatam travamento do app ao atualizar foto do perfil. Passos: 1. Ir ao perfil 2. Clicar em editar 3. Fazer upload de imagem"
+    labels:
+      - "severidade:alta"
+      - "precisa-reprodução"
+  - title: "Página de login mostra mensagem de erro incorreta"
+    description: "Ao inserir senha errada, mensagem de erro diz 'Usuário não encontrado' ao invés de 'Credenciais inválidas'"
+    labels:
+      - "severidade:baixa"
+  - title: "Timeout no processamento de pagamento"
+    description: "Timeout do gateway de pagamento ocorrendo durante períodos de alto tráfego causando falha nas transações"
+    labels:
+      - "severidade:crítica"

@@ -1,0 +1,34 @@
+name: "Desenvolvimento de Software"
+description: "Fluxo de trabalho ágil com acompanhamento de funcionalidades"
+groupings:
+  - "Backlog"
+  - "Design"
+  - "Desenvolvimento"
+  - "Revisão de Código"
+  - "QA"
+  - "Pronto para Deploy"
+  - "Concluído"
+labels:
+  - "tipo:feature"
+  - "tipo:refactor"
+  - "tipo:tech-debt"
+  - "tamanho:pequeno"
+  - "tamanho:médio"
+  - "tamanho:grande"
+  - "prioridade:urgente"
+sample_issues:
+  - title: "Implementar Autenticação OAuth2"
+    description: "Adicionar suporte para autenticação OAuth2 do Google e GitHub. Incluir sincronização de perfil de usuário e tratamento de atualização de token"
+    labels:
+      - "tipo:feature"
+      - "tamanho:grande"
+  - title: "Refatorar Classe de Serviço de Usuário"
+    description: "Dividir UserService em classes menores e mais focadas seguindo o princípio da responsabilidade única"
+    labels:
+      - "tipo:refactor"
+      - "tamanho:médio"
+  - title: "Atualizar Dependências"
+    description: "Atualizar todas as dependências principais para suas últimas versões estáveis e corrigir quaisquer alterações incompatíveis"
+    labels:
+      - "tipo:tech-debt"
+      - "prioridade:urgente"

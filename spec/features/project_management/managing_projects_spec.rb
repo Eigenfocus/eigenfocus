@@ -19,16 +19,47 @@ context "As a user, I want to manage my projects" do
     expect(page).to have_content('Project Beta')
   end
 
-  specify "when I create one, a visualization is also created" do
+  specify "I can create a project using a template" do
     visit projects_path
 
     click_link "Create project"
-    fill_in :project_name, with: "Alpine"
-    click_button "Create"
 
-    expect(page).to have_content("Alpine")
-    expect(Project.count).to eq(1)
-    expect(Project.last.visualizations.count).to eq(1)
+    within "#project_form" do
+      fill_in :project_name, with: "Alpine"
+      find("label[for='template_bug_tracking']").click
+      click_button "Create"
+    end
+
+    expect(page).to have_content("Project was successfully created.")
+
+    created_project = Project.last
+    expect(page).to have_current_path(project_issues_path(created_project))
+    expect(created_project.visualizations.count).to eq(1)
+    expect(created_project.visualizations.first.groupings.first.title).to eq("Reported")
+    expect(created_project.issue_labels.count).to eq(6)
+    expect(created_project.issues.count).to eq(3)
+  end
+
+  specify "I can create a blank project" do
+    visit projects_path
+
+    click_link "Create project"
+
+
+    within "#project_form" do
+      fill_in :project_name, with: "Alpine"
+      find("label[for='template_none']").click
+      click_button "Create"
+    end
+
+    expect(page).to have_content("Project was successfully created.")
+
+    created_project = Project.last
+    expect(page).to have_current_path(project_issues_path(created_project))
+    expect(created_project.visualizations.count).to eq(1)
+    expect(created_project.visualizations.first.groupings.count).to eq(0)
+    expect(created_project.issue_labels.count).to eq(0)
+    expect(created_project.issues.count).to eq(0)
   end
 
   specify "I can edit one" do

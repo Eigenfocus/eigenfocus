@@ -2,6 +2,10 @@ pt-BR:
   issue:
     destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
   projects:
+    form:
+      select_template: "Selecione um template de projeto"
+      no_template: "Sem template"
+      start_from_scratch: "Começar com um projeto em branco sem nenhuma estrutura predefinida."
     project:
       enable_time_tracking: 'Habilitar registro de tempo'
       disable_time_tracking: 'Desabilitar registro de tempo'

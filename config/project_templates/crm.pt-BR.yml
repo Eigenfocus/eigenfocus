@@ -1,0 +1,37 @@
+name: "Pipeline CRM"
+description: "Gestão de relacionamento com cliente e pipeline de vendas"
+groupings:
+  - "Lead"
+  - "Contato Inicial"
+  - "Reunião Agendada"
+  - "Proposta Enviada"
+  - "Negociação"
+  - "Ganho"
+  - "Perdido"
+labels:
+  - "valor:alto"
+  - "valor:médio"
+  - "valor:baixo"
+  - "origem:indicação"
+  - "origem:website"
+  - "origem:conferência"
+  - "tipo:novo-negócio"
+  - "tipo:expansão"
+sample_issues:
+  - title: "Solução Enterprise para TechCorp Inc."
+    description: "Cliente enterprise potencial interessado em implantação completa da plataforma. Valor anual do contrato: R$ 1.25M"
+    labels:
+      - "valor:alto"
+      - "origem:conferência"
+      - "tipo:novo-negócio"
+  - title: "Licenças Adicionais para Acme Co"
+    description: "Cliente existente solicitando cotação para 25 licenças adicionais de usuário"
+    labels:
+      - "valor:médio"
+      - "tipo:expansão"
+  - title: "Pacote Startup para InnovateLab"
+    description: "Startup indicada por cliente existente, interessada no pacote básico com potencial de crescimento"
+    labels:
+      - "valor:baixo"
+      - "origem:indicação"
+      - "tipo:novo-negócio"
