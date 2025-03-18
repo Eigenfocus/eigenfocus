@@ -6,6 +6,7 @@ describe Project::Templatable::TemplateApplier do
 
     let(:template_config) do
       {
+        key: :template_1,
         name: "Template 1",
         description: "Template 1 description",
         groupings: [ "Group1", "Group2" ],
