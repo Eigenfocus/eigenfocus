@@ -46,7 +46,7 @@ class Dispatcher {
 
     return () => {
       subscription.removed = true;
-      this.cleanupEvent(eventName);
+      this.#cleanupEvent(eventName);
     };
   }
 
@@ -83,7 +83,7 @@ class Dispatcher {
     // Process through middleware chain
     const runMiddlewareChain = (index = 0) => {
       if (index >= this.middlewares.length) {
-        this.executeHandlers(eventName, data);
+        this.#executeHandlers(eventName, data);
         return;
       }
 
@@ -98,7 +98,7 @@ class Dispatcher {
    * Execute handlers for an event
    * @private
    */
-  executeHandlers(eventName, data) {
+  #executeHandlers(eventName, data) {
     const handlers = this.events.get(eventName);
     if (!handlers) return;
 
@@ -116,14 +116,14 @@ class Dispatcher {
       }
     });
 
-    this.cleanupEvent(eventName);
+    this.#cleanupEvent(eventName);
   }
 
   /**
    * Clean up removed handlers for an event
    * @private
    */
-  cleanupEvent(eventName) {
+  #cleanupEvent(eventName) {
     const handlers = this.events.get(eventName);
     if (!handlers) return;
 
