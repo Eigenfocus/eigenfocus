@@ -1,0 +1,22 @@
+name: "Kanban Básico"
+description: "Um fluxo de trabalho simples com TODO, FAZENDO, FEITO e etiquetas de prioridade"
+groupings:
+  - "A FAZER"
+  - "FAZENDO"
+  - "FEITO"
+labels:
+  - "prioridade:alta"
+  - "prioridade:baixa"
+sample_issues:
+  - title: "Atualizar brochura da empresa"
+    description: "Criar nova brochura de marketing com preços atualizados e depoimentos recentes de clientes"
+    labels:
+      - "prioridade:alta"
+  - title: "Planejar evento de integração"
+    description: "Organizar atividade trimestral de integração. Necessário reservar local, planejar atividades e organizar buffet para 25 pessoas"
+    labels:
+      - "prioridade:baixa"
+  - title: "Inventário de material de escritório"
+    description: "Revisar materiais de escritório atuais, criar lista de inventário e fazer pedido de itens necessários para o próximo trimestre"
+    labels:
+      - "prioridade:baixa"

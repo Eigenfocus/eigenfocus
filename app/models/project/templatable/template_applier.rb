@@ -42,8 +42,8 @@ class Project::Templatable::TemplateApplier
         description: issue_data[:description]
       )
 
-      issue_data[:labels].each do |label_name|
-        label = project.issue_labels.find_or_create_by(title: label_name)
+      issue_data[:labels].each do |label_title|
+        label = project.issue_labels.find_or_create_by(title: label_title)
         issue.labels << label
       end
 

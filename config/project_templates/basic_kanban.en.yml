@@ -1,0 +1,22 @@
+name: "Basic Kanban"
+description: "A simple TODO, DOING, DONE workflow with priority labels"
+groupings:
+  - "TODO"
+  - "DOING"
+  - "DONE"
+labels:
+  - "priority:high"
+  - "priority:low"
+sample_issues:
+  - title: "Update company brochure"
+    description: "Create new marketing brochure with updated pricing and recent client testimonials"
+    labels:
+      - "priority:high"
+  - title: "Plan team building event"
+    description: "Organize quarterly team building activity. Need to book venue, plan activities, and arrange catering for 25 people"
+    labels:
+      - "priority:low"
+  - title: "Office supply inventory"
+    description: "Review current office supplies, create inventory list, and order necessary items for next quarter"
+    labels:
+      - "priority:low"

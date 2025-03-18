@@ -1,0 +1,33 @@
+name: "Suporte ao Cliente"
+description: "Acompanhe e gerencie tickets de suporte ao cliente"
+groupings:
+  - "Novos Tickets"
+  - "Aguardando Informação"
+  - "Em Andamento"
+  - "Aguardando Revisão"
+  - "Resolvido"
+  - "Fechado"
+labels:
+  - "prioridade:urgente"
+  - "prioridade:normal"
+  - "tipo:técnico"
+  - "tipo:cobrança"
+  - "tipo:conta"
+  - "satisfação:feliz"
+  - "satisfação:insatisfeito"
+sample_issues:
+  - title: "Não consegue acessar recursos premium após upgrade"
+    description: "Cliente atualizou para o plano premium mas os recursos ainda aparecem bloqueados. Conta: CUST-123"
+    labels:
+      - "tipo:cobrança"
+      - "prioridade:urgente"
+  - title: "Precisa de ajuda com integração da API"
+    description: "Cliente precisa de assistência para implementar notificações webhook. Usando cliente Node.js"
+    labels:
+      - "tipo:técnico"
+      - "prioridade:normal"
+  - title: "Solicitação de recurso de exportação em massa"
+    description: "Cliente enterprise solicitando capacidade de exportar todos os relatórios para CSV"
+    labels:
+      - "tipo:conta"
+      - "satisfação:feliz"

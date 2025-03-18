@@ -1,0 +1,34 @@
+name: "Software Development"
+description: "Agile software development workflow with feature tracking"
+groupings:
+  - "Backlog"
+  - "Design"
+  - "Development"
+  - "Code Review"
+  - "QA"
+  - "Ready to Deploy"
+  - "Done"
+labels:
+  - "type:feature"
+  - "type:refactor"
+  - "type:tech-debt"
+  - "size:small"
+  - "size:medium"
+  - "size:large"
+  - "priority:urgent"
+sample_issues:
+  - title: "Implement OAuth2 Authentication"
+    description: "Add support for Google and GitHub OAuth2 authentication. Include user profile sync and token refresh handling"
+    labels:
+      - "type:feature"
+      - "size:large"
+  - title: "Refactor User Service Class"
+    description: "Split UserService into smaller, more focused classes following single responsibility principle"
+    labels:
+      - "type:refactor"
+      - "size:medium"
+  - title: "Update Dependencies to Latest Versions"
+    description: "Update all major dependencies to their latest stable versions and fix any breaking changes"
+    labels:
+      - "type:tech-debt"
+      - "priority:urgent"

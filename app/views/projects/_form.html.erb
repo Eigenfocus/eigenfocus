@@ -30,7 +30,7 @@
           <%= f.label :use_template, "Project Template", class: "label-primary" %>
           <%= f.select :use_template,
               options_for_select(
-                Project::TEMPLATES.keys.map { |key| [Project::TEMPLATES[key][:name], key] },
+                Project::AVAILABLE_TEMPLATES,
                 project.use_template
               ),
               { include_blank: true },

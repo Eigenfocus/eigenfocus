@@ -1,0 +1,33 @@
+name: "Customer Support"
+description: "Track and manage customer support tickets"
+groupings:
+  - "New Tickets"
+  - "Awaiting Info"
+  - "In Progress"
+  - "Pending Review"
+  - "Resolved"
+  - "Closed"
+labels:
+  - "priority:urgent"
+  - "priority:normal"
+  - "type:technical"
+  - "type:billing"
+  - "type:account"
+  - "satisfaction:happy"
+  - "satisfaction:unhappy"
+sample_issues:
+  - title: "Cannot access premium features after upgrade"
+    description: "Customer upgraded to premium plan but features still show as locked. Account: CUST-123"
+    labels:
+      - "type:billing"
+      - "priority:urgent"
+  - title: "Need help with API integration"
+    description: "Customer needs assistance implementing webhook notifications. Using Node.js client"
+    labels:
+      - "type:technical"
+      - "priority:normal"
+  - title: "Request for bulk export feature"
+    description: "Enterprise customer requesting ability to bulk export all reports to CSV"
+    labels:
+      - "type:account"
+      - "satisfaction:happy"
