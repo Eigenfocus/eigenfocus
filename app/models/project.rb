@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
-  include Project::Templatable
+  # Attributes
+  attribute :use_template, :string
 
   # Relations
   has_many :visualizations, dependent: :destroy
@@ -9,6 +10,10 @@ class Project < ApplicationRecord
 
   # Validations
   validates :name, presence: true
+  validates :use_template, inclusion: { in: Project::Templatable::Template::AVAILABLE_TEMPLATES }, on: :create, if: -> { use_template.present? }
+
+  # Hookes
+  after_create :apply_template, if: -> { use_template.present? }
 
   def default_visualization
     visualizations.first_or_create
@@ -26,5 +31,10 @@ class Project < ApplicationRecord
   def archive!
     self.archived_at = Date.current
     save!
+  end
+
+  private def apply_template
+    template = Project::Templatable::Template.find(use_template)
+    Project::Templatable::TemplateApplier.new(self, template).apply
   end
 end
