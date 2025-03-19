@@ -6,7 +6,9 @@ module TurboStreamDispatchEventHelper
     # Allows data to be serialized before dispatching it
     data = data.to_json unless data.is_a? String
 
-    turbo_stream_action_tag :dispatch_event, event: event, data: data
+    template = content_tag :script, data.to_s.html_safe, type: "application/json"
+
+    turbo_stream_action_tag :dispatch_event, event: event, template: template
   end
 end
 

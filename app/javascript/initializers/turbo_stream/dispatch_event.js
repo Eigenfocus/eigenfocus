@@ -15,9 +15,10 @@ StreamActions.dispatch_event = function() {
   const eventName = this.getAttribute("event")
 
   let data = {}
-  const rawData = this.getAttribute("data")
 
-  if (rawData) {
+  if (this.templateContent && this.templateContent.querySelector("script")) {
+    const rawData = this.templateContent.querySelector("script").innerText
+
     try {
       data = JSON.parse(rawData)
     } catch (error) {
