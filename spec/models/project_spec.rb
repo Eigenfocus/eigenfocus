@@ -7,6 +7,20 @@ describe Project do
       expect(project.destroy).to be_truthy
     end
 
+    it "Removes all dependencies when removed" do
+      project = create(:project, :archived, issue_counts: 2)
+      expect(project.issues.count).to eq(2)
+      expect(project.visualizations.count).to eq(1)
+      expect(project.issue_labels.count).to eq(0)
+
+      project.destroy
+
+      expect(project).to be_destroyed
+      expect(project.issues.count).to eq(0)
+      expect(project.visualizations.count).to eq(0)
+      expect(project.issue_labels.count).to eq(0)
+    end
+
     it "can't be removed if it is not archived" do
       project = create(:project)
       expect(project.destroy).to be_falsey

@@ -71,3 +71,6 @@ pt-BR:
       project:
         destroy:
           not_archived: "Um projeto deve estar arquivado antes de ser removido."
+      issue:
+        destroy:
+          not_archived: "Uma issue deve estar arquivada antes de ser removida."

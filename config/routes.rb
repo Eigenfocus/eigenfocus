@@ -66,6 +66,8 @@ Rails.application.routes.draw do
         member do
           post :add_label
           delete :remove_label
+          put :archive
+          put :unarchive
         end
       end
 

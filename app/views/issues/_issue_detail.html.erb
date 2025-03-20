@@ -97,11 +97,24 @@
               <span class="sm:block"><%= t("actions.start_time_tracking") %></span>
             <% end %>
 
-            <div class="mt-4 flex flex-col items-stretch">
+            <div class="mt-4 flex flex-col gap-2 items-stretch">
               <h5 class="w-full mb-2"><%= t("menu.actions") %></h5>
-              <%= link_to destroy_path, class: "btn-danger flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
-                <i class="fa-solid fa-trash"></i>
-                <%= t("actions.remove") %>
+              <% if issue.archived? %>
+                  <%= link_to t('actions.unarchive'),
+                  unarchive_project_issue_path(issue.project, issue),
+                  class: "btn-success",
+                  data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") }
+                  %>
+                <%= link_to destroy_path, class: "btn-danger flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
+                  <i class="fa-solid fa-trash"></i>
+                  <%= t("actions.remove") %>
+                <% end %>
+              <% else %>
+                <%= link_to t('actions.archive'),
+                    archive_project_issue_path(issue.project, issue),
+                    class: "btn-danger",
+                    data: { turbo_method: :put, turbo_confirm: t("confirmations.archive") }
+                    %>
               <% end %>
             </div>
           </div>

@@ -69,6 +69,16 @@ class Projects::IssuesController < Projects::BaseController
     head :ok
   end
 
+  def archive
+    @issue = Issue.find(params[:id])
+    @issue.archive!
+  end
+
+  def unarchive
+    @issue = Issue.find(params[:id])
+    @issue.unarchive!
+  end
+
   private
   def permitted_params
     params.require(:issue).permit(:title, :description, files: [], labels_list: [])

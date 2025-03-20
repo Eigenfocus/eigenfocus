@@ -71,3 +71,6 @@ en:
       project:
         destroy:
           not_archived: "Project must be archived before it can be removed."
+      issue:
+        destroy:
+          not_archived: "Issue must be archived before it can be removed."
