@@ -41,7 +41,7 @@ class Project < ApplicationRecord
 
   private def ensure_is_archived
     unless archived?
-      errors.add(:base, I18n.t("activerecord.errors.project.destroy.not_archived"))
+      errors.add(:base, :must_be_archived_to_destroy)
       throw(:abort)
     end
   end

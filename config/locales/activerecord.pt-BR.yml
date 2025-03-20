@@ -68,9 +68,10 @@ pt-BR:
       visualization:
         favorite_issue_labels: "Labels favoritas"
     errors:
-      project:
-        destroy:
-          not_archived: "Um projeto deve estar arquivado antes de ser removido."
-      issue:
-        destroy:
-          not_archived: "Uma issue deve estar arquivada antes de ser removida."
+      models:
+        project:
+          destroy:
+            must_be_archived_to_destroy: "Um projeto deve estar arquivado antes de ser removido."
+        issue:
+          destroy:
+            must_be_archived_to_destroy: "Uma issue deve estar arquivada antes de ser removida."

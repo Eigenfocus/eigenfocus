@@ -24,6 +24,11 @@
           <h4 class="text-lg font-medium text-readable-content-700">
             <%= issue.persisted? ? "#{t("actions.edit")} #{Issue.model_name.human}" : "#{t("actions.create")} #{Issue.model_name.human}"%>
           </h4>
+          <% if issue.archived? %>
+            <span class="inline-block rounded-full border-warning-600 bg-warning-200 text-warning-800 border py-1 px-3 text-xs font-medium text-warning-600">
+              <%= t('archived').capitalize %>
+            </span>
+          <% end %>
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-8">
@@ -101,7 +106,7 @@
               <h5 class="w-full mb-2"><%= t("menu.actions") %></h5>
               <% if issue.archived? %>
                   <%= link_to t('actions.unarchive'),
-                  unarchive_project_issue_path(issue.project, issue),
+                  unarchive_issue_path(issue),
                   class: "btn-success",
                   data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") }
                   %>
@@ -111,8 +116,8 @@
                 <% end %>
               <% else %>
                 <%= link_to t('actions.archive'),
-                    archive_project_issue_path(issue.project, issue),
-                    class: "btn-danger",
+                    archive_issue_path(issue),
+                    class: "btn-cancel",
                     data: { turbo_method: :put, turbo_confirm: t("confirmations.archive") }
                     %>
               <% end %>

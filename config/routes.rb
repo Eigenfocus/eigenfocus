@@ -66,8 +66,6 @@ Rails.application.routes.draw do
         member do
           post :add_label
           delete :remove_label
-          put :archive
-          put :unarchive
         end
       end
 
@@ -81,6 +79,8 @@ Rails.application.routes.draw do
   resources :issues, only: [ :destroy ] do
     member do
       patch :pick_grouping
+      put :archive
+      put :unarchive
     end
     scope module: "issues" do
       resource :file, only: [ :destroy ] do
