@@ -14,6 +14,7 @@ class Issue < ApplicationRecord
   validates :title, presence: true
 
   # Scopes
+  scope :active, -> { where(archived_at: nil) }
   scope :by_label_titles, ->(*label_titles) do
     # This scope is using splat operator because ransack has a buggy behavior
     # for array values with scopes.

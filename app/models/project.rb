@@ -13,7 +13,10 @@ class Project < ApplicationRecord
   validates :use_template, inclusion: { in: Project::Templatable::Template::AVAILABLE_TEMPLATES }, on: :create, if: -> { use_template.present? }
   before_destroy :ensure_is_archived
 
-  # Hookes
+  # Scopes
+  scope :active, -> { where(archived_at: nil) }
+
+  # Hooks
   after_create :apply_template, if: -> { use_template.present? }
 
   def default_visualization

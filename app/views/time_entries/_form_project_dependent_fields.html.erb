@@ -36,9 +36,15 @@
 
     <% if time_entry.project.present? %>
       <% if time_entry.project.issues.any? %>
-        <% issues = time_entry.project_id.present? ? time_entry.project.issues.order(title: :asc) : [] %>
+        <%
+          issues_for_select = time_entry.project.issues.active.order(title: :asc)
+
+          if time_entry.persisted? and time_entry.issue.archived?
+            issues_for_select.push(time_entry.issue)
+          end
+        %>
         <%= select_tag "time_entry[issue_id]",
-            options_from_collection_for_select(issues, :id, :title, time_entry.issue_id),
+            options_from_collection_for_select(issues_for_select, :id, :title, time_entry.issue_id),
             {
               include_blank: t('none_selected_f'),
               style: "width: 100%",
