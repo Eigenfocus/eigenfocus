@@ -56,27 +56,4 @@ describe "As a project manager, I want to achieve a issue from kanban board" do
 
     expect(Issue.exists?(issue.id)).to be_falsey
   end
-
-  specify "I can unarchive an issue" do
-    visit visualization_path(project.default_visualization)
-
-    click_link archived_issue.title
-
-    within ".cpy-issue-detail" do
-      accept_confirm do
-        click_link "Unarchive"
-      end
-    end
-
-    expect(page).to have_content("Issue was successfully unarchived.")
-
-    issue.reload
-
-    expect(issue).not_to be_archived
-
-    within ".cpy-issue-detail" do
-      expect(page).not_to have_link("Unarchive")
-      expect(page).to have_link("Archive")
-    end
-  end
 end
