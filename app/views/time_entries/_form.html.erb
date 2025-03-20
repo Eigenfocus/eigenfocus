@@ -32,7 +32,7 @@
       <div class="flex gap-2 flex-col cpy-project-list tour--project-selection">
         <%= f.label :project_id, TimeEntry.human_attribute_name(:project), autofocus: (time_entry.new_record? && time_entry.project_id.blank?), class: "label-primary" %>
         <%
-          projects_for_select = Project.active.order(name: :asc)
+          projects_for_select = Project.active.order(name: :asc).to_a
 
           if time_entry.persisted? and time_entry.project.archived?
             projects_for_select.push(time_entry.project)
