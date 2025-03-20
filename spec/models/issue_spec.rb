@@ -4,7 +4,7 @@ describe Issue do
   let(:project) { create(:project) }
   let(:issue) { create(:issue, project: project) }
 
-  describe "Removal is only possible if the project is archived" do
+  describe "Removal is only possible if the issue is archived" do
     it "can be removed if it is archived" do
       issue = create(:issue, :archived, project: project)
       expect(issue.destroy).to be_truthy
