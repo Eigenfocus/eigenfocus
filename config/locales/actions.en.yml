@@ -17,6 +17,11 @@ en:
         explanation: "Deleting this label will remove all of its associations with issues, but will not remove the issues."
         associations: "This label is associated with %{count_text}"
     issues:
+      filter:
+        by_archiving_status:
+          all: "List all issues"
+          active: "List only active issues"
+          archived: "List only archived issues"
       issue:
         no_grouping: "No column"
   survey_responses:

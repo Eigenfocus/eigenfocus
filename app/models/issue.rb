@@ -14,7 +14,19 @@ class Issue < ApplicationRecord
   validates :title, presence: true
 
   # Scopes
-  scope :active, -> { where(archived_at: nil) }
+  scope :archived, ->(archived = true) { archived ? where.not(archived_at: nil) : where(archived_at: nil) }
+  scope :active, -> { archived(false) }
+  scope :by_archiving_status, ->(status) {
+    case status
+    when "all"
+      all
+    when "active"
+      active
+    when "archived"
+      archived(true)
+    end
+  }
+
   scope :by_label_titles, ->(*label_titles) do
     # This scope is using splat operator because ransack has a buggy behavior
     # for array values with scopes.
@@ -58,7 +70,7 @@ class Issue < ApplicationRecord
   end
 
   def self.ransackable_scopes(auth_object = nil)
-    [ "by_label_titles" ]
+    [ "by_label_titles", "by_archiving_status" ]
   end
 
   # Broadcasts

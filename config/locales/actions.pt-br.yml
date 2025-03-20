@@ -87,6 +87,11 @@ pt-BR:
         title: "DICA RÁPIDA"
         description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar/remover uma label."
   issues:
+    filter:
+      by_archiving_status:
+        all: "Listar todas as issues"
+        active: "Listar issues ativas"
+        archived: "Listar issues arquivadas"
     issue_detail:
       grouping_picker:
         in_grouping: "Na coluna"

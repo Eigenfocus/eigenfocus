@@ -4,6 +4,7 @@ class Projects::IssuesController < Projects::BaseController
   def index
     @q = current_project.issues.ransack(params[:q])
     @q.sorts = "updated_at desc" if @q.sorts.empty?
+    @q.by_archiving_status ||= "active"
 
     @pagy, @issues = pagy(@q.result.includes(:labels, :groupings))
 
