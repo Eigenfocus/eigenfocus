@@ -6,6 +6,10 @@ FactoryBot.define do
       "Project #{i}"
     end
 
+    trait :archived do
+      archived_at { Date.current }
+    end
+
     time_tracking_enabled { true }
 
     transient do

@@ -1,6 +1,19 @@
 require 'rails_helper'
 
 describe Project do
+
+  describe "Removal is only possible if the project is archived" do
+    it "can be removed if it is archived" do
+      project = create(:project, :archived)
+      expect(project.destroy).to be_truthy
+    end
+
+    it "can't be removed if it is not archived" do
+      project = create(:project)
+      expect(project.destroy).to be_falsey
+    end
+  end
+
   describe "Using templates" do
     let(:project) { build(:project, visualization_counts: 0, with_issue_labels: []) }
     describe '#use_template=' do
