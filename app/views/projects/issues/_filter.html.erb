@@ -4,7 +4,7 @@
       <div class="flex gap-2 grow items-center cpy-by-status">
         <%= f.select :by_archiving_status, ['all', 'active', 'archived'].map { |status| [t(".by_archiving_status.#{status}"), status] },
           { include_hidden: false },
-          class: 'input-primary input-sm',
+          class: 'input-primary input-sm pr-8',
           data: {
             action: 'change->form#submit'
           }
