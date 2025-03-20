@@ -22,20 +22,20 @@
       <% if project.archived? %>
         <%= link_to t('actions.unarchive'),
                     unarchive_project_path(project),
-                    class: "btn-success",
+                    class: "btn-cancel",
                     data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") }
                     %>
 
         <%= link_to t('actions.remove'),
                     project_path(project),
                     class: "btn-danger",
-                    data: { turbo_method: :delete, turbo_confirm: t(".confirmations_remove"), turbo_frame: "_top" }
+                    data: { turbo_method: :delete, turbo_confirm: t(".confirm_destroy"), turbo_frame: "_top" }
                     %>
       <% else %>
         <%= link_to t('actions.archive'),
                     archive_project_path(project),
-                    class: "btn-danger",
-                    data: { turbo_method: :put, turbo_confirm: t("confirmations.archive") }
+                    class: "btn-cancel",
+                    data: { turbo_method: :put, turbo_confirm: t(".confirm_archive") }
                     %>
       <% end  %>
 

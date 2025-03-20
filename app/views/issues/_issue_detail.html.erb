@@ -110,7 +110,7 @@
                   class: "btn-success",
                   data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") }
                   %>
-                <%= link_to destroy_path, class: "btn-danger flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
+                <%= link_to destroy_path, class: "btn-danger flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.confirm_destroy", resource_name: Issue.model_name.human.downcase) } do %>
                   <i class="fa-solid fa-trash"></i>
                   <%= t("actions.remove") %>
                 <% end %>
@@ -118,7 +118,7 @@
                 <%= link_to t('actions.archive'),
                     archive_issue_path(issue),
                     class: "btn-cancel",
-                    data: { turbo_method: :put, turbo_confirm: t("confirmations.archive") }
+                    data: { turbo_method: :put, turbo_confirm: t("issue.confirm_archive") }
                     %>
               <% end %>
             </div>
