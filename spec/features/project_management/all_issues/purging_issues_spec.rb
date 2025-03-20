@@ -27,15 +27,17 @@ describe "As a project manager, I want to manage issue archive status" do
 
     expect(non_archived_issue).to be_archived
 
-    within 'table' do
-      expect(page).not_to have_content(non_archived_issue.title)
+    within "table #issue_#{non_archived_issue.id}" do
+      expect(page).to have_content("Archived")
     end
   end
 
   specify "I can unarchive an issue" do
     visit project_issues_path(project)
 
-    within dom_id(archieved_issue) do
+    select "List only archived issues", from: "q[by_archiving_status]"
+
+    within "table #issue_#{archieved_issue.id}" do
       click_link('Go to issue')
     end
 
@@ -50,6 +52,10 @@ describe "As a project manager, I want to manage issue archive status" do
     archieved_issue.reload
 
     expect(archieved_issue).not_to be_archived
+
+    within "table #issue_#{archieved_issue.id}" do
+      expect(page).to_not have_content("Active")
+    end
   end
 end
 
@@ -64,7 +70,9 @@ describe "As a project manager, I want to remove an issue" do
   specify "I can remove an archived issue" do
     visit project_issues_path(project)
 
-    within dom_id(archieved_issue) do
+    select "List only archived issues", from: "q[by_archiving_status]"
+
+    within "table #issue_#{archieved_issue.id}" do
       click_link('Go to issue')
     end
 
