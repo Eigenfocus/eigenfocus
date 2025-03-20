@@ -259,7 +259,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
       end
     end
 
-    expect(page).to have_content("Issue was successfully destroyed.")
+    expect(page).to have_content("Issue was successfully removed.")
 
     expect(Issue.where(id: issue.id)).not_to be_present
   end

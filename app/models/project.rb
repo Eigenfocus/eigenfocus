@@ -40,6 +40,9 @@ class Project < ApplicationRecord
   end
 
   private def ensure_is_archived
-    throw(:abort) unless archived?
+    unless archived?
+      errors.add(:base, I18n.t("activerecord.errors.project.destroy.not_archived"))
+      throw(:abort)
+    end
   end
 end

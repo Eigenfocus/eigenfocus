@@ -25,6 +25,12 @@
                     class: "btn-success",
                     data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") }
                     %>
+
+        <%= link_to t('actions.remove'),
+                    project_path(project),
+                    class: "btn-danger",
+                    data: { turbo_method: :delete, turbo_confirm: t(".confirmations_remove"), turbo_frame: "_top" }
+                    %>
       <% else %>
         <%= link_to t('actions.archive'),
                     archive_project_path(project),

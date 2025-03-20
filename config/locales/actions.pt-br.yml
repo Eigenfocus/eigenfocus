@@ -9,6 +9,7 @@ pt-BR:
     project:
       enable_time_tracking: 'Habilitar registro de tempo'
       disable_time_tracking: 'Desabilitar registro de tempo'
+      confirmations_remove: "Tem certeza que deseja remover este projeto? Isso deletará todos os dados associados a ele como issues e registros de tempo. Esta operação não pode ser desfeita."
     issue_labels:
       destroy_confirmation:
         explanation: "Deletar essa label removerá todas as suas associações com issues, mas não removerá as issues."

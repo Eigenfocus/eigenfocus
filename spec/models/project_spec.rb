@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Project do
-
   describe "Removal is only possible if the project is archived" do
     it "can be removed if it is archived" do
       project = create(:project, :archived)
@@ -11,6 +10,7 @@ describe Project do
     it "can't be removed if it is not archived" do
       project = create(:project)
       expect(project.destroy).to be_falsey
+      expect(project.errors.full_messages).to include("Project must be archived before it can be removed.")
     end
   end
 

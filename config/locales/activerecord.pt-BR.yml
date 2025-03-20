@@ -67,3 +67,7 @@ pt-BR:
 
       visualization:
         favorite_issue_labels: "Labels favoritas"
+    errors:
+      project:
+        destroy:
+          not_archived: "Um projeto deve estar arquivado antes de ser removido."

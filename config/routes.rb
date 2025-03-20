@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => "/cable"
 
-  resources :projects, except: [ :destroy ] do
+  resources :projects do
     member do
       put :archive
       put :unarchive

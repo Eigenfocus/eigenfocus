@@ -176,7 +176,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     expect(page).not_to have_content("Issue testing title")
 
-    expect(page).to have_content("Issue was successfully destroyed.")
+    expect(page).to have_content("Issue was successfully removed.")
 
     expect(Issue.where(id: issue.id)).not_to be_present
   end
@@ -200,7 +200,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     expect(page).not_to have_content("Issue testing title")
 
-    expect(page).to have_content("Issue was successfully destroyed.")
+    expect(page).to have_content("Issue was successfully removed.")
 
     expect(Issue.where(id: issue.id)).not_to be_present
   end

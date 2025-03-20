@@ -9,6 +9,7 @@ en:
     project:
       enable_time_tracking: 'Enable time tracking'
       disable_time_tracking: 'Disable time tracking'
+      confirmations_remove: "Are you sure you want to remove this project? This will delete all the data associated with it such as issues, time entries, etc. And it can't be undone."
     issue_labels:
       destroy_confirmation:
         explanation: "Deleting this label will remove all of its associations with issues, but will not remove the issues."

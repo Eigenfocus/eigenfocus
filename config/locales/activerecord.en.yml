@@ -67,3 +67,7 @@ en:
 
       visualization:
         favorite_issue_labels: "Favorite labels"
+    errors:
+      project:
+        destroy:
+          not_archived: "Project must be archived before it can be removed."
