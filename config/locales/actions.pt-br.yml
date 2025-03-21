@@ -128,6 +128,7 @@ pt-BR:
         no_entries: "Não existem entradas de tempo para o filtro aplicado."
       filters:
         generate_report: "Gerar relatório"
+        generate_report_csv: "Gerar relatório CSV"
         filter_by_project: 'Filtrar por projeto'
         filter_by_issue_labels: 'Filtrar por labels de issues'
         entry_start_at: 'Começando em'
