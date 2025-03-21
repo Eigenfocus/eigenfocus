@@ -1,6 +1,6 @@
 require "csv"
 
-class Report::TotalTimeLogged
+class TotalTimeLoggedCsvReport
   attr_reader :time_entries
   attr_reader :total_time_hours
 

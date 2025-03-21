@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Report::TotalTimeLogged do
+describe TotalTimeLoggedCsvReport do
   let(:project_1) { create(:project, name: "Project 1") }
   let(:project_2) { create(:project, name: "Project 2") }
 
@@ -26,7 +26,6 @@ describe Report::TotalTimeLogged do
 
   specify '#generate_csv' do
     csv = subject.generate_csv
-
 
     report = CSV.parse(csv, col_sep: "\t")
 

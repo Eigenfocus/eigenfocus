@@ -16,9 +16,11 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       format.csv do
-          send_data(Report::TotalTimeLogged.new(@time_entries, @total_in_hours).generate_csv.encode("iso-8859-1"),
-          type: "text/csv; charset=iso-8859-1; header=present",
-          filename: "total-time-#{DateTime.current.strftime('%Y-%M-%d-%H-%M')}.csv")
+        # Encoding is set to iso-8859-1 to avoid issues with special characters
+        # Especially on Windows and Excel.
+        send_data(TotalTimeLoggedCsvReport.new(@time_entries, @total_in_hours).generate_csv.encode("iso-8859-1"),
+        type: "text/csv; charset=iso-8859-1; header=present",
+        filename: "total-time-#{DateTime.current.strftime('%Y-%M-%d-%H-%M')}.csv")
       end
 
       format.html
