@@ -26,7 +26,7 @@ context "As a user, I want to generate time reports" do
     click_button "Generate report"
 
     within 'form' do
-      select "Alpha", from: "report_project_ids"
+      select "Alpha", from: "q_project_id_in"
       click_button "Generate report"
     end
 
@@ -35,7 +35,7 @@ context "As a user, I want to generate time reports" do
     end
 
     within 'form' do
-      select "Beta", from: "report_project_ids"
+      select "Beta", from: "q_project_id_in"
       click_button "Generate report"
     end
 
@@ -90,7 +90,7 @@ context "As a user, I want to generate time reports" do
     visit total_time_reports_path
 
     within 'form' do
-      fill_in :report_start_at, with: "2024-07-12" # one day ago
+      fill_in :q_reference_date_gteq, with: "2024-07-12" # one day ago
       click_button "Generate report"
     end
 
@@ -99,9 +99,9 @@ context "As a user, I want to generate time reports" do
     end
 
     within 'form' do
-      fill_in :report_start_at, with: "2024-07-7" # 6 days ago
-      fill_in :report_end_at, with: "2024-07-11" # 2 days ago ago
-      page.execute_script("document.getElementById('report_end_at').blur()")
+      fill_in :q_reference_date_gteq, with: "2024-07-7" # 6 days ago
+      fill_in :q_reference_date_lteq, with: "2024-07-11" # 2 days ago ago
+      page.execute_script("document.getElementById('q_reference_date_lteq').blur()")
       click_button "Generate report"
     end
 
