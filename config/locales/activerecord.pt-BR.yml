@@ -70,8 +70,6 @@ pt-BR:
     errors:
       models:
         project:
-          destroy:
-            must_be_archived_to_destroy: "Um projeto deve estar arquivado antes de ser removido."
+          must_be_archived_to_destroy: "Um projeto deve estar arquivado antes de ser removido."
         issue:
-          destroy:
-            must_be_archived_to_destroy: "Uma issue deve estar arquivada antes de ser removida."
+          must_be_archived_to_destroy: "Uma issue deve estar arquivada antes de ser removida."
