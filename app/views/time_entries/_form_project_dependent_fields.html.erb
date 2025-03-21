@@ -39,7 +39,7 @@
         <%
           issues_for_select = time_entry.project.issues.active.order(title: :asc).to_a
 
-          if time_entry.persisted? and time_entry.issue.archived?
+          if time_entry.persisted? and time_entry.issue&.archived?
             issues_for_select.push(time_entry.issue)
           end
         %>

@@ -71,10 +71,11 @@ context "As a user, I want to manage my time entries" do
     expect(time_entry.project).to eq(project)
   end
 
-  specify "I can update one" do
-    time_entry = FactoryBot.create(:time_entry, user:, description: 'td entry', reference_date: Date.current)
+  specify "I can update a time entry that has an issue" do
     project = Project.create!(name: 'New project')
-    issue = project.issues.create(title: "New issue")
+    issue = project.issues.create(title: "issue")
+    new_issue = project.issues.create(title: "New issue")
+    time_entry = FactoryBot.create(:time_entry, user:, project:, issue:, description: 'td entry', reference_date: Date.current)
 
     visit time_entries_path
 
@@ -95,7 +96,34 @@ context "As a user, I want to manage my time entries" do
     expect(time_entry.total_logged_time_in_minutes).to eq(45)
     expect(time_entry.description).to eq("Edited description")
     expect(time_entry.project).to eq(project)
-    expect(time_entry.issue).to eq(issue)
+    expect(time_entry.issue).to eq(new_issue)
+  end
+
+  specify "I can update a time entry that has no issue" do
+    project = Project.create!(name: 'New project')
+    new_issue = project.issues.create(title: "New issue")
+    time_entry = FactoryBot.create(:time_entry, user:, project:, description: 'td entry', reference_date: Date.current)
+
+    visit time_entries_path
+
+    within "#time_entry_#{time_entry.id}" do
+      click_link "Edit"
+    end
+
+    fill_in :time_entry_description, with: "Edited description"
+    fill_in :time_entry_total_logged_time_in_minutes, with: "45"
+    select_from_select2(label_for: 'time_entry_project_id', option_text: "New project")
+    select_from_select2(selector: '#project_dependent_fields .select2', option_text: "New issue")
+
+    click_button "Update"
+
+    expect(page).to have_content("Time entry was successfully updated.")
+
+    time_entry.reload
+    expect(time_entry.total_logged_time_in_minutes).to eq(45)
+    expect(time_entry.description).to eq("Edited description")
+    expect(time_entry.project).to eq(project)
+    expect(time_entry.issue).to eq(new_issue)
   end
 
   specify "I can remove" do
