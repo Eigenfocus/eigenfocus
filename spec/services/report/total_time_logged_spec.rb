@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 describe Report::TotalTimeLogged do
-
   let(:project_1) { create(:project, name: "Project 1") }
   let(:project_2) { create(:project, name: "Project 2") }
 
   let(:time_entries) {
     [
-      create(:time_entry, reference_date: Date.current, project: project_1, issue: create(:issue, with_labels: ["Development", "Sign Up"], title: "Issue 1", project: project_1), description: "Description 1", total_logged_time_in_minutes: 10),
+      create(:time_entry, reference_date: Date.current, project: project_1, issue: create(:issue, with_labels: [ "Development", "Sign Up" ], title: "Issue 1", project: project_1), description: "Description 1", total_logged_time_in_minutes: 10),
       create(:time_entry, reference_date: Date.current, project: project_1, description: "Description 2", total_logged_time_in_minutes: 15),
-      create(:time_entry, reference_date: Date.current, project: project_2, issue: create(:issue, with_labels: ["Design"], title: "Issue 2", project: project_2), description: "Description 3", total_logged_time_in_minutes: 5),
+      create(:time_entry, reference_date: Date.current, project: project_2, issue: create(:issue, with_labels: [ "Design" ], title: "Issue 2", project: project_2), description: "Description 3", total_logged_time_in_minutes: 5)
     ]
   }
   let(:total_time_hours) { 30 }
@@ -34,11 +33,10 @@ describe Report::TotalTimeLogged do
     expect(report.size).to eq(5)
     expect(report[0][0]).to eq("Total: ")
     expect(report[0][1]).to eq("30 Hours")
-    expect(report[1]).to eq(["Date", "Project", "Issue", "Description", "Labels", "Logged time (minutes)"])
+    expect(report[1]).to eq([ "Date", "Project", "Issue", "Description", "Labels", "Logged time (minutes)" ])
 
     match_time_entry_row(report[2], time_entries[0])
     match_time_entry_row(report[3], time_entries[1])
     match_time_entry_row(report[4], time_entries[2])
-
   end
 end

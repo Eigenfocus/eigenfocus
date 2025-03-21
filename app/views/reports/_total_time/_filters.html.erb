@@ -16,7 +16,7 @@
         <div class="flex  gap-2 w-full flex-col">
           <%= f.label :by_issue_labels_title, t(".filter_by_issue_labels"), class: "text-readable-content-500 text-sm " %>
           <%= f.select :by_issue_labels_title,
-            options_for_select(IssueLabel.pluck(:title), params[:q].try(:[], :by_issue_labels_title)),
+            options_for_select(IssueLabel.distinct.pluck(:title), params[:q].try(:[], :by_issue_labels_title)),
             { include_hidden: false },
             class: 'input-primary input-sm',
             multiple: true,
