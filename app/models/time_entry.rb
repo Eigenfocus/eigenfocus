@@ -7,8 +7,15 @@ class TimeEntry < ApplicationRecord
   # Scopes
   scope :by_date, ->(date) { where(reference_date: date) }
   scope :running, -> { where.not(started_at: nil) }
-  scope :by_issue_labels_title, ->(labels) {
-    where(issue_id: Issue.by_label_titles(labels).select(:id))
+  scope :by_issue_labels_title, ->(*label_titles) {
+    # This scope is using splat operator because ransack has a buggy behavior
+    # for array values with scopes.
+    # See more: https://github.com/activerecord-hackery/ransack/issues/404
+
+    # If we call without using ransack it need flatten the array
+    # Issue.by_label_titles("dev", "test")
+    label_titles.flatten!
+    where(issue_id: Issue.by_label_titles(label_titles).select(:id))
   }
 
   # Validations
@@ -19,6 +26,15 @@ class TimeEntry < ApplicationRecord
 
   # Broadcasts
   broadcasts_to ->(time_entry) { "time_entries" }, inserts_by: :prepend, target: "time-entries-tbody"
+
+  # Ransack
+  def self.ransackable_attributes(auth_object = nil)
+    ["project_id", "reference_date", "by_issue_labels_title"]
+  end
+
+  def self.ransackable_scopes(auth_object = nil)
+    [ "by_issue_labels_title" ]
+  end
 
   def start!
     fail "You can only start stopped time entries" if started_at.present?

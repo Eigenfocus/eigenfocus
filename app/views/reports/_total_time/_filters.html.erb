@@ -1,46 +1,47 @@
-<%= form_with(scope: :report, url: total_time_reports_path, method: :get) do |f| %>
+<%= search_form_for(q, url: total_time_reports_path, method: :get) do |f| %>
   <div class="bg-body-contrast rounded-md border border-background-200 p-8 space-y-4">
 
     <div class="flex flex-col w-full justify-stretch items-stretch lg:flex-row gap-8 ">
       <div class="flex grow flex-col lg:flex-row justify-stretch items-center gap-4">
         <div class="flex  gap-2 w-full flex-col">
-          <%= f.label :project_ids, t(".filter_by_project"), class: "text-readable-content-500 text-sm " %>
+          <%= f.label :project_id_in, t(".filter_by_project"), class: "text-readable-content-500 text-sm " %>
           <%
             projects_data = Project.order(name: :asc).pluck(:name, :id)
           %>
-          <%= f.select 'project_ids', options_for_select(projects_data, params[:report][:project_ids]), { multiple: true }, { class: "w-full", data: { controller: 'select2' } } %>
+          <%= f.select 'project_id_in', Project.pluck(:name, :id), { multiple: true }, { class: "w-full", data: { controller: 'select2' } } %>
         </div>
       </div>
 
       <div class="flex grow flex-col lg:flex-row justify-stretch cpy-tags-select items-center gap-4">
         <div class="flex  gap-2 w-full flex-col">
-          <%= f.label :issue_labels, t(".filter_by_issue_labels"), class: "text-readable-content-500 text-sm " %>
-          <%= f.select :issue_labels,
-            options_for_select(IssueLabel.select(:title).distinct.pluck(:title), params[:report][:issue_labels]),
+          <%= f.label :by_issue_labels_title, t(".filter_by_issue_labels"), class: "text-readable-content-500 text-sm " %>
+          <%= f.select :by_issue_labels_title,
+            options_for_select(IssueLabel.pluck(:title), params[:q].try(:[], :by_issue_labels_title)),
             { include_hidden: false },
-            class: 'input-primary',
+            class: 'input-primary input-sm',
             multiple: true,
             data: {
-              controller: 'select2'
+              controller: 'select2',
+              "select2-additional-classes": 'select2-contrast select2-sm'
             }
-                %>
+          %>
         </div>
       </div>
 
       <div class="w-full flex flex-col lg:flex-row lg:w-2/5 justify-stretch items-stretch gap-4 ">
         <div class="flex grow gap-2 flex-col">
-          <%= f.label :start_at, t(".entry_start_at"), class: "text-readable-content-500 text-sm " %>
+          <%= f.label :reference_date_gteq, t(".entry_start_at"), class: "text-readable-content-500 text-sm " %>
 
-          <%= f.text_field :start_at, value: params[:report][:start_at], class: 'input-primary w-full',
+          <%= f.text_field :reference_date_gteq, class: 'input-primary w-full',
             data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr" }
           %>
         </div>
 
         <div class="flex grow gap-2 flex-col">
 
-          <%= f.label :end_at, t(".entry_end_at"), class: "text-readable-content-500 text-sm " %>
+          <%= f.label :reference_date_lteq, t(".entry_end_at"), class: "text-readable-content-500 text-sm " %>
 
-          <%= f.text_field :end_at, value: params[:report][:end_at],
+          <%= f.text_field :reference_date_lteq,
             class: 'input-primary w-full',
             data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr" }
           %>
