@@ -115,6 +115,8 @@ en:
       no_description: "no description"
       confirm_destroy: "Do you want to remove this time entry? This action can not be undone."
   reports:
+    choose_filters:
+      please_choose_filters: 'To generate a report use the filter above.'
     total_time:
       report:
         no_entries_for: "No time entries for"
@@ -123,7 +125,6 @@ en:
         date: 'Date'
         subtotal: "Subtotal"
         no_entries: "There are no time entries that matches the current filter."
-        waiting_filters: 'To generate a report use the filter above.'
       filters:
         generate_report: "Generate report"
         filter_by_project: 'Filter by project'

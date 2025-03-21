@@ -12,6 +12,5 @@ class ReportsController < ApplicationController
       @time_entries = TimeEntry.none
       @total_in_hours = 0
     end
-
   end
 end

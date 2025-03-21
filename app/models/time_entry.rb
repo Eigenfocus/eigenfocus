@@ -29,7 +29,7 @@ class TimeEntry < ApplicationRecord
 
   # Ransack
   def self.ransackable_attributes(auth_object = nil)
-    ["project_id", "reference_date", "by_issue_labels_title"]
+    [ "project_id", "reference_date", "by_issue_labels_title" ]
   end
 
   def self.ransackable_scopes(auth_object = nil)
