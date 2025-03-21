@@ -147,4 +147,32 @@ context "As a user, I want to manage my projects" do
 
     expect(page).to have_current_path(time_entries_path(new_entry: { project_id: project_beta.id }))
   end
+
+  describe "Removing a project" do
+    it "can be removed if it's archived" do
+      project = create(:project, :archived)
+
+      visit projects_path
+
+      within dom_id(project) do
+        page.accept_alert do
+          click_link('Remove')
+        end
+      end
+
+      expect(page).to have_content("Project was successfully removed.")
+
+      expect(Project.exists?(project.id)).to be_falsey
+    end
+
+    it "can't be removed if it is not archived" do
+      project = create(:project)
+
+      visit projects_path
+
+      within dom_id(project) do
+        expect(page).to_not have_link('Remove')
+      end
+    end
+  end
 end

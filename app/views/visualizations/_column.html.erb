@@ -94,7 +94,7 @@
     >
 
     <% unless grouping.hidden %>
-      <% grouping.issues.each do |issue| %>
+      <% grouping.issues.active.each do |issue| %>
         <%= render partial: 'visualizations/card', locals: {
           issue:,
           visualization: ,

@@ -12,6 +12,16 @@ class IssuesController < ApplicationController
     end
   end
 
+  def archive
+    @issue = Issue.find(params[:id])
+    @issue.archive!
+  end
+
+  def unarchive
+    @issue = Issue.find(params[:id])
+    @issue.unarchive!
+  end
+
   def destroy
     @issue = Issue.find(params[:id])
     @issue.destroy

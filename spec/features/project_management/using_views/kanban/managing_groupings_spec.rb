@@ -71,7 +71,7 @@ describe 'As a user, I want to manage my kanban view columns' do
       end
     end
 
-    expect(page).to have_content("Column was successfully destroyed.")
+    expect(page).to have_content("Column was successfully removed.")
 
     expect(Grouping.where(id: grouping.id)).not_to be_present
 

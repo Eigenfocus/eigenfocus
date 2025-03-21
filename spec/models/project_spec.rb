@@ -1,6 +1,33 @@
 require 'rails_helper'
 
 describe Project do
+  describe "Removal is only possible if the project is archived" do
+    it "can be removed if it is archived" do
+      project = create(:project, :archived)
+      expect(project.destroy).to be_truthy
+    end
+
+    it "Removes all dependencies when removed" do
+      project = create(:project, :archived, issue_counts: 2)
+      expect(project.issues.count).to eq(2)
+      expect(project.visualizations.count).to eq(1)
+      expect(project.issue_labels.count).to eq(0)
+
+      project.destroy
+
+      expect(project).to be_destroyed
+      expect(project.issues.count).to eq(0)
+      expect(project.visualizations.count).to eq(0)
+      expect(project.issue_labels.count).to eq(0)
+    end
+
+    it "can't be removed if it is not archived" do
+      project = create(:project)
+      expect(project.destroy).to be_falsey
+      expect(project.errors.full_messages).to include("Project must be archived before it can be removed.")
+    end
+  end
+
   describe "Using templates" do
     let(:project) { build(:project, visualization_counts: 0, with_issue_labels: []) }
     describe '#use_template=' do

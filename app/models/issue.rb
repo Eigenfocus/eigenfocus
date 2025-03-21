@@ -5,6 +5,7 @@ class Issue < ApplicationRecord
   has_many :time_entries, dependent: :nullify
   has_many :grouping_issue_allocations, dependent: :destroy
   has_many :groupings, through: :grouping_issue_allocations
+
   ## Relations/Labels
   has_many :label_links, class_name: "IssueLabelLink", dependent: :destroy
   has_many :labels, through: :label_links, source: :issue_label
@@ -13,6 +14,19 @@ class Issue < ApplicationRecord
   validates :title, presence: true
 
   # Scopes
+  scope :archived, ->(archived = true) { archived ? where.not(archived_at: nil) : where(archived_at: nil) }
+  scope :active, -> { archived(false) }
+  scope :by_archiving_status, ->(status) {
+    case status
+    when "all"
+      all
+    when "active"
+      active
+    when "archived"
+      archived(true)
+    end
+  }
+
   scope :by_label_titles, ->(*label_titles) do
     # This scope is using splat operator because ransack has a buggy behavior
     # for array values with scopes.
@@ -30,6 +44,23 @@ class Issue < ApplicationRecord
     )
   end
 
+  # Hooks
+  before_destroy :ensure_is_archived, unless: -> { destroyed_by_association }
+
+  def archived?
+    archived_at.present?
+  end
+
+  def unarchive!
+    self.archived_at = nil
+    save!
+  end
+
+  def archive!
+    self.archived_at = Date.current
+    save!
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     [ "title", "created_at", "updated_at" ]
   end
@@ -39,7 +70,7 @@ class Issue < ApplicationRecord
   end
 
   def self.ransackable_scopes(auth_object = nil)
-    [ "by_label_titles" ]
+    [ "by_label_titles", "by_archiving_status" ]
   end
 
   # Broadcasts
@@ -83,6 +114,13 @@ class Issue < ApplicationRecord
       label = project.issue_labels.with_title(title).first
       label ||= project.issue_labels.create(title: title)
       label
+    end
+  end
+
+  private def ensure_is_archived
+    unless archived?
+      errors.add(:base, :must_be_archived_to_destroy)
+      throw(:abort)
     end
   end
 end

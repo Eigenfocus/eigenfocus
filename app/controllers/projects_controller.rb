@@ -53,6 +53,18 @@ class ProjectsController < ApplicationController
     @project.unarchive!
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+
+    if @project.destroy
+      flash[:success] = t_flash_message(@project)
+    else
+      flash[:error] = @project.errors.full_messages.to_sentence
+    end
+
+    redirect_to projects_path
+  end
+
   private
 
   def project_params

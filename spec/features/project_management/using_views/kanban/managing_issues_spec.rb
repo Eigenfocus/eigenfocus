@@ -243,27 +243,6 @@ describe 'As a user, I want to manage my project using a kanban view' do
     expect(Grouping.find_by(title: "Done").allocations.first.issue.title).to eq("Issue 1")
   end
 
-  specify 'I can delete issues' do
-    project = FactoryBot.create(:project)
-    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization)
-    issue = FactoryBot.create(:issue, project: project, title: "DELETE ME")
-    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
-
-    visit visualization_path(project.default_visualization)
-
-    click_link "DELETE ME"
-
-    within ".cpy-issue-detail" do
-      accept_confirm do
-        click_link "Remove"
-      end
-    end
-
-    expect(page).to have_content("Issue was successfully destroyed.")
-
-    expect(Issue.where(id: issue.id)).not_to be_present
-  end
-
   specify 'I can change issue grouping on the issue detail modal' do
     project = FactoryBot.create(:project)
     grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "First grouping")

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => "/cable"
 
-  resources :projects, except: [ :destroy ] do
+  resources :projects do
     member do
       put :archive
       put :unarchive
@@ -79,6 +79,8 @@ Rails.application.routes.draw do
   resources :issues, only: [ :destroy ] do
     member do
       patch :pick_grouping
+      put :archive
+      put :unarchive
     end
     scope module: "issues" do
       resource :file, only: [ :destroy ] do

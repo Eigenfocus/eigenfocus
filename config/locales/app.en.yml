@@ -60,7 +60,7 @@ en:
     preview: "Preview"
     press: "Press"
     go_to_board: 'Go to workflow board'
-    go_to_issue: 'Go to Issue'
+    go_to_issue: 'Go to issue'
     go_to_issues_list: 'Go to issues list'
     go_to_time_tracking: "Go to time tracking"
     start_time_tracking: "Track time"
@@ -84,8 +84,8 @@ en:
       unarchive:
         notice: "%{resource_name} was successfully unarchived."
       destroy:
-        notice: "%{resource_name} was successfully destroyed."
-        alert: "%{resource_name} could not be destroyed."
+        notice: "%{resource_name} was successfully removed."
+        alert: "%{resource_name} could not be removed."
       mark_as_read:
         notice: "Notification was marked as read"
       mark_all_as_read:

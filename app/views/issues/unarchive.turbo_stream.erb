@@ -1,0 +1,9 @@
+<% if allocated_grouping = @issue.groupings.first %>
+  <%= turbo_stream.append "#{ allocated_grouping.id }-cards-wrapper", partial: "visualizations/card", locals: {
+    visualization: @issue.project.default_visualization,
+    issue: @issue
+  } %>
+<% end %>
+<%= turbo_stream.replace_all "#all-issues-list #issue_#{@issue.id}", partial: "projects/issues/issue", locals: { issue: @issue } %>
+<%= turbo_stream.replace 'issue_detail', partial: 'issues/issue_detail', locals: { issue: @issue, destroy_path: issue_path(@issue) } %>
+<%= new_turbo_stream_alert_message(:success, t_flash_message(@issue)) %>

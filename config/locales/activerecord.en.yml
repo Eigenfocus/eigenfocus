@@ -67,3 +67,9 @@ en:
 
       visualization:
         favorite_issue_labels: "Favorite labels"
+    errors:
+      models:
+        project:
+          must_be_archived_to_destroy: "Project must be archived before it can be removed."
+        issue:
+          must_be_archived_to_destroy: "Issue must be archived before it can be removed."

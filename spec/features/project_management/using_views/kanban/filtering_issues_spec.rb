@@ -35,6 +35,18 @@ describe 'As a project manager, I want to filter my issues from kanban boards' d
     grouping_done.issues << issue_deploy
   end
 
+  specify "It lists only active issues" do
+    issue_development1.archive!
+    issue_development2.archive!
+    visit visualization_path(project.default_visualization)
+
+    within '.cpy-columns-wrapper' do
+      expect(page).to_not have_content("Bigtask 1")
+      expect(page).to_not have_content("Bigtask 2")
+      expect(page).to have_content("Bigtask 3")
+    end
+  end
+
   specify "I can filter by issue title" do
     visit visualization_path(project.default_visualization)
 
@@ -49,7 +61,6 @@ describe 'As a project manager, I want to filter my issues from kanban boards' d
       expect(page).to have_content("Bigtask 3")
     end
   end
-
 
   specify "I can filter by issue labels" do
     visit visualization_path(project.default_visualization)

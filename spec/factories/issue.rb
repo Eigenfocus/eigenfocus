@@ -3,6 +3,10 @@ FactoryBot.define do
     sequence(:title) { |n| "My issue #{n}" }
     sequence(:description) { |n| "Issue #{n} description" }
 
+    trait :archived do
+      archived_at { Date.current }
+    end
+
     transient do
       with_labels { [] }
     end

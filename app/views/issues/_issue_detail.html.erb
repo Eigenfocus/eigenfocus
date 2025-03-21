@@ -24,6 +24,11 @@
           <h4 class="text-lg font-medium text-readable-content-700">
             <%= issue.persisted? ? "#{t("actions.edit")} #{Issue.model_name.human}" : "#{t("actions.create")} #{Issue.model_name.human}"%>
           </h4>
+          <% if issue.archived? %>
+            <span class="inline-block rounded-full border-warning-600 bg-warning-200 text-warning-800 border py-1 px-3 text-xs font-medium text-warning-600">
+              <%= t('archived').capitalize %>
+            </span>
+          <% end %>
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-8">
@@ -92,16 +97,31 @@
               <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
             <% end %>
 
-            <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "mt-8 btn-outline-primary text-nowrap flex gap-2 items-center py-2 tour--issue-detail-time-tracking", data: { turbo_frame: "_top" } do %>
-              <%= icon_for(:time_entries) %>
-              <span class="sm:block"><%= t("actions.start_time_tracking") %></span>
+            <% unless issue.archived? %>
+              <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "mt-8 btn-outline-primary text-nowrap flex gap-2 items-center py-2 tour--issue-detail-time-tracking", data: { turbo_frame: "_top" } do %>
+                <%= icon_for(:time_entries) %>
+                <span class="sm:block"><%= t("actions.start_time_tracking") %></span>
+              <% end %>
             <% end %>
 
-            <div class="mt-4 flex flex-col items-stretch">
+            <div class="mt-4 flex flex-col gap-2 items-stretch">
               <h5 class="w-full mb-2"><%= t("menu.actions") %></h5>
-              <%= link_to destroy_path, class: "btn-danger flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.destroy_confirmation", resource_name: Issue.model_name.human.downcase) } do %>
-                <i class="fa-solid fa-trash"></i>
-                <%= t("actions.remove") %>
+              <% if issue.archived? %>
+                  <%= link_to t('actions.unarchive'),
+                  unarchive_issue_path(issue),
+                  class: "btn-success",
+                  data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") }
+                  %>
+                <%= link_to destroy_path, class: "btn-danger flex items-center gap-2", data: { turbo_method: :delete, turbo_confirm: t("issue.confirm_destroy", resource_name: Issue.model_name.human.downcase) } do %>
+                  <i class="fa-solid fa-trash"></i>
+                  <%= t("actions.remove") %>
+                <% end %>
+              <% else %>
+                <%= link_to t('actions.archive'),
+                    archive_issue_path(issue),
+                    class: "btn-cancel",
+                    data: { turbo_method: :put, turbo_confirm: t("issue.confirm_archive") }
+                    %>
               <% end %>
             </div>
           </div>

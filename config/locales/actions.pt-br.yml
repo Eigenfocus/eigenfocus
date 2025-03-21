@@ -1,6 +1,7 @@
 pt-BR:
   issue:
-    destroy_confirmation: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
+    confirm_destroy: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
+    confirm_archive: "Tem certeza que deseja arquivar esta issue? Isso impedirá que ela seja utilizada em atividades de registro de tempo. Os registros de tempo existentes não serão afetados."
   projects:
     form:
       select_template: "Selecione um template de projeto"
@@ -9,6 +10,8 @@ pt-BR:
     project:
       enable_time_tracking: 'Habilitar registro de tempo'
       disable_time_tracking: 'Desabilitar registro de tempo'
+      confirm_archive: "Tem certeza que deseja arquivar este projeto? Isso impedirá que ele seja utilizado em atividades de registro de tempo ou gerenciamento. As issues ou registros de tempo existentes não serão afetados."
+      confirm_destroy: "Tem certeza que deseja remover este projeto? Isso deletará todos os dados associados a ele como issues e registros de tempo. Esta operação não pode ser desfeita."
     issue_labels:
       destroy_confirmation:
         explanation: "Deletar essa label removerá todas as suas associações com issues, mas não removerá as issues."
@@ -84,6 +87,11 @@ pt-BR:
         title: "DICA RÁPIDA"
         description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar/remover uma label."
   issues:
+    filter:
+      by_archiving_status:
+        all: "Listar todas as issues"
+        active: "Listar issues ativas"
+        archived: "Listar issues arquivadas"
     issue_detail:
       grouping_picker:
         in_grouping: "Na coluna"
@@ -107,7 +115,7 @@ pt-BR:
         success: 'Marcação de tempo parada com sucesso.'
     time_entry:
       no_description: "sem descrição"
-      confirm_remove: "Deseja realmente remover este registro de tempo? Esta ação não poderá ser desfeita."
+      confirm_destroy: "Deseja realmente remover este registro de tempo? Esta ação não poderá ser desfeita."
   reports:
     total_time:
       report:

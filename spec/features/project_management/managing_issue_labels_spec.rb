@@ -106,7 +106,7 @@ describe 'As a project manager, I want to manage my issue labels' do
       end
     end
 
-    expect(page).to have_content("Issue Label was successfully destroyed.")
+    expect(page).to have_content("Issue Label was successfully removed.")
 
     within 'table' do
       expect(page).to_not have_content("Development")

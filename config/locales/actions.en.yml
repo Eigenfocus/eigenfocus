@@ -1,6 +1,7 @@
 en:
   issue:
-    destroy_confirmation: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"
+    confirm_destroy: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"
+    confirm_archive: "Are you sure you want to archive this issue? This will prevent it from being used in any time tracking activities. The existing time entries will not be affected."
   projects:
     form:
       select_template: "Select a project template"
@@ -9,11 +10,18 @@ en:
     project:
       enable_time_tracking: 'Enable time tracking'
       disable_time_tracking: 'Disable time tracking'
+      confirm_archive: "Are you sure you want to archive this project? This will prevent it from being used in any time tracking or project management activities. The existing issues and time entries will not be affected."
+      confirm_destroy: "Are you sure you want to remove this project? This will delete all the data associated with it such as issues, time entries, etc. And it can't be undone."
     issue_labels:
       destroy_confirmation:
         explanation: "Deleting this label will remove all of its associations with issues, but will not remove the issues."
         associations: "This label is associated with %{count_text}"
     issues:
+      filter:
+        by_archiving_status:
+          all: "List all issues"
+          active: "List only active issues"
+          archived: "List only archived issues"
       issue:
         no_grouping: "No column"
   survey_responses:
@@ -105,7 +113,7 @@ en:
       success: 'Time entry logging stopped.'
     time_entry:
       no_description: "no description"
-      confirm_remove: "Do you want to remove this time entry? This action can not be undone."
+      confirm_destroy: "Do you want to remove this time entry? This action can not be undone."
   reports:
     total_time:
       report:
