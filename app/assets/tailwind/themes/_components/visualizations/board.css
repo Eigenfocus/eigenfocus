@@ -36,6 +36,25 @@
 
       &:hover {
         @apply flex;
+
+        .board--column--create-button-shortcut {
+          @apply flex;
+        }
+      }
+    }
+
+    .inline-card-form {
+      @apply flex-col mt-2;
+      display: none;
+    }
+
+    &.card-form-showing {
+      .inline-card-form {
+        display: flex;
+      }
+
+      .board--column--create-button {
+        display: none;
       }
     }
 
