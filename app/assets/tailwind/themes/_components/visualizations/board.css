@@ -43,6 +43,21 @@
       }
     }
 
+    .inline-card-form {
+      @apply flex-col mt-2;
+      display: none;
+    }
+
+    &.card-form-showing {
+      .inline-card-form {
+        display: flex;
+      }
+
+      .board--column--create-button {
+        display: none;
+      }
+    }
+
     &.collapsed {
       .board--column--header {
         @apply flex-col;

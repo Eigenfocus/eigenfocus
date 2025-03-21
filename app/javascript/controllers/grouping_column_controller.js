@@ -33,14 +33,12 @@ export default class extends Controller {
   }
 
   showInlineCardForm() {
-    this.inlineCardFormTarget.classList.remove('hidden')
-    this.showFormButtonTarget.classList.add('hidden')
+    this.element.classList.add('card-form-showing')
     this.inlineCardFormTitleTarget.focus()
   }
 
   hideInlineCardForm() {
-    this.showFormButtonTarget.classList.remove('hidden')
-    this.inlineCardFormTarget.classList.add('hidden')
+    this.element.classList.remove('card-form-showing')
   }
 
   cardTargetConnected(cardElement) {
