@@ -36,6 +36,10 @@
 
       &:hover {
         @apply flex;
+
+        .board--column--create-button-shortcut {
+          @apply flex;
+        }
       }
     }
 
