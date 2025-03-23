@@ -1,0 +1,25 @@
+.milkdown {
+  blockquote {
+    position: relative;
+    padding-left: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-sizing: content-box;
+    margin: 4px 0;
+
+    &::before {
+      content: '';
+      width: 4px;
+      left: 0;
+      top: 4px;
+      bottom: 4px;
+      position: absolute;
+      background: var(--color-quote-marker);
+      border-radius: 100px;
+    }
+
+    hr {
+      margin-bottom: 16px;
+    }
+  }
+}

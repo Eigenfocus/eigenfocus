@@ -1,0 +1,38 @@
+.milkdown {
+  hr {
+    border: none;
+    background-color: color-mix(
+      in srgb,
+      var(--color-divider),
+      transparent 80%
+    );
+    background-clip: content-box;
+    padding: 6px 0;
+    height: 13px;
+    position: relative;
+
+    &.ProseMirror-selectednode {
+      outline: none;
+      background-color: color-mix(
+        in srgb,
+        var(--color-divider),
+        transparent 20%
+      );
+      background-clip: content-box;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: color-mix(
+          in srgb,
+          var(--color-divider),
+          transparent 80%
+        );
+        pointer-events: none;
+      }
+    }
+  }
+}

@@ -129,7 +129,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     expect(Issue.last.title).to eq("My issue")
     expect(Issue.last.labels_list).to eq([ "Development" ])
-    expect(Issue.last.description).to eq("My description")
+    expect(Issue.last.description).to include("My description")
   end
 
   specify "I can update issues" do

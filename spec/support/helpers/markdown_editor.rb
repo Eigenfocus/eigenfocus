@@ -1,19 +1,13 @@
 module MarkdownEditorHelper
   def write_in_md_editor_field(text)
-    within ".CodeMirror" do
-      # Click makes CodeMirror element active:
-      current_scope.click
-
-      # Find the hidden textarea:
-      field = current_scope.find("textarea", visible: false)
-
-      # Mimic user typing the text:
-      field.send_keys text
+    within markdown_editor_selector do
+      current_scope.send_keys text
+      sleep(0.5)
     end
   end
 
   def markdown_editor_selector
-    ".CodeMirror-code"
+    ".ProseMirror"
   end
 end
 

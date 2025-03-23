@@ -1,0 +1,25 @@
+.milkdown {
+  ul,
+  ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  milkdown-list-item-block {
+    li {
+      gap: 10px;
+    }
+
+    .list-item {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      flex-wrap: nowrap;
+    }
+
+    input[type="checkbox"] {
+      border: solid var(--color-list-checkbox-border) 1px;
+    }
+  }
+
+}
