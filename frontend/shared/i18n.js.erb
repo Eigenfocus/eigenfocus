@@ -1,0 +1,9 @@
+import { I18n } from "i18n-js"
+
+const i18n = new I18n(<%= I18nJS.filtered_translations.to_json %>);
+
+i18n.defaultLocale = "en"
+i18n.locale = document.documentElement.getAttribute("lang")
+
+export const t = i18n.t.bind(i18n)
+export default i18n
