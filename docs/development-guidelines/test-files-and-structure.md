@@ -89,5 +89,5 @@ Describe the action directly and do not use "As a X...". Example:
 ## Specific specs for PRO Edition
 
 - If a spec from the FREE edition is not valid for the PRO edition, we can tag it with a `disable_in_pro_edition` that will prevent it from running in the PRO edition.
-- This tag can only be used in the PRO edition and in `describe/context` blocks. This means that you can't use it in `it/specify` examples blocks. This is intentional in order to facilitate future conflicts resolutions as we will forced to create a new spec file in the `spec/features-pro` folder.
-- You can create PRO Edition specific specs under the `spec/features-pro` folder.
+- This tag can only be used in the PRO edition and in `describe/context` blocks. This means that you can't use it in `it/specify` examples blocks. This is intentional in order to facilitate future conflicts resolutions as we will forced to create a new spec file in the `spec/features/pro-edition` folder.
+- You can create PRO Edition specific specs under the `spec/features/pro-edition` folder.

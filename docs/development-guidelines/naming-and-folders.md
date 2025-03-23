@@ -34,4 +34,5 @@ Almost all classes can be namespaced inside a `Project` so we've decided to just
 # Folders
 
 - `app/models` contains only "Active Record" stuff - Classes or modules related to AR behaviour.
+- We can create new `app/something` folders to group related classes based on a specific behaviour grouped by a application layer. Examples `app/reports`, `app/translators/`, `app/serializers`, etc.
 - Any other domain related class, that doesn't fit in other s `Rails app folder`, should be in `app/services`
