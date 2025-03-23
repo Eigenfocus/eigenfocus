@@ -40,6 +40,10 @@ gem "solid_queue", "~> 1.1"
 gem "ransack", "~> 4.3"
 gem "pagy", "~> 9.3"
 
+# Frontend app
+gem "shakapacker", "~> 8.2"
+gem "react-rails", "~> 3.2"
+
 # For configuration files
 gem "dry-struct", "~> 1.8"
 

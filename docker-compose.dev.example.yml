@@ -8,6 +8,8 @@ services:
     volumes:
       - .:/app
       - bundle:/app/.bundle
+      - node_modules:/app/node_modules
+      - yarn-cache:/app/.yarn-cache
     ports:
       - "${RAILS_HOST_PORT}:${RAILS_HOST_PORT}"
     env_file:
@@ -22,11 +24,25 @@ services:
     volumes:
       - .:/app
       - bundle:/app/.bundle
+      - node_modules:/app/node_modules
+      - yarn-cache:/app/.yarn-cache
     tty: true
 
     env_file:
       - "./.env"
     command: "bin/rails themed_tailwindcss:watch"
+  js:
+    build:
+      dockerfile: 'Dockerfile.dev'
+    volumes:
+      - .:/app
+      - bundle:/app/.bundle
+      - node_modules:/app/node_modules
+      - yarn-cache:/app/.yarn-cache
+    tty: true
+    env_file:
+      - "./.env"
+    command: "bin/shakapacker -w"
 
   selenium:
     image: selenium/standalone-chrome:latest
@@ -43,3 +59,5 @@ services:
 
 volumes:
   bundle:
+  node_modules:
+  yarn-cache:

@@ -10,17 +10,23 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     gnupg2 \
     less \
     git \
-    curl libjemalloc2 libvips sqlite3 \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    nodejs \
+    curl libjemalloc2 libvips sqlite3 && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update -qq && apt-get install --no-install-recommends -y yarn && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=4 \
   BUNDLE_RETRY=3 \
   BUNDLE_PATH="/app/.bundle" \
-  BUNDLE_INSTALL_FLAGS="--no-document"
+  BUNDLE_INSTALL_FLAGS="--no-document" \
+  YARN_CACHE_FOLDER="/app/.yarn-cache" \
+  RUBOCOP_CACHE_ROOT="/app/.rubocop-cache"
 
-RUN mkdir -p /app/.bundle
-RUN chown -R ${UID}:${GID} /app/.bundle
+RUN mkdir -p /app/node_modules /app/.bundle /app/.yarn-cache /app/.rubocop-cache
+RUN chown -R ${UID}:${GID} /app/node_modules /app/.bundle /app/.yarn-cache /app/.rubocop-cache
 
 USER ${UID}:${GID}
 
