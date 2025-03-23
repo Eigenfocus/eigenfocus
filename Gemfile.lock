@@ -75,6 +75,10 @@ GEM
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     base64 (0.2.0)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
@@ -155,6 +159,7 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    execjs (2.10.0)
     factory_bot (6.5.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.4)
@@ -243,6 +248,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.4-x86_64-linux-musl)
       racc (~> 1.4)
+    package_json (0.1.0)
     pagy (9.3.4)
     parallel (1.26.3)
     parser (3.3.7.1)
@@ -268,6 +274,8 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.1.12)
+    rack-proxy (0.7.7)
+      rack
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -312,6 +320,12 @@ GEM
       i18n
     rdoc (6.12.0)
       psych (>= 4.0.0)
+    react-rails (3.2.1)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
@@ -372,6 +386,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    semantic_range (3.1.0)
+    shakapacker (8.2.0)
+      activesupport (>= 5.2)
+      package_json
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     solid_cable (3.0.7)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -409,6 +430,7 @@ GEM
     thruster (0.1.10-arm64-darwin)
     thruster (0.1.10-x86_64-darwin)
     thruster (0.1.10-x86_64-linux)
+    tilt (2.6.0)
     timecop (0.9.10)
     timeout (0.4.3)
     turbo-rails (2.0.13)
@@ -474,9 +496,11 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 8.0.2)
   ransack (~> 4.3)
+  react-rails (~> 3.2)
   rspec-rails (~> 7.1)
   rubocop-rails-omakase
   selenium-webdriver (= 4.29.1)
+  shakapacker (~> 8.2)
   solid_cable (~> 3.0)
   solid_queue (~> 1.1)
   sqlite3 (>= 2.1)
