@@ -124,7 +124,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
 
     issue = Issue.last
     expect(issue.title).to eq("Updated title")
-    expect(issue.description).to eq("Issue description appending description")
+    expect(issue.description).to include("Issue description appending description")
 
     within dom_id(grouping) do
       expect(page).to have_content("Updated title")

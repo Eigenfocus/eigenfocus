@@ -1,0 +1,60 @@
+.milkdown {
+  milkdown-link-preview, milkdown-link-edit {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    border-radius: 0.25rem;
+    position: absolute;
+
+    &[data-show='false'] {
+      display: none;
+    }
+
+    .link-preview, .link-edit {
+      background-color: var(--color-link-tooltip-background);
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      height: 2.5rem;
+
+      .link-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .link-display {
+        width: 240px;
+        line-height: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        text-wrap: nowrap;
+
+        &:empty {
+          display: none;
+        }
+      }
+
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem;
+        border-radius: 9999px;
+
+        &:hover {
+          background-color: var(--color-link-tooltip-background-hover);
+        }
+      }
+
+      .input-area {
+        outline: none;
+        background-color: transparent;
+        width: 13rem;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

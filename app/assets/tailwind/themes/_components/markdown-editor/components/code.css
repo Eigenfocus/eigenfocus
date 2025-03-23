@@ -1,0 +1,31 @@
+.milkdown {
+  pre {
+    background: color-mix(
+      in srgb,
+      var(--color-code-background),
+      transparent 40%
+    );
+    padding: 10px;
+    border-radius: 4px;
+
+    code {
+      padding: 0;
+      background: transparent;
+    }
+  }
+
+  code {
+    color: var(--color-code-text);
+    background: color-mix(
+      in srgb,
+      var(--color-code-background),
+      transparent 40%
+    );
+    font-family: var(--font-code);
+    padding: 0 10px;
+    border-radius: 4px;
+    font-size: 87.5%;
+    display: inline-block;
+    line-height: 1.4286;
+  }
+}

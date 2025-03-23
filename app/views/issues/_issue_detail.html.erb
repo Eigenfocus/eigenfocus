@@ -74,7 +74,8 @@
               </div>
             <% end %>
 
-            <%= render partial: 'issues/description_field', locals: { f:, issue: } %>
+            <%= react_component("MarkdownEditor", defaultValue: issue.description, bindTarget: ".js-issue-description" ) %>
+            <%= f.hidden_field :description, class: "js-issue-description" %>
 
             <div class="flex gap-2 justify-end">
               <a class="btn-cancel" data-action="click->modal#close">

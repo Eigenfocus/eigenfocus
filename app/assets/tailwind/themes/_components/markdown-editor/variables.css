@@ -1,0 +1,55 @@
+.milkdown {
+  --menu-bg: #2e3440;
+  --menu-border: #434b5e;
+  --menu-bg-hover: #81a1c11f;
+  --menu-text-color: white;
+  --menu-text-hover: #5e81ac;
+
+  --color-background: #fdfcff;
+  --color-on-background: #1b1c1d;
+  --color-surface: #f8f9ff;
+  --color-surface-low: #f2f3fa;
+  --color-on-surface: #191c20;
+  --color-on-surface-variant: #43474e;
+  --color-primary: #37618e;
+  --color-secondary: #d7e3f8;
+  --color-on-secondary: #101c2b;
+  --color-inverse: #2e3135;
+  --color-on-inverse: #eff0f7;
+  --color-error: #ba1a1a;
+  --color-hover: #eceef4;
+  --color-selected: #e1e2e8;
+
+  /* Code */
+  --color-code-text: #ba1a1a;
+  --color-code-background: #d8dae0;
+  --font-code:
+    'JetBrains Mono', Menlo, Monaco, 'Courier New', Courier, monospace;
+
+  /* Quote */
+  --color-quote-marker: #e1e2e8;
+
+  /* Divider */
+  --color-divider: #73777f;
+
+  /* List */
+  --color-list-checkbox-border: #6b7280;
+
+  /* Link */
+  --color-link-tooltip-background: rgb(239, 246, 255);
+  --color-link-tooltip-background-hover: rgb(96, 165, 250);
+
+  /* Table */
+  --color-table-border: #ccc;
+  --color-table-handle: #FFB4AB;
+  --color-table-button-group-background: #fff;
+  --color-table-button-hover-background: #f0f0f0;
+
+  --font-title: Rubik, Cambria, 'Times New Roman', Times, serif;
+  --font-default: Inter, Arial, Helvetica, sans-serif;
+
+  --shadow-1:
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --shadow-2:
+    0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
