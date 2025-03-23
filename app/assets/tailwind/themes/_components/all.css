@@ -3,3 +3,4 @@
 @import "./link";
 @import "./table";
 @import "./visualizations/board";
+@import "./markdown-editor/all";
