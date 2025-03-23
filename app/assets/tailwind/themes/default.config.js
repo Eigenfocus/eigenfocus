@@ -7,6 +7,7 @@ function generateConfig(themeColors) {
       './public/*.html',
       './app/helpers/**/*.rb',
       './app/javascript/**/*.js',
+      './frontend/**/*.js',
       './app/views/**/*.{erb,haml,html,slim}'
     ],
     safelist: [

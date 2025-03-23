@@ -1,0 +1,12 @@
+---
+translations:
+  - file: frontend/shared/i18n.json
+    patterns:
+      - "*"
+      - "!*.devise.*"
+      - "!*.mailer.*"
+      - "!*.page_title.*"
+      - "!*.pundit.*"
+      - "!*.ransack.*"
+      - "!*.themes.*"
+      - "!*.errors.*"
