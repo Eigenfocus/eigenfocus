@@ -5,44 +5,35 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-title);
     font-weight: 400;
     padding: 2px 0;
   }
 
   h1 {
-    font-size: 42px;
-    line-height: 50px;
+    @apply text-3xl font-bold leading-10;
   }
 
   h2 {
-    font-size: 36px;
-    line-height: 44px;
+    @apply text-3xl font-bold leading-10;
   }
 
   h3 {
-    font-size: 32px;
-    line-height: 40px;
+    @apply text-2xl font-bold leading-9;
   }
 
   h4 {
-    font-size: 28px;
-    line-height: 36px;
+    @apply text-2xl font-bold leading-8;
   }
 
   h5 {
-    font-size: 24px;
-    line-height: 32px;
+    @apply text-xl font-medium leading-7;
   }
 
   h6 {
-    font-size: 18px;
-    line-height: 28px;
+    @apply text-lg font-medium leading-7;
   }
 
   p {
-    font-size: 16px;
-    line-height: 24px;
-    padding: 4px 0;
+    @apply text-base font-normal leading-6;
   }
 }
