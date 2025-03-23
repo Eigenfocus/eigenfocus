@@ -107,10 +107,9 @@ const menuItens = [
       ],
       onSelect: (id) => (!!id ? ['WrapInHeading', id] : 'TurnIntoText'),
     },
+    createButtonFor('WrapInBlockquote'),
   ],
   [
-    createButtonFor('WrapInBlockquote'),
-    createButtonFor('InsertHr'),
     createButtonFor('WrapInBulletList'),
     createButtonFor('WrapInOrderedList'),
   ],
