@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createRoot } from 'react-dom/client'
 
+import("@milkdown/crepe/theme/common/style.css")
+import("@milkdown/crepe/theme/frame.css")
+
+
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
