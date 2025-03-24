@@ -64,7 +64,7 @@ pt-BR:
         issue_id: 'Issue'
         issue: 'Issue'
         total_logged_time_in_minutes: 'Tempo registrado (minutos)'
-
+        reference_date: 'Data'
       visualization:
         favorite_issue_labels: "Labels favoritas"
     errors:
