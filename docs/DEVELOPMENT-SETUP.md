@@ -50,6 +50,8 @@ docker compose exec web bin/rails c
 
 ## Running tests
 
+### Rails specs
+
 ```
 docker compose run -e "RAILS_ENV=test" --rm web bundle exec rspec
 ```
@@ -61,3 +63,9 @@ docker compose run -e "RAILS_ENV=test" -e "HEADLESS=false"  --rm web bundle exec
 ```
 
 View tests running on http://127.0.0.1:7900
+
+### Frontend specs
+
+```
+docker compose run js npm run test
+```

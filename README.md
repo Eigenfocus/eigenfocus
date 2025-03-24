@@ -182,8 +182,8 @@ You can enable HTTP Basic Auth by setting these two env variables:
 
 ➜ If you're exposing the service to the internet don't forget to setup a certificate and use HTTPS.
 
-# Development Guide
-Alternatively, if you need to fine tune a config [Check the Development Guide](docs/DEVELOPMENT.md).
+# Development Guidelines
+Check the [README.md](docs/README.md) file for instructions on how to setup the project.
 
 # Contact
 We are in *beta* and any feedbacks are welcome.
