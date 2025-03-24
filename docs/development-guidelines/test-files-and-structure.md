@@ -44,18 +44,8 @@ spec/
         └── ...
 ```
 
-For cases where the action is reversible, we can have two files:
-
-```
-spec/
-└── features/
-    ├── issues/
-    │   ├── archive_spec.rb
-    │   └── unarchive_spec.rb
-    ├── time_entries/
-    │   ├── start_spec.rb
-    │   └── stop_spec.rb
-```
+## Reusing the same spec file for very similar features
+For cases where the action is reversible with very similar setups, we can create just one spec file such as `time_tracking/start_stop_spec.rb` or `issues/archive_unarchive_spec.rb`. But, keep in mind that if the file starts growing in a way that it may cause future conflicts with other repositories, it's better to split it.
 
 ## User permissions
 
