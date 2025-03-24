@@ -68,7 +68,7 @@ group :test do
   gem "database_cleaner"
   gem "factory_bot_rails", "~> 6.4"
   gem "rspec-rails", "~> 7.1"
-  gem "selenium-webdriver", "4.29.1"
+  gem "selenium-webdriver", "4.30.1"
   gem "timecop"
   gem "webmock"
 end
