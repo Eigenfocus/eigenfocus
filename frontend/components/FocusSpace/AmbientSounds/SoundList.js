@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMusic } from '@fortawesome/free-solid-svg-icons'
 
 const SoundList = ({ sounds }) => {
-  const [favoriteSounds, setFavoriteSounds] = useState({2: true})
+  const [favoriteSounds, setFavoriteSounds] = useState({})
   const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
@@ -18,15 +18,15 @@ const SoundList = ({ sounds }) => {
     setIsPlaying(!isPlaying)
   }
 
-  const playRandomPreset = () => {
+  const playRandomPreset = (iterations = 3) => {
     // Random index may be the same...
-    let randomIndex = Math.floor(Math.random() * sounds.length)
     const newFavoriteSounds = {}
-    newFavoriteSounds[randomIndex] = true
-    randomIndex = Math.floor(Math.random() * sounds.length)
-    newFavoriteSounds[randomIndex] = true
-    randomIndex = Math.floor(Math.random() * sounds.length)
-    newFavoriteSounds[randomIndex] = true
+
+    for (let i = 0; i < iterations; i++) {
+      let randomIndex = Math.floor(Math.random() * sounds.length)
+      newFavoriteSounds[randomIndex] = true
+    }
+
     setFavoriteSounds(newFavoriteSounds)
     setIsPlaying(true)
   }
@@ -36,7 +36,7 @@ const SoundList = ({ sounds }) => {
       <div className="actions">
         <PlayButton isPlaying={isPlaying} onClick={handlePlay} />
         <div className="flex items-end gap-2">
-          <button className="preset-button" onClick={playRandomPreset}>
+          <button className="preset-button" onClick={() => playRandomPreset(3)}>
             <FontAwesomeIcon icon={faMusic} />
             {t("actions.i_am_lucky")}
           </button>

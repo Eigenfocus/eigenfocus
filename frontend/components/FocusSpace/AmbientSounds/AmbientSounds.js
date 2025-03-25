@@ -10,7 +10,6 @@ function soundUrl(sound) {
 }
 
 const SoundPanel = () => {
-  console.log(soundUrl('rain'))
   const sounds = [
     {
       src: soundUrl('rain'),

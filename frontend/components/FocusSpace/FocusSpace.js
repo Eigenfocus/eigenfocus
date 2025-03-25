@@ -10,7 +10,7 @@ const FocusSpace = (props) => {
             <p>TEst</p>
           </div>
           <div className="flex basis-1 grow items-center justify-center">
-            <AmbientSounds />
+            <AmbientSounds/>
           </div>
         </div>
       </div>
