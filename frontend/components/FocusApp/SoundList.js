@@ -41,24 +41,24 @@ const SoundList = ({ sounds }) => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto space-y-8">
-      <div className="flex grow gap-8 text-2xl justify-end text-readable-content-500">
-        <button className="hover:text-primary-500" onClick={handleShuffle}>
+    <div className="ambient-sounds-list">
+      <div className="actions">
+        <button onClick={handleShuffle}>
           <i className="fa-solid fa-shuffle"></i>
         </button>
 
-        <button className="hover:text-primary-500" onClick={handleMuteUnmute}>
+        <button onClick={handleMuteUnmute}>
           {isMuted ? (
             <i className="fa-solid fa-volume-xmark"></i>
           ) : (
             <i className="fa-solid fa-volume-high"></i>
           )}
         </button>
-        <button className="hover:text-primary-500" onClick={handleStopAll}>
+        <button onClick={handleStopAll}>
           <i className="fa-solid fa-stop"></i>
         </button>
       </div>
-      <div className="grid gap-[2rem] sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-[2rem] items-stretch justify-stretch grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {sounds.map((sound, index) => {
           return (
             <Sound

@@ -65,11 +65,8 @@ const Sound = ({
   }
   return (
 
-    <div className={`relative border text-readable-content-500 rounded-lg ${
-        isPlaying ? 'bg-background-200/50 border-primary-400' : 'border-background-100/50 hover:bg-background-200/50 hover:border-primary-400'
-      }`}
-    >
-      <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-8 flex-col gap-4 items-center justify-center`}>
+    <div className={`sound ${isPlaying ? 'sound-playing' : ''}`}>
+      <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-6 flex-col gap-4 items-center justify-center`}>
         <p className="text-lg font-base">{title}</p>
         <ReactSVG
           src={icon} alt=""

@@ -1,0 +1,83 @@
+.focus-space {
+  @apply fixed z-999 top-0 left-0 w-full h-full backdrop-blur-md;
+  background: linear-gradient(-45deg, #20002c, #20002c, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: animated-background 17s linear infinite;
+	height: 100vh;
+
+
+  input[type="range"] {
+    -webkit-appearance: none; /* Remove default appearance */
+    width: 90%;
+    height: 5px; /* Or any desired height */
+    background: #d3d3d3; /* Or any desired background color */
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default appearance */
+    appearance: none;
+    width: 15px; /* Or any desired width */
+    height: 15px; /* Or any desired height */
+    background: #20002cee; /* Or any desired background color */
+    cursor: pointer;
+    border-radius: 50%; /* Creates the circular shape */
+  }
+
+  .ambient-sounds-list {
+    @apply max-w-3xl mx-auto space-y-8;
+
+    .actions {
+      @apply flex grow gap-8 text-2xl justify-end text-readable-content-500;
+
+      button {
+        @apply text-2xl;
+        color: rgba(255, 255, 255, 0.5);
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.8);
+        }
+      }
+    }
+
+    .sound {
+      @apply relative border-2 rounded-lg;
+      transition: all 0.2s ease-in-out;
+      color: rgba(255, 255, 255, 0.8);
+
+      border-color: rgba(255, 255, 255, 0.2);
+
+      svg {
+        opacity: 0.8;
+      }
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.2);
+
+        svg {
+          opacity: 0.9;
+        }
+      }
+
+      &.sound-playing {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+@keyframes animated-background {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
