@@ -5,35 +5,12 @@ const Sound = ({
   src,
   title,
   icon,
-  isActive,
-  isMuted,
+  isSelected,
   isPlaying,
-  onPlay,
-  onPause
+  onClick
 }) => {
   const [volume, setVolume] = useState(0.5)
   const audioRef = useRef(null)
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = isMuted ? 0 : volume
-    }
-  }, [isMuted, volume])
-
-  useEffect(() => {
-    if (!audioRef.current) {
-      const audio = new Audio(src)
-      audioRef.current = audio
-      audio.loop = true
-    }
-    if (isActive) {
-      audioRef.current.play()
-      onPlay && onPlay()
-    } else {
-      audioRef.current.pause()
-      onPause && onPause()
-    }
-  }, [isActive, src])
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -48,14 +25,6 @@ const Sound = ({
     }
   }, [isPlaying, src])
 
-  const handleSoundPlay = () => {
-    if (isPlaying) {
-      onPause && onPause()
-    } else {
-      onPlay && onPlay()
-    }
-  }
-
   const handleVolumeChange = (
     event
   ) => {
@@ -65,8 +34,8 @@ const Sound = ({
   }
   return (
 
-    <div className={`sound ${isPlaying ? 'sound-playing' : ''}`}>
-      <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-6 flex-col gap-2 items-center justify-center`}>
+    <div className={`sound ${isPlaying ? 'sound-playing' : isSelected ? 'sound-selected' : ''}`}>
+      <div onClick={onClick} className={`cursor-pointer flex grow p-6 flex-col gap-2 items-center justify-center`}>
         <p className="text-lg font-base">{title}</p>
         <ReactSVG
           src={icon} alt=""
