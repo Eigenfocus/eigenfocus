@@ -33,7 +33,7 @@
     appearance: none;
     width: 15px; /* Or any desired width */
     height: 15px; /* Or any desired height */
-    background: #20002cee; /* Or any desired background color */
+    background: color-mix(in srgb, var(--color-two) 80%, transparent); /* Or any desired background color */
     cursor: pointer;
     border-radius: 50%; /* Creates the circular shape */
   }
@@ -42,7 +42,7 @@
     @apply max-w-3xl mx-auto space-y-8;
 
     .actions {
-      @apply flex grow gap-8 text-2xl justify-end text-readable-content-500;
+      @apply flex grow gap-8 text-2xl justify-end;
 
       button {
         @apply text-2xl;
@@ -57,9 +57,9 @@
     .sound {
       @apply relative border-2 rounded-lg;
       transition: all 0.2s ease-in-out;
-      color: rgba(255, 255, 255, 0.8);
 
-      border-color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
+      border-color: rgba(255, 255, 255, 0.25);
 
       svg {
         opacity: 0.8;

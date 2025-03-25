@@ -66,7 +66,7 @@ const Sound = ({
   return (
 
     <div className={`sound ${isPlaying ? 'sound-playing' : ''}`}>
-      <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-6 flex-col gap-4 items-center justify-center`}>
+      <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-6 flex-col gap-2 items-center justify-center`}>
         <p className="text-lg font-base">{title}</p>
         <ReactSVG
           src={icon} alt=""
