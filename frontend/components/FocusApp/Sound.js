@@ -61,7 +61,8 @@ const Sound = ({
     value,
     activeThumb
   ) => {
-    setVolume(value)
+    console.log(event.target.value)
+    setVolume(event.target.value)
     audioRef.current && (audioRef.current.volume = value)
   }
   return (
@@ -75,7 +76,17 @@ const Sound = ({
         <div className="text-white font-bold">{title}</div>
         <img src={icon} alt="" className="w-[75px] h-[75px]" />
       </div>
-
+      {isPlaying ? (
+        <input type="range" m
+          in={0}
+          step={0.01}
+          max={1}
+          onChange={handleVolumeChange}
+          value={volume}
+          class="w-full h-2 bg-background-200 rounded-lg appearance-none cursor-pointer dark:bg-background-700"/>
+        ) : (
+          ''
+        )}
     </div>
   )
 }
