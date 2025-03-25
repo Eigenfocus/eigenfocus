@@ -80,7 +80,7 @@ const Sound = ({
 
           }} />
       </div>
-      <div className="flex items-center justify-center w-full bottom-[10px] absolute">
+      <div className="slider-wrapper">
         {isPlaying ? (
           <input type="range"
             in={0}

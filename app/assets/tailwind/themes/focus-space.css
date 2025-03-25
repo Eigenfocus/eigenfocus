@@ -74,6 +74,14 @@
         }
       }
 
+      .slider-wrapper {
+        position: absolute;
+        transform: rotate(-90deg);
+        top: 39%;
+        left: -36%;
+        width: 86%;
+        height: 20px;
+      }
       &.sound-playing {
         background-color: rgba(255, 255, 255, 0.3);
         border-color: rgba(255, 255, 255, 0.3);
