@@ -1,5 +1,20 @@
+.focus-space-access-buttons {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+  button {
+    @apply btn-outline-primary;
+  }
+}
+
 .focus-space {
   @apply fixed z-999 top-0 left-0 w-full h-full backdrop-blur-md;
+  display: none;
+
+  &.showing {
+    display: block;
+  }
 
   --color-one: #20002c;
   --color-two: #20002c;
