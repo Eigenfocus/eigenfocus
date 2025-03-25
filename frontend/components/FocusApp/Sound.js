@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { ReactSVG } from 'react-svg'
 
 const Sound = ({
   src,
@@ -69,8 +70,18 @@ const Sound = ({
       }`}
     >
       <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-8 flex-col gap-4 items-center justify-center`}>
-        <p className="text-xl font-base">{title}</p>
-        <img src={icon} alt="" className="fill-current w-[50px] h-[50px]" />
+        <p className="text-lg font-base">{title}</p>
+        <ReactSVG
+          src={icon} alt=""
+          beforeInjection={(svg) => {
+            // Add a class name to the SVG element. Note: You'll need a classList
+            // polyfill if you're using this in older browsers.
+            svg.classList.add('svg-line-animated')
+
+            // Add inline style to the SVG element.
+            svg.setAttribute('style', 'width: 50px; height: 50px; fill: currentColor; stroke: currentColor;')
+
+          }} />
       </div>
       <div className="flex items-center justify-center w-full bottom-[10px] absolute">
         {isPlaying ? (
