@@ -11,14 +11,13 @@ const Sound = ({
   onPause
 }) => {
   const [volume, setVolume] = useState(0.5)
-  // const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(null)
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.volume = isMuted ? 0 : 1
+      audioRef.current.volume = isMuted ? 0 : volume
     }
-  }, [isMuted])
+  }, [isMuted, volume])
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -69,8 +68,7 @@ const Sound = ({
         isPlaying ? 'bg-background-200/50 border-primary-400' : 'border-background-100/50 hover:bg-background-200/50 hover:border-primary-400'
       }`}
     >
-      <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-8 flex-col gap-4 items-center justify-center ${
-        isPlaying ? 'pb-0' : 'pb-8'}`}>
+      <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-8 flex-col gap-4 items-center justify-center`}>
         <p className="text-xl font-base">{title}</p>
         <img src={icon} alt="" className="fill-current w-[50px] h-[50px]" />
       </div>

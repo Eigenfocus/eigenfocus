@@ -1,47 +1,54 @@
 import React from 'react'
 import SoundList from './SoundList'
 
+function soundUrl(sound) {
+  const SOUND_REPOSITORY_URL = 'https://eigenfocus.github.io/focus-assets/sounds'
+
+  return `${SOUND_REPOSITORY_URL}/${sound}.mp3`
+}
+
 const SoundPanel = () => {
+  console.log(soundUrl('rain'))
   const sounds = [
     {
-      src: '/sounds/rain.mp3',
+      src: soundUrl('rain'),
       title: 'Rain',
-      icon: '/assets/rain-icon.svg'
+      icon: '/sound-icons/rain.svg'
     },
     {
-      src: '/sounds/thunder.mp3',
+      src: soundUrl('thunder'),
       title: 'Thunder',
-      icon: '/assets/thunder-icon.svg'
+      icon: '/sound-icons/thunder.svg'
     },
     {
-      src: '/sounds/birds.mp3',
+      src: soundUrl('birds'),
       title: 'Birds',
-      icon: '/assets/birds-icon.svg'
+      icon: '/sound-icons/birds.svg'
     },
     {
-      src: '/sounds/fire.mp3',
+      src: soundUrl('fire'),
       title: 'Fire',
-      icon: '/assets/fire-icon.svg'
+      icon: '/sound-icons/fire.svg'
     },
     {
-      src: '/sounds/office.mp3',
+      src: soundUrl('office'),
       title: 'Office',
-      icon: '/assets/office-icon.svg'
+      icon: '/sound-icons/office.svg'
     },
     {
-      src: '/sounds/forest.mp3',
+      src: soundUrl('forest'),
       title: 'Forest',
-      icon: '/assets/leaves-icon.svg'
+      icon: '/sound-icons/forest.svg'
     },
     {
-      src: '/sounds/walk.mp3',
+      src: soundUrl('walk'),
       title: 'Walk',
-      icon: '/assets/walk-icon.svg'
+      icon: '/sound-icons/walk.svg'
     },
     {
-      src: '/sounds/whitenoise.mp3',
+      src: soundUrl('whitenoise'),
       title: 'White Noise',
-      icon: '/assets/whitenoise-icon.svg'
+      icon: '/sound-icons/noise.svg'
     }
   ]
   return <div className="flex grow flex-col">
