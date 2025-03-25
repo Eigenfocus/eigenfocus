@@ -51,6 +51,7 @@ pt-BR:
     start: "Iniciar"
     stop: "Parar"
     play: "Tocar"
+    i_am_lucky: "Estou com sorte"
     invite: "Convidar"
     activate: "Ativar"
     deactivate: "Desativar"

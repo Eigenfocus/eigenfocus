@@ -6,6 +6,7 @@
   --color-three: #23a6d5;
   --color-four: #23d5ab;
   --background-opacity: 90%;
+  --readable-color: #fff;
 
   background: linear-gradient(
     -45deg,
@@ -43,40 +44,55 @@
     @apply max-w-3xl mx-auto;
 
     .actions {
-      @apply flex grow mb-4 gap-8 text-xl;
+      @apply flex grow mb-4 gap-8 text-xl justify-between;
 
-      button {
+      .play-button {
         @apply text-base flex items-center rounded-md px-4 py-2;
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        color: rgba(255, 255, 255, 0.6);
+        border: 1px solid color-mix(in srgb, var(--readable-color) 60%, transparent);
+        color: color-mix(in srgb, var(--readable-color) 60%, transparent);
 
         svg {
           @apply mr-2;
         }
 
-
-
         &:hover {
-          color: rgba(255, 255, 255, 0.8);
-          border-color: rgba(255, 255, 255, 0.8);
+          color: color-mix(in srgb, var(--readable-color) 80%, transparent);
+          border-color: color-mix(in srgb, var(--readable-color) 80%, transparent);
         }
       }
+
+      .preset-button {
+        @apply text-base;
+
+        color: color-mix(in srgb, var(--readable-color) 60%, transparent);
+
+        svg {
+          @apply mr-2;
+        }
+
+        &:hover {
+          color: color-mix(in srgb, var(--readable-color) 80%, transparent);
+        }
+      }
+
     }
 
     .sound {
-      @apply relative border-2 rounded-lg;
+      @apply relative rounded-lg;
+      border-width: 3px;
+
       transition: all 0.2s ease-in-out;
 
-      color: rgba(255, 255, 255, 0.7);
-      border-color: rgba(255, 255, 255, 0.25);
+      color: color-mix(in srgb, var(--readable-color) 70%, transparent);
+      border-color: color-mix(in srgb, var(--readable-color) 25%, transparent);
 
       svg {
         opacity: 0.8;
       }
 
       &:hover {
-        border-color: rgba(255, 255, 255, 0.3);
-        background-color: rgba(255, 255, 255, 0.2);
+        border-color: color-mix(in srgb, var(--readable-color) 30%, transparent);
+        background-color: color-mix(in srgb, var(--readable-color) 20%, transparent);
 
         svg {
           opacity: 0.9;
@@ -91,11 +107,9 @@
         svg {
           width: 25px;
           height: auto;
-          fill: rgba(255, 255, 255, 0.5);
+          fill: color-mix(in srgb, var(--readable-color) 50%, transparent);
         }
       }
-
-
 
       .slider-wrapper {
         position: absolute;
@@ -109,15 +123,20 @@
       &.sound-playing {
         background: linear-gradient(
           25deg,
-          rgba(255, 255, 255, 0.04),
-          rgba(230, 230, 230, 0.3)
+          color-mix(in srgb, var(--readable-color) 4%, transparent),
+          color-mix(in srgb, var(--readable-color) 30%, transparent)
         );
         animation: animated-background 22s linear infinite;
-        border-color: rgba(255, 255, 255, 0.04);
+        border-color: color-mix(in srgb, var(--readable-color) 40%, transparent);
       }
 
       &.sound-selected {
-        border-color: rgba(255, 255, 255, 0.6);
+        border-color: color-mix(in srgb, var(--readable-color) 70%, transparent);
+        color: color-mix(in srgb, var(--readable-color) 70%, transparent);
+
+        svg {
+          fill: color-mix(in srgb, var(--readable-color) 70%, transparent);
+        }
       }
     }
   }

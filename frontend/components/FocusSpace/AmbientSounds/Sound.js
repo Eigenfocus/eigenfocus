@@ -41,13 +41,7 @@ const Sound = ({
         <ReactSVG
           src={icon} alt=""
           beforeInjection={(svg) => {
-            // Add a class name to the SVG element. Note: You'll need a classList
-            // polyfill if you're using this in older browsers.
-            svg.classList.add('svg-line-animated')
-
-            // Add inline style to the SVG element.
             svg.setAttribute('style', 'width: 50px; height: 50px; fill: currentColor; stroke: currentColor;')
-
           }} />
       </div>
       {isPlaying ? (
