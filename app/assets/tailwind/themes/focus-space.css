@@ -46,7 +46,12 @@
       @apply flex grow mb-4 gap-8 text-2xl justify-end;
 
       button {
-        @apply text-2xl;
+        @apply text-xl flex items-center;
+
+        svg {
+          @apply mr-2;
+        }
+
         color: rgba(255, 255, 255, 0.5);
 
         &:hover {

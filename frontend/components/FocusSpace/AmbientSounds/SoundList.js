@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
 import Sound from './Sound'
+
+import PlayButton from './PlayButton'
 
 const SoundList = ({ sounds }) => {
   const [favoriteSounds, setFavoriteSounds] = useState({2: true})
@@ -19,13 +19,7 @@ const SoundList = ({ sounds }) => {
   return (
     <div className="ambient-sounds-list">
       <div className="actions">
-        <button onClick={handlePlay}>
-          {isPlaying ? (
-            <FontAwesomeIcon icon={faStop} />
-          ) : (
-            <FontAwesomeIcon icon={faPlay} />
-          )}
-        </button>
+        <PlayButton isPlaying={isPlaying} onClick={handlePlay} />
       </div>
       <div className="grid gap-4 items-stretch justify-stretch grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {sounds.map((sound, index) => {

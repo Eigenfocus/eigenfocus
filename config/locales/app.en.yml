@@ -52,6 +52,7 @@ en:
     deactivate: "Deactivate"
     start: "Start"
     stop: "Stop"
+    play: "Play"
     select: "Select"
     allocate: "Allocate"
     deallocate: "Deallocate"
