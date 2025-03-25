@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { ReactSVG } from 'react-svg'
 
+import SoundWaveIcon from './SoundWaveIcon'
 const Sound = ({
   src,
   title,
@@ -49,19 +50,25 @@ const Sound = ({
 
           }} />
       </div>
-      <div className="slider-wrapper">
-        {isPlaying ? (
-          <input type="range"
-            in={0}
-            step={0.01}
-            max={1}
-            onChange={handleVolumeChange}
-            value={volume}
-            className="h-1 bg-primary-400 w-[90%] rounded-lg appearance-none cursor-pointer"/>
-          ) : (
-            ''
-          )}
-      </div>
+      {isPlaying ? (
+        <Fragment>
+          <div className="slider-wrapper">
+            <input type="range"
+              in={0}
+              step={0.01}
+              max={1}
+              onChange={handleVolumeChange}
+              value={volume}
+              className="h-1 bg-primary-400 w-[90%] rounded-lg appearance-none cursor-pointer"/>
+          </div>
+          <span className="wave-wrapper">
+            <SoundWaveIcon />
+          </span>
+        </Fragment>
+      ) : (
+        ''
+      )}
+
     </div>
   )
 }
