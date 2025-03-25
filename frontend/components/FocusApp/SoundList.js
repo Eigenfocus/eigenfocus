@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShuffle, faVolumeXmark, faVolumeHigh, faStop } from '@fortawesome/free-solid-svg-icons'
 import Sound from './Sound'
 
 const SoundList = ({ sounds }) => {
@@ -44,18 +46,18 @@ const SoundList = ({ sounds }) => {
     <div className="ambient-sounds-list">
       <div className="actions">
         <button onClick={handleShuffle}>
-          <i className="fa-solid fa-shuffle"></i>
+          <FontAwesomeIcon icon={faShuffle} />
         </button>
 
         <button onClick={handleMuteUnmute}>
           {isMuted ? (
-            <i className="fa-solid fa-volume-xmark"></i>
+            <FontAwesomeIcon icon={faVolumeXmark} />
           ) : (
-            <i className="fa-solid fa-volume-high"></i>
+            <FontAwesomeIcon icon={faVolumeHigh} />
           )}
         </button>
         <button onClick={handleStopAll}>
-          <i className="fa-solid fa-stop"></i>
+          <FontAwesomeIcon icon={faStop} />
         </button>
       </div>
       <div className="grid gap-[2rem] items-stretch justify-stretch grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
