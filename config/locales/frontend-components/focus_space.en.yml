@@ -1,0 +1,11 @@
+en:
+  focus_space:
+    ambient_sounds:
+      rain: "Rain"
+      thunder: "Thunder"
+      fire: "Fire"
+      forest: "Forest"
+      birds: "Birds"
+      office: "Office"
+      walk: "Walk"
+      whitenoise: "White Noise"

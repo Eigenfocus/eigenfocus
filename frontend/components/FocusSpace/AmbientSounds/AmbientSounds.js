@@ -1,6 +1,8 @@
 import React from 'react'
 import SoundList from './SoundList'
 
+import { t } from 'i18n.js.erb'
+
 function soundUrl(sound) {
   const SOUND_REPOSITORY_URL = 'https://eigenfocus.github.io/focus-assets/sounds'
 
@@ -12,42 +14,42 @@ const SoundPanel = () => {
   const sounds = [
     {
       src: soundUrl('rain'),
-      title: 'Rain',
+      title: t('focus_space.ambient_sounds.rain'),
       icon: '/sound-icons/rain.svg'
     },
     {
       src: soundUrl('thunder'),
-      title: 'Thunder',
+      title: t('focus_space.ambient_sounds.thunder'),
       icon: '/sound-icons/thunder.svg'
     },
     {
       src: soundUrl('birds'),
-      title: 'Birds',
+      title: t('focus_space.ambient_sounds.birds'),
       icon: '/sound-icons/birds.svg'
     },
     {
       src: soundUrl('fire'),
-      title: 'Fire',
+      title: t('focus_space.ambient_sounds.fire'),
       icon: '/sound-icons/fire.svg'
     },
     {
       src: soundUrl('office'),
-      title: 'Office',
+      title: t('focus_space.ambient_sounds.office'),
       icon: '/sound-icons/office.svg'
     },
     {
       src: soundUrl('forest'),
-      title: 'Forest',
+      title: t('focus_space.ambient_sounds.forest'),
       icon: '/sound-icons/forest.svg'
     },
     {
       src: soundUrl('walk'),
-      title: 'Walk',
+      title: t('focus_space.ambient_sounds.walk'),
       icon: '/sound-icons/walk.svg'
     },
     {
       src: soundUrl('whitenoise'),
-      title: 'White Noise',
+      title: t('focus_space.ambient_sounds.whitenoise'),
       icon: '/sound-icons/noise.svg'
     }
   ]

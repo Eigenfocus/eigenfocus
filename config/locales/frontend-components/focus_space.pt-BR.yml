@@ -1,0 +1,11 @@
+pt-BR:
+  focus_space:
+    ambient_sounds:
+      rain: "Chuva"
+      thunder: "Trovão"
+      fire: "Fogo"
+      forest: "Floresta"
+      birds: "Pássaros"
+      office: "Escritório"
+      walk: "Caminhada"
+      whitenoise: "Ruído Branco"
