@@ -1,10 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import {
-  BsFillStopFill,
-  BsFillVolumeMuteFill,
-  BsFillVolumeUpFill
-} from 'react-icons/bs'
-import { FiShuffle } from 'react-icons/fi'
 import Sound from './Sound'
 
 const SoundList = ({ sounds }) => {
@@ -47,21 +41,21 @@ const SoundList = ({ sounds }) => {
   }
 
   return (
-    <div className="flex flex-col gap-[2rem] justify-center items-center pb-[4rem]">
-      <div className="flex gap-[2rem]">
-          <button onClick={handleShuffle} className="player-control">
-            <FiShuffle size={20} color="white" />
+    <div className="flex flex-col gap-8 justify-center items-center">
+      <div className="flex gap-8 text-2xl text-readable-content-500">
+          <button className="hover:text-primary-500" onClick={handleShuffle}>
+            <i className="fa-solid fa-shuffle"></i>
           </button>
 
-          <button onClick={handleMuteUnmute} className="player-control">
+          <button className="hover:text-primary-500" onClick={handleMuteUnmute}>
             {isMuted ? (
-              <BsFillVolumeMuteFill size={20} color="white" />
+              <i className="fa-solid fa-volume-xmark"></i>
             ) : (
-              <BsFillVolumeUpFill size={20} color="white" />
+              <i className="fa-solid fa-volume-high"></i>
             )}
           </button>
-          <button onClick={handleStopAll} className="player-control">
-            <BsFillStopFill size={20} color="white" />
+          <button className="hover:text-primary-500" onClick={handleStopAll}>
+            <i className="fa-solid fa-stop"></i>
           </button>
       </div>
       <div className="grid gap-[2rem] sm:grid-cols-2 lg:grid-cols-4">

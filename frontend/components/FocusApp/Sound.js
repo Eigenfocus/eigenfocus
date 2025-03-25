@@ -57,36 +57,36 @@ const Sound = ({
   }
 
   const handleVolumeChange = (
-    event,
-    value,
-    activeThumb
+    event
   ) => {
-    console.log(event.target.value)
-    setVolume(event.target.value)
+    const value = parseFloat(event.target.value)
+    setVolume(value)
     audioRef.current && (audioRef.current.volume = value)
   }
   return (
-    <div className="relative">
-      <div
-        onClick={handleSoundPlay}
-        className={`p-[3rem_5rem] border-[2px] cursor-pointer border-white rounded-lg flex flex-col gap-[.5rem] justify-center items-center hover:bg-[rgba(255,255,255,.05)] ${
-          isPlaying ? 'stop-sound' : 'play-sound'
-        }`}
-      >
-        <div className="text-white font-bold">{title}</div>
-        <img src={icon} alt="" className="w-[75px] h-[75px]" />
+
+    <div className={`relative border text-readable-content-500 rounded-lg ${
+        isPlaying ? 'bg-background-200/50 border-primary-400' : 'border-background-100/50 hover:bg-background-200/50 hover:border-primary-400'
+      }`}
+    >
+      <div onClick={handleSoundPlay} className={`cursor-pointer flex grow p-8 flex-col gap-4 items-center justify-center ${
+        isPlaying ? 'pb-0' : 'pb-8'}`}>
+        <p className="text-xl font-base">{title}</p>
+        <img src={icon} alt="" className="fill-current w-[50px] h-[50px]" />
       </div>
-      {isPlaying ? (
-        <input type="range" m
-          in={0}
-          step={0.01}
-          max={1}
-          onChange={handleVolumeChange}
-          value={volume}
-          class="w-full h-2 bg-background-200 rounded-lg appearance-none cursor-pointer dark:bg-background-700"/>
-        ) : (
-          ''
-        )}
+      <div className="flex items-center justify-center w-full bottom-[10px] absolute">
+        {isPlaying ? (
+          <input type="range"
+            in={0}
+            step={0.01}
+            max={1}
+            onChange={handleVolumeChange}
+            value={volume}
+            className="h-1 bg-primary-400 w-[90%] rounded-lg appearance-none cursor-pointer"/>
+          ) : (
+            ''
+          )}
+      </div>
     </div>
   )
 }
