@@ -1,7 +1,7 @@
 import React from "react"
-import SoundPanel from "./FocusApp/SoundPanel"
+import AmbientSounds from "./AmbientSounds"
 
-const FocusApp = (props) => {
+const FocusSpace = (props) => {
   return (
     <React.Fragment>
       <div className="focus-space">
@@ -10,7 +10,7 @@ const FocusApp = (props) => {
             <p>TEst</p>
           </div>
           <div className="flex basis-1 grow items-center justify-center">
-            <SoundPanel />
+            <AmbientSounds />
           </div>
         </div>
       </div>
@@ -18,4 +18,4 @@ const FocusApp = (props) => {
   )
 }
 
-export default FocusApp
+export default FocusSpace

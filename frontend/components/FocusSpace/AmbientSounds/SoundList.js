@@ -4,22 +4,9 @@ import { faShuffle, faVolumeXmark, faVolumeHigh, faStop } from '@fortawesome/fre
 import Sound from './Sound'
 
 const SoundList = ({ sounds }) => {
-  const MAX_RANDOM_SOUNDS = 5
   const [currentSoundIndex, setCurrentSoundIndex] = useState([])
   const [isMuted, setIsMuted] = useState(false)
   const [playingSounds, setPlayingSounds] = useState({})
-
-  const handleShuffle = () => {
-    if (currentSoundIndex.length < MAX_RANDOM_SOUNDS) {
-      const randomIndex = Math.floor(Math.random() * sounds.length)
-      setCurrentSoundIndex([...currentSoundIndex, randomIndex])
-    } else {
-      let newCurrentSoundIndex = [...currentSoundIndex]
-      newCurrentSoundIndex.shift()
-      newCurrentSoundIndex.push(Math.floor(Math.random() * sounds.length))
-      setCurrentSoundIndex(newCurrentSoundIndex)
-    }
-  }
 
   useEffect(() => {
     setPlayingSounds(
@@ -45,10 +32,6 @@ const SoundList = ({ sounds }) => {
   return (
     <div className="ambient-sounds-list">
       <div className="actions">
-        <button onClick={handleShuffle}>
-          <FontAwesomeIcon icon={faShuffle} />
-        </button>
-
         <button onClick={handleMuteUnmute}>
           {isMuted ? (
             <FontAwesomeIcon icon={faVolumeXmark} />
