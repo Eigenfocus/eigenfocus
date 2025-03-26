@@ -7,5 +7,20 @@ describe 'Focus Space - Ambient Sounds' do
     open_focus_space
   end
 
-  pending "I can select an ambient sound"
+  specify "I can play ambient sounds" do
+    find(".ambient-sounds-list .sound", text: "Rain").click
+    find(".ambient-sounds-list .sound", text: "Walk").click
+
+    within(".play-button") do
+      expect(page).to have_content("Stop")
+    end
+
+    within find(".ambient-sounds-list .sound", text: "Rain") do
+      expect(page).to have_css(".wave-wrapper")
+    end
+
+    within find(".ambient-sounds-list .sound", text: "Walk") do
+      expect(page).to have_css(".wave-wrapper")
+    end
+  end
 end
