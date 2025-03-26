@@ -1,20 +1,21 @@
 import React, { useState } from "react"
 import FocusSpace from "./FocusSpace"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark, faWindowRestore } from '@fortawesome/free-solid-svg-icons'
+
 const FocusApp = (props) => {
   const [isShowing, setIsShowing] = useState(false)
 
   return (
-    <React.Fragment>
+    <div className={`focus-app ${isShowing ? 'space-showing' : ''}`}>
       <FocusSpace isShowing={isShowing} />
       <div className="focus-space-access-buttons">
-        {isShowing ?
-          <button onClick={() => setIsShowing(false)}>Hide</button>
-        :
-          <button onClick={() => setIsShowing(true)}>Show</button>
-        }
+        <button className={`open-space-button ${isShowing ? 'close' : 'open'}`} onClick={() => setIsShowing(!isShowing)}>
+          <FontAwesomeIcon icon={isShowing ? faXmark : faWindowRestore} />
+        </button>
       </div>
-    </React.Fragment>
+    </div>
   )
 }
 

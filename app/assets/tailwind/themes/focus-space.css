@@ -1,27 +1,52 @@
-.focus-space-access-buttons {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 1000;
-  button {
-    @apply btn-outline-primary;
-  }
-}
-
-.focus-space {
-  @apply fixed z-999 top-0 left-0 w-full h-full backdrop-blur-md;
-  display: none;
-
-  &.showing {
-    display: block;
-  }
-
+.focus-app {
   --color-one: #20002c;
   --color-two: #20002c;
   --color-three: #23a6d5;
   --color-four: #23d5ab;
   --background-opacity: 90%;
   --readable-color: #fff;
+}
+
+.focus-space-access-buttons {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+
+  .open-space-button {
+    @apply text-xl rounded-md p-4 border;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .open-space-button.open {
+    @apply border-primary-300/50 text-primary-400;
+
+    &:hover {
+      @apply bg-primary-200/50 border-primary-400/50 text-primary-500;
+    }
+  }
+
+  .open-space-button.close {
+    @apply text-3xl border-0;
+    color: color-mix(in srgb, var(--readable-color) 40%, transparent);
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--readable-color) 80%, transparent);
+    }
+  }
+}
+
+.focus-app.space-showing {
+  .focus-space-access-buttons {
+    transition: all 0.6s ease-in;
+    transition-delay: 0.3s;
+    bottom: calc(100% - 68px);
+  }
+}
+
+.focus-space {
+  @apply fixed z-999 top-0 left-0 w-full h-full backdrop-blur-md;
+  display: none;
 
   background: linear-gradient(
     -45deg,
@@ -155,6 +180,10 @@
       }
     }
   }
+}
+
+.focus-app.space-showing .focus-space {
+  display: block;
 }
 
 @keyframes animated-background {
