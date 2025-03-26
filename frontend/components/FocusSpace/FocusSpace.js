@@ -10,7 +10,7 @@ const FocusSpace = ({ isShowing }) => {
             <p>TEst</p>
           </div>
           <div className="flex basis-1 grow items-center justify-center">
-            <AmbientSoundsPlayer/>
+            <AmbientSoundsPlayer selectedSounds={['birds', 'fire', 'forest']} />
           </div>
         </div>
       </div>

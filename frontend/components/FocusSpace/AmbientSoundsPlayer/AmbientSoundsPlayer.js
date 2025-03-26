@@ -4,8 +4,12 @@ import ControlBar from './ControlBar'
 
 import sounds from './sounds'
 
-const AmbientSoundsPlayer = () => {
-  const [playlist, setPlaylist] = useState(sounds)
+const AmbientSoundsPlayer = ({ selectedSounds = [] }) => {
+  const [playlist, setPlaylist] = useState(Object.entries(sounds).reduce((newSoundsList, [soundKey, sound]) => {
+    newSoundsList[soundKey] = { ...sound, isSelected: selectedSounds.includes(soundKey) }
+    return newSoundsList
+  }, {}))
+
   const [isPlaying, setIsPlaying] = useState(false)
 
   const onPlay = () => {
