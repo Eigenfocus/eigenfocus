@@ -9,7 +9,7 @@ const FocusSpace = ({ isShowing, focusSpaceConfig, onPlayStart, onPlayStop }) =>
       <div className={`focus-space ${isShowing ? 'showing' : ''}`}>
         <div className="flex flex-col items-stretch justify-stretch h-full w-full">
           <div className="flex basis-1 grow items-center justify-center">
-            <p>TEst</p>
+            <p>Pomodoro Timer</p>
           </div>
           <div className="flex basis-1 grow items-center justify-center">
             <AmbientSoundsPlayer selectedSounds={selectedSounds} onPlay={onPlayStart} onStop={onPlayStop} />

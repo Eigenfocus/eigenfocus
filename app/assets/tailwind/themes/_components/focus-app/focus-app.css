@@ -22,10 +22,10 @@
 
     .open-space-button.close {
       @apply text-4xl border-0;
-      color: color-mix(in srgb, var(--readable-color) 40%, transparent);
+      color: color-mix(in srgb, var(--color-readable) 40%, transparent);
       transition: all 0.3s ease-in-out;
       &:hover {
-        color: color-mix(in srgb, var(--readable-color) 90%, transparent);
+        color: color-mix(in srgb, var(--color-readable) 90%, transparent);
       }
     }
   }
