@@ -12,7 +12,7 @@ const FocusSpace = ({ isShowing, focusSpaceConfig }) => {
             <p>TEst</p>
           </div>
           <div className="flex basis-1 grow items-center justify-center">
-            <AmbientSoundsPlayer selectedSounds={selectedSounds} />
+            <AmbientSoundsPlayer selectedSounds={selectedSounds} onPlay={() => {}} onStop={() => {}} />
           </div>
         </div>
       </div>
