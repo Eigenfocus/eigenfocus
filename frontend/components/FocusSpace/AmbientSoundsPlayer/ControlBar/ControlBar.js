@@ -5,7 +5,7 @@ import { faMusic } from '@fortawesome/free-solid-svg-icons'
 import { t } from 'i18n.js.erb'
 
 const ControlBar = ({ isPlaying, handlePlay, handleIamLucky }) => {
-  return <div className="actions">
+  return <div className="control-bar">
     <PlayButton isPlaying={isPlaying} onClick={handlePlay} />
     <div className="flex items-end gap-2">
       <button className="preset-button" onClick={handleIamLucky}>

@@ -9,7 +9,8 @@ const PlayListItem = ({
   icon,
   isSelected,
   isPlaying,
-  onClick
+  onSelect,
+  onDeselect
 }) => {
   const [volume, setVolume] = useState(0.5)
   const audioRef = useRef(null)
@@ -34,10 +35,19 @@ const PlayListItem = ({
     setVolume(value)
     audioRef.current && (audioRef.current.volume = value)
   }
+
+  const handleClick = () => {
+    if (isSelected) {
+      onDeselect()
+    } else {
+      onSelect()
+    }
+  }
+
   return (
 
     <div className={`sound ${isPlaying ? 'sound-playing' : isSelected ? 'sound-selected' : ''}`}>
-      <div onClick={onClick} className={`cursor-pointer flex grow p-6 flex-col gap-2 items-center justify-center`}>
+      <div onClick={handleClick} className={`cursor-pointer flex grow p-6 flex-col gap-2 items-center justify-center`}>
         <p className="text-lg font-base">{title}</p>
         <ReactSVG
           src={icon} alt=""
