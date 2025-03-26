@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PlayList from './PlayList'
 import ControlBar from './ControlBar'
 
@@ -8,38 +8,42 @@ const AmbientSoundsPlayer = () => {
   const [playlist, setPlaylist] = useState(sounds)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  // useEffect(() => {
-  //   const anySoundSelected = Object.values(favoriteSounds).length > 0
-  //   setIsPlaying(anySoundSelected && isPlaying)
-  // }, [favoriteSounds])
-
-  const handlePlay = () => {
-    setIsPlaying(!isPlaying)
+  const onPlay = () => {
+    setIsPlaying(true)
   }
 
-  const playRandomPreset = (iterations = 3) => {
-    // Random index may be the same...
-    const newFavoriteSounds = {}
+  const onStop = () => {
+    setIsPlaying(false)
+  }
 
-    for (let i = 0; i < iterations; i++) {
-      let randomIndex = Math.floor(Math.random() * Object.keys(sounds).length)
-      newFavoriteSounds[randomIndex] = true
+  const playRandomPreset = () => {
+    // Random index may be the same...
+    const newPlaylist = { ...sounds }
+
+    for (let [_, sound] of Object.entries(newPlaylist)){
+      sound.isSelected = false
     }
 
-    setFavoriteSounds(newFavoriteSounds)
+    for (let i = 0; i < 3; i++) {
+      let soundKey = Object.keys(sounds)[Math.floor(Math.random() * Object.keys(sounds).length)]
+      newPlaylist[soundKey].isSelected = true
+    }
+
+    setPlaylist(newPlaylist)
     setIsPlaying(true)
   }
 
   const handleSoundSelected = (soundKey) => {
-    setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], isPlaying: true, isSelected: true } })
+    setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], isSelected: true } })
+    setIsPlaying(true)
   }
 
   const handleSoundDeselected = (soundKey) => {
-    setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], isPlaying: false, isSelected: false } })
+    setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], isSelected: false } })
   }
   return <div className="ambient-sounds-player">
-    <ControlBar isPlaying={isPlaying} handlePlay={handlePlay} handleIamLucky={playRandomPreset} />
-    <PlayList playlist={playlist} onSelect={handleSoundSelected} onDeselect={handleSoundDeselected} />
+    <ControlBar isPlaying={isPlaying} onPlay={onPlay} onStop={onStop} onIamLucky={playRandomPreset} />
+    <PlayList playlist={playlist} isPlaying={isPlaying} onSelect={handleSoundSelected} onDeselect={handleSoundDeselected} />
   </div>
 }
 
