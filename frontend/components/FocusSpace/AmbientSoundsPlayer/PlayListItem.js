@@ -8,7 +8,7 @@ const PlayListItem = ({
   title,
   icon,
   isSelected,
-  volume = 0.5,
+  volume,
   isPlaying,
   onSelect,
   onDeselect,
@@ -21,6 +21,7 @@ const PlayListItem = ({
       const audio = new Audio(src)
       audioRef.current = audio
       audio.loop = true
+      audioRef.current.volume = volume
     }
     if (isPlaying) {
       audioRef.current.play()
