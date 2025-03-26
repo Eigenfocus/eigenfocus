@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMusic } from '@fortawesome/free-solid-svg-icons'
 import { t } from 'i18n.js.erb'
 
-const ControlBar = ({ isPlaying, onPlay, onStop, onIamLucky }) => {
+const ControlBar = ({ isPlaying, onPlayButtonClick, onIamLucky }) => {
   return <div className="control-bar">
-    <PlayButton isPlaying={isPlaying} onClick={() => isPlaying ? onStop() : onPlay()} />
+    <PlayButton isPlaying={isPlaying} onClick={onPlayButtonClick} />
     <div className="flex items-end gap-2">
       <button className="preset-button" onClick={onIamLucky}>
         <FontAwesomeIcon icon={faMusic} />
