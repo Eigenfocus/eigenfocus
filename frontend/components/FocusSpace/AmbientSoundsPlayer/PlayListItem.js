@@ -8,11 +8,12 @@ const PlayListItem = ({
   title,
   icon,
   isSelected,
+  volume = 0.5,
   isPlaying,
   onSelect,
-  onDeselect
+  onDeselect,
+  onVolumeChange
 }) => {
-  const [volume, setVolume] = useState(0.5)
   const audioRef = useRef(null)
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const PlayListItem = ({
     event
   ) => {
     const value = parseFloat(event.target.value)
-    setVolume(value)
+    onVolumeChange(value)
     audioRef.current && (audioRef.current.volume = value)
   }
 

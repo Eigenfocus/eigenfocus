@@ -6,7 +6,14 @@ import sounds from './sounds'
 
 const AmbientSoundsPlayer = ({ selectedSounds = [] }) => {
   const [playlist, setPlaylist] = useState(Object.entries(sounds).reduce((newSoundsList, [soundKey, sound]) => {
-    newSoundsList[soundKey] = { ...sound, isSelected: selectedSounds.includes(soundKey) }
+    newSoundsList[soundKey] = { ...sound }
+
+    for (let selectedSound of selectedSounds) {
+      if (selectedSound.key === soundKey) {
+        newSoundsList[soundKey].isSelected = true
+        newSoundsList[soundKey].volume = selectedSound.volume || 0.5
+      }
+    }
     return newSoundsList
   }, {}))
 
@@ -53,9 +60,14 @@ const AmbientSoundsPlayer = ({ selectedSounds = [] }) => {
   const handleSoundDeselected = (soundKey) => {
     setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], isSelected: false } })
   }
+
+  const handleVolumeChange = (soundKey, volume) => {
+    setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], volume } })
+  }
+
   return <div className="ambient-sounds-player">
     <ControlBar isPlaying={isPlaying} onPlay={onPlay} onStop={onStop} onIamLucky={playRandomPreset} />
-    <PlayList playlist={playlist} isPlaying={isPlaying} onSelect={handleSoundSelected} onDeselect={handleSoundDeselected} />
+    <PlayList playlist={playlist} isPlaying={isPlaying} onSelect={handleSoundSelected} onDeselect={handleSoundDeselected} onVolumeChange={handleVolumeChange} />
   </div>
 }
 
