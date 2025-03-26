@@ -52,6 +52,8 @@ en:
     deactivate: "Deactivate"
     start: "Start"
     stop: "Stop"
+    play: "Play"
+    i_am_lucky: "I'm lucky"
     select: "Select"
     allocate: "Allocate"
     deallocate: "Deallocate"

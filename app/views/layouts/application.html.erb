@@ -64,5 +64,7 @@
       </div>
     </main>
     <%= render partial: "layouts/issue_detail", locals: issue_detail_context %>
+
+    <%= react_component("FocusApp", {}, { "data-turbo-permanent": true, id: 'focus-app-wrapper' }) %>
   </body>
 </html>
