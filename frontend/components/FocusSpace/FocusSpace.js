@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import AmbientSounds from "./AmbientSounds"
+import AmbientSoundsPlayer from "./AmbientSoundsPlayer"
 
 const FocusSpace = ({ isShowing }) => {
   return (
@@ -10,7 +10,7 @@ const FocusSpace = ({ isShowing }) => {
             <p>TEst</p>
           </div>
           <div className="flex basis-1 grow items-center justify-center">
-            <AmbientSounds/>
+            <AmbientSoundsPlayer/>
           </div>
         </div>
       </div>

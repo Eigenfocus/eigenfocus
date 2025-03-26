@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Sound from './Sound'
+import PlayListItem from './PlayListItem'
 import { t } from 'i18n.js.erb'
 import PlayButton from './PlayButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMusic } from '@fortawesome/free-solid-svg-icons'
 
-const SoundList = ({ sounds }) => {
+const PlayList = ({ sounds }) => {
   const [favoriteSounds, setFavoriteSounds] = useState({})
   const [isPlaying, setIsPlaying] = useState(false)
 
@@ -45,7 +45,7 @@ const SoundList = ({ sounds }) => {
       <div className="grid gap-4 items-stretch justify-stretch grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {sounds.map((sound, index) => {
           return (
-            <Sound
+            <PlayListItem
               key={index}
               {...sound}
               isSelected={favoriteSounds[index]}
@@ -68,4 +68,4 @@ const SoundList = ({ sounds }) => {
   )
 }
 
-export default SoundList
+export default PlayList

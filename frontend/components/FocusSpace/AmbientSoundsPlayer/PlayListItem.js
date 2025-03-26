@@ -2,7 +2,8 @@ import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { ReactSVG } from 'react-svg'
 
 import SoundWaveIcon from './SoundWaveIcon'
-const Sound = ({
+
+const PlayListItem = ({
   src,
   title,
   icon,
@@ -67,4 +68,4 @@ const Sound = ({
   )
 }
 
-export default Sound
+export default PlayListItem
