@@ -1,0 +1,123 @@
+
+.ambient-sounds-player {
+  @apply max-w-3xl mx-auto;
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 90%;
+    height: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: color-mix(in srgb, var(--color-two) 80%, transparent);
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .control-bar {
+    @apply flex grow mb-4 gap-8 text-xl justify-between;
+
+    .play-button {
+      @apply text-base flex items-center rounded-md px-4 py-2;
+      border: 1px solid color-mix(in srgb, var(--readable-color) 60%, transparent);
+      color: color-mix(in srgb, var(--readable-color) 60%, transparent);
+
+      svg {
+        @apply mr-2;
+      }
+
+      &:hover {
+        color: color-mix(in srgb, var(--readable-color) 80%, transparent);
+        border-color: color-mix(in srgb, var(--readable-color) 80%, transparent);
+      }
+    }
+
+    .preset-button {
+      @apply text-base;
+
+      color: color-mix(in srgb, var(--readable-color) 60%, transparent);
+
+      svg {
+        @apply mr-2;
+      }
+
+      &:hover {
+        color: color-mix(in srgb, var(--readable-color) 80%, transparent);
+      }
+    }
+
+  }
+
+  .ambient-sounds-list {
+    .sound {
+      @apply relative rounded-lg;
+      border-width: 3px;
+
+      transition: all 0.2s ease-in-out;
+
+      color: color-mix(in srgb, var(--readable-color) 70%, transparent);
+      border-color: color-mix(in srgb, var(--readable-color) 25%, transparent);
+
+      svg {
+        opacity: 0.8;
+      }
+
+      &:hover {
+        border-color: color-mix(in srgb, var(--readable-color) 30%, transparent);
+        background-color: color-mix(in srgb, var(--readable-color) 20%, transparent);
+
+        svg {
+          opacity: 0.9;
+        }
+      }
+
+      .wave-wrapper {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+
+        svg {
+          width: 25px;
+          height: auto;
+          fill: color-mix(in srgb, var(--readable-color) 50%, transparent);
+        }
+      }
+
+      .slider-wrapper {
+        position: absolute;
+        transform: rotate(-90deg);
+        top: 39%;
+        left: -36%;
+        width: 78%;
+        height: 20px;
+      }
+
+      &.sound-playing {
+        background: linear-gradient(
+          25deg,
+          color-mix(in srgb, var(--readable-color) 4%, transparent),
+          color-mix(in srgb, var(--readable-color) 30%, transparent)
+        );
+        animation: animated-background 22s linear infinite;
+        border-color: color-mix(in srgb, var(--readable-color) 40%, transparent);
+      }
+
+      &.sound-selected {
+        border-color: color-mix(in srgb, var(--readable-color) 70%, transparent);
+        color: color-mix(in srgb, var(--readable-color) 70%, transparent);
+
+        svg {
+          fill: color-mix(in srgb, var(--readable-color) 70%, transparent);
+        }
+      }
+    }
+  }
+}

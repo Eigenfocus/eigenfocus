@@ -1,0 +1,20 @@
+.focus-space {
+  @apply fixed z-999 top-0 left-0 w-full h-full backdrop-blur-md;
+  display: none;
+
+  background: linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--color-one) var(--background-opacity), transparent),
+    color-mix(in srgb, var(--color-two) var(--background-opacity), transparent),
+    color-mix(in srgb, var(--color-three) var(--background-opacity), transparent),
+    color-mix(in srgb, var(--color-four) var(--background-opacity), transparent)
+  );
+
+	background-size: 400% 400%;
+	animation: animated-background 14s linear infinite;
+	height: 100vh;
+}
+
+.focus-app.space-showing .focus-space {
+  display: block;
+}

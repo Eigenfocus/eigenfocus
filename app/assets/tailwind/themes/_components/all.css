@@ -4,3 +4,4 @@
 @import "./table";
 @import "./visualizations/board";
 @import "./markdown-editor/all";
+@import "./focus-app/all";
