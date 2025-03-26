@@ -7,6 +7,21 @@
   --readable-color: #fff;
 }
 
+@keyframes float {
+	0% {
+		box-shadow: 0 3px 10px 0px rgba(0,0,0,0.05);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 15px 10px 0px rgba(0,0,0,0.1);
+		transform: translatey(-5px);
+	}
+	100% {
+		box-shadow: 0 3px 10px 0px rgba(0,0,0,0.05);
+		transform: translatey(0px);
+	}
+}
+
 .focus-space-access-buttons {
   position: fixed;
   bottom: 10px;
@@ -23,15 +38,16 @@
 
     &:hover {
       @apply bg-primary-200/50 border-primary-400/50 text-primary-500;
+      animation: float 1s ease-in-out infinite;
     }
   }
 
   .open-space-button.close {
-    @apply text-3xl border-0;
+    @apply text-4xl border-0;
     color: color-mix(in srgb, var(--readable-color) 40%, transparent);
-
+    transition: all 0.3s ease-in-out;
     &:hover {
-      border-color: color-mix(in srgb, var(--readable-color) 80%, transparent);
+      color: color-mix(in srgb, var(--readable-color) 90%, transparent);
     }
   }
 }
