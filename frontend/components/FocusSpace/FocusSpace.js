@@ -4,7 +4,6 @@ import AmbientSoundsPlayer from "./AmbientSoundsPlayer"
 const FocusSpace = ({ isShowing, focusSpaceConfig, onPlayStart, onPlayStop }) => {
   const selectedSounds = focusSpaceConfig["favorite_ambient_sounds"] || []
 
-
   return (
     <React.Fragment>
       <div className={`focus-space ${isShowing ? 'showing' : ''}`}>
