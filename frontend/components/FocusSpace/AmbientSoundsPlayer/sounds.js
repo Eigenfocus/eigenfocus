@@ -49,4 +49,35 @@ const sounds = {
   }
 }
 
-export default sounds
+function getSoundConfig(soundKey) {
+  const storageKey = `focus_sound_config_${soundKey}`
+  const storedConfig = localStorage.getItem(storageKey)
+  return storedConfig ? JSON.parse(storedConfig) : { isSelected: false, volume: 0.5 }
+}
+
+function updateSoundConfig(soundKey, { isSelected, volume }) {
+  const storageKey = `focus_sound_config_${soundKey}`
+  const existingConfig = getSoundConfig(soundKey)
+
+  const config = {
+    isSelected: isSelected ?? existingConfig.isSelected,
+    volume: volume ?? existingConfig.volume
+  }
+
+  localStorage.setItem(storageKey, JSON.stringify(config))
+  return config
+}
+
+function getSounds() {
+  return Object.entries(sounds).reduce((newSounds, [key, sound]) => {
+    const customConfig = getSoundConfig(key)
+
+    newSounds[key] = {
+      ...sound,
+      ...customConfig
+    }
+    return newSounds
+  }, {})
+}
+
+export { updateSoundConfig, getSounds }

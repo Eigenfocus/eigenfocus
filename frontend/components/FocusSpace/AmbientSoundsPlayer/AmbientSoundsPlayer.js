@@ -2,20 +2,12 @@ import React, { useState, useEffect } from 'react'
 import PlayList from './PlayList'
 import ControlBar from './ControlBar'
 
-import sounds from './sounds'
+import { getSounds, updateSoundConfig } from './sounds'
 
-const AmbientSoundsPlayer = ({ selectedSounds = [] }) => {
-  const [playlist, setPlaylist] = useState(Object.entries(sounds).reduce((newSoundsList, [soundKey, sound]) => {
-    newSoundsList[soundKey] = { ...sound }
+const sounds = getSounds()
 
-    for (let selectedSound of selectedSounds) {
-      if (selectedSound.key === soundKey) {
-        newSoundsList[soundKey].isSelected = true
-        newSoundsList[soundKey].volume = selectedSound.volume || 0.5
-      }
-    }
-    return newSoundsList
-  }, {}))
+const AmbientSoundsPlayer = () => {
+  const [playlist, setPlaylist] = useState(sounds)
 
   const [isPlaying, setIsPlaying] = useState(false)
 
@@ -55,14 +47,17 @@ const AmbientSoundsPlayer = ({ selectedSounds = [] }) => {
   const handleSoundSelected = (soundKey) => {
     setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], isSelected: true } })
     setIsPlaying(true)
+    updateSoundConfig(soundKey, { isSelected: true })
   }
 
   const handleSoundDeselected = (soundKey) => {
     setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], isSelected: false } })
+    updateSoundConfig(soundKey, { isSelected: false })
   }
 
   const handleVolumeChange = (soundKey, volume) => {
     setPlaylist({ ...playlist, [soundKey]: { ...playlist[soundKey], volume } })
+    updateSoundConfig(soundKey, { volume })
   }
 
   return <div className="ambient-sounds-player">
