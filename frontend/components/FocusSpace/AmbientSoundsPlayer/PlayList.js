@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PlayListItem from './PlayListItem'
-import { t } from 'i18n.js.erb'
-import PlayButton from './PlayButton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMusic } from '@fortawesome/free-solid-svg-icons'
+import ControlBar from './ControlBar'
 
 const PlayList = ({ sounds }) => {
   const [favoriteSounds, setFavoriteSounds] = useState({})
@@ -33,15 +30,7 @@ const PlayList = ({ sounds }) => {
 
   return (
     <div className="ambient-sounds-list">
-      <div className="actions">
-        <PlayButton isPlaying={isPlaying} onClick={handlePlay} />
-        <div className="flex items-end gap-2">
-          <button className="preset-button" onClick={() => playRandomPreset(3)}>
-            <FontAwesomeIcon icon={faMusic} />
-            {t("actions.i_am_lucky")}
-          </button>
-        </div>
-      </div>
+      <ControlBar isPlaying={isPlaying} handlePlay={handlePlay} handleIamLucky={playRandomPreset} />
       <div className="grid gap-4 items-stretch justify-stretch grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {sounds.map((sound, index) => {
           return (
