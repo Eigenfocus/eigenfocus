@@ -41,8 +41,13 @@ const AmbientSoundsPlayer = ({onPlay, onStop}) => {
       newPlaylist[soundKey].volume = 0.7 * Math.random()
     }
 
+    for (let [soundKey, { isSelected, volume }] of Object.entries(newPlaylist)){
+      updateSoundConfig(soundKey, { isSelected, volume })
+    }
+
     setPlaylist(newPlaylist)
     setIsPlaying(true)
+
   }
 
   const handleSoundSelected = (soundKey) => {
