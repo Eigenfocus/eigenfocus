@@ -6,7 +6,6 @@
   --background-opacity: 90%;
   --readable-color: #fff;
 
-
   .focus-space-access-buttons {
     position: fixed;
     bottom: 10px;
@@ -43,6 +42,27 @@
       transition: all 0.6s ease-in;
       transition-delay: 0.3s;
       bottom: calc(100% - 68px);
+    }
+  }
+
+  .sound-playing-icon {
+    @apply rounded-full text-primary-400/50;
+    display: none;
+    font-size: 12px;
+    position: absolute;
+    top: -4px;
+    left: 4px;
+  }
+
+  &.space-showing {
+    .note-icon {
+      display: none;
+    }
+  }
+
+  &.playing:not(.space-showing) {
+    .sound-playing-icon {
+      display: block;
     }
   }
 

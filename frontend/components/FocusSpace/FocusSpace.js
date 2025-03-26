@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import AmbientSoundsPlayer from "./AmbientSoundsPlayer"
 
-const FocusSpace = ({ isShowing, focusSpaceConfig }) => {
+const FocusSpace = ({ isShowing, focusSpaceConfig, onPlayStart, onPlayStop }) => {
   const selectedSounds = focusSpaceConfig["favorite_ambient_sounds"] || []
+
 
   return (
     <React.Fragment>
@@ -12,7 +13,7 @@ const FocusSpace = ({ isShowing, focusSpaceConfig }) => {
             <p>TEst</p>
           </div>
           <div className="flex basis-1 grow items-center justify-center">
-            <AmbientSoundsPlayer selectedSounds={selectedSounds} onPlay={() => {}} onStop={() => {}} />
+            <AmbientSoundsPlayer selectedSounds={selectedSounds} onPlay={onPlayStart} onStop={onPlayStop} />
           </div>
         </div>
       </div>
