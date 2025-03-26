@@ -16,6 +16,14 @@ const AmbientSoundsPlayer = () => {
     setIsPlaying(false)
   }
 
+  useEffect(() => {
+    const anySoundSelected = Object.values(playlist).some(sound => sound.isSelected)
+
+    if (anySoundSelected === false) {
+      setIsPlaying(false)
+    }
+  }, [playlist])
+
   const playRandomPreset = () => {
     // Random index may be the same...
     const newPlaylist = { ...sounds }
