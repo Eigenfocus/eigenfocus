@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Focus Space - Pomodoro timer' do
+describe 'Focus Space - Pomodoro Timer' do
   before(:each) do
     visit root_path
 

@@ -72,6 +72,7 @@ const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, o
           <h2 className="text-xl font-bold mt-6 mb-2">{ t("focus_space.pomodoro_timer.sound_settings") }</h2>
           <div className="flex justify-stretch items-center mb-4">
             <select value={mutableSelectedAlarmKey}
+              name="alarm_key"
               onChange={(e) => setMutableSelectedAlarmKey(e.target.value)}
               className="input-field grow">
               {alarms.map((alarm, key) => (
