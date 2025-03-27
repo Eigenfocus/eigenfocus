@@ -15,7 +15,7 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
       <div className={`focus-space ${isShowing ? 'showing' : ''}`} onClick={handleClickOutside}>
 
         <div className="flex items-center justify-center">
-          <PomodoroTimer onRunningStart={onPomodoroStart} onRunningStop={onPomodoroStop} />
+          <PomodoroTimer onStart={onPomodoroStart} onStop={onPomodoroStop} />
         </div>
         <div className="flex items-center justify-center">
           <AmbientSoundsPlayer onPlay={onPlayStart} onStop={onPlayToggle} />
