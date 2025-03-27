@@ -20,7 +20,8 @@ export const useSound = (audioSource, { volume = 1, loop = false, maxPlays = 0, 
         if (maxPlays > 0 && playCount >= maxPlays) {
           pauseSound()
         } else {
-          playSound()
+          soundRef.current.play()
+          soundRef.current.currentTime = 0
         }
       }
     })
@@ -30,8 +31,8 @@ export const useSound = (audioSource, { volume = 1, loop = false, maxPlays = 0, 
     soundRef.current.play()
     soundRef.current.currentTime = 0
 
-    clearTimeout(timeoutRef.current)
     if (maxSeconds > 0) {
+      clearTimeout(timeoutRef.current)
       timeoutRef.current = setTimeout(() => {
         pauseSound()
       }, maxSeconds * 1000)
@@ -42,6 +43,7 @@ export const useSound = (audioSource, { volume = 1, loop = false, maxPlays = 0, 
     soundRef.current.pause()
     soundRef.current.currentTime = 0
     playCount = 0
+    clearTimeout(timeoutRef.current)
   }
 
   const changeSource = (newSource) => {
