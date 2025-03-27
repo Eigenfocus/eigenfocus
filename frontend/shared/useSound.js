@@ -1,8 +1,9 @@
 import { useRef, useEffect } from "react"
 
-export const useSound = (audioSource, { volume = 1, loop = true, maxPlays = 0 } = {}) => {
+export const useSound = (audioSource, { volume = 1, loop = false, maxPlays = 0, maxSeconds = 0 } = {}) => {
 
   const soundRef = useRef()
+  const timeoutRef = useRef()
   let playCount = 0
 
   useEffect(() => {
@@ -29,6 +30,13 @@ export const useSound = (audioSource, { volume = 1, loop = true, maxPlays = 0 } 
   const playSound = () => {
     soundRef.current.play()
     soundRef.current.currentTime = 0
+
+    clearTimeout(timeoutRef.current)
+    if (maxSeconds > 0) {
+      timeoutRef.current = setTimeout(() => {
+        pauseSound()
+      }, maxSeconds * 1000)
+    }
   }
 
   const pauseSound = () => {

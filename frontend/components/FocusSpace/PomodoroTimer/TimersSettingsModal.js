@@ -1,13 +1,25 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import useSound from "shared/useSound"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faXmark, faPlay } from '@fortawesome/free-solid-svg-icons'
 
 import { t } from 'i18n.js.erb'
 
 const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, onSubmit }) => {
   const [mutableTimePresets, setMutableTimePresets] = useState([...timePresets])
   const [mutableSelectedAlarmKey, setMutableSelectedAlarmKey] = useState(selectedAlarmKey)
+
+  const {
+    playSound,
+    changeSource
+  } = useSound(alarms.find(alarm => alarm.key === mutableSelectedAlarmKey).src, { loop: false, maxSeconds: 3 })
+
+  const playSelectedAlarm = (e) => {
+    e.preventDefault()
+    changeSource(alarms.find(alarm => alarm.key === mutableSelectedAlarmKey).src)
+    playSound()
+  }
 
   const handleClickOutside = (e) => {
     if (e.target === e.currentTarget) {
@@ -17,7 +29,6 @@ const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, o
 
   const updateTimePreset = ({ name, minutes }, key) => {
     const newTimePresets = [...mutableTimePresets]
-
 
     newTimePresets[key] = {
       name: name ?? newTimePresets[key].name,
@@ -59,7 +70,7 @@ const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, o
             </div>
           ))}
           <h2 className="text-xl font-bold mt-6 mb-2">{ t("focus_space.pomodoro_timer.sound_settings") }</h2>
-          <div className="flex justify-stretch mb-4">
+          <div className="flex justify-stretch items-center mb-4">
             <select value={mutableSelectedAlarmKey}
               onChange={(e) => setMutableSelectedAlarmKey(e.target.value)}
               className="input-field grow">
@@ -67,6 +78,10 @@ const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, o
                 <option key={key} value={alarm.key}>{alarm.title}</option>
               ))}
             </select>
+            <button className="ml-4 button-clean tex-xs" onClick={playSelectedAlarm}>
+              <FontAwesomeIcon icon={faPlay} />
+              { t("actions.play") }
+            </button>
           </div>
           <div className="flex justify-end gap-5">
             <button
