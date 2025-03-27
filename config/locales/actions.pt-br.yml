@@ -44,6 +44,7 @@ pt-BR:
       team_size: "Qual é o tamanho da sua equipe?"
       utilization_context: "Para que você vai usar o registro de tempo?"
       usage_purposes: "Para que você vai usar o registro de tempo?"
+      how_did_you_found_us_please_elaborate: "Poderia especificar mais? Grupo, canal, site, etc."
       answer_labels:
         team_size:
           one: "1 (uma pessoa)"
@@ -58,6 +59,11 @@ pt-BR:
           time_tracking: "Para registro de tempo"
           project_management: "Para gerenciamento de projetos"
           focus: "Para foco"
+        how_did_you_found_us:
+          reddit: "Reddit "
+          search_engine: "Buscador"
+          social_media: "Redes Sociais"
+          other: "Outro"
 
     update:
       success: 'Perfil atualizado com sucesso.'

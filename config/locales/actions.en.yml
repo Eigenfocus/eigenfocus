@@ -73,6 +73,7 @@ en:
       team_size: "What's your team size?"
       utilization_context: "What will you primarily use it for?"
       usage_purposes: "For what kind of purposes?"
+      how_did_you_found_us_please_elaborate: "Could you elaborate more? The group, channel, website, etc."
       answer_labels:
         team_size:
           one: "1 (One person)"
@@ -87,6 +88,11 @@ en:
           time_tracking: "For Time Tracking"
           project_management: "For Project Management"
           focus: "As a Focus Tool"
+        how_did_you_found_us:
+          reddit: "Reddit"
+          search_engine: "Search Engine"
+          social_media: "Social Media"
+          other: "Other"
     update:
       success: 'Profile succesfully updated.'
   issues:
