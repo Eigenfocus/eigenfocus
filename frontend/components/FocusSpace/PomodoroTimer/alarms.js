@@ -34,23 +34,21 @@ const alarms = [
   }
 ]
 
-const LOCAL_STORAGE_KEY = `focus_selected_alarm_key`
-function getSelectedAlarmKey() {
+const LOCAL_STORAGE_KEY = `focus_default_alarm_key`
+
+function getDefaultAlarmKey() {
   return localStorage.getItem(LOCAL_STORAGE_KEY) ?? alarms[0].key
 }
 
-function setSelectedAlarmKey(key) {
-  localStorage.setItem(LOCAL_STORAGE_KEY, key)
+function storePreferenceForDefaultAlarm(alarmKey) {
+  localStorage.setItem(LOCAL_STORAGE_KEY, alarmKey)
 }
 
 function getAlarms() {
   return alarms.map(alarm => ({
-    ...alarm
+    ...alarm,
+    isDefault: alarm.key === getDefaultAlarmKey()
   }))
 }
 
-function getSelectedAlarm() {
-  return alarms.find(alarm => alarm.key === getSelectedAlarmKey())
-}
-
-export { getAlarms, getSelectedAlarmKey, setSelectedAlarmKey, getSelectedAlarm }
+export { getAlarms, storePreferenceForDefaultAlarm }

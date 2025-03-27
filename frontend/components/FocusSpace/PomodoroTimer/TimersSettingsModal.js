@@ -6,18 +6,18 @@ import { faXmark, faPlay } from '@fortawesome/free-solid-svg-icons'
 
 import { t } from 'i18n.js.erb'
 
-const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, onSubmit }) => {
+const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
   const [mutableTimePresets, setMutableTimePresets] = useState([...timePresets])
-  const [mutableSelectedAlarmKey, setMutableSelectedAlarmKey] = useState(selectedAlarmKey)
+  const [selectedAlarm, setSelectedAlarm] = useState(alarms.find(alarm => alarm.isDefault))
 
   const {
     playSound,
     changeSource
-  } = useSound(alarms.find(alarm => alarm.key === mutableSelectedAlarmKey).src, { loop: false, maxSeconds: 3 })
+  } = useSound(selectedAlarm.src, { loop: false, maxSeconds: 3, volume: 0.7 })
 
   const playSelectedAlarm = (e) => {
     e.preventDefault()
-    changeSource(alarms.find(alarm => alarm.key === mutableSelectedAlarmKey).src)
+    changeSource(selectedAlarm.src)
     playSound()
   }
 
@@ -40,7 +40,7 @@ const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, o
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSubmit(mutableTimePresets, mutableSelectedAlarmKey)
+    onSubmit(mutableTimePresets, selectedAlarm)
   }
 
   return (
@@ -71,9 +71,9 @@ const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, o
           ))}
           <h2 className="text-xl font-bold mt-6 mb-2">{ t("focus_space.pomodoro_timer.sound_settings") }</h2>
           <div className="flex justify-stretch items-center mb-4">
-            <select value={mutableSelectedAlarmKey}
+            <select value={selectedAlarm.key}
               name="alarm_key"
-              onChange={(e) => setMutableSelectedAlarmKey(e.target.value)}
+              onChange={(e) => setSelectedAlarm(alarms.find(alarm => alarm.key === e.target.value))}
               className="input-field grow">
               {alarms.map((alarm, key) => (
                 <option key={key} value={alarm.key}>{alarm.title}</option>
