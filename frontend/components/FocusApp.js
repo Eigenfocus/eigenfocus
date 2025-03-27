@@ -14,7 +14,7 @@ const FocusApp = ({ }) => {
     <div className={`focus-app ${isShowing ? 'space-showing' : ''} ${hasSoundPlaying ? 'playing' : ''} ${isPomodoroRunning ? 'pomodoro-running' : ''}`}>
       <FocusSpace isShowing={isShowing}
         onPlayStart={() => setHasSoundPlaying(true)}
-        onPlayStop={() => setHasSoundPlaying(false)}
+        onPlayToggle={() => setHasSoundPlaying(false)}
         onPomodoroStart={() => setIsPomodoroRunning(true)}
         onPomodoroStop={() => setIsPomodoroRunning(false)}
         onHide={() => setIsShowing(false)} />

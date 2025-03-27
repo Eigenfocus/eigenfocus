@@ -67,7 +67,7 @@ const AmbientSoundsPlayer = ({onPlay, onStop}) => {
   }
 
   return <div className="ambient-sounds-player">
-    <ControlBar isPlaying={isPlaying} onPlayStop={() => setIsPlaying(!isPlaying)} onIamLucky={playRandomPreset} />
+    <ControlBar isPlaying={isPlaying} onPlayToggle={() => setIsPlaying(!isPlaying)} onIamLucky={playRandomPreset} />
     <PlayList playlist={playlist} isPlaying={isPlaying} onSelect={handleSoundSelected} onDeselect={handleSoundDeselected} onVolumeChange={handleVolumeChange} />
   </div>
 }
