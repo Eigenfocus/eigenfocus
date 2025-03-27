@@ -35,24 +35,24 @@ const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
         <button className="close-button" onClick={onClose}>
           <FontAwesomeIcon icon={faXmark} />
         </button>
-        <h2 className="text-xl font-bold mb-4">Custom Timer</h2>
+        <h2 className="text-xl font-bold mb-4">Timer Presets</h2>
         <form onSubmit={handleSubmit}>
             {mutableTimePresets.map(({name, minutes}, key) => (
-              <div className="flex justify-start gap-2 mb-4" key={key}>
+              <div className="flex justify-stretch gap-2 mb-4" key={key}>
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => updateTimePreset({ name: e.target.value }, key)}
-                  className="input-field basis-1 grow"
+                  className="input-field grow"
                 />
               <input
                 type="number"
-                value={minutes}
+                value={minutes == 0 ? '' : minutes}
                 min={1}
                 onChange={(e) => updateTimePreset({ minutes: (e.target.value === '' ? 0 : parseInt(e.target.value)) }, key)}
-                className="input-field"
+                className="input-field w-16 text-center"
               />
-              <label className="flex items-center text-xs mb-2">Minutes</label>
+              <label className="flex items-center text-xs">Minutes</label>
             </div>
           ))}
           <div className="flex justify-end gap-5">

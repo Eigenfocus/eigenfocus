@@ -18,7 +18,6 @@
     @apply flex justify-center gap-4 mt-4 w-full;
   }
 
-
   .timer-modal {
     @apply fixed inset-0 flex items-center justify-center z-50;
     background: rgba(, 0, 0, 0.3);
@@ -36,12 +35,11 @@
       }
 
       .input-field {
-        @apply rounded-md w-auto p-2;
+        @apply rounded-md p-2;
         background: white;
         border: 1px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
         color: #333;
       }
     }
   }
-
 }

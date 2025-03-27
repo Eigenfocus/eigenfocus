@@ -1,6 +1,5 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { faClockRotateLeft, faClock, faPause } from '@fortawesome/free-solid-svg-icons'
 
 const TimerControls = ({ isRunning, onStartPause, onReset }) => {
