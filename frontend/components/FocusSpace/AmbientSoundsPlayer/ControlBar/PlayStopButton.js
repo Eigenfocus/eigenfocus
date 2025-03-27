@@ -5,7 +5,7 @@ import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
 import { t } from 'i18n.js.erb'
 
 const PlayStopButton = ({ isPlaying, onPlayStop }) => {
-  return <button onClick={onPlayStop} className="button-primary">
+  return <button onClick={onPlayStop} className="button-primary start-pause-button">
     {
       isPlaying ?
       (<FontAwesomeIcon icon={faStop} />) :
