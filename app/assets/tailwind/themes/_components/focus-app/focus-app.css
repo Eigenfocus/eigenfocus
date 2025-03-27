@@ -8,14 +8,15 @@
 
     .open-space-button {
       @apply text-xl rounded-md p-4 border;
+
       transition: all 0.2s ease-in-out;
     }
 
     .open-space-button.open {
-      @apply border-primary-300/50 text-primary-400;
+      @apply border-primary-300/50 text-primary-400 bg-body-contrast;
 
       &:hover {
-        @apply bg-primary-200/50 border-primary-400/50 text-primary-500;
+        @apply bg-primary-200/80 border-primary-400/50 text-primary-500;
         animation: float 1s ease-in-out infinite;
       }
     }
@@ -24,6 +25,7 @@
       @apply text-4xl border-0;
       color: color-mix(in srgb, var(--color-readable) 40%, transparent);
       transition: all 0.3s ease-in-out;
+
       &:hover {
         color: color-mix(in srgb, var(--color-readable) 90%, transparent);
       }
