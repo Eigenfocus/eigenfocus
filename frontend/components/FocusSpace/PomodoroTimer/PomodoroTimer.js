@@ -37,7 +37,7 @@ const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
     if (isRunning && timeRemaining > 0) {
       interval.current = setInterval(() => {
         setTimeRemaining(prev => prev - 1)
-      }, 10)
+      }, 1000)
 
       const isFirstTick = timeRemaining === initialTime
 
@@ -80,7 +80,9 @@ const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
 
   return (
     <div className="pomodoro-timer">
-      <TimerPresets presets={timePresets} onSelect={handlePresetSelect} onCustom={() => setShowCustomModal(true)} />
+      <TimerPresets presets={timePresets}
+        onSelectPreset={handlePresetSelect}
+        onOpenSettings={() => setShowCustomModal(true)} />
       <TimerDisplay timeRemaining={timeRemaining} isPulsing={isRunning} isShaking={timeRemaining == 0} />
       <TimerControls
         isRunning={isRunning}

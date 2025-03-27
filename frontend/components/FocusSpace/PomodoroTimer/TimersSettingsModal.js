@@ -79,7 +79,7 @@ const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
                 <option key={key} value={alarm.key}>{alarm.title}</option>
               ))}
             </select>
-            <a className="ml-4 button-clean tex-xs" onClick={playSelectedAlarm}>
+            <a className="ml-4 button-clean tex-xs cursor-pointer" onClick={playSelectedAlarm}>
               <FontAwesomeIcon icon={faPlay} />
               { t("actions.play") }
             </a>
