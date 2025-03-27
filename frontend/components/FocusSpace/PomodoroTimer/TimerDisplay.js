@@ -7,7 +7,7 @@ const TimerDisplay = ({ timeRemaining }) => {
   const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
   return (
-    <div className="timer-display text-6xl font-bold text-center my-4">
+    <div className="timer-display">
       {formattedTime}
     </div>
   );

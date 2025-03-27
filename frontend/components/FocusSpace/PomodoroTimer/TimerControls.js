@@ -1,22 +1,21 @@
 import React from "react";
 
-const TimerControls = ({ isActive, onStartPauseClick, onResetClick }) => {
+const TimerControls = ({ isActive, onStartPause, onReset }) => {
   return (
-    <div className="timer-controls flex justify-center gap-4 mt-4">
+    <div className="timer-controls">
       <button
-        className={`${isActive ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-green-500 hover:bg-green-600'} text-white font-medium py-2 px-4 rounded`}
-        onClick={onStartPauseClick}
+        className="button-primary big"
+        onClick={onStartPause}
       >
         {isActive ? "Pause" : "Start"}
       </button>
       <button
-        className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded"
-        onClick={onResetClick}
+        className="button-primary big"
+        onClick={onReset}
       >
         Reset
       </button>
     </div>
   );
 };
-
 export default TimerControls;

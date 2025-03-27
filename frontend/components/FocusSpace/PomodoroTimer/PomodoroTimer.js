@@ -64,12 +64,12 @@ const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
 
   return (
     <div className="pomodoro-timer">
-      <TimerPresets presets={timePresets} onSelect={handlePresetSelect} onCustomClick={() => setShowCustomModal(true)} />
+      <TimerPresets presets={timePresets} onSelect={handlePresetSelect} onCustom={() => setShowCustomModal(true)} />
       <TimerDisplay timeRemaining={timeRemaining} />
       <TimerControls
         isRunning={isRunning}
-        onStartPauseClick={handleStartPause}
-        onResetClick={handleReset}
+        onStartPause={handleStartPause}
+        onReset={handleReset}
       />
       {showCustomModal && (
         <CustomTimerModal

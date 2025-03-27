@@ -1,0 +1,64 @@
+
+.pomodoro-timer {
+  @apply max-w-3xl mx-auto;
+
+  .timer-display {
+    @apply text-center font-bold;
+    font-size: 6rem;
+    color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+    letter-spacing: 2px;
+  }
+
+  .timer-presets {
+    @apply flex flex-wrap justify-center gap-4 mb-6 w-full;
+
+  }
+
+  .timer-controls {
+    @apply flex justify-center gap-4 mt-4 w-full;
+  }
+
+
+  .custom-timer-modal {
+    @apply fixed inset-0 flex items-center justify-center z-50;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+  }
+
+  .custom-timer-modal .modal-content {
+    @apply p-6 rounded-xl shadow-lg w-80 border;
+    border: 1px solid color-mix(in srgb, var(--color-readable) 60%, transparent);
+    backdrop-filter: blur(10px);
+  }
+
+  .custom-timer-modal h2 {
+    @apply text-xl font-bold mb-4;
+    color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+  }
+
+  .custom-timer-modal label {
+    @apply block mb-2 ;
+    color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+  }
+
+  .custom-timer-modal input {
+
+  }
+
+  .custom-timer-modal .modal-buttons {
+    @apply flex justify-end gap-2;
+  }
+
+  .custom-timer-modal button {
+    @apply py-2 px-4 rounded-lg font-medium transition-all duration-300;
+    color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+  }
+
+  .custom-timer-modal .cancel-btn {
+
+  }
+
+  .custom-timer-modal .submit-btn {
+
+  }
+}

@@ -1,20 +1,20 @@
 import React from "react";
 
-const TimerPresets = ({ presets, onSelect, onCustomClick }) => {
+const TimerPresets = ({ presets, activePreset, onSelect, onCustom }) => {
   return (
-    <div className="timer-presets flex justify-center gap-2 mb-4">
+    <div className="timer-presets">
       {presets.map((preset, index) => (
         <button
           key={index}
-          className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-1 px-3 rounded"
-          onClick={() => onSelect(preset.time)}
+          className={activePreset === index ? "active button-secondary" : "button-secondary"}
+          onClick={() => onSelect(preset.time, index)}
         >
           {preset.name}
         </button>
       ))}
       <button
-        className="bg-gray-500 hover:bg-gray-600 text-white font-medium py-1 px-3 rounded"
-        onClick={onCustomClick}
+        className="button-secondary"
+        onClick={onCustom}
       >
         Custom
       </button>
