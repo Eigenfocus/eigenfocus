@@ -19,19 +19,13 @@ const PomodoroTimer = ({ onRunningStart, onRunningStop }) => {
 
   const [alarms, setAlarms] = useState(getAlarms())
 
-  const selectedAlarm = {
-    get() {
-      return alarms.find(alarm => alarm.isDefault)
-    }
-  }
-
   const interval = useRef(null)
 
   const {
     playSound: playAlarm,
     pauseSound: pauseAlarm,
     changeSource: changeAlarmSource
-  } = useSound(selectedAlarm.src, { loop: true, maxPlays: 3, volume: 0.7 })
+  } = useSound(alarms.find(alarm => alarm.isDefault).src, { loop: true, volume: 0.7, maxSeconds: 8 })
 
   const updateDefaultAlarmTo = (newSelectedAlarm) => {
     storePreferenceForDefaultAlarm(newSelectedAlarm.key)
@@ -87,7 +81,7 @@ const PomodoroTimer = ({ onRunningStart, onRunningStop }) => {
   return (
     <div className="pomodoro-timer">
       <TimerPresets presets={timePresets} onSelect={handlePresetSelect} onCustom={() => setShowCustomModal(true)} />
-      <TimerDisplay timeRemaining={timeRemaining} isPulsing={isRunning} />
+      <TimerDisplay timeRemaining={timeRemaining} isPulsing={isRunning} isShaking={timeRemaining == 0} />
       <TimerControls
         isRunning={isRunning}
         isFinished={timeRemaining == 0}

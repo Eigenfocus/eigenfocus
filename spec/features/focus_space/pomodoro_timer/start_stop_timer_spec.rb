@@ -22,17 +22,16 @@ describe 'Focus Space - Pomodoro Timer' do
     end
   end
 
-
   specify "I can pause the timer" do
     find(".timer-controls .start-pause-button", text: "Start").click
 
     # not worth the time... no pun intended
-    # sleep 1.1
+    # sleep 3.14
 
     find(".timer-controls .start-pause-button", text: "Pause").click
 
     # within ".timer-display" do
-    #   expect(page).to have_content("24:")
+    #   expect(page).to have_content("24:59")
     # end
   end
 end

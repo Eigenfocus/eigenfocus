@@ -8,12 +8,11 @@ export const useSound = (audioSource, { volume = 1, loop = false, maxPlays = 0, 
 
   useEffect(() => {
     soundRef.current = new Audio(audioSource)
+    soundRef.current.volume = volume
 
     // Looping sounds does not trigger 'ended' event.
     // So we use a custom event listener to handle the loop.
     // soundRef.current.loop = loop
-    soundRef.current.volume = volume
-
     soundRef.current.addEventListener('ended', () => {
       if (loop) {
         playCount++
