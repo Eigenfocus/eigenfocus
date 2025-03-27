@@ -11,7 +11,10 @@ const FocusApp = ({ focusSpaceConfig = {} }) => {
 
   return (
     <div className={`focus-app ${isShowing ? 'space-showing' : ''} ${hasSoundPlaying ? 'playing' : ''}`}>
-      <FocusSpace isShowing={isShowing} focusSpaceConfig={focusSpaceConfig} onPlayStart={() => setHasSoundPlaying(true)} onPlayStop={() => setHasSoundPlaying(false)} />
+      <FocusSpace isShowing={isShowing}
+        focusSpaceConfig={focusSpaceConfig} onPlayStart={() => setHasSoundPlaying(true)}
+        onPlayStop={() => setHasSoundPlaying(false)}
+        onHide={() => setIsShowing(false)} />
 
       <div className="focus-space-access-buttons">
         <button className={`open-space-button ${isShowing ? 'close' : 'open'}`} onClick={() => setIsShowing(!isShowing)}>
