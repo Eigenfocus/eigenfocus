@@ -16,15 +16,26 @@ module Turbo::Streams::Broadcasts
   def broadcast_dispatch_message_to(*streamables, action:, **opts)
     broadcast_stream_to(
       *streamables,
-      content: turbo_stream_action_tag(action, **opts)
+      content: render_content_template(**opts)
     )
   end
 
   def broadcast_dispatch_message_later_to(*streamables, action:, **opts)
     Turbo::Streams::BroadcastStreamJob.perform_later(
       stream_name_from(streamables),
-      content: turbo_stream_action_tag(action, **opts)
+      content: render_content_template(**opts)
     )
+  end
+
+  private
+
+  def render_content_template(event:, data: {})
+    # Allows data to be serialized before dispatching it
+    data = data.to_json unless data.is_a? String
+
+    template = content_tag :script, data.html_safe, type: "application/json"
+
+    turbo_stream_action_tag :dispatch_event, event: event, template: template
   end
 end
 
