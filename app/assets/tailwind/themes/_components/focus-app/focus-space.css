@@ -1,5 +1,5 @@
 .focus-space {
-  @apply fixed z-999 top-0 left-0 w-full h-full backdrop-blur-md;
+  @apply fixed pt-64 md:pt-0 flex-col gap-16 justify-center items-center z-999 top-0 left-0 w-full h-full backdrop-blur-md overflow-scroll;
   display: none;
 
   background: linear-gradient(
@@ -12,9 +12,8 @@
 
 	background-size: 400% 400%;
 	animation: animated-background 14s linear infinite;
-	height: 100vh;
 }
 
 .focus-app.space-showing .focus-space {
-  display: block;
+  display: flex;
 }

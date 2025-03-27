@@ -15,15 +15,15 @@ const FocusSpace = ({ isShowing, focusSpaceConfig, onPlayStart, onPlayStop }) =>
   return (
     <React.Fragment>
       <div className={`focus-space ${isShowing ? 'showing' : ''}`}>
-        <div className="flex flex-col items-stretch justify-stretch h-full w-full">
-          <div className="flex basis-1 grow items-center justify-center">
-            <PomodoroTimer onTimerComplete={handleTimerComplete} />
-          </div>
-          <div className="flex basis-1 grow items-center justify-center">
-            <AmbientSoundsPlayer selectedSounds={selectedSounds} onPlay={onPlayStart} onStop={onPlayStop} />
-          </div>
+
+        <div className="flex items-center justify-center">
+          <PomodoroTimer onTimerComplete={handleTimerComplete} />
+        </div>
+        <div className="flex items-center justify-center">
+          <AmbientSoundsPlayer selectedSounds={selectedSounds} onPlay={onPlayStart} onStop={onPlayStop} />
         </div>
       </div>
+
     </React.Fragment>
   )
 }
