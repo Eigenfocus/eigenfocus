@@ -27,8 +27,6 @@ const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
   } = useSound(alarms[0].src, { loop: true, maxPlays: 3 });
 
   useEffect(() => {
-    playAlarm();
-
     if (isRunning && timeRemaining > 0) {
       interval.current = setInterval(() => {
         setTimeRemaining(prev => prev - 1);
