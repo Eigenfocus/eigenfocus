@@ -13,31 +13,19 @@ export const getTimePresets = () => {
     if (storedPresets) {
       const parsedPresets = JSON.parse(storedPresets)
 
-      // Validate the structure of the stored presets
-      if (Array.isArray(parsedPresets) &&
-          parsedPresets.every(preset =>
-            typeof preset === 'object' &&
-            'name' in preset &&
-            'minutes' in preset)) {
-
-        // Convert minutes to seconds for internal use
-        return parsedPresets
-      }
+      return parsedPresets
     }
 
-    // If nothing in storage or invalid format, return defaults
     return [...DEFAULT_TIME_PRESETS]
   } catch (error) {
     console.error("Error getting time presets:", error)
 
-    // Return defaults if there's an error
     return [...DEFAULT_TIME_PRESETS]
   }
 }
 
 export const updateTimePresets = (presets) => {
   try {
-    // Convert the presets to a storage format (with minutes instead of seconds)
     const presetsForStorage = presets.map(preset => ({
       name: preset.name,
       minutes: preset.minutes

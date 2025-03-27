@@ -55,6 +55,7 @@ const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
 
   const handleCustomTimerSubmit = (newTimePresets) => {
     setTimePresets(newTimePresets);
+    updateTimePresets(newTimePresets);
     setShowCustomModal(false)
   };
 
