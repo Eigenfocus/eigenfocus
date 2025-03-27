@@ -11,7 +11,7 @@ describe 'Focus Space - Ambient Sounds' do
     find(".ambient-sounds-list .sound", text: "Rain").click
     find(".ambient-sounds-list .sound", text: "Walk").click
 
-    within(".play-button") do
+    within(".control-bar .button-primary") do
       expect(page).to have_content("Stop")
     end
 

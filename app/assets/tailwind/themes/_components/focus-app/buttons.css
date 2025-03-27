@@ -1,0 +1,53 @@
+.focus-app {
+  .button-primary {
+    @apply text-base px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105;
+    color: color-mix(in srgb, var(--color-readable) 80%, transparent);
+    backdrop-filter: blur(4px);
+    border: 2px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
+    transition: all 0.2s ease-in-out;
+
+    svg {
+      @apply mr-2;
+    }
+
+    &:hover {
+      color: color-mix(in srgb, var(--color-readable) 80%, transparent);
+      border-color: color-mix(in srgb, var(--color-readable) 80%, transparent);
+    }
+
+    &.big {
+      @apply px-8 py-3 text-lg;
+    }
+  }
+
+  .button-secondary {
+    @apply text-base flex items-center rounded-md px-4 py-2;
+    border: 1px solid color-mix(in srgb, var(--color-readable) 60%, transparent);
+    color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+
+    transition: all 0.2s ease-in-out;
+    svg {
+      @apply mr-2;
+    }
+
+    &:hover {
+      color: color-mix(in srgb, var(--color-readable) 80%, transparent);
+      border-color: color-mix(in srgb, var(--color-readable) 80%, transparent);
+      background-color: color-mix(in srgb, var(--color-readable) 5%, transparent);
+    }
+  }
+
+  .button-clean {
+    @apply text-base;
+
+    color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+
+    svg {
+      @apply mr-2;
+    }
+
+    &:hover {
+      color: color-mix(in srgb, var(--color-readable) 80%, transparent);
+    }
+  }
+}

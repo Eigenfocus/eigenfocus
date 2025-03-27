@@ -4,8 +4,8 @@ import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
 
 import { t } from 'i18n.js.erb'
 
-const PlayButton = ({ isPlaying, onClick }) => {
-  return <button onClick={onClick} className="play-button">
+const PlayStopButton = ({ isPlaying, onPlayToggle }) => {
+  return <button onClick={onPlayToggle} className="button-primary start-pause-button">
     {
       isPlaying ?
       (<FontAwesomeIcon icon={faStop} />) :
@@ -15,4 +15,4 @@ const PlayButton = ({ isPlaying, onClick }) => {
   </button>
 }
 
-export default PlayButton
+export default PlayStopButton

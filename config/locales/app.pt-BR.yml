@@ -18,6 +18,7 @@ pt-BR:
   month: 'Mês'
   hours: 'Horas'
   minutes: 'Minutos'
+  settings: 'Configurações'
   click_here: 'Clique aqui'
   zero_records: "Você ainda não criou nenhum(a) %{resource_name}."
   zero_records_for_this_search: "Nenhum registro foi encontrado para sua busca."
@@ -45,12 +46,15 @@ pt-BR:
     remove: "Remover"
     archive: "Arquivar"
     unarchive: "Reativar"
+    save: "Salvar"
     cancel: "Cancelar"
     reload: "Atualizar"
     close: "Fechar"
     start: "Iniciar"
     stop: "Parar"
     play: "Tocar"
+    pause: "Pausar"
+    reset: "Reiniciar"
     i_am_lucky: "Estou com sorte"
     invite: "Convidar"
     activate: "Ativar"

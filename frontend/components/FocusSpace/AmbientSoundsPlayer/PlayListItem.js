@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { ReactSVG } from 'react-svg'
 
 import SoundWaveIcon from './SoundWaveIcon'
+import useSound from "shared/useSound";
 
 const PlayListItem = ({
   src,
@@ -14,28 +15,32 @@ const PlayListItem = ({
   onDeselect,
   onVolumeChange
 }) => {
-  const audioRef = useRef(null)
+
+  const {
+    playSound,
+    pauseSound,
+    changeVolume,
+    changeSource,
+  } = useSound(src, { loop: true, volume: volume });
 
   useEffect(() => {
-    if (!audioRef.current) {
-      const audio = new Audio(src)
-      audioRef.current = audio
-      audio.loop = true
-      audioRef.current.volume = volume
-    }
     if (isPlaying) {
-      audioRef.current.play()
+      playSound()
     } else {
-      audioRef.current.pause()
+      pauseSound()
     }
-  }, [isPlaying, src])
+  }, [isPlaying])
+
+  useEffect(() => {
+    changeSource(src)
+  }, [src])
 
   const handleVolumeChange = (
     event
   ) => {
     const value = parseFloat(event.target.value)
     onVolumeChange(value)
-    audioRef.current && (audioRef.current.volume = value)
+    changeVolume(value)
   }
 
   const handleClick = () => {

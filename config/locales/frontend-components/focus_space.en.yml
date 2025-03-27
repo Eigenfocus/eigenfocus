@@ -9,3 +9,15 @@ en:
       office: "Office"
       walk: "Walk"
       whitenoise: "White Noise"
+    pomodoro_timer:
+      timers_settings: "Timers settings"
+      sound_settings: "Alarm sound"
+      pomodoro: "Pomodoro"
+      short_break: "Short Break"
+      long_break: "Long Break"
+      alarms:
+        standard: "Standard"
+        digital: "Digital"
+        funny: "Funny"
+        magic: "Magic"
+        ringbell: "Ringbell"
