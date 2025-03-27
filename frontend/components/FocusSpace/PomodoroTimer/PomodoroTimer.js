@@ -2,18 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import TimerPresets from "./TimerPresets";
 import TimerDisplay from "./TimerDisplay";
 import TimerControls from "./TimerControls";
-import CustomTimerModal from "./CustomTimerModal";
+import CustomTimersModal from "./CustomTimersModal";
 
-const timePresets = [
-  { name: "Pomodoro", time: 25 * 60 },
-  { name: "Short Break", time: 5 * 60 },
-  { name: "Long Break", time: 15 * 60 }
-];
+import { getTimePresets, updateTimePresets } from "./time_presets";
 
-
+const _timePresets = getTimePresets();
+const firstTimePreset = _timePresets[0];
 const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
-  const [timeRemaining, setTimeRemaining] = useState(25 * 60);
-  const [initialTime, setInitialTime] = useState(25 * 60);
+  const [timePresets, setTimePresets] = useState(_timePresets);
+  const [timeRemaining, setTimeRemaining] = useState(firstTimePreset.minutes * 60);
+  const [initialTime, setInitialTime] = useState(firstTimePreset.minutes * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [showCustomModal, setShowCustomModal] = useState(false);
 
@@ -49,17 +47,15 @@ const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
     setTimeRemaining(initialTime);
   };
 
-  const handlePresetSelect = (time) => {
+  const handlePresetSelect = (minutes) => {
     setIsRunning(false);
-    setInitialTime(time);
-    setTimeRemaining(time);
+    setInitialTime(minutes * 60);
+    setTimeRemaining(minutes * 60);
   };
 
-  const handleCustomTimer = (minutes) => {
-    const seconds = minutes * 60;
-    setInitialTime(seconds);
-    setTimeRemaining(seconds);
-    setShowCustomModal(false);
+  const handleCustomTimerSubmit = (newTimePresets) => {
+    setTimePresets(newTimePresets);
+    setShowCustomModal(false)
   };
 
   return (
@@ -72,9 +68,10 @@ const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
         onReset={handleReset}
       />
       {showCustomModal && (
-        <CustomTimerModal
+        <CustomTimersModal
+          timePresets={timePresets}
           onClose={() => setShowCustomModal(false)}
-          onSubmit={handleCustomTimer}
+          onSubmit={handleCustomTimerSubmit}
         />
       )}
     </div>

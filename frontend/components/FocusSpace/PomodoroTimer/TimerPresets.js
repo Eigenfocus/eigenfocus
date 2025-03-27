@@ -7,7 +7,7 @@ const TimerPresets = ({ presets, activePreset, onSelect, onCustom }) => {
         <button
           key={index}
           className={activePreset === index ? "active button-secondary" : "button-secondary"}
-          onClick={() => onSelect(preset.time, index)}
+          onClick={() => onSelect(preset.minutes, index)}
         >
           {preset.name}
         </button>

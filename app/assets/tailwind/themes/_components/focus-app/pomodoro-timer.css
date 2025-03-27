@@ -24,8 +24,8 @@
     background: rgba(, 0, 0, 0.3);
     backdrop-filter: blur(5px);
 
-    .modal-content {
-      @apply p-6 rounded-xl shadow-lg w-80 border;
+    .timer-modal-content {
+      @apply p-6 rounded-xl shadow-lg border;
       background-color: color-mix(in srgb, var(--color-readable) 20%, transparent);
       color: var(--color-readable);
       border: 2px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
@@ -36,7 +36,7 @@
       }
 
       .input-field {
-        @apply w-full rounded-md p-2;
+        @apply rounded-md w-auto p-2;
         background: white;
         border: 1px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
         color: #333;
