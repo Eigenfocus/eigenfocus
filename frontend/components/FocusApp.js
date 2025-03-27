@@ -4,7 +4,7 @@ import FocusSpace from "./FocusSpace"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faWindowRestore, faVolumeHigh } from '@fortawesome/free-solid-svg-icons'
 
-const FocusApp = ({ focusSpaceConfig = {} }) => {
+const FocusApp = ({ }) => {
 
   const [isShowing, setIsShowing] = useState(false)
   const [hasSoundPlaying, setHasSoundPlaying] = useState(false)
@@ -12,7 +12,7 @@ const FocusApp = ({ focusSpaceConfig = {} }) => {
   return (
     <div className={`focus-app ${isShowing ? 'space-showing' : ''} ${hasSoundPlaying ? 'playing' : ''}`}>
       <FocusSpace isShowing={isShowing}
-        focusSpaceConfig={focusSpaceConfig} onPlayStart={() => setHasSoundPlaying(true)}
+        onPlayStart={() => setHasSoundPlaying(true)}
         onPlayStop={() => setHasSoundPlaying(false)}
         onHide={() => setIsShowing(false)} />
 

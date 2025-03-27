@@ -2,9 +2,7 @@ import React, { useState } from "react"
 import AmbientSoundsPlayer from "./AmbientSoundsPlayer"
 import PomodoroTimer from "./PomodoroTimer"
 
-const FocusSpace = ({ isShowing, onHide, focusSpaceConfig, onPlayStart, onPlayStop }) => {
-  const selectedSounds = focusSpaceConfig["favorite_ambient_sounds"] || []
-  const [timerComplete, setTimerComplete] = useState(false)
+const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayStop }) => {
 
   const handleClickOutside = (e) => {
     if (e.target === e.currentTarget) {
@@ -14,8 +12,6 @@ const FocusSpace = ({ isShowing, onHide, focusSpaceConfig, onPlayStart, onPlaySt
 
   const handleTimerComplete = () => {
     setTimerComplete(true)
-    // You might want to add sound notification or other actions here
-    setTimeout(() => setTimerComplete(false), 3000)
   }
 
   return (
@@ -26,7 +22,7 @@ const FocusSpace = ({ isShowing, onHide, focusSpaceConfig, onPlayStart, onPlaySt
           <PomodoroTimer onTimerComplete={handleTimerComplete} />
         </div>
         <div className="flex items-center justify-center">
-          <AmbientSoundsPlayer selectedSounds={selectedSounds} onPlay={onPlayStart} onStop={onPlayStop} />
+          <AmbientSoundsPlayer onPlay={onPlayStart} onStop={onPlayStop} />
         </div>
       </div>
 
