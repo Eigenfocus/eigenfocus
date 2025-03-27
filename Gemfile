@@ -49,6 +49,10 @@ gem "i18n-js", "~> 4.2"
 # For configuration files
 gem "dry-struct", "~> 1.8"
 
+# Reports
+# CSV will be removed from ruby 3.4
+gem "csv"
+
 group :development, :test do
   gem "dotenv"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
