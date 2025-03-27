@@ -39,21 +39,6 @@
         border-color: color-mix(in srgb, var(--color-readable) 80%, transparent);
       }
     }
-
-    .preset-button {
-      @apply text-base;
-
-      color: color-mix(in srgb, var(--color-readable) 60%, transparent);
-
-      svg {
-        @apply mr-2;
-      }
-
-      &:hover {
-        color: color-mix(in srgb, var(--color-readable) 80%, transparent);
-      }
-    }
-
   }
 
   .ambient-sounds-list {
