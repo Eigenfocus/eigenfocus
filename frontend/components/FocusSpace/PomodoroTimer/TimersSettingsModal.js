@@ -5,7 +5,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 import { t } from 'i18n.js.erb'
 
-const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
+const TimersSettingsModal = ({ timePresets, onClose, onSubmit }) => {
   const [mutableTimePresets, setMutableTimePresets] = useState([...timePresets]);
 
   const handleClickOutside = (e) => {
@@ -39,20 +39,20 @@ const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
         </button>
         <h2 className="text-xl font-bold mb-4">{ t("focus_space.pomodoro_timer.timers_settings") }</h2>
         <form onSubmit={handleSubmit}>
-            {mutableTimePresets.map(({name, minutes}, key) => (
-              <div className="flex justify-stretch gap-2 mb-4" key={key}>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => updateTimePreset({ name: e.target.value }, key)}
-                  className="input-field grow"
-                />
+          {mutableTimePresets.map(({name, minutes}, key) => (
+            <div className="flex justify-stretch gap-2 mb-4" key={key}>
               <input
-                type="number"
-                value={minutes == 0 ? '' : minutes}
-                min={1}
-                onChange={(e) => updateTimePreset({ minutes: (e.target.value === '' ? 0 : parseInt(e.target.value)) }, key)}
-                className="input-field w-16 text-center"
+                type="text"
+                value={name}
+                onChange={(e) => updateTimePreset({ name: e.target.value }, key)}
+                className="input-field grow"
+              />
+            <input
+              type="number"
+              value={minutes == 0 ? '' : minutes}
+              min={1}
+              onChange={(e) => updateTimePreset({ minutes: (e.target.value === '' ? 0 : parseInt(e.target.value)) }, key)}
+              className="input-field w-16 text-center"
               />
               <label className="flex items-center text-xs">{ t("minutes") }</label>
             </div>
@@ -71,7 +71,6 @@ const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
             <button
               type="submit"
               className="button-primary"
-              onClick={handleSubmit}
             >
               { t("actions.save") }
             </button>
@@ -82,4 +81,4 @@ const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
   );
 };
 
-export default CustomTimersModal;
+export default TimersSettingsModal;

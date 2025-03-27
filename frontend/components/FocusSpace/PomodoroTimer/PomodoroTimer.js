@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import TimerPresets from "./TimerPresets";
 import TimerDisplay from "./TimerDisplay";
 import TimerControls from "./TimerControls";
-import CustomTimersModal from "./CustomTimersModal";
+import TimersSettingsModal from "./TimersSettingsModal";
 
 import { getTimePresets, updateTimePresets } from "./time_presets";
 
@@ -69,7 +69,7 @@ const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
         onReset={handleReset}
       />
       {showCustomModal && (
-        <CustomTimersModal
+        <TimersSettingsModal
           timePresets={timePresets}
           onClose={() => setShowCustomModal(false)}
           onSubmit={handleCustomTimerSubmit}
