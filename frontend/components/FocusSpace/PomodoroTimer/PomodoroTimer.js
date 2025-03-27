@@ -5,19 +5,30 @@ import TimerControls from "./TimerControls";
 import TimersSettingsModal from "./TimersSettingsModal";
 
 import { getTimePresets, updateTimePresets } from "./time_presets";
+import useSound from "shared/useSound";
+import { getAlarms, setSelectedAlarmKey, getSelectedAlarmKey } from "./alarms";
 
 const _timePresets = getTimePresets();
-const firstTimePreset = _timePresets[0];
+const alarms = getAlarms();
+
 const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
   const [timePresets, setTimePresets] = useState(_timePresets);
-  const [timeRemaining, setTimeRemaining] = useState(firstTimePreset.minutes * 60);
-  const [initialTime, setInitialTime] = useState(firstTimePreset.minutes * 60);
+  const [timeRemaining, setTimeRemaining] = useState(_timePresets[0].minutes * 60);
+  const [initialTime, setInitialTime] = useState(_timePresets[0].minutes * 60);
   const [isRunning, setIsRunning] = useState(false);
   const [showCustomModal, setShowCustomModal] = useState(false);
 
   const interval = useRef(null);
 
+  const {
+    playSound: playAlarm,
+    pauseSound: pauseAlarm,
+    changeSource: changeAlarmSource
+  } = useSound(alarms[0].src, { loop: true, maxPlays: 3 });
+
   useEffect(() => {
+    playAlarm();
+
     if (isRunning && timeRemaining > 0) {
       interval.current = setInterval(() => {
         setTimeRemaining(prev => prev - 1);
