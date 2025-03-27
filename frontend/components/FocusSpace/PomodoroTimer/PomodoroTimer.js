@@ -65,7 +65,7 @@ const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
   return (
     <div className="pomodoro-timer">
       <TimerPresets presets={timePresets} onSelect={handlePresetSelect} onCustom={() => setShowCustomModal(true)} />
-      <TimerDisplay timeRemaining={timeRemaining} />
+      <TimerDisplay timeRemaining={timeRemaining} isPulsing={isRunning} />
       <TimerControls
         isRunning={isRunning}
         onStartPause={handleStartPause}
