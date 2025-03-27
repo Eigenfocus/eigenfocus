@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
+import { t } from 'i18n.js.erb'
+
 const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
   const [mutableTimePresets, setMutableTimePresets] = useState([...timePresets]);
 
@@ -35,7 +37,7 @@ const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
         <button className="close-button" onClick={onClose}>
           <FontAwesomeIcon icon={faXmark} />
         </button>
-        <h2 className="text-xl font-bold mb-4">Timer Presets</h2>
+        <h2 className="text-xl font-bold mb-4">{ t("focus_space.pomodoro_timer.timers_settings") }</h2>
         <form onSubmit={handleSubmit}>
             {mutableTimePresets.map(({name, minutes}, key) => (
               <div className="flex justify-stretch gap-2 mb-4" key={key}>
@@ -52,7 +54,7 @@ const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
                 onChange={(e) => updateTimePreset({ minutes: (e.target.value === '' ? 0 : parseInt(e.target.value)) }, key)}
                 className="input-field w-16 text-center"
               />
-              <label className="flex items-center text-xs">Minutes</label>
+              <label className="flex items-center text-xs">{ t("minutes") }</label>
             </div>
           ))}
           <div className="flex justify-end gap-5">
@@ -64,14 +66,14 @@ const CustomTimersModal = ({ timePresets, onClose, onSubmit }) => {
               }}
               className="button-clean"
             >
-              Cancel
+              { t("actions.cancel") }
             </button>
             <button
               type="submit"
               className="button-primary"
               onClick={handleSubmit}
             >
-              Save
+              { t("actions.save") }
             </button>
           </div>
         </form>

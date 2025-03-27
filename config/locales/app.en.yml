@@ -17,6 +17,7 @@ en:
   month: 'Month'
   hours: 'Hours'
   minutes: 'Minutes'
+  settings: 'Settings'
   click_here: 'Click here'
   zero_records: "You haven't created any %{resource_name} yet."
   zero_records_for_this_search: "No records were found for your search."
@@ -44,6 +45,7 @@ en:
     remove: "Remove"
     archive: "Archive"
     unarchive: "Unarchive"
+    save: "Save"
     cancel: "Cancel"
     reload: "Reload"
     close: "Close"
@@ -53,6 +55,8 @@ en:
     start: "Start"
     stop: "Stop"
     play: "Play"
+    pause: "Pause"
+    reset: "Reset"
     i_am_lucky: "I'm lucky"
     select: "Select"
     allocate: "Allocate"

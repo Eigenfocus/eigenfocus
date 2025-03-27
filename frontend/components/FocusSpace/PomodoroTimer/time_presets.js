@@ -1,7 +1,9 @@
+import { t } from 'i18n.js.erb'
+
 const DEFAULT_TIME_PRESETS = [
-  { name: "Pomodoro", minutes: 25 },
-  { name: "Short Break", minutes: 5 },
-  { name: "Long Break", minutes: 15 }
+  { name: t("focus_space.pomodoro_timer.pomodoro"), minutes: 25 },
+  { name: t("focus_space.pomodoro_timer.short_break"), minutes: 5 },
+  { name: t("focus_space.pomodoro_timer.long_break"), minutes: 15 }
 ]
 
 const STORAGE_KEY = "pomodoro_time_presets"

@@ -9,3 +9,8 @@ pt-BR:
       office: "Escritório"
       walk: "Caminhada"
       whitenoise: "Ruído Branco"
+    pomodoro_timer:
+      timers_settings: "Configurações de Tempos"
+      pomodoro: "Pomodoro"
+      short_break: "Intervalo Curto"
+      long_break: "Intervalo Longo"

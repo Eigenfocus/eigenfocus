@@ -9,3 +9,8 @@ en:
       office: "Office"
       walk: "Walk"
       whitenoise: "White Noise"
+    pomodoro_timer:
+      timers_settings: "Timers Settings"
+      pomodoro: "Pomodoro"
+      short_break: "Short Break"
+      long_break: "Long Break"

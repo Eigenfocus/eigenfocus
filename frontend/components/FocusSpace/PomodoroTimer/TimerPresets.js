@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCog } from '@fortawesome/free-solid-svg-icons'
+import { t } from 'i18n.js.erb'
 
 const TimerPresets = ({ presets, activePreset, onSelect, onCustom }) => {
   return (
@@ -19,7 +20,7 @@ const TimerPresets = ({ presets, activePreset, onSelect, onCustom }) => {
         onClick={onCustom}
       >
         <FontAwesomeIcon icon={faCog} />
-        Settings
+        {t("settings")}
       </button>
     </div>
   );
