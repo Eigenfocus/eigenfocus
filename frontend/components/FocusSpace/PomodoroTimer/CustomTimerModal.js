@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+
 const CustomTimerModal = ({ onClose, onSubmit }) => {
   const [minutes, setMinutes] = useState(25);
 
@@ -17,6 +20,9 @@ const CustomTimerModal = ({ onClose, onSubmit }) => {
   return (
     <div className="timer-modal" onClick={handleClickOutside}>
       <div className="modal-content">
+        <button className="close-button" onClick={onClose}>
+          <FontAwesomeIcon icon={faXmark} />
+        </button>
         <h2 className="text-xl font-bold mb-4">Custom Timer</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

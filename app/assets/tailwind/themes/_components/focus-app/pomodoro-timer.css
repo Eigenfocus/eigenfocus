@@ -29,13 +29,18 @@
       background-color: color-mix(in srgb, var(--color-readable) 20%, transparent);
       color: var(--color-readable);
       border: 2px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
-    }
+      position: relative;
 
-    .input-field {
-      @apply w-full rounded-md p-2;
-      background: white;
-      border: 1px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
-      color: #333;
+      .close-button {
+        @apply absolute top-2 right-2 text-2xl;
+      }
+
+      .input-field {
+        @apply w-full rounded-md p-2;
+        background: white;
+        border: 1px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
+        color: #333;
+      }
     }
   }
 
