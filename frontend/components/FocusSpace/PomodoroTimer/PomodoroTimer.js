@@ -6,19 +6,17 @@ import TimersSettingsModal from "./TimersSettingsModal"
 
 import { getTimePresets, updateTimePresets } from "./time_presets"
 import useSound from "shared/useSound"
-import { getAlarms, storePreferenceForDefaultAlarm } from "./alarms"
+import { useAlarms } from "./useAlarms"
 
 const _timePresets = getTimePresets()
-const alarms = getAlarms()
+
 const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
   const [timePresets, setTimePresets] = useState(_timePresets);
   const [timeRemaining, setTimeRemaining] = useState(_timePresets[0].minutes * 60)
   const [initialTime, setInitialTime] = useState(_timePresets[0].minutes * 60)
   const [isRunning, setIsRunning] = useState(false)
   const [showCustomModal, setShowCustomModal] = useState(false)
-
-  const [alarms, setAlarms] = useState(getAlarms())
-
+  const { alarms, setDefaultAlarmKey } = useAlarms()
   const interval = useRef(null)
 
   const {
@@ -27,11 +25,9 @@ const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
     changeSource: changeAlarmSource
   } = useSound(alarms.find(alarm => alarm.isDefault).src, { loop: true, volume: 0.7, maxSeconds: 8 })
 
-  const updateDefaultAlarmTo = (newSelectedAlarm) => {
-    storePreferenceForDefaultAlarm(newSelectedAlarm.key)
-    setAlarms(getAlarms())
-    changeAlarmSource(newSelectedAlarm.src)
-  }
+  useEffect(() => {
+    changeAlarmSource(alarms.find(alarm => alarm.isDefault).src)
+  }, [alarms])
 
   useEffect(() => {
     if (isRunning && timeRemaining > 0) {
@@ -74,7 +70,7 @@ const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
   const handleCustomTimerSubmit = (newTimePresets, newSelectedAlarm) => {
     setTimePresets(newTimePresets)
     updateTimePresets(newTimePresets)
-    updateDefaultAlarmTo(newSelectedAlarm)
+    setDefaultAlarmKey(newSelectedAlarm.key)
     setShowCustomModal(false)
   }
 

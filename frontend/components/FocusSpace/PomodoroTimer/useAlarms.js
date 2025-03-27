@@ -1,4 +1,5 @@
 import { t } from 'i18n.js.erb'
+import { useState } from 'react'
 
 function alarmUrl(key) {
   const ALARM_REPOSITORY_URL = 'https://eigenfocus.github.io/focus-assets/alarms'
@@ -6,7 +7,7 @@ function alarmUrl(key) {
   return `${ALARM_REPOSITORY_URL}/${key}-alarm.mp3`
 }
 
-const alarms = [
+const ALARMS_LIST = [
   {
     key: 'standard',
     src: alarmUrl('standard'),
@@ -36,19 +37,36 @@ const alarms = [
 
 const LOCAL_STORAGE_KEY = `focus_default_alarm_key`
 
-function getDefaultAlarmKey() {
-  return localStorage.getItem(LOCAL_STORAGE_KEY) ?? alarms[0].key
-}
-
 function storePreferenceForDefaultAlarm(alarmKey) {
   localStorage.setItem(LOCAL_STORAGE_KEY, alarmKey)
 }
 
-function getAlarms() {
-  return alarms.map(alarm => ({
+function getDefaultAlarmKey() {
+  return localStorage.getItem(LOCAL_STORAGE_KEY) ?? ALARMS_LIST[0].key
+}
+
+function getConfiguredAlarms() {
+  const newAlarms = ALARMS_LIST.map(alarm => ({
     ...alarm,
     isDefault: alarm.key === getDefaultAlarmKey()
   }))
+
+  if (!newAlarms.find(alarm => alarm.isDefault)) {
+    newAlarms[0].isDefault = true
+  }
+
+  return newAlarms
 }
 
-export { getAlarms, storePreferenceForDefaultAlarm }
+export const useAlarms = () => {
+  const [alarms, setAlarms] = useState(getConfiguredAlarms())
+
+  function setDefaultAlarmKey(alarmKey) {
+    storePreferenceForDefaultAlarm(alarmKey)
+    setAlarms(getConfiguredAlarms())
+  }
+
+  return { alarms, setDefaultAlarmKey }
+}
+
+export default useAlarms
