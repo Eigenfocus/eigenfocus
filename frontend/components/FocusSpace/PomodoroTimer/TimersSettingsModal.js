@@ -79,12 +79,18 @@ const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
                 <option key={key} value={alarm.key}>{alarm.title}</option>
               ))}
             </select>
-            <button className="ml-4 button-clean tex-xs" onClick={playSelectedAlarm}>
+            <a className="ml-4 button-clean tex-xs" onClick={playSelectedAlarm}>
               <FontAwesomeIcon icon={faPlay} />
               { t("actions.play") }
-            </button>
+            </a>
           </div>
-          <div className="flex justify-end gap-5">
+          <div className="flex flex-row-reverse gap-5">
+            <button
+              type="submit"
+              className="button-primary"
+            >
+              { t("actions.save") }
+            </button>
             <button
               type="button-clean"
               onClick={(e) => {
@@ -94,12 +100,6 @@ const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
               className="button-clean"
             >
               { t("actions.cancel") }
-            </button>
-            <button
-              type="submit"
-              className="button-primary"
-            >
-              { t("actions.save") }
             </button>
           </div>
         </form>
