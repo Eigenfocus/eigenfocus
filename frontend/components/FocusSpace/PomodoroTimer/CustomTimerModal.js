@@ -3,13 +3,19 @@ import React, { useState } from "react";
 const CustomTimerModal = ({ onClose, onSubmit }) => {
   const [minutes, setMinutes] = useState(25);
 
+  const handleClickOutside = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(minutes);
   };
 
   return (
-    <div className="timer-modal">
+    <div className="timer-modal" onClick={handleClickOutside}>
       <div className="modal-content">
         <h2 className="text-xl font-bold mb-4">Custom Timer</h2>
         <form onSubmit={handleSubmit}>
