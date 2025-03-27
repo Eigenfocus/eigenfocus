@@ -44,18 +44,27 @@
     display: none;
     font-size: 12px;
     position: absolute;
+    bottom: -4px;
+    left: 4px;
+  }
+
+  .pomodoro-running-icon {
+    @apply rounded-full text-primary-400/50;
+    display: none;
+    font-size: 12px;
+    position: absolute;
     top: -4px;
     left: 4px;
   }
 
-  &.space-showing {
-    .note-icon {
-      display: none;
+  &.playing:not(.space-showing) {
+    .sound-playing-icon {
+      display: block;
     }
   }
 
-  &.playing:not(.space-showing) {
-    .sound-playing-icon {
+  &.pomodoro-running:not(.space-showing) {
+    .pomodoro-running-icon {
       display: block;
     }
   }

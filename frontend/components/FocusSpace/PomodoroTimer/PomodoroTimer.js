@@ -10,7 +10,7 @@ import { getAlarms, storePreferenceForDefaultAlarm } from "./alarms"
 
 const _timePresets = getTimePresets()
 const alarms = getAlarms()
-const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
+const PomodoroTimer = ({ onRunningStart, onRunningStop }) => {
   const [timePresets, setTimePresets] = useState(_timePresets);
   const [timeRemaining, setTimeRemaining] = useState(_timePresets[0].minutes * 60)
   const [initialTime, setInitialTime] = useState(_timePresets[0].minutes * 60)
@@ -48,18 +48,18 @@ const PomodoroTimer = ({ onTimerStart, onTimerComplete }) => {
       const isFirstTick = timeRemaining === initialTime
 
       if (isFirstTick) {
-        if (onTimerStart) onTimerStart()
+        if (onRunningStart) onRunningStart()
       }
     } else if (isRunning && timeRemaining == 0) {
       setIsRunning(false)
-      if (onTimerComplete) onTimerComplete()
       playAlarm()
     } else {
+      if (onRunningStop) onRunningStop()
       clearInterval(interval.current)
     }
 
     return () => clearInterval(interval.current)
-  }, [isRunning, timeRemaining, onTimerComplete])
+  }, [isRunning, timeRemaining])
 
   const handleStartPause = () => {
     setIsRunning(prev => !prev)
