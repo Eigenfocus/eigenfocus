@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClockRotateLeft, faClock, faPause } from '@fortawesome/free-solid-svg-icons'
 
@@ -25,6 +25,6 @@ const TimerControls = ({ isRunning, onStartPause, onReset }) => {
         {t("actions.reset")}
       </button>
     </div>
-  );
-};
-export default TimerControls;
+  )
+}
+export default TimerControls

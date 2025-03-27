@@ -1,2 +1,2 @@
-import PomodoroTimer from './PomodoroTimer';
-export default PomodoroTimer;
+import PomodoroTimer from './PomodoroTimer'
+export default PomodoroTimer

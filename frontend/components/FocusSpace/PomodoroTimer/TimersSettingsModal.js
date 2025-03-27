@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
@@ -6,30 +6,30 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { t } from 'i18n.js.erb'
 
 const TimersSettingsModal = ({ timePresets, onClose, onSubmit }) => {
-  const [mutableTimePresets, setMutableTimePresets] = useState([...timePresets]);
+  const [mutableTimePresets, setMutableTimePresets] = useState([...timePresets])
 
   const handleClickOutside = (e) => {
     if (e.target === e.currentTarget) {
-      onClose();
+      onClose()
     }
   }
 
   const updateTimePreset = ({ name, minutes }, key) => {
-    const newTimePresets = [...mutableTimePresets];
+    const newTimePresets = [...mutableTimePresets]
 
 
     newTimePresets[key] = {
       name: name ?? newTimePresets[key].name,
       minutes: minutes ?? newTimePresets[key].minutes
-    };
+    }
 
-    setMutableTimePresets(newTimePresets);
+    setMutableTimePresets(newTimePresets)
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(mutableTimePresets);
-  };
+    e.preventDefault()
+    onSubmit(mutableTimePresets)
+  }
 
   return (
     <div className="timer-modal" onClick={handleClickOutside}>
@@ -61,8 +61,8 @@ const TimersSettingsModal = ({ timePresets, onClose, onSubmit }) => {
             <button
               type="button-clean"
               onClick={(e) => {
-                e.preventDefault();
-                onClose();
+                e.preventDefault()
+                onClose()
               }}
               className="button-clean"
             >
@@ -78,7 +78,7 @@ const TimersSettingsModal = ({ timePresets, onClose, onSubmit }) => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TimersSettingsModal;
+export default TimersSettingsModal
