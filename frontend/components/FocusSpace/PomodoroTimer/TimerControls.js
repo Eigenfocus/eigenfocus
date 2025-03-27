@@ -4,19 +4,21 @@ import { faClockRotateLeft, faClock, faPause } from '@fortawesome/free-solid-svg
 
 import { t } from 'i18n.js.erb'
 
-const TimerControls = ({ isRunning, onStartPause, onReset }) => {
+const TimerControls = ({ isRunning, isFinished, onStartPause, onReset }) => {
   return (
     <div className="timer-controls">
-      <button
-        className="button-primary big start-pause-button"
-        onClick={onStartPause}
-      >
-        {isRunning ?
-          (<FontAwesomeIcon icon={faPause} />) :
-          (<FontAwesomeIcon icon={faClock} />)}
+      {!isFinished ? (
+        <button
+          className="button-primary big start-pause-button"
+          onClick={onStartPause}
+        >
+          {isRunning ?
+            (<FontAwesomeIcon icon={faPause} />) :
+            (<FontAwesomeIcon icon={faClock} />)}
 
-        {isRunning ? t("actions.pause") : t("actions.start")}
-      </button>
+          {isRunning ? t("actions.pause") : t("actions.start")}
+        </button>
+      ) : null}
       <button
         className="button-primary big"
         onClick={onReset}

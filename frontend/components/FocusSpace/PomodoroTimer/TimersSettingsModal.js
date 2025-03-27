@@ -5,8 +5,9 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 import { t } from 'i18n.js.erb'
 
-const TimersSettingsModal = ({ timePresets, onClose, onSubmit }) => {
+const TimersSettingsModal = ({ timePresets, alarms, selectedAlarmKey, onClose, onSubmit }) => {
   const [mutableTimePresets, setMutableTimePresets] = useState([...timePresets])
+  const [mutableSelectedAlarmKey, setMutableSelectedAlarmKey] = useState(selectedAlarmKey)
 
   const handleClickOutside = (e) => {
     if (e.target === e.currentTarget) {
@@ -28,7 +29,7 @@ const TimersSettingsModal = ({ timePresets, onClose, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSubmit(mutableTimePresets)
+    onSubmit(mutableTimePresets, mutableSelectedAlarmKey)
   }
 
   return (
@@ -37,7 +38,7 @@ const TimersSettingsModal = ({ timePresets, onClose, onSubmit }) => {
         <button className="close-button" onClick={onClose}>
           <FontAwesomeIcon icon={faXmark} />
         </button>
-        <h2 className="text-xl font-bold mb-4">{ t("focus_space.pomodoro_timer.timers_settings") }</h2>
+        <h2 className="text-xl font-bold mb-2">{ t("focus_space.pomodoro_timer.timers_settings") }</h2>
         <form onSubmit={handleSubmit}>
           {mutableTimePresets.map(({name, minutes}, key) => (
             <div className="flex justify-stretch gap-2 mb-4" key={key}>
@@ -57,6 +58,16 @@ const TimersSettingsModal = ({ timePresets, onClose, onSubmit }) => {
               <label className="flex items-center text-xs">{ t("minutes") }</label>
             </div>
           ))}
+          <h2 className="text-xl font-bold mt-6 mb-2">{ t("focus_space.pomodoro_timer.sound_settings") }</h2>
+          <div className="flex justify-stretch mb-4">
+            <select value={mutableSelectedAlarmKey}
+              onChange={(e) => setMutableSelectedAlarmKey(e.target.value)}
+              className="input-field grow">
+              {alarms.map((alarm, key) => (
+                <option key={key} value={alarm.key}>{alarm.title}</option>
+              ))}
+            </select>
+          </div>
           <div className="flex justify-end gap-5">
             <button
               type="button-clean"

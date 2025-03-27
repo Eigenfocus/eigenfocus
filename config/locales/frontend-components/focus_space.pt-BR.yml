@@ -10,7 +10,14 @@ pt-BR:
       walk: "Caminhada"
       whitenoise: "Ruído Branco"
     pomodoro_timer:
-      timers_settings: "Configurações de Tempos"
+      timers_settings: "Configurações dos tempos"
+      sound_settings: "Som do alarme"
       pomodoro: "Pomodoro"
       short_break: "Intervalo Curto"
       long_break: "Intervalo Longo"
+      alarms:
+        standard: "Padrão"
+        digital: "Digital"
+        funny: "Engraçado"
+        magic: "Mágico"
+        ringbell: "Campainha"
