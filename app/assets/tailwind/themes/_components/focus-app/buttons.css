@@ -1,7 +1,7 @@
 .focus-app {
   .button-primary {
     @apply text-base px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105;
-    color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+    color: color-mix(in srgb, var(--color-readable) 80%, transparent);
     backdrop-filter: blur(4px);
     border: 2px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
     transition: all 0.2s ease-in-out;

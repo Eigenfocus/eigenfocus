@@ -9,8 +9,8 @@ const CustomTimerModal = ({ onClose, onSubmit }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded shadow-lg w-80">
+    <div className="timer-modal">
+      <div className="modal-content">
         <h2 className="text-xl font-bold mb-4">Custom Timer</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -21,20 +21,20 @@ const CustomTimerModal = ({ onClose, onSubmit }) => {
               max="120"
               value={minutes}
               onChange={(e) => setMinutes(parseInt(e.target.value))}
-              className="w-full border border-gray-300 rounded p-2"
+              className="input-field"
             />
           </div>
-          <div className="flex justify-end gap-2">
+          <div className="flex justify-end gap-5">
             <button
-              type="button"
+              type="button-clean"
               onClick={onClose}
-              className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded"
+              className="button-clean"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+              className="button-primary"
             >
               Set Timer
             </button>

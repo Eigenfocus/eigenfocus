@@ -1,7 +1,7 @@
 .focus-app {
   --color-one: #20002c;
   --color-two: #20002c;
-  --color-three: #23a6d5;
+  --color-three: hwb(196 14% 16%);
   --color-four: #23d5ab;
   --background-opacity: 90%;
   --color-readable: #fff;
