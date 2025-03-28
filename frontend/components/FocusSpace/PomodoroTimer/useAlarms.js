@@ -1,11 +1,6 @@
 import { t } from 'i18n.js.erb'
 import { useState } from 'react'
-
-function alarmUrl(key) {
-  const ALARM_REPOSITORY_URL = 'https://eigenfocus.github.io/focus-assets/alarms'
-
-  return `${ALARM_REPOSITORY_URL}/${key}-alarm.mp3`
-}
+import { alarmUrl } from 'shared/assets_url'
 
 const ALARMS_LIST = [
   {

@@ -1,10 +1,5 @@
 import { t } from 'i18n.js.erb'
-
-function soundUrl(sound) {
-  const SOUND_REPOSITORY_URL = 'https://eigenfocus.github.io/focus-assets/sounds'
-
-  return `${SOUND_REPOSITORY_URL}/${sound}.mp3`
-}
+import { soundUrl } from 'shared/assets_url'
 
 const sounds = {
   rain: {
