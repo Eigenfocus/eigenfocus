@@ -11,12 +11,18 @@
           <rect x="4" y="17" width="16" height="2"></rect>
         </svg>
       </button>
-      <a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=join_pro_edition_waitlist#plans"
-         target="_blank"
-         class="flex items-center text-left gap-2 text-xs text-readable-content-500 hover:bg-primary-200 transition-all px-3 py-3 pl-0 hover:pl-3 rounded-sm">
-        <i class="fa-solid fa-rocket"></i>
-        <span><%= t(".join_pro_edition") %></span>
-      </a>
+
+      <div class="flex items-center gap-4">
+        <span class="bg-primary-50 flex items-center justify-center border border-primary-200 text-xs text-readable-content-500 px-2 py-1 rounded-md">
+          Free Edition
+        </span>
+        <a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=join_pro_edition_waitlist#plans"
+          target="_blank"
+          class="flex items-center text-left gap-2 text-xs text-readable-content-500 hover:text-primary-700 transition-all px-3 py-3 pl-0 hover:pl-3 rounded-sm">
+          <i class="fa-solid fa-rocket"></i>
+          <span><%= t(".join_pro_edition") %></span>
+        </a>
+      </div>
     </div>
     <div class="flex items-center space-x-4">
       <div class="relative inline-flex" data-controller="dropdown">
