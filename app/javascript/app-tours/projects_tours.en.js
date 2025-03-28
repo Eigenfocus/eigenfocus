@@ -11,10 +11,10 @@ const projectsIndexTour = [
 
   },
   {
-    element: ".tour--add-project",
+    element: ".tour--open-focus-app-button",
     popover: {
-      title: "Create New Project",
-      description: "You can create a new project by clicking here."
+      title: "Focus Space",
+      description: "This is your focus space. Here you can concentrate on your current task without distractions."
     }
   },
   {

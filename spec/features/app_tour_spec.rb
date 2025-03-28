@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'As a user, I can follow the tourd tours' do
+describe 'As a user, I can follow the tours' do
   let!(:user) { FactoryBot.create(:user) }
 
   before(:each) do
@@ -54,7 +54,7 @@ describe 'As a user, I can follow the tourd tours' do
 
     should_have_tour_popover("Guided Tour", "Quick tip:")
     next_tour_step
-    should_have_tour_popover("Create New Project")
+    should_have_tour_popover("Focus Space")
   end
 
   specify "I can start the issues list tour" do
