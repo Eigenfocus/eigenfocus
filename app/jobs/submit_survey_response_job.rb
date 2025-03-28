@@ -12,7 +12,9 @@ class SubmitSurveyResponseJob < ApplicationJob
       survey_response: {
         team_size: survey_response["team_size"],
         utilization_context: survey_response["utilization_context"],
-        features_used: survey_response["features_used"]
+        features_used: survey_response["features_used"],
+        how_did_you_found_us: survey_response["how_did_you_found_us"],
+        how_did_you_found_us_details: survey_response["how_did_you_found_us_details"]
       }
     })
   end

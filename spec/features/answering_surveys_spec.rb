@@ -19,6 +19,9 @@ describe 'As a user answering surveys' do
 
       check "For Project Management"
 
+      choose "Search Engine"
+      fill_in "how_did_you_found_us_details", with: "Google"
+
       click_button "Submit answer"
     end
 
@@ -29,7 +32,9 @@ describe 'As a user answering surveys' do
     expect(app_metadata.onboarding_survey_response).to include(
       "team_size" => "1-to-10",
       "utilization_context" => "work_software_development",
-      "features_used" => include("project_management")
+      "features_used" => include("project_management"),
+      "how_did_you_found_us" => "search_engine",
+      "how_did_you_found_us_details" => "Google"
     )
 
     expect(SubmitSurveyResponseJob).to have_been_enqueued
@@ -46,6 +51,9 @@ describe 'As a user answering surveys' do
       check "For Time Tracking"
       check "For Project Management"
 
+      choose "Search Engine"
+      fill_in "how_did_you_found_us_details", with: "Google"
+
       click_button "Submit answer"
     end
 
@@ -56,7 +64,9 @@ describe 'As a user answering surveys' do
     expect(app_metadata.onboarding_survey_response).to include(
       "team_size" => "1-to-10",
       "utilization_context" => "work_software_development",
-      "features_used" => include("time_tracking", "project_management")
+      "features_used" => include("time_tracking", "project_management"),
+      "how_did_you_found_us" => "search_engine",
+      "how_did_you_found_us_details" => "Google"
     )
 
     expect(SubmitSurveyResponseJob).to have_been_enqueued
