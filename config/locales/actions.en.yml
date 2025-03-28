@@ -73,6 +73,7 @@ en:
       team_size: "What's your team size?"
       utilization_context: "What will you primarily use it for?"
       usage_purposes: "For what kind of purposes?"
+      how_did_you_found_us: "How did you find out about Eigenfocus?"
       how_did_you_found_us_please_elaborate: "Could you elaborate more? The group, channel, website, etc."
       answer_labels:
         team_size:

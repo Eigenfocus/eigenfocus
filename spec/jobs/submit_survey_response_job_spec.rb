@@ -8,7 +8,9 @@ RSpec.describe SubmitSurveyResponseJob, type: :job do
       {
         "team_size" => "1-to-10",
         "utilization_context" => "work_software_development",
-        "features_used" => [ "time_tracking", "project_management" ]
+        "features_used" => [ "time_tracking", "project_management" ],
+        "how_did_you_found_us" => "social_media",
+        "how_did_you_found_us_details" => "Facebook"
       }
     end
 
@@ -29,7 +31,9 @@ RSpec.describe SubmitSurveyResponseJob, type: :job do
         survey_response: {
           team_size: survey_response["team_size"],
           utilization_context: survey_response["utilization_context"],
-          features_used: survey_response["features_used"]
+          features_used: survey_response["features_used"],
+          how_did_you_found_us: survey_response["how_did_you_found_us"],
+          how_did_you_found_us_details: survey_response["how_did_you_found_us_details"]
         }
       }
 

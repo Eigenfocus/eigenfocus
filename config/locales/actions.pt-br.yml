@@ -44,6 +44,7 @@ pt-BR:
       team_size: "Qual é o tamanho da sua equipe?"
       utilization_context: "Para que você vai usar o registro de tempo?"
       usage_purposes: "Para que você vai usar o registro de tempo?"
+      how_did_you_found_us: "Como você descobriu o Eigenfocus?"
       how_did_you_found_us_please_elaborate: "Poderia especificar mais? Grupo, canal, site, etc."
       answer_labels:
         team_size:

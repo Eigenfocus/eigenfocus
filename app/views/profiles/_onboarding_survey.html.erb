@@ -13,136 +13,135 @@
     <%= form_with url: survey_responses_path, method: :post do |f| %>
       <p class="mt-4 text-sm  text-readable-content-500">
         <%= t(".team_size") %>
-    </p>
-    <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
-      <%
-        [
-          {
-            label: t(".answer_labels.team_size.one"),
-            value: "1"
-          },{
-            label: t(".answer_labels.team_size.one_to_ten"),
-            value: "1-to-10"
-          },{
-            label: t(".answer_labels.team_size.ten_plus"),
-            value: "10+"
-          }
-        ].each do |option|
-      %>
-        <li class="flex text-xs items-center min-w-32">
-          <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
-            <%= radio_button_tag :team_size,
-              option[:value],
-              class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
-              <span><%= option[:label] %></span>
-          </label>
-        </li>
-      <% end %>
-    </ul>
-    <p class="mt-2 text-sm  text-readable-content-500">
-      <%= t(".utilization_context") %>
-    </p>
+      </p>
+      <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+        <%
+          [
+            {
+              label: t(".answer_labels.team_size.one"),
+              value: "1"
+            },{
+              label: t(".answer_labels.team_size.one_to_ten"),
+              value: "1-to-10"
+            },{
+              label: t(".answer_labels.team_size.ten_plus"),
+              value: "10+"
+            }
+          ].each do |option|
+        %>
+          <li class="flex text-xs items-center min-w-32">
+            <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+              <%= radio_button_tag :team_size,
+                option[:value],
+                class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+                <span><%= option[:label] %></span>
+            </label>
+          </li>
+        <% end %>
+      </ul>
+      <p class="mt-2 text-sm  text-readable-content-500">
+        <%= t(".utilization_context") %>
+      </p>
 
-    <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
-      <%
-        [
-          {
-            label: t(".answer_labels.utilization_context.personal_projects"),
-            value: "personal_projects"
-          },{
-            label: t(".answer_labels.utilization_context.work_software_development"),
-            value: "work_software_development"
-          },{
-            label: t(".answer_labels.utilization_context.work_it_related"),
-            value: "work_it_related"
-          },{
-            label: t(".answer_labels.utilization_context.work_other_areas"),
-            value: "work_other_areas"
-          }
-        ].each do |option|
-      %>
-        <li class="flex text-xs items-center min-w-32">
-          <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
-            <%= radio_button_tag :utilization_context,
-              option[:value],
-              class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
-              <span><%= option[:label] %></span>
-          </label>
-        </li>
-      <% end %>
+      <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+        <%
+          [
+            {
+              label: t(".answer_labels.utilization_context.personal_projects"),
+              value: "personal_projects"
+            },{
+              label: t(".answer_labels.utilization_context.work_software_development"),
+              value: "work_software_development"
+            },{
+              label: t(".answer_labels.utilization_context.work_it_related"),
+              value: "work_it_related"
+            },{
+              label: t(".answer_labels.utilization_context.work_other_areas"),
+              value: "work_other_areas"
+            }
+          ].each do |option|
+        %>
+          <li class="flex text-xs items-center min-w-32">
+            <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+              <%= radio_button_tag :utilization_context,
+                option[:value],
+                class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+                <span><%= option[:label] %></span>
+            </label>
+          </li>
+        <% end %>
 
-    </ul>
+      </ul>
 
-    <p class="mt-2 text-sm  text-readable-content-500">
-      <%= t(".how_did_you_found_us") %>
-    </p>
+      <p class="mt-4 text-sm  text-readable-content-500">
+        <%= t(".usage_purposes") %>
+      </p>
 
-    <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
-      <%
-        [
-          {
-            label: t(".answer_labels.how_did_you_found_us.reddit"),
-            value: "reddit"
-          },{
-            label: t(".answer_labels.how_did_you_found_us.search_engine"),
-            value: "search_engine"
-          },{
-            label: t(".answer_labels.how_did_you_found_us.social_media"),
-            value: "social_media"
-          },{
-            label: t(".answer_labels.how_did_you_found_us.other"),
-            value: "other"
-          }
-        ].each do |option|
-      %>
-        <li class="flex text-xs items-center">
-          <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
-            <%= radio_button_tag :how_did_you_found_us,
-              option[:value],
-              class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
-              <span><%= option[:label] %></span>
-          </label>
-        </li>
-      <% end %>
-    </ul>
+      <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+        <%
+          [{
+              label: t(".answer_labels.usage_purposes.project_management"),
+              value: "project_management"
+            },
+            {
+              label: t(".answer_labels.usage_purposes.time_tracking"),
+              value: "time_tracking"
+            },{
+              label: t(".answer_labels.usage_purposes.focus"),
+              value: "focus"
+            }
+          ].each do |option|
+        %>
+          <li class="flex text-xs items-center min-w-32">
+            <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+              <%= check_box_tag 'usage_purposes[]',
+                option[:value],
+                class: "w-4 h-4 mr-2 bg-background-100 border-background-300 rounded-sm focus:ring-blue-500" %>
+                <span><%= option[:label] %></span>
+            </label>
+          </li>
+        <% end %>
+      </ul>
 
-    <p class="mt-2 mb-1 text-sm  text-readable-content-500">
-      <%= t(".how_did_you_found_us_please_elaborate") %>
-    </p>
+      <p class="mt-2 text-sm  text-readable-content-500">
+        <%= t(".how_did_you_found_us") %>
+      </p>
 
-    <%= text_field_tag :how_did_you_found_us_details, nil, class: "input-primary" %>
+      <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
+        <%
+          [
+            {
+              label: t(".answer_labels.how_did_you_found_us.reddit"),
+              value: "reddit"
+            },{
+              label: t(".answer_labels.how_did_you_found_us.search_engine"),
+              value: "search_engine"
+            },{
+              label: t(".answer_labels.how_did_you_found_us.social_media"),
+              value: "social_media"
+            },{
+              label: t(".answer_labels.how_did_you_found_us.other"),
+              value: "other"
+            }
+          ].each do |option|
+        %>
+          <li class="flex text-xs items-center">
+            <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
+              <%= radio_button_tag :how_did_you_found_us,
+                option[:value],
+                class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+                <span><%= option[:label] %></span>
+            </label>
+          </li>
+        <% end %>
+      </ul>
 
-    <p class="mt-4 text-sm  text-readable-content-500">
-      <%= t(".usage_purposes") %>
-    </p>
+      <p class="mt-2 text-sm text-readable-content-500">
+        <%= t(".how_did_you_found_us_please_elaborate") %>
+      </p>
 
-    <ul class="flex items-center w-full text-sm  text-readable-content-500 bg-white">
-      <%
-        [{
-            label: t(".answer_labels.usage_purposes.project_management"),
-            value: "project_management"
-          },
-          {
-            label: t(".answer_labels.usage_purposes.time_tracking"),
-            value: "time_tracking"
-          },{
-            label: t(".answer_labels.usage_purposes.focus"),
-            value: "focus"
-          }
-        ].each do |option|
-      %>
-        <li class="flex text-xs items-center min-w-32">
-          <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
-            <%= check_box_tag 'usage_purposes[]',
-              option[:value],
-              class: "w-4 h-4 mr-2 bg-background-100 border-background-300 rounded-sm focus:ring-blue-500" %>
-              <span><%= option[:label] %></span>
-          </label>
-        </li>
-      <% end %>
-    </ul>
-
-    <div class="flex justify-center self-center	">
+      <%= text_field_tag :how_did_you_found_us_details, nil, class: "input-primary" %>
+      <div class="mt-4 flex justify-center self-center">
         <%= f.submit t('.submit_answers'), class: "btn-primary" %>
       </div>
     <% end %>
