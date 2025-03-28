@@ -44,8 +44,8 @@ const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
   }
 
   return (
-    <div className="timer-modal" onClick={handleClickOutside}>
-      <div className="timer-modal-content">
+    <div className="focus-app-modal timer-modal" onClick={handleClickOutside}>
+      <div className="focus-app-modal-content">
         <button className="close-button" onClick={onClose}>
           <FontAwesomeIcon icon={faXmark} />
         </button>

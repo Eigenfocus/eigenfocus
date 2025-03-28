@@ -1,0 +1,26 @@
+.focus-app {
+  .focus-app-modal {
+    @apply fixed inset-0 flex items-center justify-center z-50;
+    background: rgba(, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+
+    .focus-app-modal-content {
+      @apply p-6 rounded-xl shadow-lg border;
+      background-color: var(--focus-space-modal-background);
+      color: var(--focus-space-color-readable);
+      border: 2px solid var(--focus-space-modal-border-color);
+      position: relative;
+
+      .close-button {
+        @apply absolute top-2 right-2 text-2xl;
+      }
+
+      .input-field {
+        @apply rounded-md p-2;
+        background: white;
+        border: 1px solid color-mix(in srgb, var(--focus-space-color-readable) 20%, transparent);
+        color: #333;
+      }
+    }
+  }
+}
