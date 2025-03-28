@@ -8,13 +8,12 @@ const projectsIndexTour = [
       title: "Guia de Funcionalidades",
       description: "Dica rápida: Você pode clicar aqui para ver um guia de nossas funcionalidades."
     },
-
   },
   {
-    element: ".tour--add-project",
+    element: ".tour--open-focus-app-button",
     popover: {
-      title: "Criar Novo Projeto",
-      description: "Você pode criar um novo projeto clicando aqui."
+      title: "Espaço de Foco",
+      description: "Este é o seu espaço de foco. Aqui você pode se concentrar nas suas tarefas sem distrações."
     }
   },
   {
@@ -40,7 +39,7 @@ const projectsIndexTour = [
   {
     element: ".tour--workflow-board",
     popover: {
-      title: "Quadro de Fluxo",
+      title: "Quadro de trabalho",
       description: "Veja seu quadro de trabalho."
     }
   },

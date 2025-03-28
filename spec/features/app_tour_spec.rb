@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'As a user, I can follow the tourd tours' do
+describe 'As a user, I can follow the tours' do
   let!(:user) { FactoryBot.create(:user) }
 
   before(:each) do
