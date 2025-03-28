@@ -1,8 +1,17 @@
-.focus-app {
-  --color-one: #20002c;
-  --color-two: #20002c;
-  --color-three: #23a6d5;
-  --color-four: #23d5ab;
-  --background-opacity: 80%;
-  --color-readable: #fff;
+:root {
+  --focus-space-color-one: #53136a;
+  --focus-space-color-two: #20002c;
+  --focus-space-color-three: #23a6d5;
+  --focus-space-color-four: #23d5ab;
+  --focus-space-background-opacity: 80%;
+  --focus-space-background: linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--focus-space-color-one) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-two) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-three) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-four) var(--focus-space-background-opacity), transparent)
+  );
+  --focus-space-color-readable: #fff;
+  --focus-space-slider-circle-color: color-mix(in srgb, var(--color-two) 80%, transparent);
+  --focus-space-background-animation: animated-gradient-background 14s linear infinite;
 }

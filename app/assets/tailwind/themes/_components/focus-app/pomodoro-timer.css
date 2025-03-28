@@ -5,7 +5,7 @@
   .timer-display {
     @apply text-center font-bold;
     font-size: 7.6rem;
-    color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+    color: color-mix(in srgb, var(--focus-space-color-readable) 60%, transparent);
     letter-spacing: 2px;
   }
 
@@ -25,9 +25,9 @@
 
     .timer-modal-content {
       @apply p-6 rounded-xl shadow-lg border;
-      background-color: color-mix(in srgb, var(--color-readable) 20%, transparent);
-      color: var(--color-readable);
-      border: 2px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
+      background-color: color-mix(in srgb, var(--focus-space-color-readable) 40%, transparent);
+      color: var(--focus-space-color-readable);
+      border: 2px solid color-mix(in srgb, var(--focus-space-color-readable) 20%, transparent);
       position: relative;
 
       .close-button {
@@ -37,7 +37,7 @@
       .input-field {
         @apply rounded-md p-2;
         background: white;
-        border: 1px solid color-mix(in srgb, var(--color-readable) 20%, transparent);
+        border: 1px solid color-mix(in srgb, var(--focus-space-color-readable) 20%, transparent);
         color: #333;
       }
     }

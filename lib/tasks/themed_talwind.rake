@@ -17,12 +17,17 @@ namespace :themed_tailwindcss do
     poll = args.extras.include?("poll")
     always = args.extras.include?("always")
 
-    # In dev we do not want to always compile every theme. Only the one we're currently using
+    TailwindTheme.all.each do |theme|
+      fork do
+        command = ThemedTailwindcssCommands.watch_command(theme_key: theme.key, always: always, debug: debug, poll: poll)
+        puts command.inspect if args.extras.include?("verbose")
+        system(*command)
+      rescue Interrupt
+        # Do nothing
+      end
+    end
 
-    command = ThemedTailwindcssCommands.watch_command(theme_key: Current.theme_key, always: always, debug: debug, poll: poll)
-    puts command.inspect if args.extras.include?("verbose")
-    system(*command)
-
+    Process.waitall
   rescue Interrupt
     puts "Received interrupt, exiting themed_tailwindcss:watch" if args.extras.include?("verbose")
   end

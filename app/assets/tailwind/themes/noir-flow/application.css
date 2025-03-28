@@ -9,6 +9,24 @@
   display: none;
 }
 
+.focus-app {
+  @apply  backdrop-blur-md;
+  --focus-space-color-one: #421b46;
+  --focus-space-color-two: #623d5d;
+  --focus-space-color-three: #2d2e45;
+  --focus-space-color-four: #006262;
+  --focus-space-background-opacity: 85%;
+  --focus-space-background: linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--focus-space-color-one) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-two) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-three) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-four) var(--focus-space-background-opacity), transparent)
+  );
+  --focus-space-color-readable: #fff;
+  --focus-space-slider-circle-color: color-mix(in srgb, var(--focus-space-color-two) 90%, transparent);
+  --focus-space-background-animation: animated-gradient-background 14s linear infinite;
+}
 
 @layer components {
 

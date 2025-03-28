@@ -12,7 +12,7 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
 
   return (
     <React.Fragment>
-      <div className={`focus-space ${isShowing ? 'showing' : ''}`} onClick={handleClickOutside}>
+      <div className={`focus-space`} onClick={handleClickOutside}>
 
         <div className="flex items-center justify-center">
           <PomodoroTimer onStart={onPomodoroStart} onStop={onPomodoroStop} />
