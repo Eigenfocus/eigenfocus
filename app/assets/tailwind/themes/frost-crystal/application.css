@@ -10,6 +10,25 @@
   display: none;
 }
 
+.focus-app {
+  @apply  backdrop-blur-md;
+  --focus-space-color-one: #142850;
+  --focus-space-color-two: #22447a;
+  --focus-space-color-three: rgb(59 130 246);
+  --focus-space-color-four: rgb(207 250 254);
+  --focus-space-background-opacity: 60%;
+  --focus-space-background: linear-gradient(
+    -80deg,
+    color-mix(in srgb, var(--focus-space-color-one) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-two) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-three) var(--focus-space-background-opacity), transparent),
+    color-mix(in srgb, var(--focus-space-color-four) var(--focus-space-background-opacity), transparent)
+  );
+  --focus-space-color-readable: #fff;
+  --focus-space-slider-circle-color: color-mix(in srgb, var(--focus-space-color-two) 90%, transparent);
+  --focus-space-background-animation: animated-gradient-background 14s linear infinite;
+}
+
 @layer components {
   body, html {
     font-family: "Lato", sans-serif;

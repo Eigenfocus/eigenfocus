@@ -1,10 +1,8 @@
 .focus-space {
   @apply pt-64 pb-16 lg:pt-0 lg:pb-0;
-  @apply w-full min-h-full flex-col gap-16 justify-center items-center backdrop-blur-md;
+  @apply w-full min-h-full flex-col gap-16 justify-center items-center;
   display: none;
-
   background: var(--focus-space-background);
-
 	background-size: 400% 400%;
 	animation: animated-gradient-background 14s linear infinite;
 }
