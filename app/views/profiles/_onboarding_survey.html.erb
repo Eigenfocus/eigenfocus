@@ -120,6 +120,9 @@
               label: t(".answer_labels.how_did_you_found_us.social_media"),
               value: "social_media"
             },{
+              label: "Website",
+              value: "website"
+            },{
               label: t(".answer_labels.how_did_you_found_us.other"),
               value: "other"
             }
@@ -129,18 +132,23 @@
             <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-readable-content-900" %>
               <%= radio_button_tag :how_did_you_found_us,
                 option[:value],
-                class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+                class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500",
+                "onclick": "document.getElementById('how-did-you-found-us-details').style.display = 'block';"
+              %>
                 <span><%= option[:label] %></span>
             </label>
           </li>
         <% end %>
       </ul>
 
-      <p class="mt-2 text-sm text-readable-content-500">
-        <%= t(".how_did_you_found_us_please_elaborate") %>
-      </p>
+      <div id="how-did-you-found-us-details" style="display: none;">
+        <p class="text-xs text-readable-content-500">
+          <%= t(".how_did_you_found_us_please_elaborate") %>
+        </p>
 
-      <%= text_field_tag :how_did_you_found_us_details, nil, class: "input-primary" %>
+        <%= text_field_tag :how_did_you_found_us_details, nil, class: "mt-1 input-primary input-sm max-w-xs" %>
+      </div>
+
       <div class="mt-4 flex justify-center self-center">
         <%= f.submit t('.submit_answers'), class: "btn-primary" %>
       </div>
