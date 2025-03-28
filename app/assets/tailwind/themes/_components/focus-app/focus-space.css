@@ -1,5 +1,6 @@
 .focus-space {
-  @apply fixed pt-64 md:pt-0 flex-col gap-16 justify-center items-center z-999 top-0 left-0 w-full h-full backdrop-blur-md overflow-scroll;
+  @apply pt-64 pb-16 lg:pt-0 lg:pb-0;
+  @apply w-full min-h-full flex-col gap-16 justify-center items-center backdrop-blur-md;
   display: none;
 
   background: linear-gradient(
