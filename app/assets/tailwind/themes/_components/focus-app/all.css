@@ -1,5 +1,6 @@
 @import "./variables";
 @import "./buttons";
+@import "./modal";
 @import "./focus-app";
 @import "./focus-space";
 @import "./ambient-sounds-player";
