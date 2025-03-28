@@ -17,7 +17,7 @@
     appearance: none;
     width: 15px;
     height: 15px;
-    background: color-mix(in srgb, var(--color-two) 80%, transparent);
+    background: var(--focus-space-slider-circle-color);
     cursor: pointer;
     border-radius: 50%;
   }
@@ -27,16 +27,16 @@
 
     .play-button {
       @apply text-base flex items-center rounded-md px-4 py-2;
-      border: 1px solid color-mix(in srgb, var(--color-readable) 60%, transparent);
-      color: color-mix(in srgb, var(--color-readable) 60%, transparent);
+      border: 1px solid color-mix(in srgb, var(--focus-space-color-readable) 60%, transparent);
+      color: color-mix(in srgb, var(--focus-space-color-readable) 60%, transparent);
 
       svg {
         @apply mr-2;
       }
 
       &:hover {
-        color: color-mix(in srgb, var(--color-readable) 80%, transparent);
-        border-color: color-mix(in srgb, var(--color-readable) 80%, transparent);
+        color: color-mix(in srgb, var(--focus-space-color-readable) 80%, transparent);
+        border-color: color-mix(in srgb, var(--focus-space-color-readable) 80%, transparent);
       }
     }
   }
@@ -48,16 +48,16 @@
 
       transition: all 0.2s ease-in-out;
 
-      color: color-mix(in srgb, var(--color-readable) 70%, transparent);
-      border-color: color-mix(in srgb, var(--color-readable) 25%, transparent);
+      color: color-mix(in srgb, var(--focus-space-color-readable) 70%, transparent);
+      border-color: color-mix(in srgb, var(--focus-space-color-readable) 25%, transparent);
 
       svg {
         opacity: 0.8;
       }
 
       &:hover {
-        border-color: color-mix(in srgb, var(--color-readable) 30%, transparent);
-        background-color: color-mix(in srgb, var(--color-readable) 20%, transparent);
+        border-color: color-mix(in srgb, var(--focus-space-color-readable) 30%, transparent);
+        background-color: color-mix(in srgb, var(--focus-space-color-readable) 20%, transparent);
 
         svg {
           opacity: 0.9;
@@ -72,7 +72,7 @@
         svg {
           width: 25px;
           height: auto;
-          fill: color-mix(in srgb, var(--color-readable) 50%, transparent);
+          fill: color-mix(in srgb, var(--focus-space-color-readable) 50%, transparent);
         }
       }
 
@@ -88,19 +88,19 @@
       &.sound-playing {
         background: linear-gradient(
           25deg,
-          color-mix(in srgb, var(--color-readable) 4%, transparent),
-          color-mix(in srgb, var(--color-readable) 30%, transparent)
+          color-mix(in srgb, var(--focus-space-color-readable) 4%, transparent),
+          color-mix(in srgb, var(--focus-space-color-readable) 30%, transparent)
         );
         animation: animated-background 22s linear infinite;
-        border-color: color-mix(in srgb, var(--color-readable) 40%, transparent);
+        border-color: color-mix(in srgb, var(--focus-space-color-readable) 40%, transparent);
       }
 
       &.sound-selected {
-        border-color: color-mix(in srgb, var(--color-readable) 70%, transparent);
-        color: color-mix(in srgb, var(--color-readable) 70%, transparent);
+        border-color: color-mix(in srgb, var(--focus-space-color-readable) 70%, transparent);
+        color: color-mix(in srgb, var(--focus-space-color-readable) 70%, transparent);
 
         svg {
-          fill: color-mix(in srgb, var(--color-readable) 70%, transparent);
+          fill: color-mix(in srgb, var(--focus-space-color-readable) 70%, transparent);
         }
       }
     }

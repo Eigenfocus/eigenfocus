@@ -23,11 +23,11 @@
 
     .open-space-button.close {
       @apply text-4xl border-0;
-      color: color-mix(in srgb, var(--color-readable) 40%, transparent);
+      color: color-mix(in srgb, var(--focus-space-color-readable) 40%, transparent);
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        color: color-mix(in srgb, var(--color-readable) 90%, transparent);
+        color: color-mix(in srgb, var(--focus-space-color-readable) 90%, transparent);
       }
     }
   }
@@ -137,7 +137,7 @@
   }
 }
 
-@keyframes animated-background {
+@keyframes animated-gradient-background {
   0% {
     background-position: 0% 50%;
   }

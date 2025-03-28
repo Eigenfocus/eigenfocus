@@ -3,16 +3,10 @@
   @apply w-full min-h-full flex-col gap-16 justify-center items-center backdrop-blur-md;
   display: none;
 
-  background: linear-gradient(
-    -45deg,
-    color-mix(in srgb, var(--color-one) var(--background-opacity), transparent),
-    color-mix(in srgb, var(--color-two) var(--background-opacity), transparent),
-    color-mix(in srgb, var(--color-three) var(--background-opacity), transparent),
-    color-mix(in srgb, var(--color-four) var(--background-opacity), transparent)
-  );
+  background: var(--focus-space-background);
 
 	background-size: 400% 400%;
-	animation: animated-background 14s linear infinite;
+	animation: animated-gradient-background 14s linear infinite;
 }
 
 .focus-app.space-showing .focus-space {
