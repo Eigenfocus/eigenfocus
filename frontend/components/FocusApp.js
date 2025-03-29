@@ -19,8 +19,9 @@ const FocusApp = ({ }) => {
         onPomodoroStop={() => setIsPomodoroRunning(false)}
         onHide={() => setIsShowing(false)} />
 
-      <div className="focus-space-access-buttons tour--open-focus-app-button">
-        <button className={`open-space-button ${isShowing ? 'close' : 'open'}`} onClick={() => setIsShowing(!isShowing)}>
+      <div className="focus-space-access-buttons">
+
+        <button className={`tour--open-focus-app-button open-space-button ${isShowing ? 'close' : 'open'}`} onClick={() => setIsShowing(!isShowing)}>
           <FontAwesomeIcon icon={isShowing ? faXmark : faWindowRestore} />
           <span className='sound-playing-icon'>
             <FontAwesomeIcon icon={faVolumeHigh} />
