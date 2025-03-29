@@ -22,8 +22,8 @@ class Project::Templatable::TemplateApplier
   end
 
   def create_groupings
-    template.groupings.each do |grouping_name|
-      @board.groupings.create!(title: grouping_name)
+    template.groupings.each_with_index do |grouping_name, index|
+      @board.groupings.create!(title: grouping_name, position: index + 1)
     end
   end
 
