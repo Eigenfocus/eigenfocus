@@ -27,6 +27,7 @@ pt-BR:
       why_is_timezone_needed: "Precisamos desta informação para mostrar datas e horários corretamente para você."
     edit:
       title: "Editar perfil"
+      title_complete_profile: "Vamos começar"
       why_you_need_to_fill_profile_html: "Olá. 👋 Antes de começar a cadastrar seus projetos precisamos que informe seu idioma preferencial e seu fuso horário.<br/>Você pode utilizar o formulário abaixo."
       subscription:
         title: "Inscreva-se na nossa Newsletter"

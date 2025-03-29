@@ -1,0 +1,13 @@
+<div class="welcome-screen js-welcome-screen">
+  <div class="welcome-screen--hello">
+    <h1 class="text-8xl font-bold text-nowrap">Welcome to Eigenfocus</h1>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.setTimeout(function() {
+      document.querySelector('.js-welcome-screen').remove();
+    }, 4800);
+  });
+</script>
