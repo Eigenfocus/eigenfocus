@@ -20,8 +20,13 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
         <div className="flex items-center justify-center">
           <AmbientSoundsPlayer onPlay={onPlayStart} onStop={onPlayToggle} />
         </div>
-      </div>
 
+        <div className="focus-space-fireflies">
+          {Array.from({ length: 15 }).map((_, index) => (
+            <div key={index} className="firefly"></div>
+          ))}
+        </div>
+      </div>
     </React.Fragment>
   )
 }
