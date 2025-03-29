@@ -57,6 +57,7 @@ en:
       why_is_timezone_needed: 'This is needed in order to correctly display dates and hours for you.'
     edit:
       title: "Edit profile"
+      title_complete_your_profile: "Let's get you started"
       why_you_need_to_fill_profile_html: "Hi. 👋<br/>Before starting, we need you to fill your preferred language and time zone.<br/>You can use the form below."
       subscription:
         title: "Subscribe to our Newsletter"

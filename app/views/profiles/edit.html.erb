@@ -2,14 +2,16 @@
 
 <div class="mx-auto w-full md:w-2/3">
   <div class="text-3xl font-bold mb-5 text-readable-content-500">
-    <h2 class="font-semibold text-readable-content-900">
-      <%= "#{t('.title')}" %>
+    <h2 class="font-semibold text-readable-content-900 cpy-profile">
+      <%= current_user.is_profile_complete? ? t('.title') : t('.title_complete_your_profile') %>
     </h2>
   </div>
   <% unless current_user.is_profile_complete? %>
-  <p class="card mb-8 border-primary-500">
-    <%= t(".why_you_need_to_fill_profile_html") %>
-  </p>
+    <p class="card mb-8 border-primary-500">
+      <%= t(".why_you_need_to_fill_profile_html") %>
+    </p>
+
+    <%= render partial: "setup_welcome" %>
   <% end %>
 
   <div class="card p-5 rounded-lg">
