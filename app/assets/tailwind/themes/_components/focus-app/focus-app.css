@@ -13,10 +13,10 @@
     }
 
     .open-space-button.open {
-      @apply border-primary-300/50 text-primary-400 bg-body-contrast;
+      @apply border-primary-300/50 text-primary-500 bg-body-contrast;
 
       &:hover {
-        @apply bg-primary-200/80 border-primary-400/50 text-primary-500;
+        @apply bg-primary-200/80 border-primary-400/50 text-primary-700;
         animation: float 1s ease-in-out infinite;
       }
     }
@@ -53,7 +53,7 @@
   }
 
   .sound-playing-icon {
-    @apply rounded-full text-primary-400/50;
+    @apply rounded-full text-primary-700/50;
     display: none;
     font-size: 12px;
     position: absolute;
@@ -62,7 +62,7 @@
   }
 
   .pomodoro-running-icon {
-    @apply rounded-full text-primary-400/50;
+    @apply rounded-full text-primary-700/50;
     display: none;
     font-size: 12px;
     position: absolute;
