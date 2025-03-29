@@ -21,7 +21,10 @@
 <br />
 
 <div align="center">
-  <img src="https://img.shields.io/badge/0.9.0-blue.svg?style=flat&label=Stable Release&labelColor=%23333&color=%23427D80"/>
+  <img src="https://img.shields.io/badge/0.9.0-blue.svg?style=flat&label=Last Release&labelColor=%23333&color=%23427D80"/>
+
+  <img src="https://img.shields.io/badge/1.0.0.rc1--free-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
+
   <br/>
   <br/>
   <a href="https://github.com/Eigenfocus/eigenfocus/releases/tag/v0.9.0"><strong>See what is new in our 0.9.0</strong></a>
