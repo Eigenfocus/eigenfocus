@@ -23,7 +23,7 @@ const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
     playSound: playAlarm,
     pauseSound: pauseAlarm,
     changeSource: changeAlarmSource
-  } = useSound(alarms.find(alarm => alarm.isDefault).src, { loop: true, volume: 0.7, maxSeconds: 4 })
+  } = useSound(alarms.find(alarm => alarm.isDefault).src, { loop: true, volume: 0.7, maxSeconds: 7 })
 
   useEffect(() => {
     changeAlarmSource(alarms.find(alarm => alarm.isDefault).src)
