@@ -12,6 +12,7 @@ describe 'When entering my workspace for the first time' do
     expect(page).to have_content("Before starting, we need you to fill your preferred language and time zone.")
     expect(User.count).to eq(1)
 
+    expect(page).to have_content("Let's get you started")
     expect(page).to_not have_css(".cpy-welcome-screen")
     select_from_select2(label_for: 'profile_timezone', option_text: "Rome (GMT+01:00)")
     within '.edit-profile' do
@@ -41,6 +42,8 @@ describe 'When entering my workspace for the first time' do
     within '.sidebar-bottom' do
       click_link 'Profile'
     end
+
+    expect(page).to have_content("Edit profile")
 
     select_from_select2(label_for: 'profile_timezone', option_text: "Rome (GMT+01:00)")
     within '.edit-profile' do
