@@ -1,5 +1,6 @@
 .welcome-screen {
   @apply  backdrop-blur-sm;
+  pointer-events: none;
   flex-direction: column;
   position: fixed;
   top: 0;
