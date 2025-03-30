@@ -23,7 +23,7 @@
 <div align="center">
   <img src="https://img.shields.io/badge/0.9.0-blue.svg?style=flat&label=Last Release&labelColor=%23333&color=%23427D80"/>
 
-  <img src="https://img.shields.io/badge/1.0.0.rc1--free-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
+  <img src="https://img.shields.io/badge/1.0.0.rc2--free-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
 
   <br/>
   <br/>
