@@ -1,5 +1,5 @@
 .focus-space {
-  @apply py-8 md:py-0;
+  @apply py-16 md:py-0;
   @apply w-full min-h-screen flex flex-col justify-center items-center gap-8;
   position: relative;
   display: none;

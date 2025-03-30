@@ -15,20 +15,18 @@ const FocusApp = ({ }) => {
   }
 
   return (
-    <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
+    <>
+      <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
 
-      <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}
-        onPlayStart={() => setHasSoundPlaying(true)}
-        onPlayToggle={() => setHasSoundPlaying(false)}
-        onPomodoroStateChange={handlePomodoroStateChange}
-        onHide={() => setIsFocusSpaceShowing(false)} />
-
-      <div className="focus-space-access-buttons">
-
+        <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}
+          onPlayStart={() => setHasSoundPlaying(true)}
+          onPlayToggle={() => setHasSoundPlaying(false)}
+          onPomodoroStateChange={handlePomodoroStateChange}
+          onHide={() => setIsFocusSpaceShowing(false)} />
+      </div>
+      <div className={`focus-space-access-buttons ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
         <button className={`tour--open-focus-app-button open-space-button ${isFocusSpaceShowing ? 'close' : 'open'}`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
           <FontAwesomeIcon icon={isFocusSpaceShowing ? faXmark : faWindowRestore} />
-
-
           {!isFocusSpaceShowing && (
             <>
               {(pomodoroState === POMODORO_STATE.FINISHED) && (
@@ -52,9 +50,8 @@ const FocusApp = ({ }) => {
             </>
           )}
         </button>
-
       </div>
-    </div>
+    </>
   )
 }
 
