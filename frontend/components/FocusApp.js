@@ -16,7 +16,7 @@ const FocusApp = ({ }) => {
   }
 
   return (
-    <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''} ${hasSoundPlaying ? 'playing' : ''} ${pomodoroState === POMODORO_STATE.RUNNING ? 'pomodoro-running' : ''}`}>
+    <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
       <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}
         onPlayStart={() => setHasSoundPlaying(true)}
         onPlayToggle={() => setHasSoundPlaying(false)}
@@ -27,13 +27,17 @@ const FocusApp = ({ }) => {
 
         <button className={`tour--open-focus-app-button open-space-button ${isFocusSpaceShowing ? 'close' : 'open'}`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
           <FontAwesomeIcon icon={isFocusSpaceShowing ? faXmark : faWindowRestore} />
-          <span className='sound-playing-icon'>
-            <FontAwesomeIcon icon={faVolumeHigh} />
-          </span>
+          {hasSoundPlaying && (
+            <span className='sound-playing-icon'>
+              <FontAwesomeIcon icon={faVolumeHigh} />
+            </span>
+          )}
 
-          <span className='pomodoro-running-icon'>
-            <FontAwesomeIcon icon={faHourglassHalf} />
-          </span>
+          {(pomodoroState === POMODORO_STATE.RUNNING || pomodoroState === POMODORO_STATE.PAUSED) && (
+            <span className='pomodoro-running-icon'>
+              <FontAwesomeIcon icon={faHourglassHalf} />
+            </span>
+          )}
         </button>
 
       </div>
