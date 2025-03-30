@@ -42,6 +42,7 @@ describe 'As a user answering surveys' do
 
   specify "I can fill out the onboarding survey even if my profile is not complete" do
     visit edit_profile_path
+    disable_welcome_screen!
 
     within "#survey_form" do
       choose "Up to 10 people"

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'When entering my workspace for the first time' do
-  specify "I should be direct to edit a new profile", execute_js_timeouts: true do
+  specify "I should be direct to edit a new profile with welcome animation" do
     expect(User.count).to eq(0)
     expect(Project.count).to eq(0)
 
@@ -14,6 +14,9 @@ describe 'When entering my workspace for the first time' do
 
     expect(page).to have_content("Let's get you started")
     expect(page).to_not have_css(".cpy-welcome-screen")
+
+    disable_welcome_screen!
+
     select_from_select2(label_for: 'profile_timezone', option_text: "Tokyo (GMT+09:00)")
     within '.edit-profile' do
       select "English", from: "profile_locale"

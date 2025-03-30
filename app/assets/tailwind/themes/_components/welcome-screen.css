@@ -1,6 +1,5 @@
 .welcome-screen {
   @apply  backdrop-blur-sm;
-  pointer-events: none;
   flex-direction: column;
   position: fixed;
   top: 0;
@@ -24,6 +23,10 @@
   animation: welcome-screen-zoomOutFade 2s forwards;
   animation-delay: 2.6s;
 
+  .welcome-screen--hello {
+    opacity: 0;
+    animation: welcome-screen-zoomInFade 3s forwards;
+  }
 
   .wave span {
     content: "";
@@ -52,11 +55,6 @@
     animation: welcome-screen-wave 15s linear infinite;
   }
 
-}
-
-.welcome-screen--hello {
-  opacity: 0;
-  animation: welcome-screen-zoomInFade 3s forwards;
 }
 
 @keyframes welcome-screen-zoomOutFade {
