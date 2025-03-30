@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import AmbientSoundsPlayer from "./AmbientSoundsPlayer"
 import PomodoroTimer from "./PomodoroTimer"
 
-const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroStart, onPomodoroStop }) => {
+const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroStateChange }) => {
 
   const handleClickOutside = (e) => {
     if (e.target === e.currentTarget) {
@@ -15,7 +15,7 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
       <div className={`focus-space`} onClick={handleClickOutside}>
 
         <div className="flex items-center justify-center">
-          <PomodoroTimer onStart={onPomodoroStart} onStop={onPomodoroStop} />
+          <PomodoroTimer onStateChange={onPomodoroStateChange} />
         </div>
         <div className="flex items-center justify-center">
           <AmbientSoundsPlayer onPlay={onPlayStart} onStop={onPlayToggle} />

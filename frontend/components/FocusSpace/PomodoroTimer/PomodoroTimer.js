@@ -10,14 +10,22 @@ import { useAlarms } from "./useAlarms"
 
 const _timePresets = getTimePresets()
 
-const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
+export const POMODORO_STATE = Object.freeze({
+  STOPPED: Symbol("stopped"),
+  RUNNING: Symbol("running"),
+  PAUSED: Symbol("paused"),
+  FINISHED: Symbol("finished")
+})
+
+const PomodoroTimer = ({ onStateChange = () => {} } = {}) => {
   const [timePresets, setTimePresets] = useState(_timePresets);
+  const { alarms, setDefaultAlarmKey } = useAlarms()
+  const [showCustomModal, setShowCustomModal] = useState(false)
+
   const [timeRemaining, setTimeRemaining] = useState(_timePresets[0].minutes * 60)
   const [initialTime, setInitialTime] = useState(_timePresets[0].minutes * 60)
-  const [isRunning, setIsRunning] = useState(false)
-  const [showCustomModal, setShowCustomModal] = useState(false)
-  const { alarms, setDefaultAlarmKey } = useAlarms()
   const interval = useRef(null)
+  const [pomodoroState, setPomodoroState] = useState(POMODORO_STATE.STOPPED)
 
   const {
     playSound: playAlarm,
@@ -30,39 +38,38 @@ const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
   }, [alarms])
 
   useEffect(() => {
-    if (isRunning && timeRemaining > 0) {
-      interval.current = setInterval(() => {
-        setTimeRemaining(prev => prev - 1)
-      }, 1000)
-
-      const isFirstTick = timeRemaining === initialTime
-
-      if (isFirstTick) {
-        onStart()
+    onStateChange(pomodoroState)
+    if (pomodoroState === POMODORO_STATE.RUNNING) {
+      if (timeRemaining == 0) {
+        setPomodoroState(POMODORO_STATE.FINISHED)
+      } else {
+        interval.current = setInterval(() => {
+          setTimeRemaining(prev => prev - 1)
+        }, 1000)
       }
-    } else if (isRunning && timeRemaining == 0) {
-      setIsRunning(false)
+    } else if (pomodoroState === POMODORO_STATE.FINISHED) {
+      clearInterval(interval.current)
       playAlarm()
-    } else {
-      onStop()
+    } else if (pomodoroState === POMODORO_STATE.PAUSED) {
+      clearInterval(interval.current)
+    } else if (pomodoroState === POMODORO_STATE.STOPPED) {
       clearInterval(interval.current)
     }
-
     return () => clearInterval(interval.current)
-  }, [isRunning, timeRemaining])
+  }, [pomodoroState, timeRemaining])
 
   const handleStartPause = () => {
-    setIsRunning(prev => !prev)
+    setPomodoroState(previsousState => previsousState === POMODORO_STATE.RUNNING ? POMODORO_STATE.PAUSED : POMODORO_STATE.RUNNING)
   }
 
   const handleReset = () => {
-    setIsRunning(false)
+    setPomodoroState(POMODORO_STATE.STOPPED)
     setTimeRemaining(initialTime)
     pauseAlarm()
   }
 
   const handlePresetSelect = (minutes) => {
-    setIsRunning(false)
+    setPomodoroState(POMODORO_STATE.STOPPED)
     setInitialTime(minutes * 60)
     setTimeRemaining(minutes * 60)
   }
@@ -79,10 +86,10 @@ const PomodoroTimer = ({ onStart = () => {}, onStop = () => {} } = {}) => {
       <TimerPresets presets={timePresets}
         onSelectPreset={handlePresetSelect}
         onOpenSettings={() => setShowCustomModal(true)} />
-      <TimerDisplay timeRemaining={timeRemaining} isPulsing={isRunning} isShaking={timeRemaining == 0} />
+      <TimerDisplay timeRemaining={timeRemaining} isPulsing={pomodoroState === POMODORO_STATE.RUNNING} isShaking={pomodoroState === POMODORO_STATE.FINISHED} />
       <TimerControls
-        isRunning={isRunning}
-        isFinished={timeRemaining == 0}
+        isRunning={pomodoroState === POMODORO_STATE.RUNNING}
+        isFinished={pomodoroState === POMODORO_STATE.FINISHED}
         onStartPause={handleStartPause}
         onReset={handleReset}
       />
