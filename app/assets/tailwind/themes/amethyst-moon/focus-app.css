@@ -27,4 +27,7 @@
   /* Input */
   --focus-space-input-background: color-mix(in srgb, var(--focus-space-color-readable) 40%, transparent);
   --focus-space-input-border-color: color-mix(in srgb, var(--focus-space-color-readable) 20%, transparent);
+
+  /* Wave background */
+  --focus-space-wave-color: rgba(0, 0, 0, 0.4);
 }

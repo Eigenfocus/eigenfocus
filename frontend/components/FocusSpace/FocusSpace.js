@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import AmbientSoundsPlayer from "./AmbientSoundsPlayer"
 import PomodoroTimer from "./PomodoroTimer"
+import AnimatedBackground from "./AnimatedBackground"
 
 const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroStateChange }) => {
 
@@ -13,6 +14,7 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
   return (
     <React.Fragment>
       <div className={`focus-space`} onClick={handleClickOutside}>
+        <AnimatedBackground />
 
         <div className="flex items-center justify-center">
           <PomodoroTimer onStateChange={onPomodoroStateChange} />
