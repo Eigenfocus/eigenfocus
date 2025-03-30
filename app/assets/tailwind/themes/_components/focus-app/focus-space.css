@@ -18,6 +18,7 @@
   }
 
   .focus-space-animated-background  {
+    @apply hidden md:block;
     position: fixed;
     left: 0;
     bottom: 0;
