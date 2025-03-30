@@ -11,12 +11,12 @@ const FocusApp = ({ }) => {
   const [pomodoroState, setPomodoroState] = useState(POMODORO_STATE.STOPPED)
 
   const handlePomodoroStateChange = (newState) => {
-    console.log("newState", newState)
     setPomodoroState(newState)
   }
 
   return (
     <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
+
       <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}
         onPlayStart={() => setHasSoundPlaying(true)}
         onPlayToggle={() => setHasSoundPlaying(false)}
@@ -27,16 +27,29 @@ const FocusApp = ({ }) => {
 
         <button className={`tour--open-focus-app-button open-space-button ${isFocusSpaceShowing ? 'close' : 'open'}`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
           <FontAwesomeIcon icon={isFocusSpaceShowing ? faXmark : faWindowRestore} />
-          {hasSoundPlaying && (
-            <span className='sound-playing-icon'>
-              <FontAwesomeIcon icon={faVolumeHigh} />
-            </span>
-          )}
 
-          {(pomodoroState === POMODORO_STATE.RUNNING || pomodoroState === POMODORO_STATE.PAUSED) && (
-            <span className='pomodoro-running-icon'>
-              <FontAwesomeIcon icon={faHourglassHalf} />
-            </span>
+
+          {!isFocusSpaceShowing && (
+            <>
+              {(pomodoroState === POMODORO_STATE.FINISHED) && (
+                <span className="ping-notification">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-600 opacity-75"></span>
+                  <span className="relative inline-flex size-3 rounded-full bg-primary-700"></span>
+                </span>
+              )}
+
+              {hasSoundPlaying && (
+                <span className='sound-playing-icon'>
+                  <FontAwesomeIcon icon={faVolumeHigh} />
+                </span>
+              )}
+
+              {(pomodoroState === POMODORO_STATE.RUNNING || pomodoroState === POMODORO_STATE.PAUSED) && (
+                <span className='pomodoro-running-icon'>
+                  <FontAwesomeIcon icon={faHourglassHalf} />
+                </span>
+              )}
+            </>
           )}
         </button>
 

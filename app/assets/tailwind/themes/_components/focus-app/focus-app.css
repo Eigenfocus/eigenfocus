@@ -10,6 +10,12 @@
       @apply text-xl rounded-md p-4 border;
 
       transition: all 0.2s ease-in-out;
+
+      .ping-notification {
+        @apply absolute flex size-3;
+        top: -4px;
+        left: -4px;
+      }
     }
 
     .open-space-button.open {
@@ -108,7 +114,6 @@
     animation-delay: 1.35s;
   }
 }
-
 
 @keyframes float {
   0% {
