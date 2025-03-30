@@ -14,7 +14,7 @@ describe 'When entering my workspace for the first time' do
 
     expect(page).to have_content("Let's get you started")
     expect(page).to_not have_css(".cpy-welcome-screen")
-    select_from_select2(label_for: 'profile_timezone', option_text: "Rome (GMT+01:00)")
+    select_from_select2(label_for: 'profile_timezone', option_text: "Tokyo (GMT+09:00)")
     within '.edit-profile' do
       select "English", from: "profile_locale"
       click_button 'Update'
@@ -45,13 +45,13 @@ describe 'When entering my workspace for the first time' do
 
     expect(page).to have_content("Edit profile")
 
-    select_from_select2(label_for: 'profile_timezone', option_text: "Rome (GMT+01:00)")
+    select_from_select2(label_for: 'profile_timezone', option_text: "Tokyo (GMT+09:00)")
     within '.edit-profile' do
       click_button 'Update'
     end
 
     user.reload
-    expect(user.timezone).to eq('Rome')
+    expect(user.timezone).to eq('Tokyo')
     expect(page).to have_content("Profile succesfully updated.")
 
     # Verify no example project is created on subsequent updates
