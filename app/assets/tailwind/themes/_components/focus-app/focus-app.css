@@ -10,6 +10,12 @@
       @apply text-xl rounded-md p-4 border;
 
       transition: all 0.2s ease-in-out;
+
+      .ping-notification {
+        @apply absolute flex size-3;
+        top: -4px;
+        left: -4px;
+      }
     }
 
     .open-space-button.open {
@@ -54,7 +60,7 @@
 
   .sound-playing-icon {
     @apply rounded-full text-primary-700/50;
-    display: none;
+    display: block;
     font-size: 12px;
     position: absolute;
     bottom: -4px;
@@ -63,23 +69,11 @@
 
   .pomodoro-running-icon {
     @apply rounded-full text-primary-700/50;
-    display: none;
+    display: block;
     font-size: 12px;
     position: absolute;
     top: -4px;
     left: 4px;
-  }
-
-  &.playing:not(.space-showing) {
-    .sound-playing-icon {
-      display: block;
-    }
-  }
-
-  &.pomodoro-running:not(.space-showing) {
-    .pomodoro-running-icon {
-      display: block;
-    }
   }
 
   .sound-wave .Line_1 {
@@ -120,7 +114,6 @@
     animation-delay: 1.35s;
   }
 }
-
 
 @keyframes float {
   0% {

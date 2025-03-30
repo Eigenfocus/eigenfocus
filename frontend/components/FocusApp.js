@@ -1,35 +1,56 @@
 import React, { useState } from "react"
 import FocusSpace from "./FocusSpace"
-
+import { POMODORO_STATE } from "./FocusSpace/PomodoroTimer/PomodoroTimer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faWindowRestore, faVolumeHigh, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
 
 const FocusApp = ({ }) => {
 
-  const [isShowing, setIsShowing] = useState(false)
+  const [isFocusSpaceShowing, setIsFocusSpaceShowing] = useState(false)
   const [hasSoundPlaying, setHasSoundPlaying] = useState(false)
-  const [isPomodoroRunning, setIsPomodoroRunning] = useState(false)
+  const [pomodoroState, setPomodoroState] = useState(POMODORO_STATE.STOPPED)
+
+  const handlePomodoroStateChange = (newState) => {
+    setPomodoroState(newState)
+  }
 
   return (
-    <div className={`focus-app ${isShowing ? 'space-showing' : ''} ${hasSoundPlaying ? 'playing' : ''} ${isPomodoroRunning ? 'pomodoro-running' : ''}`}>
-      <FocusSpace isShowing={isShowing}
+    <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
+
+      <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}
         onPlayStart={() => setHasSoundPlaying(true)}
         onPlayToggle={() => setHasSoundPlaying(false)}
-        onPomodoroStart={() => setIsPomodoroRunning(true)}
-        onPomodoroStop={() => setIsPomodoroRunning(false)}
-        onHide={() => setIsShowing(false)} />
+        onPomodoroStateChange={handlePomodoroStateChange}
+        onHide={() => setIsFocusSpaceShowing(false)} />
 
       <div className="focus-space-access-buttons">
 
-        <button className={`tour--open-focus-app-button open-space-button ${isShowing ? 'close' : 'open'}`} onClick={() => setIsShowing(!isShowing)}>
-          <FontAwesomeIcon icon={isShowing ? faXmark : faWindowRestore} />
-          <span className='sound-playing-icon'>
-            <FontAwesomeIcon icon={faVolumeHigh} />
-          </span>
+        <button className={`tour--open-focus-app-button open-space-button ${isFocusSpaceShowing ? 'close' : 'open'}`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
+          <FontAwesomeIcon icon={isFocusSpaceShowing ? faXmark : faWindowRestore} />
 
-          <span className='pomodoro-running-icon'>
-            <FontAwesomeIcon icon={faHourglassHalf} />
-          </span>
+
+          {!isFocusSpaceShowing && (
+            <>
+              {(pomodoroState === POMODORO_STATE.FINISHED) && (
+                <span className="ping-notification">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-600 opacity-75"></span>
+                  <span className="relative inline-flex size-3 rounded-full bg-primary-700"></span>
+                </span>
+              )}
+
+              {hasSoundPlaying && (
+                <span className='sound-playing-icon'>
+                  <FontAwesomeIcon icon={faVolumeHigh} />
+                </span>
+              )}
+
+              {(pomodoroState === POMODORO_STATE.RUNNING || pomodoroState === POMODORO_STATE.PAUSED) && (
+                <span className='pomodoro-running-icon'>
+                  <FontAwesomeIcon icon={faHourglassHalf} />
+                </span>
+              )}
+            </>
+          )}
         </button>
 
       </div>
