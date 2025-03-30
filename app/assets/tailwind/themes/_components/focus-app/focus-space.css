@@ -1,57 +1,9 @@
 .focus-space {
-  @apply pt-64 pb-16 lg:pt-0 lg:pb-0;
-  @apply w-full min-h-full flex-col gap-16 justify-center items-center;
+  @apply py-16 md:py-0;
+  @apply w-full min-h-screen flex flex-col justify-center items-center gap-8;
+  position: relative;
   display: none;
-  background: var(--focus-space-background);
-	background-size: 400% 400%;
-	animation: animated-gradient-background 14s linear infinite;
-
-  .focus-space-fireflies {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0.3;
-  }
-
-
-  .focus-space-animated-background  {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: -1;
-
-    .wave {
-      background: var(--focus-space-wave-color);
-      border-radius: 1000% 1000% 0 0;
-      position: absolute;
-      width: 200%;
-      height: 12em;
-      animation: focus-space-wave 10s -3s linear infinite;
-      transform: translate3d(0, 0, 0);
-      opacity: 0.8;
-      bottom: -7%;
-      left: 0;
-      z-index: -1;
-    }
-
-    .wave:nth-of-type(2) {
-      bottom: -9%;
-      animation: focus-space-wave 18s linear reverse infinite;
-      opacity: 0.8;
-    }
-
-    .wave:nth-of-type(3) {
-      bottom: -12%;
-      animation: focus-space-wave 20s -1s reverse infinite;
-      opacity: 0.9;
-    }
-  }
+  z-index: 1;
 }
 
 .focus-app.space-showing .focus-space {

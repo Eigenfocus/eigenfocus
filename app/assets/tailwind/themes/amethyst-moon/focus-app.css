@@ -1,4 +1,4 @@
-.focus-app {
+body {
   @apply  backdrop-blur-sm;
   --focus-space-color-one: #4F46E5;
   --focus-space-color-two: rgb(86, 107, 146);
@@ -29,5 +29,5 @@
   --focus-space-input-border-color: color-mix(in srgb, var(--focus-space-color-readable) 20%, transparent);
 
   /* Wave background */
-  --focus-space-wave-color: rgba(0, 0, 0, 0.4);
+  --focus-space-wave-color: rgba(30, 30, 30, 0.1);
 }

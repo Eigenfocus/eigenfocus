@@ -1,8 +1,11 @@
 import React, { useState } from "react"
-import FocusSpace from "./FocusSpace"
-import { POMODORO_STATE } from "./FocusSpace/PomodoroTimer/PomodoroTimer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faWindowRestore, faVolumeHigh, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
+
+import AnimatedBackground from "./FocusApp/AnimatedBackground"
+import FocusSpace from "./FocusApp/FocusSpace"
+import { POMODORO_STATE } from "./FocusApp/PomodoroTimer/PomodoroTimer"
+
 
 const FocusApp = ({ }) => {
 
@@ -15,20 +18,21 @@ const FocusApp = ({ }) => {
   }
 
   return (
-    <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
+    <>
+      {isFocusSpaceShowing && (
+        <AnimatedBackground />
+      )}
+      <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
 
-      <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}
-        onPlayStart={() => setHasSoundPlaying(true)}
-        onPlayToggle={() => setHasSoundPlaying(false)}
-        onPomodoroStateChange={handlePomodoroStateChange}
-        onHide={() => setIsFocusSpaceShowing(false)} />
-
-      <div className="focus-space-access-buttons">
-
+        <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}
+          onPlayStart={() => setHasSoundPlaying(true)}
+          onPlayToggle={() => setHasSoundPlaying(false)}
+          onPomodoroStateChange={handlePomodoroStateChange}
+          onHide={() => setIsFocusSpaceShowing(false)} />
+      </div>
+      <div className={`focus-space-access-buttons ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
         <button className={`tour--open-focus-app-button open-space-button ${isFocusSpaceShowing ? 'close' : 'open'}`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
           <FontAwesomeIcon icon={isFocusSpaceShowing ? faXmark : faWindowRestore} />
-
-
           {!isFocusSpaceShowing && (
             <>
               {(pomodoroState === POMODORO_STATE.FINISHED) && (
@@ -52,9 +56,8 @@ const FocusApp = ({ }) => {
             </>
           )}
         </button>
-
       </div>
-    </div>
+    </>
   )
 }
 

@@ -1,10 +1,8 @@
-
-.focus-app {
-  @apply  backdrop-blur-md;
-  --focus-space-color-one: #421b46;
-  --focus-space-color-two: #623d5d;
+body {
+  --focus-space-color-one: #301533;
+  --focus-space-color-two: #4e2e4a;
   --focus-space-color-three: #2d2e45;
-  --focus-space-color-four: #006262;
+  --focus-space-color-four: hsl(180, 96%, 17%);
   --focus-space-background-opacity: 85%;
   --focus-space-background: linear-gradient(
     -45deg,
@@ -30,5 +28,5 @@
   --focus-space-input-border-color: color-mix(in srgb, var(--focus-space-color-readable) 20%, transparent);
 
   /* Wave background */
-  --focus-space-wave-color: rgba(220, 220, 255, 0.2);
+  --focus-space-wave-color: rgba(20, 20, 20, 0.3);
 }
