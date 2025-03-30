@@ -1,20 +1,21 @@
 
 .pomodoro-timer {
-  @apply max-w-3xl mx-auto;
+  @apply flex flex-col gap-8 mx-auto;
 
   .timer-display {
     @apply text-center font-bold;
     font-size: 7.6rem;
+    line-height: 1;
     color: color-mix(in srgb, var(--focus-space-color-readable) 60%, transparent);
     letter-spacing: 2px;
   }
 
   .timer-presets {
-    @apply flex flex-wrap justify-center gap-4 mb-6 w-full;
+    @apply flex flex-wrap justify-center gap-4 w-full;
 
   }
 
   .timer-controls {
-    @apply flex justify-center gap-4 mt-4 w-full;
+    @apply flex justify-center gap-4 w-full;
   }
 }

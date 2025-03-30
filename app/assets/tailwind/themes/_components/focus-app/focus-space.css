@@ -1,11 +1,12 @@
 .focus-space {
-  @apply pt-64 pb-16 lg:pt-0 lg:pb-0;
-  @apply w-full min-h-full flex-col gap-16 justify-center items-center;
+  @apply py-8 md:py-0;
+  @apply w-full min-h-screen flex flex-col justify-center items-center gap-8;
+  position: relative;
   display: none;
   background: var(--focus-space-background);
 	background-size: 400% 400%;
 	animation: animated-gradient-background 14s linear infinite;
-
+  z-index: 1;
   .focus-space-fireflies {
     position: absolute;
     top: 0;
@@ -16,15 +17,15 @@
     opacity: 0.3;
   }
 
-
   .focus-space-animated-background  {
-    position: absolute;
-    top: 0;
+    position: fixed;
     left: 0;
-    right: 0;
     bottom: 0;
+    right: 0;
+    top: 0;
     pointer-events: none;
-    z-index: -1;
+    z-index: -2;
+    overflow: hidden;
 
     .wave {
       background: var(--focus-space-wave-color);
