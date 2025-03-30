@@ -1,8 +1,11 @@
 import React, { useState } from "react"
-import FocusSpace from "./FocusSpace"
-import { POMODORO_STATE } from "./FocusSpace/PomodoroTimer/PomodoroTimer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faWindowRestore, faVolumeHigh, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
+
+import AnimatedBackground from "./FocusApp/AnimatedBackground"
+import FocusSpace from "./FocusApp/FocusSpace"
+import { POMODORO_STATE } from "./FocusApp/PomodoroTimer/PomodoroTimer"
+
 
 const FocusApp = ({ }) => {
 
@@ -16,6 +19,9 @@ const FocusApp = ({ }) => {
 
   return (
     <>
+      {isFocusSpaceShowing && (
+        <AnimatedBackground />
+      )}
       <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
 
         <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}

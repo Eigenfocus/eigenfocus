@@ -1,6 +1,5 @@
 
 .focus-app {
-  @apply  backdrop-blur-md;
   --focus-space-color-one: hsl(227, 26%, 30%);
   --focus-space-color-two: hsl(227, 26%, 20%);
   --focus-space-color-three: hsl(168, 45%, 10%);
