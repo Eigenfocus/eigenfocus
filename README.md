@@ -23,7 +23,7 @@
 <div align="center">
   <img src="https://img.shields.io/badge/0.9.0-blue.svg?style=flat&label=Last Release&labelColor=%23333&color=%23427D80"/>
 
-  <img src="https://img.shields.io/badge/1.0.0.rc3--free-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
+  <img src="https://img.shields.io/badge/1.0.0.rc4--free-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
 
   <br/>
   <br/>
@@ -124,7 +124,7 @@ There's a live demo for the FREE Edition where you can test our features.
 
 In this demo uploads are disabled and all data will expire after 30 minutes.
 
-This is a demo for the 0.9.0 so we recommend you to install the 1.0.0-rc3 in order to see the latest features.
+This is a demo for the 0.9.0 so we recommend you to install the 1.0.0-rc4 in order to see the latest features.
 
 <div align="center">
 <a href="https://demo.eigenfocus.com/" rel="nofollow">👀 <strong>Check the live demo</strong></a>
@@ -143,7 +143,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:1.0.0.rc3-free
+    eigenfocus/eigenfocus:1.0.0.rc4-free
 ```
 
 And access it at http://localhost:3001.
@@ -154,7 +154,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:1.0.0.rc3-free
+    image: eigenfocus/eigenfocus:1.0.0.rc4-free
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
