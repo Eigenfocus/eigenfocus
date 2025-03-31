@@ -19,8 +19,12 @@ module Modal
     }.deep_merge(container_options)
 
     inner_container_options = {
-      class: "max-h-screen w-full max-w-lg relative"
-    }.deep_merge(inner_container_options)
+      class: "max-h-screen w-full max-w-lg"
+    }.deep_merge(inner_container_options).tap do |options|
+      # The inner container must always be relative, no matter if we override the
+      # default options. So we need to add it if it is not there yet.
+      options[:class] += " relative" unless options[:class].include? "relative"
+    end
 
     content_tag(:div, wrapper_options) do
       content_tag(:div, container_options) do
