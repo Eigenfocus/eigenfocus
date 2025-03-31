@@ -4,8 +4,7 @@
     All-in-One Self-Hosted<br/>Project Management, Time Tracking and Focus App
   </p>
   <a href="https://eigenfocus.com"><strong>Website</strong></a> |
-  <a href="#installation"><strong>Docker Installation</strong></a> |
-  <a href="#live-demo"><strong>Live Demo</strong></a>
+  <a href="#installation"><strong>Docker Installation</strong></a>
 </div>
 <br />
 <div align="center">
@@ -21,13 +20,11 @@
 <br />
 
 <div align="center">
-  <img src="https://img.shields.io/badge/0.9.0-blue.svg?style=flat&label=Last Release&labelColor=%23333&color=%23427D80"/>
-
-  <img src="https://img.shields.io/badge/1.0.0.rc4--free-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
+  <img src="https://img.shields.io/badge/1.0.0--free-blue.svg?style=flat&label=Last Release&labelColor=%23333&color=%23427D80"/>
 
   <br/>
   <br/>
-  <a href="https://github.com/Eigenfocus/eigenfocus/releases/tag/v0.9.0"><strong>See what is new in our 0.9.0</strong></a>
+  <a href="https://github.com/Eigenfocus/eigenfocus/releases/tag/v1.0.0-free"><strong>See what is new in our Version 1.0.0 </strong></a>
 </div>
 
 
@@ -37,7 +34,6 @@ We're building an All-In-One Self-Hosted solution to manage projects, time, team
 We've been working with product development for a while so this product is built on the wisdom, pain and scars that we've gathered over the years. Our philosophy is to create a tool that is both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
 
 Any new ideas are welcome.
-
 
 # FREE EDITION (this repo)
 
@@ -50,25 +46,19 @@ Here are some of our current features:
 - Issue Labels and Shortcuts: Organize your issues and workflow with labels
 - Time Tracking: track time spent on a Project and a Specific Issue
 - Time Report: generate time reports by project and time periods
+- Focus Space where you can setup
 - Themes: customize the UI to your taste
-
-
-Here is what is coming next:
-- Focus Space
 
 <div align="center">
 ⭐️ this repository and stay up to date.
 </div>
 
-
 ## FREE EDITION - Some Screenshots/Recordings
 <div align="center">
 <img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/time-track-black-3.gif" width="75%"/>
-
 <img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/board-2.gif" width="75%"/>
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
-
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/themes-1.gif" width="75%"/>
+<img alt="issue list" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
+<img alt="focus-timers" src="https://blog-assets.eigenfocus.com/demo-v1/focus-space-min.gif" width="75%"/>
 </div>
 
 <br/>
@@ -81,22 +71,11 @@ Coming in the First Release:
 - Multiple Users with Permission Control
 - Custom Issue Statuses & Types
 - Create Views with Pre-Saved Filters
-- Multiple View Types: Boards and Matrices
-- Reports & Insights for Smarter Decisions
+- Highly customizable and multiple views (Boards and Grids)
 
 <div align="center">
   <a href="https://eigenfocus.com?utm_source=github-readme#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
 </div>
-
-## It fits your workflow
-Tailor your views using status, people or labels to match how you work.
-
-- Plan Ideas & Initiatives
-- Prioritize Work & Features
-- Allocate by Quarters or Sprints
-- Streamline Daily Workflows
-- Track Team Workload
-- ...and more!
 
 <br/>
 
@@ -119,19 +98,6 @@ Tailor your views using status, people or labels to match how you work.
 
 <br/>
 
-# Live Demo
-There's a live demo for the FREE Edition where you can test our features.
-
-In this demo uploads are disabled and all data will expire after 30 minutes.
-
-This is a demo for the 0.9.0 so we recommend you to install the 1.0.0-rc4 in order to see the latest features.
-
-<div align="center">
-<a href="https://demo.eigenfocus.com/" rel="nofollow">👀 <strong>Check the live demo</strong></a>
-</div>
-
-<br/>
-
 # Installation
 You can run our project using our docker image directly with docker or docker compose:
 
@@ -143,7 +109,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:1.0.0.rc4-free
+    eigenfocus/eigenfocus:1.0.0-free
 ```
 
 And access it at http://localhost:3001.
@@ -154,7 +120,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:1.0.0.rc4-free
+    image: eigenfocus/eigenfocus:1.0.0-free
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
@@ -191,8 +157,6 @@ You can enable HTTP Basic Auth by setting these two env variables:
 Check the [README.md](docs/README.md) file for instructions on how to setup the project.
 
 # Contact
-We are in *beta* and any feedbacks are welcome.
-
 Feel free to contact us `hi@eigenfocus.com` or open an issue.
 
 # Other
