@@ -1,25 +1,5 @@
 #!/bin/bash -e
 
-migrate_old_database_location() {
-  # Before v0.6.0 database files where at /app-data
-  # After v0.6.0 we're moving them to /app-data/database
-  echo "Migrating database folders..."
-  mkdir -p ./app-data
-  mkdir -p ./app-data/database
-
-  if [ -f ./app-data/production.sqlite3	 ]; then
-    mv ./app-data/production.sqlite3 ./app-data/database/production.sqlite3
-  fi
-
-  if [ -f ./app-data/production.sqlite3-wal	 ]; then
-    mv ./app-data/production.sqlite3-wal ./app-data/database/production.sqlite3-wal
-  fi
-
-  if [ -f ./app-data/production.sqlite3-shm	 ]; then
-    mv ./app-data/production.sqlite3-shm ./app-data/database/production.sqlite3-shm
-  fi
-}
-
 load_or_create_secret_env()
 {
   mkdir -p ./app-data
@@ -39,7 +19,6 @@ setup_upload_folder()
   mkdir -p ./app-data/upload-storage
 }
 
-migrate_old_database_location
 load_or_create_secret_env
 setup_upload_folder
 
