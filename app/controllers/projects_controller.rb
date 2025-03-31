@@ -17,11 +17,13 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.use_template = params[:project][:use_template]
 
-    if @project.save
-      flash[:success] = t_flash_message(@project)
-      redirect_to project_issues_path(@project)
-    else
-      render partial: "form", locals: { project: @project }
+    suppressing_template_related_broadcasts do
+      if @project.save
+        flash[:success] = t_flash_message(@project)
+        redirect_to project_issues_path(@project)
+      else
+        render partial: "form", locals: { project: @project }
+      end
     end
   end
 
@@ -66,6 +68,20 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  # This was used in order to prevent resources created by the template
+  # applier to broadcast turbo stream events.
+  # That could cause UI inconsistencies when entering on a visualization
+  # for the first time.
+  def suppressing_template_related_broadcasts
+    GroupingIssueAllocation.suppressing_turbo_broadcasts do
+      Grouping.suppressing_turbo_broadcasts do
+        Issue.suppressing_turbo_broadcasts do
+          yield
+        end
+      end
+    end
+  end
 
   def project_params
     params.require(:project).permit(:name, :archived, :time_tracking_enabled)

@@ -34,7 +34,7 @@
             data-visualization--board-signed-groupings-stream-token-value="<%= signed_stream_token({action: 'update', visualization_id: @visualization.id}) %>"
             data-visualization--board-signed-allocations-stream-token-value="<%= signed_stream_token({action: 'update', visualization_id: @visualization.id}) %>"
             >
-          <%= render partial: 'visualizations/column', collection: @visualization.groupings, as: :grouping, locals: {
+          <%= render partial: 'visualizations/column', collection: @visualization.groupings.sort_by(&:position), as: :grouping, locals: {
             visualization: @visualization,
             open_issue:  @open_issue
           } %>
