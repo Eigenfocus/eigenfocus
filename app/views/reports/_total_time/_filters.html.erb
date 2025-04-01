@@ -57,7 +57,7 @@
         <%= t(".generate_report_csv") %>
       <% end %>
 
-      <%= f.button t(".generate_report"), class: "btn-primary" %>
+      <%= f.button t(".generate_report"), onclick: "document.querySelector('.js-filter-form').action = '#{total_time_reports_path(format: :html)}'", class: "btn-primary" %>
     </div>
   </div>
 <% end %>
