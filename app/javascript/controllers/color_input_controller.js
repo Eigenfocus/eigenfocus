@@ -24,13 +24,17 @@ export default class extends Controller {
       swatches: this.suggestionsValue,
       wrap: false,
       inline: true,
-      defaultColor: this.inputTarget.value,
+      defaultColor: this.inputTarget.value || this.#randomSuggestion(),
       onChange: this.#onColorPicked.bind(this)
     })
   }
 
   #onColorPicked(color) {
     this.inputTarget.value = color
+  }
+
+  #randomSuggestion() {
+    return this.suggestionsValue[Math.floor(Math.random() * this.suggestionsValue.length)]
   }
 
   disconnect() {
