@@ -6,6 +6,7 @@ export default class extends Controller {
   static targets = ["input", "wrapper"]
   static values = {
     focus: { type: Boolean, default: false },
+    suggestions: { type: Array, default: [] }
   }
 
   connect() {
@@ -20,7 +21,7 @@ export default class extends Controller {
       format: 'hex',
       alpha: false,
       focusInput: this.focusValue,
-      swatches: [],
+      swatches: this.suggestionsValue,
       wrap: false,
       inline: true,
       defaultColor: this.inputTarget.value,

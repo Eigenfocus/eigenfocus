@@ -6,21 +6,37 @@ shared:
       - "rgb(219 234 254)"
       - "rgb(99 102 241)"
       - "rgb(16 185 129)"
+    color_suggestions:
+      - "#ABC"
+      - "#ABC"
+      - "#ABC"
   - key: "frost-crystal"
     showcase_colors:
       - "rgb(255 255 255)"
       - "rgb(219 234 254)"
       - "rgb(59 130 246)"
       - "rgb(207 250 254)"
+    color_suggestions:
+      - "#ABC"
+      - "#ABC"
+      - "#ABC"
   - key: "noir-flow"
     showcase_colors:
       - "#161619"
       - "#2d2e45"
       - "#006262"
       - "#421b46"
+    color_suggestions:
+      - "#ABC"
+      - "#ABC"
+      - "#ABC"
   - key: "kernel-mindset"
     showcase_colors:
       - "#242521"
       - "#5e6da1"
       - "#8269be"
       - "#baa966"
+    color_suggestions:
+      - "#ABC"
+      - "#ABC"
+      - "#ABC"
