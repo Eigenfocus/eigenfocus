@@ -32,9 +32,7 @@ export default class extends Controller {
       onChange: this.#onColorPicked.bind(this)
     })
 
-    this.issuePreviewOutlets.forEach(listener => {
-      listener.onColorSelect(defaultColor)
-    })
+    this.#onColorPicked(defaultColor)
   }
 
   #onColorPicked(color) {
