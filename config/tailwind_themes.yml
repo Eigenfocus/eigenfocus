@@ -1,6 +1,7 @@
 # Rails loads items on shared keys for all environments
 shared:
   - key: "amethyst-moon"
+    mode: "light"
     showcase_colors:
       - "rgb(248 250 252)"
       - "rgb(219 234 254)"
@@ -11,6 +12,7 @@ shared:
       - "#ABC"
       - "#ABC"
   - key: "frost-crystal"
+    mode: "light"
     showcase_colors:
       - "rgb(255 255 255)"
       - "rgb(219 234 254)"
@@ -21,6 +23,7 @@ shared:
       - "#ABC"
       - "#ABC"
   - key: "noir-flow"
+    mode: "dark"
     showcase_colors:
       - "#161619"
       - "#2d2e45"
@@ -31,6 +34,7 @@ shared:
       - "#ABC"
       - "#ABC"
   - key: "kernel-mindset"
+    mode: "dark"
     showcase_colors:
       - "#242521"
       - "#5e6da1"

@@ -6,7 +6,8 @@ export default class extends Controller {
   static targets = ["input", "wrapper"]
   static values = {
     focus: { type: Boolean, default: false },
-    suggestions: { type: Array, default: [] }
+    themeMode: { type: String, default: "light" }, // "light" | "dark"
+    suggestions: { type: Array, default: [] },
   }
 
   connect() {
@@ -18,6 +19,7 @@ export default class extends Controller {
       parent: this.wrapperTarget,
       el: this.inputTarget,
       theme: "pill",
+      themeMode: this.themeModeValue,
       format: 'hex',
       alpha: false,
       focusInput: this.focusValue,

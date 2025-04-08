@@ -2,11 +2,13 @@ class TailwindTheme
   attr_reader :key
   attr_reader :showcase_colors
   attr_reader :color_suggestions
+  attr_reader :mode
 
-  def initialize(key:, showcase_colors:, color_suggestions:)
+  def initialize(key:, showcase_colors:, color_suggestions:, mode:)
     @key = key
     @showcase_colors = showcase_colors
     @color_suggestions = color_suggestions
+    @mode = mode
   end
 
   def name

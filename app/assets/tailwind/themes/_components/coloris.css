@@ -1,9 +1,0 @@
-[data-controller="color-input"] {
-  .clr-picker {
-    width: 100%;
-    overflow: hidden;
-    box-shadow: none;
-
-    @apply border border-background-300;
-  }
-}
