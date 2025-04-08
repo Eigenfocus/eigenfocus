@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 import Coloris from "@melloware/coloris"
 
 export default class extends Controller {
+  static outlets = ["issue-preview"]
   static targets = ["input", "wrapper"]
   static values = {
     focus: { type: Boolean, default: false },
@@ -12,6 +13,7 @@ export default class extends Controller {
 
   connect() {
     Coloris.init()
+    const defaultColor = this.inputTarget.value || this.#randomSuggestion()
 
     this.inputTarget.classList.add("hidden")
 
@@ -26,13 +28,21 @@ export default class extends Controller {
       swatches: this.suggestionsValue,
       wrap: false,
       inline: true,
-      defaultColor: this.inputTarget.value || this.#randomSuggestion(),
+      defaultColor: defaultColor,
       onChange: this.#onColorPicked.bind(this)
+    })
+
+    this.issuePreviewOutlets.forEach(listener => {
+      listener.onColorSelect(defaultColor)
     })
   }
 
   #onColorPicked(color) {
     this.inputTarget.value = color
+
+    this.issuePreviewOutlets.forEach(listener => {
+      listener.onColorSelect(color)
+    })
   }
 
   #randomSuggestion() {
