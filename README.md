@@ -1,8 +1,7 @@
 <div align="center">
-  <h1><b>Eigenfocus</b></h1>
-  <p>
-    All-in-One Self-Hosted<br/>Project Management, Time Tracking and Focus App
-  </p>
+  <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner"><img src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/eigenfocus-github-banner.png" alt="Eigenfocus"/></a>
+  <br/>
+  <br/>
   <a href="https://eigenfocus.com"><strong>Website</strong></a> |
   <a href="#installation"><strong>Docker Installation</strong></a>
 </div>
@@ -21,12 +20,11 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/1.0.0--free-blue.svg?style=flat&label=Last Release&labelColor=%23333&color=%23427D80"/>
-
+  <br />
   <br/>
-  <br/>
-  <a href="https://github.com/Eigenfocus/eigenfocus/releases/tag/v1.0.0-free"><strong>See what is new in our Version 1.0.0 </strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features">🔔 <strong>Subscribe to our PRO Edition Waitlist</strong></a>
 </div>
-
+<br />
 
 # Our Vision
 We're building an All-In-One Self-Hosted solution to manage projects, time, teams and focus.
@@ -74,7 +72,7 @@ Coming in the First Release:
 - Highly customizable and multiple views (Boards and Grids)
 
 <div align="center">
-  <a href="https://eigenfocus.com?utm_source=github-readme#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features">🔔 <strong>Subscribe to our Waitlist</strong></a>
 </div>
 
 <br/>
@@ -93,7 +91,7 @@ Coming in the First Release:
 </div>
 
 <div align="center">
-  <a href="https://eigenfocus.com?utm_source=github-readme#plans">🔔 <strong>Subscribe to our Waitlist</strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features">🔔 <strong>Subscribe to our Waitlist</strong></a>
 </div>
 
 <br/>
