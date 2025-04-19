@@ -1,10 +1,24 @@
 1. Basic Permissions and Source Code
-Permission is hereby granted to any person purchasing, receiving a copy or downloading this source code (the “Software”), to install, use or modify the Software as provided. This does not include the rights to publish, distribute, sublicense, and/or sell copies of the Software, source code or products derived from it.
+Permission is hereby granted to any individual or legal entity (the “Licensee”) who has purchased or downloaded a copy of this software (the “Software”) from the official website, the official GitHub repository, or an authorized source, to install, use, and modify the Software for internal use only, including within their organization.
 
-2. Disclaimer of Warranty.
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+This license does not include the rights to:
 
-3. Limitation of Liability.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. IN NO EVENT SHALL THE AUTHORS BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+- Publish, distribute, sublicense, rent, lease, or sell the Software or any derivative works;
+- Incorporate the Software into another product intended for resale or distribution.
 
-The user of the software represents and warrants that they will at all times comply with applicable law in their use of the Software.
+2. Ownership
+The Software and all associated intellectual property rights remain the sole property of the author(s). No rights are granted except as expressly stated in this license.
+
+3. Disclaimer of Warranty.
+The Software is provided “as is”, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement.
+
+The entire risk as to the quality and performance of the Software is with the Licensee. Should the Software prove defective, the Licensee assumes the cost of all necessary servicing, repair, or correction.
+
+4. Limitation of Liability
+In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the Software or the use or other dealings in the Software. In no event shall the authors be liable to you for damages, including any general, special, incidental or consequential damages arising out of the use or inability to use the program (including but not limited to loss of data or data being rendered inaccurate or losses sustained by you or third parties or a failure of the program to operate with any other programs), even if such holder or other party has been advised of the possibility of such damages.
+
+5. Compliance with Laws
+The Licensee represents and warrants that they will at all times comply with applicable local, national, and international laws in their use of the Software.
+
+6. Author Rights
+Nothing in this license shall restrict the rights of the original author(s) to reuse, modify, relicense, or distribute the Software in any form.
