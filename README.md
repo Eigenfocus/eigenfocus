@@ -2,7 +2,7 @@
   <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner"><img src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/eigenfocus-github-banner.png" alt="Eigenfocus"/></a>
   <br/>
   <br/>
-  <a href="https://eigenfocus.com"><strong>Website</strong></a> |
+  <a href="https://eigenfocus.com?utm-source=github&utm_medium=try-cloud"><strong>Website</strong></a> |
   <a href="#installation"><strong>Docker Installation</strong></a>
 </div>
 <br />
@@ -50,6 +50,14 @@ Here are some of our current features:
 <div align="center">
 ⭐️ this repository and stay up to date.
 </div>
+
+Comming next:
+- Better project accessibility
+- Focus target (you'll understand when you see it 👀)
+- Better integration between issues and time tracking
+- Shortcuts & Quick Actions
+- A more colorful labels experience (i.e colored labels)
+- *i***y (it's a surprise 🤫)
 
 ## FREE EDITION - Some Screenshots/Recordings
 <div align="center">
