@@ -1,0 +1,37 @@
+<ul class="flex flex-col">
+  <li class="relative group">
+    <%
+      project_link_classes = "block px-8 py-4 hover:border-r-2 border-primary-700 hover:bg-background-100 hover:text-primary-700 truncate transition duration-150"
+
+      if controller_name.to_sym == :projects.to_sym
+        project_link_classes += " border-r-2 text-primary-700 bg-background-100"
+      else
+        project_link_classes += " text-readable-content-500"
+      end
+
+    %>
+    <%= link_to projects_path, class: project_link_classes do %>
+      <div class="flex  flex-col justify-between gap-2">
+        <div class="flex items-center text-lg">
+
+          <span class=" group-hover:text-primary-700">
+            <%= icon_for(:projects) %>
+          </span>
+          <span class="group-hover:text-primary-700 group-hover:font-bold group-active:text-primary-700 text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block"><%= t('.menu.projects') %></span>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="hidden group-hover:flex w-max flex-col">
+      <%= link_to t('.menu.all_projects'), projects_path,
+          class: "text-sm font-medium text-readable-content-500 p-4 pr-8 hover:bg-primary-300 hover:text-primary-800" %>
+      <%  Project.active.order(name: :asc).all.each do |project| %>
+        <%= link_to project.name, visualization_path(project.default_visualization),
+          class: "text-sm font-medium text-readable-content-500 p-4 pr-8 hover:bg-primary-300 hover:text-primary-800" %>
+      <% end %>
+
+    </div>
+
+  </li>
+
+</ul>

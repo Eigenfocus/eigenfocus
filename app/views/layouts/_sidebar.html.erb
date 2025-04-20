@@ -33,22 +33,10 @@
 
                </div>
             </div>
+            <%= render partial: 'layouts/_sidebar/projects_menu' %>
 
             <%= render partial: 'layouts/_sidebar/menu_group', locals: {
                menu_items: [
-                  {
-                    text: t('.menu.projects'),
-                    icon: icon_for(:projects),
-                    url: projects_path,
-                    main_controller: :projects,
-                    hover_menu: [{ text: t('.menu.all_projects'), url: projects_path }] + Project.order(name: :asc).all.map { |p|
-                      {
-                        text: p.name,
-                        url: visualization_path(p.default_visualization)
-                      }
-                    }
-
-                  },
                   {
                     text: t('.menu.timesheet'),
                     icon: icon_for(:time_entries),
