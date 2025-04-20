@@ -50,7 +50,8 @@ en:
       edit_profile: "Edit profile"
       profile_options: "Profile & Settings"
       menu:
-        projects: 'Projects'
-        all_projects: 'All projects'
         timesheet: 'Timesheet'
         total_time_report: 'Time reports'
+      projects_menu:
+        list_all_projects: 'List all projects'
+        projects: 'Projects'

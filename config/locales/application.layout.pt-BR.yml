@@ -51,7 +51,8 @@ pt-BR:
       edit_profile: "Editar perfil"
       profile_options: "Perfil e configurações"
       menu:
-        projects: 'Projetos'
-        all_projects: 'Todos os projetos'
         timesheet: 'Registros de Tempo'
         total_time_report: 'Relatórios de Tempo'
+      projects_menu:
+        list_all_projects: 'Listar todos os projetos'
+        projects: 'Projetos'
