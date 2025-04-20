@@ -1,10 +1,18 @@
-<div class=" hover:border-r-2 border-primary-700 hover:bg-background-100 truncate transition duration-150 text-readable-content-500">
-  <%= link_to projects_path,
-      class: "flex items-center text-lg px-8 py-4 md:sidebar-expanded:pb-2" do %>
+<div class="text-readable-content-500">
+  <div class="flex items-stretch pl-8">
+    <%= link_to projects_path,
+        class: "flex items-center grow text-lg py-4 md:sidebar-expanded:pb-2" do %>
 
-    <%= icon_for(:projects) %>
-    <span class="text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block "><%= t('.projects') %></span>
-  <% end %>
+      <%= icon_for(:projects) %>
+      <span class="text-sm font-medium ml-4 md:hidden md:sidebar-expanded:block "><%= t('.projects') %></span>
+    <% end %>
+
+    <%= link_to new_project_path,
+        class: "items-center justify-center flex gap-2 px-4 pt-4 pb-2 text-xs hover:font-bold hover:text-primary-800" do %>
+      <i class="fa fa-plus"></i>
+      <%= t('actions.add') %>
+    <% end %>
+  </div>
 
   <div class="max-h-[300px] overflow-y-auto px-8 md:hidden md:sidebar-expanded:block pb-4">
     <%= link_to projects_path,
