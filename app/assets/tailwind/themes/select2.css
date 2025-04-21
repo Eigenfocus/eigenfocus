@@ -15,8 +15,8 @@
 }
 
 .select2-container .select2-selection--single {
-  @apply py-2;
-  height: 37px;
+  @apply py-2.5 rounded-lg;
+  height: 43px;
 }
 
 .select2-selection.select2-selection--multiple {
@@ -26,7 +26,7 @@
 
 .select2-sm .select2-selection.select2-selection--multiple,
 .select2-sm .select2-selection.select2-selection--single {
-  min-height: 34px;
+  min-height: 43px;
 }
 
 .select2-contrast .select2-selection {
@@ -39,7 +39,7 @@
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-  top: 5px;
+  top: 7px;
 }
 
 .select2-dropdown {
