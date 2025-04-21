@@ -52,10 +52,10 @@ services:
       - VNC_NO_PASSWORD=true
       - SCREEN_WIDTH=1500
       - SCREEN_HEIGHT=900
-    ports:
-      - 4444:4444
-      - 5900:5900
-      - 7900:7900
+    # ports: CI doesn't need to expose ports.
+    #   - 4444:4444
+    #   - 5900:5900
+    #   - 7900:7900
 
 volumes:
   bundle:
