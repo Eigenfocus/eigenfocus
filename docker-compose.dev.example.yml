@@ -10,8 +10,8 @@ services:
       - bundle:/app/.bundle
       - node_modules:/app/node_modules
       - yarn-cache:/app/.yarn-cache
-    ports:
-      - "${RAILS_HOST_PORT}:${RAILS_HOST_PORT}"
+    # ports:
+    #   - "${RAILS_HOST_PORT}:${RAILS_HOST_PORT}"
     env_file:
       - "./.env"
     environment:
