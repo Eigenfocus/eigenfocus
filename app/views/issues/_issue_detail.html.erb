@@ -33,7 +33,7 @@
       </div>
       <div class="flex flex-col md:flex-row gap-8">
 
-        <%= render partial: 'issues/issue_detail/main_form', locals: { issue: } %>
+        <%= render partial: 'issues/issue_detail/main_form', locals: { issue:, form_path: local_assigns[:form_path] } %>
         <%= render partial: 'issues/issue_detail/right_sidebar', locals: { issue: } %>
 
       </div>
