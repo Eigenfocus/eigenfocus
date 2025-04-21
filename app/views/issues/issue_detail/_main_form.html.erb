@@ -1,0 +1,59 @@
+<div class="flex flex-col w-3/4 tour--issue-detail-fields">
+  <%= form_with(model: issue, url: local_assigns[:form_path], html: {
+    class: 'flex flex-col gap-2',
+    data: {
+      turbo: true,
+      "issue-detail-target": "form",
+      action: "turbo:submit-end->issue-detail#onFormSubmit",
+    }
+    }) do |f| %>
+
+    <div class="mb-2 flex flex-col items-stretch gap-2">
+      <%= f.label :title, Issue.human_attribute_name(:title), class: "label-primary" %>
+
+      <div data-controller='resizable-input' class="relative" >
+        <div data-resizable-input-target="replica" class="break-all text-base p-2 whitespace-pre-line"></div>
+
+        <%= f.text_area :title, required: true,
+          class: "text-base p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
+          "data-resizable-input-target": "input",
+          "data-issue-detail-target": "titleField",
+          "data-action": "keydown.enter->issue-detail#onTitleFieldEnter keydown.esc->issue-detail#onTitleFieldEsc blur->issue-detail#onTitleFieldBlur"
+          %>
+      </div>
+    </div>
+
+
+    <% if issue.persisted? %>
+      <div data-controller='issue--labels'
+          data-issue--labels-add-path-value="<%= add_label_project_issue_path(issue.project, issue) %>"
+          data-issue--labels-remove-path-value="<%= remove_label_project_issue_path(issue.project, issue) %>"
+          class="mb-4 flex flex-col items-stretch gap-2 cpy-issue-labels">
+        <%= f.label :label_ids, Issue.human_attribute_name(:label_ids), class: "label-primary" %>
+        <%= f.select :label_ids,
+              options_from_collection_for_select(issue.project.issue_labels, :id, :title, issue.label_ids),
+              { include_blank: false },
+              {
+                class: 'input-primary', multiple: true,
+                data: { controller: 'select2', tags: true }
+              } %>
+      </div>
+    <% end %>
+
+    <%= react_component("MarkdownEditor", defaultValue: issue.description, bindTarget: ".js-issue-description" ) %>
+    <%= f.hidden_field :description, class: "js-issue-description" %>
+
+    <div class="flex gap-2 justify-end">
+      <a class="btn-cancel" data-action="click->modal#close">
+        <%= t('actions.cancel') %>
+      </a>
+
+      <% text = issue.persisted? ? t('actions.update') : t('actions.create') %>
+      <%= f.button text, class: "btn-primary", data: { action: "issue-detail#trackUpdateButton" } %>
+    </div>
+  <% end %>
+
+  <% if issue.persisted? %>
+    <%= render partial: 'issues/files_drop', locals: { issue: } %>
+  <% end %>
+</div>
