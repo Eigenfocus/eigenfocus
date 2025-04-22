@@ -19,7 +19,7 @@
 <br />
 
 <div align="center">
-  <img src="https://img.shields.io/badge/1.0.0--free-blue.svg?style=flat&label=Last Release&labelColor=%23333&color=%23427D80"/>
+  <img src="https://assets.eigenfocus.com/current-release-100.svg"/>
   <br />
   <br/>
   <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features">🔔 <strong>Subscribe to our PRO Edition Waitlist</strong></a>
@@ -52,12 +52,12 @@ Here are some of our current features:
 </div>
 
 Comming next:
-- Better project accessibility
-- Focus target (you'll understand when you see it 👀)
-- Better integration between issues and time tracking
+- Better navigation between projects
+- Running time tracking alerts
 - Shortcuts & Quick Actions
+- Focus target (you'll understand when you see it 👀)
 - A more colorful labels experience (i.e colored labels)
-- *i***y (it's a surprise 🤫)
+- \*i\*\*\*y (it's a surprise 🤫)
 
 ## FREE EDITION - Some Screenshots/Recordings
 <div align="center">
