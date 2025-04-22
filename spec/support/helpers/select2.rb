@@ -6,7 +6,7 @@ module DomIdRspecHelper
       first("label[for=#{label_for}]").click
     end
     expect(page).to have_css(".select2-dropdown") # waits for the dropdown to close
-    find('.select2-results li.select2-results__option', text: option_text).click
+    page.find('.select2-results li.select2-results__option', text: option_text, visible: :all).click
     expect(page).to_not have_css(".select2-dropdown") # waits for the dropdown to close
   end
 
@@ -18,8 +18,8 @@ module DomIdRspecHelper
     end
 
     within(selector) do
-      find("textarea.select2-search__field").send_keys option_text
-      find("textarea.select2-search__field").send_keys :enter
+      page.find("textarea.select2-search__field").send_keys option_text
+      page.find("textarea.select2-search__field").send_keys :enter
     end
   end
 end

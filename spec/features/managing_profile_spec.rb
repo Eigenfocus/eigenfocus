@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe 'When entering my workspace for the first time' do
+  around(:each) do |example|
+    Timecop.freeze('2025-04-21 12:00:00 +0000') do
+      example.run
+    end
+  end
+
+
   specify "I should be direct to edit a new profile with welcome animation" do
     expect(User.count).to eq(0)
     expect(Project.count).to eq(0)
@@ -18,6 +25,7 @@ describe 'When entering my workspace for the first time' do
     disable_welcome_screen!
 
     select_from_select2(label_for: 'profile_timezone', option_text: "Tokyo (GMT+09:00)")
+
     within '.edit-profile' do
       select "English", from: "profile_locale"
       click_button 'Update'
@@ -53,9 +61,11 @@ describe 'When entering my workspace for the first time' do
       click_button 'Update'
     end
 
+    expect(page).to have_content("Profile succesfully updated.")
+
     user.reload
     expect(user.timezone).to eq('Tokyo')
-    expect(page).to have_content("Profile succesfully updated.")
+
 
     # Verify no example project is created on subsequent updates
     expect(Project.count).to eq(0)
