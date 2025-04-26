@@ -6,7 +6,7 @@
       class="flex border-r border-background-200 bg-background-menu lg:!flex flex-col justify-stretch absolute left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-[100dvh]  w-64 lg:w-20 lg:sidebar-expanded:!w-64 shrink-0 transition-all duration-200 ease-in-out -translate-x-64 shadow-sm">
       <div class="flex grow flex-col overflow-visible">
          <div class="h-16 mb-4 md:mb-0 lg:sidebar-expanded:mb-8 relative cpy-sidebar-login-data">
-            <button data-action="click->sidebar#close" style="right: 15px; top: calc(50% - 16px);" class="absolute z-20 md:hidden text-2xl text-readable-content-400 opacity-80 hover:text-readable-content-700">
+            <button data-action="click->sidebar#closeAsMenu" style="right: 15px; top: calc(50% - 16px);" class="absolute z-20 md:hidden text-2xl text-readable-content-400 opacity-80 hover:text-readable-content-700">
                <i class="fa fa-xmark"></i>
             </button>
             <div class="flex justify-center items-center p-4 hidden sidebar-expanded:block">
@@ -26,11 +26,18 @@
                </div>
                <div class="hidden lg:block justify-end">
 
-                  <button data-action="click->sidebar#toogleSidebarExpanded" class="text-readable-content-400 hover:text-readable-content-500">
-                     <i class="fa-solid fa-angles-left hidden sidebar-expanded:block"></i>
-                     <i class="fa-solid fa-angles-right sidebar-expanded:hidden"></i>
+                  <button
+                    data-sidebar-target="unpinSidebarButton"
+                    data-action="click->sidebar#unpinSidebar"
+                    class="text-readable-content-400 hover:text-readable-content-500">
+                    <i class="fa-solid fa-angles-left"></i>
                   </button>
-
+                  <button
+                    data-sidebar-target="pinSidebarButton"
+                    data-action="click->sidebar#pinSidebar"
+                    class="text-readable-content-400 hover:text-readable-content-500">
+                    <i class="fa-solid fa-map-pin"></i>
+                  </button>
                </div>
             </div>
             <%= render partial: 'layouts/_sidebar/projects_menu' %>
