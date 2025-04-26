@@ -1,6 +1,7 @@
 @import "./button";
 @import "./issue-label";
 @import "./link";
+@import "./sidebar";
 @import "./table";
 @import "./visualizations/board";
 @import "./markdown-editor/all";
