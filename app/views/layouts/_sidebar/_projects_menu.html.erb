@@ -18,6 +18,7 @@
     <%= link_to projects_path do %>
       <%= t('.list_all_projects') %>
     <% end %>
+
     <%  Project.active.order(name: :asc).all.each do |project| %>
       <%= link_to project.name, visualization_path(project.default_visualization) %>
     <% end %>
