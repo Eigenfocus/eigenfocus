@@ -14,16 +14,12 @@
     <% end %>
   </div>
 
-  <div style='font-size: 0.84rem;' class="max-h-[300px] overflow-y-auto px-8 md:hidden md:sidebar-expanded:block pb-4">
-    <%= link_to projects_path,
-        class: "py-1.5 flex gap-2 items-center font-normal grow text-readable-content-500 hover:font-semibold hover:text-primary-800",
-        style: 'padding: 0.25em 0;' do %>
+  <div class="sidebar--list">
+    <%= link_to projects_path do %>
       <%= t('.list_all_projects') %>
     <% end %>
     <%  Project.active.order(name: :asc).all.each do |project| %>
-      <%= link_to project.name, visualization_path(project.default_visualization),
-        class: "block grow font-normal text-readable-content-500 hover:font-semibold hover:text-primary-800 truncate",
-        style: 'padding: 0.25em 0;' %>
+      <%= link_to project.name, visualization_path(project.default_visualization) %>
     <% end %>
 
   </div>

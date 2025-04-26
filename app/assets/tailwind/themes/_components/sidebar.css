@@ -1,0 +1,9 @@
+.sidebar--list {
+  @apply max-h-[300px] overflow-y-auto px-8 md:hidden md:sidebar-expanded:block pb-4;
+  font-size: 0.84rem;
+
+  a {
+    @apply flex gap-2 items-center font-normal grow text-readable-content-500 hover:font-semibold hover:text-primary-800;
+    padding: 0.25em 0;
+  }
+}
