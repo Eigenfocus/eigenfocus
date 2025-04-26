@@ -1,24 +1,51 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["backdrop", "sidebar"]
+  static targets = [
+    "backdrop",
+    "sidebar",
+    "pinSidebarButton",
+    "unpinSidebarButton"
+  ]
 
   connect() {
-    const storedSidebarExpanded = localStorage.getItem("sidebar-expanded")
+    const sidebarShouldBeExpanded = this.getSavedSidebarExpandedPreference()
 
-    const isSidebarExpanded = (storedSidebarExpanded === null) ?
-        true :
-        (storedSidebarExpanded === "true")
+    this.sidebarTarget.addEventListener("mouseenter", (e) => {
+      if (this.savedPreferenceIsSidebarExpanded) {
+        return;
+      }
+      this.expand()
+    })
 
-    this.setSidebarExpanded(isSidebarExpanded)
+    this.sidebarTarget.addEventListener("mouseleave", (e) => {
+      if (this.savedPreferenceIsSidebarExpanded) {
+        return;
+      }
+
+      this.collapse()
+    })
+
+    this.renderPins()
+
+    this.setSidebarExpanded(this.savedPreferenceIsSidebarExpanded)
   }
 
   expand() {
+    if (this.openedAsMenu) {
+      return;
+    }
     this.setSidebarExpanded(true);
   }
 
+  collapse() {
+    if (this.openedAsMenu) {
+      return;
+    }
+    this.setSidebarExpanded(false);
+  }
+
   setSidebarExpanded(value) {
-    localStorage.setItem("sidebar-expanded", value)
     if (value) {
         document.querySelector("body").classList.add("sidebar-expanded")
     } else {
@@ -26,17 +53,41 @@ export default class extends Controller {
     }
   }
 
-  toogleSidebarExpanded() {
-    const isSidebarExpanded = document.querySelector("body").classList.contains("sidebar-expanded")
-    this.setSidebarExpanded(!isSidebarExpanded)
+  pinSidebar() {
+    this.saveSidebarExpandedPreference(true)
+    this.setSidebarExpanded(true)
+    this.renderPins()
   }
 
-  open(e) {
+  unpinSidebar() {
+    this.saveSidebarExpandedPreference(false)
+    this.setSidebarExpanded(false)
+    this.renderPins()
+  }
+
+  renderPins() {
+    if (this.savedPreferenceIsSidebarExpanded) {
+      this.pinSidebarButtonTarget.classList.add("hidden")
+      this.unpinSidebarButtonTarget.classList.remove("hidden")
+    } else {
+      this.pinSidebarButtonTarget.classList.remove("hidden")
+      this.unpinSidebarButtonTarget.classList.add("hidden")
+    }
+  }
+
+  toggleSidebarMenu(e) {
+    if (this.openedAsMenu) {
+      this.closeAsMenu(e)
+    } else {
+      this.openAsMenu(e)
+    }
+  }
+
+  openAsMenu(e) {
+    this.openedAsMenu = true
+
     this.sidebarCloseHandler = ({ target }) => {
-      if (this.sidebarTarget.contains(target)) {
-        return;
-      }
-      this.close(e);
+      this.closeAsMenu(e);
     };
 
     e.stopPropagation();
@@ -44,15 +95,29 @@ export default class extends Controller {
     this.backdropTarget.classList.remove("hidden");
     this.sidebarTarget.classList.add("-translate-x-0");
     this.sidebarTarget.classList.remove("-translate-x-64");
-    document.addEventListener("click", this.sidebarCloseHandler);
+    this.backdropTarget.addEventListener("click", this.sidebarCloseHandler);
   }
 
-  close(e) {
+  closeAsMenu(e) {
     e.stopPropagation();
+    this.openedAsMenu = false
     this.backdropTarget.classList.add("hidden");
     this.sidebarTarget.classList.remove("-translate-x-0");
     this.sidebarTarget.classList.add("-translate-x-64");
-    document.removeEventListener("click", this.sidebarCloseHandler);
+    this.backdropTarget.removeEventListener("click", this.sidebarCloseHandler);
+  }
+
+  getSavedSidebarExpandedPreference() {
+    return localStorage.getItem("sidebar-expanded")
+  }
+
+  saveSidebarExpandedPreference(value) {
+    localStorage.setItem("sidebar-expanded", value)
+  }
+
+  get savedPreferenceIsSidebarExpanded() {
+    const preference = this.getSavedSidebarExpandedPreference()
+    return preference === null ? true : preference === "true"
   }
 
 }
