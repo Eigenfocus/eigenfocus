@@ -9,15 +9,15 @@
             <button data-action="click->sidebar#closeAsMenu" style="right: 15px; top: calc(50% - 16px);" class="absolute z-20 md:hidden text-2xl text-readable-content-400 opacity-80 hover:text-readable-content-700">
                <i class="fa fa-xmark"></i>
             </button>
-            <div class="flex justify-center items-center p-4 hidden sidebar-expanded:block">
-              <%= image_tag 'logo-white.svg', class: "dark-themes-only" , style: 'width: 60%; opacity: 0.8;' %>
-              <%= image_tag 'logo.svg', class: "light-themes-only" , style: 'width: 60%; opacity: 0.8;' %>
-            </div>
+            <a href="<%= root_path %>" class="flex justify-center items-center p-4 hidden sidebar-expanded:block pl-6">
+              <%= image_tag 'logo-white.svg', class: "dark-themes-only" , style: 'width: 150px; opacity: 0.8;' %>
+              <%= image_tag 'logo.svg', class: "light-themes-only" , style: 'width: 150px; opacity: 0.8;' %>
+            </a>
 
-            <div class="flex justify-center items-center p-4 sidebar-expanded:hidden">
-              <%= image_tag 'icon-white.svg', class: "dark-themes-only" , style: 'width: 60%; opacity: 0.8;' %>
-              <%= image_tag 'icon.svg', class: "light-themes-only", style: 'width: 60%; opacity: 0.8;' %>
-            </div>
+            <a href="<%= root_path %>" class="flex justify-center items-center p-4 sidebar-expanded:hidden">
+              <%= image_tag 'icon-white.svg', class: "dark-themes-only" , style: 'width: 40px; opacity: 0.8;' %>
+              <%= image_tag 'icon.svg', class: "light-themes-only", style: 'width: 40px; opacity: 0.8;' %>
+            </a>
          </div>
          <div class="sidebar-expanded:mt-0">
             <div class="px-4 sidebar-expanded:mb-2 sm:h-16 sm:sidebar-expanded:h-auto flex items-center sidebar-expanded:justify-between justify-center uppercase text-readable-content-500 opacity-50 font-semibold">
