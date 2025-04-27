@@ -8,7 +8,7 @@ class AppMetadata < ApplicationRecord
   end
 
   def current_version
-    Gem::Version.new(File.read(Rails.root.join("VERSION")))
+    Gem::Version.new(File.read(Rails.root.join("VERSION-FREE")))
   end
 
   def last_released_version
