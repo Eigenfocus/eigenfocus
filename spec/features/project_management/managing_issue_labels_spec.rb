@@ -67,6 +67,7 @@ describe 'As a project manager, I want to manage my issue labels' do
     end
 
     expect(IssueLabel.last.title).to eq('type:test')
+    expect(IssueLabel.last.hex_color).to_not be_nil
   end
 
   specify "I can edit a label" do
@@ -77,6 +78,8 @@ describe 'As a project manager, I want to manage my issue labels' do
     end
 
     fill_in :issue_label_title, with: "type:development"
+    fill_color_in :issue_label_hex_color, with: "#876123"
+
     click_button "Update"
 
     within 'table' do
@@ -85,6 +88,7 @@ describe 'As a project manager, I want to manage my issue labels' do
 
     label_development.reload
     expect(label_development.title).to eq('type:development')
+    expect(label_development.hex_color).to eq("#876123")
   end
 
   specify "I can remove a label" do
