@@ -11,6 +11,7 @@ class IssueLabel < ApplicationRecord
 
   # Validations
   validates :title, presence: true, uniqueness: { case_sensitive: false, scope: [ :project_id ] }
+  validates :hex_color, hex_color: true
 
   # Normalizations
   normalizes :title, with: -> { _1.strip }
