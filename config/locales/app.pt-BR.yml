@@ -47,6 +47,7 @@ pt-BR:
     archive: "Arquivar"
     unarchive: "Reativar"
     save: "Salvar"
+    confirm: "Confirmar"
     cancel: "Cancelar"
     reload: "Atualizar"
     close: "Fechar"

@@ -55,3 +55,6 @@ en:
       projects_menu:
         list_all_projects: 'List all projects'
         projects: 'Projects'
+    confirm_modal:
+      title: "Just to double check..."
+      body: "Are you sure you want to do this?"

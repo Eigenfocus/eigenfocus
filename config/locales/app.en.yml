@@ -46,6 +46,7 @@ en:
     archive: "Archive"
     unarchive: "Unarchive"
     save: "Save"
+    confirm: "Confirm"
     cancel: "Cancel"
     reload: "Reload"
     close: "Close"
