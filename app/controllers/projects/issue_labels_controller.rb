@@ -59,6 +59,6 @@ class Projects::IssueLabelsController < Projects::BaseController
 
   private
   def label_params
-    params.require(:issue_label).permit(:title)
+    params.require(:issue_label).permit(:title, :hex_color)
   end
 end

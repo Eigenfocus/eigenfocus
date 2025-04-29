@@ -56,6 +56,7 @@ en:
 
       issue_label:
         title: 'Title'
+        hex_color: 'Color'
 
       time_entry:
         description: 'Description'
