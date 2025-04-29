@@ -52,6 +52,14 @@ class Visualizations::GroupingsController < Visualizations::BaseController
     end
   end
 
+  def archive_all_issues
+    @grouping = current_visualization.groupings.find(params[:id])
+
+    ActiveRecord::Base.transaction do
+      @grouping.issues.each(&:archive!)
+    end
+  end
+
   private
   def permitted_params
     params.require(:grouping).permit(:title, :hidden)

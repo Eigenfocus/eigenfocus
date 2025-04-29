@@ -40,6 +40,7 @@ Rails.application.routes.draw do
         member do
           get :move_all_issues
           post :move_all_issues_to
+          post :archive_all_issues
         end
         collection do
           post :move
