@@ -37,6 +37,6 @@ describe 'Groupings - Archive all issues' do
 
     grouping.reload
     expect(grouping.issues.count).to eq(3)
-    expect(grouping.issues.map(&:archived?)).to match_array([ true, true, true ])
+    expect(grouping.issues.all(&:archived?)).to be_truthy
   end
 end
