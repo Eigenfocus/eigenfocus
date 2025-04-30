@@ -24,5 +24,9 @@
     <%= labels_list_for(issue) %>
 
     <%= render partial: 'visualizations/groupings/_card/icons', locals: { issue: } %>
+
+    <% if issue.due_date? %>
+      <span><%= l(issue.due_date, format: :short) %></span>
+    <% end %>
   <% end %>
 </li>
