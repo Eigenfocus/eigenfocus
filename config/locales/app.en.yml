@@ -79,7 +79,9 @@ en:
         success: "Issue column was successfully updated."
     groupings:
       move_all_issues:
-        success: "All issues were successfully moved"
+        success: "All issues were successfully moved."
+      archive_all_issues:
+        success: "All issues were successfully archived."
     actions:
       create:
         notice: "%{resource_name} was successfully created."

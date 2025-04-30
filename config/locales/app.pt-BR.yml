@@ -80,7 +80,9 @@ pt-BR:
         success: "Coluna da issue atualizada com sucesso."
     groupings:
       move_all_issues:
-        success: "Todas as issues foram movidas com sucesso"
+        success: "Todas as issues foram movidas com sucesso."
+      archive_all_issues:
+        success: "Todas as issues foram arquivadas com sucesso."
     actions:
       create:
         notice: "%{resource_name} criado(a) com sucesso."

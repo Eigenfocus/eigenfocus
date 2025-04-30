@@ -78,6 +78,8 @@ pt-BR:
       destroy_confirmation: 'Tem certeza que quer deletar a coluna "%{title}"? Todas as issues dela serão movidas para "Sem coluna"!'
       current_column: 'Coluna atual'
       move_all_issues: 'Mover todas as issues'
+      archive_all_issues: 'Arquivar todas as issues'
+      archive_all_issues_confirmation: 'Tem certeza que quer arquivar todas as issues da coluna "%{title}"?'
     groupings:
       move_all_issues_modal:
         title: "Mover todas as issues de %{grouping}"
