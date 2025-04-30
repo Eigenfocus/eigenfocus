@@ -170,15 +170,21 @@ describe 'As a user, I want to manage my project using a kanban view' do
       click_link "Issue testing due date"
     end
 
+    expect(page).to have_content("Edit Issue")
+
     within '#issue_detail' do
+      expect(page).to have_selector("#issue_due_date.flatpickr-input")
+
       fill_in :issue_due_date, with: "2025-06-23"
+
+      expect(page).to have_selector("#issue_due_date.flatpickr-input.active")
     end
 
     expect(page).to have_content("Issue was successfully updated.")
     # Modal is still open
     expect(page).to have_selector('#issue_detail', visible: true)
 
-    issue = Issue.last
+    issue.reload
     expect(issue.due_date).to eq(Date.new(2025, 6, 23))
   end
 
