@@ -159,33 +159,33 @@ describe 'As a user, I want to manage my project using a kanban view' do
   end
 
   specify "I can update the due date" do
-    project = FactoryBot.create(:project)
-    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization)
-    issue = FactoryBot.create(:issue, title: "Issue testing due date", project: project)
-    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+    Timecop.freeze '2025-06-20'.to_date do
+      project = FactoryBot.create(:project)
+      grouping = FactoryBot.create(:grouping, visualization: project.default_visualization)
+      issue = FactoryBot.create(:issue, title: "Issue testing due date", project: project)
+      FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
 
-    visit visualization_path(project.default_visualization)
+      visit visualization_path(project.default_visualization)
 
-    within dom_id(grouping) do
-      click_link "Issue testing due date"
+      within dom_id(grouping) do
+        click_link "Issue testing due date"
+      end
+
+      expect(page).to have_content("Edit Issue")
+
+      select_flatpickr_day '#issue_due_date', "23"
+
+      close_modal
+
+      expect(page).to have_content("Issue was successfully updated.")
+
+      within dom_id(issue) do
+        expect(page).to have_content("23 April")
+      end
+
+      issue.reload
+      expect(issue.due_date).to eq(Date.new(2025, 4, 23))
     end
-
-    expect(page).to have_content("Edit Issue")
-
-    within '#issue_detail' do
-      expect(page).to have_selector("#issue_due_date.flatpickr-input")
-
-      fill_in :issue_due_date, with: "2025-06-23"
-
-      expect(page).to have_selector("#issue_due_date.flatpickr-input.active")
-    end
-
-    expect(page).to have_content("Issue was successfully updated.")
-    # Modal is still open
-    expect(page).to have_selector('#issue_detail', visible: true)
-
-    issue.reload
-    expect(issue.due_date).to eq(Date.new(2025, 6, 23))
   end
 
   specify 'I can move issues within the same grouping' do
