@@ -1,6 +1,6 @@
 <%= search_form_for q, url: project_issues_path(project_id: current_project.id), class: "w-full cpy-filter-form", data: { controller: 'form' } do |f| %>
   <div class="flex flex-col lg:flex-row justify-between items-stretch gap-4">
-    <div class="flex flex-col lg:flex-row justify-start items-stretch gap-4">
+    <div class="flex flex-col lg:flex-row justify-start items-stretch gap-4 flex-wrap">
       <div class="flex gap-2 grow items-center cpy-by-status">
         <%= f.select :by_archiving_status, ['all', 'active', 'archived'].map { |status| [t(".by_archiving_status.#{status}"), status] },
           { include_hidden: false },
