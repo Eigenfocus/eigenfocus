@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   # Helpers
   helper_method :current_user
+  helper_method :current_theme
   helper_method :skip_layout_content_wrapper?
   helper_method :t_flash_message
 
@@ -68,5 +69,9 @@ class ApplicationController < ActionController::Base
 
   def turbo_frame_request?
     request.headers["Turbo-Frame"]
+  end
+
+  def current_theme
+    @current_theme ||= TailwindTheme.find_by_key(Current.theme_key)
   end
 end

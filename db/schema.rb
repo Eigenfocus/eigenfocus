@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_20_021144) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_29_182244) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_20_021144) do
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "hex_color"
     t.index ["project_id"], name: "index_issue_labels_on_project_id"
     t.index ["title"], name: "index_issue_labels_on_title"
   end

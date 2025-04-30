@@ -26,6 +26,44 @@
         <%= f.text_field :title, autofocus: true, required: true, class: "input-primary" %>
       </div>
 
+      <div
+        class="mb-4 flex flex-col items-stretch gap-2"
+        data-controller="color-input"
+        data-color-input-issue-preview-outlet=".js-issue-preview-outlet"
+        data-color-input-theme-mode-value="<%= current_theme.mode %>"
+        data-color-input-suggestions-value="<%= current_theme.color_suggestions.to_json %>"
+        >
+        <%= f.label :hex_color, IssueLabel.human_attribute_name(:hex_color), class: "label-primary" %>
+        <div class="relative" data-color-input-target="wrapper">
+          <%= f.text_field :hex_color, required: true, class: "input-primary", data: { color_input_target: "input" } %>
+        </div>
+      </div>
+
+      <div
+        class="mb-4 flex flex-col items-stretch gap-2 js-issue-preview-outlet"
+        data-controller="issue-preview"
+        >
+        <p><%= t(".card_preview") %></p>
+
+        <div class="relative flex flex-row gap-2 text-sm text-content-500 border-2 border-background-200 bg-background-50 shadow-sm rounded-xl card p-3"
+        >
+          <div class="rounded-lg bg-readable-content-300 animate-pulse" style="width: 4px;"></div>
+          <div class="flex flex-col gap-2 grow">
+            <span class="bg-readable-content-300 h-4 rounded animate-pulse"></span>
+
+            <div class="grid gap-1 grid-cols-10">
+              <span class="issue-label bg-readable-content-300 h-4 col-span-2 rounded" data-issue-preview-target="backgroundColor"></span>
+              <span class="issue-label bg-readable-content-300 h-4 col-span-3 rounded" data-issue-preview-target="backgroundColor"></span>
+              <span class="issue-label bg-readable-content-300 h-4 col-span-1 rounded" data-issue-preview-target="backgroundColor"></span>
+            </div>
+            <div class="flex flex-row items-stretch justify-start gap-3 text-readable-content-500 animate-pulse">
+              <div class="h-4 w-4 rounded bg-readable-content-300"></div>
+              <div class="h-4 w-4 rounded bg-readable-content-300"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <div class="flex gap-2 justify-center">
         <a class="btn-cancel" data-action="click->modal#close">

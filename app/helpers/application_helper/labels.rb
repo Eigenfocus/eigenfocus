@@ -1,9 +1,15 @@
 module ApplicationHelper
   module Labels
     def badge_for_issue_label(label, label_tag_options = {})
+      custom_styles = if label.hex_color.present?
+        "background-color: #{label.hex_color}"
+      else
+        ""
+      end
+
       options = {
         class: "issue-label",
-        style: "", # In the future we will have custom colors
+        style: custom_styles,
         data: {
           "issue-label": label.id
         }
