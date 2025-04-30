@@ -21,9 +21,7 @@
     <% end %>
   </td>
   <td>
-    <% if issue.due_date? %>
-      <%= l issue.due_date, format: :short %>
-    <% end %>
+    <%= due_date_for(issue) %>
   </td>
   <td><%= l issue.created_at, format: :short %></td>
   <td><%= l issue.updated_at, format: :short %></td>
