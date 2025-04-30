@@ -56,3 +56,6 @@ pt-BR:
       projects_menu:
         list_all_projects: 'Listar todos os projetos'
         projects: 'Projetos'
+    confirm_modal:
+      title: "Apenas para verificar..."
+      body: "Tem certeza que quer fazer isso?"
