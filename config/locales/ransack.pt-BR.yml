@@ -13,3 +13,5 @@ pt-BR:
       issue:
         title_cont: Com título
         by_label_titles: Com labels
+        due_date_gteq: Encerra depois de
+        due_date_lteq: Encerra antes de

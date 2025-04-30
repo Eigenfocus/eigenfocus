@@ -55,4 +55,48 @@ describe 'As a project manager, I want to list my issues' do
     expect(page).to have_content("Debug code")
     expect(page).to have_content("Archived issue")
   end
+
+  specify "I can filter issues by due date" do
+    project = FactoryBot.create(:project)
+
+    FactoryBot.create(:issue, project: project, due_date: Date.new(2025, 1, 1), title: "Due to January")
+    FactoryBot.create(:issue, project: project, due_date: Date.new(2025, 2, 1), title: "Due to February")
+    FactoryBot.create(:issue, project: project, due_date: Date.new(2025, 3, 1), title: "Due to March")
+
+    visit project_issues_path(project)
+
+    expect(page).to have_content("Due to January")
+    expect(page).to have_content("Due to February")
+    expect(page).to have_content("Due to March")
+
+    within ".cpy-filter-form" do
+      fill_in "q[due_date_gteq]", with: "2025-01-15"
+
+      click_button "Search"
+    end
+
+    expect(page).not_to have_content("Due to January")
+    expect(page).to have_content("Due to February")
+    expect(page).to have_content("Due to March")
+
+    within ".cpy-filter-form" do
+      fill_in "q[due_date_lteq]", with: "2025-02-15"
+
+      click_button "Search"
+    end
+
+    expect(page).not_to have_content("Due to January")
+    expect(page).to have_content("Due to February")
+    expect(page).not_to have_content("Due to March")
+
+    within ".cpy-filter-form" do
+      fill_in "q[due_date_gteq]", with: ""
+
+      click_button "Search"
+    end
+
+    expect(page).to have_content("Due to January")
+    expect(page).to have_content("Due to February")
+    expect(page).not_to have_content("Due to March")
+  end
 end

@@ -10,7 +10,7 @@
 } %>
 
 <%= turbo_frame_tag 'issues', class: "tour--issues-list", autoscroll: true, 'autoblock-scroll': 'start', data: { turbo_action: "advance" } do %>
-  <div class="mt-8 mb-8 flex justify-between gap-4 items-center flex-col md:flex-row">
+  <div class="mt-8 mb-8 flex justify-between gap-4 items-center flex-col lg:flex-row">
     <%= render partial: 'filter', locals: { q: @q } %>
 
     <%= link_to "#{t('actions.create')} #{Issue.model_name.human.downcase}",
@@ -45,6 +45,7 @@
             <th><%= sort_link(@q, :title, Issue.human_attribute_name(:title)) %></th>
             <th><%= Issue.human_attribute_name(:labels) %></th>
             <th><%= sort_link(@q, :groupings_title, Issue.human_attribute_name(:grouping)) %></th>
+            <th><%= sort_link(@q, :due_date, Issue.human_attribute_name(:due_date)) %></th>
             <th><%= sort_link(@q, :created_at, Issue.human_attribute_name(:created_at)) %></th>
             <th><%= sort_link(@q, :updated_at, Issue.human_attribute_name(:updated_at)) %></th>
             <th><%= t(:actions, scope: :menu) %></th>
