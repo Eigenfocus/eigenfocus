@@ -11,7 +11,7 @@
       }) do |f| %>
         <%= f.label :due_date, Issue.human_attribute_name(:due_date), class: "label-primary" %>
         <%= f.text_field :due_date, class: 'input-primary w-full',
-          data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr", action: "input->form#submit" }
+          data: { "flatpickr-date-format": t("date.formats.flatpickr"), controller: "flatpickr", action: "input->form#submit" }
           %>
     <% end %>
 

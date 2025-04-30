@@ -158,6 +158,30 @@ describe 'As a user, I want to manage my project using a kanban view' do
     expect(issue.title).to eq("Updated title")
   end
 
+  specify "I can update the due date" do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization)
+    issue = FactoryBot.create(:issue, title: "Issue testing due date", project: project)
+    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      click_link "Issue testing due date"
+    end
+
+    within '#issue_detail' do
+      fill_in :issue_due_date, with: "2025-06-23"
+    end
+
+    expect(page).to have_content("Issue was successfully updated.")
+    # Modal is still open
+    expect(page).to have_selector('#issue_detail', visible: true)
+
+    issue = Issue.last
+    expect(issue.due_date).to eq(Date.new(2025, 6, 23))
+  end
+
   specify 'I can move issues within the same grouping' do
     project = FactoryBot.create(:project)
     grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")
