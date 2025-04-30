@@ -22,8 +22,9 @@
   <img src="https://assets.eigenfocus.com/current-release-100.svg"/>
   <br />
   <br/>
-  <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features">🔔 <strong>Subscribe to our PRO Edition Waitlist</strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features"><strong>We also have a PRO Edition 👀</strong></a>
 </div>
+
 <br />
 
 # Our Vision
@@ -70,41 +71,69 @@ Comming next:
 <br/>
 
 # PRO Edition (another repo)
-We're building a PRO Edition (Paid) with advanced features for managing complex projects and larger teams.
+We have a PRO Edition (Paid) with advanced features for managing complex projects and larger teams.
 
-Coming in the First Release:
+Here are some of the features:
 
 - Multiple Users with Permission Control
 - Custom Issue Statuses & Types
-- Create Views with Pre-Saved Filters
-- Highly customizable and multiple views (Boards and Grids)
+- Multiple views with pre-saved filters
+- Eigencolumns aren't just "Trello lists" -> they are true projections from your issues and can represent many things: a status, a label, a person...
+- Grid View (Coming Soon)
 
-<div align="center">
-  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features">🔔 <strong>Subscribe to our Waitlist</strong></a>
-</div>
+<br/>
+
+------
 
 <br/>
 
 <div align="center">
+  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>👉 Early Access to PRO Edition is rolling out.</strong></a>
+</div>
+
+<br/>
+
+------
+
+<br/>
+
+<div align="center">
+  <p>
+    Eigencolumns: by release labels
+  </p>
+  <img width="90%" src="https://assets.eigenfocus.com/dynamic-columns/by-release.jpg"/>
+  <br/>
+  <br/>
+  <p>
+    Grid View (comming soon)
+  </p>
   <img width="90%" src="https://assets.eigenfocus.com/github-readme/pro-demo-preview/matrix-workflow.png"/>
   <br/>
 </div>
-<br/>
-
-----
 
 <br/>
-<div align="center">
-  The best tool is the one that doesn't stay in your way.</p>
-</div>
 
 <div align="center">
-  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features">🔔 <strong>Subscribe to our Waitlist</strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>👉 See all PRO Edition features</strong></a>
 </div>
+
+<br/>
+
+
+> Hey 👋,
+>
+> This FREE Edition exists thanks our PRO Edition cloud and self-hosted users
+>
+> If you know someone who might benefit from Eigenfocus,
+>
+> *spread the word* and help us grow! 💪
+>
+> Thanks!
 
 <br/>
 
 # Installation
+
 You can run our project using our docker image directly with docker or docker compose:
 
 ## Docker
