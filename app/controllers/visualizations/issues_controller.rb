@@ -17,6 +17,6 @@ class Visualizations::IssuesController < Visualizations::BaseController
 
   private
   def permitted_params
-    params.require(:issue).permit(:title, :description, files: [])
+    params.require(:issue).permit(:title, :description, :due_date, files: [])
   end
 end

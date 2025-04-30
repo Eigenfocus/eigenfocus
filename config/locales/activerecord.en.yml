@@ -52,6 +52,7 @@ en:
         label_ids: 'Labels'
         created_at: 'Created at'
         updated_at: 'Updated at'
+        due_date: 'Due date'
         grouping: 'Column'
 
       issue_label:

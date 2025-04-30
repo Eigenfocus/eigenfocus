@@ -72,6 +72,6 @@ class Projects::IssuesController < Projects::BaseController
 
   private
   def permitted_params
-    params.require(:issue).permit(:title, :description, files: [], labels_list: [])
+    params.require(:issue).permit(:title, :description, :due_date, files: [], labels_list: [])
   end
 end
