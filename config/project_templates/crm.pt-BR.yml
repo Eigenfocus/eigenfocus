@@ -9,14 +9,15 @@ groupings:
   - "Ganho"
   - "Perdido"
 labels:
-  - "valor:alto"
-  - "valor:médio"
-  - "valor:baixo"
-  - "origem:indicação"
-  - "origem:website"
-  - "origem:conferência"
-  - "tipo:novo-negócio"
-  - "tipo:expansão"
+  - title: "valor:alto"
+    color: '#f16365'
+  - title: "valor:médio"
+  - title: "valor:baixo"
+  - title: "origem:indicação"
+  - title: "origem:website"
+  - title: "origem:conferência"
+  - title: "tipo:novo-negócio"
+  - title: "tipo:expansão"
 sample_issues:
   - title: "Solução Enterprise para TechCorp Inc."
     description: "Cliente enterprise potencial interessado em implantação completa da plataforma. Valor anual do contrato: R$ 1.25M"

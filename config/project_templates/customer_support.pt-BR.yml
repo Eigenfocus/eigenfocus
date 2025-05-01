@@ -8,13 +8,15 @@ groupings:
   - "Resolvido"
   - "Fechado"
 labels:
-  - "prioridade:urgente"
-  - "prioridade:normal"
-  - "tipo:técnico"
-  - "tipo:cobrança"
-  - "tipo:conta"
-  - "satisfação:feliz"
-  - "satisfação:insatisfeito"
+  - title: "prioridade:urgente"
+    color: '#f16365'
+  - title: "prioridade:normal"
+  - title: "tipo:técnico"
+  - title: "tipo:cobrança"
+  - title: "tipo:conta"
+  - title: "satisfação:feliz"
+  - title: "satisfação:insatisfeito"
+    color: '#f16365'
 sample_issues:
   - title: "Não consegue acessar recursos premium após upgrade"
     description: "Cliente atualizou para o plano premium mas os recursos ainda aparecem bloqueados. Conta: CUST-123"

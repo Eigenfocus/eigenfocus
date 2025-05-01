@@ -10,7 +10,12 @@ describe Project::Templatable::TemplateApplier do
         name: "Template 1",
         description: "Template 1 description",
         groupings: [ "Group1", "Group2" ],
-        labels: [ "Label1", "Label2" ],
+        labels: [ {
+          title: "Label1",
+          color: "#f16365"
+        }, {
+          title: "Label2"
+        } ],
         sample_issues: [
           {
             title: "Issue 1",
@@ -41,8 +46,9 @@ describe Project::Templatable::TemplateApplier do
       grouping_titles = board.groupings.pluck(:title)
       expect(grouping_titles).to match_array(template.groupings)
 
-      label_titles = project.issue_labels.pluck(:title)
-      expect(label_titles).to match_array(template.labels)
+      labels = project.issue_labels.all.to_a
+      expect(labels.map(&:title)).to match_array(template.labels.map(&:title))
+      expect(labels.map(&:hex_color)).to match_array(template.labels.map(&:color))
 
       expect(project.issues.count).to eq(2)
 

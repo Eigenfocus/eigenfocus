@@ -5,8 +5,9 @@ groupings:
   - "DOING"
   - "DONE"
 labels:
-  - "priority:high"
-  - "priority:low"
+  - title: "priority:high"
+    color: '#f16365'
+  - title: "priority:low"
 sample_issues:
   - title: "Update company brochure"
     description: "Create new marketing brochure with updated pricing and recent client testimonials"

@@ -28,8 +28,8 @@ class Project::Templatable::TemplateApplier
   end
 
   def create_labels
-    template.labels.each do |label_title|
-      project.issue_labels.create!(title: label_title)
+    template.labels.each do |label|
+      project.issue_labels.create!(title: label.title, hex_color: label.color)
     end
   end
 

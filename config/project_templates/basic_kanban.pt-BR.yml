@@ -5,8 +5,9 @@ groupings:
   - "FAZENDO"
   - "FEITO"
 labels:
-  - "prioridade:alta"
-  - "prioridade:baixa"
+  - title: "prioridade:alta"
+    color: '#f16365'
+  - title: "prioridade:baixa"
 sample_issues:
   - title: "Atualizar brochura da empresa"
     description: "Criar nova brochura de marketing com preços atualizados e depoimentos recentes de clientes"

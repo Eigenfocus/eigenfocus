@@ -15,7 +15,11 @@ class Project::Templatable::Template < Dry::Struct
   attribute :name, Types::String
   attribute :description, Types::String
   attribute :groupings, Types::Array.of(Types::String)
-  attribute :labels, Types::Array.of(Types::String)
+  attribute :labels, Types::Array do
+    attribute :title, Types::String
+    attribute? :color, Types::String
+  end
+
   attribute :sample_issues, Types::Array do
     attribute :title, Types::String
     attribute :description, Types::String

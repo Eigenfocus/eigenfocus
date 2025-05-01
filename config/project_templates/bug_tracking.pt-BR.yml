@@ -7,12 +7,14 @@ groupings:
   - "Teste de QA"
   - "Resolvido"
 labels:
-  - "severidade:crítica"
-  - "severidade:alta"
-  - "severidade:média"
-  - "severidade:baixa"
-  - "regressão"
-  - "precisa-reprodução"
+  - title: "severidade:crítica"
+    color: '#f16365'
+  - title: "severidade:alta"
+    color: '#f16365'
+  - title: "severidade:média"
+  - title: "severidade:baixa"
+  - title: "regressão"
+  - title: "precisa-reprodução"
 sample_issues:
   - title: "App trava ao atualizar perfil do usuário"
     description: "Usuários relatam travamento do app ao atualizar foto do perfil. Passos: 1. Ir ao perfil 2. Clicar em editar 3. Fazer upload de imagem"

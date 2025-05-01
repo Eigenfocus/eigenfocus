@@ -9,14 +9,15 @@ groupings:
   - "Won"
   - "Lost"
 labels:
-  - "value:high"
-  - "value:medium"
-  - "value:low"
-  - "source:referral"
-  - "source:website"
-  - "source:conference"
-  - "type:new-business"
-  - "type:upsell"
+  - title: "value:high"
+    color: '#f16365'
+  - title: "value:medium"
+  - title: "value:low"
+  - title: "source:referral"
+  - title: "source:website"
+  - title: "source:conference"
+  - title: "type:new-business"
+  - title: "type:upsell"
 sample_issues:
   - title: "Enterprise Solution for TechCorp Inc."
     description: "Potential enterprise client interested in full platform deployment. Annual contract value: $250K"

@@ -6,7 +6,10 @@ describe "Template configuration validation" do
       required(:name).value(:string)
       required(:description).value(:string)
       required(:groupings).array(:string)
-      required(:labels).array(:string)
+      required(:labels).array(:hash) do
+        required(:title).value(:string)
+        optional(:color).value(:string)
+      end
       required(:sample_issues).array(:hash) do
         required(:title).value(:string)
         required(:description).value(:string)

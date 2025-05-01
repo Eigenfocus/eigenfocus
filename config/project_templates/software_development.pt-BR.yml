@@ -9,13 +9,15 @@ groupings:
   - "Pronto para Deploy"
   - "Concluído"
 labels:
-  - "tipo:feature"
-  - "tipo:refactor"
-  - "tipo:tech-debt"
-  - "tamanho:pequeno"
-  - "tamanho:médio"
-  - "tamanho:grande"
-  - "prioridade:urgente"
+  - title: "tipo:feature"
+  - title: "tipo:refactor"
+  - title: "tipo:tech-debt"
+    color: '#f16365'
+  - title: "tamanho:pequeno"
+  - title: "tamanho:médio"
+  - title: "tamanho:grande"
+  - title: "prioridade:urgente"
+    color: '#f16365'
 sample_issues:
   - title: "Implementar Autenticação OAuth2"
     description: "Adicionar suporte para autenticação OAuth2 do Google e GitHub. Incluir sincronização de perfil de usuário e tratamento de atualização de token"

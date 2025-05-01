@@ -7,12 +7,14 @@ groupings:
   - "QA Testing"
   - "Resolved"
 labels:
-  - "severity:critical"
-  - "severity:high"
-  - "severity:medium"
-  - "severity:low"
-  - "regression"
-  - "needs-reproduction"
+  - title: "severity:critical"
+    color: '#f16365'
+  - title: "severity:high"
+    color: '#f16365'
+  - title: "severity:medium"
+  - title: "severity:low"
+  - title: "regression"
+  - title: "needs-reproduction"
 sample_issues:
   - title: "App crashes on user profile update"
     description: "Users report app crash when updating profile picture. Steps: 1. Go to profile 2. Click edit 3. Upload new image"

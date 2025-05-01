@@ -9,13 +9,15 @@ groupings:
   - "Ready to Deploy"
   - "Done"
 labels:
-  - "type:feature"
-  - "type:refactor"
-  - "type:tech-debt"
-  - "size:small"
-  - "size:medium"
-  - "size:large"
-  - "priority:urgent"
+  - title: "type:feature"
+  - title: "type:refactor"
+  - title: "type:tech-debt"
+    color: '#f16365'
+  - title: "size:small"
+  - title: "size:medium"
+  - title: "size:large"
+  - title: "priority:urgent"
+    color: '#f16365'
 sample_issues:
   - title: "Implement OAuth2 Authentication"
     description: "Add support for Google and GitHub OAuth2 authentication. Include user profile sync and token refresh handling"

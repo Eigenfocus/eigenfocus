@@ -8,13 +8,15 @@ groupings:
   - "Resolved"
   - "Closed"
 labels:
-  - "priority:urgent"
-  - "priority:normal"
-  - "type:technical"
-  - "type:billing"
-  - "type:account"
-  - "satisfaction:happy"
-  - "satisfaction:unhappy"
+  - title: "priority:urgent"
+    color: '#f16365'
+  - title: "priority:normal"
+  - title: "type:technical"
+  - title: "type:billing"
+  - title: "type:account"
+  - title: "satisfaction:happy"
+  - title: "satisfaction:unhappy"
+    color: '#f16365'
 sample_issues:
   - title: "Cannot access premium features after upgrade"
     description: "Customer upgraded to premium plan but features still show as locked. Account: CUST-123"
