@@ -89,8 +89,9 @@ describe 'As a project manager, I want to list my issues' do
     expect(page).to have_content("Due to February")
     expect(page).not_to have_content("Due to March")
 
+
     within ".cpy-filter-form" do
-      fill_in "q[due_date_gteq]", with: ""
+      find("#q_due_date_gteq + .cpy-flatpickr-clear-button").click
 
       click_button "Search"
     end
