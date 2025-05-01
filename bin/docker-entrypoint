@@ -19,27 +19,9 @@ setup_upload_folder()
   mkdir -p ./app-data/upload-storage
 }
 
-shutdown_handler() {
-  echo "Received shutdown signal, shutting down..."
-  # Kill the application process
-  kill "$child"
-  # Wait for the application to exit
-  wait "$child"
-  echo "Application stopped."
-  exit 0
-}
-
-trap "shutdown_handler" SIGTERM SIGINT
-
 load_or_create_secret_env
 setup_upload_folder
 
 cp config/database.example.yml config/database.yml
 
-
-# Start the command in the background
-"${@}" &
-child=$!
-
-# Wait for the process to finish
-wait "$child"
+exec "${@}"
