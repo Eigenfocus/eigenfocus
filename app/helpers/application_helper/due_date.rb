@@ -4,7 +4,7 @@ module ApplicationHelper
       return unless issue.due_date?
 
       options = {
-        class: due_date_color_class_for(issue) + " text-xs"
+        class: due_date_color_class_for(issue).to_s + " text-xs"
       }
 
       content_tag(:span, options) do
