@@ -2,7 +2,7 @@ module ApplicationHelper
   module Labels
     def badge_for_issue_label(label, label_tag_options = {})
       custom_styles = if label.hex_color.present?
-        "--label-bg: #{label.hex_color}"
+        "--label-bg: #{label.hex_color}; --label-text-color: #{get_label_text_color(label)}"
       else
         ""
       end
@@ -31,6 +31,16 @@ module ApplicationHelper
       content_tag(:div, options) do
         issue.labels.each { concat badge_for_issue_label(_1, label_tag_options) }
       end
+    end
+
+    def get_label_text_color(label)
+      return "#000" unless label.hex_color.to_s.match?(/^#[0-9a-fA-F]{6}$/)
+
+      r = label.hex_color[1..2].to_i(16)
+      g = label.hex_color[3..4].to_i(16)
+      b = label.hex_color[5..6].to_i(16)
+      luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+      luminance > 0.5 ? "#000" : "#fff"
     end
   end
 end

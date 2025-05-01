@@ -1,5 +1,6 @@
 :root {
   --label-bg: rgb(219 234 254);
+  --label-text-color: #333;
 }
 
 .issue-label {
@@ -11,8 +12,7 @@
 }
 
 .issue-label > .label-text {
-  color: #fff;
-  mix-blend-mode: difference;
+  color: var(--label-text-color);
 }
 
 .issue-label.big {
