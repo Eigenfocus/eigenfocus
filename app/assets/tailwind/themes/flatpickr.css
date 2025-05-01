@@ -25,6 +25,19 @@
     width: calc(var(--daysWidth) + calc(var(--calendarPadding)*2));
 }
 
+.flatpickr-resetable-container {
+    position: relative;
+}
+
+.flatpickr-clear-button {
+  @apply link-cancel;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
 @screen lg {
     .flatpickr-calendar {
         @apply left-0 right-auto;

@@ -112,9 +112,30 @@ const yearDropdownPlugin = function (pluginConfig) {
   };
 }
 
+const clearButtonPlugin = function (pluginConfig) {
+
+  return function (fp) {
+    const clearButton = document.createElement('button')
+    clearButton.innerHTML = '<i class="fa-solid fa-arrow-rotate-left"></i>'
+    clearButton.className = 'flatpickr-clear-button cpy-flatpickr-clear-button'
+
+    clearButton.addEventListener('click', (e) => {
+      e.stopPropagation()
+      fp.clear()
+      fp.close()
+    })
+
+    return {
+      onReady: function onReady() {
+        pluginConfig.input.insertAdjacentElement('afterend', clearButton)
+      }
+    }
+  }
+}
 // create a new Stimulus controller by extending stimulus-flatpickr wrapper controller
 class CustomFlatpickr extends Flatpickr {
   initialize() {
+    super.initialize()
     // sets your language (you can also set some global setting for all time pickers)
 
     this.config = {
@@ -124,9 +145,18 @@ class CustomFlatpickr extends Flatpickr {
           date: this.element.value,
           yearStart: 10,
           yearEnd: 10
+        }),
+        clearButtonPlugin({
+          input: this.element
         })
-      ]
+      ],
     }
+  }
+
+  clear() {
+    this.instance.clear()
+    this.element.value = ''
+    this.dispatch('clear')
   }
 }
 // Manually register Flatpickr as a stimulus controller

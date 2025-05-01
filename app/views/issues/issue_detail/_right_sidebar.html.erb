@@ -10,9 +10,11 @@
       data: { controller: "form", turbo: true }
       }) do |f| %>
         <%= f.label :due_date, Issue.human_attribute_name(:due_date), class: "label-primary" %>
-        <%= f.text_field :due_date, class: 'input-primary w-full',
-          data: { "flatpickr-date-format": t("date.formats.flatpickr"), controller: "flatpickr", action: "input->form#submit" }
-          %>
+        <div class="flatpickr-resetable-container">
+          <%= f.text_field :due_date, class: 'input-primary w-full',
+            data: { "flatpickr-date-format": t("date.formats.flatpickr"), controller: "flatpickr", action: "input->form#submit" }
+            %>
+        </div>
     <% end %>
 
     <% unless issue.archived? %>
