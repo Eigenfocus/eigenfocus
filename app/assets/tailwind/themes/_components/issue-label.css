@@ -1,12 +1,21 @@
+:root {
+  --label-bg: rgb(219 234 254);
+}
+
 .issue-label {
-  @apply inline-flex bg-background-100 items-center border-readable-content-400/40 text-readable-content-500 border border;
+  @apply inline-flex items-center;
+  background-color: var(--label-bg);
   font-size: 12px;
   border-radius: 4px;
   padding: 1px 4px;
 }
 
+.issue-label > .label-text {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
 .issue-label.big {
   font-size: 14px;
   padding: 3px 6px;
-
 }
