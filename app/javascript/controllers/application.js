@@ -126,6 +126,13 @@ const clearButtonPlugin = function (pluginConfig) {
     })
 
     return {
+      onChange:function (){
+        if (fp.input.value === '') {
+          clearButton.style.display = 'none'
+        } else {
+          clearButton.style.display = 'block'
+        }
+      },
       onReady: function onReady() {
         pluginConfig.input.insertAdjacentElement('afterend', clearButton)
       }

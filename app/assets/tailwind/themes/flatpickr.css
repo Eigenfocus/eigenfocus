@@ -38,6 +38,11 @@
   z-index: 1;
 }
 
+.flatpickr-input[value=""] + .flatpickr-clear-button,
+.flatpickr-input:not([value]) + .flatpickr-clear-button {
+  display: none;
+}
+
 @screen lg {
     .flatpickr-calendar {
         @apply left-0 right-auto;
