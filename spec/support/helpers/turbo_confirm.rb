@@ -4,10 +4,9 @@ class Capybara::Session
   def accept_alert
     yield
 
-    # We use document here to avoid problem with method been called inside
-    # a `within` scope
     if document.has_selector?("#confirm-modal-background")
-      document.click_button("confirm-accept")
+      # Using pure JS to escape the scope `within` blocks
+      document.evaluate_script('document.querySelector(".confirm-modal #confirm-accept").click()')
     else
       throw ConfirmModalNotFound.new("Unable to find confirm modal")
     end
