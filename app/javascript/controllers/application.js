@@ -126,6 +126,13 @@ const clearButtonPlugin = function (pluginConfig) {
     })
 
     return {
+      onChange:function (){
+        if (fp.input.value === '') {
+          clearButton.style.display = 'none'
+        } else {
+          clearButton.style.display = 'block'
+        }
+      },
       onReady: function onReady() {
         pluginConfig.input.insertAdjacentElement('afterend', clearButton)
       }
@@ -136,20 +143,25 @@ const clearButtonPlugin = function (pluginConfig) {
 class CustomFlatpickr extends Flatpickr {
   initialize() {
     super.initialize()
-    // sets your language (you can also set some global setting for all time pickers)
 
+    const showClearButton = this.element.dataset.showClearButton
+
+    const plugins = [
+      new yearDropdownPlugin({
+        date: this.element.value,
+        yearStart: 10,
+        yearEnd: 10
+      })
+    ]
+
+    if (showClearButton) {
+      plugins.push(clearButtonPlugin({
+        input: this.element
+      }))
+    }
     this.config = {
       allowInput: true,
-      plugins: [
-        new yearDropdownPlugin({
-          date: this.element.value,
-          yearStart: 10,
-          yearEnd: 10
-        }),
-        clearButtonPlugin({
-          input: this.element
-        })
-      ],
+      plugins: plugins,
     }
   }
 
