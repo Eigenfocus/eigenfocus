@@ -34,6 +34,7 @@
     "compression-webpack-plugin": "^9.2.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
+    "date-fns": "^4.1.0",
     "i18n-js": "^4.5.1",
     "mini-css-extract-plugin": "^2.9.2",
     "prop-types": "^15.8.1",
