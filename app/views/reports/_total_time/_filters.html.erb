@@ -33,7 +33,7 @@
           <%= f.label :reference_date_gteq, t(".entry_start_at"), class: "text-readable-content-500 text-sm " %>
 
           <%= f.text_field :reference_date_gteq, class: 'input-primary w-full',
-            data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr" }
+            data: { controller: "flatpickr" }
           %>
         </div>
 
@@ -43,7 +43,7 @@
 
           <%= f.text_field :reference_date_lteq,
             class: 'input-primary w-full',
-            data: { "flatpickr-date-format": "Y-m-d", controller: "flatpickr" }
+            data: { controller: "flatpickr" }
           %>
         </div>
       </div>
