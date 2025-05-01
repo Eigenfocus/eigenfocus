@@ -180,7 +180,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
       expect(page).to have_content("Issue was successfully updated.")
 
       within dom_id(issue) do
-        expect(page).to have_content("23 April")
+        expect(page).to have_content("23 Apr")
       end
 
       issue.reload

@@ -140,7 +140,7 @@ pt-BR:
       flatpickr: "%d-%m-%Y"
       default: "%d/%b/%Y"
       long: "%d de %B de %Y"
-      short: "%d de %B"
+      short: "%d/%b"
     month_names:
     -
     - janeiro

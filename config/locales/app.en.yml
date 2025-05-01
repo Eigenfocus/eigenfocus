@@ -107,7 +107,7 @@ en:
       weekday_name: "%^A"
   date:
     formats:
-      short: "%e %B"
+      short: "%e %b"
       month_name_year: "%B %Y"
       day_single_digit: "%e"
       short_weekday_name: "%a"
