@@ -36,6 +36,7 @@
   right: 10px;
   transform: translateY(-50%);
   z-index: 1;
+  font-size: 0.8em;
 }
 
 .flatpickr-input[value=""] + .flatpickr-clear-button,
