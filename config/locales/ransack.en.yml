@@ -13,3 +13,5 @@ en:
       issue:
         title_cont: With title
         by_label_titles: With labels
+        due_date_gteq: Due after
+        due_date_lteq: Due before

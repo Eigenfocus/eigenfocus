@@ -13,4 +13,5 @@ module ApplicationHelper
   include ApplicationHelper::WebsocketsSecurity
   include ApplicationHelper::IssueEmbedded
   include ApplicationHelper::AppTour
+  include ApplicationHelper::DueDate
 end

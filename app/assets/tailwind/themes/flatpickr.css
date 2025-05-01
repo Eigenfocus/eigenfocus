@@ -25,6 +25,19 @@
     width: calc(var(--daysWidth) + calc(var(--calendarPadding)*2));
 }
 
+.flatpickr-resetable-container {
+    position: relative;
+}
+
+.flatpickr-clear-button {
+  @apply link-cancel;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
 @screen lg {
     .flatpickr-calendar {
         @apply left-0 right-auto;
@@ -242,11 +255,11 @@ span.flatpickr-weekday {
     display: none;
 }
 
-.flatpickr-year-select  {
+.flatpickr-year-select-wrapper  {
   @apply ml-4;
 }
 
-.flatpickr-year-select select {
+.flatpickr-year-select-wrapper select {
   @apply input-primary;
   width: 85px;
 }

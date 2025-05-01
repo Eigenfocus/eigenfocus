@@ -20,6 +20,9 @@
       <%= t(".no_grouping") %>
     <% end %>
   </td>
+  <td>
+    <%= due_date_for(issue) %>
+  </td>
   <td><%= l issue.created_at, format: :short %></td>
   <td><%= l issue.updated_at, format: :short %></td>
   <td class="tour--issue-actions">

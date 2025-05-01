@@ -158,6 +158,56 @@ describe 'As a user, I want to manage my project using a kanban view' do
     expect(issue.title).to eq("Updated title")
   end
 
+  specify "I can update the due date" do
+    Timecop.freeze '2025-04-20'.to_date do
+      project = FactoryBot.create(:project)
+      grouping = FactoryBot.create(:grouping, visualization: project.default_visualization)
+      issue = FactoryBot.create(:issue, title: "Issue testing due date", project: project)
+      FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+
+      visit visualization_path(project.default_visualization)
+
+      within dom_id(grouping) do
+        click_link "Issue testing due date"
+      end
+
+      expect(page).to have_content("Edit Issue")
+
+      select_from_flatpickr '#issue_due_date', "23-04-2025"
+
+      close_modal
+
+      expect(page).to have_content("Issue was successfully updated.")
+
+      within dom_id(issue) do
+        expect(page).to have_content("23 April")
+      end
+
+      issue.reload
+      expect(issue.due_date).to eq(Date.new(2025, 4, 23))
+    end
+  end
+
+  specify "I can clear the due date" do
+    project = FactoryBot.create(:project)
+    grouping = FactoryBot.create(:grouping, visualization: project.default_visualization)
+    issue = FactoryBot.create(:issue, title: "Issue testing due date", project: project, due_date: Date.new(2025, 4, 23))
+    FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
+
+    visit visualization_path(project.default_visualization)
+
+    within dom_id(grouping) do
+      click_link "Issue testing due date"
+    end
+
+    find(".cpy-flatpickr-clear-button").click
+
+    expect(page).to have_content("Issue was successfully updated.")
+
+    issue.reload
+    expect(issue.due_date).to be_nil
+  end
+
   specify 'I can move issues within the same grouping' do
     project = FactoryBot.create(:project)
     grouping = FactoryBot.create(:grouping, visualization: project.default_visualization, title: "TODO")

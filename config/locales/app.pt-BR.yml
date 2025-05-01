@@ -137,7 +137,7 @@ pt-BR:
       day_single_digit: "%e"
       weekday_name: "%^A"
       short_weekday_name: "%a"
-      flatpickr: "%Y-%m-%d"
+      flatpickr: "%d-%m-%Y"
       default: "%d/%b/%Y"
       long: "%d de %B de %Y"
       short: "%d de %B"
