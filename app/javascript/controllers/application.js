@@ -82,7 +82,7 @@ const yearDropdownPlugin = function (pluginConfig) {
   return function (fp) {
       fp.yearSelectContainer = fp._createElement(
           "div",
-          "flatpickr-year-select " + config.theme + "Theme",
+          "flatpickr-year-select-wrapper " + config.theme + "Theme",
           config.text
       );
 

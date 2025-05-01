@@ -173,7 +173,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
 
       expect(page).to have_content("Edit Issue")
 
-      select_flatpickr_day '#issue_due_date', "23"
+      select_from_flatpickr '#issue_due_date', "23-04-2025"
 
       close_modal
 

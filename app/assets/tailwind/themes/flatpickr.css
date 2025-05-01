@@ -255,11 +255,11 @@ span.flatpickr-weekday {
     display: none;
 }
 
-.flatpickr-year-select  {
+.flatpickr-year-select-wrapper  {
   @apply ml-4;
 }
 
-.flatpickr-year-select select {
+.flatpickr-year-select-wrapper select {
   @apply input-primary;
   width: 85px;
 }
