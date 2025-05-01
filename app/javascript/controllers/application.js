@@ -142,6 +142,10 @@ const clearButtonPlugin = function (pluginConfig) {
 // create a new Stimulus controller by extending stimulus-flatpickr wrapper controller
 class CustomFlatpickr extends Flatpickr {
   initialize() {
+    if (!this.element.dataset.flatpickrDateFormat) {
+      this.element.dataset.flatpickrDateFormat = "Y-m-d";
+    }
+
     super.initialize()
 
     const showClearButton = this.element.dataset.showClearButton
