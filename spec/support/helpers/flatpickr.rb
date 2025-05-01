@@ -1,6 +1,6 @@
 module FlatpicrHelpers
   def select_from_flatpickr(selector, date)
-    page.execute_script "$('#{selector}').trigger('focus')"
+    page.execute_script "document.querySelector('#{selector}').focus()"
 
     date_obj = date.is_a?(Date) ? date : Date.parse(date.to_s)
 

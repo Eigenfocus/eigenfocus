@@ -69,9 +69,9 @@ describe 'As a project manager, I want to list my issues' do
     expect(page).to have_content("Due to February")
     expect(page).to have_content("Due to March")
 
-    within ".cpy-filter-form" do
-      fill_in "q[due_date_gteq]", with: "2025-01-15"
+    select_from_flatpickr "#q_due_date_gteq", "2025-01-15"
 
+    within ".cpy-filter-form" do
       click_button "Search"
     end
 
@@ -79,9 +79,9 @@ describe 'As a project manager, I want to list my issues' do
     expect(page).to have_content("Due to February")
     expect(page).to have_content("Due to March")
 
-    within ".cpy-filter-form" do
-      fill_in "q[due_date_lteq]", with: "2025-02-15"
+    select_from_flatpickr "#q_due_date_lteq", "2025-02-15"
 
+    within ".cpy-filter-form" do
       click_button "Search"
     end
 
