@@ -22,7 +22,8 @@
   <img src="https://assets.eigenfocus.com/current-release-100.svg"/>
   <br />
   <br/>
-  <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features"><strong>We also have a PRO Edition 👀</strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features"><strong>We have a PRO Edition - Free Trial Available 👀</strong></a>
+
 </div>
 
 <br />
@@ -52,7 +53,7 @@ Here are some of our current features:
 ⭐️ this repository and stay up to date.
 </div>
 
-Comming next:
+Coming next:
 - Better navigation between projects
 - Running time tracking alerts
 - Shortcuts & Quick Actions
@@ -70,8 +71,8 @@ Comming next:
 
 <br/>
 
-# PRO Edition (another repo)
-We have a PRO Edition (Paid) with advanced features for managing complex projects and larger teams.
+# PRO Edition (another repo) - Pay ONCE
+We have a PRO Edition (Pay ONCE) with advanced features for managing complex projects and larger teams.
 
 Here are some of the features:
 
@@ -79,7 +80,12 @@ Here are some of the features:
 - Custom Issue Statuses & Types
 - Multiple views with pre-saved filters
 - Eigencolumns aren't just "Trello lists" -> they are true projections from your issues and can represent many things: a status, a label, a person...
-- Grid View (Coming Soon)
+
+Coming next:
+- Grid View
+- Timesheet analytics
+- Custom fields
+- Issue notes
 
 <br/>
 
@@ -99,9 +105,11 @@ Here are some of the features:
 
 <div align="center">
   <p>
-    Eigencolumns: by release labels
+    Custom Statuses & Types with Multiple Views
   </p>
-  <img width="90%" src="https://assets.eigenfocus.com/dynamic-columns/by-release.jpg"/>
+  <img width="40%" src="https://assets.eigenfocus.com/landing/pro-features/issue-types-2.jpg"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img width="40%" src="https://assets.eigenfocus.com/landing/pro-features/views-1.jpg"/>
   <br/>
   <br/>
   <p>
@@ -119,6 +127,7 @@ Here are some of the features:
 
 <br/>
 
+# Installation
 
 > Hey 👋,
 >
@@ -131,8 +140,6 @@ Here are some of the features:
 > Thanks!
 
 <br/>
-
-# Installation
 
 You can run our project using our docker image directly with docker or docker compose:
 
