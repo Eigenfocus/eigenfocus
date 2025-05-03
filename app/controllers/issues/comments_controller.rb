@@ -13,12 +13,15 @@ module Issues
       end
     end
 
+    def edit
+      @comment = current_issue.comments.find(params[:id])
+      render turbo_stream: turbo_stream.update(@comment, partial: "issues/issue_detail/comments/form", locals: { comment: @comment })
+    end
+
     def update
       @comment = current_issue.comments.find(params[:id])
       if @comment.update(comment_params)
-        render turbo_stream: turbo_stream.replace(@comment)
-      else
-        render turbo_stream: turbo_stream.replace(@comment)
+        render turbo_stream: turbo_stream.replace(@comment, partial: "issues/issue_detail/comments/comment", locals: { comment: @comment })
       end
     end
 

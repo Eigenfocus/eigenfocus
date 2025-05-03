@@ -1,6 +1,9 @@
 
-
-<%= form_with model: comment, url: issue_comments_path(issue_id: comment.issue_id), class: "space-y-4" do |f| %>
+<%
+  form_url = comment.persisted? ? issue_comment_path(comment.issue, comment) : issue_comments_path(comment.issue)
+  form_method = comment.persisted? ? :put : :post
+%>
+<%= form_with model: comment, url: form_url, method: form_method, class: "space-y-4" do |f| %>
 
   <%= f.text_area :content,
     required: true,
