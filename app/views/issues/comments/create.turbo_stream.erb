@@ -1,0 +1,6 @@
+<% if @comment.persisted? %>
+  <%= turbo_stream.prepend("issue-comments-list", partial: "issues/issue_detail/comments/comment", locals: { comment: @comment }) %>
+  <%= turbo_stream.update("new_comment_form", partial: "issues/issue_detail/comments/form", locals: { comment: Issue::Comment.new(issue: @comment.issue) }) %>
+<% else %>
+  <%= turbo_stream.update("new_comment_form", partial: "issues/issue_detail/comments/form", locals: { comment: @comment }) %>
+<% end %>
