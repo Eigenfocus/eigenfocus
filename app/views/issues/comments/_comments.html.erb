@@ -1,3 +1,5 @@
+<%= turbo_stream_from "issue_#{issue.id}/comments" %>
+
 <div class="mt-2">
   <h3 class="text-lg font-medium text-readable-content-500">
     <%= Issue.human_attribute_name(:comments) %>
@@ -5,9 +7,9 @@
 </div>
 
 <div id="new_comment_form">
-  <%= render partial: "issues/issue_detail/comments/form", locals: { comment: Issue::Comment.new(issue: issue) } %>
+  <%= render partial: "issues/comments/form", locals: { comment: Issue::Comment.new(issue: issue) } %>
 </div>
 
 <div id="issue-comments-list" class="cpy-comments-list space-y-4">
-  <%= render partial: "issues/issue_detail/comments/comment", collection: issue.comments %>
+  <%= render partial: "issues/comments/comment", collection: issue.comments %>
 </div>

@@ -34,7 +34,7 @@
       <div class="flex flex-col md:flex-row gap-8">
         <div class="flex flex-col w-3/4">
           <%= render partial: 'issues/issue_detail/main_form', locals: { issue:, form_path: local_assigns[:form_path] } %>
-          <%= render partial: 'issues/issue_detail/comments/comments', locals: { issue: } if issue.persisted? %>
+          <%= render partial: 'issues/comments/comments', locals: { issue: } if issue.persisted? %>
         </div>
         <%= render partial: 'issues/issue_detail/right_sidebar', locals: { issue:, form_path: local_assigns[:form_path] } %>
       </div>

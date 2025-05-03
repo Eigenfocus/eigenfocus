@@ -13,8 +13,7 @@
         <%= link_to issue_comment_path(comment.issue, comment),
           data: {
             turbo_confirm: t("confirmations.delete_comment"),
-            turbo_method: :delete,
-            turbo_frame: "issue-comments-list"
+            turbo_method: :delete
           },
           class: "link-primary text-sm" do %>
           <%= t("actions.remove") %>
