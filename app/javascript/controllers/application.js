@@ -30,7 +30,9 @@ class CustomModal extends Modal {
 
   close(e) {
     super.close(e)
-    this.dispatch("closed")
+    // Removing this one to allow "double modal"
+    // for alerts/confirm messages
+    // this.dispatch("closed")
   }
 }
 
