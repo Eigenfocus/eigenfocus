@@ -54,7 +54,7 @@ en:
         updated_at: 'Updated at'
         due_date: 'Due date'
         grouping: 'Column'
-
+        comments: 'Comments'
       issue_label:
         title: 'Title'
         hex_color: 'Color'

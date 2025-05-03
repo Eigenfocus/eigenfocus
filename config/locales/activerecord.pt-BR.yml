@@ -54,6 +54,7 @@ pt-BR:
         updated_at: 'Atualizado em'
         due_date: 'Data de encerramento'
         grouping: 'Coluna'
+        comments: 'Comentários'
 
       issue_label:
         title: 'Título'

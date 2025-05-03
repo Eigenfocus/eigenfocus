@@ -29,6 +29,7 @@ en:
     delete_file: "Are you sure you want to delete this file?"
     remove: "Are you sure you want to remove %{resource_name}?"
     want_to_proceed: "Are you sure that you want to proceed?"
+    delete_comment: "Are you sure you want to delete this comment? You can't undo this action."
   menu:
     actions: "Actions"
   nav:

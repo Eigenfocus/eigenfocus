@@ -1,0 +1,21 @@
+<%= turbo_frame_tag dom_id(comment) do %>
+  <div class="bg-background-50 rounded-lg p-4">
+    <div class="flex items-start justify-between">
+      <div class="flex-1">
+        <p class="text-sm text-readable-content-700"><%= comment.content %></p>
+      </div>
+      <div class="flex items-center space-x-2">
+        <%= link_to edit_issue_comment_path(comment.issue, comment) do %>
+          <i class="fa-solid fa-pencil"></i>
+        <% end %>
+
+        <%= link_to issue_comment_path(comment.issue, comment),
+          method: :delete,
+          data: { turbo_confirm: t("confirmations.delete_comment") },
+          class: "text-readable-content-400 hover:text-readable-content-500" do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

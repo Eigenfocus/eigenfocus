@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_30_151615) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_03_213952) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -70,6 +70,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_30_151615) do
     t.index ["visualization_id"], name: "index_groupings_on_visualization_id"
   end
 
+  create_table "issue_comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "issue_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_issue_comments_on_issue_id"
+  end
+
   create_table "issue_label_links", force: :cascade do |t|
     t.integer "issue_id", null: false
     t.integer "issue_label_id", null: false
@@ -100,6 +108,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_30_151615) do
     t.date "due_date"
     t.index ["archived_at"], name: "index_issues_on_archived_at"
     t.index ["project_id"], name: "index_issues_on_project_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "notable_type", null: false
+    t.integer "notable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notable_type", "notable_id"], name: "index_notes_on_notable"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -159,6 +177,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_30_151615) do
   add_foreign_key "grouping_issue_allocations", "groupings"
   add_foreign_key "grouping_issue_allocations", "issues"
   add_foreign_key "groupings", "visualizations"
+  add_foreign_key "issue_comments", "issues"
   add_foreign_key "issue_label_links", "issue_labels"
   add_foreign_key "issue_label_links", "issues"
   add_foreign_key "issues", "projects"

@@ -1,0 +1,13 @@
+
+
+<%= form_with model: comment, url: issue_comments_path(issue_id: comment.issue_id), class: "space-y-4" do |f| %>
+
+  <%= f.text_area :content,
+    required: true,
+    rows: 2,
+    class: "block w-full rounded-md border-background-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm" %>
+
+  <div class="flex justify-end">
+    <%= f.submit class: "btn-primary" %>
+  </div>
+<% end %>

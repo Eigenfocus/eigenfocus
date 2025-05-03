@@ -30,6 +30,7 @@ pt-BR:
     delete_file: "Tem certeza que deseja remover este arquivo?"
     remove: "Tem certeza que deseja remover a/o %{resource_name}?"
     want_to_proceed: "Deseja mesmo prosseguir?"
+    delete_comment: "Tem certeza que deseja remover este comentário? Esta ação não pode ser revertida."
   menu:
     actions: "Ações"
   nav:

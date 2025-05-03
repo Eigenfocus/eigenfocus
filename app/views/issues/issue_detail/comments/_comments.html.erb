@@ -1,0 +1,13 @@
+<div class="mt-2">
+  <h3 class="text-lg font-medium text-readable-content-500">
+    <%= Issue.human_attribute_name(:comments) %>
+  </h3>
+</div>
+
+<div id="new_comment_form">
+  <%= render partial: "issues/issue_detail/comments/form", locals: { comment: Issue::Comment.new(issue: issue) } %>
+</div>
+
+<div id="issue-comments-list" class="space-y-4">
+  <%= render partial: "issues/issue_detail/comments/comment", collection: issue.comments %>
+</div>
