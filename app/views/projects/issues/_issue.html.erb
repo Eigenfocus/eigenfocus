@@ -23,12 +23,10 @@
   <td>
     <%= due_date_for(issue) %>
   </td>
-  <td><%= l issue.created_at, format: :short %></td>
-  <td><%= l issue.updated_at, format: :short %></td>
   <td class="tour--issue-actions">
     <div class="flex gap-4 text-lg opacity-80">
       <%= link_to project_show_issue_path(issue.project, issue),
-          class: "link-primary text-sm cpy-edit-button",
+          class: "link-primary text-nowrap text-sm cpy-edit-button",
           data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>
         <i class="fa-solid fa-up-right-from-square mr-1"></i>
         <%= t("actions.go_to_issue") %>
