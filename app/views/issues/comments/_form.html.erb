@@ -3,14 +3,15 @@
   form_url = comment.persisted? ? issue_comment_path(comment.issue, comment) : issue_comments_path(comment.issue)
   form_method = comment.persisted? ? :put : :post
 %>
-<%= form_with model: comment, url: form_url, method: form_method, class: "space-y-4" do |f| %>
+<%= form_with model: comment, url: form_url, method: form_method,
+  class: "flex flex-col gap-2" do |f| %>
 
   <%= f.text_area :content,
     required: true,
     rows: 2,
-    class: "block w-full rounded-md border-background-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm" %>
+    class: "input-primary" %>
 
   <div class="flex justify-end">
-    <%= f.submit t("actions.save"), class: "btn-primary" %>
+    <%= f.submit t("actions.save"), class: "btn-primary btn-sm" %>
   </div>
 <% end %>

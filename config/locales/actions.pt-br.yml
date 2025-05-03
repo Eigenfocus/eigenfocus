@@ -99,6 +99,11 @@ pt-BR:
         title: "DICA RÁPIDA"
         description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar/remover uma label."
   issues:
+    comments:
+      comments:
+        write_a_comment: "Escreva um novo comentário"
+      comment:
+        created_at: "criado %{time} atrás"
     filter:
       by_archiving_status:
         all: "Listar todas as issues"

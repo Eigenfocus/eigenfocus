@@ -12,6 +12,10 @@ describe "Issue Comments" do
       click_link('Go to issue')
     end
 
+    within '.cpy-comments-container' do
+      click_button 'Write a new comment'
+    end
+
     within '#new_comment_form' do
       fill_in 'issue_comment_content', with: 'This is a new comment'
       click_button 'Save'

@@ -102,6 +102,11 @@ en:
     update:
       success: 'Profile succesfully updated.'
   issues:
+    comments:
+      comments:
+        write_a_comment: "Write a new comment"
+      comment:
+        created_at: "created %{time} ago"
     issue_detail:
       grouping_picker:
         in_grouping: "In column"

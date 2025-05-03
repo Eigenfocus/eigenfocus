@@ -10,6 +10,8 @@ module Icons
       "fa-solid fa-chart-simple rotate-180"
     when :issues
       "fa-solid fa-list-ul"
+    when :comments
+      "fa-solid fa-comment"
     when :projects
       "fa-solid fa-folder-closed"
     when :user
