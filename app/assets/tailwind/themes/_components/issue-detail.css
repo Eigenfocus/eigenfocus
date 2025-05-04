@@ -1,8 +1,8 @@
 .issue-detail-title-input {
-  @apply w-full text-xl bg-body-contrast  border-none font-bold text-readable-content-600 p-0 absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden;
-
+  @apply w-full text-xl bg-body-contrast p-1 border-none font-bold text-readable-content-600 absolute py-2 px-0 w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden;
+  box-sizing: border-box;
 
   &:focus {
-    @apply rounded-lg border bg-background-50 focus:border-primary-500 p-2;
+    @apply rounded-lg border bg-background-50 focus:border-primary-500 mb-2;
   }
 }

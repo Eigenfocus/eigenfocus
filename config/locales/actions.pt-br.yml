@@ -114,7 +114,7 @@ pt-BR:
     issue_detail:
       issue_archived_at: "Esta issue foi arquivada em %{date}"
       grouping_picker:
-        in_grouping: "Na coluna"
+        in_grouping: "em"
         no_grouping: "Sem coluna"
   time_entries:
     form:
