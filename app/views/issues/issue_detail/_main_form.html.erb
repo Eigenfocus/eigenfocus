@@ -24,8 +24,7 @@
       </div>
     <% end %>
 
-    <%= react_component("MarkdownEditor", defaultValue: issue.description, bindTarget: "[data-issue-detail-description-for-issue='#{issue.id}']", readOnly: false) %>
-    <%= f.hidden_field :description, data: { "issue-detail-description-for-issue": issue.id } %>
+    <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>
 
     <div class="flex gap-2 items-center justify-end">
       <a class="link-cancel text-xs" data-action="click->modal#close">

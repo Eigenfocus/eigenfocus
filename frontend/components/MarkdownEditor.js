@@ -43,6 +43,12 @@ function MilkdownEditor(props) {
           })
         }
 
+        if (props.bindTargetRef) {
+          ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
+            props.bindTargetRef.current.value = markdown
+          })
+        }
+
         ctx.update(editorViewOptionsCtx, (prev) => ({
           ...prev,
           editable,
@@ -79,7 +85,7 @@ function MarkdownEditor(props) {
   return (
     <React.StrictMode>
       <MilkdownProvider>
-        <MilkdownEditor bindTarget={props.bindTarget} defaultValue={props.defaultValue} readOnly={props.readOnly}/>
+        <MilkdownEditor bindTargetRef={props.bindTargetRef} bindTarget={props.bindTarget} defaultValue={props.defaultValue} readOnly={props.readOnly}/>
       </MilkdownProvider>
     </React.StrictMode>
   )
