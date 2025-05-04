@@ -1,6 +1,7 @@
 <% if @comment.persisted? %>
   <%= turbo_stream.prepend("issue-comments-list", partial: "issues/comments/comment", locals: { comment: @comment }) %>
   <%= turbo_stream.update("new_comment_form", partial: "issues/comments/form", locals: { comment: Issue::Comment.new(issue: @comment.issue) }) %>
+  <%= new_turbo_stream_alert_message(:success, t_flash_message(@comment)) %>
 <% else %>
-  <%= turbo_stream.update("new_comment_form", partial: "issues/comments/form", locals: { comment: @comment }) %>
+  <%= new_turbo_stream_alert_message(:error, @comment.errors.full_messages.to_sentence) %>
 <% end %>

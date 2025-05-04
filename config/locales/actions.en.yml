@@ -108,7 +108,7 @@ en:
       comments:
         write_a_comment: "Write a new comment"
       comment:
-        created_at: "created %{time} ago"
+        created_at: "created at %{date}"
     issue_detail:
       issue_archived_at: "This issue was archived on %{date}"
       grouping_picker:

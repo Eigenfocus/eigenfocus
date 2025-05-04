@@ -1,5 +1,6 @@
 <% if @comment.destroyed? %>
   <%= turbo_stream.remove @comment %>
+  <%= new_turbo_stream_alert_message(:success, t_flash_message(@comment)) %>
 <% else %>
   <%= new_turbo_stream_alert_message(:alert, t_flash_message(@comment)) %>
 <% end %>
