@@ -25,6 +25,10 @@ en:
         one: 'Issue'
         other: 'Issues'
 
+      issue/comment:
+        one: 'Comment'
+        other: 'Comments'
+
       issue_label:
         one: 'Issue Label'
         other: 'Issue Labels'

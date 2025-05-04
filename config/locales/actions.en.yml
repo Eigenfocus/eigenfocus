@@ -102,6 +102,8 @@ en:
     update:
       success: 'Profile succesfully updated.'
   issues:
+    files_drop:
+      click_to_upload_or_drag_and_drop_your_files_here: "Click to upload or drag and drop your files here."
     comments:
       comments:
         write_a_comment: "Write a new comment"

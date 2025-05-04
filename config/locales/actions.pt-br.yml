@@ -99,6 +99,8 @@ pt-BR:
         title: "DICA RÁPIDA"
         description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar/remover uma label."
   issues:
+    files_drop:
+      click_to_upload_or_drag_and_drop_your_files_here: "Clique para fazer upload ou arraste e solte seus arquivos aqui."
     comments:
       comments:
         write_a_comment: "Escreva um novo comentário"

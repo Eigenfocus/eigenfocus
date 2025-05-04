@@ -25,6 +25,10 @@ pt-BR:
         one: 'Issue'
         other: 'Issues'
 
+      issue/comment:
+        one: 'Comentário'
+        other: 'Comentários'
+
       issue_label:
         one: 'Label de Issues'
         other: 'Labels de Issues'

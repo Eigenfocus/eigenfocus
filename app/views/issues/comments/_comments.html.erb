@@ -4,7 +4,7 @@
   <div class="mt-2 mb-2 flex justify-between">
     <h3 class="text-lg font-medium text-readable-content-500">
       <span class="mr-1 text-readable-content-500/80"><%= icon_for(:comments) %></span>
-      <%= Issue.human_attribute_name(:comments) %>
+      <%= Issue::Comment.model_name.human(count: 2) %>
     </h3>
   </div>
 

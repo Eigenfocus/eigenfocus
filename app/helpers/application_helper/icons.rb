@@ -12,6 +12,8 @@ module Icons
       "fa-solid fa-list-ul"
     when :comments
       "fa-solid fa-comment"
+    when :files
+      "fa-solid fa-file"
     when :projects
       "fa-solid fa-folder-closed"
     when :user
