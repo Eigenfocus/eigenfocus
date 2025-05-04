@@ -110,11 +110,11 @@ pt-BR:
       comments:
         write_a_comment: "Escreva um novo comentário"
       comment:
-        created_at: "criado %{time} atrás"
+        created_at: "criado em %{date}"
     issue_detail:
       issue_archived_at: "Esta issue foi arquivada em %{date}"
       grouping_picker:
-        in_grouping: "Na coluna"
+        in_grouping: "em"
         no_grouping: "Sem coluna"
   time_entries:
     form:

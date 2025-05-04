@@ -6,7 +6,6 @@ export default class extends Controller {
   showForm() {
     this.formSectionTarget.classList.remove('hidden')
     this.showFormButtonTarget.classList.add('hidden')
-    this.formSectionTarget.querySelector('textarea').focus()
   }
 
   hideForm() {

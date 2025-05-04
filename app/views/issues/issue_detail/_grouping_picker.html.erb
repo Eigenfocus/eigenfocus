@@ -1,14 +1,14 @@
 <%= turbo_frame_tag 'issue_grouping_picker' do %>
-  <div class="mb-2 flex flex-col items-stretch text-sm items-center gap-2" data-controller="dropdown">
+  <div class="mb-2 flex items-center text-xs gap-2" data-controller="dropdown">
     <span><%= t(".in_grouping") %></span>
 
     <div
-      class="relative flex justify-stretch cpy-grouping-picker-button"
+      class="relative cpy-grouping-picker-button"
       data-action="click->dropdown#toggle click@window->dropdown#hide"
       role="button" aria-haspopup="true" aria-expanded="false"
       data-dropdown-target="button"
       >
-      <div class="text-sm rounded-md w-full flex justify-between items-center border-background-300 bg-background-50 border px-3 py-2">
+      <div class="text-xs rounded-md w-full flex justify-between items-center border-background-300 bg-background-50 border px-3 py-1">
         <span>
           <% if issue.groupings.empty? %>
             <%= t(".no_grouping") %>
@@ -17,10 +17,10 @@
           <% end %>
         </span>
 
-        <i class="fa-solid fa-angle-down"></i>
+        <i class="ml-2 fa-solid fa-angle-down"></i>
       </div>
 
-      <div data-dropdown-target="menu" class="flex w-full flex-col bg-body-contrast absolute z-10 top-full left-0 border border-background-300 rounded-lg shadow-lg overflow-hidden whitespace-nowrap mt-1 hidden cpy-grouping-picker-container">
+      <div data-dropdown-target="menu" class="flex min-w-content flex-col bg-body-contrast absolute z-10 top-full left-0 border border-background-300 rounded-lg shadow-lg overflow-hidden whitespace-nowrap mt-1 hidden cpy-grouping-picker-container">
         <% issue.project.default_visualization.groupings.each do |grouping| %>
           <% css_classes = "hover:bg-background-100 py-2 px-4" %>
           <% is_selected = issue.groupings.first == grouping %>

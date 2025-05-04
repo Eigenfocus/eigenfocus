@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react"
-import { Editor, rootCtx, defaultValueCtx } from "@milkdown/kit/core"
+import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx, editorViewCtx } from "@milkdown/kit/core"
 
 import { listItemBlockComponent } from "@milkdown/kit/component/list-item-block"
 import { linkTooltipPlugin } from "@milkdown/kit/component/link-tooltip"
@@ -23,8 +23,10 @@ import configureTableBlock from './MarkdownEditor/configure/table-block'
 import configureImageBlock from './MarkdownEditor/configure/image-block'
 
 function MilkdownEditor(props) {
+  const editable = () => !props.readOnly;
+
   useEditor((root) => {
-    return Editor.make()
+    const editor = Editor.make()
       .config((ctx) => {
         ctx.set(rootCtx, root);
 
@@ -38,8 +40,12 @@ function MilkdownEditor(props) {
             target.value = markdown
           })
         }
+
+        ctx.update(editorViewOptionsCtx, (prev) => ({
+          ...prev,
+          editable,
+        }));
       })
-      .config(configureMenu)
       .config(configureLinkTooltip)
       .config(configureTableBlock)
       .config(configureImageBlock)
@@ -48,20 +54,24 @@ function MilkdownEditor(props) {
       .use(gfm)
       .use(clipboard)
       .use(indent)
-      .use(menu)
       .use(history)
       .use(listItemBlockComponent)
       .use(linkTooltipPlugin)
       .use(tableBlock)
       .use(trailing)
       .use(imageBlockComponent)
+
+      if (!props.readOnly) {
+        editor.config(configureMenu).use(menu)
+      }
+
+      return editor
   }, [])
 
   return (
     <Milkdown />
   )
 }
-
 
 function MarkdownEditor(props) {
   return (

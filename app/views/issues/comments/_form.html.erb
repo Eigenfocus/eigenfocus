@@ -6,18 +6,15 @@
 <%= form_with model: comment, url: form_url, method: form_method,
   class: "flex flex-col gap-2" do |f| %>
 
-  <%= f.text_area :content,
-    autofocus: true,
-    required: true,
-    rows: 2,
-    class: "input-primary" %>
+  <%= react_component("MarkdownEditor", defaultValue: comment.content, bindTarget: "input[data-comment-content='#{comment.id || 'new' }']") %>
+  <%= f.hidden_field :content, data: { "comment-content": (comment.id || "new") }, required: true %>
 
   <div class="flex gap-2 justify-end">
     <% if comment.new_record? %>
       <%= button_tag t("actions.cancel"), type: "button", class: "link-cancel text-xs", data: { action: "issue--comments#hideForm" } %>
     <% else %>
-      <%= f.submit t("actions.cancel"), value: 'cancel', class: "link-cancel text-xs" %>
+      <%= f.submit t("actions.cancel"), value: 'cancel', class: "link-cancel text-xs", data: { action: "issue--comments#hideForm" } %>
     <% end %>
-    <%= f.submit t("actions.save"), class: "btn-primary btn-sm" %>
+    <%= f.submit t("actions.save"), class: "btn-primary btn-sm", data: { action: "issue--comments#hideForm" } %>
   </div>
 <% end %>
