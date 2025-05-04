@@ -26,14 +26,6 @@
 
     <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>
 
-    <div class="flex gap-2 items-center justify-end">
-      <a class="link-cancel text-xs" data-action="click->modal#close">
-        <%= t('actions.cancel') %>
-      </a>
-
-      <% text = issue.persisted? ? t('actions.save') : t('actions.create') %>
-      <%= f.button text, class: "btn-primary btn-sm" %>
-    </div>
   <% end %>
 
   <% if issue.persisted? %>
