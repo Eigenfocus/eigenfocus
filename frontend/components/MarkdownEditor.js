@@ -36,16 +36,16 @@ function MilkdownEditor(props) {
           ctx.set(defaultValueCtx, props.defaultValue)
         }
 
-        if (props.bindTarget) {
-          const target = document.querySelector(props.bindTarget)
+        if (props.mirrorInputTargetSelector) {
+          const target = document.querySelector(props.mirrorInputTargetSelector)
           ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
             target.value = markdown
           })
         }
 
-        if (props.bindTargetRef) {
+        if (props.mirrorInputTargetRef) {
           ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
-            props.bindTargetRef.current.value = markdown
+            props.mirrorInputTargetRef.current.value = markdown
           })
         }
 
@@ -85,7 +85,7 @@ function MarkdownEditor(props) {
   return (
     <React.StrictMode>
       <MilkdownProvider>
-        <MilkdownEditor bindTargetRef={props.bindTargetRef} bindTarget={props.bindTarget} defaultValue={props.defaultValue} readOnly={props.readOnly}/>
+        <MilkdownEditor mirrorInputTargetRef={props.mirrorInputTargetRef} mirrorInputTargetSelector={props.mirrorInputTargetSelector} defaultValue={props.defaultValue} readOnly={props.readOnly}/>
       </MilkdownProvider>
     </React.StrictMode>
   )

@@ -39,7 +39,7 @@
             } %>
       </div>
 
-      <%= react_component("MarkdownEditor", defaultValue: issue.description, bindTarget: "#new_issue_form .js-issue-description" ) %>
+      <%= react_component("MarkdownEditor", defaultValue: issue.description, mirrorInputTargetSelector: "#new_issue_form .js-issue-description" ) %>
       <%= f.hidden_field :description, class: "js-issue-description" %>
 
       <div class="flex gap-2 justify-center">

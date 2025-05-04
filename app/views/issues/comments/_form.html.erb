@@ -6,7 +6,7 @@
 <%= form_with model: comment, url: form_url, method: form_method,
   class: "flex flex-col gap-2" do |f| %>
 
-  <%= react_component("MarkdownEditor", defaultValue: comment.content, bindTarget: "input[data-comment-content='#{comment.id || 'new' }']") %>
+  <%= react_component("MarkdownEditor", defaultValue: comment.content, mirrorInputTargetSelector: "input[data-comment-content='#{comment.id || 'new' }']") %>
   <%= f.hidden_field :content, data: { "comment-content": (comment.id || "new") }, required: true %>
 
   <div class="flex gap-2 justify-end">

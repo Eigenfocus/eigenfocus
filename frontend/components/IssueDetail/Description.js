@@ -6,7 +6,7 @@ const Description = ({ content, issueId }) => {
 
   return (
     <React.Fragment>
-      <MarkdownEditor defaultValue={content} readOnly={false} bindTargetRef={hiddenFieldRef}/>
+      <MarkdownEditor defaultValue={content} readOnly={false} mirrorInputTargetRef={hiddenFieldRef}/>
       <input type="hidden" name="issue[description]" value={content ? content : ""} ref={hiddenFieldRef}/>
     </React.Fragment>
   )
