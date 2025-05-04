@@ -73,11 +73,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_213952) do
   create_table "issue_comments", force: :cascade do |t|
     t.text "content"
     t.integer "issue_id", null: false
-    t.integer "user_id", null: false
+    t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_issue_comments_on_author_id"
     t.index ["issue_id"], name: "index_issue_comments_on_issue_id"
-    t.index ["user_id"], name: "index_issue_comments_on_user_id"
   end
 
   create_table "issue_label_links", force: :cascade do |t|
@@ -180,7 +180,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_213952) do
   add_foreign_key "grouping_issue_allocations", "issues"
   add_foreign_key "groupings", "visualizations"
   add_foreign_key "issue_comments", "issues"
-  add_foreign_key "issue_comments", "users"
+  add_foreign_key "issue_comments", "users", column: "author_id"
   add_foreign_key "issue_label_links", "issue_labels"
   add_foreign_key "issue_label_links", "issues"
   add_foreign_key "issues", "projects"

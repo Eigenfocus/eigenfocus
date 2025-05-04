@@ -1,7 +1,7 @@
 class Issue::Comment < ApplicationRecord
   # Associations
   belongs_to :issue
-  belongs_to :user
+  belongs_to :author, class_name: "User"
 
   # Validations
   validates :content, presence: true
