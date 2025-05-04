@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react"
-import { Editor, rootCtx, defaultValueCtx } from "@milkdown/kit/core"
+import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx } from "@milkdown/kit/core"
 
 import { listItemBlockComponent } from "@milkdown/kit/component/list-item-block"
 import { linkTooltipPlugin } from "@milkdown/kit/component/link-tooltip"
@@ -23,6 +23,8 @@ import configureTableBlock from './MarkdownEditor/configure/table-block'
 import configureImageBlock from './MarkdownEditor/configure/image-block'
 
 function MilkdownEditor(props) {
+  const editable = () => !props.readOnly;
+
   useEditor((root) => {
     return Editor.make()
       .config((ctx) => {
@@ -38,6 +40,11 @@ function MilkdownEditor(props) {
             target.value = markdown
           })
         }
+
+        ctx.update(editorViewOptionsCtx, (prev) => ({
+          ...prev,
+          editable,
+        }));
       })
       .config(configureMenu)
       .config(configureLinkTooltip)
