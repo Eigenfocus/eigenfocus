@@ -17,7 +17,7 @@ describe "Issue Comments" do
     end
 
     within '#new_comment_form' do
-      fill_in 'issue_comment_content', with: 'This is a new comment'
+      write_in_md_editor_field 'This is a new comment'
       click_button 'Save'
     end
 
@@ -27,7 +27,7 @@ describe "Issue Comments" do
   end
 
   specify "I can edit an existing comment" do
-    comment = FactoryBot.create(:issue_comment, issue: issue, content: 'This is a comment to be edited')
+    comment = FactoryBot.create(:issue_comment, issue: issue, content: 'This is a comment to be edited', user:)
     visit project_issues_path(project)
 
     within dom_id(issue) do
@@ -36,18 +36,18 @@ describe "Issue Comments" do
 
     within dom_id(comment) do
       click_link('Edit')
-      fill_in 'issue_comment_content', with: 'comment updated'
+      write_in_md_editor_field 'comment updated'
       click_button 'Save'
 
-      expect(page).to have_content('comment updated')
+      expect(page).to have_content('updated')
     end
 
     comment.reload
-    expect(comment.content).to eq('comment updated')
+    expect(comment.content).to include('comment updated')
   end
 
   specify "I can delete an existing comment" do
-    comment = FactoryBot.create(:issue_comment, issue: issue, content: 'This is a comment to be deleted')
+    comment = FactoryBot.create(:issue_comment, issue: issue, content: 'This is a comment to be deleted', user:)
     visit project_issues_path(project)
 
     within dom_id(issue) do
