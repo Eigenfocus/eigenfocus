@@ -1,7 +1,7 @@
 <%= turbo_frame_tag dom_id(comment) do %>
   <div class="space-y-2">
     <div class="rounded-lg p-5 text-sm text-readable-content-500 bg-background-100">
-      <%= simple_format(comment.content) %>
+      <%= simple_format(h(comment.content)) %>
     </div>
     <div class="flex justify-between text-xs">
       <div class="text-readable-content-500 italic pl-2">

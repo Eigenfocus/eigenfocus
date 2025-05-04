@@ -12,7 +12,11 @@
     class: "input-primary" %>
 
   <div class="flex gap-2 justify-end">
-    <%= button_tag t("actions.cancel"), type: "button", class: "link-cancel text-xs", data: { action: "issue--comments#hideForm" } %>
+    <% if comment.new_record? %>
+      <%= button_tag t("actions.cancel"), type: "button", class: "link-cancel text-xs", data: { action: "issue--comments#hideForm" } %>
+    <% else %>
+      <%= f.submit t("actions.cancel"), value: 'cancel', class: "link-cancel text-xs" %>
+    <% end %>
     <%= f.submit t("actions.save"), class: "btn-primary btn-sm" %>
   </div>
 <% end %>

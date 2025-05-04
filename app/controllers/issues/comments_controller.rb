@@ -1,3 +1,4 @@
+
 module Issues
   class CommentsController < ApplicationController
     def create
@@ -12,7 +13,10 @@ module Issues
 
     def update
       @comment = current_issue.comments.find(params[:id])
-      @comment.update(comment_params)
+
+      unless params[:commit] == "cancel"
+        @comment.update(comment_params)
+      end
     end
 
     def destroy

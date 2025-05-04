@@ -7,7 +7,7 @@ class Issue::Comment < ApplicationRecord
 
   # Broadcasts
   after_create_commit -> {
-    broadcast_append_later_to(
+    broadcast_prepend_later_to(
       "issue_#{issue.id}/comments",
       partial: "issues/comments/comment",
       locals: {
