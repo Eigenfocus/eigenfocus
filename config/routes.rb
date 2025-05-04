@@ -79,6 +79,7 @@ Rails.application.routes.draw do
 
   resources :issues, only: [ :destroy ] do
     member do
+      patch :update_description
       patch :pick_grouping
       put :archive
       put :unarchive

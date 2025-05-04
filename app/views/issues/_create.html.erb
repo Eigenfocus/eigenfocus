@@ -1,7 +1,7 @@
 
 <%= turbo_frame_tag 'new_issue_form' do %>
 <%= render_modal(inner_container_options: {
-    class: "max-h-screen w-full max-w-3xl relative cpy-issue-detail" }) do %>
+    class: "max-h-screen w-full max-w-2xl relative cpy-issue-detail" }) do %>
   <div class="border-b border-background-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
       <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
@@ -23,7 +23,7 @@
 
       <div class="mb-4 flex flex-col items-stretch gap-2">
         <%= f.label :title, Issue.human_attribute_name(:title), class: "label-primary" %>
-        <%= f.text_field :title, autofocus: true, class: "input-primary" %>
+        <%= f.text_field :title, autofocus: true, required: true, class: "input-primary" %>
       </div>
 
       <div class="mb-4 cpy-by-labels-titles flex flex-col items-stretch gap-2">

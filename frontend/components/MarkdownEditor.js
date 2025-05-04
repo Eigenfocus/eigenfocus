@@ -74,7 +74,7 @@ function MilkdownEditor(props) {
       }
 
       return editor
-  }, [])
+  }, [props.readOnly])
 
   return (
     <Milkdown />
