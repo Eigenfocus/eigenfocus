@@ -1,5 +1,6 @@
 @import "./button";
 @import "./issue-label";
+@import "./issue-detail";
 @import "./link";
 @import "./sidebar";
 @import "./table";
