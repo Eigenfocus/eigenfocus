@@ -16,9 +16,9 @@
         <span class="bg-primary-50 flex items-center justify-center border border-primary-200 text-xs text-readable-content-500 px-2 py-1 rounded-md">
           Free Edition
         </span>
-        <a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=header_button"
+        <a data-controller="upgrade-to-pro-button" href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=header_button"
           target="_blank"
-          class="text-base shine-animation text-sm text-readable-content-500 hover:text-primary-500">
+          class="text-base text-sm text-readable-content-500 hover:text-primary-500">
           <span class="relative">
             <i class="fa-solid fa-rocket mr-1"></i>
           </span>
@@ -32,8 +32,6 @@
         <button type="button" class="text-readable-content-500 hover:text-primary-500 tour--header-guide-button cpy-header-tour-button" data-action="click->dropdown#toggle click@window->dropdown#hide" data-dropdown-target="button">
           <i class="fa-solid fa-circle-question"></i>
         </button>
-
-
 
         <div class="cpy-header-tour-dropdown absolute text-left text-sm z-10 mt-2 w-64 right-0 top-4 rounded-md bg-body-contrast py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" data-dropdown-target="menu">
           <div class="w-full flex justify-stretch flex-col">
