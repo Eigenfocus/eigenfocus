@@ -17,8 +17,9 @@
   }) do %>
     <div>
       <% if issue.archived? %>
-        <div class="w-full text-center text-warning-900 bg-warning-500/40 mb-2 p-2 border border-warning-500/40">
-          <%= t('.issue_archived_at', date: l(issue.archived_at, format: :day_month_year)) %>
+        <div class="text-warning-900 font-bold text-base mb-4 bg-warning-500/40 p-2 rounded-lg border border-warning-500/40 flex items-center gap-2 mr-4">
+          <i class="fa-solid fa-box-archive"></i>
+          <%= t('.issue_archived_at', date: l(issue.archived_at, format: :long)) %>
         </div>
       <% end %>
 

@@ -58,7 +58,7 @@ class Issue < ApplicationRecord
   end
 
   def archive!
-    self.archived_at = Date.current
+    self.archived_at = Time.current
     save!
   end
 
