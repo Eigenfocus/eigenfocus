@@ -15,17 +15,16 @@
     class: "max-h-screen w-full max-w-3xl relative cpy-issue-detail",
     data: data
   }) do %>
-    <div data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
-      <div class="flex flex-col items-center">
-        <% if issue.archived? %>
-          <span class="inline-block rounded-full border-warning-600 bg-warning-200 text-warning-800 border py-1 px-3 text-xs font-medium text-warning-600">
-            <%= t('archived').capitalize %>
-          </span>
-        <% end %>
-      </div>
+    <div>
+      <% if issue.archived? %>
+        <div class="w-full text-center text-warning-900 bg-warning-500/40 mb-2 p-2 border border-warning-500/40">
+          <%= t('.issue_archived_at', date: l(issue.archived_at, format: :day_month_year)) %>
+        </div>
+      <% end %>
+
       <div class="flex gap-4 items-stretch mb-4">
         <div class="flex justify-stretch w-full pr-8">
-          <%= form_with(model: issue, url: form_path, html: {
+          <%= form_with(model: issue, url: local_assigns[:form_path], html: {
             class: 'w-full flex justify-stretch',
             data: {
               turbo: true,
@@ -47,7 +46,7 @@
           <% end %>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row gap-8">
+      <div class="flex flex-col md:flex-row gap-8" data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
         <div class="flex flex-col w-3/4">
           <%= render partial: 'issues/issue_detail/main_form', locals: { issue:, form_path: local_assigns[:form_path] } %>
           <%= render partial: 'issues/comments/comments', locals: { issue: } if issue.persisted? %>

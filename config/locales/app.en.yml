@@ -107,10 +107,13 @@ en:
       day_single_digit: "%e"
       flatpickr: "%Y-%m-%d"
       weekday_name: "%^A"
+      day_month_year: "%d, %B %Y"
+
   date:
     formats:
       short: "%e %b"
       month_name_year: "%B %Y"
+      day_month_year: "%d, %B %Y"
       day_single_digit: "%e"
       short_weekday_name: "%a"
       weekday_name: "%^A"

@@ -112,6 +112,7 @@ pt-BR:
         active: "Listar issues ativas"
         archived: "Listar issues arquivadas"
     issue_detail:
+      issue_archived_at: "Esta issue foi arquivada em %{date}"
       grouping_picker:
         in_grouping: "Na coluna"
         no_grouping: "Sem coluna"

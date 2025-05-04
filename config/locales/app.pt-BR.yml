@@ -143,20 +143,20 @@ pt-BR:
       default: "%d/%b/%Y"
       long: "%d de %B de %Y"
       short: "%d/%b"
+      day_month_year: "%d, %B %Y"
     month_names:
-    -
-    - janeiro
-    - fevereiro
-    - março
-    - abril
-    - maio
-    - junho
-    - julho
-    - agosto
-    - setembro
-    - outubro
-    - novembro
-    - dezembro
+      - janeiro
+      - fevereiro
+      - março
+      - abril
+      - maio
+      - junho
+      - julho
+      - agosto
+      - setembro
+      - outubro
+      - novembro
+      - dezembro
     order:
     - :day
     - :month
@@ -322,6 +322,7 @@ pt-BR:
     formats:
       short: "%e %B, %Y"
       month_name_year: "%B %Y"
+      day_month_year: "%d de %B %Y"
       day_single_digit: "%e"
       flatpickr: "%Y-%m-%d"
       weekday_name: "%^A"
