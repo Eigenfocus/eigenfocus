@@ -16,6 +16,15 @@ class Issue::Comment < ApplicationRecord
       },
       target: "issue-comments-list"
     )
+
+    broadcast_replace_later_to(
+      issue.project.default_visualization,
+      partial: "visualizations/groupings/_card/icons",
+      locals: {
+        issue: issue
+      },
+      target: "card-icons_issue_#{issue.id}"
+    )
   }
 
   after_update_commit -> {
@@ -28,5 +37,16 @@ class Issue::Comment < ApplicationRecord
     )
   }
 
-  after_destroy_commit -> { broadcast_remove_to "issue_#{issue.id}/comments" }
+  after_destroy_commit -> {
+    broadcast_replace_later_to(
+      issue.project.default_visualization,
+      partial: "visualizations/groupings/_card/icons",
+      locals: {
+        issue: issue
+      },
+      target: "card-icons_issue_#{issue.id}"
+    )
+
+    broadcast_remove_to "issue_#{issue.id}/comments"
+  }
 end

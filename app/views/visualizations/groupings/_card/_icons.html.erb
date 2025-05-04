@@ -22,7 +22,7 @@
       <% if issue.comments.size > 0 %>
         <span>
           <i class="fa-regular text-sm fa-comment"></i>
-          <span class="text-sm"><%= issue.comments.size %></span>
+          <span class="text-sm" data-issue-comments-count="<%= issue.id %>"><%= issue.comments.size %></span>
         </span>
       <% end %>
     </div>
