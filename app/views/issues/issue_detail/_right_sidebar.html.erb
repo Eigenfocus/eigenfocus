@@ -6,7 +6,7 @@
     <% end %>
 
     <%= form_with(model: issue, url: form_path, html: {
-      class: 'mb-4 flex flex-col items-stretch gap-2',
+      class: 'flex flex-col items-stretch gap-2',
       data: { controller: "form", turbo: true }
       }) do |f| %>
         <%= f.label :due_date, Issue.human_attribute_name(:due_date), class: "label-primary" %>
@@ -17,8 +17,9 @@
         </div>
     <% end %>
 
+    <div class="border-b border-readable-content-300/30 my-4"></div>
     <% unless issue.archived? %>
-      <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "mt-8 btn-outline-primary text-nowrap flex gap-2 items-center py-2 tour--issue-detail-time-tracking", data: { turbo_frame: "_top" } do %>
+      <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "btn-outline-primary text-nowrap flex gap-2 items-center py-2 tour--issue-detail-time-tracking", data: { turbo_frame: "_top" } do %>
         <%= icon_for(:time_entries) %>
         <span class="sm:block"><%= t("actions.start_time_tracking") %></span>
       <% end %>
