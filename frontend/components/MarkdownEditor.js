@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 
 import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react"
 import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx, editorViewCtx } from "@milkdown/kit/core"
@@ -23,9 +23,11 @@ import configureTableBlock from './MarkdownEditor/configure/table-block'
 import configureImageBlock from './MarkdownEditor/configure/image-block'
 
 function MilkdownEditor(props) {
-  const editable = () => !props.readOnly;
 
   useEditor((root) => {
+    const readOnly = !!props.readOnly;
+    const editable = () => !readOnly;
+
     const editor = Editor.make()
       .config((ctx) => {
         ctx.set(rootCtx, root);
@@ -77,7 +79,7 @@ function MarkdownEditor(props) {
   return (
     <React.StrictMode>
       <MilkdownProvider>
-        <MilkdownEditor {...props}/>
+        <MilkdownEditor bindTarget={props.bindTarget} defaultValue={props.defaultValue} readOnly={props.readOnly}/>
       </MilkdownProvider>
     </React.StrictMode>
   )
