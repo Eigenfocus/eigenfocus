@@ -1,10 +1,10 @@
 <%= turbo_frame_tag dom_id(comment) do %>
-  <div class="space-y-2">
+  <div class="space-y-2" data-author-id="<%= comment.author_id %>" data-issue--comments-target="comment">
     <div class="text-xs text-readable-content-500 italic pl-2">
       <%= t(".created_at", date: l(comment.created_at, format: :long)) %>
     </div>
     <%= react_component("MarkdownEditor", defaultValue: comment.content, readOnly: true) %>
-    <div class="flex justify-between text-xs">
+    <div class="flex justify-between text-xs px-2 hidden js-comment-actions">
       <div class="gap-1 flex justify-end">
         <%= link_to edit_issue_comment_path(comment.issue, comment),
           class: "link-primary" do %>

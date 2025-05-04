@@ -38,14 +38,15 @@ class Issue::Comment < ApplicationRecord
   }
 
   after_destroy_commit -> {
-    broadcast_replace_later_to(
+    # The comment is removed so we can't call broadcast_replace_later_to
+    Turbo::StreamsChannel.broadcast_replace_later_to(
       issue.project.default_visualization,
       partial: "visualizations/groupings/_card/icons",
       locals: {
         issue: issue
       },
       target: "card-icons_issue_#{issue.id}"
-    )
+    ) unless suppressed_turbo_broadcasts?
 
     broadcast_remove_to "issue_#{issue.id}/comments"
   }
