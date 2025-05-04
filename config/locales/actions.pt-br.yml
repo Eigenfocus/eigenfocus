@@ -21,6 +21,11 @@ pt-BR:
     issues:
       issue:
         no_grouping: "Sem coluna"
+      filter:
+        by_archiving_status:
+          all: "Listar todas as issues"
+          active: "Listar issues ativas"
+          archived: "Listar issues arquivadas"
   survey_responses:
     thanks:
       answer_submitted: "Obrigado! Suas respostas foram enviadas com sucesso."
@@ -106,11 +111,6 @@ pt-BR:
         write_a_comment: "Escreva um novo comentário"
       comment:
         created_at: "criado %{time} atrás"
-    filter:
-      by_archiving_status:
-        all: "Listar todas as issues"
-        active: "Listar issues ativas"
-        archived: "Listar issues arquivadas"
     issue_detail:
       issue_archived_at: "Esta issue foi arquivada em %{date}"
       grouping_picker:

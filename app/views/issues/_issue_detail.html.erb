@@ -18,7 +18,7 @@
     <div>
       <% if issue.archived? %>
         <div class="text-warning-900 font-bold text-base mb-4 bg-warning-500/40 p-2 rounded-lg border border-warning-500/40 flex items-center gap-2 mr-4">
-          <i class="fa-solid fa-box-archive"></i>
+          <%= icon_for(:archived) %>
           <%= t('.issue_archived_at', date: l(issue.archived_at, format: :long)) %>
         </div>
       <% end %>

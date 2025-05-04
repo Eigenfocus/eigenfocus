@@ -2,12 +2,13 @@
   <td>
     <%= link_to project_show_issue_path(issue.project, issue),
           data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>
-      <%= issue.title %>
       <% if issue.archived? %>
-        <span class="ml-2 inline-block rounded-full border-warning-600 bg-warning-200 text-warning-800 border py-1 px-3 text-xs font-medium text-warning-600">
-          <%= t('archived').capitalize %>
+        <span class="mr-1 text-warning-800 text-sm">
+          <%= icon_for(:archived) %>
         </span>
       <% end %>
+      <%= issue.title %>
+
     <% end %>
   </td>
   <td>

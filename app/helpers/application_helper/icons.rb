@@ -24,6 +24,8 @@ module Icons
       "fa-solid fa-tags"
     when :theme
       "fa-solid fa-palette"
+    when :archived
+      "fa-solid fa-box-archive"
     else
       raise "Icon class not defined for name #{name}"
     end
