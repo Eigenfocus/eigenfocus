@@ -19,7 +19,7 @@
     <%= render partial: "issues/comments/form", locals: { comment: Issue::Comment.new(issue: issue) } %>
   </div>
 
-  <div id="issue-comments-list" class="cpy-comments-list mt-4 flex flex-col gap-6">
+  <div id="issue-comments-list" class="cpy-comments-list mt-6 flex flex-col gap-6">
     <%= render partial: "issues/comments/comment", collection: issue.comments.sort_by(&:created_at).reverse %>
   </div>
 </div>

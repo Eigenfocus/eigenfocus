@@ -1,6 +1,10 @@
 <% if @comment.valid? %>
   <%= turbo_stream.replace(@comment, partial: "issues/comments/comment", locals: { comment: @comment }) %>
-  <%= new_turbo_stream_alert_message(:success, t_flash_message(@comment)) %>
+
+  <% unless params[:commit] == "cancel" %>
+    <%= new_turbo_stream_alert_message(:success, t_flash_message(@comment)) %>
+  <% end %>
+
 <% else %>
   <%= new_turbo_stream_alert_message(:alert, t_flash_message(@comment)) %>
 <% end %>

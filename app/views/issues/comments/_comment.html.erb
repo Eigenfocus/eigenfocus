@@ -4,7 +4,7 @@
       <%= t(".created_at", date: l(comment.created_at, format: :long)) %>
     </div>
     <%= react_component("MarkdownEditor", defaultValue: comment.content, readOnly: true) %>
-    <div class="flex justify-between text-xs">
+    <div class="flex justify-between text-xs px-2">
       <div class="gap-1 flex justify-end">
         <%= link_to edit_issue_comment_path(comment.issue, comment),
           class: "link-primary" do %>
