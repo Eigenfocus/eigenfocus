@@ -1,0 +1,31 @@
+/* Animations used throughout the application */
+
+/* Shine animation effect */
+.shine-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-animation::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(45deg);
+  animation: shine 2s ease-in-out 0.5s;
+  animation-iteration-count: 2;
+  animation-fill-mode: forwards;
+  mix-blend-mode: overlay;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
