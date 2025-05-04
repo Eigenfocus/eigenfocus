@@ -8,10 +8,14 @@ export default class extends Controller {
   }
 
   toggleIssueLinks() {
-    const hasIssue = this.selectedIssueId !== ''
-    this.updateIssueLinks()
-    this.allIssuesLinkTarget.classList.toggle('hidden', hasIssue)
-    this.issueLinkTarget.classList.toggle('hidden', !hasIssue)
+    const hasIssue = this.hasIssuesSelectTarget && (this.selectedIssueId !== '')
+
+    if (hasIssue) {
+      this.updateIssueLinks()
+    }
+
+    this.hasAllIssuesLinkTarget && this.allIssuesLinkTarget.classList.toggle('hidden', hasIssue)
+    this.hasIssueLinkTarget && this.issueLinkTarget.classList.toggle('hidden', !hasIssue)
   }
 
   updateIssueLinks() {
