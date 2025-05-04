@@ -12,6 +12,17 @@ class IssuesController < ApplicationController
     end
   end
 
+  def update_description
+    # In the future, we can check for
+    # potential conflicts when multiple
+    # users are editing the same issue
+    # at the same time.
+    @issue = Issue.find(params[:id])
+    @issue.update(description: params[:description])
+
+    head :ok
+  end
+
   def archive
     @issue = Issue.find(params[:id])
     @issue.archive!

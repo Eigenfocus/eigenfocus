@@ -23,10 +23,9 @@
               } %>
       </div>
     <% end %>
-
-    <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>
-
   <% end %>
+
+  <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>
 
   <% if issue.persisted? %>
     <%= render partial: 'issues/files_drop', locals: { issue: } %>
