@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState } from "react"
 
 import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react"
 import { Editor, rootCtx, defaultValueCtx, editorViewOptionsCtx, editorViewCtx } from "@milkdown/kit/core"
@@ -23,9 +23,11 @@ import configureTableBlock from './MarkdownEditor/configure/table-block'
 import configureImageBlock from './MarkdownEditor/configure/image-block'
 
 function MilkdownEditor(props) {
-  const editable = () => !props.readOnly;
 
   useEditor((root) => {
+    const readOnly = !!props.readOnly;
+    const editable = () => !readOnly;
+
     const editor = Editor.make()
       .config((ctx) => {
         ctx.set(rootCtx, root);
@@ -34,10 +36,16 @@ function MilkdownEditor(props) {
           ctx.set(defaultValueCtx, props.defaultValue)
         }
 
-        if (props.bindTarget) {
-          const target = document.querySelector(props.bindTarget)
+        if (props.mirrorInputTargetSelector) {
+          const target = document.querySelector(props.mirrorInputTargetSelector)
           ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
             target.value = markdown
+          })
+        }
+
+        if (props.mirrorInputTargetRef) {
+          ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
+            props.mirrorInputTargetRef.current.value = markdown
           })
         }
 
@@ -61,7 +69,7 @@ function MilkdownEditor(props) {
       .use(trailing)
       .use(imageBlockComponent)
 
-      if (!props.readOnly) {
+      if (editable()) {
         editor.config(configureMenu).use(menu)
       }
 
@@ -77,7 +85,7 @@ function MarkdownEditor(props) {
   return (
     <React.StrictMode>
       <MilkdownProvider>
-        <MilkdownEditor {...props}/>
+        <MilkdownEditor mirrorInputTargetRef={props.mirrorInputTargetRef} mirrorInputTargetSelector={props.mirrorInputTargetSelector} defaultValue={props.defaultValue} readOnly={props.readOnly}/>
       </MilkdownProvider>
     </React.StrictMode>
   )
