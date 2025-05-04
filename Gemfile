@@ -57,7 +57,7 @@ group :development, :test do
   gem "dotenv"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
-  gem "i18n-debug"
+  # gem "i18n-debug"
   gem "rubocop-rails-omakase", require: false
 end
 

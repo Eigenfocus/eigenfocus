@@ -1,6 +1,6 @@
 class Issue::Comment < ApplicationRecord
   # Associations
-  belongs_to :issue
+  belongs_to :issue, counter_cache: true
   belongs_to :author, class_name: "User"
 
   # Validations
