@@ -95,7 +95,4 @@ export default class extends Controller {
     }
   }
 
-  trackUpdateButton(event) {
-    this.closeOnSubmit = true;
-  }
 }
