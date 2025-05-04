@@ -21,6 +21,11 @@ pt-BR:
     issues:
       issue:
         no_grouping: "Sem coluna"
+      filter:
+        by_archiving_status:
+          all: "Listar todas as issues"
+          active: "Listar issues ativas"
+          archived: "Listar issues arquivadas"
   survey_responses:
     thanks:
       answer_submitted: "Obrigado! Suas respostas foram enviadas com sucesso."
@@ -99,12 +104,15 @@ pt-BR:
         title: "DICA RÁPIDA"
         description: "Passe o mouse sobre um card e pressione de 1 a 6 no teclado para aplicar/remover uma label."
   issues:
-    filter:
-      by_archiving_status:
-        all: "Listar todas as issues"
-        active: "Listar issues ativas"
-        archived: "Listar issues arquivadas"
+    files_drop:
+      click_to_upload_or_drag_and_drop_your_files_here: "Clique para fazer upload ou arraste e solte seus arquivos aqui."
+    comments:
+      comments:
+        write_a_comment: "Escreva um novo comentário"
+      comment:
+        created_at: "criado %{time} atrás"
     issue_detail:
+      issue_archived_at: "Esta issue foi arquivada em %{date}"
       grouping_picker:
         in_grouping: "Na coluna"
         no_grouping: "Sem coluna"

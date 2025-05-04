@@ -1,0 +1,25 @@
+<%= turbo_stream_from "issue_#{issue.id}/comments" %>
+
+<div class="cpy-comments-container" data-controller="issue--comments">
+  <div class="mt-2 mb-2 flex justify-between">
+    <h3 class="text-lg font-medium text-readable-content-500">
+      <span class="mr-1 text-readable-content-500/80"><%= icon_for(:comments) %></span>
+      <%= Issue::Comment.model_name.human(count: 2) %>
+    </h3>
+  </div>
+
+  <button data-action="issue--comments#showForm"
+    data-issue--comments-target="showFormButton"
+    class="w-full rounded-lg p-4 italic text-xs text-readable-content-500 bg-background-200 flex gap-2 hover:bg-primary-200">
+    <i class="fa-solid fa-square-plus text-base"></i>
+    <%= t(".write_a_comment") %>
+  </button>
+
+  <div id="new_comment_form" class="hidden" data-issue--comments-target="formSection">
+    <%= render partial: "issues/comments/form", locals: { comment: Issue::Comment.new(issue: issue) } %>
+  </div>
+
+  <div id="issue-comments-list" class="cpy-comments-list mt-4 flex flex-col gap-6">
+    <%= render partial: "issues/comments/comment", collection: issue.comments.sort_by(&:created_at).reverse %>
+  </div>
+</div>

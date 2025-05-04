@@ -118,7 +118,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
       write_in_md_editor_field(" appending description")
     end
 
-    click_button "Update"
+    click_button "Save"
 
     expect(page).to have_content("Issue was successfully updated.")
 
@@ -171,7 +171,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
         click_link "Issue testing due date"
       end
 
-      expect(page).to have_content("Edit Issue")
+      expect(page).to have_css(".cpy-issue-detail-title", text: "Issue testing due date")
 
       select_from_flatpickr '#issue_due_date', "23-04-2025"
 

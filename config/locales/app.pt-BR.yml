@@ -19,6 +19,7 @@ pt-BR:
   hours: 'Horas'
   minutes: 'Minutos'
   settings: 'Configurações'
+  ago: 'atrás'
   click_here: 'Clique aqui'
   zero_records: "Você ainda não criou nenhum(a) %{resource_name}."
   zero_records_for_this_search: "Nenhum registro foi encontrado para sua busca."
@@ -30,6 +31,7 @@ pt-BR:
     delete_file: "Tem certeza que deseja remover este arquivo?"
     remove: "Tem certeza que deseja remover a/o %{resource_name}?"
     want_to_proceed: "Deseja mesmo prosseguir?"
+    delete_comment: "Tem certeza que deseja remover este comentário? Esta ação não pode ser revertida."
   menu:
     actions: "Ações"
   nav:
@@ -141,20 +143,20 @@ pt-BR:
       default: "%d/%b/%Y"
       long: "%d de %B de %Y"
       short: "%d/%b"
+      day_month_year: "%d, %B %Y"
     month_names:
-    -
-    - janeiro
-    - fevereiro
-    - março
-    - abril
-    - maio
-    - junho
-    - julho
-    - agosto
-    - setembro
-    - outubro
-    - novembro
-    - dezembro
+      - janeiro
+      - fevereiro
+      - março
+      - abril
+      - maio
+      - junho
+      - julho
+      - agosto
+      - setembro
+      - outubro
+      - novembro
+      - dezembro
     order:
     - :day
     - :month
@@ -320,6 +322,7 @@ pt-BR:
     formats:
       short: "%e %B, %Y"
       month_name_year: "%B %Y"
+      day_month_year: "%d de %B %Y"
       day_single_digit: "%e"
       flatpickr: "%Y-%m-%d"
       weekday_name: "%^A"

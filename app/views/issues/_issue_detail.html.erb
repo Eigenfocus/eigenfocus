@@ -15,27 +15,44 @@
     class: "max-h-screen w-full max-w-3xl relative cpy-issue-detail",
     data: data
   }) do %>
-    <div data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
-      <div class="border-b border-background-200 pb-2 mb-4">
-        <div class="flex items-center space-x-2">
-          <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
-            <%= icon_for(:issues) %>
-          </div>
-          <h4 class="text-lg font-medium text-readable-content-700">
-            <%= issue.persisted? ? "#{t("actions.edit")} #{Issue.model_name.human}" : "#{t("actions.create")} #{Issue.model_name.human}"%>
-          </h4>
-          <% if issue.archived? %>
-            <span class="inline-block rounded-full border-warning-600 bg-warning-200 text-warning-800 border py-1 px-3 text-xs font-medium text-warning-600">
-              <%= t('archived').capitalize %>
-            </span>
+    <div>
+      <% if issue.archived? %>
+        <div class="text-warning-900 font-bold text-base mb-4 bg-warning-500/40 p-2 rounded-lg border border-warning-500/40 flex items-center gap-2 mr-4">
+          <%= icon_for(:archived) %>
+          <%= t('.issue_archived_at', date: l(issue.archived_at, format: :long)) %>
+        </div>
+      <% end %>
+
+      <div class="flex gap-4 items-stretch mb-4">
+        <div class="flex justify-stretch w-full pr-8 cpy-issue-detail-title">
+          <%= form_with(model: issue, url: local_assigns[:form_path], html: {
+            class: 'w-full flex justify-stretch',
+            data: {
+              turbo: true,
+              "issue-detail-target": "form",
+              action: "turbo:submit-end->issue-detail#onFormSubmit",
+            }
+            }) do |f| %>
+
+            <div data-controller='resizable-input' class="relative" >
+              <div data-resizable-input-target="replica" class="break-all text-xl font-bold text-readable-content-600 p-2 whitespace-pre-line"></div>
+
+              <%= f.text_area :title, required: true,
+                class: "issue-detail-title-input",
+                "data-resizable-input-target": "input",
+                "data-issue-detail-target": "titleField",
+                "data-action": "keydown.enter->issue-detail#onTitleFieldEnter keydown.esc->issue-detail#onTitleFieldEsc blur->issue-detail#onTitleFieldBlur"
+                %>
+            </div>
           <% end %>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row gap-8">
-
-        <%= render partial: 'issues/issue_detail/main_form', locals: { issue:, form_path: local_assigns[:form_path] } %>
+      <div class="flex flex-col md:flex-row gap-8" data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
+        <div class="flex flex-col w-3/4">
+          <%= render partial: 'issues/issue_detail/main_form', locals: { issue:, form_path: local_assigns[:form_path] } %>
+          <%= render partial: 'issues/comments/comments', locals: { issue: } if issue.persisted? %>
+        </div>
         <%= render partial: 'issues/issue_detail/right_sidebar', locals: { issue:, form_path: local_assigns[:form_path] } %>
-
       </div>
     </div>
   <% end %>

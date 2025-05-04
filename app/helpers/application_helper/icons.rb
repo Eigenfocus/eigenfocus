@@ -10,6 +10,10 @@ module Icons
       "fa-solid fa-chart-simple rotate-180"
     when :issues
       "fa-solid fa-list-ul"
+    when :comments
+      "fa-solid fa-comment"
+    when :files
+      "fa-solid fa-file"
     when :projects
       "fa-solid fa-folder-closed"
     when :user
@@ -20,6 +24,8 @@ module Icons
       "fa-solid fa-tags"
     when :theme
       "fa-solid fa-palette"
+    when :archived
+      "fa-solid fa-box-archive"
     else
       raise "Icon class not defined for name #{name}"
     end

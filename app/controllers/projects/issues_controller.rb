@@ -6,7 +6,9 @@ class Projects::IssuesController < Projects::BaseController
     @q.sorts = "updated_at desc" if @q.sorts.empty?
     @q.by_archiving_status ||= "active"
 
-    @pagy, @issues = pagy(@q.result.includes(:labels, :groupings))
+    @pagy, @issues = pagy(@q.result.includes(:labels,
+      :groupings,
+    :comments))
 
     if params[:id]
       @issue = Issue.find(params[:id])

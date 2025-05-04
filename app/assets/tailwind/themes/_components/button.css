@@ -12,6 +12,10 @@
   @apply border border-primary-500 text-sm text-primary-500 hover:text-primary-700 hover:bg-primary-100/50 px-4 py-2 rounded-md;
 }
 
+.btn-outline-primary.btn-sm {
+  @apply px-2 py-1 text-xs;
+}
+
 .btn-contrast {
   @apply border border-readable-content-300 bg-body-contrast text-sm text-readable-content-400 hover:text-primary-500 hover:bg-primary-100/50 px-4 py-2 rounded-md;
 }

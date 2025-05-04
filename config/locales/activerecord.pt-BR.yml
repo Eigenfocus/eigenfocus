@@ -25,6 +25,10 @@ pt-BR:
         one: 'Issue'
         other: 'Issues'
 
+      issue/comment:
+        one: 'Comentário'
+        other: 'Comentários'
+
       issue_label:
         one: 'Label de Issues'
         other: 'Labels de Issues'
@@ -54,6 +58,7 @@ pt-BR:
         updated_at: 'Atualizado em'
         due_date: 'Data de encerramento'
         grouping: 'Coluna'
+        comments: 'Comentários'
 
       issue_label:
         title: 'Título'

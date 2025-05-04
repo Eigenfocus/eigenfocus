@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @comment do %>
+  <%= turbo_stream.update(@comment, partial: "issues/comments/form", locals: { comment: @comment }) %>
+<% end %>

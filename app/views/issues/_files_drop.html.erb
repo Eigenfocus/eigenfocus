@@ -1,5 +1,6 @@
-<div class="mt-2">
-  <h3 class="text-xl text-readable-content-500">
+<div class="mt-2 mb-2">
+  <h3 class="text-lg font-medium text-readable-content-500">
+    <span class="mr-1 text-readable-content-500/80"><%= icon_for(:files) %></span>
     <%= Issue.human_attribute_name(:files) %>
   </h3>
 </div>
@@ -17,9 +18,9 @@
     }
   ) %>
 
-  <div class="dz-message cursor-pointer p-16 rounded-md border border-primary-200 hover:border-primary-400 bg-primary-50 hover:bg-primary-100">
-    <p class="text-lg text-center text-readable-content-500">
-      Click to upload or drag and drop your files here.
+  <div class="dz-message cursor-pointer p-4 rounded-md border border-primary-200 hover:border-primary-400 bg-primary-50 hover:bg-primary-100">
+    <p class="text-xs text-center text-readable-content-500">
+      <%= t(".click_to_upload_or_drag_and_drop_your_files_here") %>
     </p>
   </div>
 
