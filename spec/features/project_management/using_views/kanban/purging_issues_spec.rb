@@ -46,6 +46,8 @@ describe "As a project manager, I want to achieve a issue from kanban board" do
   specify "I can remove an issue immediately after archiving it" do
     archive_issue(issue)
 
+    expect(page).to have_content("Issue was successfully archived.")
+
     within ".cpy-issue-detail" do
       accept_confirm do
         click_link "Remove"

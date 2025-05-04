@@ -6,16 +6,24 @@
     # We need to hide this otherwise it will leave a little empty vertical space in the card UI
     has_any_icon_showing = (
       issue.description.present? ||
-      issue.files.any? )
+      issue.files.any? ||
+      issue.comments.size > 0
+    )
   %>
 
   <% if has_any_icon_showing %>
-    <div class="flex flex-row items-stretch justify-start gap-3 text-readable-content-500">
+    <div class="flex flex-row items-center justify-start gap-3 text-readable-content-500">
       <% if issue.description.present? %>
         <i class="fa-solid text-sm fa-align-justify"></i>
       <% end %>
       <% if issue.files.any? %>
         <i class="fa-solid text-sm fa-file"></i>
+      <% end %>
+      <% if issue.comments.size > 0 %>
+        <span>
+          <i class="fa-regular text-sm fa-comment"></i>
+          <span class="text-sm" data-issue-comments-count="<%= issue.id %>"><%= issue.comments.size %></span>
+        </span>
       <% end %>
     </div>
   <% end %>

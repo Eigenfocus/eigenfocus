@@ -27,7 +27,7 @@ describe "Issue Comments" do
   end
 
   specify "I can edit an existing comment" do
-    comment = FactoryBot.create(:issue_comment, issue: issue, content: 'This is a comment to be edited', user:)
+    comment = FactoryBot.create(:issue_comment, issue: issue, content: 'This is a comment to be edited', author: user)
     visit project_issues_path(project)
 
     within dom_id(issue) do
@@ -47,7 +47,7 @@ describe "Issue Comments" do
   end
 
   specify "I can delete an existing comment" do
-    comment = FactoryBot.create(:issue_comment, issue: issue, content: 'This is a comment to be deleted', user:)
+    comment = FactoryBot.create(:issue_comment, issue: issue, content: 'This is a comment to be deleted', author: user)
     visit project_issues_path(project)
 
     within dom_id(issue) do

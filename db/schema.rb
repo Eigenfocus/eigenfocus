@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_03_213952) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_04_124033) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -73,11 +73,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_213952) do
   create_table "issue_comments", force: :cascade do |t|
     t.text "content"
     t.integer "issue_id", null: false
-    t.integer "user_id", null: false
+    t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_issue_comments_on_author_id"
     t.index ["issue_id"], name: "index_issue_comments_on_issue_id"
-    t.index ["user_id"], name: "index_issue_comments_on_user_id"
   end
 
   create_table "issue_label_links", force: :cascade do |t|
@@ -108,6 +108,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_213952) do
     t.integer "project_id"
     t.datetime "archived_at"
     t.date "due_date"
+    t.integer "comments_count", default: 0, null: false
     t.index ["archived_at"], name: "index_issues_on_archived_at"
     t.index ["project_id"], name: "index_issues_on_project_id"
   end
@@ -180,7 +181,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_213952) do
   add_foreign_key "grouping_issue_allocations", "issues"
   add_foreign_key "groupings", "visualizations"
   add_foreign_key "issue_comments", "issues"
-  add_foreign_key "issue_comments", "users"
+  add_foreign_key "issue_comments", "users", column: "author_id"
   add_foreign_key "issue_label_links", "issue_labels"
   add_foreign_key "issue_label_links", "issues"
   add_foreign_key "issues", "projects"
