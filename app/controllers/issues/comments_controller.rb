@@ -3,7 +3,7 @@ module Issues
   class CommentsController < ApplicationController
     def create
       @comment = current_issue.comments.new(comment_params)
-
+      @comment.user = current_user
       @comment.save
     end
 
