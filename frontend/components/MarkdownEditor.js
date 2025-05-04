@@ -61,7 +61,7 @@ function MilkdownEditor(props) {
       .use(trailing)
       .use(imageBlockComponent)
 
-      if (!props.readOnly) {
+      if (editable()) {
         editor.config(configureMenu).use(menu)
       }
 

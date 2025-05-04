@@ -1,6 +1,7 @@
 
 <%= turbo_frame_tag 'new_issue_form' do %>
-<%= render_modal do %>
+<%= render_modal(inner_container_options: {
+    class: "max-h-screen w-full max-w-3xl relative cpy-issue-detail" }) do %>
   <div class="border-b border-background-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
       <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
@@ -38,7 +39,7 @@
             } %>
       </div>
 
-      <%= react_component("MarkdownEditor", defaultValue: issue.description, bindTarget: ".js-issue-description" ) %>
+      <%= react_component("MarkdownEditor", defaultValue: issue.description, bindTarget: "#new_issue_form .js-issue-description" ) %>
       <%= f.hidden_field :description, class: "js-issue-description" %>
 
       <div class="flex gap-2 justify-center">
