@@ -114,6 +114,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
     end
 
     within '#issue_detail' do
+      find('.cpy-issue-detail-description').click
       fill_in :issue_title, with: "Updated title"
       write_in_md_editor_field(" appending description")
     end

@@ -147,9 +147,9 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     within '#issue_detail' do
       fill_in :issue_title, with: "Updated title"
-    end
 
-    click_button "Save"
+      page.evaluate_script("document.querySelector('#issue_title').blur()")
+    end
 
     expect(page).to have_content("Issue was successfully updated.")
 

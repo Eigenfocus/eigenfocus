@@ -43,7 +43,7 @@ const Description = ({ content, issueId }) => {
           </a>
         )}
       </div>
-      <div className={ isEditing ? "" : "cursor-pointer" } onClick={() => { setIsEditing(true) }}>
+      <div className={ isEditing ? "" : "cursor-pointer cpy-issue-detail-description" } onClick={() => { setIsEditing(true) }}>
         <MarkdownEditor defaultValue={currentContent} readOnly={!isEditing} mirrorInputTargetRef={hiddenFieldRef}/>
         <input type="hidden" name="issue[description]" value={currentContent ? currentContent : ""} ref={hiddenFieldRef}/>
       </div>
