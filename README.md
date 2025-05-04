@@ -55,6 +55,7 @@ Here are some of our current features:
 
 Coming next:
 - Better navigation between projects
+- Issue comments
 - Running time tracking alerts
 - Shortcuts & Quick Actions
 - Focus target (you'll understand when you see it 👀)
@@ -85,7 +86,6 @@ Coming next:
 - Grid View
 - Timesheet analytics
 - Custom fields
-- Issue notes
 
 <br/>
 
