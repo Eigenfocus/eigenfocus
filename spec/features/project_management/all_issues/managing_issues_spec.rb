@@ -149,7 +149,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
       fill_in :issue_title, with: "Updated title"
     end
 
-    click_button "Update"
+    click_button "Save"
 
     expect(page).to have_content("Issue was successfully updated.")
 

@@ -22,14 +22,13 @@ describe "As a project manager, I want to manage issue archive status" do
     end
 
     expect(page).to have_content("Issue was successfully archived.")
+    within '.cpy-issue-detail' do
+      expect(page).to have_content("This issue was archived on")
+    end
 
     non_archived_issue.reload
 
     expect(non_archived_issue).to be_archived
-
-    within "table #issue_#{non_archived_issue.id}" do
-      expect(page).to have_content("Archived")
-    end
   end
 
   specify "I can unarchive an issue" do
