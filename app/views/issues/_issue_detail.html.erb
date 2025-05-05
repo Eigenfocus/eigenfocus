@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-8" data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
-        <div class="flex flex-col w-3/4">
+        <div class="flex flex-col w-full md:w-3/4">
           <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>
             <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
           <% end %>
