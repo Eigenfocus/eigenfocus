@@ -276,6 +276,7 @@ span.flatpickr-weekday {
 }
 
 .flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month .flatpickr-monthDropdown-months:hover,
 .flatpickr-months select {
-  @apply px-4 py-2 border border-background-300 rounded-md text-sm;
+  @apply px-4 py-2 border border-background-300 bg-background-50 rounded-md text-sm;
 }
