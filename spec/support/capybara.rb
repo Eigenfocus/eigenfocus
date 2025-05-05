@@ -5,6 +5,8 @@ require 'selenium-webdriver'
 Capybara.server_host = '0.0.0.0'
 Capybara.server_port = '3001'
 
+Capybara.default_max_wait_time = 10
+
 if ENV.has_key?("SELENIUM_REMOTE_HOST")
   Capybara.register_driver :remote_selenium do |app|
     options   = Selenium::WebDriver::Chrome::Options.new

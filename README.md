@@ -20,7 +20,7 @@
 
 <div align="center">
   <img src="https://assets.eigenfocus.com/current-release-100.svg"/>
-  <img src="https://img.shields.io/badge/1.1.0.rc1--free-blue.svg?style=flat&label=Preview Release&labelColor=%23333&color=%23242F2F"/>
+  <img src="https://assets.eigenfocus.com/1.1.0.rc1--free-blue-2.svg"/>
   <br />
   <br/>
   <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features"><strong>We have a PRO Edition - Free Trial Available 👀</strong></a>
