@@ -19,8 +19,7 @@
 <br />
 
 <div align="center">
-  <img src="https://assets.eigenfocus.com/current-release-100.svg"/>
-  <img src="https://assets.eigenfocus.com/1.1.0.rc1--free-blue-2.svg"/>
+  <img src="https://assets.eigenfocus.com/1.1.0-free.svg"/>
   <br />
   <br/>
   <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features"><strong>We have a PRO Edition - Free Trial Available 👀</strong></a>
@@ -45,6 +44,7 @@ Here are some of our current features:
 - Issues: create issues, write markdown descriptions and attach files
 - Workflow with Boards: Make changes to your boards and see changes in real-time
 - Issue Labels and Shortcuts: Organize your issues and workflow with labels
+- Issue comments / notes in markdown
 - Time Tracking: track time spent on a Project and a Specific Issue
 - Time Report: generate time reports by project and time periods
 - Focus Space where you can setup
@@ -55,12 +55,9 @@ Here are some of our current features:
 </div>
 
 Coming next:
-- Better navigation between projects
-- Issue comments
 - Running time tracking alerts
 - Shortcuts & Quick Actions
 - Focus target (you'll understand when you see it 👀)
-- A more colorful labels experience (i.e colored labels)
 - \*i\*\*\*y (it's a surprise 🤫)
 
 ## FREE EDITION - Some Screenshots/Recordings
@@ -68,6 +65,7 @@ Coming next:
 <img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/time-track-black-3.gif" width="75%"/>
 <img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/board-2.gif" width="75%"/>
 <img alt="issue list" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
+<img alt="issue list" src="https://assets.eigenfocus.com/github-readme/issue-modal-2.gif" width="75%"/>
 <img alt="focus-timers" src="https://blog-assets.eigenfocus.com/demo-v1/focus-space-min.gif" width="75%"/>
 </div>
 
@@ -81,7 +79,7 @@ Here are some of the features:
 - Multiple Users with Permission Control
 - Custom Issue Statuses & Types
 - Multiple views with pre-saved filters
-- Eigencolumns aren't just "Trello lists" -> they are true projections from your issues and can represent many things: a status, a label, a person...
+- Dynamic columns aren't just "Trello lists": they are true projections from your issues and can represent many things: a status, a label, a person...
 
 Coming next:
 - Grid View
@@ -95,7 +93,7 @@ Coming next:
 <br/>
 
 <div align="center">
-  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>👉 Early Access to PRO Edition is rolling out.</strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>👉 Check our PRO Edition.</strong></a>
 </div>
 
 <br/>
@@ -152,7 +150,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:1.0.0-free
+    eigenfocus/eigenfocus:1.1.0-free
 ```
 
 And access it at http://localhost:3001.
@@ -163,7 +161,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:1.0.0-free
+    image: eigenfocus/eigenfocus:1.1.0-free
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
