@@ -62,16 +62,16 @@ const noirBlack = {
 }
 
 const noirRed = {
-  "50": "#f8ebeb",
-  "100": "#f1d8d8",
-  "200": "#e3b0b0",
-  "300": "#d58989",
-  "400": "#c76161",
-  "500": "#b93a3a",
-  "600": "#942e2e",
-  "700": "#6f2323",
-  "800": "#4a1717",
-  "900": "#250c0c"
+  "50": "#f9efef",
+  "100": "#f4dfdf",
+  "200": "#e8bebe",
+  "300": "#dd9e9e",
+  "400": "#d17d7d",
+  "500": "#c65d5d",
+  "600": "#9e4a4a",
+  "700": "#773838",
+  "800": "#4f2525",
+  "900": "#281313"
 }
 
 const noirGreen = {
@@ -120,7 +120,7 @@ const themeColors = {
   cancel: invertColorIndexes(noirNavy),
   success: invertColorIndexes(noirGreen),
   notice: invertColorIndexes(noirGreen),
-  danger: invertColorIndexes(noirBrown),
+  danger: invertColorIndexes(noirRed),
   error: invertColorIndexes(noirRed),
   warning: invertColorIndexes(noirBrown),
   alert: invertColorIndexes(noirBrown),
