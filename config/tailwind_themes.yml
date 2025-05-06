@@ -31,10 +31,10 @@ shared:
   - key: "noir-flow"
     mode: "dark"
     showcase_colors:
-      - "#161619"
-      - "#2d2e45"
-      - "#006262"
-      - "#421b46"
+      - "#151622"
+      - "#2a2b44"
+      - "#00a5a5"
+      - "#a949b6"
     color_suggestions:
       - "#006124"
       - "#5e6100"
