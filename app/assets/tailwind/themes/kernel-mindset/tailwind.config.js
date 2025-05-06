@@ -49,16 +49,16 @@ const deepPurple = {
 
 //https://tailcolor.com/?color=AE445A
 const smoothWine = {
-  "50": "#f7ecef",
-  "100": "#efdade",
-  "200": "#dfb4bd",
-  "300": "#ce8f9c",
-  "400": "#be697b",
-  "500": "#ae445a",
-  "600": "#8b3648",
-  "700": "#682936",
-  "800": "#461b24",
-  "900": "#230e12"
+  "50": "#fbf0f2",
+  "100": "#f8e1e5",
+  "200": "#f0c3cc",
+  "300": "#e9a5b2",
+  "400": "#e18799",
+  "500": "#da697f",
+  "600": "#ae5466",
+  "700": "#833f4c",
+  "800": "#572a33",
+  "900": "#2c1519"
 }
 
 // https://tailcolor.com/?color=445aae
@@ -137,8 +137,8 @@ const themeColors = {
   cancel: invertColorIndexes(arid),
   success: invertColorIndexes(pastelGreen),
   notice: invertColorIndexes(pastelGreen),
-  danger: invertColorIndexes(arid ),
-  error: invertColorIndexes(arid  ),
+  danger: invertColorIndexes(smoothWine ),
+  error: invertColorIndexes(smoothWine ),
   warning: invertColorIndexes(arid),
   alert: invertColorIndexes(arid),
   "readable-content": constantColor('#fff'),

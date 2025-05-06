@@ -1,5 +1,6 @@
 @import '../base';
 @import '../fonts/inconsolata';
+@import '../fonts/inter';
 @import './focus-app';
 
 @tailwind base;
@@ -13,6 +14,14 @@
 @layer components {
 
   body, html {
+    font-family: "Inter", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: "Inconsolata", sans-serif;
   }
 
