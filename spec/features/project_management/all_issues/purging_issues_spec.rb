@@ -81,6 +81,8 @@ describe "As a project manager, I want to remove an issue" do
       end
     end
 
+    wait_for_alert_modal_close
+
     expect(page).to have_content("Issue was successfully removed.")
 
     expect(Issue.exists?(archieved_issue.id)).to be_falsey
