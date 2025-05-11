@@ -3,13 +3,13 @@ import { getTourConfigs } from "app-tours/tour_config"
 
 const translations = {
   en: {
-    skipBtnText: 'Close tour',
+    skipBtnText: 'Stop all tours',
     nextBtnText: '—›',
     prevBtnText: '‹—',
     doneBtnText: '✕',
   },
   'pt-BR': {
-    skipBtnText: 'Fechar tour',
+    skipBtnText: 'Parar todos os tours',
     nextBtnText: '—›',
     prevBtnText: '‹—',
     doneBtnText: '✕',
@@ -29,6 +29,7 @@ class AppTour {
       doneBtnText: translations[this.language].doneBtnText,
       onCloseClick: () => {
         this.stopTour()
+        this.markAllToursAsCompleted()
       },
       onPopoverRender: (popover, { config, state }) => {
         const firstButton = document.createElement("button");
@@ -37,8 +38,14 @@ class AppTour {
 
         firstButton.addEventListener("click", () => {
           this.stopTour()
+          this.markAllToursAsCompleted()
         });
       },
+      onDestroyed: () => {
+        document.querySelectorAll('.tour--temporary-element').forEach(element => {
+          element.remove()
+        })
+      }
     })
 
     window.addEventListener('click', (event) => {
@@ -75,6 +82,10 @@ class AppTour {
 
   stopTour() {
     this.driverObj.destroy()
+  }
+
+  markAllToursAsCompleted() {
+    sessionStorage.setItem('pendingTours', JSON.stringify([]))
   }
 
   markAllToursAsPending() {
