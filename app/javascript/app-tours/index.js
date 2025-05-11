@@ -39,6 +39,11 @@ class AppTour {
           this.stopTour()
         });
       },
+      onDestroyed: () => {
+        document.querySelectorAll('.tour--temporary-element').forEach(element => {
+          element.remove()
+        })
+      }
     })
 
     window.addEventListener('click', (event) => {

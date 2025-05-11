@@ -92,6 +92,11 @@
   <% end %>
 </div>
 
+<template id="js-time-entry-demo">
+  <div class="tour--temporary-element mb-4">
+    <%= render partial: 'time_entry', locals: { time_entry: TimeEntry.new(id: 'temp-demo-entry', project: Project.new(id: 'temp-demo-project', name: 'Example time entry'), description: 'Example time entry description', reference_date: @reference_date) } %>
+  </div>
+</template>
 
 <div class="flex flex-col gap-4" id="time-entries-tbody">
   <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
@@ -106,6 +111,6 @@
         <%= t('.click_here_to_create') %>
       <% end %>
     </p>
-  </tr>
+  </div>
 </div>
 <% end %>

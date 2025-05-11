@@ -11,6 +11,12 @@ const timeEntriesIndexTour = [
     popover: {
       title: "Date Navigation",
       description: "Navigate between different days to view and manage your time entries"
+    },
+    onHighlightStarted: () => {
+      const template = document.getElementById("js-time-entry-demo");
+      const clone = template.content.cloneNode(true);
+      document.querySelector("#time-entries-tbody").prepend(clone);
+      return true;
     }
   },
   {
@@ -32,8 +38,7 @@ const timeEntriesIndexTour = [
     popover: {
       title: "Time Entry Actions",
       description: "Start, stop, edit or remove your time entries."
-    },
-    disableActiveInteraction: false
+    }
   }, {
     popover: {
       title: "🥳 You've completed the tour!",
