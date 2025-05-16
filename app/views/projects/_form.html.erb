@@ -36,8 +36,8 @@
             <div class="relative flex items-stretch justify-stretch">
               <%= f.radio_button :use_template, "", class: "hidden peer", id: "template_none" %>
               <label for="template_none" class="block p-4 border rounded-lg border-background-100 cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
-                <div class="font-medium text-readable-content-600 mb-1"><%= t('.no_template') %></div>
-                <p class="text-sm">
+                <div class="font-medium text-primary-500 mb-1"><%= t('.no_template') %></div>
+                <p class="text-sm text-readable-content-500">
                   <%= t('.start_from_scratch') %>
                 </p>
               </label>
@@ -47,8 +47,8 @@
               <div class="relative flex items-stretch justify-stretch">
                 <%= f.radio_button :use_template, template.key, class: "hidden peer", id: "template_#{template.key}" %>
                 <label for="template_<%= template.key %>" class="block p-4 border border-background-100 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
-                  <div class="font-medium mb-1 text-readable-content-600 "><%= template.name %></div>
-                  <p class="text-sm">
+                  <div class="font-medium mb-1 text-primary-500 "><%= template.name %></div>
+                  <p class="text-sm text-readable-content-500">
                     <%= template.description %>
                   </p>
                 </label>
