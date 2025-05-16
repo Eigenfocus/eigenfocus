@@ -4,7 +4,7 @@ en:
     confirm_archive: "Are you sure you want to archive this issue? This will prevent it from being used in any time tracking activities. The existing time entries will not be affected."
   projects:
     form:
-      select_template: "Select a project template"
+      select_template: "What do you want to manage? Choose a template or start from scratch."
       no_template: "No template"
       start_from_scratch: "Start with a blank project without any predefined structure."
     project:

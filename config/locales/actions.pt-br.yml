@@ -4,7 +4,7 @@ pt-BR:
     confirm_archive: "Tem certeza que deseja arquivar esta issue? Isso impedirá que ela seja utilizada em atividades de registro de tempo. Os registros de tempo existentes não serão afetados."
   projects:
     form:
-      select_template: "Selecione um template de projeto"
+      select_template: "O que você quer gerenciar? Escolha um template ou comece do zero."
       no_template: "Sem template"
       start_from_scratch: "Começar com um projeto em branco sem nenhuma estrutura predefinida."
     project:
