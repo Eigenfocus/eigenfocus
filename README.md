@@ -2,8 +2,9 @@
   <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner"><img src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/eigenfocus-github-banner.png" alt="Eigenfocus"/></a>
   <br/>
   <br/>
-  <a href="https://eigenfocus.com?utm-source=github&utm_medium=try-cloud"><strong>Website</strong></a> |
-  <a href="#installation"><strong>Docker Installation</strong></a>
+  <a href="https://eigenfocus.com?utm-source=github" target="_blank"><strong>Website</strong></a> |
+  <a href="#installation"><strong>Docker Installation</strong></a> |
+  <a href="https://eigenfocus.pro/?utm_source=eigenfocus-github&utm_medium=header" target="_blank"><strong>PRO - Live demo</strong></a>
 </div>
 <br />
 <div align="center">
@@ -22,8 +23,6 @@
   <img src="https://assets.eigenfocus.com/1.1.0-free.svg"/>
   <br />
   <br/>
-  <a href="http://eigenfocus.com/features?utm_content=header&utm_source=github-readme#pro-features"><strong>We have a PRO Edition - Free Trial Available 👀</strong></a>
-
 </div>
 
 <br />
@@ -93,7 +92,9 @@ Coming next:
 <br/>
 
 <div align="center">
-  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>👉 Check our PRO Edition.</strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>PRO Edition - Features</strong></a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://eigenfocus.pro/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
 </div>
 
 <br/>
