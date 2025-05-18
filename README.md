@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner"><img src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/eigenfocus-github-banner.png" alt="Eigenfocus"/></a>
+  <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner"><img src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/eigenfocus-github-banner-2.png" alt="Eigenfocus"/></a>
   <br/>
   <br/>
   <a href="https://eigenfocus.com?utm-source=github" target="_blank"><strong>Website</strong></a> |
@@ -8,33 +8,37 @@
 </div>
 <br />
 <div align="center">
-  <img src="https://img.shields.io/badge/Made with care-Rails.svg?style=flat&logo=undertale&labelColor=%235E6AD2&color=%235E6AD2"/>
+
 </div>
 <br />
 <div align="center">
   <img src="https://github.com/Eigenfocus/eigenfocus/actions/workflows/ci.yml/badge.svg"></img>
-  <img src="https://img.shields.io/docker/pulls/eigenfocus/eigenfocus.svg"></img>
   <img src="https://img.shields.io/badge/Ruby-Ruby.svg?style=flat&logo=ruby&labelColor=%23CC342D&color=%23333"/>
   <img src="https://img.shields.io/badge/Ruby on Rails-Rails.svg?style=flat&logo=rubyonrails&labelColor=%23CC342D&color=%23333"/>
 </div>
 <br />
 
 <div align="center">
+  <img src="https://img.shields.io/badge/Made with care-Rails.svg?style=flat&logo=undertale&labelColor=%235E6AD2&color=%235E6AD2"/>
   <img src="https://assets.eigenfocus.com/1.1.0-free.svg"/>
+  <img src="https://img.shields.io/docker/pulls/eigenfocus/eigenfocus.svg"></img>
   <br />
   <br/>
 </div>
 
 <br />
 
-# Our Vision
-We're building an All-In-One Self-Hosted solution to manage projects, time, teams and focus.
+# Eigenfocus - Vision
+We've been working with product development for a while and Eigenfocus is built on the wisdom, pain and scars that we've gathered over the years.
+It's built to be both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
 
-We've been working with product development for a while so this product is built on the wisdom, pain and scars that we've gathered over the years. Our philosophy is to create a tool that is both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
+# FREE EDITION (This Repo)
 
-Any new ideas are welcome.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/overview.gif" alt="Eigenfocus"/>
+</div>
 
-# FREE EDITION (this repo)
+<br/>
 
 Here are some of our current features:
 
@@ -54,23 +58,20 @@ Here are some of our current features:
 </div>
 
 Coming next:
+- Mark a project item as done
 - Running time tracking alerts
 - Shortcuts & Quick Actions
-- Focus target (you'll understand when you see it 👀)
-- \*i\*\*\*y (it's a surprise 🤫)
-
-## FREE EDITION - Some Screenshots/Recordings
-<div align="center">
-<img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/time-track-black-3.gif" width="75%"/>
-<img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/board-2.gif" width="75%"/>
-<img alt="issue list" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
-<img alt="issue list" src="https://assets.eigenfocus.com/github-readme/issue-modal-2.gif" width="75%"/>
-<img alt="focus-timers" src="https://blog-assets.eigenfocus.com/demo-v1/focus-space-min.gif" width="75%"/>
-</div>
 
 <br/>
 
-# PRO Edition (another repo) - Pay ONCE
+<div align="center">
+  <img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/board-2.gif" width="75%"/>
+  <img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
+  <img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/time-track-black-3.gif" width="75%"/>
+  <img alt="focus-timers" src="https://blog-assets.eigenfocus.com/demo-v1/focus-space-min.gif" width="75%"/>
+</div>
+
+# PRO Edition (another repo) - Self Hosted Pay ONCE
 We have a PRO Edition (Pay ONCE) with advanced features for managing complex projects and larger teams.
 
 Here are some of the features:
@@ -81,9 +82,11 @@ Here are some of the features:
 - Dynamic columns aren't just "Trello lists": they are true projections from your issues and can represent many things: a status, a label, a person...
 
 Coming next:
-- Grid View
-- Timesheet analytics
+- Grid View (In alpha testing)
+- Issue relationships
 - Custom fields
+- Timesheet analytics
+- Timeline view
 
 <br/>
 
@@ -113,17 +116,37 @@ Coming next:
   <br/>
   <br/>
   <p>
-    Grid View (comming soon)
+    Multiple Views
   </p>
-  <img width="90%" src="https://assets.eigenfocus.com/github-readme/pro-demo-preview/matrix-workflow.png"/>
+  <a href="https://eigenfocus.com/features?utm_source=github-readme&utm_content=pro-section">
+    <img width="70%" src="https://assets.eigenfocus.com/landing/pro-features/full-demo-1.gif"/>
+  </a>
+  <br/>
+  <br/>
+  <a href="https://eigenfocus.com/features?utm_source=github-readme&utm_content=pro-section">
+    <img width="70%" src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/Eigenfocus-Multiple-Views-Features.gif"/>
+  </a>
+
   <br/>
 </div>
 
 <br/>
 
+
+------
+
+<br/>
+
 <div align="center">
-  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>👉 See all PRO Edition features</strong></a>
+  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>PRO Edition - Features</strong></a>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://eigenfocus.pro/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
 </div>
+
+<br/>
+
+------
+
 
 <br/>
 
