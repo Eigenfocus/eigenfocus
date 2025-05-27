@@ -86,6 +86,10 @@ pt-BR:
         success: "Todas as issues foram movidas com sucesso."
       archive_all_issues:
         success: "Todas as issues foram arquivadas com sucesso."
+    projects:
+      items:
+        show:
+          error: "A issue não existe."
     actions:
       create:
         notice: "%{resource_name} criado(a) com sucesso."

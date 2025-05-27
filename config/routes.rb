@@ -63,6 +63,7 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :items, only: :show
       resources :issues, only: [ :index, :new, :create, :update, :destroy ] do
         member do
           post :add_label
