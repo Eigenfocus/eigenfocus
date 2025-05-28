@@ -30,5 +30,6 @@ pin "@rails/request.js", to: "@rails--request.js.js" # @0.0.11
 pin "marked" # @15.0.4
 pin "@rails/actioncable", to: "actioncable.esm.js"
 pin_all_from "app/javascript/channels", under: "channels"
+pin "clipboard" # @2.0.11
 pin "@melloware/coloris", to: "@melloware--coloris.js" # @0.24.0
 pin "@rolemodel/turbo-confirm", to: "@rolemodel--turbo-confirm.js" # @2.1.1
