@@ -3,3 +3,4 @@ pt-BR:
     issues:
       badge_for_issue_id:
         click_to_copy_url: "Clique para copiar URL"
+        copied: "Copiado!"
