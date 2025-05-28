@@ -37,15 +37,17 @@ export default class extends Controller {
   // Show the popover
   mouseOver() {
     this.contentTarget.classList.remove('hidden')
+    this.contentTarget.classList.remove('opacity-0')
   }
   // Hide the popover
   mouseOut() {
     this.contentTarget.classList.add('hidden')
+    this.contentTarget.classList.add('opacity-0')
   }
 
   windowClick(e) {
     if (e.target == this.element || this.element.contains(e.target)) {
-      return 
+      return
     }
     this.contentTarget.classList.add('hidden')
   }

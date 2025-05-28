@@ -1,0 +1,5 @@
+en:
+  helpers:
+    issues:
+      badge_for_issue_id:
+        click_to_copy_url: "Click to copy URL"
