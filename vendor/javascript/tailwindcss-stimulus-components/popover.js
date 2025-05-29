@@ -36,12 +36,11 @@ export default class extends Controller {
 
   // Show the popover
   mouseOver() {
-    this.contentTarget.classList.remove('hidden')
     this.contentTarget.classList.remove('opacity-0')
   }
+
   // Hide the popover
   mouseOut() {
-    this.contentTarget.classList.add('hidden')
     this.contentTarget.classList.add('opacity-0')
   }
 

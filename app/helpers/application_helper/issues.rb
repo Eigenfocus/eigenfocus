@@ -19,7 +19,7 @@ module ApplicationHelper
       content_tag(:span, wrapper_options) do
         concat content_tag(:span, "##{issue.id}", class: "inline-block text-sm cursor-pointer link-primary js-animation-target-#{issue.id}")
         concat(
-          content_tag(:div, class: "popover__content hidden top-1/2 left-full ml-2 text-nowrap", data: { popover_target: "content" }) do
+          content_tag(:div, class: "popover__content opacity-0 top-1/2 left-full ml-2 text-nowrap", data: { popover_target: "content" }) do
             content_tag(:span, t("helpers.issues.badge_for_issue_id.click_to_copy_url"), data: { replace_target: "content" })
           end
         )
