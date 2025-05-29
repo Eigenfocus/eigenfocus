@@ -6,12 +6,13 @@ module ApplicationHelper
         data: {
           controller: "copy popover replace animation",
           clipboard_text: project_item_url(issue.project, issue.id),
-          action: "copy:success->replace#innerText copy:success->animation#heartBeat mouseover->popover#mouseOver mouseout->popover#mouseOut",
+          action: "copy:success->replace#innerText copy:success->animation#pulse mouseover->popover#mouseOver mouseout->popover#mouseOut",
           replace_value_param: t("helpers.issues.badge_for_issue_id.copied"),
           replace_reset_timeout_param: 1000,
           popover_translate_x: "0",
           popover_translate_y: "-50%",
-          animation_target_param: ".js-animation-target-#{issue.id}"
+          animation_target_param: ".js-animation-target-#{issue.id}",
+          animation_speed_value: "fast"
         }
       }
 
