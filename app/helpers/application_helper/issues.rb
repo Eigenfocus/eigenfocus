@@ -2,7 +2,7 @@ module ApplicationHelper
   module Issues
     def global_issue_link(issue)
       wrapper_options = {
-        class: "popover",
+        class: "popover cpy-global-issue-link",
         data: {
           controller: "copy popover replace animation",
           clipboard_text: project_item_url(issue.project, issue.id),
