@@ -25,7 +25,7 @@
 
       <div class="flex flex-col">
         <div>
-          <%= badge_for_issue_id(issue) %>
+          <%= global_issue_link(issue) %>
         </div>
         <div class="flex justify-stretch w-full pr-8 cpy-issue-detail-title">
           <%= form_with(model: issue, url: local_assigns[:form_path], html: {

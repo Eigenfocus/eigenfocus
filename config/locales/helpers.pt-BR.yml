@@ -1,6 +1,6 @@
 pt-BR:
   helpers:
     issues:
-      badge_for_issue_id:
+      global_issue_link:
         click_to_copy_url: "Clique para copiar URL"
         copied: "Copiado!"
