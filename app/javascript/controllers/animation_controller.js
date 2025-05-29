@@ -2,49 +2,43 @@ import { Controller } from "@hotwired/stimulus"
 
 const DEFAULT_ANIMATION_TIMEOUT = 1000
 
-export default class extends Controller {
+const ANIMATIONS = [
+  'bounce', 'flash', 'pulse', 'rubberBand', 'shakeX', 'shakeY', 'headShake', 'swing', 'tada', 'wobble', 'jello', 'heartBeat', 'backInDown', 'backInLeft', 'backInRight', 'backInUp', 'backOutDown', 'backOutLeft', 'backOutRight', 'backOutUp', 'bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp', 'bounceOut', 'bounceOutDown', 'bounceOutLeft', 'bounceOutRight', 'bounceOutUp', 'fadeIn', 'fadeInDown', 'fadeInDownBig', 'fadeInLeft', 'fadeInLeftBig', 'fadeInRight', 'fadeInRightBig', 'fadeInUp', 'fadeInUpBig', 'fadeInTopLeft', 'fadeInTopRight', 'fadeInBottomLeft', 'fadeInBottomRight', 'fadeOut', 'fadeOutDown', 'fadeOutDownBig', 'fadeOutLeft', 'fadeOutLeftBig', 'fadeOutRight', 'fadeOutRightBig', 'fadeOutUp', 'fadeOutUpBig', 'fadeOutTopLeft', 'fadeOutTopRight', 'fadeOutBottomRight', 'fadeOutBottomLeft', 'flip', 'flipInX', 'flipInY', 'flipOutX', 'flipOutY', 'lightSpeedInRight', 'lightSpeedInLeft', 'lightSpeedOutRight', 'lightSpeedOutLeft', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight', 'rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight', 'hinge', 'jackInTheBox', 'rollIn', 'rollOut', 'zoomIn', 'zoomInDown', 'zoomInLeft', 'zoomInRight', 'zoomInUp', 'zoomOut', 'zoomOutDown', 'zoomOutLeft', 'zoomOutRight', 'zoomOutUp', 'slideInDown', 'slideInLeft', 'slideInRight', 'slideInUp', 'slideOutDown', 'slideOutLeft', 'slideOutRight', 'slideOutUp'
+]
+
+export default class AnimationController extends Controller {
   static values = {
     speed: { type: String, default: 'default' },
   }
 
-  heartBeat({ params: { target } }) {
-    this.#animate(target, 'heartBeat')
-  }
+  // Animation methods are register dynamically on below the class
+  //
+  // heartBeat({ params: { target } }) {
+  //   this._animate(target, 'heartbeat')
+  // }
 
-  pulse({ params: { target } }) {
-    this.#animate(target, 'pulse')
-  }
-
-  #animate(target, animation) {
+  _animate(target, animation) {
     document.querySelectorAll(target).forEach(element => {
-      this.#animateElement(element, `animate__${animation}`)
+      this.#animateElement(element, animation)
     })
   }
 
-  #animateElement(element, cssClass) {
-    const cssClassList = ["animate__animated", cssClass, this.speedCssClass]
+  #animateElement(element, animation) {
+    const cssClassList = ["animate__animated", `animate__${animation}`, `animate__${this.speedValue}`]
 
     element.classList.add(...cssClassList)
 
-    setTimeout(() => element.classList.remove(...cssClassList), this.timeout)
-  }
-
-  get speedCssClass() {
-    return `animate__${this.speedValue}`
-  }
-
-  get timeout() {
-    switch(this.speedValue) {
-      case "slower":
-        return 3000
-      case "slow":
-        return 2000
-      case "fast":
-        return 800
-      case "faster":
-        return 500
-      default:
-        return 1000
+    function handleAnimationEnd() {
+      element.classList.remove(...cssClassList)
+      element.removeEventListener('animationend', handleAnimationEnd)
     }
+
+    element.addEventListener('animationend', handleAnimationEnd)
   }
 }
+
+ANIMATIONS.forEach(animation => {
+  AnimationController.prototype[animation] = function({ params: { target } }) {
+    this._animate(target, animation)
+  }
+})
