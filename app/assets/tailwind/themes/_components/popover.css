@@ -1,7 +1,7 @@
 .popover {
   @apply relative;
 
-  .content {
+  .popover__content {
     @apply absolute;
     @apply text-sm;
     @apply bg-background-100 rounded-lg py-1 px-2;
