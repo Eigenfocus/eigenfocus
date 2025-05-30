@@ -17,31 +17,11 @@
       <i class="fa fa-pencil"></i>
     </div>
 
-    <div
-      class="flex flex-row gap-2"
-      data-controller="issue--finish-check"
-      data-issue--finish-check-finish-path-value="<%= finish_issue_path(issue) %>"
-      data-issue--finish-check-unfinish-path-value="<%= unfinish_issue_path(issue) %>"
-      >
-      <input
-        type="checkbox"
-        class="peer sr-only hidden"
-        data-issue--finish-check-target="checkbox"
-        <%= issue.finished? ? "checked" : nil %>
-      />
-      <div
-        class="issue--finish-check shrink-0 size-4 group/check cpy-finish-check-toogle"
-        data-controller="animation"
-        data-action="click->issue--finish-check#toogle:prevent issue--finish-check:checked->animation#zoomIn issue--finish-check:unchecked->animation#zoomOut"
-        data-animation-speed-value="faster"
-        >
-        <i class="fa fa-check opacity-0 peer-checked:group-[]/check:opacity-100" data-animation-target="animatable"></i>
-      </div>
-
+    <%= issue_finish_check(issue, wrapper_class: "flex flex-row gap-2", checkbox_class: "size-4", icon_class: "text-xs" ) do %>
       <p class="issue--title font-normal grow break-all" data-issue-title>
         <%= issue.title %>
       </p>
-    </div>
+    <% end %>
 
     <%= labels_list_for(issue) %>
 
