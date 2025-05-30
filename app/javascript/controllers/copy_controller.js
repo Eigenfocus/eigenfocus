@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import ClipboardJS  from "clipboard"
-window.ClipboardJS = ClipboardJS
 
 export default class extends Controller {
   static values = {
