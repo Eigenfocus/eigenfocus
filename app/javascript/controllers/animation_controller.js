@@ -18,7 +18,7 @@ export default class AnimationController extends Controller {
   // }
 
   _animate(target, animation) {
-    document.querySelectorAll(target).forEach(element => {
+    this.element.querySelectorAll(target).forEach(element => {
       this.#animateElement(element, animation)
     })
   }
@@ -26,13 +26,12 @@ export default class AnimationController extends Controller {
   #animateElement(element, animation) {
     const cssClassList = ["animate__animated", `animate__${animation}`, `animate__${this.speedValue}`]
 
-    element.classList.add(...cssClassList)
-
     function handleAnimationEnd() {
       element.classList.remove(...cssClassList)
       element.removeEventListener('animationend', handleAnimationEnd)
     }
 
+    element.classList.add(...cssClassList)
     element.addEventListener('animationend', handleAnimationEnd)
   }
 }
