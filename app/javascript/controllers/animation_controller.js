@@ -7,6 +7,7 @@ const ANIMATIONS = [
 ]
 
 export default class AnimationController extends Controller {
+  static targets = ['animatable']
   static values = {
     speed: { type: String, default: 'default' },
   }
@@ -17,8 +18,8 @@ export default class AnimationController extends Controller {
   //   this._animate(target, 'heartbeat')
   // }
 
-  _animate(target, animation) {
-    this.element.querySelectorAll(target).forEach(element => {
+  _animate(animation) {
+    this.animatableTargets.forEach(element => {
       this.#animateElement(element, animation)
     })
   }
@@ -37,7 +38,7 @@ export default class AnimationController extends Controller {
 }
 
 ANIMATIONS.forEach(animation => {
-  AnimationController.prototype[animation] = function({ params: { target } }) {
-    this._animate(target, animation)
+  AnimationController.prototype[animation] = function() {
+    this._animate(animation)
   }
 })
