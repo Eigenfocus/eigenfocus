@@ -30,7 +30,7 @@
         <%= issue.finished? ? "checked" : nil %>
       />
       <div
-        class="issue--finish-check shrink-0 size-4 group/check"
+        class="issue--finish-check shrink-0 size-4 group/check cpy-finish-check-toogle"
         data-controller="animation"
         data-action="click->issue--finish-check#toogle:prevent issue--finish-check:checked->animation#zoomIn issue--finish-check:unchecked->animation#zoomOut"
         data-animation-speed-value="faster"
