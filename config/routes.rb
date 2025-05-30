@@ -84,6 +84,8 @@ Rails.application.routes.draw do
       patch :pick_grouping
       put :archive
       put :unarchive
+      put :finish
+      put :unfinish
     end
     scope module: "issues" do
       resource :file, only: [ :destroy ] do

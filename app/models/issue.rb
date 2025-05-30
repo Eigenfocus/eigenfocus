@@ -62,6 +62,20 @@ class Issue < ApplicationRecord
     save!
   end
 
+  def finished?
+    finished_at.present?
+  end
+
+  def unfinish!
+    self.finished_at = nil
+    save!
+  end
+
+  def finish!
+    self.finished_at = Time.current
+    save!
+  end
+
   def self.ransackable_attributes(auth_object = nil)
     [ "title", "due_date", "created_at", "updated_at" ]
   end
