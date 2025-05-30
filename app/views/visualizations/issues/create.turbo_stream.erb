@@ -1,5 +1,6 @@
 <% if @issue.persisted? %>
   <%= turbo_stream.append "#{ @grouping.id }-cards-wrapper", partial: "visualizations/card", locals: {
+    scroll_on_connect: true,
     visualization: current_visualization,
     issue: @issue
   } %>
