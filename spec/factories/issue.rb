@@ -7,6 +7,14 @@ FactoryBot.define do
       archived_at { Date.current }
     end
 
+    trait :unfinished do
+      finished_at { nil }
+    end
+
+    trait :finished do
+      finished_at { Time.current }
+    end
+
     transient do
       with_labels { [] }
     end

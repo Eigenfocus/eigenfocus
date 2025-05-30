@@ -106,6 +106,10 @@ pt-BR:
         notice: "Notificação foi marcada como lida"
       mark_all_as_read:
         notice: "Todas as notificações foram marcadas como lida"
+      finish:
+        notice: "%{resource_name} marcado como finalizado com sucesso."
+      unfinish:
+        notice: "%{resource_name} desmarcado como finalizado com sucesso."
 
   date:
     abbr_day_names:

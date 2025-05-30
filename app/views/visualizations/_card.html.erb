@@ -1,4 +1,4 @@
-<li class="cpy-card tour--card"
+<li class="cpy-card tour--card issue--card"
   id="<%= dom_id(issue) %>"
   data-controller="visualization--board--card"
   data-favorite-issue-labels-issue-id="<%= issue.id %>"
@@ -17,9 +17,11 @@
       <i class="fa fa-pencil"></i>
     </div>
 
-    <p class="font-normal grow break-all" data-issue-title>
-      <%= issue.title %>
-    </p>
+    <%= issue_finish_check(issue, wrapper_class: "flex flex-row gap-2", checkbox_class: "size-4", icon_class: "text-xs" ) do %>
+      <p class="issue--title font-normal grow break-all" data-issue-title>
+        <%= issue.title %>
+      </p>
+    <% end %>
 
     <%= labels_list_for(issue) %>
 

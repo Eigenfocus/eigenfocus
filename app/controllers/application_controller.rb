@@ -74,4 +74,15 @@ class ApplicationController < ActionController::Base
   def current_theme
     @current_theme ||= TailwindTheme.find_by_key(Current.theme_key)
   end
+
+  def render_turbo_alert_message(type, message)
+    render turbo_stream: turbo_stream.append(
+      "alert-messages",
+      partial: "layouts/alert",
+      locals: {
+        type: type,
+        message: message
+      }
+    )
+  end
 end

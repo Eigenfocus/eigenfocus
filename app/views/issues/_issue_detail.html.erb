@@ -15,7 +15,7 @@
     class: "max-h-screen w-full max-w-3xl relative cpy-issue-detail",
     data: data
   }) do %>
-    <div>
+    <div class="issue--detail">
       <% if issue.archived? %>
         <div class="text-warning-900 font-bold text-base mb-4 bg-warning-500/40 p-2 rounded-lg border border-warning-500/40 flex items-center gap-2 mr-4">
           <%= icon_for(:archived) %>
@@ -27,7 +27,12 @@
         <div>
           <%= global_issue_link(issue) %>
         </div>
-        <div class="flex justify-stretch w-full pr-8 cpy-issue-detail-title">
+        <%= issue_finish_check(
+          issue,
+          wrapper_class: "flex flex-row justify-stretch w-full gap-2 cpy-issue-detail-title",
+          checkbox_class: "size-6 mt-1",
+          icon_class: "text-sm"
+        ) do %>
           <%= form_with(model: issue, url: local_assigns[:form_path], html: {
             class: 'w-full flex justify-stretch',
             data: {
@@ -48,7 +53,7 @@
                 %>
             </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
       <div class="flex flex-col md:flex-row gap-8" data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
         <div class="flex flex-col w-full md:w-3/4">

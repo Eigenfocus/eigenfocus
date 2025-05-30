@@ -105,6 +105,10 @@ en:
         notice: "Notification was marked as read"
       mark_all_as_read:
         notice: "All notification were marked as read"
+      finish:
+        notice: "%{resource_name} was successfully marked as finished."
+      unfinish:
+        notice: "%{resource_name} was successfully unmarked as finished."
   time:
     formats:
       month_name_year: "%B %Y"
