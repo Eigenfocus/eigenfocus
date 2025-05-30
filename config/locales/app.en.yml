@@ -85,6 +85,10 @@ en:
         success: "All issues were successfully moved."
       archive_all_issues:
         success: "All issues were successfully archived."
+    projects:
+      items:
+        show:
+          error: "The issue doesn't exist."
     actions:
       create:
         notice: "%{resource_name} was successfully created."

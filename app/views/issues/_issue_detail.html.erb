@@ -23,7 +23,10 @@
         </div>
       <% end %>
 
-      <div class="flex gap-4 items-stretch">
+      <div class="flex flex-col">
+        <div>
+          <%= global_issue_link(issue) %>
+        </div>
         <div class="flex justify-stretch w-full pr-8 cpy-issue-detail-title">
           <%= form_with(model: issue, url: local_assigns[:form_path], html: {
             class: 'w-full flex justify-stretch',
@@ -38,7 +41,7 @@
               <div data-resizable-input-target="replica" class="break-all text-xl font-bold text-readable-content-600 p-2 pt-1 -ml-2 whitespace-pre-line"></div>
 
               <%= f.text_area :title, required: true,
-                class: "issue-detail-title-input -ml-2",
+                class: "issue-detail-title-input -ml-2 min-h-8",
                 "data-resizable-input-target": "input",
                 "data-issue-detail-target": "titleField",
                 "data-action": "keydown.enter->issue-detail#onTitleFieldEnter keydown.esc->issue-detail#onTitleFieldEsc blur->issue-detail#onTitleFieldBlur"

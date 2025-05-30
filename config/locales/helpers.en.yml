@@ -1,0 +1,6 @@
+en:
+  helpers:
+    issues:
+      global_issue_link:
+        click_to_copy_url: "Click to copy URL"
+        copied: "Copied!"

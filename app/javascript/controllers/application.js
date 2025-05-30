@@ -5,7 +5,8 @@ const application = Application.start()
 // Import and register all TailwindCSS Components
 import {
   Dropdown,
-  Modal
+  Modal,
+  Popover,
 } from "tailwindcss-stimulus-components"
 
 class CustomModal extends Modal {
@@ -38,6 +39,7 @@ class CustomModal extends Modal {
 
 application.register('modal', CustomModal)
 application.register('dropdown', Dropdown)
+application.register('popover', Popover)
 
 // import Flatpickr
 import Flatpickr from 'stimulus-flatpickr'
