@@ -26,6 +26,8 @@ module Icons
       "fa-solid fa-palette"
     when :archived
       "fa-solid fa-box-archive"
+    when :finished
+      "fa-solid fa-check"
     else
       raise "Icon class not defined for name #{name}"
     end

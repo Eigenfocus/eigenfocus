@@ -2,6 +2,11 @@
   <td>
     <%= link_to project_show_issue_path(issue.project, issue),
           data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>
+      <% if issue.finished? %>
+        <span class="mr-1 text-success-800 text-sm">
+          <%= icon_for(:finished) %>
+        </span>
+      <% end %>
       <% if issue.archived? %>
         <span class="mr-1 text-warning-800 text-sm">
           <%= icon_for(:archived) %>
