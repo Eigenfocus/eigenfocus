@@ -35,7 +35,9 @@ const Description = ({ content, issueId }) => {
   }, [hiddenFieldRef, setIsEditing, setCurrentContent, setLocalState])
 
   const handleInput = useCallback(value => {
-    setLocalState(value)
+    if (value.trim() != currentContent.trim()) {
+      setLocalState(value)
+    }
   }, [setLocalState])
 
   const handleCancel = useCallback(() => {
@@ -80,7 +82,7 @@ const Description = ({ content, issueId }) => {
       { isEditing && (
         <div className="flex gap-4 items-center mt-2 justify-end">
           <a className="link-cancel text-sm" onClick={handleCancel}>
-            { t("actions.cancel") }
+            { localState ? t("issue_detail.description.discard_changed") : t("actions.cancel") }
           </a>
 
           <button type="submit" className="btn-primary">
