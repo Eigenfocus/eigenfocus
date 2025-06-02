@@ -24,6 +24,7 @@ en:
           all: "List all issues"
           active: "List only active issues"
           archived: "List only archived issues"
+          finished: "List only finished issues"
       issue:
         no_grouping: "No column"
   survey_responses:

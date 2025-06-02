@@ -1,4 +1,6 @@
 class Issue < ApplicationRecord
+  ARCHIVING_STATUS_LIST = [ :all, :active, :archived, :finished ]
+
   # Relations
   belongs_to :project
   has_many_attached :files
@@ -16,7 +18,8 @@ class Issue < ApplicationRecord
 
   # Scopes
   scope :archived, ->(archived = true) { archived ? where.not(archived_at: nil) : where(archived_at: nil) }
-  scope :active, -> { archived(false) }
+  scope :active, -> { archived(false).finished(false) }
+  scope :finished, ->(finished = true) { finished ? where.not(finished_at: nil) : where(finished_at: nil) }
   scope :by_archiving_status, ->(status) {
     case status
     when "all"
@@ -25,6 +28,8 @@ class Issue < ApplicationRecord
       active
     when "archived"
       archived(true)
+    when "finished"
+      finished(true)
     end
   }
 
