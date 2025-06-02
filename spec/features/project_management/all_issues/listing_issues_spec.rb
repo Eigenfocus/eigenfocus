@@ -100,4 +100,45 @@ describe 'As a project manager, I want to list my issues' do
     expect(page).to have_content("Due to February")
     expect(page).not_to have_content("Due to March")
   end
+
+  specify "I can filter issues by finished status" do
+    project = FactoryBot.create(:project)
+
+    FactoryBot.create(:issue, :unfinished, project:, title: "Implement new feature")
+    FactoryBot.create(:issue, :unfinished, project:, title: "Debug code")
+    FactoryBot.create(:issue, :finished, project:, title: "Finished issue")
+
+    visit project_issues_path(project)
+
+    within ".cpy-filter-form" do
+      select "List only finished issues", from: "q[by_archiving_status]"
+
+      click_button "Search"
+    end
+
+    expect(page).to have_content("Finished issue")
+    expect(page).not_to have_content("Implement new feature")
+    expect(page).not_to have_content("Debug code")
+
+    within ".cpy-filter-form" do
+      select "List only active issues", from: "q[by_archiving_status]"
+
+      click_button "Search"
+    end
+
+    expect(page).to have_content("Implement new feature")
+    expect(page).to have_content("Debug code")
+    expect(page).not_to have_content("Finished issue")
+
+
+    within ".cpy-filter-form" do
+      select "List all issues", from: "q[by_archiving_status]"
+
+      click_button "Search"
+    end
+
+    expect(page).to have_content("Implement new feature")
+    expect(page).to have_content("Debug code")
+    expect(page).to have_content("Finished issue")
+  end
 end
