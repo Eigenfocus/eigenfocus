@@ -13,7 +13,7 @@ const Description = ({ content, issueId }) => {
   const [localState, setLocalState] = useLocalState(issueId)
   const [isEditing, setIsEditing] = useState(false)
   const [currentContent, setCurrentContent] = useState(content)
-  const defaultValue = localState || currentContent
+  const defaultValue = localState || currentContent || ""
 
   const handleSave = useCallback((e) => {
     e.preventDefault()
@@ -35,7 +35,9 @@ const Description = ({ content, issueId }) => {
   }, [hiddenFieldRef, setIsEditing, setCurrentContent, setLocalState])
 
   const handleInput = useCallback(value => {
-    if (value.trim() != currentContent.trim()) {
+    const persistedContent = currentContent || ""
+
+    if (value.trim() != persistedContent.trim()) {
       setLocalState(value)
     }
   }, [setLocalState])
