@@ -18,7 +18,7 @@ class Issue < ApplicationRecord
 
   # Scopes
   scope :archived, ->(archived = true) { archived ? where.not(archived_at: nil) : where(archived_at: nil) }
-  scope :active, -> { archived(false).finished(false) }
+  scope :active, -> { archived(false) }
   scope :finished, ->(finished = true) { finished ? where.not(finished_at: nil) : where(finished_at: nil) }
   scope :by_archiving_status, ->(status) {
     case status

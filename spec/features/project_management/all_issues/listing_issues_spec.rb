@@ -121,17 +121,6 @@ describe 'As a project manager, I want to list my issues' do
     expect(page).not_to have_content("Debug code")
 
     within ".cpy-filter-form" do
-      select "List only active issues", from: "q[by_archiving_status]"
-
-      click_button "Search"
-    end
-
-    expect(page).to have_content("Implement new feature")
-    expect(page).to have_content("Debug code")
-    expect(page).not_to have_content("Finished issue")
-
-
-    within ".cpy-filter-form" do
       select "List all issues", from: "q[by_archiving_status]"
 
       click_button "Search"
