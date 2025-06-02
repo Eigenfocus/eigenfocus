@@ -1,0 +1,18 @@
+.issue--card {
+  @apply transition-all;
+
+  .issue--title {
+    @apply transition-all duration-300;
+    @apply -translate-x-6 -mr-6;
+
+    @apply group-hover:translate-x-0 group-hover:mr-0;
+    @apply peer-checked:translate-x-0 peer-checked:mr-0;
+  }
+
+  .issue--finish-check {
+    @apply opacity-0;
+
+    @apply group-hover:opacity-100;
+    @apply peer-checked:opacity-100;
+  }
+}
