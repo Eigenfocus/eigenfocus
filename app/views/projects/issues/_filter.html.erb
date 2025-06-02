@@ -2,7 +2,7 @@
 
   <div class="flex flex-col lg:flex-row justify-start items-stretch gap-4 flex-wrap">
     <div class="flex gap-2 grow items-center cpy-by-status">
-      <%= f.select :by_archiving_status, ['all', 'active', 'archived'].map { |status| [t(".by_archiving_status.#{status}"), status] },
+      <%= f.select :by_archiving_status, Issue::ARCHIVING_STATUS_LIST.map { |status| [t(".by_archiving_status.#{status}"), status] },
         { include_hidden: false },
         class: 'input-primary input-sm pr-8',
         data: {

@@ -26,6 +26,7 @@ pt-BR:
           all: "Listar todas as issues"
           active: "Listar issues ativas"
           archived: "Listar issues arquivadas"
+          finished: "Listar issues finalizadas"
   survey_responses:
     thanks:
       answer_submitted: "Obrigado! Suas respostas foram enviadas com sucesso."
