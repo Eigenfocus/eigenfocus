@@ -14,5 +14,13 @@
 
     @apply group-hover:opacity-100;
     @apply peer-checked:opacity-100;
+
+    .fa-check {
+      font-size: 0.65rem;
+    }
+  }
+
+  .issue--card-due-date.finished {
+    @apply hidden;
   }
 }
