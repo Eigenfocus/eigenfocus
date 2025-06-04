@@ -3,6 +3,7 @@
 
   .popover__content {
     @apply absolute;
+    @apply pointer-events-none;
     @apply text-sm;
     @apply bg-background-100 rounded-lg py-1 px-2;
     @apply transition-opacity duration-500;
