@@ -4,7 +4,10 @@ module ApplicationHelper
       return unless issue.due_date?
 
       options = {
-        class: due_date_color_class_for(issue).to_s + " text-xs"
+        class: due_date_color_class_for(issue).to_s + " text-xs issue--card-due-date #{issue.finished? ? 'finished' : ''}",
+        data: {
+          visualization__board__card_target: "dueDate"
+        }
       }
 
       content_tag(:span, options) do

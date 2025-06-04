@@ -26,6 +26,7 @@ module ApplicationHelper
         class: wrapper_class,
         data: {
           controller: "issue--finish-check",
+          action: "issue--finish-check:checked->visualization--board--card#onFinished issue--finish-check:unchecked->visualization--board--card#onUnfinished",
           issue__finish_check_finish_path_value: finish_issue_path(issue),
           issue__finish_check_unfinish_path_value: unfinish_issue_path(issue)
         }

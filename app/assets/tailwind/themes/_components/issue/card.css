@@ -15,4 +15,12 @@
     @apply group-hover:opacity-100;
     @apply peer-checked:opacity-100;
   }
+
+  .issue--card-due-date {
+    @apply transition-all duration-300;
+
+    &.finished {
+      @apply text-success-500;
+    }
+  }
 }
