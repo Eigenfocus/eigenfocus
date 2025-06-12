@@ -60,13 +60,17 @@ const yearDropdownPlugin = function (pluginConfig) {
       config[key] = pluginConfig && pluginConfig[key] !== undefined ? pluginConfig[key] : defaultConfig[key];
   }
 
-  var getYear = function (value) {
+  var getYearFromDate = function (value) {
       var date = value.split("-");
       return parseInt(date[0], 10);
   }
 
   var currYear = new Date().getFullYear();
-  var selectedYear = getYear(config.date);
+  var selectedYear = new Date().getFullYear();
+
+  if (config.date) {
+    selectedYear = getYearFromDate(config.date);
+  }
 
   var yearDropdown = document.createElement("select");
 
