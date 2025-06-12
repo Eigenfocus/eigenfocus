@@ -3,20 +3,26 @@
 
   .issue--title {
     @apply transition-all duration-300;
-    @apply -translate-x-6 -mr-6;
-
-    @apply group-hover:translate-x-0 group-hover:mr-0;
-    @apply peer-checked:translate-x-0 peer-checked:mr-0;
   }
 
-  .issue--finish-check {
-    @apply opacity-0;
+  .issue--finish-toggle-wrapper {
+    @apply transition-all duration-300;
 
-    @apply group-hover:opacity-100;
-    @apply peer-checked:opacity-100;
+    width: 0;
+    opacity: 0;
 
-    .fa-check {
-      font-size: 0.65rem;
+    &:has(.finished) {
+      @apply mr-1;
+      opacity: 1;
+      width: 1.2rem;
+    }
+  }
+
+  &:hover {
+    .issue--finish-toggle-wrapper {
+      @apply mr-1;
+      width: 1.2rem;
+      opacity: 1;
     }
   }
 

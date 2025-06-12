@@ -20,41 +20,5 @@ module ApplicationHelper
         )
       end
     end
-
-    def issue_finish_check(issue, wrapper_class: "", checkbox_class: "", icon_class: "", insert_after: false, &block)
-      wrapper_options = {
-        class: wrapper_class,
-        data: {
-          controller: "issue--finish-check",
-          action: "issue--finish-check:checked->visualization--board--card#onFinished issue--finish-check:unchecked->visualization--board--card#onUnfinished",
-          issue__finish_check_finish_path_value: finish_issue_path(issue),
-          issue__finish_check_unfinish_path_value: unfinish_issue_path(issue)
-        }
-      }
-
-      checkbox_options = {
-        class: "issue--finish-check group/check cpy-finish-check-toogle #{checkbox_class}",
-        data: {
-          controller: "animation",
-          action: "click->issue--finish-check#toogle:prevent issue--finish-check:checked->animation#zoomIn issue--finish-check:unchecked->animation#zoomOut",
-          animation_speed_value: "faster"
-        }
-      }
-
-      content_tag(:div, wrapper_options) do
-        concat(capture(&block)) if insert_after
-
-        concat(
-          content_tag(:input, nil, type: "checkbox", class: "peer sr-only hidden", checked: issue.finished?, data: { issue__finish_check_target: "checkbox" })
-        )
-        concat(
-          content_tag(:div, checkbox_options) do
-            content_tag(:i, nil, class: "fa fa-check opacity-0 peer-checked:group-[]/check:opacity-100 #{icon_class}", data: { animation_target: "animatable" })
-          end
-        )
-
-        concat(capture(&block)) unless insert_after
-      end
-    end
   end
 end

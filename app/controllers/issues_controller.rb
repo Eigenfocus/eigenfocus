@@ -41,12 +41,10 @@ class IssuesController < ApplicationController
   def finish
     @issue = Issue.find(params[:id])
     @issue.finish!
-    render_turbo_alert_message("notice", t_flash_message(@issue))
   end
 
   def unfinish
     @issue = Issue.find(params[:id])
     @issue.unfinish!
-    render_turbo_alert_message("notice", t_flash_message(@issue))
   end
 end
