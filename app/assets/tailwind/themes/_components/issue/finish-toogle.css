@@ -21,9 +21,8 @@
   @apply flex items-center justify-center;
 
   height: 1.2rem;
-  min-height: 1.2rem;
   width: 1.2rem;
-  min-width: 1.2rem;
+
   font-size: 0.65rem;
 
   .finish-icon {
