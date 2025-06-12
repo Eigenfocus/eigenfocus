@@ -1,27 +1,12 @@
-.issue--finish-check {
-  @apply block shrink-0 cursor-pointer;
-  @apply flex justify-center items-center;
-  @apply border-2 border-background-600 rounded-full;
-  @apply text-xs;
-  @apply transition-all duration-300;
-
-  @apply hover:border-background-800;
-  @apply peer-checked:bg-success-300 peer-checked:border-success-300;
-  @apply peer-checked:hover:bg-success-500 peer-checked:hover:border-success-500;
-
-  i {
-    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-    @apply relative w-full h-full;
-    @apply transition-opacity duration-300;
-  }
-}
-
 .issue--finish-toggle {
   @apply rounded-full border-readable-content-500/60 border-2 text-readable-content-500 transition-all duration-300;
   @apply flex items-center justify-center;
+  @apply cursor-pointer;
 
   height: 1.2rem;
   width: 1.2rem;
+  min-height: 1.2rem;
+  min-width: 1.2rem;
 
   font-size: 0.65rem;
 
