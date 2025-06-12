@@ -23,7 +23,7 @@ describe "Issues - Mark as finished" do
         find(".cpy-finish-check-toogle").click
       end
 
-      expect(page).to have_content("Issue was successfully marked as finished.")
+      expect(page).to have_css(".cpy-finish-check-toogle.finished")
       expect(issue.reload).to be_finished
     end
   end
@@ -40,7 +40,7 @@ describe "Issues - Mark as finished" do
         find(".cpy-finish-check-toogle").click
       end
 
-      expect(page).to have_content("Issue was successfully unmarked as finished.")
+      expect(page).to_not have_css(".cpy-finish-check-toogle.finished")
       expect(issue.reload).to_not be_finished
     end
   end
