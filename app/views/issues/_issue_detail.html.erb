@@ -23,14 +23,14 @@
         </div>
       <% end %>
 
-      <div class="flex flex-col">
-        <div class="mb-1">
-          <%= global_issue_link(issue) %>
-        </div>
+      <div class="mb-1">
+        <%= global_issue_link(issue) %>
+      </div>
+      <div class="flex flex-col items-center">
         <%= issue_finish_check(
           issue,
           wrapper_class: "flex flex-row justify-stretch w-full gap-2 cpy-issue-detail-title",
-          checkbox_class: "size-6 mt-1",
+          checkbox_class: "size-6",
           icon_class: "text-sm"
         ) do %>
           <%= form_with(model: issue, url: local_assigns[:form_path], html: {
