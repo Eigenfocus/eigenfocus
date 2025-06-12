@@ -165,6 +165,11 @@
     overflow: visible;
 }
 
+.flatpickr-day.today {
+  @apply border-0 border-b-2 border-readable-content-500/40;
+  border-style: solid;
+}
+
 .flatpickr-day.inRange,
 .flatpickr-day.prevMonthDay.inRange,
 .flatpickr-day.nextMonthDay.inRange,
@@ -222,6 +227,7 @@
     @apply text-readable-content-800;
     height: auto;
     line-height: inherit;
+    overflow: visible;
 }
 
 .flatpickr-current-month {
@@ -278,5 +284,6 @@ span.flatpickr-weekday {
 .flatpickr-current-month .flatpickr-monthDropdown-months,
 .flatpickr-current-month .flatpickr-monthDropdown-months:hover,
 .flatpickr-months select {
+  border-style: solid;
   @apply px-4 py-2 border border-background-300 bg-background-50 rounded-md text-sm;
 }
