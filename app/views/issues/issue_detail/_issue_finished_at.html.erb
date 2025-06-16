@@ -1,0 +1,9 @@
+<% if issue.finished? %>
+  <span data-issue-finished-at="" class="text-success-800 text-sm flex items-center gap-2">
+    <%= icon_for(:finished) %>
+    <%= l(issue.finished_at, format: :day_month_year) %>
+  </span>
+<% else %>
+  <span data-issue-finished-at="" class="text-success-800 text-sm flex items-center gap-2">
+  </span>
+<% end %>
