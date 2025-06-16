@@ -57,11 +57,6 @@ Here are some of our current features:
 ⭐️ this repository and stay up to date.
 </div>
 
-Coming next:
-- Mark a project item as done
-- Running time tracking alerts
-- Shortcuts & Quick Actions
-
 <br/>
 
 <div align="center">
@@ -77,16 +72,11 @@ We have a PRO Edition (Pay ONCE) with advanced features for managing complex pro
 Here are some of the features:
 
 - Multiple Users with Permission Control
+- Issue Assignments
 - Custom Issue Statuses & Types
-- Multiple views with pre-saved filters
-- Dynamic columns aren't just "Trello lists": they are true projections from your issues and can represent many things: a status, a label, a person...
-
-Coming next:
-- Grid View (In alpha testing)
-- Issue relationships
-- Custom fields
-- Timesheet analytics
-- Timeline view
+- Create multiple views for different purposes: planning, daily tracking, retrospectives and more.
+- Columns and Rows can represent multiple fields: item status, labels, assignees...
+- Grid View: also know as swimlanes. Customize columns and rows by status, assignee, label, etc. This view can handle multiple workflows and needs.
 
 <br/>
 
@@ -116,15 +106,29 @@ Coming next:
   <br/>
   <br/>
   <p>
-    Multiple Views
+    Retrospective Board using Labels as Columns
   </p>
-  <a href="https://eigenfocus.com/features?utm_source=github-readme&utm_content=pro-section">
-    <img width="70%" src="https://assets.eigenfocus.com/landing/pro-features/full-demo-1.gif"/>
+  <a href="https://eigenfocus.com/features?utm_source=github-readme">
+    <img width="90%" src="https://assets.eigenfocus.com/features/board-retrospective.png"/>
   </a>
   <br/>
   <br/>
-  <a href="https://eigenfocus.com/features?utm_source=github-readme&utm_content=pro-section">
-    <img width="70%" src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/Eigenfocus-Multiple-Views-Features.gif"/>
+  <p>
+    Grid View - Team Workload: Status X Assignee
+  </p>
+
+  <a href="https://eigenfocus.com/features?utm_source=github-readme">
+    <img width="90%" src="https://assets.eigenfocus.com/features/grid-workload.png"/>
+  </a>
+
+  <br/>
+  <br/>
+  <p>
+    Grid View - CRM: Status X Deal Value (label)
+  </p>
+
+  <a href="https://eigenfocus.com/features?utm_source=github-readme">
+    <img width="90%" src="https://assets.eigenfocus.com/features/grid-view-status.png"/>
   </a>
 
   <br/>
@@ -138,7 +142,7 @@ Coming next:
 <br/>
 
 <div align="center">
-  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>PRO Edition - Features</strong></a>
+  <a href="http://eigenfocus.com/features?utm_source=github-readme"><strong>PRO Edition - Features</strong></a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://eigenfocus.pro/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
 </div>
