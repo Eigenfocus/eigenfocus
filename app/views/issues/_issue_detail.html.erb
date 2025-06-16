@@ -15,7 +15,7 @@
     class: "max-h-screen w-full max-w-3xl relative cpy-issue-detail",
     data: data
   }) do %>
-    <div class="issue--detail">
+    <div class="issue-detail">
       <% if issue.archived? %>
         <div class="text-warning-900 font-bold text-base mb-4 bg-warning-500/40 p-2 rounded-lg border border-warning-500/40 flex items-center gap-2 mr-4">
           <%= icon_for(:archived) %>
@@ -23,10 +23,10 @@
         </div>
       <% end %>
 
-      <div class="">
+      <div class="flex justify-between items-center">
         <%= global_issue_link(issue) %>
       </div>
-      <div class="flex flex-row items-center mb-1 flex-nowrap">
+      <div class="flex flex-row items-center flex-nowrap">
         <div class="mr-2 issue--finish-toggle cpy-finish-check-toogle <%= issue.finished? ? 'finished' : '' %>"
           data-controller="issue--finish-toogle" data-action="click->issue--finish-toogle#toogle"
           data-issue--finish-toogle-finish-path-value="<%= finish_issue_path(issue) %>"
@@ -60,6 +60,8 @@
           <% end %>
         </div>
       </div>
+      <%= render partial: "issues/issue_detail/issue_finished_at", locals: { issue: } %>
+
       <div class="flex flex-col md:flex-row gap-8" data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
         <div class="flex flex-col w-full md:w-3/4">
           <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>

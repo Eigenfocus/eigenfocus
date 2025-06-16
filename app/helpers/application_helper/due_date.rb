@@ -19,7 +19,7 @@ module ApplicationHelper
 
     def due_date_color_class_for(issue)
       return unless issue.due_date?
-
+      return "" if issue.finished?
       return "text-danger-500" if issue.due_date.before?(Date.tomorrow)
       return "text-warning-500" if issue.due_date.between?(Date.tomorrow, 3.days.from_now)
       ""

@@ -29,7 +29,9 @@ export default class extends Controller {
   }
 
   #request(path) {
-    const request = new FetchRequest('put', path)
+    const request = new FetchRequest('put', path, {
+      responseKind: "turbo-stream"
+    })
 
     return request.perform()
   }

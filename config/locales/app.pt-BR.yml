@@ -328,7 +328,7 @@ pt-BR:
   time:
     am: ''
     formats:
-      short: "%e %B, %Y"
+      short: "%e de %B, %Y"
       month_name_year: "%B %Y"
       day_month_year: "%d de %B %Y"
       day_single_digit: "%e"
@@ -336,5 +336,4 @@ pt-BR:
       weekday_name: "%^A"
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
-      short: "%d de %B, %H:%M"
     pm: ''
