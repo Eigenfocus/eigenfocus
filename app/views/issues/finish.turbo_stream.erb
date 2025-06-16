@@ -1,2 +1,2 @@
-<%= turbo_stream.replace dom_id(@issue), partial: "projects/issues/issue", locals: { issue: @issue } %>
+<%= turbo_stream.replace_all "table \##{dom_id(@issue)}", partial: "projects/issues/issue", locals: { issue: @issue } %>
 <%= turbo_stream.replace_all "[data-issue-finished-at]", partial: "issues/issue_detail/issue_finished_at", locals: { issue: @issue } %>
