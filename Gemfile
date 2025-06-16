@@ -70,7 +70,7 @@ group :test do
   gem "dry-validation", "~> 1.11"
   gem "capybara", "~> 3.40"
   gem "database_cleaner"
-  gem "factory_bot_rails", "~> 6.4"
+  gem "factory_bot_rails", "~> 6.5"
   gem "rspec-rails", "~> 8.0"
   gem "selenium-webdriver", "4.33.0"
   gem "timecop"
