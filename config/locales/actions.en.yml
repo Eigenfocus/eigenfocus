@@ -81,6 +81,7 @@ en:
       usage_purposes: "For what kind of purposes?"
       how_did_you_found_us: "How did you find out about Eigenfocus?"
       how_did_you_found_us_please_elaborate: "Could you tell us which group, channel, website, etc."
+      share_your_contact_details: "(optional) What's your email? We'll use it to get in touch and ask you for feedback."
       answer_labels:
         team_size:
           one: "1 (One person)"

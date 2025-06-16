@@ -149,6 +149,15 @@
         <%= text_field_tag :how_did_you_found_us_details, nil, class: "mt-1 input-primary input-sm max-w-xs" %>
       </div>
 
+
+      <div class="mt-4">
+        <p class="text-xs text-readable-content-500">
+          <i class="fa-solid fa-envelope"></i>
+          <%= t(".share_your_contact_details") %>
+        </p>
+
+        <%= f.email_field :contact_email, class: "mt-1 input-primary w-full" %>
+      </div>
       <div class="mt-4 flex justify-center self-center">
         <%= f.submit t('.submit_answers'), class: "btn-primary" %>
       </div>
