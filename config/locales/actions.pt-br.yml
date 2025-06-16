@@ -55,6 +55,7 @@ pt-BR:
       usage_purposes: "Para que você vai usar o registro de tempo?"
       how_did_you_found_us: "Como você descobriu o Eigenfocus?"
       how_did_you_found_us_please_elaborate: "Poderia contar qual o grupo, canal, site, etc."
+      share_your_contact_details: "(opcional) Qual seu email? Usaremos para entrar em contato e pedir feedback."
       answer_labels:
         team_size:
           one: "1 (uma pessoa)"

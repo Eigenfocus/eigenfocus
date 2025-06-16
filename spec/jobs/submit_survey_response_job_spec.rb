@@ -6,6 +6,7 @@ RSpec.describe SubmitSurveyResponseJob, type: :job do
 
     let(:survey_response) do
       {
+        "contact_email" => "test@example.com",
         "team_size" => "1-to-10",
         "utilization_context" => "work_software_development",
         "features_used" => [ "time_tracking", "project_management" ],
@@ -29,6 +30,7 @@ RSpec.describe SubmitSurveyResponseJob, type: :job do
       expected_payload = {
         responder_token: app_metadata.survey_token,
         survey_response: {
+          contact_email: survey_response["contact_email"],
           team_size: survey_response["team_size"],
           utilization_context: survey_response["utilization_context"],
           features_used: survey_response["features_used"],

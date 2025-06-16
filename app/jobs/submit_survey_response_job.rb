@@ -10,6 +10,7 @@ class SubmitSurveyResponseJob < ApplicationJob
     client.post("/survey_responses/submit", {
       responder_token: app_metadata.survey_token,
       survey_response: {
+        contact_email: survey_response["contact_email"],
         team_size: survey_response["team_size"],
         utilization_context: survey_response["utilization_context"],
         features_used: survey_response["features_used"],
