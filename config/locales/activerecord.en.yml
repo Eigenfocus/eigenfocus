@@ -59,6 +59,7 @@ en:
         due_date: 'Due date'
         grouping: 'Column'
         comments: 'Comments'
+        finished_at: 'Finished at'
 
       issue_label:
         title: 'Title'
