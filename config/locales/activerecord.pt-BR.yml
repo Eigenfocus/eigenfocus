@@ -59,6 +59,7 @@ pt-BR:
         due_date: 'Data de encerramento'
         grouping: 'Coluna'
         comments: 'Comentários'
+        finished_at: 'Finalizada em'
 
       issue_label:
         title: 'Título'
