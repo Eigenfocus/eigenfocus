@@ -27,7 +27,7 @@
         <%= global_issue_link(issue) %>
       </div>
       <div class="flex flex-row items-center flex-nowrap gap-2">
-        <%= render(Issue::FinishToggleComponent.new(issue: issue)) %>
+        <%= render(Issue::FinishToggleComponent.new(issue: issue, has_hover_animation: false)) %>
 
         <div class="flex grow">
           <%= form_with(model: issue, url: local_assigns[:form_path], html: {

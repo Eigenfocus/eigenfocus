@@ -2,6 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 import { FetchRequest } from '@rails/request.js'
 
 export default class extends Controller {
+  static targets = [ "toggle" ]
+
   static values = {
     finishPath: { type: String },
     unfinishPath: { type: String },
@@ -9,7 +11,7 @@ export default class extends Controller {
 
   toogle(e) {
     e.preventDefault()
-    if (this.element.classList.contains("finished")) {
+    if (this.toggleTarget.classList.contains("finished")) {
       this.markAsUnchecked()
     } else {
       this.markAsChecked()
@@ -17,13 +19,13 @@ export default class extends Controller {
   }
 
   markAsChecked() {
-    this.element.classList.add("finished")
+    this.toggleTarget.classList.add("finished")
     this.dispatch("checked")
     this.#request(this.finishPathValue)
   }
 
   markAsUnchecked() {
-    this.element.classList.remove("finished")
+    this.toggleTarget.classList.remove("finished")
     this.dispatch("unchecked")
     this.#request(this.unfinishPathValue)
   }

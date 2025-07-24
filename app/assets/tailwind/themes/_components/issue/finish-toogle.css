@@ -32,3 +32,16 @@
     @apply text-success-800 text-sm;
   }
 }
+
+.issue--finish-toggle-wrapper.hover-animated {
+  @apply transition-all duration-300;
+
+  width: 0;
+  opacity: 0;
+
+  &:has(.finished) {
+    @apply mr-1;
+    opacity: 1;
+    width: 1.2rem;
+  }
+}
