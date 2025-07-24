@@ -5,14 +5,6 @@
     @apply transition-all duration-300;
   }
 
-  &:hover {
-    .issue--finish-toggle-wrapper {
-      @apply mr-1;
-      width: 1.2rem;
-      opacity: 1;
-    }
-  }
-
   .issue--card-due-date.finished {
     @apply hidden;
   }

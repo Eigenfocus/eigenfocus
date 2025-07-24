@@ -45,3 +45,11 @@
     width: 1.2rem;
   }
 }
+
+.show-issue-finish-toggle-on-hover:hover {
+  .issue--finish-toggle-wrapper {
+    @apply mr-1;
+    width: 1.2rem;
+    opacity: 1;
+  }
+}

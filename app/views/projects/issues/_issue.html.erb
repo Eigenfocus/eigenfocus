@@ -1,5 +1,5 @@
-<tr id="<%= dom_id(issue) %>" class="issue--list-item">
-  <td class="issue--list-item--title">
+<tr id="<%= dom_id(issue) %>">
+  <td class="show-issue-finish-toggle-on-hover">
     <span class="flex">
       <%= render Issue::FinishToggleComponent.new(issue: issue, minimal_style: true) %>
 
