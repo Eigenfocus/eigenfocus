@@ -19,9 +19,9 @@ describe "Issues - Mark as finished" do
       expect(page).to have_content(issue.title)
 
       within(".cpy-issue-detail") do
-        find(".cpy-finish-check-toogle").click
+        find(".cpy-finish-check-toggle").click
 
-        expect(page).to have_css(".cpy-finish-check-toogle.finished")
+        expect(page).to have_css(".cpy-finish-check-toggle.finished")
 
         expect(page).to have_css(".fa-check")
       end
@@ -36,11 +36,11 @@ describe "Issues - Mark as finished" do
     specify "from the all issues list" do
       visit project_issues_path(project)
 
-      find("#issue_#{issue.id} .issue--list-item--title").hover
+      find("#{dom_id(issue)} .show-issue-finish-toggle-on-hover").hover
 
-      within("#issue_#{issue.id} .issue--list-item--title") do
-        find(".cpy-finish-check-toogle").click
-        expect(page).to have_css(".cpy-finish-check-toogle.finished")
+      within("#{dom_id(issue)}") do
+        find(".cpy-finish-check-toggle").click
+        expect(page).to have_css(".cpy-finish-check-toggle.finished")
         expect(page).to have_css(".fa-check")
       end
 
@@ -55,8 +55,8 @@ describe "Issues - Mark as finished" do
       visit project_show_issue_path(project, issue)
 
       within(".cpy-issue-detail") do
-        find(".cpy-finish-check-toogle").click
-        expect(page).to_not have_css(".cpy-finish-check-toogle.finished")
+        find(".cpy-finish-check-toggle").click
+        expect(page).to_not have_css(".cpy-finish-check-toggle.finished")
         expect(page).to_not have_css(".fa-check")
       end
 
@@ -67,9 +67,9 @@ describe "Issues - Mark as finished" do
     specify "from the all issues list" do
       visit project_issues_path(project)
 
-      within("#issue_#{issue.id} .issue--list-item--title") do
-        find(".cpy-finish-check-toogle").click
-        expect(page).to_not have_css(".cpy-finish-check-toogle.finished")
+      within("#{dom_id(issue)}") do
+        find(".cpy-finish-check-toggle").click
+        expect(page).to_not have_css(".cpy-finish-check-toggle.finished")
         expect(page).to_not have_css(".fa-check")
       end
 

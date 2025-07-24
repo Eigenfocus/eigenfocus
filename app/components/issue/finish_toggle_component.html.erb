@@ -1,11 +1,11 @@
-<div data-controller="issue--finish-toogle"
+<div data-controller="issue--finish-toggle"
   class="issue--finish-toggle-wrapper <%= has_hover_animation? ? "hover-animated" : "" %>"
-  data-issue--finish-toogle-finish-path-value="<%= helpers.finish_issue_path(@issue) %>"
-  data-issue--finish-toogle-unfinish-path-value="<%= helpers.unfinish_issue_path(@issue) %>"
+  data-issue--finish-toggle-finish-path-value="<%= helpers.finish_issue_path(@issue) %>"
+  data-issue--finish-toggle-unfinish-path-value="<%= helpers.unfinish_issue_path(@issue) %>"
   >
-  <div class="issue--finish-toggle <%= check_style_classes %> cpy-finish-check-toogle"
-    data-issue--finish-toogle-target="toggle"
-    data-action="click->issue--finish-toogle#toogle">
+  <div class="issue--finish-toggle <%= check_style_classes %> cpy-finish-check-toggle"
+    data-issue--finish-toggle-target="toggle"
+    data-action="click->issue--finish-toggle#toggle">
 
     <div class="finish-icon">
       <i class="fa fa-check text-green-500"></i>

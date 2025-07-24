@@ -17,13 +17,13 @@ describe "Issues - Mark as finished" do
 
       expect(page).to have_content(issue.title)
 
-      find(dom_id(issue)).hover
+      find("#{dom_id(issue)}.show-issue-finish-toggle-on-hover").hover
 
       within dom_id(issue) do
-        find(".cpy-finish-check-toogle").click
+        find(".cpy-finish-check-toggle").click
       end
 
-      expect(page).to have_css(".cpy-finish-check-toogle.finished")
+      expect(page).to have_css(".cpy-finish-check-toggle.finished")
       expect(issue.reload).to be_finished
     end
   end
@@ -37,10 +37,10 @@ describe "Issues - Mark as finished" do
       expect(page).to have_content(issue.title)
 
       within dom_id(issue) do
-        find(".cpy-finish-check-toogle").click
+        find(".cpy-finish-check-toggle").click
       end
 
-      expect(page).to_not have_css(".cpy-finish-check-toogle.finished")
+      expect(page).to_not have_css(".cpy-finish-check-toggle.finished")
       expect(issue.reload).to_not be_finished
     end
   end

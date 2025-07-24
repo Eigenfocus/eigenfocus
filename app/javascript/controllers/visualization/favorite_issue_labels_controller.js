@@ -21,12 +21,12 @@ export default class extends Controller {
         e.preventDefault()
         const label = this.favoriteLabelInputTargets[parseInt(key) - 1].value
 
-        this.#toogleLabel(hoveredCard, label)
+        this.#toggleLabel(hoveredCard, label)
       }
     }
   }
 
-  #toogleLabel(hoveredCard, label) {
+  #toggleLabel(hoveredCard, label) {
     if (label.trim() === "") {
       return;
     }

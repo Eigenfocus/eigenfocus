@@ -9,7 +9,7 @@ export default class extends Controller {
     unfinishPath: { type: String },
   }
 
-  toogle(e) {
+  toggle(e) {
     e.preventDefault()
     if (this.toggleTarget.classList.contains("finished")) {
       this.markAsUnchecked()
