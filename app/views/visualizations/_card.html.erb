@@ -19,17 +19,7 @@
 
 
     <div class="flex flex-nowrap">
-      <div class="issue--finish-toggle-wrapper">
-        <div class="issue--finish-toggle <%= issue.finished? ? 'finished' : '' %> cpy-finish-check-toogle"
-          data-controller="issue--finish-toogle" data-action="click->issue--finish-toogle#toogle"
-          data-issue--finish-toogle-finish-path-value="<%= finish_issue_path(issue) %>"
-          data-issue--finish-toogle-unfinish-path-value="<%= unfinish_issue_path(issue) %>">
-
-          <div class="finish-icon">
-            <i class="fa fa-check text-green-500"></i>
-          </div>
-        </div>
-      </div>
+      <%= render(Issue::FinishToggleComponent.new(issue: issue)) %>
 
       <p class="issue--title font-normal grow break-all" data-issue-title>
         <%= issue.title %>
