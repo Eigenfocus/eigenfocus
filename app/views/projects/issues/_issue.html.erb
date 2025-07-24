@@ -1,20 +1,18 @@
 <tr id="<%= dom_id(issue) %>">
-  <td>
-    <%= link_to project_show_issue_path(issue.project, issue),
-          data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>
-      <% if issue.finished? %>
-        <span class="mr-1 text-success-800 text-sm">
-          <%= icon_for(:finished) %>
-        </span>
-      <% end %>
-      <% if issue.archived? %>
-        <span class="mr-1 text-warning-800 text-sm">
-          <%= icon_for(:archived) %>
-        </span>
-      <% end %>
-      <%= issue.title %>
+  <td class="show-issue-finish-toggle-on-hover">
+    <span class="flex">
+      <%= render Issue::FinishToggleComponent.new(issue: issue, minimal_style: true) %>
 
-    <% end %>
+      <%= link_to project_show_issue_path(issue.project, issue),
+            data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>
+        <% if issue.archived? %>
+          <span class="mr-1 text-warning-800 text-sm">
+            <%= icon_for(:archived) %>
+          </span>
+        <% end %>
+        <%= issue.title %>
+      <% end %>
+    </span>
   </td>
   <td>
     <%= labels_list_for(issue) %>

@@ -5,27 +5,6 @@
     @apply transition-all duration-300;
   }
 
-  .issue--finish-toggle-wrapper {
-    @apply transition-all duration-300;
-
-    width: 0;
-    opacity: 0;
-
-    &:has(.finished) {
-      @apply mr-1;
-      opacity: 1;
-      width: 1.2rem;
-    }
-  }
-
-  &:hover {
-    .issue--finish-toggle-wrapper {
-      @apply mr-1;
-      width: 1.2rem;
-      opacity: 1;
-    }
-  }
-
   .issue--card-due-date.finished {
     @apply hidden;
   }

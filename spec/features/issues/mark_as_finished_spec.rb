@@ -10,46 +10,70 @@ describe "Issues - Mark as finished" do
     end
   end
 
-  context 'When issue is not finished yet' do
+  context 'I can finish an issue' do
     let!(:issue) { create(:issue, :unfinished, project:) }
 
-    specify "I can mark issue as finished" do
+    specify "from the issue detail page" do
       visit project_show_issue_path(project, issue)
 
       expect(page).to have_content(issue.title)
 
-      find(".cpy-finish-check-toogle").click
+      within(".cpy-issue-detail") do
+        find(".cpy-finish-check-toggle").click
 
-      expect(page).to have_css(".cpy-finish-check-toogle.finished")
+        expect(page).to have_css(".cpy-finish-check-toggle.finished")
 
-      within("#issue_#{issue.id}") do
         expect(page).to have_css(".fa-check")
       end
 
-      within("[data-issue-finished-at]") do
+      within(".cpy-issue-detail [data-issue-finished-at]") do
         expect(page).to have_content("16, June 2025")
+      end
+
+      expect(issue.reload).to be_finished
+    end
+
+    specify "from the all issues list" do
+      visit project_issues_path(project)
+
+      find("#{dom_id(issue)} .show-issue-finish-toggle-on-hover").hover
+
+      within("#{dom_id(issue)}") do
+        find(".cpy-finish-check-toggle").click
+        expect(page).to have_css(".cpy-finish-check-toggle.finished")
+        expect(page).to have_css(".fa-check")
       end
 
       expect(issue.reload).to be_finished
     end
   end
 
-  context 'When issue is not finished yet' do
+  context 'I can unfinish an issue' do
     let!(:issue) { create(:issue, :finished, project:) }
 
-    specify "I can mark issue as unfinished" do
+    specify "from the issue detail page" do
       visit project_show_issue_path(project, issue)
 
-      find(".cpy-finish-check-toogle").click
-
-      expect(page).to_not have_css(".cpy-finish-check-toogle.finished")
-      expect(issue.reload).to_not be_finished
-
-      within("#issue_#{issue.id}") do
+      within(".cpy-issue-detail") do
+        find(".cpy-finish-check-toggle").click
+        expect(page).to_not have_css(".cpy-finish-check-toggle.finished")
         expect(page).to_not have_css(".fa-check")
       end
 
       expect(find("[data-issue-finished-at]").text).to eq("")
+      expect(issue.reload).to_not be_finished
+    end
+
+    specify "from the all issues list" do
+      visit project_issues_path(project)
+
+      within("#{dom_id(issue)}") do
+        find(".cpy-finish-check-toggle").click
+        expect(page).to_not have_css(".cpy-finish-check-toggle.finished")
+        expect(page).to_not have_css(".fa-check")
+      end
+
+      expect(issue.reload).to_not be_finished
     end
   end
 end
