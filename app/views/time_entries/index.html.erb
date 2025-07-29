@@ -63,6 +63,27 @@
   <% end %>
 </div>
 
+<% if @remaining_dates_with_time_entry_running.any? %>
+  <div class="flex text-sm my-4 cpy-running-time-entries">
+    <div class="flex  items-center">
+      <span class="mr-2 flex items-center text-sm text-slate-500">
+        <div class="mr-1 flex items-center text-secondary-500">
+          <i class="fa-solid animate-spin fa-clock"></i>
+        </div>
+        <%= t(".other_time_entries_running") %>
+      </span>
+      <div class="flex items-center gap-4">
+        <% @remaining_dates_with_time_entry_running.each do |date| %>
+          <%= link_to time_entries_path(reference_date: date.strftime("%Y-%m-%d")), class: "btn-outline-primary flex items-center flex-nowrap", data: { 'turbo-action': 'advance' } do %>
+            <span><%= l(date, format: :short).downcase %></span>
+            <i class="ml-2 fa-solid fa-arrow-right"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="mb-8 mt-4 flex gap-4 justify-stretch overflow-x-auto items-stretch tour--calendar-dates">
   <% @calendar_dates.each do |date| %>
     <%

@@ -11,6 +11,8 @@ class TimeEntriesController < ApplicationController
 
     @calendar_dates = (@reference_date.beginning_of_week)..(@reference_date.end_of_week)
 
+    @remaining_dates_with_time_entry_running = time_entries_scoped.running.where.not(reference_date: @reference_date).pluck(:reference_date).uniq.sort
+
     @total_logged_time_per_day = time_entries_scoped.by_date(@calendar_dates).
       group(:reference_date).sum(:total_logged_time_in_minutes)
   end

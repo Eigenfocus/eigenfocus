@@ -124,7 +124,7 @@ en:
       project_has_no_issue: "There are no active issues for this project"
     index:
       goto_today: 'Go to today'
-      other_time_entries_running: "You have time entres still running on other dates:"
+      other_time_entries_running: "You have time entries still running on other dates:"
       click_here_to_create: "New time entry"
       zero_records: "There are no time entry for %{date}."
       goto_date: "Go to date"
