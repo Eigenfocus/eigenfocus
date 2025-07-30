@@ -45,7 +45,7 @@ gem "shakapacker", "~> 8.2"
 gem "react-rails", "~> 3.2"
 gem "js-routes", "~> 2.3"
 gem "i18n-js", "~> 4.2"
-gem "view_component", "4.0.0.rc5"
+gem "view_component", "4.0.0"
 
 # For configuration files
 gem "dry-struct", "~> 1.8"
