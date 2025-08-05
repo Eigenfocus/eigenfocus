@@ -56,7 +56,7 @@ context "As a user, I want to manage my time entries" do
     first(:link, "New time entry").click
 
     fill_in :time_entry_description, with: "new description"
-    fill_in :time_entry_total_logged_time_in_minutes, with: "20"
+    fill_in :time_entry_total_logged_time, with: "20"
     select_from_select2(label_for: 'time_entry_project_id', option_text: "One project")
     select_from_select2(selector: '#project_dependent_fields .select2', option_text: "Special issue")
 
@@ -84,7 +84,7 @@ context "As a user, I want to manage my time entries" do
     end
 
     fill_in :time_entry_description, with: "Edited description"
-    fill_in :time_entry_total_logged_time_in_minutes, with: "45"
+    fill_in :time_entry_total_logged_time, with: "45"
     select_from_select2(label_for: 'time_entry_project_id', option_text: "New project")
     select_from_select2(selector: '#project_dependent_fields .select2', option_text: "New issue")
 
@@ -111,7 +111,7 @@ context "As a user, I want to manage my time entries" do
     end
 
     fill_in :time_entry_description, with: "Edited description"
-    fill_in :time_entry_total_logged_time_in_minutes, with: "45"
+    fill_in :time_entry_total_logged_time, with: "45"
     select_from_select2(label_for: 'time_entry_project_id', option_text: "New project")
     select_from_select2(selector: '#project_dependent_fields .select2', option_text: "New issue")
 
