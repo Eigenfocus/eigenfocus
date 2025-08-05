@@ -71,6 +71,7 @@ pt-BR:
         project: 'Projeto'
         issue_id: 'Issue'
         issue: 'Issue'
+        total_logged_time: 'Tempo registrado'
         total_logged_time_in_minutes: 'Tempo registrado (minutos)'
         reference_date: 'Data'
       visualization:
