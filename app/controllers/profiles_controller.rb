@@ -21,6 +21,15 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def update_preferences
+    if params[:time_entry_time_format].present?
+      current_user.preferences.time_entry_time_format = params[:time_entry_time_format]
+      current_user.preferences.save!
+    end
+
+    head :ok
+  end
+
   def user_params
     params.require(:profile).permit(:timezone, :locale)
   end

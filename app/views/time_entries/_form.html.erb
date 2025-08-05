@@ -69,20 +69,20 @@
           <%= f.label :total_logged_time_in_minutes, "*" + TimeEntry.human_attribute_name(:total_logged_time), class: "label-primary" %>
 
           <div class="flex gap-2 items-center">
-            <button type="button"
+            <a href="<%= update_preferences_profile_path(time_entry_time_format: 'minutes') %>" data-turbo-method="patch"
                     data-time-entry--time-input-formatter-target="tab"
                     data-format="minutes"
                     data-action="click->time-entry--time-input-formatter#selectFormat"
                     class="tab-item tab-item-xs <%= current_user.preferences.time_entry_time_format == 'minutes' ? 'tab-item--active' : '' %>">
               <%= t('minutes') %>
-            </button>
-            <button type="button"
+            </a>
+            <a href="<%= update_preferences_profile_path(time_entry_time_format: 'hours') %>" data-turbo-method="patch"
                     data-time-entry--time-input-formatter-target="tab"
                     data-format="hours"
                     data-action="click->time-entry--time-input-formatter#selectFormat"
                     class="tab-item tab-item-xs <%= current_user.preferences.time_entry_time_format == 'hours' ? 'tab-item--active' : '' %>">
               <%= t('hours') %>
-            </button>
+            </a>
           </div>
         </div>
 

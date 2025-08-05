@@ -24,8 +24,16 @@ describe 'Time entry - custom time format input' do
 
     within '#time_entry_form' do
       expect(first('.cpy-input-placeholder').value).to eq('110')
-      click_button('Hours')
+
+      click_link('Hours')
       expect(first('.cpy-input-placeholder').value).to eq('1.83')
+      user.reload
+      expect(user.preferences.time_entry_time_format).to eq('hours')
+
+      click_link('Minutes')
+      expect(first('.cpy-input-placeholder').value).to eq('110')
+      user.reload
+      expect(user.preferences.time_entry_time_format).to eq('minutes')
     end
   end
 end
