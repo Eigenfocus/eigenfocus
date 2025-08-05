@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_29_171219) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_05_210945) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -114,16 +114,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_29_171219) do
     t.index ["project_id"], name: "index_issues_on_project_id"
   end
 
-  create_table "notes", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "notable_type", null: false
-    t.integer "notable_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["notable_type", "notable_id"], name: "index_notes_on_notable"
-  end
-
   create_table "notifications", force: :cascade do |t|
     t.string "title", null: false
     t.text "content"
@@ -159,6 +149,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_29_171219) do
     t.index ["user_id"], name: "index_time_entries_on_user_id"
   end
 
+  create_table "user_preferences", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "time_entry_time_format", default: "minutes", null: false
+    t.index ["user_id"], name: "index_user_preferences_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "locale", limit: 5
     t.string "timezone"
@@ -188,5 +184,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_29_171219) do
   add_foreign_key "issues", "projects"
   add_foreign_key "time_entries", "projects"
   add_foreign_key "time_entries", "users"
+  add_foreign_key "user_preferences", "users"
   add_foreign_key "visualizations", "projects"
 end
