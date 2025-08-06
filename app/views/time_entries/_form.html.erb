@@ -64,9 +64,38 @@
         </div>
       </div>
 
-      <div class="flex gap-2 flex-col tour--logged-time">
-        <%= f.label :total_logged_time_in_minutes, "*"+ TimeEntry.human_attribute_name(:total_logged_time_in_minutes), class: "label-primary" %>
-        <%= f.number_field :total_logged_time_in_minutes, required: true, class: "input-primary" %>
+      <div class="flex gap-2 flex-col tour--logged-time" data-controller="time-entry--time-input-formatter" data-time-entry--time-input-formatter-format-value="<%= current_user.preferences.time_entry_time_format %>">
+        <div class="flex justify-between items-center">
+          <%= f.label :total_logged_time_in_minutes, "*" + TimeEntry.human_attribute_name(:total_logged_time), class: "label-primary" %>
+
+          <div class="flex gap-2 items-center">
+            <a href="<%= update_preferences_profile_path(time_entry_time_format: 'minutes') %>" data-turbo-method="patch"
+                    data-time-entry--time-input-formatter-target="tab"
+                    data-format="minutes"
+                    data-action="click->time-entry--time-input-formatter#selectFormat"
+                    class="tab-item tab-item-xs <%= current_user.preferences.time_entry_time_format == 'minutes' ? 'tab-item--active' : '' %>">
+              <%= t('minutes') %>
+            </a>
+            <a href="<%= update_preferences_profile_path(time_entry_time_format: 'hours') %>" data-turbo-method="patch"
+                    data-time-entry--time-input-formatter-target="tab"
+                    data-format="hours"
+                    data-action="click->time-entry--time-input-formatter#selectFormat"
+                    class="tab-item tab-item-xs <%= current_user.preferences.time_entry_time_format == 'hours' ? 'tab-item--active' : '' %>">
+              <%= t('hours') %>
+            </a>
+          </div>
+        </div>
+
+        <%= f.hidden_field :total_logged_time_in_minutes,
+            data: {
+              'time-entry--time-input-formatter-target': "input"
+            } %>
+
+        <input type="text"
+          id="time_entry_total_logged_time"
+          class="input-primary cpy-input-placeholder"
+          value="<%= time_entry.total_logged_time_in_minutes %>" data-time-entry--time-input-formatter-target="placeholder"/>
+
       </div>
 
       <div class="flex gap-2 justify-center mt-2 tour--form-actions">

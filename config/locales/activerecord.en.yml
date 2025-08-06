@@ -71,6 +71,7 @@ en:
         issue_id: 'Issue'
         issue: 'Issue'
         project: 'Project'
+        total_logged_time: 'Logged time'
         total_logged_time_in_minutes: 'Logged time (minutes)'
         reference_date: 'Date'
 

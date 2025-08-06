@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Relations
   has_many :time_entries
+  has_one :preferences, class_name: "User::Preferences"
 
   # Validations
   VALID_THEME_KEYS = TailwindTheme.all.map { |t| t.key }
@@ -17,6 +18,7 @@ class User < ApplicationRecord
     inclusion: { in:  ActiveSupport::TimeZone.all.map(&:name) },
     if: -> { timezone.present? }
 
+
   def is_profile_complete?
     locale.present? and
     timezone.present?
@@ -28,5 +30,9 @@ class User < ApplicationRecord
     # so we keep it here on the user model
     saved_theme_key = super
     saved_theme_key.blank? ? "amethyst-moon" : saved_theme_key
+  end
+
+  def preferences
+    super || build_preferences
   end
 end

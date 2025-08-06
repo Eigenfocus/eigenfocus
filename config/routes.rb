@@ -95,7 +95,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :profile, only: [ :edit, :update ]
+  resource :profile, only: [ :edit, :update ] do
+    patch :update_preferences
+  end
 
   resources :notifications, only: [] do
     member do
