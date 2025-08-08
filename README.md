@@ -21,6 +21,7 @@
 <div align="center">
   <img src="https://img.shields.io/badge/Made with care-Rails.svg?style=flat&logo=undertale&labelColor=%235E6AD2&color=%235E6AD2"/>
   <img src="https://assets.eigenfocus.com/1.2.0--free.svg"/>
+  <img src="https://raw.githubusercontent.com/Eigenfocus/eigenfocus/refs/heads/main/1.3.0.rc1-badge.svg"/>
   <img src="https://img.shields.io/docker/pulls/eigenfocus/eigenfocus.svg"></img>
   <br />
   <br/>
