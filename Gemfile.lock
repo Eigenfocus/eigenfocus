@@ -258,7 +258,7 @@ GEM
     nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
     package_json (0.1.0)
-    pagy (9.3.5)
+    pagy (9.4.0)
     parallel (1.26.3)
     parser (3.3.7.1)
       ast (~> 2.4.1)
@@ -506,7 +506,7 @@ DEPENDENCIES
   image_processing (~> 1.14)
   importmap-rails
   js-routes (~> 2.3)
-  pagy (~> 9.3)
+  pagy (~> 9.4)
   positioning (~> 0.4)
   propshaft
   puma (>= 5.0)
