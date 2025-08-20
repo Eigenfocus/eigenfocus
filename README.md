@@ -20,8 +20,7 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Made with care-Rails.svg?style=flat&logo=undertale&labelColor=%235E6AD2&color=%235E6AD2"/>
-  <img src="https://assets.eigenfocus.com/1.2.0--free.svg"/>
-  <img src="https://raw.githubusercontent.com/Eigenfocus/eigenfocus/refs/heads/main/1.3.0.rc1-badge.svg"/>
+  <img src="https://raw.githubusercontent.com/Eigenfocus/eigenfocus/refs/heads/main/1.3.0--free-blue.svg"/>
   <img src="https://img.shields.io/docker/pulls/eigenfocus/eigenfocus.svg"></img>
   <br />
   <br/>
@@ -29,9 +28,9 @@
 
 <br />
 
-# Eigenfocus - Vision
-We've been working with product development for a while and Eigenfocus is built on the wisdom, pain and scars that we've gathered over the years.
-It's built to be both simple and versatile: effective for projects of all sizes, from solo projects to multi-member teams.
+# Eigenfocus
+All-in-One Project Management, Planning and Time Tracking app.
+From solo projects to multi-member teams, Eigenfocus adapts to your workflow.
 
 # FREE EDITION (This Repo)
 
@@ -179,7 +178,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:1.2.0-free
+    eigenfocus/eigenfocus:1.3.0-free
 ```
 
 And access it at http://localhost:3001.
@@ -190,7 +189,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:1.2.0-free
+    image: eigenfocus/eigenfocus:1.3.0-free
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
