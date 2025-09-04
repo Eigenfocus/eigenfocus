@@ -94,7 +94,7 @@
     </div>
   </header>
 
-  <ul
+  <div
     id="<%= grouping.id %>-cards-wrapper"
     class="board--column--card-list js-no-column-drag cpy-drop-zone"
     data-controller="sortable"
@@ -114,7 +114,7 @@
         } %>
       <% end %>
     <% end %>
-  </ul>
+  </div>
 
   <div class="board--column--footer">
     <%= render partial: 'visualizations/_column/inline_card_form', locals: { grouping:, visualization: } %>

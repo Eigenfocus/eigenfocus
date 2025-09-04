@@ -1,17 +1,16 @@
-<li class="cpy-card tour--card issue--card show-issue-finish-toggle-on-hover"
+<a class="cpy-card tour--card issue--card show-issue-finish-toggle-on-hover"
   id="<%= dom_id(issue) %>"
+  href="<%= show_visualization_issue_path(visualization, issue) %>"
   data-controller="visualization--board--card"
   data-favorite-issue-labels-issue-id="<%= issue.id %>"
   data-visualization--board--card-scroll-on-connect-value="<%= local_assigns[:scroll_on_connect] == true %>"
   data-grouping-column-target="card"
   data-grouping-column-issue-id-value="<%= issue.id %>"
-  data-visualization--issue-filtering-target="issue">
-  <%= link_to show_visualization_issue_path(visualization, issue),
-    class: "group relative flex flex-col gap-2 text-sm text-content-500 border-2 border-background-200 bg-background-50 hover:bg-background-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-3",
-    data: {
-      turbo_frame: 'issue_detail',
-      turbo_action: 'advance'
-    } do %>
+  data-visualization--issue-filtering-target="issue"
+  data-turbo-frame="issue_detail"
+  data-turbo-action="advance"
+  >
+  <div class="group relative flex flex-col gap-2 text-sm text-content-500 border-2 border-background-200 bg-background-50 hover:bg-background-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-3">
 
     <div class="hidden flex items-center justify-center p-2 text-xs flex group-hover:flex items-center absolute top-2 right-2 rounded-full  bg-background-50">
       <i class="fa fa-pencil"></i>
@@ -32,5 +31,5 @@
     <%= render partial: 'visualizations/groupings/_card/icons', locals: { issue: } %>
 
     <%= due_date_for(issue) %>
-  <% end %>
-</li>
+  </div>
+</a>
