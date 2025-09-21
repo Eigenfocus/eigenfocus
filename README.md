@@ -66,14 +66,16 @@ Here are some of our current features:
   <img alt="focus-timers" src="https://blog-assets.eigenfocus.com/demo-v1/focus-space-min.gif" width="75%"/>
 </div>
 
-# PRO Edition (another repo) - Self Hosted Pay ONCE
+<br/>
+
+# PRO Edition - Pay ONCE
 We have a PRO Edition (Pay ONCE) with advanced features for managing complex projects and larger teams.
 
 Here are some of the features:
 
 - Multiple Users with Permission Control
-- SSO (Single Sign-On) login with Google, Microsoft and other providers
-- Issue Assignments
+- Easy SSO (Single Sign-On) login with Google, Microsoft and Github
+- SSO Login using custom OIDC provider: Authentik, Okta, etc...
 - Custom Issue Statuses & Types
 - Create multiple views for different purposes: planning, daily tracking, retrospectives and more.
 - Columns and Rows can represent multiple fields: item status, labels, assignees...
@@ -94,6 +96,13 @@ Here are some of the features:
 <br/>
 
 ------
+
+<br/>
+
+<div align="center">
+  <img width="80%" src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/features/all-logins.png"/>
+
+</div>
 
 <br/>
 
