@@ -20,7 +20,7 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Made with care-Rails.svg?style=flat&logo=undertale&labelColor=%235E6AD2&color=%235E6AD2"/>
-  <img src="https://raw.githubusercontent.com/Eigenfocus/eigenfocus/refs/heads/main/1.3.0--free-blue.svg"/>
+  <img src="https://raw.githubusercontent.com/Eigenfocus/eigenfocus/refs/heads/main/1.3.2--free-blue.svg"/>
   <img src="https://img.shields.io/docker/pulls/eigenfocus/eigenfocus.svg"></img>
   <br />
   <br/>
@@ -72,6 +72,7 @@ We have a PRO Edition (Pay ONCE) with advanced features for managing complex pro
 Here are some of the features:
 
 - Multiple Users with Permission Control
+- SSO (Single Sign-On) login with Google, Microsoft and other providers
 - Issue Assignments
 - Custom Issue Statuses & Types
 - Create multiple views for different purposes: planning, daily tracking, retrospectives and more.
@@ -178,7 +179,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:1.3.0-free
+    eigenfocus/eigenfocus:1.3.2-free
 ```
 
 And access it at http://localhost:3001.
@@ -189,7 +190,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:1.3.0-free
+    image: eigenfocus/eigenfocus:1.3.2-free
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
