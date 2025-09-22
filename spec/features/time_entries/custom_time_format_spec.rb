@@ -32,9 +32,12 @@ describe 'Time entry - custom time format input' do
 
       click_link('Minutes')
       expect(first('.cpy-input-placeholder').value).to eq('110')
-      user.preferences.reload
-      expect(user.preferences.time_entry_time_format).to eq('minutes')
+
+      click_button 'Update'
     end
+    expect(page).to have_content('Time entry was successfully updated.')
+    user.preferences.reload
+    expect(user.preferences.time_entry_time_format).to eq('minutes')
   end
 
   specify "I can update the time entry with the new format" do
