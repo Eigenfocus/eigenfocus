@@ -396,7 +396,7 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     semantic_range (3.1.0)
-    shakapacker (8.2.0)
+    shakapacker (8.4.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -516,7 +516,7 @@ DEPENDENCIES
   rspec-rails (~> 8.0)
   rubocop-rails-omakase
   selenium-webdriver (= 4.35.0)
-  shakapacker (~> 8.2)
+  shakapacker (~> 8.4)
   solid_cable (~> 3.0)
   solid_queue (~> 1.2)
   sqlite3 (>= 2.1)
