@@ -29,14 +29,17 @@ describe 'Time entry - custom time format input' do
       expect(first('.cpy-input-placeholder').value).to eq('1.83')
 
       wait_for_turbo_frame_response
-      user.preferences.reload
+
+      user.reload
       expect(user.preferences.time_entry_time_format).to eq('hours')
+
 
       click_link('Minutes')
       expect(first('.cpy-input-placeholder').value).to eq('110')
 
       wait_for_turbo_frame_response
-      user.preferences.reload
+
+      user.reload
       expect(user.preferences.time_entry_time_format).to eq('minutes')
     end
   end

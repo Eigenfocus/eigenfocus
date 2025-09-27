@@ -1,6 +1,7 @@
 module WaitForAjaxResponsesRspecHelper
   def wait_for_turbo_frame_response
-    expect(page).to_not have_selector("[busy]")
+    # Using page.document because this method can be called from a nested within block
+    expect(page.document).to_not have_selector("[busy]")
   end
 end
 
