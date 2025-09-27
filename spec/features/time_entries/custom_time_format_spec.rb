@@ -23,24 +23,23 @@ describe 'Time entry - custom time format input' do
     end
 
     within '#time_entry_form' do
-      expect(first('.cpy-input-placeholder').value).to eq('110')
+      expect(page).to have_field("time_entry_total_logged_time", with: "110")
 
       click_link('Hours')
       expect(first('.cpy-input-placeholder').value).to eq('1.83')
 
-      wait_for_turbo_frame_response
-
-      user.reload
-      expect(user.preferences.time_entry_time_format).to eq('hours')
-
+      retry_waiting_for_turbo_response do
+        user.reload
+        expect(user.preferences.time_entry_time_format).to eq('hours')
+      end
 
       click_link('Minutes')
       expect(first('.cpy-input-placeholder').value).to eq('110')
 
-      wait_for_turbo_frame_response
-
-      user.reload
-      expect(user.preferences.time_entry_time_format).to eq('minutes')
+      retry_waiting_for_turbo_response do
+        user.reload
+        expect(user.preferences.time_entry_time_format).to eq('minutes')
+      end
     end
   end
 
