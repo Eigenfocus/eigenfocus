@@ -16,19 +16,19 @@
   <div class="space-y-4">
     <%= form_with(model: project, html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
       <% if project.errors.any? %>
-        <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
+        <div class="alert alert-error">
           <%= project.errors.full_messages.to_sentence.capitalize %>
         </div>
       <% end %>
 
       <div class="mb-4 flex flex-col items-stretch gap-2">
-        <%= f.label :name, Project.human_attribute_name(:name), class: "label-primary" %>
-        <%= f.text_field :name, autofocus: true, required: true, class: "input-primary" %>
+        <%= f.label :name, Project.human_attribute_name(:name), class: "label label-primary" %>
+        <%= f.text_field :name, autofocus: true, required: true, class: "input input-primary" %>
       </div>
 
       <% if project.new_record? %>
         <div class="mb-4">
-          <label class="label-primary mb-2 block">
+          <label class="label label-primary mb-2 block">
             <%= t('.select_template') %>
           </label>
 
@@ -59,12 +59,12 @@
       <% end %>
 
       <div class="flex gap-2 justify-center">
-        <a class="btn-cancel" data-action="click->modal#close">
+        <a class="btn btn-secondary" data-action="click->modal#close">
           <%= t('actions.cancel') %>
         </a>
 
         <% text = project.persisted? ? t('actions.update') : t('actions.create') %>
-        <%= f.button text, class: "btn-primary" %>
+        <%= f.button text, class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
