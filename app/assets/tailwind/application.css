@@ -6,4 +6,13 @@
 @source "../../../app/views/**/*";
 @source "../../../app/frontend/**/*";
 
-@plugin "./daisyui.mjs";
+@plugin "./daisyui.mjs" {
+  themes: light --default, dark --prefersdark, cupcake;
+}
+
+@plugin "./daisyui-theme.mjs" {
+
+}
+
+/* @import "./themes/noir-flow/application.css"
+@import "./themes/noir-flow/focus-app.css" */
