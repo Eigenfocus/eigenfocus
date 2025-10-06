@@ -24,14 +24,14 @@
 
     <div class="board--column--header-actions">
       <%= link_to visualization_grouping_path(grouping.visualization_id, grouping, grouping: { hidden: !grouping.hidden }),
-            class: "text-readable-content-500 hover:text-readable-content-700 ",
+            class: "text-base-content hover:text-base-content ",
             data: {
               turbo_method: :patch
             } do %>
         <i class="fa-solid  <%= grouping.hidden ? 'fa-arrows-left-right-to-line' : 'fa-down-left-and-up-right-to-center rotate-45' %>"></i>
       <% end %>
 
-      <button class="text-readable-content-500 cpy-column-menu-button tour--column-menu-button <%= 'hidden' if grouping.hidden %>"
+      <button class="text-base-content cpy-column-menu-button tour--column-menu-button <%= 'hidden' if grouping.hidden %>"
               data-action="click->dropdown#toggle click@window->dropdown#hide"
               data-dropdown-target="button"
               role="button"
@@ -40,7 +40,7 @@
         <i class="fa-solid fa-ellipsis"></i>
       </button>
 
-      <div class="bg-body-contrast z-10 absolute -right-2 top-full min-w-60 border border-background-100 rounded-lg shadow-lg overflow-hidden hidden cpy-column-menu"
+      <div class="bg-body-contrast z-10 absolute -right-2 top-full min-w-60 border border-base-100 rounded-lg shadow-lg overflow-hidden hidden cpy-column-menu"
         data-dropdown-target="menu">
         <div class="flex flex-col justify-stretch items-stretch text-sm text-left py-2">
           <div class="flex flex-row py-2 relative">
@@ -55,20 +55,20 @@
           </div>
 
         <div class="flex flex-col mt-2 justify-stretch items-stretch">
-          <div class="flex flex-col justify-stretch border-b border-background-100 pb-2 mb-2">
-            <h4 class="text-sm font-bold text-readable-content-400 px-4 mb-2">
+          <div class="flex flex-col justify-stretch border-b border-base-100 pb-2 mb-2">
+            <h4 class="text-sm font-bold text-base-content px-4 mb-2">
               <%= Issue.model_name.human(count: 2) %>
             </h4>
             <%= link_to t('visualizations.column_menu.create_issue'), "#",
-                class: "cpy-new-issue text-left py-2 px-4 hover:bg-background-100 w-full",
+                class: "cpy-new-issue text-left py-2 px-4 hover:bg-base-100 w-full",
                 data: { action: "click->grouping-column#showInlineCardForm click->dropdown#toggle" } %>
             <%= link_to t('visualizations.column_menu.move_all_issues'),
                 move_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
-                class: "py-2 px-4 hover:bg-background-100 w-full",
+                class: "py-2 px-4 hover:bg-base-100 w-full",
                 data: { turbo_frame: 'move_all_issues_modal', action: "click->dropdown#toggle" } %>
             <%= link_to t('visualizations.column_menu.archive_all_issues'),
                 archive_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
-                class: "py-2 px-4 hover:bg-background-100 w-full",
+                class: "py-2 px-4 hover:bg-base-100 w-full",
                 data: {
                   turbo_method: :post,
                   turbo_confirm: t("visualizations.column_menu.archive_all_issues_confirmation", title: grouping.title),
@@ -77,16 +77,16 @@
           </div>
 
           <div class="flex flex-col justify-stretch">
-            <h4 class="text-sm font-bold text-readable-content-400 px-4 mb-2">
+            <h4 class="text-sm font-bold text-base-content px-4 mb-2">
               <%= Grouping.model_name.human(count: 2) %>
             </h4>
             <%= link_to t('visualizations.column_menu.edit_column'),
                 edit_visualization_grouping_path(grouping.visualization_id, grouping.id),
-                class: "cpy-edit-column py-2 px-4 hover:bg-background-100 w-full",
+                class: "cpy-edit-column py-2 px-4 hover:bg-base-100 w-full",
                 data: { turbo_frame: 'grouping_form', action: "click->dropdown#toggle" } %>
             <%= link_to t('visualizations.column_menu.delete'),
                 visualization_grouping_path(grouping.visualization_id, grouping),
-                class: "py-2 px-4 hover:bg-background-100 w-full text-red-600",
+                class: "py-2 px-4 hover:bg-base-100 w-full text-red-600",
                 data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %>
           </div>
         </div>

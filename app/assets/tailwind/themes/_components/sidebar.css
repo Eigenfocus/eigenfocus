@@ -9,7 +9,7 @@
   );
 
   a {
-    @apply flex gap-2 items-center font-normal grow text-readable-content-500 hover:font-semibold hover:text-primary-800;
+    @apply flex gap-2 items-center font-normal grow text-base-content hover:font-semibold hover:text-primary-800;
     padding: 0.25em 0;
 
     &:last-child {

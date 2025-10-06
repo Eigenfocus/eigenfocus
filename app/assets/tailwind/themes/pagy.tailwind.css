@@ -2,32 +2,32 @@
   @apply flex flex-col sm:flex-row items-center gap-4 justify-between;
 
   .pagy.info {
-    @apply text-sm text-readable-content-500;
+    @apply text-sm text-base-content;
   }
 
   .pagy.nav {
-    @apply flex text-readable-content-500 text-sm;
+    @apply flex text-base-content text-sm;
 
     a {
       @apply flex items-center justify-center leading-tight px-3.5 py-2 bg-body-contrast hover:bg-readable-content-50;
 
       &.gap {
-        @apply text-readable-content-200 cursor-default;
+        @apply text-base-content cursor-default;
       }
     }
 
     a:not(.gap) {
-      @apply text-readable-content-500 border-t border-r border-b border-readable-content-300;
+      @apply text-base-content border-t border-r border-b border-readable-content-300;
 
       &:hover {
-        @apply bg-primary-100 text-readable-content-700;
+        @apply bg-primary-100 text-base-content;
       }
       &:not([href]) { /* disabled links */
-        @apply text-readable-content-300 opacity-70 cursor-default;
+        @apply text-base-content opacity-70 cursor-default;
       }
 
       &.current {
-        @apply bg-primary-500/20 text-readable-content-700 font-bold;
+        @apply bg-primary-500/20 text-base-content font-bold;
       }
 
       &:first-child {

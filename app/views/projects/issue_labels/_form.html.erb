@@ -2,13 +2,13 @@
 <%= turbo_frame_tag 'issue_label_form' do %>
 <%= render_modal do %>
 
-  <div class="border-b border-background-200 pb-2 mb-4">
+  <div class="border-b border-base-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
       <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
         <%= icon_for(:issue_labels) %>
       </div>
 
-      <h4 class="text-lg font-medium text-readable-content-700">
+      <h4 class="text-lg font-medium text-base-content">
         <%= issue_label.persisted? ? "#{t("actions.edit")} #{IssueLabel.model_name.human}" : "#{t("actions.create")} #{IssueLabel.model_name.human}"%>
       </h4>
     </div>
@@ -45,7 +45,7 @@
         >
         <p><%= t(".card_preview") %></p>
 
-        <div class="relative flex flex-row gap-2 text-sm text-content-500 border-2 border-background-200 bg-background-50 shadow-sm rounded-xl card p-3"
+        <div class="relative flex flex-row gap-2 text-sm text-content-500 border-2 border-base-200 bg-base-100 shadow-sm rounded-xl card p-3"
         >
           <div class="rounded-lg bg-readable-content-300 animate-pulse" style="width: 4px;"></div>
           <div class="flex flex-col gap-2 grow">
@@ -56,7 +56,7 @@
               <span class="issue-label bg-readable-content-300 h-4 col-span-3 rounded" data-issue-preview-target="backgroundColor"></span>
               <span class="issue-label bg-readable-content-300 h-4 col-span-1 rounded" data-issue-preview-target="backgroundColor"></span>
             </div>
-            <div class="flex flex-row items-stretch justify-start gap-3 text-readable-content-500 animate-pulse">
+            <div class="flex flex-row items-stretch justify-start gap-3 text-base-content animate-pulse">
               <div class="h-4 w-4 rounded bg-readable-content-300"></div>
               <div class="h-4 w-4 rounded bg-readable-content-300"></div>
             </div>

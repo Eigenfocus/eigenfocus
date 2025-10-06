@@ -3,12 +3,12 @@
     class: "max-h-screen w-full max-w-2xl"
   }) do %>
 
-  <div class="border-b border-background-200 pb-2 mb-4">
+  <div class="border-b border-base-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
       <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
         <%= icon_for(:projects) %>
       </div>
-      <h4 class="text-lg font-medium text-readable-content-700">
+      <h4 class="text-lg font-medium text-base-content">
         <%= project.persisted? ? "#{t("actions.edit")} #{Project.model_name.human}" : "#{t("actions.create")} #{Project.model_name.human}"%>
       </h4>
     </div>
@@ -32,12 +32,12 @@
             <%= t('.select_template') %>
           </label>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-stretch items-stretch text-readable-content-400">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-stretch items-stretch text-base-content">
             <div class="relative flex items-stretch justify-stretch">
               <%= f.radio_button :use_template, "", class: "hidden peer", id: "template_none" %>
-              <label for="template_none" class="block p-4 border rounded-lg border-background-100 cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
+              <label for="template_none" class="block p-4 border rounded-lg border-base-100 cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
                 <div class="font-medium text-primary-500 mb-1"><%= t('.no_template') %></div>
-                <p class="text-sm text-readable-content-500">
+                <p class="text-sm text-base-content">
                   <%= t('.start_from_scratch') %>
                 </p>
               </label>
@@ -46,9 +46,9 @@
             <% Project::Templatable::Template.all.each do |template| %>
               <div class="relative flex items-stretch justify-stretch">
                 <%= f.radio_button :use_template, template.key, class: "hidden peer", id: "template_#{template.key}" %>
-                <label for="template_<%= template.key %>" class="block p-4 border border-background-100 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
+                <label for="template_<%= template.key %>" class="block p-4 border border-base-100 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
                   <div class="font-medium mb-1 text-primary-500 "><%= template.name %></div>
-                  <p class="text-sm text-readable-content-500">
+                  <p class="text-sm text-base-content">
                     <%= template.description %>
                   </p>
                 </label>

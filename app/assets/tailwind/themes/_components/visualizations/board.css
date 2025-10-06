@@ -12,7 +12,7 @@
     }
 
     .board--column--header-title {
-      @apply grow font-semibold truncate text-readable-content-500 hover:text-readable-content-700;
+      @apply grow font-semibold truncate text-base-content hover:text-base-content;
     }
 
     .board--column--header-actions {
@@ -28,7 +28,7 @@
     }
 
     .board--column--create-button {
-      @apply w-full flex flex-row items-center mt-4 p-2 hover:bg-background-100 rounded-md;
+      @apply w-full flex flex-row items-center mt-4 p-2 hover:bg-base-100 rounded-md;
 
       .board--column--create-button-shortcut {
         @apply hidden text-xs font-medium ml-2 mr-2;

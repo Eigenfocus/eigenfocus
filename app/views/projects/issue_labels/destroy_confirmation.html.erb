@@ -1,13 +1,13 @@
 
 <%= turbo_frame_tag 'issue_label_removal_confirmation' do %>
 <%= render_modal do %>
-  <div class="border-b border-background-200 pb-2">
+  <div class="border-b border-base-200 pb-2">
     <div class="flex items-center space-x-2">
       <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
         <%= icon_for(:issue_labels) %>
       </div>
 
-      <h4 class="text-base font-medium text-readable-content-700">
+      <h4 class="text-base font-medium text-base-content">
         <%= @issue_label.title %>
       </h4>
     </div>
@@ -17,8 +17,8 @@
       <%= t(".associations", count_text: "#{@issue_label.issues.count} #{IssueLabel.model_name.human(count: @issue_label.issues.count)}" ) %>
     </p>
 
-    <p class="text-sm text-readable-content-500"><%= t(".explanation") %></p>
-    <p class="mt-2 text-sm text-readable-content-500"><%= t("confirmations.want_to_proceed") %></p>
+    <p class="text-sm text-base-content"><%= t(".explanation") %></p>
+    <p class="mt-2 text-sm text-base-content"><%= t("confirmations.want_to_proceed") %></p>
 
     <div class="flex mt-4 gap-2 justify-end">
       <a class="btn-cancel btn-md" data-action="click->modal#close">

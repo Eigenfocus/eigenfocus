@@ -17,19 +17,19 @@
   }
 
   body {
-    @apply text-readable-content-500;
+    @apply text-base-content;
     background-color: #111;
   }
 
   .btn {
-    @apply cursor-pointer rounded-full text-readable-content-800 inline-flex font-normal items-center justify-center py-2 px-6 text-center text-sm;
-    @apply border border-background-300;
+    @apply cursor-pointer rounded-full text-base-content inline-flex font-normal items-center justify-center py-2 px-6 text-center text-sm;
+    @apply border border-base-300;
     position: relative;
     overflow: hidden;
   }
 
   .btn:hover {
-    @apply border-background-100;
+    @apply border-base-100;
   }
 
   /*

@@ -1,16 +1,16 @@
 <%= turbo_frame_tag 'report' do %>
 
 
-  <h2 class="font-semibold mt-8 mb-4 text-xl text-readable-content-800">
+  <h2 class="font-semibold mt-8 mb-4 text-xl text-base-content">
     <%= t(".total_time_report") %>
   </h2>
 
   <div class="flex flex-col lg:flex-row gap-4">
-    <div class="flex flex-col border border-background-200 rounded-md gap-2 bg-body-contrast p-4 lg:w-1/5">
-      <h4 class="text-xs text-readable-content-400 uppercase">
+    <div class="flex flex-col border border-base-200 rounded-md gap-2 bg-body-contrast p-4 lg:w-1/5">
+      <h4 class="text-xs text-base-content uppercase">
         <%= t(".total") %>
       </h4>
-      <span class="text-xl font-medium text-readable-content-600">
+      <span class="text-xl font-medium text-base-content">
         <%= @total_in_hours %> <%= t("hours").downcase %>
       </span>
     </div>
@@ -66,7 +66,7 @@
         </tbody>
       </table>
     <% else %>
-    <p class="text-2xl text-readable-content-600 text-center">
+    <p class="text-2xl text-base-content text-center">
       <%= t(".no_entries") %>
     </p>
     <% end %>

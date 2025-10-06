@@ -22,17 +22,17 @@
 .input-primary,
 input.input-primary,
 .flatpickr-input.input-primary {
-  @apply w-full rounded-lg border border-background-300 px-3 bg-background-50 text-readable-content-500 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
+  @apply w-full rounded-lg border border-base-300 px-3 bg-base-100 text-base-content py-2 placeholder:text-base-content/70 hover:border-base-300 focus:border-primary-500;
 }
 
 .input-contrast,
 input.input-contrast,
 .flatpickr-input.input-contrast {
-  @apply w-full rounded-lg border border-background-300 px-3 bg-body-contrast text-readable-content-500 py-2 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
+  @apply w-full rounded-lg border border-base-300 px-3 bg-body-contrast text-base-content py-2 placeholder:text-base-content/70 hover:border-base-300 focus:border-primary-500;
 }
 
 .input-with-icon-wrapper .icon-wrapper {
-  @apply text-readable-content-400;
+  @apply text-base-content;
 }
 
 .input-sm {
@@ -40,7 +40,7 @@ input.input-contrast,
 }
 
 .label-primary {
-  @apply block text-readable-content-500 text-sm;
+  @apply block text-base-content text-sm;
 }
 
 .input-with-icon-wrapper {
@@ -48,7 +48,7 @@ input.input-contrast,
 }
 
 .input-with-icon-wrapper .icon-wrapper {
-  @apply absolute text-readable-content-500 inset-y-0 start-0 flex items-center ps-3 pointer-events-none;
+  @apply absolute text-base-content inset-y-0 start-0 flex items-center ps-3 pointer-events-none;
 }
 
 .input-with-icon-wrapper input,

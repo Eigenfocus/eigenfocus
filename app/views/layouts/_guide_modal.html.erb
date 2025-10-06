@@ -1,16 +1,16 @@
 <%= render_modal(wrapper_options: { id: 'guide-modal' } , container_options: { class: "#{params[:show_guide_modal] == 'true' ? '' : 'hidden'} animate__animated animate__zoomIn fixed inset-0 overflow-y-auto flex items-center justify-center" }) do %>
-  <div class="border-b border-background-200 pb-2 mb-4">
+  <div class="border-b border-base-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
       <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
         <i class="fa-regular fa-star"></i>
       </div>
-      <h4 class="text-lg font-medium text-readable-content-700">
+      <h4 class="text-lg font-medium text-base-content">
         <%= t(".title") %>
       </h4>
     </div>
   </div>
   <div class="text-base flex flex-col gap-4">
-    <div class="text-readable-content-700 text-lg font-medium text-center mt-4">
+    <div class="text-base-content text-lg font-medium text-center mt-4">
       <%= t(".thanks") %><br/>
     </div>
     <article class="flex flex-col">
@@ -18,7 +18,7 @@
         <%= icon_for(:projects) %>
         <span><%= t(".features.project.title") %></span>
       </h3>
-      <p class="text-sm text-readable-content-500"><%= t(".features.project.description") %></p>
+      <p class="text-sm text-base-content"><%= t(".features.project.description") %></p>
     </article>
 
     <article class="flex flex-col">
@@ -26,7 +26,7 @@
         <%= icon_for(:issues) %>
         <span><%= t(".features.all_issues.title") %></span>
       </h3>
-      <p class="text-sm text-readable-content-500"><%= t(".features.all_issues.description") %></p>
+      <p class="text-sm text-base-content"><%= t(".features.all_issues.description") %></p>
     </article>
 
     <article class="flex flex-col">
@@ -34,7 +34,7 @@
         <%= icon_for(:boards) %>
         <span><%= t(".features.boards.title") %></span>
       </h3>
-      <p class="text-sm text-readable-content-500"><%= t(".features.boards.description") %></p>
+      <p class="text-sm text-base-content"><%= t(".features.boards.description") %></p>
     </article>
 
     <article class="flex flex-col">
@@ -42,7 +42,7 @@
         <%= icon_for(:time_entries) %>
         <span><%= t(".features.time_tracking.title") %></span>
       </h3>
-      <p class="text-sm text-readable-content-500"><%= t(".features.time_tracking.description") %></p>
+      <p class="text-sm text-base-content"><%= t(".features.time_tracking.description") %></p>
     </article>
 
     <article class="flex flex-col">
@@ -50,7 +50,7 @@
         <%= icon_for(:report) %>
         <span><%= t(".features.reports.title") %></span>
       </h3>
-      <p class="text-sm text-readable-content-500"><%= t(".features.reports.description") %></p>
+      <p class="text-sm text-base-content"><%= t(".features.reports.description") %></p>
     </article>
 
     <article class="flex flex-col">
@@ -58,7 +58,7 @@
         <%= icon_for(:theme) %>
         <span><%= t(".features.themes.title") %></span>
       </h3>
-      <p class="text-sm text-readable-content-500"><%= t(".features.themes.description") %></p>
+      <p class="text-sm text-base-content"><%= t(".features.themes.description") %></p>
     </article>
 
     <div class="flex flex-col justify-center items-center gap-4 mt-2">

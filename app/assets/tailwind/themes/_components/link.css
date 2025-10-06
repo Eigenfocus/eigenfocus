@@ -20,5 +20,5 @@
 }
 
 .link-cancel {
-  @apply link-base cursor-pointer text-readable-content-500 hover:text-readable-content-600 active:text-readable-content-600 focus:text-readable-content-600;
+  @apply link-base cursor-pointer text-base-content hover:text-base-content active:text-base-content focus:text-base-content;
 }

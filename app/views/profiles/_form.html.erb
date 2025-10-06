@@ -20,7 +20,7 @@
   <div class="flex flex-col gap-4">
     <div>
       <%= f.label :timezone, class: "mb-2 label-primary" do %>
-        <span class="text-readable-content-700 mr-1"><i class='fa-solid fa-globe'></i></span>
+        <span class="text-base-content mr-1"><i class='fa-solid fa-globe'></i></span>
         <%= User.human_attribute_name(:timezone) %>
       <% end %>
       <div class="flex items-stretch gap-5">
@@ -30,14 +30,14 @@
           { class: "input-primary m-0", data: { controller: 'select2' } } %>
       </div>
 
-      <span class="text-sm text-readable-content-500 mt-2">
+      <span class="text-sm text-base-content mt-2">
         <%= t(".why_is_timezone_needed") %>
       </span>
     </div>
 
     <div class="">
       <%= f.label :locale, class: "mb-2 label-primary" do %>
-        <span class="text-readable-content-700 mr-1"><i class='fa-solid fa-globe'></i></span>
+        <span class="text-base-content mr-1"><i class='fa-solid fa-globe'></i></span>
         <%= User.human_attribute_name(:locale) %>
       <% end %>
       <div class="flex items-stretch gap-5">

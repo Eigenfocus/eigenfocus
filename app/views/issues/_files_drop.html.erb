@@ -1,6 +1,6 @@
 <div class="mt-4 mb-2">
-  <h3 class="text-lg font-medium text-readable-content-500">
-    <span class="mr-1 text-readable-content-500/80"><%= icon_for(:files) %></span>
+  <h3 class="text-lg font-medium text-base-content">
+    <span class="mr-1 text-base-content/80"><%= icon_for(:files) %></span>
     <%= Issue.human_attribute_name(:files) %>
   </h3>
 </div>
@@ -19,7 +19,7 @@
   ) %>
 
   <div class="dz-message cursor-pointer p-4 rounded-md border border-primary-200 hover:border-primary-400 bg-primary-50 hover:bg-primary-100">
-    <p class="text-xs text-center text-readable-content-500">
+    <p class="text-xs text-center text-base-content">
       <%= t(".click_to_upload_or_drag_and_drop_your_files_here") %>
     </p>
   </div>
@@ -40,7 +40,7 @@
                 </svg>
               </div>
             </div>
-            <div class="text-readable-content-500 text-base flex grow flex-col">
+            <div class="text-base-content text-base flex grow flex-col">
               <span class="text-xs text-italic" ><div class="dz-filename"><span data-dz-name></span></div></span>
               <span  class="text-sm"><div class="dz-size" data-dz-size></div></span>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">

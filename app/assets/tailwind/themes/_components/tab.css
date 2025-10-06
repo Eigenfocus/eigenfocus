@@ -1,5 +1,5 @@
 .tab-item {
-  @apply rounded-full border hover:border-primary-500 hover:text-primary-500 hover:bg-primary-500/10 text-readable-content-500 border-readable-content-500;
+  @apply rounded-full border hover:border-primary-500 hover:text-primary-500 hover:bg-primary-500/10 text-base-content border-readable-content-500;
 
   &.tab-item-xs {
     @apply px-3 py-1 text-xs;

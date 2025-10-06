@@ -19,7 +19,7 @@
 
 .flatpickr-calendar {
     border: inherit;
-    @apply bg-body-contrast rounded-lg shadow-lg border border-background-200 left-1/2;
+    @apply bg-body-contrast rounded-lg shadow-lg border border-base-200 left-1/2;
     margin-left: calc(calc(var(--daysWidth) + calc(var(--calendarPadding)*2))*0.5*-1);
     padding: var(--calendarPadding);
     width: calc(var(--daysWidth) + calc(var(--calendarPadding)*2));
@@ -80,7 +80,7 @@
 }
 
 .flatpickr-day {
-    @apply bg-background-50 text-sm font-medium text-readable-content-600;
+    @apply bg-base-100 text-sm font-medium text-base-content;
     max-width: var(--daySize);
     height: var(--daySize);
     line-height: var(--daySize);
@@ -133,7 +133,7 @@
 .flatpickr-day.notAllowed,
 .flatpickr-day.notAllowed.prevMonthDay,
 .flatpickr-day.notAllowed.nextMonthDay {
-    @apply text-readable-content-400;
+    @apply text-base-content;
 }
 
 .rangeMode .flatpickr-day {
@@ -204,7 +204,7 @@
 .flatpickr-months .flatpickr-next-month {
     position: static;
     height: auto;
-    @apply text-readable-content-400 hover:text-readable-content-900;
+    @apply text-base-content hover:text-base-content;
 }
 
 .flatpickr-months .flatpickr-prev-month svg,
@@ -224,7 +224,7 @@
 }
 
 .flatpickr-months .flatpickr-month {
-    @apply text-readable-content-800;
+    @apply text-base-content;
     height: auto;
     line-height: inherit;
     overflow: visible;
@@ -257,7 +257,7 @@
 }
 
 span.flatpickr-weekday {
-    @apply text-readable-content-400 font-medium text-xs;
+    @apply text-base-content font-medium text-xs;
 }
 
 .flatpickr-calendar.arrowTop::before,
@@ -285,5 +285,5 @@ span.flatpickr-weekday {
 .flatpickr-current-month .flatpickr-monthDropdown-months:hover,
 .flatpickr-months select {
   border-style: solid;
-  @apply px-4 py-2 border border-background-300 bg-background-50 rounded-md text-sm;
+  @apply px-4 py-2 border border-base-300 bg-base-100 rounded-md text-sm;
 }

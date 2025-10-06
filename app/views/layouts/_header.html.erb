@@ -1,9 +1,9 @@
-<header class="sticky z-999 top-0 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10 z-100 max-lg:shadow-sm bg-background-menu border-b border-background-200">
+<header class="sticky z-999 top-0 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10 z-100 max-lg:shadow-sm bg-background-menu border-b border-base-200">
 
   <div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
 
     <div class="flex gap-4">
-      <button class="text-readable-content-500 hover:text-readable-content-600 lg:hidden" data-action="click->sidebar#toggleSidebarMenu" aria-controls="sidebar" aria-expanded="false">
+      <button class="text-base-content hover:text-base-content lg:hidden" data-action="click->sidebar#toggleSidebarMenu" aria-controls="sidebar" aria-expanded="false">
         <span class="sr-only">Open sidebar</span>
         <svg class="w-6 h-6 fill-readable-content-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <rect x="4" y="5" width="16" height="2"></rect>
@@ -13,12 +13,12 @@
       </button>
 
       <div class="flex items-center gap-4">
-        <span class="bg-primary-50 flex items-center justify-center border border-primary-200 text-xs text-readable-content-500 px-2 py-1 rounded-md">
+        <span class="bg-primary-50 flex items-center justify-center border border-primary-200 text-xs text-base-content px-2 py-1 rounded-md">
           Free Edition
         </span>
         <a data-controller="upgrade-to-pro-button" href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=header_button"
           target="_blank"
-          class="text-base text-sm text-readable-content-500 hover:text-primary-500">
+          class="text-base text-sm text-base-content hover:text-primary-500">
           <span class="relative">
             <i class="fa-solid fa-rocket mr-1"></i>
           </span>
@@ -29,47 +29,47 @@
     <div class="flex items-center space-x-4">
       <div class="relative inline-flex" data-controller="dropdown">
 
-        <button type="button" class="text-readable-content-500 hover:text-primary-500 tour--header-guide-button cpy-header-tour-button" data-action="click->dropdown#toggle click@window->dropdown#hide" data-dropdown-target="button">
+        <button type="button" class="text-base-content hover:text-primary-500 tour--header-guide-button cpy-header-tour-button" data-action="click->dropdown#toggle click@window->dropdown#hide" data-dropdown-target="button">
           <i class="fa-solid fa-circle-question"></i>
         </button>
 
         <div class="cpy-header-tour-dropdown absolute text-left text-sm z-10 mt-2 w-64 right-0 top-4 rounded-md bg-body-contrast py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" data-dropdown-target="menu">
           <div class="w-full flex justify-stretch flex-col">
-            <h3 class="px-4 py-2 text-xs font-semibold text-readable-content-500">
+            <h3 class="px-4 py-2 text-xs font-semibold text-base-content">
               <%= t('.tours.title') %>
             </h3>
 
-            <%= link_to projects_path(activate_tour: "projects/index"), class: "flex items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100", data: { turbo_frame: "_top" } do %>
+            <%= link_to projects_path(activate_tour: "projects/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
               <%= icon_for(:projects) %>
               <%= t('.tours.projects') %>
             <% end %>
 
             <% if example_project_id = Issue.first&.project_id %>
-              <%= link_to project_issues_path(example_project_id, activate_tour: "issues/index"), class: "flex items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100", data: { turbo_frame: "_top" } do %>
+              <%= link_to project_issues_path(example_project_id, activate_tour: "issues/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
                 <%= icon_for(:issues) %>
                 <%= t('.tours.issues') %>
               <% end %>
             <% end %>
 
             <% if example_visualization = Visualization.first %>
-              <%= link_to visualization_path(example_visualization, activate_tour: "visualization/board"), class: "flex items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100", data: { turbo_frame: "_top" } do %>
+              <%= link_to visualization_path(example_visualization, activate_tour: "visualization/board"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
                 <%= icon_for(:boards) %>
                 <%= t('.tours.board') %>
               <% end %>
             <% end %>
 
-            <%= link_to time_entries_path(activate_tour: "time_entries/index"), class: "flex items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100", data: { turbo_frame: "_top" } do %>
+            <%= link_to time_entries_path(activate_tour: "time_entries/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
               <%= icon_for(:time_entries) %>
               <%= t('.tours.time_entries') %>
             <% end %>
           </div>
 
           <div class="flex flex-col justify-stretch w-ful mt-4">
-            <h3 class="px-4 py-2 text-xs font-semibold text-readable-content-500">
+            <h3 class="px-4 py-2 text-xs font-semibold text-base-content">
               <%= t('.tours.more') %>
             </h3>
             <button role="button" onclick="document.getElementById('guide-modal').modal.open()"
-              class="flex flex-start text-left items-center gap-3 px-4 py-2 text-readable-content-500 hover:bg-background-100 cpy-feature-list-button">
+              class="flex flex-start text-left items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100 cpy-feature-list-button">
               <i class="fa-solid fa-star"></i>
               <%= t('.tours.features_list') %>
             </button>
@@ -80,7 +80,7 @@
       <div class="relative inline-flex" data-controller="dropdown">
         <button data-action="click->dropdown#toggle click@window->dropdown#hide"
           role="button" data-dropdown-target="button"
-          class="text-readable-content-500 hover:text-primary-500 flex items-center"
+          class="text-base-content hover:text-primary-500 flex items-center"
           aria-haspopup="true" aria-expanded="false">
 
           <% if AppMetadata.instance.is_app_outdated? %>
@@ -92,16 +92,16 @@
             <i class="fa-solid text-lg fa-gear"></i>
           <% end %>
         </button>
-        <div data-dropdown-target="menu" class="bg-body-contrast right-0 z-10 absolute top-full min-w-max bg-white border border-background-400 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
-          <div class="flex flex-col justify-stretch items-stretch text-left text-readable-content-500">
-            <p class="py-2 px-4 text-sm font-bold bg-background-200"><%= t(".current_version") %>: <%= AppMetadata.instance.current_version %></p>
+        <div data-dropdown-target="menu" class="bg-body-contrast right-0 z-10 absolute top-full min-w-max bg-white border border-base-300 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+          <div class="flex flex-col justify-stretch items-stretch text-left text-base-content">
+            <p class="py-2 px-4 text-sm font-bold bg-base-200"><%= t(".current_version") %>: <%= AppMetadata.instance.current_version %></p>
             <% if AppMetadata.instance.is_app_outdated? %>
               <p class="top-0 right-0 text-sm px-4 py-2 text-italic text-secondary-500 font-medium">
                 <%= t(".outdated_alert_html", newest_version: AppMetadata.instance.last_released_version) %>
               </p>
-              <a href="https://github.com/Eigenfocus/eigenfocus/releases" target="_blank" class="text-left py-2 px-4 text-sm text-primary-500 hover:bg-background-100"><i class="fa-solid fa-tag mr-1"></i> <%= t(".check_our_releases") %></a>
+              <a href="https://github.com/Eigenfocus/eigenfocus/releases" target="_blank" class="text-left py-2 px-4 text-sm text-primary-500 hover:bg-base-100"><i class="fa-solid fa-tag mr-1"></i> <%= t(".check_our_releases") %></a>
             <% else %>
-              <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="text-left py-2 px-4 text-sm text-primary-500 hover:bg-background-100"><i class="fa-brands fa-github mr-1"></i> <%= t(".check_our_github") %></a>
+              <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="text-left py-2 px-4 text-sm text-primary-500 hover:bg-base-100"><i class="fa-brands fa-github mr-1"></i> <%= t(".check_our_github") %></a>
             <% end %>
           </div>
         </div>
@@ -109,17 +109,17 @@
       <div class="relative  inline-flex" data-controller="dropdown">
         <button data-action="click->dropdown#toggle click@window->dropdown#hide"
           role="button" data-dropdown-target="button"
-          class="cpy-header-theme-dropdown flex items-center text-lg text-readable-content-500 hover:text-primary-500"
+          class="cpy-header-theme-dropdown flex items-center text-lg text-base-content hover:text-primary-500"
           aria-haspopup="true" aria-expanded="false">
           <%= icon_for(:theme) %>
         </button>
-        <div data-dropdown-target="menu" class="bg-body-contrast right-0 z-10 absolute top-full min-w-80 bg-white border border-background-400 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+        <div data-dropdown-target="menu" class="bg-body-contrast right-0 z-10 absolute top-full min-w-80 bg-white border border-base-300 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
           <div class="flex flex-col justify-stretch items-stretch text-sm text-left">
             <% TailwindTheme.all.each do |theme| %>
               <%
                 theme_is_selected = Current.theme_key == theme.key
                 options = {
-                  class: 'no-underline hover:bg-background-100 w-full block p-4 text-primary font-medium border-b border-b-primary-100 last:border-b-0 ',
+                  class: 'no-underline hover:bg-base-100 w-full block p-4 text-primary font-medium border-b border-b-primary-100 last:border-b-0 ',
                   data: { turbo_reload: true }
                 }
 
@@ -133,12 +133,12 @@
               %>
               <%= content_tag item_tag, options do %>
                 <p class = "">
-                  <span class="font-medium text-base text-readable-content-500"><%= theme.name %></span>
+                  <span class="font-medium text-base text-base-content"><%= theme.name %></span>
                   <% if theme_is_selected %>
                     <span class="ml-2 py-1 px-2 text-xs text-secondary-400 bg-secondary-50 border border-secondary-400 rounded-full"><%= t("active") %></span>
                   <% end %>
                 </p>
-                <p class="mt-2 text-xs text-readable-content-400">
+                <p class="mt-2 text-xs text-base-content">
                   <%= theme.description %>
                 </p>
                 <div class="mt-2 flex gap-2">

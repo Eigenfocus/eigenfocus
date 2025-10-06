@@ -1,18 +1,18 @@
 <ul class="flex flex-col">
   <% menu_items.each do |menu_item|
       sub_menu = menu_item[:sub_menu] || []
-      link_active_class= "text-readable-content-500"
+      link_active_class= "text-base-content"
       text_class = ""
       if sub_menu.empty?
         if controller_name.to_sym == menu_item[:main_controller].to_sym
           if menu_item[:action_name].blank? || (action_name.to_sym == menu_item[:action_name].to_sym)
-            link_active_class = "border-r-2 text-primary-700 bg-background-100"
+            link_active_class = "border-r-2 text-primary-700 bg-base-100"
           end
         end
       else
         sub_menu.each do |menu_item|
           if controller_name.to_sym == menu_item[:main_controller].to_sym
-            link_active_class = "bg-background-100"
+            link_active_class = "bg-base-100"
           end
         end
       end
@@ -20,7 +20,7 @@
       <li class="relative group">
         <%
           wrapper_options = {
-            "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 border-primary-700 hover:bg-background-100 hover:text-primary-700 truncate transition duration-150",
+            "class": "block px-8 py-4 #{link_active_class} hover:border-r-2 border-primary-700 hover:bg-base-100 hover:text-primary-700 truncate transition duration-150",
             href: menu_item[:url]
           }
 
@@ -40,7 +40,7 @@
           <div class="hidden group-hover:flex w-max flex-col border border-primary-200 bg-background-menu absolute top-0 left-[100%] rounded-sm">
             <%  menu_item[:hover_menu].each do |menu_item| %>
               <%= link_to menu_item[:text], menu_item[:url],
-                class: "text-sm font-medium text-readable-content-500 p-4 pr-8 hover:bg-primary-300 hover:text-primary-800" %>
+                class: "text-sm font-medium text-base-content p-4 pr-8 hover:bg-primary-300 hover:text-primary-800" %>
             <% end %>
           </div>
         <% end %>

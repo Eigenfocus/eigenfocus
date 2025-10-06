@@ -1,8 +1,8 @@
-<div id="<%= dom_id(notification) %>" class="cpy-notification px-3 py-2 border-b first:border-b-0 border-background-200 last:border-b-0 hover:bg-background-50">
+<div id="<%= dom_id(notification) %>" class="cpy-notification px-3 py-2 border-b first:border-b-0 border-base-200 last:border-b-0 hover:bg-base-100">
   <div class="flex justify-stretch items-stretch gap-3">
     <div class="flex grow flex-col">
-      <p class="text-sm font-bold text-readable-content-700"><%= notification.title %></p>
-      <div class="text-xs mt-1 text-italic  text-readable-content-600"><%= notification.content %></div>
+      <p class="text-sm font-bold text-base-content"><%= notification.title %></p>
+      <div class="text-xs mt-1 text-italic  text-base-content"><%= notification.content %></div>
       <div class="text-xs flex mt-1 justify-between gap-4">
         <span>
           <% if notification.external_link? %>

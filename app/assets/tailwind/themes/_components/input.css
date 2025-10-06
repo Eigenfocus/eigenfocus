@@ -5,10 +5,10 @@
     overflow: hidden;
     box-shadow: none;
 
-    @apply border border-background-300 bg-body-contrast;
+    @apply border border-base-300 bg-body-contrast;
 
     input.clr-color {
-      @apply border border-background-300 bg-background-50 text-readable-content-500 placeholder:text-readable-content-400/70 hover:border-background-400 focus:border-primary-500;
+      @apply border border-base-300 bg-base-100 text-base-content placeholder:text-base-content/70 hover:border-base-300 focus:border-primary-500;
     }
   }
 }

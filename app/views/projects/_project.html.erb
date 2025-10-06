@@ -1,8 +1,8 @@
-<div id="<%= dom_id(project) %>" class='<%= project.archived? ? 'bg-background-100' : 'bg-body-contrast border-l-background-500' %> border-l-4 p-8 flex flex-col items-stretch gap-4 border border-background-200 rounded-md shadow-xs text-md'">
+<div id="<%= dom_id(project) %>" class='<%= project.archived? ? 'bg-base-100' : 'bg-body-contrast border-l-base-1000' %> border-l-4 p-8 flex flex-col items-stretch gap-4 border border-base-200 rounded-md shadow-xs text-md'">
 
   <div class="flex mb-4 flex-col md:flex-row md:justify-between gap-4 items-center">
     <div class="flex gap-4">
-      <div class="flex items-center gap-2 text-readable-content-700 font-medium text-xl">
+      <div class="flex items-center gap-2 text-base-content font-medium text-xl">
         <%= link_to project_issues_path(project), data: { turbo_frame: "_top" } do %>
           <%= project.name%>
         <% end %>

@@ -1,10 +1,10 @@
 <%= search_form_for(q, url: total_time_reports_path, method: :get, html: { class: "js-filter-form" }) do |f| %>
-  <div class="bg-body-contrast rounded-md border border-background-200 p-8 space-y-4">
+  <div class="bg-body-contrast rounded-md border border-base-200 p-8 space-y-4">
 
     <div class="flex flex-col w-full justify-stretch items-stretch lg:flex-row gap-8 ">
       <div class="flex grow flex-col lg:flex-row justify-stretch items-center gap-4">
         <div class="flex  gap-2 w-full flex-col">
-          <%= f.label :project_id_in, t(".filter_by_project"), class: "text-readable-content-500 text-sm " %>
+          <%= f.label :project_id_in, t(".filter_by_project"), class: "text-base-content text-sm " %>
           <%
             projects_data = Project.order(name: :asc).pluck(:name, :id)
           %>
@@ -14,7 +14,7 @@
 
       <div class="flex grow flex-col lg:flex-row justify-stretch cpy-tags-select items-center gap-4">
         <div class="flex  gap-2 w-full flex-col">
-          <%= f.label :by_issue_labels_title, t(".filter_by_issue_labels"), class: "text-readable-content-500 text-sm " %>
+          <%= f.label :by_issue_labels_title, t(".filter_by_issue_labels"), class: "text-base-content text-sm " %>
           <%= f.select :by_issue_labels_title,
             options_for_select(IssueLabel.distinct.pluck(:title), params[:q].try(:[], :by_issue_labels_title)),
             { include_hidden: false },
@@ -30,7 +30,7 @@
 
       <div class="w-full flex flex-col lg:flex-row lg:w-2/5 justify-stretch items-stretch gap-4 ">
         <div class="flex grow gap-2 flex-col">
-          <%= f.label :reference_date_gteq, t(".entry_start_at"), class: "text-readable-content-500 text-sm " %>
+          <%= f.label :reference_date_gteq, t(".entry_start_at"), class: "text-base-content text-sm " %>
 
           <%= f.text_field :reference_date_gteq, class: 'input-primary w-full',
             data: { controller: "flatpickr" }
@@ -39,7 +39,7 @@
 
         <div class="flex grow gap-2 flex-col">
 
-          <%= f.label :reference_date_lteq, t(".entry_end_at"), class: "text-readable-content-500 text-sm " %>
+          <%= f.label :reference_date_lteq, t(".entry_end_at"), class: "text-base-content text-sm " %>
 
           <%= f.text_field :reference_date_lteq,
             class: 'input-primary w-full',

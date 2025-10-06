@@ -1,7 +1,7 @@
 <div id="notifications" class="relative inline-flex" data-controller="dropdown">
   <button data-action="click->dropdown#toggle click@window->dropdown#hide"
     role="button" data-dropdown-target="button"
-    class="cpy-notifications-dropdown text-lg text-readable-content-500 hover:text-primary-500 relative"
+    class="cpy-notifications-dropdown text-lg text-base-content hover:text-primary-500 relative"
     aria-haspopup="true" aria-expanded="false">
     <i class="fa-solid fa-bell"></i>
     <% if notifications.unread.exists? %>
@@ -11,11 +11,11 @@
       </span>
     <% end %>
   </button>
-  <div data-dropdown-target="menu" class="bg-body-contrast origin-top-right z-10 absolute top-full w-96 md:w-124 bg-white border border-background-400 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+  <div data-dropdown-target="menu" class="bg-body-contrast origin-top-right z-10 absolute top-full w-96 md:w-124 bg-white border border-base-300 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
     <div class="flex flex-col">
-      <div class="px-3 py-2 bg-background-50 border-b border-background-200">
+      <div class="px-3 py-2 bg-base-100 border-b border-base-200">
         <div class="flex items-center justify-between">
-          <h3 class="text-sm font-medium text-readable-content-600"><%= t(".notifications") %></h3>
+          <h3 class="text-sm font-medium text-base-content"><%= t(".notifications") %></h3>
           <% if notifications.unread.exists? %>
             <%= button_to mark_all_as_read_notifications_path,
                 class: "text-xs text-primary-500 hover:text-primary-600",
@@ -25,11 +25,11 @@
           <% end %>
         </div>
       </div>
-      <div class="notifications-list max-h-96 overflow-y-auto divide-y divide-background-200">
+      <div class="notifications-list max-h-96 overflow-y-auto divide-y divide-base-200">
         <% if notifications.any? %>
           <%= render partial: "layouts/_header/notification_item", collection: notifications, as: :notification %>
         <% else %>
-          <div class="p-4 text-center text-readable-content-400">
+          <div class="p-4 text-center text-base-content">
             <p class="text-sm"><%= t(".no_notifications") %></p>
           </div>
         <% end %>

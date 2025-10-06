@@ -26,7 +26,7 @@
   }
 
   body {
-    @apply bg-background-50 bg-opacity-40 text-readable-content-600;
+    @apply bg-base-100 bg-opacity-40 text-base-content;
   }
 
   .btn {

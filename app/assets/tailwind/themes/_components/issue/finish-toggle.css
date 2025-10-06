@@ -1,5 +1,5 @@
 .issue--finish-toggle {
-  @apply rounded-full border-readable-content-500/60 border-2 text-readable-content-500 transition-all duration-300;
+  @apply rounded-full border-readable-content-500/60 border-2 text-base-content transition-all duration-300;
   @apply flex items-center justify-center;
   @apply cursor-pointer;
 

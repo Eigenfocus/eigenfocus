@@ -4,7 +4,7 @@
 }
 
 .table-primary thead th {
-  @apply whitespace-nowrap bg-background-200 first:pl-5 last:pr-5 py-3 font-medium text-xs uppercase text-readable-content-500;
+  @apply whitespace-nowrap bg-base-200 first:pl-5 last:pr-5 py-3 font-medium text-xs uppercase text-base-content;
 }
 
 .table-primary thead th:first-child {
@@ -16,18 +16,18 @@
 }
 
 .table-primary tbody tr {
-  @apply border-b border-readable-content-200 bg-background-50;
+  @apply border-b border-readable-content-200 bg-base-100;
 }
 .table-primary tbody tr.inactive-row {
-  @apply bg-background-50;
+  @apply bg-base-100;
 }
 
 .table-primary.table-striped tbody tr:nth-child(odd) {
-  @apply bg-background-100/80 hover:bg-background-200;
+  @apply bg-base-100/80 hover:bg-base-200;
 }
 
 .table-primary.table-striped tbody tr:nth-child(even) {
-  @apply bg-background-50 hover:bg-background-200;
+  @apply bg-base-100 hover:bg-base-200;
 }
 
 .table-primary tbody tr:last-child {

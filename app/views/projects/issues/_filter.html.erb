@@ -12,12 +12,12 @@
     </div>
 
     <div class="flex gap-2 lg:w-60 items-center">
-      <%= f.label :title_cont, class: "text-readable-content-500 text-nowrap font-medium text-xs" %>
+      <%= f.label :title_cont, class: "text-base-content text-nowrap font-medium text-xs" %>
       <%= f.search_field :title_cont, class: 'input-contrast input-sm' %>
     </div>
 
     <div class="flex gap-2 lg:grow lg:w-72 items-center cpy-by-labels-titles">
-      <%= f.label :by_label_titles, class: "text-readable-content-500 text-nowrap font-medium text-xs" %>
+      <%= f.label :by_label_titles, class: "text-base-content text-nowrap font-medium text-xs" %>
       <%= f.select :by_label_titles, current_project.issue_labels.pluck(:title),
                 { include_hidden: false },
                 class: 'input-primary input-sm',
@@ -33,7 +33,7 @@
   <div class="flex mt-4 flex-col lg:flex-row justify-between items-stretch gap-4 flex-wrap">
     <div class="flex flex-col lg:flex-row items-stretch gap-4 flex-wrap">
       <div class="flex gap-2 lg:w-56 items-center ">
-        <%= f.label :due_date_gteq, class: "text-readable-content-500 text-nowrap font-medium text-xs" %>
+        <%= f.label :due_date_gteq, class: "text-base-content text-nowrap font-medium text-xs" %>
 
         <div class="flatpickr-resetable-container">
           <%= f.search_field :due_date_gteq,
@@ -44,7 +44,7 @@
       </div>
 
       <div class="flex gap-2 lg:w-56 items-center">
-        <%= f.label :due_date_lteq, class: "text-readable-content-500 text-nowrap font-medium text-xs" %>
+        <%= f.label :due_date_lteq, class: "text-base-content text-nowrap font-medium text-xs" %>
 
         <div class="flatpickr-resetable-container">
           <%= f.search_field :due_date_lteq,
