@@ -1,12 +1,30 @@
-@import './select2';
-@import './flatpickr';
-@import './markdown';
-@import './sortablejs';
-@import './milkdown';
-@import './pagy.tailwind';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import './select2'; */
+/* @import './flatpickr'; */
+/* @import './markdown'; */
+/* @import './sortablejs'; */
+/* @import './milkdown'; */
+/* @import './pagy.tailwind'; */
 @import './_components/all';
 
 /* :empty does't work if element has any text */
+
+.btn-tertiary {
+  @apply btn-dash;
+}
+
+.btn-danger {
+  @apply btn-error;
+}
+
+.btn-cancel {
+  @apply btn-neutral;
+}
+
 .hide-if-empty:not(:has(:first-child)) {
   display: none;
 }
