@@ -3,12 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import './select2'; */
-/* @import './flatpickr'; */
-/* @import './markdown'; */
-/* @import './sortablejs'; */
-/* @import './milkdown'; */
-/* @import './pagy.tailwind'; */
+@import './select2';
+@import './flatpickr';
+@import './markdown';
+@import './sortablejs';
+@import './milkdown';
+@import './pagy.tailwind';
 @import './_components/all';
 
 /* :empty does't work if element has any text */

@@ -7,7 +7,7 @@
 }
 
 .markdown-editor .editor-toolbar > a {
-  @apply text-base-content !important;
+  @apply text-base-content ;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -19,18 +19,18 @@
 }
 
 .markdown-editor .editor-toolbar > a:hover {
-  @apply bg-base-100 !important;
+  @apply bg-base-100 ;
 }
 
 .markdown-editor .CodeMirror {
-  @apply text-base-content bg-base-100 !important;
+  @apply text-base-content bg-base-100 ;
 }
 
 .markdown-editor .CodeMirror-cursor {
-  @apply border-neutral-content !important;
+  @apply border-neutral-content ;
 }
 
-pre.CodeMirror-line { overflow-wrap: anywhere !important; }
+pre.CodeMirror-line { overflow-wrap: anywhere ; }
 
 :is(.markdown-content, .editor-preview) {
   @apply bg-base-100 text-base-content font-sans leading-relaxed;

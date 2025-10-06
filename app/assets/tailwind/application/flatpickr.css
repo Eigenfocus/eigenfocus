@@ -30,7 +30,7 @@
 }
 
 .flatpickr-clear-button {
-  @apply link-cancel;
+  @apply link-neutral;
   position: absolute;
   top: 50%;
   right: 10px;
@@ -158,7 +158,7 @@
 .flatpickr-day.selected.nextMonthDay,
 .flatpickr-day.startRange.nextMonthDay,
 .flatpickr-day.endRange.nextMonthDay {
-    @apply bg-primary text-primary-50 rounded-md;
+    @apply bg-primary text-neutral-content rounded-md;
 }
 
 .flatpickr-innerContainer {
@@ -184,7 +184,7 @@
 .flatpickr-day.nextMonthDay:focus,
 .flatpickr-day.today:hover,
 .flatpickr-day.today:focus {
-    @apply bg-primary text-primary-50 rounded-md;
+    @apply bg-primary text-neutral-content rounded-md;
 }
 
 .flatpickr-day.inRange,

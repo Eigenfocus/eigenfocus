@@ -9,7 +9,7 @@
     @apply flex text-base-content text-sm;
 
     a {
-      @apply flex items-center justify-center leading-tight px-3.5 py-2 bg-base-200 hover:bg-readable-content-50;
+      @apply flex items-center justify-center leading-tight px-3.5 py-2 bg-base-200;
 
       &.gap {
         @apply text-base-content cursor-default;
