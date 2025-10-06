@@ -20,7 +20,7 @@
         <i class="ml-2 fa-solid fa-angle-down"></i>
       </div>
 
-      <div data-dropdown-target="menu" class="flex min-w-content flex-col bg-body-contrast absolute z-10 top-full left-0 border border-base-300 rounded-lg shadow-lg overflow-hidden whitespace-nowrap mt-1 hidden cpy-grouping-picker-container">
+      <div data-dropdown-target="menu" class="flex min-w-content flex-col bg-base-200 absolute z-10 top-full left-0 border border-base-300 rounded-lg shadow-lg overflow-hidden whitespace-nowrap mt-1 hidden cpy-grouping-picker-container">
         <% issue.project.default_visualization.groupings.each do |grouping| %>
           <% css_classes = "hover:bg-base-100 py-2 px-4" %>
           <% is_selected = issue.groupings.first == grouping %>

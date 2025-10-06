@@ -6,7 +6,7 @@
       <div class="text-xs flex mt-1 justify-between gap-4">
         <span>
           <% if notification.external_link? %>
-            <%= link_to "https://notifications.eigenfocus.com/#{notification.external_id}", target: "_blank", class: "cpy-external-link text-xs text-primary-500 hover:text-primary-600" do %>
+            <%= link_to "https://notifications.eigenfocus.com/#{notification.external_id}", target: "_blank", class: "cpy-external-link text-xs text-primary hover:text-primary" do %>
               <i class="mr-1 fa-solid fa-arrow-up-right-from-square"></i>
               <%= t(".visit_link") %>
             <% end %>
@@ -14,7 +14,7 @@
         </span>
         <% unless notification.read? %>
           <%= button_to mark_as_read_notification_path(notification),
-              class: "text-xs text-primary-500 hover:text-primary-600 cpy-mark-as-read",
+              class: "text-xs text-primary hover:text-primary cpy-mark-as-read",
               data: { turbo_method: :post } do %>
             <%= t(".mark_as_read") %>
           <% end %>

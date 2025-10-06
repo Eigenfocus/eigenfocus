@@ -71,7 +71,7 @@ const PlayListItem = ({
               max={1}
               onChange={handleVolumeChange}
               value={volume}
-              className="h-1 bg-primary-400 w-[90%] rounded-lg appearance-none cursor-pointer"/>
+              className="h-1 bg-primary w-[90%] rounded-lg appearance-none cursor-pointer"/>
           </div>
           <span className="wave-wrapper">
             <SoundWaveIcon />

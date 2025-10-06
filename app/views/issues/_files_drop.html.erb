@@ -18,7 +18,7 @@
     }
   ) %>
 
-  <div class="dz-message cursor-pointer p-4 rounded-md border border-primary-200 hover:border-primary-400 bg-primary-50 hover:bg-primary-100">
+  <div class="dz-message cursor-pointer p-4 rounded-md border border-primary hover:border-primary bg-primary-50 hover:bg-primary">
     <p class="text-xs text-center text-base-content">
       <%= t(".click_to_upload_or_drag_and_drop_your_files_here") %>
     </p>
@@ -32,7 +32,7 @@
       <div class="flex flex-col gap-2">
         <div class="dz-details file-details">
           <div class="flex gap-4 items-center grow">
-            <div class="flex items-center w-[100px] items-center justify-center text-primary-200 text-4xl">
+            <div class="flex items-center w-[100px] items-center justify-center text-primary text-4xl">
               <div class="size-8">
                 <svg class="loading-spinner animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -44,7 +44,7 @@
               <span class="text-xs text-italic" ><div class="dz-filename"><span data-dz-name></span></div></span>
               <span  class="text-sm"><div class="dz-size" data-dz-size></div></span>
               <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                <div class="bg-primary-600 h-2.5 rounded-full dz-upload" data-dz-uploadprogress style="width: 0%"></div>
+                <div class="bg-primary h-2.5 rounded-full dz-upload" data-dz-uploadprogress style="width: 0%"></div>
               </div>
               <div class="dz-error-message text-error-500 text-sm"><span data-dz-errormessage></span></div>
             </div>

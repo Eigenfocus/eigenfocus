@@ -2,7 +2,6 @@
 @import "./focus-app";
 @import "./issue-label";
 @import "./issue-detail";
-@import "./link";
 @import "./sidebar";
 @import "./table";
 @import "./visualizations/board";

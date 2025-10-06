@@ -34,19 +34,19 @@
 }
 
 .card {
-  @apply p-5 bg-body-contrast border border-primary-100 rounded-sm shadow-sm;
+  @apply p-5 bg-base-200 border border-primary rounded-sm shadow-sm;
 }
 
 .input-primary,
 input.input-primary,
 .flatpickr-input.input-primary {
-  @apply w-full rounded-lg border border-base-300 px-3 bg-base-100 text-base-content py-2 placeholder:text-base-content/70 hover:border-base-300 focus:border-primary-500;
+  @apply w-full rounded-lg border border-base-300 px-3 bg-base-100 text-base-content py-2 placeholder:text-base-content/70 hover:border-base-300 focus:border-primary;
 }
 
 .input-contrast,
 input.input-contrast,
 .flatpickr-input.input-contrast {
-  @apply w-full rounded-lg border border-base-300 px-3 bg-body-contrast text-base-content py-2 placeholder:text-base-content/70 hover:border-base-300 focus:border-primary-500;
+  @apply w-full rounded-lg border border-base-300 px-3 bg-base-200 text-base-content py-2 placeholder:text-base-content/70 hover:border-base-300 focus:border-primary;
 }
 
 .input-with-icon-wrapper .icon-wrapper {
@@ -54,7 +54,7 @@ input.input-contrast,
 }
 
 .input-sm {
-  @apply py-2 text-xs !important;
+  @apply py-2 text-xs;
 }
 
 .label-primary {

@@ -1,24 +1,24 @@
 <div id="notifications" class="relative inline-flex" data-controller="dropdown">
   <button data-action="click->dropdown#toggle click@window->dropdown#hide"
     role="button" data-dropdown-target="button"
-    class="cpy-notifications-dropdown text-lg text-base-content hover:text-primary-500 relative"
+    class="cpy-notifications-dropdown text-lg text-base-content hover:text-primary relative"
     aria-haspopup="true" aria-expanded="false">
     <i class="fa-solid fa-bell"></i>
     <% if notifications.unread.exists? %>
       <span class="js-notifications-ping absolute -top-1 -left-1 flex size-3">
-        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary-400 opacity-75"></span>
-        <span class="relative inline-flex size-3 rounded-full bg-secondary-500"></span>
+        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-75"></span>
+        <span class="relative inline-flex size-3 rounded-full bg-secondary"></span>
       </span>
     <% end %>
   </button>
-  <div data-dropdown-target="menu" class="bg-body-contrast origin-top-right z-10 absolute top-full w-96 md:w-124 bg-white border border-base-300 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+  <div data-dropdown-target="menu" class="bg-base-200 origin-top-right z-10 absolute top-full w-96 md:w-124 bg-white border border-base-300 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
     <div class="flex flex-col">
       <div class="px-3 py-2 bg-base-100 border-b border-base-200">
         <div class="flex items-center justify-between">
           <h3 class="text-sm font-medium text-base-content"><%= t(".notifications") %></h3>
           <% if notifications.unread.exists? %>
             <%= button_to mark_all_as_read_notifications_path,
-                class: "text-xs text-primary-500 hover:text-primary-600",
+                class: "text-xs text-primary hover:text-primary",
                 data: { turbo_method: :post } do %>
               <%= t(".mark_all_as_read") %>
             <% end %>

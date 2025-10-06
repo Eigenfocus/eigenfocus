@@ -21,7 +21,7 @@
 <%= turbo_frame_tag 'projects', class: "tour--projects-list" do %>
   <div class="flex flex-col gap-4 lg:gap-8 flex-wrap justify-stretch" id="projects-list">
     <% if @projects.count.zero? %>
-      <div class="border p-8 bg-body-contrast border-base-100 rounded-md shadow-xs items-center w-full p-6 "id='empty-row'>
+      <div class="border p-8 bg-base-200 border-base-100 rounded-md shadow-xs items-center w-full p-6 "id='empty-row'>
         <p class='text-center text-base-content'>
           <%= t("zero_records", resource_name: Project.model_name.human) %>
         </p>

@@ -1,6 +1,6 @@
 <div id="issue-file-<%= file.signed_id %>" class="p-4 flex gap-2 justify-between items-stretch hover:bg-primary-50 rounded-md">
   <div class="flex gap-4 items-center grow">
-    <div class="flex items-center min-w-12 max-w-12 justify-center text-primary-200 text-4xl">
+    <div class="flex items-center min-w-12 max-w-12 justify-center text-primary text-4xl">
       <%= link_to rails_blob_path(file, description: "attachment"), class: "flex items-center", target: '_blank' do %>
         <% if file.representable? %>
           <%= image_tag file.representation(resize_to_limit: [100, 100]), class: 'w-auto' %>
@@ -22,7 +22,7 @@
       <i class="fa-solid text-sm fa-download"></i>
     <% end %>
 
-    <button data-issue-detail-file-url-param="<%= rails_blob_url(file, description: "attachment") %>" data-action="click->issue-detail#copyToClipboard" class="text-primary-500 items-center flex text-center inline-flex items-center gap-2">
+    <button data-issue-detail-file-url-param="<%= rails_blob_url(file, description: "attachment") %>" data-action="click->issue-detail#copyToClipboard" class="text-primary items-center flex text-center inline-flex items-center gap-2">
       <i class="hidden text-success-500 fa-solid fa-check"></i>
       <i class="text-base-content fa-solid text-sm fa-copy"></i>
     </button>

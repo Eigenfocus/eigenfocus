@@ -1,5 +1,5 @@
 .sidebar--list {
-  @apply max-h-[300px] overflow-y-auto px-8 md:hidden md:sidebar-expanded:block;
+  @apply max-h-[300px] overflow-y-auto px-8 md:hidden;
   font-size: 0.84rem;
 
   mask-image: linear-gradient(
@@ -9,7 +9,7 @@
   );
 
   a {
-    @apply flex gap-2 items-center font-normal grow text-base-content hover:font-semibold hover:text-primary-800;
+    @apply flex gap-2 items-center font-normal grow text-base-content hover:font-semibold hover:text-primary;
     padding: 0.25em 0;
 
     &:last-child {

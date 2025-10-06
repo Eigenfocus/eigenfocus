@@ -1,7 +1,7 @@
 <%= render_modal(wrapper_options: { id: 'guide-modal' } , container_options: { class: "#{params[:show_guide_modal] == 'true' ? '' : 'hidden'} animate__animated animate__zoomIn fixed inset-0 overflow-y-auto flex items-center justify-center" }) do %>
   <div class="border-b border-base-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
-      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
+      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary ">
         <i class="fa-regular fa-star"></i>
       </div>
       <h4 class="text-lg font-medium text-base-content">
@@ -14,7 +14,7 @@
       <%= t(".thanks") %><br/>
     </div>
     <article class="flex flex-col">
-      <h3 class="font-medium text-primary-500 flex items-center space-x-2">
+      <h3 class="font-medium text-primary flex items-center space-x-2">
         <%= icon_for(:projects) %>
         <span><%= t(".features.project.title") %></span>
       </h3>
@@ -22,7 +22,7 @@
     </article>
 
     <article class="flex flex-col">
-      <h3 class="font-medium text-primary-500 flex items-center space-x-2">
+      <h3 class="font-medium text-primary flex items-center space-x-2">
         <%= icon_for(:issues) %>
         <span><%= t(".features.all_issues.title") %></span>
       </h3>
@@ -30,7 +30,7 @@
     </article>
 
     <article class="flex flex-col">
-      <h3 class="font-medium text-primary-500 flex items-center space-x-2">
+      <h3 class="font-medium text-primary flex items-center space-x-2">
         <%= icon_for(:boards) %>
         <span><%= t(".features.boards.title") %></span>
       </h3>
@@ -38,7 +38,7 @@
     </article>
 
     <article class="flex flex-col">
-      <h3 class="font-medium text-primary-500 flex items-center space-x-2">
+      <h3 class="font-medium text-primary flex items-center space-x-2">
         <%= icon_for(:time_entries) %>
         <span><%= t(".features.time_tracking.title") %></span>
       </h3>
@@ -46,7 +46,7 @@
     </article>
 
     <article class="flex flex-col">
-      <h3 class="font-medium text-primary-500 flex items-center space-x-2">
+      <h3 class="font-medium text-primary flex items-center space-x-2">
         <%= icon_for(:report) %>
         <span><%= t(".features.reports.title") %></span>
       </h3>
@@ -54,7 +54,7 @@
     </article>
 
     <article class="flex flex-col">
-      <h3 class="font-medium text-primary-500 flex items-center space-x-2">
+      <h3 class="font-medium text-primary flex items-center space-x-2">
         <%= icon_for(:theme) %>
         <span><%= t(".features.themes.title") %></span>
       </h3>

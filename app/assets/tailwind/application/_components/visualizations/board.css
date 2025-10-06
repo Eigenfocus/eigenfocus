@@ -1,6 +1,6 @@
 .visualization--board {
   .board--column {
-    @apply max-h-full flex flex-col shrink-0 p-2 border bg-body-contrast border-readable-content-500/30 rounded-md transition-all duration-200;
+    @apply max-h-full flex flex-col shrink-0 p-2 border bg-base-200 border-neutral-content/30 rounded-md transition-all duration-200;
     width: 256px;
 
     &.collapsed {

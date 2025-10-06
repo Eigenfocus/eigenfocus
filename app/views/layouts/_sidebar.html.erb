@@ -64,9 +64,9 @@
 
       <div class="sidebar-bottom border-t border-base-100">
          <div class="flex flex-col items-stretch">
-            <% active_class = (controller_name == 'profiles') ? 'is-selected bg-base-100 text-primary-800' : 'text-primary-600' %>
+            <% active_class = (controller_name == 'profiles') ? 'is-selected bg-base-100 text-primary' : 'text-primary' %>
 
-            <a href="<%= edit_profile_path %>" class="<%= active_class %> hover:text-primary-800 group flex sm:justify-center items-center sidebar-expanded:justify-start space-x-3 py-2 px-4 transition-all hover:bg-base-100">
+            <a href="<%= edit_profile_path %>" class="<%= active_class %> hover:text-primary group flex sm:justify-center items-center sidebar-expanded:justify-start space-x-3 py-2 px-4 transition-all hover:bg-base-100">
                <div class="flex justify-center items-center size-8 ">
                   <i class="fa-regular fa-id-card"></i>
                </div>

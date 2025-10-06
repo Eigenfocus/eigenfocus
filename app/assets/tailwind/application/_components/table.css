@@ -16,7 +16,7 @@
 }
 
 .table-primary tbody tr {
-  @apply border-b border-readable-content-200 bg-base-100;
+  @apply border-b border-neutral-content bg-base-100;
 }
 .table-primary tbody tr.inactive-row {
   @apply bg-base-100;

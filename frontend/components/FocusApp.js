@@ -37,8 +37,8 @@ const FocusApp = ({ }) => {
             <>
               {(pomodoroState === POMODORO_STATE.FINISHED) && (
                 <span className="ping-notification">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-600 opacity-75"></span>
-                  <span className="relative inline-flex size-3 rounded-full bg-primary-700"></span>
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex size-3 rounded-full bg-primary"></span>
                 </span>
               )}
 

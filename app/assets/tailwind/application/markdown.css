@@ -15,7 +15,7 @@
 }
 
 .markdown-editor .editor-toolbar > a.active {
-  @apply bg-primary-400 text-primary-800 border-primary-800;
+  @apply bg-primary text-primary border-primary;
 }
 
 .markdown-editor .editor-toolbar > a:hover {
@@ -27,7 +27,7 @@
 }
 
 .markdown-editor .CodeMirror-cursor {
-  @apply border-readable-content-500 !important;
+  @apply border-neutral-content !important;
 }
 
 pre.CodeMirror-line { overflow-wrap: anywhere !important; }
@@ -63,7 +63,7 @@ pre.CodeMirror-line { overflow-wrap: anywhere !important; }
 
 /* Links */
 :is(.markdown-content, .editor-preview) a {
-  @apply text-primary-500 hover:text-primary-600 underline;
+  @apply text-primary hover:text-primary underline;
 }
 :is(.markdown-content, .editor-preview) a:hover {
   @apply underline;

@@ -5,7 +5,7 @@
 
   <div class="border-b border-base-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
-      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
+      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary ">
         <%= icon_for(:projects) %>
       </div>
       <h4 class="text-lg font-medium text-base-content">
@@ -35,8 +35,8 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-stretch items-stretch text-base-content">
             <div class="relative flex items-stretch justify-stretch">
               <%= f.radio_button :use_template, "", class: "hidden peer", id: "template_none" %>
-              <label for="template_none" class="block p-4 border rounded-lg border-base-100 cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
-                <div class="font-medium text-primary-500 mb-1"><%= t('.no_template') %></div>
+              <label for="template_none" class="block p-4 border rounded-lg border-base-100 cursor-pointer hover:border-primary peer-checked:border-primary peer-checked:bg-primary-50">
+                <div class="font-medium text-primary mb-1"><%= t('.no_template') %></div>
                 <p class="text-sm text-base-content">
                   <%= t('.start_from_scratch') %>
                 </p>
@@ -46,8 +46,8 @@
             <% Project::Templatable::Template.all.each do |template| %>
               <div class="relative flex items-stretch justify-stretch">
                 <%= f.radio_button :use_template, template.key, class: "hidden peer", id: "template_#{template.key}" %>
-                <label for="template_<%= template.key %>" class="block p-4 border border-base-100 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-500 peer-checked:bg-primary-50">
-                  <div class="font-medium mb-1 text-primary-500 "><%= template.name %></div>
+                <label for="template_<%= template.key %>" class="block p-4 border border-base-100 rounded-lg cursor-pointer hover:border-primary peer-checked:border-primary peer-checked:bg-primary-50">
+                  <div class="font-medium mb-1 text-primary "><%= template.name %></div>
                   <p class="text-sm text-base-content">
                     <%= template.description %>
                   </p>

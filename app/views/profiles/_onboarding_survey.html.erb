@@ -1,7 +1,7 @@
 <div class="card p-5 rounded-lg my-8">
 
-  <div class="text-center w-full flex flex-row justify-start items-center gap-2 pb-2 border-b border-readable-content-100">
-    <div class="text-md size-8 rounded-full bg-primary-50 text-primary-400 flex items-center justify-center">
+  <div class="text-center w-full flex flex-row justify-start items-center gap-2 pb-2 border-b border-neutral-content">
+    <div class="text-md size-8 rounded-full bg-primary-50 text-primary flex items-center justify-center">
       <i class="fa fa-lightbulb"></i>
     </div>
     <h4 class="text-lg font-medium text-base-content">
@@ -33,7 +33,7 @@
             <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-base-content" %>
               <%= radio_button_tag :team_size,
                 option[:value],
-                class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+                class: "w-4 h-4 mr-2 text-blue-600 bg-neutral-content border-neutral-content focus:ring-blue-500" %>
                 <span><%= option[:label] %></span>
             </label>
           </li>
@@ -65,7 +65,7 @@
             <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-base-content" %>
               <%= radio_button_tag :utilization_context,
                 option[:value],
-                class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500" %>
+                class: "w-4 h-4 mr-2 text-blue-600 bg-neutral-content border-neutral-content focus:ring-blue-500" %>
                 <span><%= option[:label] %></span>
             </label>
           </li>
@@ -132,7 +132,7 @@
             <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-base-content" %>
               <%= radio_button_tag :how_did_you_found_us,
                 option[:value],
-                class: "w-4 h-4 mr-2 text-blue-600 bg-readable-content-100 border-readable-content-300 focus:ring-blue-500",
+                class: "w-4 h-4 mr-2 text-blue-600 bg-neutral-content border-neutral-content focus:ring-blue-500",
                 "onclick": "document.getElementById('how-did-you-found-us-details').style.display = 'block';"
               %>
                 <span><%= option[:label] %></span>

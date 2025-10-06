@@ -30,7 +30,7 @@
 </div>
 
 
-<div class="mt-2 mb-4 flex gap-4 text-sm font-medium border-b border-readable-content-300 tour--project-navigation-tabs">
+<div class="mt-2 mb-4 flex gap-4 text-sm font-medium border-b border-neutral-content tour--project-navigation-tabs">
   <%
     default_classes = "px-2 pb-1 whitespace-nowrap"
     tabs = [{
@@ -46,10 +46,10 @@
       }
     ].each do |tab|
 
-    tab[:options][:class] = "flex items-center gap-1 px-2 pb-2 whitespace-nowrap hover:text-primary-500"
+    tab[:options][:class] = "flex items-center gap-1 px-2 pb-2 whitespace-nowrap hover:text-primary"
     tab[:options][:data] = { turbo_frame: "_top" }
     if tab[:is_selected]
-      tab[:options][:class] += "border-b-2 border-primary-500 text-primary-500"
+      tab[:options][:class] += "border-b-2 border-primary text-primary"
     end
   %>
     <%= content_tag :a, tab[:options] do %>
