@@ -157,7 +157,7 @@ GEM
       dry-initializer (~> 3.2)
       dry-schema (~> 1.14)
       zeitwerk (~> 2.6)
-    erb (5.0.2)
+    erb (5.0.3)
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
@@ -266,7 +266,7 @@ GEM
     positioning (0.4.7)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
-    pp (0.6.2)
+    pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
     prism (1.4.0)
@@ -282,7 +282,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.2.1)
+    rack (3.2.2)
     rack-proxy (0.7.7)
       rack
     rack-session (2.1.1)
@@ -328,9 +328,10 @@ GEM
       activerecord (>= 7.2)
       activesupport (>= 7.2)
       i18n
-    rdoc (6.14.2)
+    rdoc (6.15.0)
       erb
       psych (>= 4.0.0)
+      tsort
     react-rails (3.2.1)
       babel-transpiler (>= 0.7.0)
       connection_pool
@@ -400,7 +401,7 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     semantic_range (3.1.0)
-    shakapacker (8.4.0)
+    shakapacker (9.0.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -456,7 +457,7 @@ GEM
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
-    uri (1.0.3)
+    uri (1.0.4)
     useragent (0.16.11)
     view_component (4.0.2)
       activesupport (>= 7.1.0, < 8.1)
@@ -521,7 +522,7 @@ DEPENDENCIES
   rspec-rails (~> 8.0)
   rubocop-rails-omakase
   selenium-webdriver (= 4.36.0)
-  shakapacker (~> 8.4)
+  shakapacker (~> 9.0)
   solid_cable (~> 3.0)
   solid_queue (~> 1.2)
   sqlite3 (>= 2.1)

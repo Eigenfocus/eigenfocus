@@ -41,7 +41,7 @@ gem "ransack", "~> 4.4"
 gem "pagy", "~> 9.4"
 
 # Frontend app
-gem "shakapacker", "~> 8.4"
+gem "shakapacker", "~> 9.0"
 gem "react-rails", "~> 3.2"
 gem "js-routes", "~> 2.3"
 gem "i18n-js", "~> 4.2"
