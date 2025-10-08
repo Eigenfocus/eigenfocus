@@ -4,6 +4,8 @@
 default: &default
   source_path: frontend
 
+  javascript_transpiler: "swc"
+
   # You can have a subdirectory of the source_path, like 'packs' (recommended).
   # Alternatively, you can use '/' to use the whole source_path directory.
   # Notice that this is a relative path to source_path
