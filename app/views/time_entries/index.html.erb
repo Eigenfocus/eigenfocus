@@ -30,30 +30,28 @@
       controller: 'form'
     } ) do |f| %>
 
-      <label for="go-to-date" class="flex hidden text-base-content title items-center">
-        <p><%= t(".goto_date") %></p>
-      </label>
-      <div class="input-with-icon-wrapper w-[160px]">
-        <div class="icon-wrapper">
-          <i class="fa-regular fa-calendar"></i>
-        </div>
+      <label class="input max-w-36">
+        <i class="fa-regular fa-calendar opacity-50"></i>
+
         <input id="go-to-date"
-        name="reference_date"
-        class="input-primary"
-        placeholder="Reference Date"
-        data-controller="flatpickr"
-        data-action="change->form#submit"
-        data-flatpickr-min-date="2019-01-01"
-        data-flatpickr-max-date="2030-01-01"
-        value="<%= l @reference_date, format: :flatpickr %>" type="text" readonly="readonly">
-      </div>
-      <div class="flex items-stretch justify-stretch">
+          name="reference_date"
+          class="grow"
+          placeholder="Reference Date"
+          data-controller="flatpickr"
+          data-action="change->form#submit"
+          data-flatpickr-min-date="2019-01-01"
+          data-flatpickr-max-date="2030-01-01"
+          value="<%= l @reference_date, format: :flatpickr %>" type="text" readonly="readonly">
+      </label>
+
+      <% if @reference_date != Date.current %>
         <%= link_to time_entries_path(reference_date: Date.current.strftime("%Y-%m-%d")),
-            class: 'btn-tertiary',
+            class: 'btn btn-ghost',
             data: { 'turbo-action': 'advance' } do %>
             <%= t(".goto_today") %>
         <% end %>
-      </div>
+      <% end %>
+
 
     <% end %>
     <%= link_to new_time_entry_path(reference_date: @reference_date),
