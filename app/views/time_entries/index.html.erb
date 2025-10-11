@@ -22,116 +22,119 @@
 
 <%= turbo_frame_tag 'time_entries' do %>
 
-<div class="flex flex-col md:flex-row justify-stretch items-stretch sm:justify-between gap-4 mb-6">
-  <%= form_with(url: time_entries_path, method: :get,
-    class: 'flex items-stretch justify-between flex-row-reverse sm:flex-row gap-4',
-    data: { turbo_method: :get, turbo_frame: 'time_entries',
-    controller: 'form'
-  } ) do |f| %>
+<div class="mx-auto lg:max-w-6xl">
+  <div class="flex flex-col md:flex-row justify-stretch items-stretch sm:justify-between gap-4 mb-6">
+    <%= form_with(url: time_entries_path, method: :get,
+      class: 'flex items-stretch justify-between flex-row-reverse sm:flex-row gap-4',
+      data: { turbo_method: :get, turbo_frame: 'time_entries',
+      controller: 'form'
+    } ) do |f| %>
 
-    <label for="go-to-date" class="flex hidden text-base-content title items-center">
-      <p><%= t(".goto_date") %></p>
-    </label>
-    <div class="input-with-icon-wrapper w-[160px]">
-      <div class="icon-wrapper">
-        <i class="fa-regular fa-calendar"></i>
-      </div>
-      <input id="go-to-date"
-      name="reference_date"
-      class="input-primary"
-      placeholder="Reference Date"
-      data-controller="flatpickr"
-      data-action="change->form#submit"
-      data-flatpickr-min-date="2019-01-01"
-      data-flatpickr-max-date="2030-01-01"
-      value="<%= l @reference_date, format: :flatpickr %>" type="text" readonly="readonly">
-    </div>
-    <div class="flex items-stretch justify-stretch">
-      <%= link_to time_entries_path(reference_date: Date.current.strftime("%Y-%m-%d")),
-          class: 'btn-tertiary',
-          data: { 'turbo-action': 'advance' } do %>
-          <%= t(".goto_today") %>
-      <% end %>
-    </div>
-
-  <% end %>
-  <%= link_to new_time_entry_path(reference_date: @reference_date),
-      class: "btn-primary btn-xl tour--new-time-entry",
-      data: { turbo_frame: 'time_entry_form' } do %>
-    <i class="fa-solid fa-circle-plus mr-2"></i>
-    <%= "#{t('actions.new')} #{TimeEntry.model_name.human.downcase}" %>
-  <% end %>
-</div>
-
-<% if @remaining_dates_with_time_entry_running.any? %>
-  <div class="flex text-sm my-4 cpy-running-time-entries">
-    <div class="flex  items-center">
-      <span class="mr-2 flex items-center text-sm text-slate-500">
-        <div class="mr-1 flex items-center text-secondary">
-          <i class="fa-solid animate-spin fa-clock"></i>
+      <label for="go-to-date" class="flex hidden text-base-content title items-center">
+        <p><%= t(".goto_date") %></p>
+      </label>
+      <div class="input-with-icon-wrapper w-[160px]">
+        <div class="icon-wrapper">
+          <i class="fa-regular fa-calendar"></i>
         </div>
-        <%= t(".other_time_entries_running") %>
-      </span>
-      <div class="flex items-center gap-4">
-        <% @remaining_dates_with_time_entry_running.each do |date| %>
-          <%= link_to time_entries_path(reference_date: date.strftime("%Y-%m-%d")), class: "btn-outline-primary flex items-center flex-nowrap", data: { 'turbo-action': 'advance' } do %>
-            <span><%= l(date, format: :short).downcase %></span>
-            <i class="ml-2 fa-solid fa-arrow-right"></i>
-          <% end %>
+        <input id="go-to-date"
+        name="reference_date"
+        class="input-primary"
+        placeholder="Reference Date"
+        data-controller="flatpickr"
+        data-action="change->form#submit"
+        data-flatpickr-min-date="2019-01-01"
+        data-flatpickr-max-date="2030-01-01"
+        value="<%= l @reference_date, format: :flatpickr %>" type="text" readonly="readonly">
+      </div>
+      <div class="flex items-stretch justify-stretch">
+        <%= link_to time_entries_path(reference_date: Date.current.strftime("%Y-%m-%d")),
+            class: 'btn-tertiary',
+            data: { 'turbo-action': 'advance' } do %>
+            <%= t(".goto_today") %>
         <% end %>
       </div>
+
+    <% end %>
+    <%= link_to new_time_entry_path(reference_date: @reference_date),
+        class: "btn btn-lg btn-primary tour--new-time-entry",
+        data: { turbo_frame: 'time_entry_form' } do %>
+      <i class="fa-solid fa-circle-plus mr-2"></i>
+      <%= "#{t('actions.new')} #{TimeEntry.model_name.human.downcase}" %>
+    <% end %>
+  </div>
+
+  <% if @remaining_dates_with_time_entry_running.any? %>
+    <div class="flex text-sm my-4 cpy-running-time-entries">
+      <div class="flex  items-center">
+        <span class="mr-2 flex items-center text-sm text-slate-500">
+          <div class="mr-1 flex items-center text-secondary">
+            <i class="fa-solid animate-spin fa-clock"></i>
+          </div>
+          <%= t(".other_time_entries_running") %>
+        </span>
+        <div class="flex items-center gap-4">
+          <% @remaining_dates_with_time_entry_running.each do |date| %>
+            <%= link_to time_entries_path(reference_date: date.strftime("%Y-%m-%d")), class: "btn-outline-primary flex items-center flex-nowrap", data: { 'turbo-action': 'advance' } do %>
+              <span><%= l(date, format: :short).downcase %></span>
+              <i class="ml-2 fa-solid fa-arrow-right"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mb-8 mt-4 flex gap-4 justify-stretch overflow-x-auto items-stretch tour--calendar-dates">
+    <% @calendar_dates.each do |date| %>
+      <%
+        wrap_tag = (date == @reference_date) ? :div : :a
+        wrap_options = if (date == @reference_date)
+          {
+            class: "bg-primary text-primary-content"
+          }
+        else
+          {
+            class: "",
+            href: time_entries_path(reference_date: date)
+          }
+        end
+        wrap_options[:data] = {
+          'reference-date': date.strftime("%Y-%m-%d"),
+          'turbo-action': 'advance'
+        }
+        wrap_options[:class] += " transition-colors hover:bg-primary hover:text-primary-content grow rounded-field flex flex-col items-center justify-center px-2 py-4"
+
+      %>
+
+      <%= content_tag wrap_tag, wrap_options do %>
+        <span class="text-base font-semibold"><%= l(date, format: :short_weekday_name )%>, <%= l(date, format: :short )%></span>
+        <span class="text-sm opacity-80 font-semibold turbo-stream-logged-time-text"><%= convert_minutes_to_human_readable_hour(@total_logged_time_per_day[date] || 0) %></span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <template id="js-time-entry-demo">
+    <div class="tour--temporary-element mb-4">
+      <%= render partial: 'time_entry', locals: { time_entry: TimeEntry.new(id: 'temp-demo-entry', project: Project.new(id: 'temp-demo-project', name: 'Example time entry'), description: 'Example time entry description', reference_date: @reference_date) } %>
+    </div>
+  </template>
+
+  <div class="flex flex-col gap-4" id="time-entries-tbody">
+    <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
+
+    <div id="empty-row" class="card peer-[.peer-exists]:hidden">
+      <p class='text-center text-base-content'>
+        <%= t(".zero_records", date: l(@reference_date, format: :long )) %>
+      </p>
+      <p class="mt-3 text-center mb-4">
+        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn-primary py-4 inline-block", data: { turbo_frame: 'time_entry_form' } do %>
+          <i class="fa-solid fa-circle-plus mr-1"></i>
+          <%= t('.click_here_to_create') %>
+        <% end %>
+      </p>
     </div>
   </div>
-<% end %>
-
-<div class="mb-8 mt-4 flex gap-4 justify-stretch overflow-x-auto items-stretch tour--calendar-dates">
-  <% @calendar_dates.each do |date| %>
-    <%
-      wrap_tag = (date == @reference_date) ? :div : :a
-      wrap_options = if (date == @reference_date)
-        {
-          class: "border border-primary text-primary"
-        }
-      else
-        {
-          class: "bg-base-200 border-base-300 cursor-pointer text-base-content hover:border-primary hover:text-primary hover:shadow-lg hover:bg-base-100",
-          href: time_entries_path(reference_date: date)
-        }
-      end
-      wrap_options[:data] = {
-        'reference-date': date.strftime("%Y-%m-%d"),
-        'turbo-action': 'advance'
-      }
-      wrap_options[:class] += " transition-colors grow rounded-md flex flex-col gap-2 font-normal text-center p-4 border shadow-xs"
-
-    %>
-
-    <%= content_tag wrap_tag, wrap_options do %>
-      <span class="text-sm"><%= l(date, format: :short_weekday_name )%>, <%= l(date, format: :short )%></span>
-      <span class="text-md turbo-stream-logged-time-text"><%= convert_minutes_to_human_readable_hour(@total_logged_time_per_day[date] || 0) %></span>
-    <% end %>
-  <% end %>
 </div>
 
-<template id="js-time-entry-demo">
-  <div class="tour--temporary-element mb-4">
-    <%= render partial: 'time_entry', locals: { time_entry: TimeEntry.new(id: 'temp-demo-entry', project: Project.new(id: 'temp-demo-project', name: 'Example time entry'), description: 'Example time entry description', reference_date: @reference_date) } %>
-  </div>
-</template>
-
-<div class="flex flex-col gap-4" id="time-entries-tbody">
-  <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
-
-  <div id="empty-row" class="card peer-[.peer-exists]:hidden">
-    <p class='text-center text-base-content'>
-      <%= t(".zero_records", date: l(@reference_date, format: :long )) %>
-    </p>
-    <p class="mt-3 text-center mb-4">
-      <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn-primary py-4 inline-block", data: { turbo_frame: 'time_entry_form' } do %>
-        <i class="fa-solid fa-circle-plus mr-1"></i>
-        <%= t('.click_here_to_create') %>
-      <% end %>
-    </p>
-  </div>
-</div>
 <% end %>
