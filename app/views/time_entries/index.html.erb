@@ -57,9 +57,9 @@
 
     <% end %>
     <%= link_to new_time_entry_path(reference_date: @reference_date),
-        class: "btn btn-lg btn-primary tour--new-time-entry",
+        class: "btn btn-primary tour--new-time-entry",
         data: { turbo_frame: 'time_entry_form' } do %>
-      <i class="fa-solid fa-circle-plus mr-2"></i>
+      <i class="fa-solid fa-circle-plus"></i>
       <%= "#{t('actions.new')} #{TimeEntry.model_name.human.downcase}" %>
     <% end %>
   </div>
@@ -91,7 +91,7 @@
         wrap_tag = (date == @reference_date) ? :div : :a
         wrap_options = if (date == @reference_date)
           {
-            class: "bg-primary text-primary-content"
+            class: "bg-accent text-accent-content"
           }
         else
           {
@@ -103,7 +103,7 @@
           'reference-date': date.strftime("%Y-%m-%d"),
           'turbo-action': 'advance'
         }
-        wrap_options[:class] += " transition-colors hover:bg-primary hover:text-primary-content grow rounded-field flex flex-col items-center justify-center px-2 py-4"
+        wrap_options[:class] += " transition-colors hover:bg-accent hover:text-accent-content grow rounded-field flex flex-col items-center justify-center px-2 py-4"
 
       %>
 
@@ -120,15 +120,15 @@
     </div>
   </template>
 
-  <div class="list bg-base-200 rounded-box border border-base-300" id="time-entries-tbody">
+  <div class="flex flex-col gap-4" id="time-entries-tbody">
     <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
 
-    <div id="empty-row" class="list-row text-base-content text-base peer-[.peer-exists]:hidden">
+    <div id="empty-row" class="rounded-box border bg-base-200 border-base-300 p-4 text-base-content text-base peer-[.peer-exists]:hidden">
       <p class='text-center col-span-full'>
         <%= t(".zero_records", date: l(@reference_date, format: :long )) %>
         <br/>
         <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn btn-ghost mt-4", data: { turbo_frame: 'time_entry_form' } do %>
-          <i class="fa-solid fa-circle-plus mr-1"></i>
+          <i class="fa-solid fa-circle-plus"></i>
           <%= t('.click_here_to_create') %>
         <% end %>
       </p>
