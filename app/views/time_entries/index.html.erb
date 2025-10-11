@@ -120,15 +120,14 @@
     </div>
   </template>
 
-  <div class="flex flex-col gap-4" id="time-entries-tbody">
+  <div class="list bg-base-200 rounded-box border border-base-300" id="time-entries-tbody">
     <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
 
-    <div id="empty-row" class="card peer-[.peer-exists]:hidden">
-      <p class='text-center text-base-content'>
+    <div id="empty-row" class="list-row text-base-content text-base peer-[.peer-exists]:hidden">
+      <p class='text-center col-span-full'>
         <%= t(".zero_records", date: l(@reference_date, format: :long )) %>
-      </p>
-      <p class="mt-3 text-center mb-4">
-        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn-primary py-4 inline-block", data: { turbo_frame: 'time_entry_form' } do %>
+        <br/>
+        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn btn-ghost mt-4", data: { turbo_frame: 'time_entry_form' } do %>
           <i class="fa-solid fa-circle-plus mr-1"></i>
           <%= t('.click_here_to_create') %>
         <% end %>
