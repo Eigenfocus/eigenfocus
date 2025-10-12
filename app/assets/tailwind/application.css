@@ -11,6 +11,39 @@
 }
 
 @plugin "./daisyui-theme.mjs" {
+  name: "amethistdark";
+  default: false;
+  prefersdark: false;
+  color-scheme: "dark";
+  --color-base-100: oklch(13% 0.028 261.692);
+  --color-base-200: oklch(21% 0.034 264.665);
+  --color-base-300: oklch(27% 0.033 256.848);
+  --color-base-content: oklch(96% 0.003 264.542);
+  --color-primary: oklch(67% 0.182 276.935);
+  --color-primary-content: oklch(96% 0.018 272.314);
+  --color-secondary: oklch(69% 0.17 162.48);
+  --color-secondary-content: oklch(96% 0.044 156.743);
+  --color-accent: oklch(55% 0.046 257.417);
+  --color-accent-content: oklch(98% 0.003 247.858);
+  --color-neutral: oklch(44% 0.03 256.802);
+  --color-neutral-content: oklch(98% 0.002 247.839);
+  --color-info: oklch(70% 0.165 254.624);
+  --color-info-content: oklch(98% 0.019 200.873);
+  --color-success: oklch(79% 0.209 151.711);
+  --color-success-content: oklch(39% 0.095 152.535);
+  --color-warning: oklch(79% 0.184 86.047);
+  --color-warning-content: oklch(98% 0.026 102.212);
+  --color-error: oklch(64% 0.246 16.439);
+  --color-error-content: oklch(97% 0.013 17.38);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
 }
+
 
 @import "./application/base";
