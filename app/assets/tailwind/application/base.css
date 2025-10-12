@@ -14,6 +14,19 @@
 
 /* :empty does't work if element has any text */
 
+@media (prefers-color-scheme: light) {
+  .dark-themes-only {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .light-themes-only {
+    display: none;
+  }
+}
+
+
 .input-with-icon-wrapper .icon-wrapper {
   @apply text-base-content;
 }
