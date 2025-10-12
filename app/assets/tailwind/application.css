@@ -7,7 +7,7 @@
 @source "../../../app/frontend/**/*";
 
 @plugin "./daisyui.mjs" {
-  themes: light --default, dark --prefersdark, cupcake;
+  themes: all;
 }
 
 @plugin "./daisyui-theme.mjs" {
