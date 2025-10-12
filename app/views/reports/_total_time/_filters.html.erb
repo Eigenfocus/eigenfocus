@@ -22,16 +22,22 @@
         %>
     </fieldset>
 
-    <fieldset class="fieldset grow">
+    <fieldset class="fieldset ">
       <legend class="fieldset-legend"><%= t(".entry_start_at") %></legend>
 
-      <%= f.text_field :reference_date_gteq, class: 'input', data: { controller: "flatpickr" } %>
+      <label class="input max-w-36">
+        <i class="fa-regular fa-calendar opacity-50"></i>
+        <%= f.text_field :reference_date_gteq, class: 'grow', data: { controller: "flatpickr" } %>
+      </label>
     </fieldset>
 
-    <fieldset class="fieldset grow">
+    <fieldset class="fieldset">
       <legend class="fieldset-legend"><%= t(".entry_end_at") %></legend>
 
-      <%= f.text_field :reference_date_lteq, class: 'input', data: { controller: "flatpickr" } %>
+      <label class="input max-w-36">
+        <i class="fa-regular fa-calendar opacity-50"></i>
+        <%= f.text_field :reference_date_lteq, class: 'grow', data: { controller: "flatpickr" } %>
+      </label>
     </fieldset>
   </div>
 

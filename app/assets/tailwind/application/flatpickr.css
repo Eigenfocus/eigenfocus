@@ -166,7 +166,7 @@
 }
 
 .flatpickr-day.today {
-  @apply border-0 border-b-2 border-neutral-content/40;
+  @apply border-0 border-b-2 border-neutral-content;
   border-style: solid;
 }
 
@@ -272,8 +272,8 @@ span.flatpickr-weekday {
 }
 
 .flatpickr-year-select-wrapper select {
-  @apply input-primary;
-  width: 85px;
+  width: 85px !important;
+  padding-left: 10px;
 }
 
 /* Year plugin */
