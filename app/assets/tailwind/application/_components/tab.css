@@ -1,12 +1,12 @@
 .tab-item {
-  @apply rounded-full border hover:border-primary hover:text-primary hover:bg-primary/10 text-base-content border-neutral-content;
+  @apply rounded-field text-base-content hover:bg-neutral hover:text-neutral-content;
 
   &.tab-item-xs {
     @apply px-3 py-1 text-xs;
   }
 
   &.tab-item.tab-item--active {
-    @apply border-primary text-primary bg-primary/10;
+    @apply bg-neutral text-neutral-content ;
     cursor: default;
   }
 }

@@ -118,7 +118,7 @@ en:
         no_grouping: "No column"
   time_entries:
     form:
-      save_on_command_enter: press (CTRL + Enter) or (CMD + Enter) to save
+      save_on_command_enter_html: press <kbd class="kbd kbd-xs">CTRL + Enter</kbd> or <kbd class="kbd kbd-xs">CMD + Enter</kbd> to save
     form_project_dependent_fields:
       select_a_project: "Select a project"
       project_has_no_issue: "There are no active issues for this project"

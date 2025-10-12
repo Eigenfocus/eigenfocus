@@ -1,9 +1,7 @@
-@import "./button";
 @import "./focus-app";
 @import "./issue-label";
 @import "./issue-detail";
 @import "./sidebar";
-@import "./table";
 @import "./visualizations/board";
 @import "./markdown-editor/all";
 @import "./focus-app/all";

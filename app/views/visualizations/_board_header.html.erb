@@ -1,10 +1,8 @@
 <div class="px-4 sm:px-8 flex justify-between items-center">
   <div class="flex items-stretch gap-4">
-    <div class="input-with-icon-wrapper w-64">
-      <div class="icon-wrapper">
-        <i class="text-base-content fa fa-search"></i>
-      </div>
-      <input class="input-contrast input-sm active cpy-issues-search"
+    <div class="input">
+      <i class="text-base-content fa fa-search"></i>
+      <input class="grow cpy-issues-search"
         placeholder="Search issue"
         data-visualization--issue-filtering-target="searchInput"
         data-action="input->visualization--issue-filtering#filterIssues"
@@ -12,10 +10,10 @@
     </div>
   </div>
 
-  <div class="flex items-stretch flex-col sm:flex-row gap-4">
+  <div class="flex items-stretch flex-col sm:flex-row">
     <%= render partial: 'favorite_labels_dropdown', locals: { visualization: visualization } %>
 
-    <%= link_to new_visualization_grouping_path(visualization), class: "flex text-sm btn-md btn-primary", data: { turbo_frame: 'grouping_form' } do %>
+    <%= link_to new_visualization_grouping_path(visualization), class: "btn btn-ghost", data: { turbo_frame: 'grouping_form' } do %>
       <i class="fa-solid fa-plus mr-2"></i>
 
       <h2 class="grow font-semibold truncate">
