@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
 
   # Hooks
   before_action :ensure_user_profile_is_complete
-  before_action :set_favorite_theme, if: -> { params[:switch_theme_to].present? }
   before_action :update_app_metadata_daily_usage
   around_action :switch_locale
   around_action :switch_time_zone
@@ -42,12 +41,6 @@ class ApplicationController < ActionController::Base
 
   def update_app_metadata_daily_usage
     AppMetadata.instance.touch_usage!
-  end
-
-  def set_favorite_theme
-    current_user.favorite_theme_key = params[:switch_theme_to]
-    # if an invalid theme is passed, it will not be saved due model validation
-    current_user.save!
   end
 
   def current_user

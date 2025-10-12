@@ -4,6 +4,6 @@ class Current
   end
 
   def self.theme_key
-    user.favorite_theme_key
+    user.preferences.favorite_theme_key
   end
 end

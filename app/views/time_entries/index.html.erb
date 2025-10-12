@@ -22,7 +22,7 @@
 
 <%= turbo_frame_tag 'time_entries' do %>
 
-<div class="mx-auto lg:max-w-6xl">
+<div class="mx-auto lg:max-w-5xl">
   <div class="flex flex-col md:flex-row justify-stretch items-stretch sm:justify-between gap-4 mb-6">
     <%= form_with(url: time_entries_path, method: :get,
       class: 'flex items-stretch justify-between flex-row-reverse sm:flex-row gap-4',
@@ -75,7 +75,7 @@
     <% end %>
   <% end %>
 
-  <div class="mb-8 mt-4 flex gap-4 justify-stretch overflow-x-auto items-stretch tour--calendar-dates">
+  <div class="mb-8 mt-4 flex gap-4 justify-stretch overflow-x-auto items-stretch text-nowrap tour--calendar-dates">
     <% @calendar_dates.each do |date| %>
       <%
         wrap_tag = (date == @reference_date) ? :div : :a
@@ -85,7 +85,7 @@
           }
         else
           {
-            class: "",
+            class: " ",
             href: time_entries_path(reference_date: date)
           }
         end
@@ -93,13 +93,13 @@
           'reference-date': date.strftime("%Y-%m-%d"),
           'turbo-action': 'advance'
         }
-        wrap_options[:class] += " transition-colors hover:bg-neutral hover:text-neutral-content grow rounded-field flex flex-col items-center justify-center px-2 py-4"
+        wrap_options[:class] += " min-w-32 md:min-w-auto transition-colors hover:bg-neutral hover:text-neutral-content grow rounded-field flex flex-col items-center justify-center px-2 py-4"
 
       %>
 
       <%= content_tag wrap_tag, wrap_options do %>
-        <span class="text-base font-semibold"><%= l(date, format: :short_weekday_name )%>, <%= l(date, format: :short )%></span>
-        <span class="text-sm opacity-80 font-semibold turbo-stream-logged-time-text"><%= convert_minutes_to_human_readable_hour(@total_logged_time_per_day[date] || 0) %></span>
+        <span class="text-sm opacity-80 font-semibold"><%= l(date, format: :short_weekday_name )%>, <%= l(date, format: :short )%></span>
+        <span class="text-sm opacity-60 font-semibold mt-2 turbo-stream-logged-time-text"><%= convert_minutes_to_human_readable_hour(@total_logged_time_per_day[date] || 0) %></span>
       <% end %>
     <% end %>
   </div>
@@ -113,11 +113,11 @@
   <div class="flex flex-col gap-4" id="time-entries-tbody">
     <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
 
-    <div id="empty-row" class="rounded-box border bg-base-200 border-base-300 p-8 text-base-content text-base peer-[.peer-exists]:hidden">
+    <div id="empty-row" class="rounded-box border bg-base-100 border-base-300 p-8 text-base-content text-base peer-[.peer-exists]:hidden">
       <p class='text-center col-span-full'>
-        <span class="font-base text-2xl"><%= t(".zero_records", date: l(@reference_date, format: :long )) %></span>
+        <span class="font-base text-xl"><%= t(".zero_records", date: l(@reference_date, format: :long )) %></span>
         <br/>
-        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn btn-xl btn-primary mt-8 ", data: { turbo_frame: 'time_entry_form' } do %>
+        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn btn-primary mt-8 ", data: { turbo_frame: 'time_entry_form' } do %>
           <i class="fa-solid fa-circle-plus mr-2"></i>
           <%= t('.click_here_to_create') %>
         <% end %>

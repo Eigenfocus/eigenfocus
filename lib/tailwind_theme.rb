@@ -1,22 +1,9 @@
 class TailwindTheme
-  attr_reader :key
-  attr_reader :showcase_colors
-  attr_reader :color_suggestions
-  attr_reader :mode
+  attr_reader :key, :name
 
-  def initialize(key:, showcase_colors:, color_suggestions:, mode:)
+  def initialize(key:, name:)
     @key = key
-    @showcase_colors = showcase_colors
-    @color_suggestions = color_suggestions
-    @mode = mode
-  end
-
-  def name
-    I18n.t(:name, scope: [ :themes, key ])
-  end
-
-  def description
-    I18n.t(:description, scope: [ :themes, key ])
+    @name = name
   end
 
   def self.all

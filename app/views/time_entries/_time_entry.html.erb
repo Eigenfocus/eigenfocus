@@ -1,8 +1,8 @@
-<% running_class = time_entry.running? ? "border-success" : "border-base-100" %>
-<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> rounded-box border bg-base-200 border-base-300 flex gap-8 relative peer peer-exists tour--time-entry">
+<% running_class = time_entry.running? ? "border-success/70" : "border-base-100" %>
+<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> rounded-box border bg-base-200 flex gap-8 relative peer peer-exists tour--time-entry">
   <% if time_entry.running? %>
     <span class="absolute left-[-7px] flex" style="width:16px; height:16px; top: calc(50% - 6px)">
-      <span class="relative  inline-flex rounded-full bg-base-200 text-success" style="left:-2px;top:-2px;font-size:16px">
+      <span class="relative  inline-flex rounded-full text-success" style="left:-2px;top:-2px;font-size:16px">
         <i class="animate-spin fa-solid fa-clock"></i>
       </span>
       <span style='width:16px;height:16px;left: -2px; top:-2px;' class="animate-ping absolute inline-flex rounded-full bg-success"></span>
@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <div class="max-w-24 text-4xl tabular-nums flex items-center justify-center <%= time_entry.running? ? "text-success font-medium animate-pulse" : "text-base-content font-thin" %> tour--time-entry-duration">
+  <div class="max-w-24 text-4xl tabular-nums flex items-center justify-center <%= time_entry.running? ? "text-success font-base animate-pulse" : "text-base-content/70 font-extralight" %> tour--time-entry-duration">
     <% if time_entry.running? %>
       <div data-controller="clock-timer"
         data-clock-timer-started-at-value="<%= format_datetime_to_momentjs(time_entry.started_at) %>"
@@ -52,11 +52,11 @@
   </div>
 
   <div class="join join-vertical tour--time-entry-actions overflow-hidden rounded-r-box">
-    <% link_classes = "btn join-item btn-soft min-h-12 grow rounded-none justify-start" %>
+    <% link_classes = "btn join-item btn-ghost min-h-12 grow rounded-none justify-start" %>
 
     <% if time_entry.running? %>
       <%= link_to stop_time_entry_path(time_entry),
-        class: link_classes + " btn-error",
+        class: link_classes + " text-error",
         data: { turbo_method: :put }  do %>
 
         <span class="mr-2"><i class="fa-solid fa-stop"></i></span>
@@ -64,7 +64,7 @@
       <% end %>
     <% else %>
       <%= link_to start_time_entry_path(time_entry),
-        class: link_classes + " btn-success",
+        class: link_classes + "  text-success ",
         data: { turbo_method: :put }  do %>
 
         <span class="mr-2"><i class="fa-solid fa-play"></i></span>

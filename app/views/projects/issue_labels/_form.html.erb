@@ -30,8 +30,6 @@
         class="mb-4 flex flex-col items-stretch gap-2"
         data-controller="color-input"
         data-color-input-issue-preview-outlet=".js-issue-preview-outlet"
-        data-color-input-theme-mode-value="<%= current_theme.mode %>"
-        data-color-input-suggestions-value="<%= current_theme.color_suggestions.to_json %>"
         >
         <%= f.label :hex_color, IssueLabel.human_attribute_name(:hex_color), class: "label-primary" %>
         <div class="relative" data-color-input-target="wrapper">
