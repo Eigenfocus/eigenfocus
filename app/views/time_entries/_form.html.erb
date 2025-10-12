@@ -3,21 +3,18 @@
 <%= start_pending_app_tour_tag("time_entries/form") %>
 
 <%= render_modal do %>
-  <div class="border-b border-base-200 pb-2 mb-4">
+  <div class="border-b border-base-200 mb-4">
     <div class="flex items-center space-x-2">
-      <div class="flex size-6 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary">
-        <%= icon_for(:time_entries) %>
-      </div>
-      <h4 class="text-lg font-medium text-base-content">
+      <h4 class="font-bold text-lg">
         <%= time_entry.persisted? ? "#{t("actions.edit")} #{TimeEntry.model_name.human}" : "#{t("actions.create")} #{TimeEntry.model_name.human}"%> - <%= l(time_entry.reference_date) %>
       </h4>
     </div>
   </div>
   <div class="">
     <%= form_with(model: time_entry, html: {
-        class: 'flex flex-col gap-4',
+        class: 'flex flex-col gap-2',
         data: {
-          controller: 'dependent-fields form  time-entry--form',
+          controller: 'dependent-fields form time-entry--form',
           action: "modal:closed@window->time-entry--form#continueTour"
         }
       }) do |f| %>
@@ -28,9 +25,8 @@
       <% end %>
 
       <%= f.hidden_field :reference_date %>
-
-      <div class="flex gap-2 flex-col cpy-project-list tour--project-selection">
-        <%= f.label :project_id, TimeEntry.human_attribute_name(:project), autofocus: (time_entry.new_record? && time_entry.project_id.blank?), class: "label-primary" %>
+      <fieldset class="fieldset grow cpy-project-list tour--project-selection">
+        <%= f.label :project_id, TimeEntry.human_attribute_name(:project), autofocus: (time_entry.new_record? && time_entry.project_id.blank?), class: "fieldset-label" %>
         <%
           projects_for_select = Project.active.order(name: :asc).to_a
 
@@ -43,30 +39,29 @@
           dependent_fields_target: "hasDependents",
           dependant_turbo_frame_selector: '#project_dependent_fields'
         } } %>
-      </div>
+      </fieldset>
 
       <%= render partial: 'form_project_dependent_fields', locals: { form: f } %>
 
-      <div class="flex gap-2 flex-col tour--description-field">
-        <%= f.label :description, TimeEntry.human_attribute_name(:description), autofocus: time_entry.persisted?, class: "label-primary" %>
+      <fieldset class="fieldset tour--description-field">
+        <%= f.label :description, TimeEntry.human_attribute_name(:description), autofocus: time_entry.persisted?, class: "fieldset-label" %>
 
         <div data-controller='resizable-input' class="relative" >
-          <div data-resizable-input-target="replica" class="break-all text-sm p-2 whitespace-pre-line"></div>
+          <div data-resizable-input-target="replica"
+          class="break-all textarea text-sm p-2 whitespace-pre-line"></div>
 
           <%= f.text_area :description,
-            class: "text-sm p-2 input-primary absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
+            class: "text-sm p-2 textarea absolute w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden",
             "data-resizable-input-target": "input",
             "data-action": "keydown.ctrl+enter->form#submit keydown.meta+enter->form#submit"
             %>
         </div>
-        <div class="text-right text-xs text-italic text-base-content">
-          <span><%= t('.save_on_command_enter') %></span>
-        </div>
-      </div>
+        <p class="label mt-1"><%= t('.save_on_command_enter_html') %></span>
+      </fieldset>
 
-      <div class="flex gap-2 flex-col tour--logged-time" data-controller="time-entry--time-input-formatter" data-time-entry--time-input-formatter-format-value="<%= current_user.preferences.time_entry_time_format %>">
+      <div class="fieldset tour--logged-time" data-controller="time-entry--time-input-formatter" data-time-entry--time-input-formatter-format-value="<%= current_user.preferences.time_entry_time_format %>">
         <div class="flex justify-between items-center">
-          <%= f.label :total_logged_time_in_minutes, "*" + TimeEntry.human_attribute_name(:total_logged_time), class: "label-primary" %>
+          <%= f.label :total_logged_time_in_minutes, "*" + TimeEntry.human_attribute_name(:total_logged_time), class: "label" %>
 
           <div class="flex gap-2 items-center">
             <a href="<%= update_preferences_profile_path(time_entry_time_format: 'minutes') %>" data-turbo-method="patch"
@@ -93,18 +88,18 @@
 
         <input type="text"
           id="time_entry_total_logged_time"
-          class="input-primary cpy-input-placeholder"
+          class="input w-full input-xl cpy-input-placeholder"
           value="<%= time_entry.total_logged_time_in_minutes %>" data-time-entry--time-input-formatter-target="placeholder"/>
 
       </div>
 
-      <div class="flex gap-2 justify-center mt-2 tour--form-actions">
-        <a class="cursor-pointer btn-cancel" data-action="click->modal#close">
+      <div class="flex gap-2 justify-end mt-2 tour--form-actions">
+        <a class="cursor-pointer btn btn-ghost" data-action="click->modal#close">
           <%= t('actions.cancel') %>
         </a>
 
         <% text = time_entry.persisted? ? t('actions.update') : t('actions.create') %>
-        <%= f.button text, class: "btn-primary" %>
+        <%= f.button text, class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

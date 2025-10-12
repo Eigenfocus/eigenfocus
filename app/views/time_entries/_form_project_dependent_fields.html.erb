@@ -4,32 +4,32 @@
   } do %>
   <% time_entry = form.object %>
 
-  <div class="flex gap-2 flex-col tour--issue-selection">
+  <div class="fieldset flex flex-col tour--issue-selection">
     <div class="flex justify-between items-center">
-      <%= form.label :issue, TimeEntry.human_attribute_name(:issue), class: "label-primary" %>
+      <%= form.label :issue, TimeEntry.human_attribute_name(:issue), class: "fieldset-label" %>
 
       <% if time_entry.project.present? %>
         <%= link_to project_issues_path(time_entry.project),
-                    class: "link-primary flex items-center gap-1 text-xs",
+                    class: "link link-hover flex items-center gap-1",
                     tabindex: '-1',
                     data: {
                       turbo_frame: "_top",
                       time_entry__form_target: "allIssuesLink"
                     } do %>
-          <%= icon_for(:issues) %>
           <%= t("actions.go_to_issues_list") %>
+          <i class="fa-solid opacity-70 fa-arrow-up-right-from-square"></i>
         <% end %>
 
         <%= link_to '',
-                    class: "link-primary flex items-center gap-1 text-xs hidden",
+                    class: "link link-hover flex items-center gap-1 hidden",
                     tabindex: '-1',
                     data: {
                       issue_url: project_show_issue_path(time_entry.project, 'REPLACE_WITH_ISSUE_ID'),
                       turbo_frame: "_top",
                       time_entry__form_target: "issueLink"
                     } do %>
-          <%= icon_for(:issues) %>
           <%= t("actions.go_to_issue") %>
+          <i class="fa-solid opacity-70 fa-arrow-up-right-from-square"></i>
         <% end %>
       <% end %>
     </div>
@@ -55,10 +55,10 @@
               }
             } %>
       <% else %>
-        <p class="text-xs italic text-base-content"><%= t(".project_has_no_issue") %></p>
+        <p class="text-sm"><%= t(".project_has_no_issue") %></p>
       <% end %>
     <% else %>
-      <p class="text-xs italic text-base-content"><%= t(".select_a_project") %></p>
+      <p class="text-sm"><%= t(".select_a_project") %></p>
     <% end %>
   </div>
 <% end %>

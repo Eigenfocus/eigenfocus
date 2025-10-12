@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './_components/all';
 @import './select2';
 @import './flatpickr';
 @import './markdown';

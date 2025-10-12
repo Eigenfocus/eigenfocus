@@ -15,7 +15,7 @@
         <%= link_to project_issues_path(time_entry.project), class: "link link-hover group flex items-center gap-2 text-sm uppercase font-semibold opacity-60", data: { turbo_frame: "_top" } do %>
           <%= time_entry.project.name %>
           <span class="hidden group-hover:block">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <i class="fa-solid opacity-70 fa-arrow-up-right-from-square"></i>
           </span>
         <% end %>
 
@@ -23,7 +23,7 @@
           <%= link_to visualization_issue_path(time_entry.project.default_visualization, time_entry.issue), class: "link link-hover text-sm group font-medium flex items-center gap-2", data: { turbo_frame: "_top" } do %>
             <%= time_entry.issue.title %>
             <span class="hidden group-hover:block">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <i class="fa-solid opacity-70 fa-arrow-up-right-from-square"></i>
             </span>
           <% end %>
         <% end %>
