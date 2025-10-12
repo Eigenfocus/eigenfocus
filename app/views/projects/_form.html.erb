@@ -27,15 +27,15 @@
       </label>
 
       <% if project.new_record? %>
-        <div class="mt-2 mb-4">
+        <div class="mt-4 mb-4">
           <label class="label text-base mb-2 block">
             <%= t('.select_template') %>
           </label>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-stretch items-stretch text-base-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-stretch items-stretch text-base-content">
             <div class="relative flex items-stretch justify-stretch">
               <%= f.radio_button :use_template, "", class: "hidden peer", id: "template_none" %>
-              <label for="template_none" class="block p-4 rounded-field cursor-pointer hover:bg-accent hover:text-accent-content peer-checked:text-accent-content peer-checked:bg-accent">
+              <label for="template_none" class="block p-4 rounded-field cursor-pointer hover:bg-neutral hover:text-neutral-content peer-checked:text-neutral-content peer-checked:bg-neutral">
                 <div class="font-semibold uppercase mb-1"><%= t('.no_template') %></div>
                 <p class="text-sm font-normal opacity-80">
                   <%= t('.start_from_scratch') %>
@@ -46,7 +46,7 @@
             <% Project::Templatable::Template.all.each do |template| %>
               <div class="relative flex items-stretch justify-stretch">
                 <%= f.radio_button :use_template, template.key, class: "hidden peer", id: "template_#{template.key}" %>
-                <label for="template_<%= template.key %>" class="block p-4 rounded-lg cursor-pointer hover:bg-accent hover:text-accent-content peer-checked:text-accent-content peer-checked:bg-accent">
+                <label for="template_<%= template.key %>" class="block p-4 rounded-lg cursor-pointer hover:bg-neutral hover:text-neutral-content peer-checked:text-neutral-content peer-checked:bg-neutral">
                   <div class="font-semibold uppercase mb-1 "><%= template.name %></div>
                   <p class="text-sm font-normal opacity-80">
                     <%= template.description %>

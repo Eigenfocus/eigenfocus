@@ -1,9 +1,11 @@
 <% set_page_title(:reports) %>
 
-<%= render partial: 'reports/_total_time/filters', locals: { q: @q } %>
+<div class="max-w-5xl mx-auto">
+  <%= render partial: 'reports/_total_time/filters', locals: { q: @q } %>
 
-<% if params[:q].present? %>
-  <%= render partial: 'reports/_total_time/report' %>
-<% else %>
-  <%= render partial: 'choose_filters' %>
+  <% if params[:q].present? %>
+    <%= render partial: 'reports/_total_time/report' %>
+  <% else %>
+    <%= render partial: 'choose_filters' %>
 <% end %>
+</div>
