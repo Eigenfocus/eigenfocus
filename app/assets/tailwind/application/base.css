@@ -18,12 +18,12 @@
   @apply text-base-content;
 }
 
-.input-sm {
-  @apply py-2 text-xs;
+.hide-if-empty:not(:has(:first-child)) {
+  display: none;
 }
 
-.label-primary {
-  @apply block text-base-content text-sm;
+[data-is-issue-search-match="false"] {
+  display: none;
 }
 
 .input-with-icon-wrapper {
