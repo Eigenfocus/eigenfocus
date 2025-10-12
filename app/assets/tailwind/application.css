@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@source "../../../public/*.html";
+@source "../../../app/helpers/**/*.rb";
+@source "../../../app/javascript/**/*.js";
+@source "../../../app/views/**/*";
+@source "../../../app/frontend/**/*";
+
+@plugin "./daisyui.mjs" {
+  themes: light --default, dark --prefersdark, cupcake;
+}
+
+@plugin "./daisyui-theme.mjs" {
+}
+
+@import "./application/base";

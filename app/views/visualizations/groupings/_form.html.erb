@@ -1,11 +1,11 @@
 <%= turbo_frame_tag 'grouping_form' do %>
   <%= render_modal do %>
-    <div class="border-b border-background-200 pb-2 mb-4">
+    <div class="border-b border-base-200 pb-2 mb-4">
       <div class="flex items-center space-x-2">
-        <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
+        <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary ">
           <%= icon_for(:groupings) %>
         </div>
-        <h4 class="text-lg font-medium text-readable-content-700">
+        <h4 class="text-lg font-medium text-base-content">
           <%= grouping.persisted? ? "#{t("actions.edit")} #{Grouping.model_name.human}" : "#{t("actions.create")} #{Grouping.model_name.human}"%>
         </h4>
       </div>

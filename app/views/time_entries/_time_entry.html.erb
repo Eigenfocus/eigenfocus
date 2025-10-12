@@ -1,20 +1,20 @@
-<% running_class = time_entry.running? ? "border-secondary-500" : "border-background-100" %>
-<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> transition-all bg-body-contrast relative rounded-md flex-col lg:flex-row gap-4 flex justify-stretch shadow-sm border peer peer-exists tour--time-entry">
+<% running_class = time_entry.running? ? "border-secondary" : "border-base-100" %>
+<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> transition-all bg-base-200 relative rounded-md flex-col lg:flex-row gap-4 flex justify-stretch shadow-sm border peer peer-exists tour--time-entry">
   <% if time_entry.running? %>
     <span class="absolute left-[-7px] flex" style="width:16px; height:16px; top: calc(50% - 6px)">
-      <span class="relative  inline-flex rounded-full bg-body-contrast text-secondary-500" style="left:-2px;top:-2px;font-size:16px">
+      <span class="relative  inline-flex rounded-full bg-base-200 text-secondary" style="left:-2px;top:-2px;font-size:16px">
         <i class="animate-spin fa-solid fa-clock"></i>
       </span>
-      <span style='width:16px;height:16px;left: -2px; top:-2px;' class="animate-ping absolute inline-flex rounded-full bg-secondary-500"></span>
+      <span style='width:16px;height:16px;left: -2px; top:-2px;' class="animate-ping absolute inline-flex rounded-full bg-secondary"></span>
     </span>
   <% end %>
   <div class="flex grow flex-col p-4 gap-4">
     <div class="flex items-center justify-between">
       <div class="flex flex-col gap-2">
-        <p class="font-medium text-xl text-readable-content-600"><%= time_entry.project.name %></p>
+        <p class="font-medium text-xl text-base-content"><%= time_entry.project.name %></p>
 
         <% if time_entry.issue.present? %>
-          <p class="text-sm italic text-readable-content-500">
+          <p class="text-sm italic text-base-content">
             <%= time_entry.issue.title %>
           </p>
 
@@ -31,7 +31,7 @@
 
       </div>
     </div>
-    <div class="text-sm border-l-4 <%= time_entry.description.present? ? '' : '' %> italic grow border-background-200 text-readable-content-500 py-2 pl-2">
+    <div class="text-sm border-l-4 <%= time_entry.description.present? ? '' : '' %> italic grow border-base-200 text-base-content py-2 pl-2">
       <% if time_entry.description.blank? %>
         <p class="italic text-xs"><%= t(".no_description") %></p>
       <% else %>
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary-500 font-bold animate-pulse" : "text-readable-content-600" %> tour--time-entry-duration">
+  <div class="flex px-5 justify-center items-center font-bolder text-2xl <%= time_entry.running? ? "text-secondary font-bold animate-pulse" : "text-base-content" %> tour--time-entry-duration">
     <% if time_entry.running? %>
       <div data-controller="clock-timer"
         data-clock-timer-started-at-value="<%= format_datetime_to_momentjs(time_entry.started_at) %>"
@@ -53,12 +53,12 @@
     <% end %>
   </div>
 
-  <div class="flex flex-row lg:flex-col lg:border-l border-t lg:border-t-0 border-background-200 tour--time-entry-actions">
-    <% link_classes = "px-4 py-4 md:py-2 grow border-r lg:border-r-0 lg:border-b flex justify-center lg:justify-start items-center last:border-0 border-background-100 text-downcase text-sm font-medium cursor-pointer" %>
+  <div class="flex flex-row lg:flex-col lg:border-l border-t lg:border-t-0 border-base-200 tour--time-entry-actions">
+    <% link_classes = "px-4 py-4 md:py-2 grow border-r lg:border-r-0 lg:border-b flex justify-center lg:justify-start items-center last:border-0 border-base-100 text-downcase text-sm font-medium cursor-pointer" %>
 
     <% if time_entry.running? %>
       <%= link_to stop_time_entry_path(time_entry),
-        class: link_classes + " text-alert-500 transition-colors hover:text-body-contrast hover:bg-alert-500",
+        class: link_classes + " text-alert-500 transition-colors hover:text-base-200 hover:bg-alert-500",
         data: { turbo_method: :put }  do %>
 
         <span class="mr-2"><i class="fa-solid fa-stop"></i></span>
@@ -66,7 +66,7 @@
       <% end %>
     <% else %>
       <%= link_to start_time_entry_path(time_entry),
-        class: link_classes + " text-success-500 transition-colors hover:text-body-contrast hover:bg-success-500",
+        class: link_classes + " text-success-500 transition-colors hover:text-base-200 hover:bg-success-500",
         data: { turbo_method: :put }  do %>
 
         <span class="mr-2"><i class="fa-solid fa-play"></i></span>
@@ -74,7 +74,7 @@
       <% end %>
     <% end %>
 
-    <% link_classes += " transition-colors text-readable-content-500 hover:text-readable-content-700 hover:bg-background-100 "%>
+    <% link_classes += " transition-colors text-base-content hover:text-base-content hover:bg-base-100 "%>
 
     <%= link_to edit_time_entry_path(time_entry),
       class: link_classes,

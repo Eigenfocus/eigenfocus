@@ -2,13 +2,13 @@
 <%= turbo_frame_tag 'new_issue_form' do %>
 <%= render_modal(inner_container_options: {
     class: "max-h-screen w-full max-w-2xl relative cpy-issue-detail" }) do %>
-  <div class="border-b border-background-200 pb-2 mb-4">
+  <div class="border-b border-base-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
-      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500 ">
+      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary ">
         <%= icon_for(:issues) %>
       </div>
 
-      <h4 class="text-lg font-medium text-readable-content-700">
+      <h4 class="text-lg font-medium text-base-content">
         <%= issue.persisted? ? "#{t("actions.edit")} #{Issue.model_name.human}" : "#{t("actions.create")} #{Issue.model_name.human}"%>
       </h4>
     </div>

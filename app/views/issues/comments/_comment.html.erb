@@ -1,6 +1,6 @@
 <%= turbo_frame_tag dom_id(comment) do %>
   <div class="space-y-2" data-author-id="<%= comment.author_id %>" data-issue--comments-target="comment">
-    <div class="text-xs text-readable-content-500 italic pl-2">
+    <div class="text-xs text-base-content italic pl-2">
       <%= t(".created_at", date: l(comment.created_at, format: :long)) %>
     </div>
     <%= react_component("MarkdownEditor", defaultValue: comment.content, readOnly: true) %>
@@ -10,7 +10,7 @@
           class: "link-primary" do %>
           <%= t("actions.edit") %>
         <% end %>
-        <span class="text-readable-content-500">&middot;</span>
+        <span class="text-base-content">&middot;</span>
         <%= link_to issue_comment_path(comment.issue, comment),
           data: {
             turbo_confirm: t("confirmations.delete_comment"),

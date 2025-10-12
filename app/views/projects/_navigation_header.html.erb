@@ -1,5 +1,5 @@
 <div class="flex items-end justify-between gap-2 cpy-project-navigation">
-  <h2 class="flex items-center text-readable-content-800 font-semibold text-3xl text-readable-content-800 py-2">
+  <h2 class="flex items-center text-base-content font-semibold text-3xl text-base-content py-2">
     <% if local_assigns[:sub_section] %>
       <div class="flex gap-2 items-center">
         <% if sub_section[:icon] %>
@@ -10,18 +10,14 @@
     <% else %>
       <%= project.name %>
     <% end %>
-
   </h2>
-
   <div class="flex items-stretch flex-col sm:flex-row gap-6">
-
-    <%= link_to time_entries_path(new_entry: { project_id: project.id }), class: "flex items-center text-sm link-base flex", data: { turbo_frame: "_top" } do %>
+    <%= link_to time_entries_path(new_entry: { project_id: project.id }), class: "flex items-center text-sm link link-primary flex", data: { turbo_frame: "_top" } do %>
       <span class="mr-2"><%= icon_for(:time_entries) %></span>
       <span class="sm:block"><%= t("actions.go_to_time_tracking") %></span>
     <% end %>
-
     <%= link_to project_issue_labels_path(project.id),
-      class: "flex items-center btn-sm btn-outline-primary flex tour--issue-labels",
+      class: "flex items-center btn btn-outline btn-primary flex tour--issue-labels",
       data: { turbo_frame: "_top" } do %>
       <span class="mr-2"><%= icon_for(:issue_labels) %></span>
       <span class="sm:block"><%= t(:manage_issue_labels, scope: :nav) %></span>
@@ -29,8 +25,7 @@
   </div>
 </div>
 
-
-<div class="mt-2 mb-4 flex gap-4 text-sm font-medium border-b border-readable-content-300 tour--project-navigation-tabs">
+<div class="mt-2 mb-4 flex gap-4 text-sm font-medium border-b border-neutral-content tour--project-navigation-tabs">
   <%
     default_classes = "px-2 pb-1 whitespace-nowrap"
     tabs = [{
@@ -46,10 +41,10 @@
       }
     ].each do |tab|
 
-    tab[:options][:class] = "flex items-center gap-1 px-2 pb-2 whitespace-nowrap hover:text-primary-500"
+    tab[:options][:class] = "flex items-center gap-1 px-2 pb-2 whitespace-nowrap hover:text-primary"
     tab[:options][:data] = { turbo_frame: "_top" }
     if tab[:is_selected]
-      tab[:options][:class] += "border-b-2 border-primary-500 text-primary-500"
+      tab[:options][:class] += "border-b-2 border-primary text-primary"
     end
   %>
     <%= content_tag :a, tab[:options] do %>

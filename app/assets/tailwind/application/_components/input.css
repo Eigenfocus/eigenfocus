@@ -1,0 +1,14 @@
+/* Color picker */
+[data-controller="color-input"] {
+  .clr-picker {
+    width: 100%;
+    overflow: hidden;
+    box-shadow: none;
+
+    @apply border border-base-300 bg-base-200;
+
+    input.clr-color {
+      @apply border border-base-300 bg-base-100 text-base-content placeholder:text-base-content/70 hover:border-base-300 focus:border-primary;
+    }
+  }
+}

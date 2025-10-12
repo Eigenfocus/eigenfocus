@@ -1,0 +1,3 @@
+.sortable-selected-container {
+  @apply border-base-300;
+}

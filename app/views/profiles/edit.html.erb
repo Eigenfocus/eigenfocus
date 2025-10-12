@@ -1,13 +1,13 @@
 <% set_page_title(:edit_profile) %>
 
 <div class="mx-auto w-full md:w-2/3">
-  <div class="text-3xl font-bold mb-5 text-readable-content-500">
-    <h2 class="font-semibold text-readable-content-900 cpy-profile">
+  <div class="text-3xl font-bold mb-5 text-base-content">
+    <h2 class="font-semibold text-base-content cpy-profile">
       <%= current_user.is_profile_complete? ? t('.title') : t('.title_complete_your_profile') %>
     </h2>
   </div>
   <% unless current_user.is_profile_complete? %>
-    <p class="card mb-8 border-primary-500">
+    <p class="card mb-8 border-primary">
       <%= t(".why_you_need_to_fill_profile_html") %>
     </p>
 
@@ -21,17 +21,17 @@
   <%= render "onboarding_survey" %>
 
   <div class="card mt-8 p-5 rounded-lg">
-    <div class="text-center w-full flex flex-row justify-start items-center gap-2 pb-2 border-b border-readable-content-100">
-      <div class="text-md size-8 rounded-full bg-primary-50 text-primary-400 flex items-center justify-center">
+    <div class="text-center w-full flex flex-row justify-start items-center gap-2 pb-2 border-b border-neutral-content">
+      <div class="text-md size-8 rounded-full bg-primary-50 text-primary flex items-center justify-center">
         <i class="fa fa-newspaper"></i>
       </div>
-      <h4 class="text-lg font-medium text-readable-content-700">
+      <h4 class="text-lg font-medium text-base-content">
         <%= t(".subscription.title") %>
       </h4>
     </div>
 
     <div class="mt-4 text-base flex flex-col">
-      <p class="text-sm text-italic text-readable-content-500 leading-loose">
+      <p class="text-sm text-italic text-base-content leading-loose">
         <%= t(".subscription.description_html") %>
       </p>
     </div>

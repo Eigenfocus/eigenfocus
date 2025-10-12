@@ -1,0 +1,55 @@
+.issue--finish-toggle {
+  @apply rounded-full border-neutral-content/60 border-2 text-base-content transition-all duration-300;
+  @apply flex items-center justify-center;
+  @apply cursor-pointer;
+
+  height: 1.2rem;
+  width: 1.2rem;
+  min-height: 1.2rem;
+  min-width: 1.2rem;
+
+  font-size: 0.65rem;
+
+  .finish-icon {
+    display: none;
+  }
+
+  &.finished {
+    @apply bg-success text-success-content border-success-content;
+
+    .finish-icon {
+      display: inline-block;
+    }
+  }
+
+  &.minimal,
+  &.minimal.finished {
+    background-color: transparent;
+  }
+
+  &.minimal.finished {
+    border: none;
+    @apply text-success-content text-sm;
+  }
+}
+
+.issue--finish-toggle-wrapper.hover-animated {
+  @apply transition-all duration-300;
+
+  width: 0;
+  opacity: 0;
+
+  &:has(.finished) {
+    @apply mr-1;
+    opacity: 1;
+    width: 1.2rem;
+  }
+}
+
+.show-issue-finish-toggle-on-hover:hover {
+  .issue--finish-toggle-wrapper {
+    @apply mr-1;
+    width: 1.2rem;
+    opacity: 1;
+  }
+}

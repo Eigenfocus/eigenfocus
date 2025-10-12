@@ -1,4 +1,4 @@
-<div class="text-readable-content-500">
+<div class="text-base-content">
   <div class="flex items-stretch pl-8">
     <%= link_to projects_path,
         class: "flex items-center grow text-lg py-4 md:sidebar-expanded:pb-2" do %>
@@ -8,7 +8,7 @@
     <% end %>
 
     <%= link_to new_project_path,
-        class: "items-center justify-center flex md:hidden gap-2 px-4 pt-4 pb-2 text-xs hover:font-bold hover:text-primary-800 md:sidebar-expanded:flex" do %>
+        class: "items-center justify-center flex md:hidden gap-2 px-4 pt-4 pb-2 text-xs hover:font-bold hover:text-primary md:sidebar-expanded:flex" do %>
       <i class="fa fa-plus"></i>
       <%= t('actions.add') %>
     <% end %>

@@ -1,7 +1,0 @@
-.milkdown {
-  @apply rounded-lg overflow-hidden border border-background-300;
-  > [contenteditable="false"] {
-    @apply bg-background-50 text-readable-content-500;
-    border: 0 !important;
-  }
-}

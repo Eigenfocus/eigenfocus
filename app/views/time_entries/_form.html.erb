@@ -3,12 +3,12 @@
 <%= start_pending_app_tour_tag("time_entries/form") %>
 
 <%= render_modal do %>
-  <div class="border-b border-background-200 pb-2 mb-4">
+  <div class="border-b border-base-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
-      <div class="flex size-6 items-center justify-center rounded-lg bg-primary-500/10 p-1 text-primary-500">
+      <div class="flex size-6 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary">
         <%= icon_for(:time_entries) %>
       </div>
-      <h4 class="text-lg font-medium text-readable-content-700">
+      <h4 class="text-lg font-medium text-base-content">
         <%= time_entry.persisted? ? "#{t("actions.edit")} #{TimeEntry.model_name.human}" : "#{t("actions.create")} #{TimeEntry.model_name.human}"%> - <%= l(time_entry.reference_date) %>
       </h4>
     </div>
@@ -59,7 +59,7 @@
             "data-action": "keydown.ctrl+enter->form#submit keydown.meta+enter->form#submit"
             %>
         </div>
-        <div class="text-right text-xs text-italic text-readable-content-500">
+        <div class="text-right text-xs text-italic text-base-content">
           <span><%= t('.save_on_command_enter') %></span>
         </div>
       </div>
