@@ -26,7 +26,7 @@
 
       <%= f.hidden_field :reference_date %>
       <fieldset class="fieldset grow cpy-project-list tour--project-selection">
-        <%= f.label :project_id, TimeEntry.human_attribute_name(:project), autofocus: (time_entry.new_record? && time_entry.project_id.blank?), class: "fieldset-label" %>
+        <%= f.label :project_id, TimeEntry.human_attribute_name(:project), class: "fieldset-label" %>
         <%
           projects_for_select = Project.active.order(name: :asc).to_a
 
@@ -34,7 +34,9 @@
             projects_for_select.push(time_entry.project)
           end
         %>
-        <%= f.select :project_id, options_from_collection_for_select(projects_for_select, :id, :name, time_entry.project_id), { include_blank: t('select_one') }, {required: true, style: "width: 100%", data: {
+        <%= f.select :project_id, options_from_collection_for_select(projects_for_select, :id, :name, time_entry.project_id), { include_blank: t('select_one') }, {required: true, style: "width: 100%",
+         autofocus: (time_entry.new_record? && time_entry.project_id.blank?),
+        data: {
           controller: 'select2',
           dependent_fields_target: "hasDependents",
           dependant_turbo_frame_selector: '#project_dependent_fields'

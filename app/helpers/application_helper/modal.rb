@@ -30,11 +30,11 @@ module Modal
       content_tag(:div, container_options) do
         content_tag(:div, inner_container_options) do
           output = <<-HTML
-            <a class="cpy-close-modal absolute text-xl top-4 right-4 cursor-pointer text-md text-base-content" data-action="click->modal#close">
+            <a class="cpy-close-modal absolute text-xl top-3 right-3 cursor-pointer text-md text-base-content" data-action="click->modal#close">
               <i class="fa fa-close"></i>
             </a>
-            <div class="m-1 bg-base-200 rounded shadow-lg">
-              <div class="p-5">
+            <div class="bg-base-200 rounded-box">
+              <div class="p-6">
                 #{capture(&block)}
               </div>
             </div>

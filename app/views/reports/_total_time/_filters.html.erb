@@ -1,56 +1,58 @@
-<%= search_form_for(q, url: total_time_reports_path, method: :get, html: { class: "js-filter-form" }) do |f| %>
-  <div class="flex flex-col w-full justify-stretch items-stretch lg:flex-row gap-8 ">
-    <fieldset class="fieldset grow">
-      <legend class="fieldset-legend"><%= t(".filter_by_project") %></legend>
-      <%
-          projects_data = Project.order(name: :asc).pluck(:name, :id)
-        %>
-      <%= f.select 'project_id_in', Project.pluck(:name, :id), { multiple: true }, { class: "w-full", data: { controller: 'select2' } } %>
-    </fieldset>
+<%= search_form_for(q, url: total_time_reports_path, method: :get, html: { class: "js-filter-form card" }) do |f| %>
+  <div class="card-body bg-base-200 ">
+    <div class="flex flex-col w-full justify-stretch items-stretch lg:flex-row gap-8 ">
+      <fieldset class="fieldset grow">
+        <legend class="fieldset-legend"><%= t(".filter_by_project") %></legend>
+        <%
+            projects_data = Project.order(name: :asc).pluck(:name, :id)
+          %>
+        <%= f.select 'project_id_in', Project.pluck(:name, :id), { multiple: true }, { class: "w-full", data: { controller: 'select2' } } %>
+      </fieldset>
 
-    <fieldset class="fieldset grow">
-      <legend class="fieldset-legend"><%= t(".filter_by_issue_labels") %></legend>
-      <%= f.select :by_issue_labels_title,
-          options_for_select(IssueLabel.distinct.pluck(:title), params[:q].try(:[], :by_issue_labels_title)),
-          { include_hidden: false },
-          class: 'input',
-          multiple: true,
-          data: {
-            controller: 'select2',
-            "select2-additional-classes": 'select2'
-          }
-        %>
-    </fieldset>
+      <fieldset class="fieldset grow cpy-tags-select">
+        <legend class="fieldset-legend"><%= t(".filter_by_issue_labels") %></legend>
+        <%= f.select :by_issue_labels_title,
+            options_for_select(IssueLabel.distinct.pluck(:title), params[:q].try(:[], :by_issue_labels_title)),
+            { include_hidden: false },
+            class: 'input',
+            multiple: true,
+            data: {
+              controller: 'select2',
+              "select2-additional-classes": 'select2'
+            }
+          %>
+      </fieldset>
 
-    <fieldset class="fieldset ">
-      <legend class="fieldset-legend"><%= t(".entry_start_at") %></legend>
+      <fieldset class="fieldset ">
+        <legend class="fieldset-legend"><%= t(".entry_start_at") %></legend>
 
-      <label class="input max-w-36">
-        <i class="fa-regular fa-calendar opacity-50"></i>
-        <%= f.text_field :reference_date_gteq, class: 'grow', data: { controller: "flatpickr" } %>
-      </label>
-    </fieldset>
+        <label class="input max-w-36">
+          <i class="fa-regular fa-calendar opacity-50"></i>
+          <%= f.text_field :reference_date_gteq, class: 'grow', data: { controller: "flatpickr" } %>
+        </label>
+      </fieldset>
 
-    <fieldset class="fieldset">
-      <legend class="fieldset-legend"><%= t(".entry_end_at") %></legend>
+      <fieldset class="fieldset">
+        <legend class="fieldset-legend"><%= t(".entry_end_at") %></legend>
 
-      <label class="input max-w-36">
-        <i class="fa-regular fa-calendar opacity-50"></i>
-        <%= f.text_field :reference_date_lteq, class: 'grow', data: { controller: "flatpickr" } %>
-      </label>
-    </fieldset>
-  </div>
+        <label class="input max-w-36">
+          <i class="fa-regular fa-calendar opacity-50"></i>
+          <%= f.text_field :reference_date_lteq, class: 'grow', data: { controller: "flatpickr" } %>
+        </label>
+      </fieldset>
+    </div>
 
-  <div class="mt-4 flex items-stretch justify-end gap-2">
-    <%= link_to total_time_reports_path, class: 'btn btn-ghost' do %>
-      <%= t('actions.clear_filter') %>
-    <% end %>
+    <div class="mt-4 flex items-stretch justify-end gap-2">
+      <%= link_to total_time_reports_path, class: 'btn btn-ghost' do %>
+        <%= t('actions.clear_filter') %>
+      <% end %>
 
-    <%= f.button onclick: "document.querySelector('.js-filter-form').action = '#{total_time_reports_path(format: :csv)}'", class: "btn btn-ghost " do %>
-      <%= t(".generate_report_csv") %>
-    <% end %>
+      <%= f.button onclick: "document.querySelector('.js-filter-form').action = '#{total_time_reports_path(format: :csv)}'", class: "btn btn-ghost " do %>
+        <%= t(".generate_report_csv") %>
+      <% end %>
 
-    <%= f.button t(".generate_report"), onclick: "document.querySelector('.js-filter-form').action = '#{total_time_reports_path(format: :html)}'", class: "btn btn-primary" %>
+      <%= f.button t(".generate_report"), onclick: "document.querySelector('.js-filter-form').action = '#{total_time_reports_path(format: :html)}'", class: "btn btn-primary" %>
+    </div>
   </div>
 
 <% end %>

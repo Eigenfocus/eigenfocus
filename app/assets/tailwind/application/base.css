@@ -14,42 +14,6 @@
 
 /* :empty does't work if element has any text */
 
-.btn-tertiary {
-  @apply btn-dash;
-}
-
-.btn-danger {
-  @apply btn-error;
-}
-
-.btn-cancel {
-  @apply btn-neutral;
-}
-
-.hide-if-empty:not(:has(:first-child)) {
-  display: none;
-}
-
-[data-is-issue-search-match="false"] {
-  display: none;
-}
-
-.card {
-  @apply p-5 bg-base-200 border border-primary rounded-sm shadow-sm;
-}
-
-.input-primary,
-input.input-primary,
-.flatpickr-input.input-primary {
-  @apply w-full rounded-lg border border-base-300 px-3 bg-base-100 text-base-content py-2 placeholder:text-base-content/70 hover:border-base-300 focus:border-primary;
-}
-
-.input-contrast,
-input.input-contrast,
-.flatpickr-input.input-contrast {
-  @apply w-full rounded-lg border border-base-300 px-3 bg-base-200 text-base-content py-2 placeholder:text-base-content/70 hover:border-base-300 focus:border-primary;
-}
-
 .input-with-icon-wrapper .icon-wrapper {
   @apply text-base-content;
 }

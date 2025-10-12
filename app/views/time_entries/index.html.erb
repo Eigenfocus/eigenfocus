@@ -93,13 +93,13 @@
           'reference-date': date.strftime("%Y-%m-%d"),
           'turbo-action': 'advance'
         }
-        wrap_options[:class] += " min-w-32 md:min-w-auto transition-colors hover:bg-neutral hover:text-neutral-content grow rounded-field flex flex-col items-center justify-center px-2 py-4"
+        wrap_options[:class] += " min-w-32 md:min-w-auto transition-colors hover:bg-neutral hover:text-neutral-content grow rounded-box flex flex-col items-center justify-center px-2 py-4"
 
       %>
 
       <%= content_tag wrap_tag, wrap_options do %>
         <span class="text-sm opacity-80 font-semibold"><%= l(date, format: :short_weekday_name )%>, <%= l(date, format: :short )%></span>
-        <span class="text-sm opacity-60 font-semibold mt-2 turbo-stream-logged-time-text"><%= convert_minutes_to_human_readable_hour(@total_logged_time_per_day[date] || 0) %></span>
+        <span class="text-sm opacity-70 font-medium mt-2 turbo-stream-logged-time-text"><%= convert_minutes_to_human_readable_hour(@total_logged_time_per_day[date] || 0) %></span>
       <% end %>
     <% end %>
   </div>
@@ -110,7 +110,7 @@
     </div>
   </template>
 
-  <div class="flex flex-col gap-4" id="time-entries-tbody">
+  <div class="flex flex-col gap-8" id="time-entries-tbody">
     <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
 
     <div id="empty-row" class="rounded-box border bg-base-100 border-base-300 p-8 text-base-content text-base peer-[.peer-exists]:hidden">
