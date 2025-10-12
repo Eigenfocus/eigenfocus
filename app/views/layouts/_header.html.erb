@@ -106,50 +106,20 @@
           </div>
         </div>
       </div>
-      <div class="relative  inline-flex" data-controller="dropdown">
-        <button data-action="click->dropdown#toggle click@window->dropdown#hide"
-          role="button" data-dropdown-target="button"
-          class="cpy-header-theme-dropdown flex items-center text-lg text-base-content hover:text-primary"
-          aria-haspopup="true" aria-expanded="false">
-          <%= icon_for(:theme) %>
-        </button>
-        <div data-dropdown-target="menu" class="bg-base-200 right-0 z-10 absolute top-full min-w-80 bg-white border border-base-300 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
-          <div class="flex flex-col justify-stretch items-stretch text-sm text-left">
-            <% TailwindTheme.all.each do |theme| %>
-              <%
-                theme_is_selected = Current.theme_key == theme.key
-                options = {
-                  class: 'no-underline hover:bg-base-100 w-full block p-4 text-primary font-medium border-b border-b-primary last:border-b-0 ',
-                  data: { turbo_reload: true }
-                }
-
-                item_tag = theme_is_selected ? :div : :a
-
-                if theme_is_selected
-                  options[:class] += "bg-primary-50"
-                else
-                  options[:href] = "?switch_theme_to=#{theme.key}"
-                end
-              %>
-              <%= content_tag item_tag, options do %>
-                <p class = "">
-                  <span class="font-medium text-base text-base-content"><%= theme.name %></span>
-                  <% if theme_is_selected %>
-                    <span class="ml-2 py-1 px-2 text-xs text-secondary bg-secondary-50 border border-secondary rounded-full"><%= t("active") %></span>
-                  <% end %>
-                </p>
-                <p class="mt-2 text-xs text-base-content">
-                  <%= theme.description %>
-                </p>
-                <div class="mt-2 flex gap-2">
-                  <% theme.showcase_colors.each do |color| %>
-                    <div class="h-4 w-4 rounded-full border border-background-800" style="background-color: <%= color %>;"></div>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
+      <div class="dropdown dropdown-end block ">
+        <div tabindex="0" role="button" class="btn group btn-sm gap-1.5 px-1.5 btn-ghost" aria-label="Change Theme"><div class="bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1 transition-colors"><div class="bg-base-content size-1 rounded-full"></div> <div class="bg-primary size-1 rounded-full"></div> <div class="bg-secondary size-1 rounded-full"></div> <div class="bg-accent size-1 rounded-full"></div></div> <svg width="12px" height="12px" class="mt-px hidden size-2 fill-current opacity-60 sm:inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg></div>
+        <ul  tabindex="-1" class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl">
+          <% TailwindTheme.all.each do |theme| %>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="<%= theme.name %>"
+                value="<%= theme.key %>" />
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
 </header>
