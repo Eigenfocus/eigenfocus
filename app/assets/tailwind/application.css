@@ -11,8 +11,8 @@
 }
 
 @plugin "./daisyui-theme.mjs" {
-  name: "darkamethyst";
-  default: false;
+  name: "amethystmoon";
+  default: true;
   prefersdark: false;
   color-scheme: "dark";
   --color-base-100: oklch(25.33% 0.016 252.42);
@@ -46,30 +46,32 @@
 }
 
 @plugin "./daisyui-theme.mjs" {
-  name: "lightamethyst";
+  name: "royallavender";
   default: false;
   prefersdark: false;
   color-scheme: "light";
-  --color-base-100: oklch(100% 0 0);
-  --color-base-200: oklch(93% 0 0);
-  --color-base-300: oklch(86% 0 0);
-  --color-base-content: oklch(22.389% 0.031 278.072);
-  --color-primary: oklch(51% 0.262 276.966);
-  --color-primary-content: oklch(100% 0 0);
-  --color-secondary: oklch(44% 0.03 256.802);
-  --color-secondary-content: oklch(100% 0 0);
-  --color-accent: oklch(60% 0.118 184.704);
-  --color-accent-content: oklch(100% 0 0);
-  --color-neutral: oklch(0% 0 0);
-  --color-neutral-content: oklch(100% 0 0);
-  --color-info: oklch(60% 0.126 221.723);
-  --color-info-content: oklch(100% 0 0);
-  --color-success: oklch(62% 0.194 149.214);
-  --color-success-content: oklch(100% 0 0);
-  --color-warning: oklch(82% 0.189 84.429);
-  --color-warning-content: oklch(0% 0 0);
-  --color-error: oklch(70% 0.191 22.216);
-  --color-error-content: oklch(0% 0 0);
+  --color-accent: #00d3bb;
+  --color-accent-content: #f3fbf6;
+  --color-base-100: #fff;
+  --color-base-200: #eef0f2;
+  --color-base-300: #dcdee0;
+  --color-base-content: #1e2328;
+  --color-black: #000;
+  --color-error: #f31260;
+  --color-error-content: #fff;
+  --color-info: #14b4ff;
+  --color-info-content: #fff;
+  --color-neutral: #1e2832;
+  --color-neutral-content: #fafcff;
+  --color-primary: #9c5de8;
+  --color-primary-content: #fff;
+  --color-secondary: #167bff;
+  --color-secondary-content: #fff;
+  --color-success: #0bbf58;
+  --color-success-content: #fff;
+  --color-warning: #f5a524;
+  --color-warning-content: #150a00;
+  --color-white: #fff;
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
   --radius-box: 0.75rem;
@@ -81,7 +83,7 @@
 }
 
 @plugin "./daisyui-theme.mjs" {
-  name: "pasteldark";
+  name: "nightforest";
   default: false;
   prefersdark: false;
   color-scheme: "dark";
@@ -116,7 +118,7 @@
 }
 
 @plugin "./daisyui-theme.mjs" {
-  name: "pastellight";
+  name: "zengarden";
   default: false;
   prefersdark: false;
   color-scheme: "light";
