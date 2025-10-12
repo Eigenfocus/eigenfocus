@@ -113,16 +113,15 @@
   <div class="flex flex-col gap-8" id="time-entries-tbody">
     <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
 
-    <div id="empty-row" class="rounded-box border bg-base-100 border-base-300 p-8 text-base-content text-base peer-[.peer-exists]:hidden">
-      <p class='text-center col-span-full'>
-        <span class="font-base text-xl"><%= t(".zero_records", date: l(@reference_date, format: :long )) %></span>
-        <br/>
-        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn btn-primary mt-8 ", data: { turbo_frame: 'time_entry_form' } do %>
-          <i class="fa-solid fa-circle-plus mr-2"></i>
-          <%= t('.click_here_to_create') %>
-        <% end %>
-      </p>
-    </div>
+    <%= render EmptyListComponent.new(
+      message: t(".zero_records", date: l(@reference_date, format: :long )),
+      action: {
+        url: new_time_entry_path(reference_date: @reference_date),
+        text: t('.click_here_to_create'),
+        extra_options: { data: { turbo_frame: 'time_entry_form' } }
+      })
+    %>
+
   </div>
 </div>
 

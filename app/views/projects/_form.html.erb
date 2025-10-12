@@ -5,10 +5,10 @@
 
   <div class="border-b border-base-200 pb-2 mb-4">
     <div class="flex items-center space-x-2">
-      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary ">
+      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-base-content ">
         <%= icon_for(:projects) %>
       </div>
-      <h4 class="text-lg font-medium text-base-content">
+      <h4 class="font-bold text-lg">
         <%= project.persisted? ? "#{t("actions.edit")} #{Project.model_name.human}" : "#{t("actions.create")} #{Project.model_name.human}"%>
       </h4>
     </div>
@@ -21,23 +21,23 @@
         </div>
       <% end %>
 
-      <div class="mb-4 flex flex-col items-stretch gap-2">
-        <%= f.label :name, Project.human_attribute_name(:name), class: "label label-primary" %>
-        <%= f.text_field :name, autofocus: true, required: true, class: "input input-primary" %>
-      </div>
+      <label class="input input-lg w-full">
+        <span class="label"><%= Project.human_attribute_name(:name) %></span>
+        <%= f.text_field :name, autofocus: true, required: true, class: "" %>
+      </label>
 
       <% if project.new_record? %>
-        <div class="mb-4">
-          <label class="label label-primary mb-2 block">
+        <div class="mt-4 mb-4">
+          <label class="label text-base mb-2 block">
             <%= t('.select_template') %>
           </label>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-stretch items-stretch text-base-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-stretch items-stretch text-base-content">
             <div class="relative flex items-stretch justify-stretch">
               <%= f.radio_button :use_template, "", class: "hidden peer", id: "template_none" %>
-              <label for="template_none" class="block p-4 border rounded-lg border-base-100 cursor-pointer hover:border-primary peer-checked:border-primary peer-checked:bg-primary-50">
-                <div class="font-medium text-primary mb-1"><%= t('.no_template') %></div>
-                <p class="text-sm text-base-content">
+              <label for="template_none" class="block p-4 rounded-field cursor-pointer hover:bg-neutral hover:text-neutral-content peer-checked:text-neutral-content peer-checked:bg-neutral">
+                <div class="font-semibold uppercase mb-1"><%= t('.no_template') %></div>
+                <p class="text-sm font-normal opacity-80">
                   <%= t('.start_from_scratch') %>
                 </p>
               </label>
@@ -46,9 +46,9 @@
             <% Project::Templatable::Template.all.each do |template| %>
               <div class="relative flex items-stretch justify-stretch">
                 <%= f.radio_button :use_template, template.key, class: "hidden peer", id: "template_#{template.key}" %>
-                <label for="template_<%= template.key %>" class="block p-4 border border-base-100 rounded-lg cursor-pointer hover:border-primary peer-checked:border-primary peer-checked:bg-primary-50">
-                  <div class="font-medium mb-1 text-primary "><%= template.name %></div>
-                  <p class="text-sm text-base-content">
+                <label for="template_<%= template.key %>" class="block p-4 rounded-lg cursor-pointer hover:bg-neutral hover:text-neutral-content peer-checked:text-neutral-content peer-checked:bg-neutral">
+                  <div class="font-semibold uppercase mb-1 "><%= template.name %></div>
+                  <p class="text-sm font-normal opacity-80">
                     <%= template.description %>
                   </p>
                 </label>
@@ -58,8 +58,8 @@
         </div>
       <% end %>
 
-      <div class="flex gap-2 justify-center">
-        <a class="btn btn-secondary" data-action="click->modal#close">
+      <div class="flex gap-2 mt-2 justify-end">
+        <a class="btn btn-ghost" data-action="click->modal#close">
           <%= t('actions.cancel') %>
         </a>
 

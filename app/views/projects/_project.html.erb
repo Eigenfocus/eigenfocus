@@ -1,5 +1,5 @@
-<div id="<%= dom_id(project) %>" class='<%= project.archived? ? "bg-base-100" : "bg-base-200 border-l-base-1000" %> border-l-4 p-8 flex flex-col items-stretch gap-4 border border-base-200 rounded-md shadow-xs text-md'>
-  <div class="flex mb-4 flex-col md:flex-row md:justify-between gap-4 items-center">
+<div id="<%= dom_id(project) %>" class='<%= project.archived? ? "bg-base-200/30" : "bg-base-200/70 border-l-base-1000" %> border-l-4 p-8 flex flex-col items-stretch gap-4 border border-base-300 rounded-md shadow-xs text-md'>
+  <div class="flex flex-col md:flex-row md:justify-between gap-4 items-center">
     <div class="flex gap-4">
       <div class="flex items-center gap-2 text-base-content font-medium text-xl">
         <%= link_to project_issues_path(project), data: { turbo_frame: "_top" } do %>
@@ -15,44 +15,44 @@
     <div class="flex items-stretch justify-center md:place-self-end gap-4">
       <%= link_to t('actions.edit'),
                   edit_project_path(project),
-                  class: "btn btn-primary",
+                  class: "btn btn-ghost",
                   data: { turbo_frame: "project_form" }  %>
       <% if project.archived? %>
         <%= link_to t('actions.unarchive'),
                     unarchive_project_path(project),
-                    class: "btn btn-secondary",
+                    class: "btn btn-ghost btn-success",
                     data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") }
                     %>
         <%= link_to t('actions.remove'),
                     project_path(project),
-                    class: "btn btn-error",
+                    class: "btn btn-ghost btn-error",
                     data: { turbo_method: :delete, turbo_confirm: t(".confirm_destroy"), turbo_frame: "_top" }
                     %>
       <% else %>
         <%= link_to t('actions.archive'),
                     archive_project_path(project),
-                    class: "btn btn-secondary",
+                    class: "btn btn-ghost btn-error",
                     data: { turbo_method: :put, turbo_confirm: t(".confirm_archive") }
                     %>
       <% end  %>
     </div>
   </div>
   <% unless project.archived? %>
-    <div class="flex w-full flex-col lg:flex-row gap-8 text-sm justify-end items-center">
+    <div class="flex w-full flex-col lg:flex-row gap-4 text-sm justify-end items-center">
       <%= link_to time_entries_path(new_entry: { project_id: project.id }),
-          class: "link link-primary tour--time-tracking",
+          class: "btn btn-secondary tour--time-tracking",
           data: { turbo_frame: "_top" } do %>
         <span class="mr-1"><%= icon_for(:time_entries) %></span>
-        <%= t("actions.go_to_time_tracking") %>
+        <%= t("actions.start_time_tracking") %>
       <% end %>
       <%= link_to project_issues_path(project),
-          class: "link link-secondary tour--issues-list",
+          class: "btn btn-secondary tour--issues-list",
           data: { turbo_frame: "_top" } do %>
         <span class="mr-1"><%= icon_for(:issues) %></span>
-        <%= t("actions.go_to_issues_list") %>
+        <%= Issue.model_name.human.pluralize %>
       <% end %>
       <%= link_to visualization_path(project.default_visualization),
-          class: "link link-accent tour--workflow-board",
+          class: "btn btn-secondary tour--workflow-board",
           data: { turbo_frame: "_top" } do %>
         <span class="mr-1"><%= icon_for(:boards) %></span>
         <%= t("actions.go_to_board") %>

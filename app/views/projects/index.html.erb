@@ -11,7 +11,7 @@
   </h2>
   <%= link_to "#{t('actions.create')} #{Project.model_name.human.downcase}",
       new_project_path,
-      class: "btn btn-primary btn-xl",
+      class: "btn btn-primary",
       data: { turbo_frame: 'project_form' } %>
 </div>
 
@@ -21,14 +21,14 @@
 <%= turbo_frame_tag 'projects', class: "tour--projects-list" do %>
   <div class="flex flex-col gap-4 lg:gap-8 flex-wrap justify-stretch" id="projects-list">
     <% if @projects.count.zero? %>
-      <div class="border p-8 bg-base-200 border-base-100 rounded-md shadow-xs items-center w-full p-6 "id='empty-row'>
-        <p class='text-center text-base-content'>
-          <%= t("zero_records", resource_name: Project.model_name.human) %>
-        </p>
-        <p class="mt-3 text-center mb-4">
-          <%= link_to t('click_here_to_create_one'), new_project_path, class: "btn btn-primary inline-block", data: { turbo_frame: 'project_form' } %>
-        </p>
-      </div>
+      <%= render EmptyListComponent.new(
+        message: t("zero_records", resource_name: Project.model_name.human.pluralize.downcase),
+        action: {
+          url: new_project_path,
+          text: t('click_here_to_create_one'),
+          extra_options: { data: { turbo_frame: 'project_form' } }
+        })
+      %>
     <% else %>
       <%= render partial: 'project', collection: @projects, as: :project %>
     <% end %>

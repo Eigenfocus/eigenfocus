@@ -1,0 +1,12 @@
+<div id="empty-row" class="rounded-box border bg-base-200 border-base-300 p-8 text-base-content text-base peer-[.peer-exists]:hidden">
+  <p class='text-center col-span-full'>
+    <span class="font-base text-xl"><%= message %></span>
+    <br/>
+    <% if action.present? %>
+      <%= link_to action[:url], { class: "btn btn-primary mt-8" }.deep_merge(action[:extra_options]) do %>
+        <i class="fa-solid fa-circle-plus mr-2"></i>
+        <%= action[:text] %>
+      <% end %>
+    <% end %>
+  </p>
+</div>

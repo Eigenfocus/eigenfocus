@@ -6,7 +6,7 @@ context "As a user, I want to manage my projects" do
   specify "If there are no project, I should see a message" do
     visit projects_path
 
-    expect(page).to have_content("You haven't created any Project yet.")
+    expect(page).to have_content("You haven't created any projects yet.")
   end
 
   specify "I can list them" do
@@ -135,7 +135,7 @@ context "As a user, I want to manage my projects" do
     visit projects_path
 
     within dom_id(project_beta) do
-      click_link "Go to time tracking"
+      click_link "Track time"
     end
 
     within '#time_entry_form' do

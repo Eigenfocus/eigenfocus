@@ -9,7 +9,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
     visit projects_path
 
     within dom_id(project) do
-      click_link "Go to workflow board"
+      click_link "Board"
     end
 
     expect(page).to have_content("Board")

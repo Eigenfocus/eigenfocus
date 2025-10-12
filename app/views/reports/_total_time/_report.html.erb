@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'report' do %>
-  <div class="flex flex-col lg:flex-row gap-4">
+  <div class="flex mt-8 flex-col lg:flex-row gap-4">
     <div class="flex flex-col border border-base-200 rounded-box gap-2 bg-base-200 p-4 lg:w-1/5">
       <h4 class="text-xs text-base-content uppercase">
         <%= t(".total") %>
@@ -60,9 +60,7 @@
         </tbody>
       </table>
     <% else %>
-    <p class="text-2xl text-base-content text-center">
-      <%= t(".no_entries") %>
-    </p>
+      <%= render EmptyListComponent.new(message: t(".no_entries")) %>
     <% end %>
   </div>
 <% end %>

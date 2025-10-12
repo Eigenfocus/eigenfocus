@@ -1,7 +1,7 @@
 module ApplicationHelper
 module Themes
   def current_theme_key
-    Current.theme_key
+    Current.theme_key.presence || TailwindTheme.default.key
   end
 
   def current_theme_stylesheet_link_tag(**kwargs)
