@@ -56,7 +56,7 @@
 
     <% if time_entry.running? %>
       <%= link_to stop_time_entry_path(time_entry),
-        class: link_classes + " btn-warning",
+        class: link_classes + " btn-error text-error hover:text-error-content",
         data: { turbo_method: :put }  do %>
 
         <span class="mr-2"><i class="fa-solid fa-stop"></i></span>
@@ -64,7 +64,7 @@
       <% end %>
     <% else %>
       <%= link_to start_time_entry_path(time_entry),
-        class: link_classes + "  btn-success",
+        class: link_classes + "  btn-success  text-success hover:text-success-content",
         data: { turbo_method: :put }  do %>
 
         <span class="mr-2"><i class="fa-solid fa-play"></i></span>
