@@ -14,6 +14,11 @@
 
 /* :empty does't work if element has any text */
 
+@custom-variant sidebar-expanded {
+  &:where(.sidebar-expanded *) {
+    @slot;
+  }
+}
 @media (prefers-color-scheme: light) {
   .dark-themes-only {
     display: none;
