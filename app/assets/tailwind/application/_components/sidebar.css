@@ -1,5 +1,5 @@
 .sidebar--list {
-  @apply max-h-[300px] overflow-y-auto px-8 md:hidden;
+  @apply max-h-[300px] overflow-y-auto px-8 sidebar-expanded:block hidden;
   font-size: 0.84rem;
 
   mask-image: linear-gradient(
