@@ -28,8 +28,8 @@ class ProfilesController < ApplicationController
     end
 
     if params[:favorite_theme_key].present?
-      current_user.favorite_theme_key = params[:favorite_theme_key]
-      current_user.save!
+      current_user.preferences.favorite_theme_key = params[:favorite_theme_key]
+      current_user.preferences.save!
     end
 
     head :ok
