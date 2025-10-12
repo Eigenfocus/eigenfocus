@@ -108,15 +108,23 @@
       </div>
       <div class="dropdown dropdown-end block ">
         <div tabindex="0" role="button" class="btn group btn-sm gap-1.5 px-1.5 btn-ghost" aria-label="Change Theme"><div class="bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1 transition-colors"><div class="bg-base-content size-1 rounded-full"></div> <div class="bg-primary size-1 rounded-full"></div> <div class="bg-secondary size-1 rounded-full"></div> <div class="bg-accent size-1 rounded-full"></div></div> <svg width="12px" height="12px" class="mt-px hidden size-2 fill-current opacity-60 sm:inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg></div>
-        <ul  tabindex="-1" class="dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl">
+        <ul data-controller="theme-switcher" tabindex="-1" class="menu dropdown-content bg-base-300 rounded-box z-1 w-52 p-2 shadow-2xl">
+          <li class="menu-title text-xs">Theme</li>
           <% TailwindTheme.all.each do |theme| %>
             <li>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                class="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="<%= theme.name %>"
-                value="<%= theme.key %>" />
+              <a href="<%= update_preferences_profile_path(favorite_theme_key: theme.key) %>"
+              data-theme-switcher-target="switchButton"
+              data-turbo-method="patch" class="px-2 flex"
+              data-action="click->theme-switcher#switchTheme"
+              data-set-theme="<%= theme.key %>">
+                <div data-theme="<%= theme.key %>" class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm"><div class="bg-base-content size-1 rounded-full"></div>
+                  <div class="bg-primary size-1 rounded-full"></div>
+                  <div class="bg-secondary size-1 rounded-full"></div>
+                  <div class="bg-accent size-1 rounded-full"></div>
+                </div>
+                <div class="w-32 truncate"><%= theme.name %></div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="<%= theme.key == current_theme_key ? '' : 'invisible' %> h-3 w-3 shrink-0"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"></path></svg>
+              </a>
             </li>
           <% end %>
         </ul>
