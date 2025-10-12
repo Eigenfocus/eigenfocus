@@ -21,7 +21,8 @@ context "Running time entries" do
 
     visit time_entries_path
 
-    within '.cpy-running-time-entries' do
+    within '.alert' do
+      expect(page).to have_content('You have time entries still running on other dates')
       expect(page).to have_content('11 jul')
       expect(page).to have_content('12 jul')
       expect(all('a').size).to eq(2)

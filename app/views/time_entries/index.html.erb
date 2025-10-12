@@ -81,7 +81,7 @@
         wrap_tag = (date == @reference_date) ? :div : :a
         wrap_options = if (date == @reference_date)
           {
-            class: "bg-accent text-accent-content"
+            class: "bg-neutral text-neutral-content"
           }
         else
           {
@@ -93,7 +93,7 @@
           'reference-date': date.strftime("%Y-%m-%d"),
           'turbo-action': 'advance'
         }
-        wrap_options[:class] += " transition-colors hover:bg-accent hover:text-accent-content grow rounded-field flex flex-col items-center justify-center px-2 py-4"
+        wrap_options[:class] += " transition-colors hover:bg-neutral hover:text-neutral-content grow rounded-field flex flex-col items-center justify-center px-2 py-4"
 
       %>
 
@@ -113,12 +113,12 @@
   <div class="flex flex-col gap-4" id="time-entries-tbody">
     <%= render partial: 'time_entry', collection: @time_entries, as: :time_entry %>
 
-    <div id="empty-row" class="rounded-box border bg-base-200 border-base-300 p-4 text-base-content text-base peer-[.peer-exists]:hidden">
+    <div id="empty-row" class="rounded-box border bg-base-200 border-base-300 p-8 text-base-content text-base peer-[.peer-exists]:hidden">
       <p class='text-center col-span-full'>
-        <%= t(".zero_records", date: l(@reference_date, format: :long )) %>
+        <span class="font-base text-2xl"><%= t(".zero_records", date: l(@reference_date, format: :long )) %></span>
         <br/>
-        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn btn-ghost mt-4", data: { turbo_frame: 'time_entry_form' } do %>
-          <i class="fa-solid fa-circle-plus"></i>
+        <%= link_to new_time_entry_path(reference_date: @reference_date), class: "btn btn-xl btn-primary mt-8 ", data: { turbo_frame: 'time_entry_form' } do %>
+          <i class="fa-solid fa-circle-plus mr-2"></i>
           <%= t('.click_here_to_create') %>
         <% end %>
       </p>

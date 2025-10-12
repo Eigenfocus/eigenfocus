@@ -29,7 +29,7 @@
         <% end %>
       </div>
     </div>
-    <div class="text-sm border-l-4 <%= time_entry.description.present? ? '' : '' %> italic grow border-base-200 text-base-content py-2 pl-2">
+    <div class="text-sm border-l-2 <%= time_entry.description.present? ? 'border-base-content' : 'border-base-content/60' %> italic grow text-base-content py-2 pl-2">
       <% if time_entry.description.blank? %>
         <p class="italic text-xs"><%= t(".no_description") %></p>
       <% else %>
