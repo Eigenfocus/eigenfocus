@@ -135,7 +135,7 @@ context "As a user, I want to manage my projects" do
     visit projects_path
 
     within dom_id(project_beta) do
-      click_link "Go to time tracking"
+      click_link "Track time"
     end
 
     within '#time_entry_form' do

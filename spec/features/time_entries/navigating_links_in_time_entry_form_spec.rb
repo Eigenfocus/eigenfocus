@@ -11,7 +11,7 @@ describe 'As a user, I want to see appropriate links in the time entry form' do
 
     within '#time_entry_form' do
       expect(page).not_to have_link("Go to issue", exact: true)
-      click_link("Go to issues list")
+      click_link("All Issues")
       expect(page).to have_current_path(project_issues_path(project))
     end
   end
@@ -20,7 +20,7 @@ describe 'As a user, I want to see appropriate links in the time entry form' do
     visit time_entries_path(new_entry: { project_id: project.id, issue_id: issue.id })
 
     within '#time_entry_form' do
-      expect(page).not_to have_link("Go to issues list", exact: true)
+      expect(page).not_to have_link("All Issues", exact: true)
       click_link("Go to issue")
       expect(page).to have_current_path(project_show_issue_path(project, issue.id))
     end
@@ -30,14 +30,14 @@ describe 'As a user, I want to see appropriate links in the time entry form' do
     visit time_entries_path(new_entry: { project_id: project.id })
 
     within '#time_entry_form' do
-      expect(page).to have_link("Go to issues list", exact: true)
+      expect(page).to have_link("All Issues", exact: true)
       expect(page).not_to have_link("Go to issue", exact: true)
     end
 
     select_from_select2(selector: '#project_dependent_fields .select2', option_text: issue.title)
 
     within '#time_entry_form' do
-      expect(page).not_to have_link("Go to issues list", exact: true)
+      expect(page).not_to have_link("All Issues", exact: true)
       expect(page).to have_link("Go to issue", href: project_show_issue_path(project, issue.id), exact: true)
     end
   end
