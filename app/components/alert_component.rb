@@ -5,7 +5,7 @@ class AlertComponent < ViewComponent::Base
 
   renders_many :actions
 
-  def initialize(message:, type:)
+  def initialize(message:, type: nil)
     @message = message
     @type = type
   end

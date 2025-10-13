@@ -63,7 +63,7 @@
   </div>
 
   <% if @remaining_dates_with_time_entry_running.any? %>
-    <%= render AlertComponent.new(message: t(".other_time_entries_running"), type: "neutral") do |component| %>
+    <%= render AlertComponent.new(message: t(".other_time_entries_running")) do |component| %>
       <% @remaining_dates_with_time_entry_running.each do |date| %>
         <% component.with_action do %>
           <%= link_to time_entries_path(reference_date: date.strftime("%Y-%m-%d")), class: "btn btn-primary btn-soft flex-nowrap", data: { 'turbo-action': 'advance' } do %>
