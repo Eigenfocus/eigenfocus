@@ -13,6 +13,9 @@
 @import './_components/all';
 
 /* :empty does't work if element has any text */
+:root {
+  --alert-color: var(--color-base-100);
+}
 
 @custom-variant sidebar-expanded {
   &:where(.sidebar-expanded *) {
