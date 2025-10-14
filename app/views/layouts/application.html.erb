@@ -42,7 +42,7 @@
     <%= javascript_pack_tag "application" %>
   </head>
 
-  <body class="antialiased" data-controller="sidebar">
+  <body class="antialiased bg-base-200 min-h-screen" data-controller="sidebar">
     <%= app_tour_tags %>
 
     <div id="alert-messages">
@@ -51,21 +51,18 @@
     <%= render "layouts/guide_modal" %>
     <div id="modal-area"></div>
 
-    <main class="flex h-screen overflow-hidden bg-base-200">
-      <%= render "layouts/sidebar" %>
 
-      <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-         <%= render "layouts/header" %>
 
-         <% if skip_layout_content_wrapper? %>
-          <%= yield %>
-         <% else %>
-          <main class="grow p-4 sm:p-8">
-            <%= yield %>
-          </main>
-        <% end %>
-      </div>
-    </main>
+    <%= render "layouts/header_2" %>
+
+    <% if skip_layout_content_wrapper? %>
+      <%= yield %>
+    <% else %>
+      <main class="grow p-4 sm:p-8">
+        <%= yield %>
+      </main>
+    <% end %>
+
     <%= render partial: "layouts/issue_detail", locals: issue_detail_context %>
     <%= render partial: "layouts/confirm_modal" %>
 

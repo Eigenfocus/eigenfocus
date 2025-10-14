@@ -1,4 +1,11 @@
 en:
+  menu_items:
+    edit_profile: "Edit profile"
+    profile_options: "Profile & Settings"
+    timesheet: 'Timesheet'
+    total_time_report: 'Time reports'
+    list_all_projects: 'List all projects'
+    projects: 'Projects'
   layouts:
     guide_modal:
       title: "Our features"
@@ -45,16 +52,6 @@ en:
       notification_item:
         visit_link: "Visit link"
         mark_as_read: "Mark as read"
-
-    sidebar:
-      edit_profile: "Edit profile"
-      profile_options: "Profile & Settings"
-      menu:
-        timesheet: 'Timesheet'
-        total_time_report: 'Time reports'
-      projects_menu:
-        list_all_projects: 'List all projects'
-        projects: 'Projects'
     confirm_modal:
       title: "Just to double check..."
       body: "Are you sure you want to do this?"

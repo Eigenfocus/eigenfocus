@@ -1,0 +1,42 @@
+<div class="navbar-center hidden lg:flex">
+  <ul class="menu menu-horizontal px-1">
+    <li>
+      <details>
+        <summary>
+          <%= link_to projects_path, data: { turbo_frame: "_top" } do %>
+            <%= icon_for(:projects) %>
+            <%= t('.tours.projects') %>
+          <% end %>
+        </summary>
+        <ul class="p-2">
+          <li><a>Submenu 1</a></li>
+          <li><a>Submenu 2</a></li>
+        </ul>
+      </details>
+    </li>
+
+    <%
+      [
+        {
+          text: t('menu_items.timesheet'),
+          icon: icon_for(:time_entries),
+          main_controller: :time_entries,
+          url: time_entries_path
+        },
+        {
+          text: t('menu_items.total_time_report'),
+          icon: icon_for(:report),
+          main_controller: :reports,
+          url: total_time_reports_path
+        }
+      ].each do |menu_item|
+    %>
+      <li>
+        <%= link_to menu_item[:url], data: { turbo_frame: "_top" } do %>
+          <%= menu_item[:icon] %>
+          <%= menu_item[:text] %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

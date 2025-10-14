@@ -1,4 +1,13 @@
 pt-BR:
+  menu_items:
+    edit_profile: "Editar perfil"
+    profile_options: "Perfil e configurações"
+    menu:
+      timesheet: 'Registros de Tempo'
+      total_time_report: 'Relatórios de Tempo'
+    projects_menu:
+      list_all_projects: 'Listar todos os projetos'
+      projects: 'Projetos'
   layouts:
     guide_modal:
       title: "Nossas funcionalidades"
@@ -46,16 +55,6 @@ pt-BR:
       notification_item:
         visit_link: "Visite o link"
         mark_as_read: "Marcar como lida"
-
-    sidebar:
-      edit_profile: "Editar perfil"
-      profile_options: "Perfil e configurações"
-      menu:
-        timesheet: 'Registros de Tempo'
-        total_time_report: 'Relatórios de Tempo'
-      projects_menu:
-        list_all_projects: 'Listar todos os projetos'
-        projects: 'Projetos'
     confirm_modal:
       title: "Apenas para verificar..."
       body: "Tem certeza que quer fazer isso?"
