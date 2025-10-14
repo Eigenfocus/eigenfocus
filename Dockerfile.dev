@@ -1,21 +1,18 @@
-FROM ruby:3.3.1-slim
-
-ARG UID=1000
-ARG GID=1000
+ARG RUBY_VERSION=3.3.1
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim AS base
 
 WORKDIR /app
 
-RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
-    build-essential \
-    gnupg2 \
-    less \
-    git \
-    nodejs \
-    curl libjemalloc2 libvips sqlite3 && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update -qq && apt-get install --no-install-recommends -y yarn && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential git libvips pkg-config gnupg2 curl
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y nodejs
+
+RUN npm install -g yarn
 
 ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=4 \
@@ -29,6 +26,7 @@ RUN mkdir -p /app/node_modules /app/.bundle /app/.yarn-cache /app/.rubocop-cache
 RUN chown -R ${UID}:${GID} /app/node_modules /app/.bundle /app/.yarn-cache /app/.rubocop-cache
 
 USER ${UID}:${GID}
+
 
 RUN gem update --system && gem install bundler
 
