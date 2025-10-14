@@ -1,4 +1,3 @@
-# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.3.1
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim AS base
 
@@ -17,10 +16,15 @@ ENV RAILS_ENV="production" \
 FROM base AS build
 
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libvips pkg-config nodejs gnupg2 curl && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update -qq && apt-get install --no-install-recommends -y yarn
+    apt-get install --no-install-recommends -y build-essential git libvips pkg-config gnupg2 curl
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y nodejs
+
+RUN npm install -g yarn
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
