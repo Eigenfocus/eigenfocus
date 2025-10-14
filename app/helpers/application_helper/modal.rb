@@ -30,7 +30,9 @@ module Modal
       content_tag(:div, container_options) do
         content_tag(:div, inner_container_options) do
           output = <<-HTML
-            <a class="cpy-close-modal absolute text-xl top-3 right-3 cursor-pointer text-md text-base-content" data-action="click->modal#close">
+            <a class="cpy-close-modal absolute text-xl cursor-pointer text-md text-base-content"
+              style="top: 7px; right: 12px;"
+              data-action="click->modal#close">
               <i class="fa fa-close"></i>
             </a>
             <div class="bg-base-200 rounded-box">
