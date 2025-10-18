@@ -42,7 +42,7 @@ en:
       current_version: "Current Version"
       check_our_github: "Check our Github"
       version_badge:
-        new_version_available: "New version available."
+        new_version_available: "New version available"
         check_our_releases: "Check our releases"
         check_pro_edition: "Upgrade to PRO edition"
       tours:

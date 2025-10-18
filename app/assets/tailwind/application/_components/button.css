@@ -1,4 +1,6 @@
 .btn-slide {
+  gap: 0;
+
   .sliding-text {
     display: grid;
     grid-template-columns: 0fr;
@@ -6,10 +8,17 @@
     white-space: nowrap;
   }
 
-  &:hover .sliding-text,
-  &:active .sliding-text ,
-  &:focus .sliding-text {
-    grid-template-columns: 1fr;
+  &:hover,
+  &:active,
+  &:focus {
+    i {
+      @apply mr-1;
+    }
+
+    .sliding-text {
+      grid-template-columns: 1fr;
+
+    }
   }
 
   .sliding-text-inner {

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { IconHourglassEmpty, IconBrandDeezer, IconLayoutDashboard } from '@tabler/icons-react';
+import { IconHourglassEmpty, IconBrandDeezer } from '@tabler/icons-react';
 
 import AnimatedBackground from "./FocusApp/AnimatedBackground"
 import FocusSpace from "./FocusApp/FocusSpace"
@@ -36,7 +36,7 @@ const FocusApp = ({ }) => {
           {
             !hasSoundPlaying &&
             !showPomodoroIcon &&
-            (<IconLayoutDashboard/>)
+            (<i className="ti ti-layout-dashboard"></i>)
           }
           {!isFocusSpaceShowing && (
             <>
