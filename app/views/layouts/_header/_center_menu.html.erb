@@ -6,7 +6,7 @@
         <%= icon_for(:projects) %>
         <span class="sliding-text"><span class="sliding-text-inner"><%= t('menu_items.projects') %></span></span>
       </a>
-      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 border border-base-200 py-3 rounded-box text-sm w-52">
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 border border-base-200 py-3 rounded-box text-sm min-w-52">
         <li><%= link_to t('menu_items.list_all_projects'), projects_path, class: "text-nowrap" %></li>
         <li><%= link_to t('menu_items.add_project'), projects_path(open_form: true), class: "text-nowrap" %></li>
         <%
