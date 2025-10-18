@@ -1,166 +1,173 @@
-<div class="card p-5 rounded-lg my-8">
-
-  <div class="text-center w-full flex flex-row justify-start items-center gap-2 pb-2 border-b border-neutral-content">
-    <div class="text-md size-8 rounded-full bg-primary-50 text-primary flex items-center justify-center">
-      <i class="fa fa-lightbulb"></i>
-    </div>
-    <h4 class="text-lg font-medium text-base-content">
+<div class="card bg-base-100 shadow-xl mb-8">
+  <div class="card-body">
+    <h2 class="card-title text-2xl mb-6">
+      <i class="fa fa-lightbulb text-primary"></i>
       <%= t(".title") %>
-    </h4>
-  </div>
+    </h2>
 
-  <%= turbo_frame_tag "survey_form" do %>
-    <%= form_with url: survey_responses_path, method: :post do |f| %>
-      <p class="mt-4 text-sm  text-base-content">
-        <%= t(".team_size") %>
-      </p>
-      <ul class="flex items-center w-full text-sm  text-base-content bg-white">
-        <%
-          [
-            {
-              label: t(".answer_labels.team_size.one"),
-              value: "1"
-            },{
-              label: t(".answer_labels.team_size.one_to_ten"),
-              value: "1-to-10"
-            },{
-              label: t(".answer_labels.team_size.ten_plus"),
-              value: "10+"
-            }
-          ].each do |option|
-        %>
-          <li class="flex text-xs items-center min-w-32">
-            <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-base-content" %>
-              <%= radio_button_tag :team_size,
-                option[:value],
-                class: "w-4 h-4 mr-2 text-blue-600 bg-neutral-content border-neutral-content focus:ring-blue-500" %>
-                <span><%= option[:label] %></span>
-            </label>
-          </li>
-        <% end %>
-      </ul>
-      <p class="mt-2 text-sm  text-base-content">
-        <%= t(".utilization_context") %>
-      </p>
+    <%= turbo_frame_tag "survey_form" do %>
+      <%= form_with url: survey_responses_path, method: :post, class: "space-y-6" do |f| %>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-semibold">
+              <%= t(".team_size") %>
+            </span>
+          </label>
+          <div class="flex flex-wrap gap-4">
+            <%
+              [
+                {
+                  label: t(".answer_labels.team_size.one"),
+                  value: "1"
+                },{
+                  label: t(".answer_labels.team_size.one_to_ten"),
+                  value: "1-to-10"
+                },{
+                  label: t(".answer_labels.team_size.ten_plus"),
+                  value: "10+"
+                }
+              ].each do |option|
+            %>
+              <label class="label cursor-pointer gap-2 bg-base-200 px-4 py-3 rounded-lg hover:bg-base-300 transition-colors">
+                <%= radio_button_tag :team_size,
+                  option[:value],
+                  false,
+                  class: "radio radio-primary" %>
+                <span class="label-text"><%= option[:label] %></span>
+              </label>
+            <% end %>
+          </div>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-semibold">
+              <%= t(".utilization_context") %>
+            </span>
+          </label>
+          <div class="flex flex-wrap gap-4">
+            <%
+              [
+                {
+                  label: t(".answer_labels.utilization_context.personal_projects"),
+                  value: "personal_projects"
+                },{
+                  label: t(".answer_labels.utilization_context.work_software_development"),
+                  value: "work_software_development"
+                },{
+                  label: t(".answer_labels.utilization_context.work_it_related"),
+                  value: "work_it_related"
+                },{
+                  label: t(".answer_labels.utilization_context.work_other_areas"),
+                  value: "work_other_areas"
+                }
+              ].each do |option|
+            %>
+              <label class="label cursor-pointer gap-2 bg-base-200 px-4 py-3 rounded-lg hover:bg-base-300 transition-colors">
+                <%= radio_button_tag :utilization_context,
+                  option[:value],
+                  false,
+                  class: "radio radio-primary" %>
+                <span class="label-text"><%= option[:label] %></span>
+              </label>
+            <% end %>
+          </div>
+        </div>
 
-      <ul class="flex items-center w-full text-sm  text-base-content bg-white">
-        <%
-          [
-            {
-              label: t(".answer_labels.utilization_context.personal_projects"),
-              value: "personal_projects"
-            },{
-              label: t(".answer_labels.utilization_context.work_software_development"),
-              value: "work_software_development"
-            },{
-              label: t(".answer_labels.utilization_context.work_it_related"),
-              value: "work_it_related"
-            },{
-              label: t(".answer_labels.utilization_context.work_other_areas"),
-              value: "work_other_areas"
-            }
-          ].each do |option|
-        %>
-          <li class="flex text-xs items-center min-w-32">
-            <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-base-content" %>
-              <%= radio_button_tag :utilization_context,
-                option[:value],
-                class: "w-4 h-4 mr-2 text-blue-600 bg-neutral-content border-neutral-content focus:ring-blue-500" %>
-                <span><%= option[:label] %></span>
-            </label>
-          </li>
-        <% end %>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-semibold">
+              <%= t(".usage_purposes") %>
+            </span>
+          </label>
+          <div class="flex flex-wrap gap-4">
+            <%
+              [{
+                  label: t(".answer_labels.usage_purposes.project_management"),
+                  value: "project_management"
+                },
+                {
+                  label: t(".answer_labels.usage_purposes.time_tracking"),
+                  value: "time_tracking"
+                },{
+                  label: t(".answer_labels.usage_purposes.focus"),
+                  value: "focus"
+                }
+              ].each do |option|
+            %>
+              <label class="label cursor-pointer gap-2 bg-base-200 px-4 py-3 rounded-lg hover:bg-base-300 transition-colors">
+                <%= check_box_tag 'usage_purposes[]',
+                  option[:value],
+                  false,
+                  class: "checkbox checkbox-primary" %>
+                <span class="label-text"><%= option[:label] %></span>
+              </label>
+            <% end %>
+          </div>
+        </div>
 
-      </ul>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text font-semibold">
+              <%= t(".how_did_you_found_us") %>
+            </span>
+          </label>
+          <div class="flex flex-wrap gap-4">
+            <%
+              [
+                {
+                  label: t(".answer_labels.how_did_you_found_us.reddit"),
+                  value: "reddit"
+                },{
+                  label: t(".answer_labels.how_did_you_found_us.search_engine"),
+                  value: "search_engine"
+                },{
+                  label: t(".answer_labels.how_did_you_found_us.social_media"),
+                  value: "social_media"
+                },{
+                  label: "Website",
+                  value: "website"
+                },{
+                  label: t(".answer_labels.how_did_you_found_us.other"),
+                  value: "other"
+                }
+              ].each do |option|
+            %>
+              <label class="label cursor-pointer gap-2 bg-base-200 px-4 py-3 rounded-lg hover:bg-base-300 transition-colors">
+                <%= radio_button_tag :how_did_you_found_us,
+                  option[:value],
+                  false,
+                  class: "radio radio-primary",
+                  "onclick": "document.getElementById('how-did-you-found-us-details').style.display = 'block';"
+                %>
+                <span class="label-text"><%= option[:label] %></span>
+              </label>
+            <% end %>
+          </div>
+        </div>
 
-      <p class="mt-4 text-sm  text-base-content">
-        <%= t(".usage_purposes") %>
-      </p>
+        <div id="how-did-you-found-us-details" style="display: none;" class="form-control">
+          <label class="label">
+            <span class="label-text">
+              <%= t(".how_did_you_found_us_please_elaborate") %>
+            </span>
+          </label>
+          <%= text_field_tag :how_did_you_found_us_details, nil, class: "input input-bordered w-full", placeholder: "Tell us more..." %>
+        </div>
 
-      <ul class="flex items-center w-full text-sm  text-base-content bg-white">
-        <%
-          [{
-              label: t(".answer_labels.usage_purposes.project_management"),
-              value: "project_management"
-            },
-            {
-              label: t(".answer_labels.usage_purposes.time_tracking"),
-              value: "time_tracking"
-            },{
-              label: t(".answer_labels.usage_purposes.focus"),
-              value: "focus"
-            }
-          ].each do |option|
-        %>
-          <li class="flex text-xs items-center min-w-32">
-            <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-base-content" %>
-              <%= check_box_tag 'usage_purposes[]',
-                option[:value],
-                class: "w-4 h-4 mr-2 bg-base-100 border-base-300 rounded-sm focus:ring-blue-500" %>
-                <span><%= option[:label] %></span>
-            </label>
-          </li>
-        <% end %>
-      </ul>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">
+              <i class="fa-solid fa-envelope mr-2"></i>
+              <%= t(".share_your_contact_details") %>
+            </span>
+          </label>
+          <%= f.email_field :contact_email, class: "input input-bordered w-full", placeholder: "your@email.com" %>
+        </div>
 
-      <p class="mt-2 text-sm  text-base-content">
-        <%= t(".how_did_you_found_us") %>
-      </p>
-
-      <ul class="flex items-center w-full text-sm  text-base-content bg-white">
-        <%
-          [
-            {
-              label: t(".answer_labels.how_did_you_found_us.reddit"),
-              value: "reddit"
-            },{
-              label: t(".answer_labels.how_did_you_found_us.search_engine"),
-              value: "search_engine"
-            },{
-              label: t(".answer_labels.how_did_you_found_us.social_media"),
-              value: "social_media"
-            },{
-              label: "Website",
-              value: "website"
-            },{
-              label: t(".answer_labels.how_did_you_found_us.other"),
-              value: "other"
-            }
-          ].each do |option|
-        %>
-          <li class="flex text-xs items-center">
-            <label class="pl-4 flex items-center w-full py-4 cursor-pointer text-md  text-base-content" %>
-              <%= radio_button_tag :how_did_you_found_us,
-                option[:value],
-                class: "w-4 h-4 mr-2 text-blue-600 bg-neutral-content border-neutral-content focus:ring-blue-500",
-                "onclick": "document.getElementById('how-did-you-found-us-details').style.display = 'block';"
-              %>
-                <span><%= option[:label] %></span>
-            </label>
-          </li>
-        <% end %>
-      </ul>
-
-      <div id="how-did-you-found-us-details" style="display: none;">
-        <p class="text-xs text-base-content">
-          <%= t(".how_did_you_found_us_please_elaborate") %>
-        </p>
-
-        <%= text_field_tag :how_did_you_found_us_details, nil, class: "mt-1 input-primary input-sm max-w-xs" %>
-      </div>
-
-
-      <div class="mt-4">
-        <p class="text-xs text-base-content">
-          <i class="fa-solid fa-envelope"></i>
-          <%= t(".share_your_contact_details") %>
-        </p>
-
-        <%= f.email_field :contact_email, class: "mt-1 input-primary w-full" %>
-      </div>
-      <div class="mt-4 flex justify-center self-center">
-        <%= f.submit t('.submit_answers'), class: "btn-primary" %>
-      </div>
+        <div class="card-actions justify-end pt-4">
+          <%= f.submit t('.submit_answers'), class: "btn btn-primary btn-lg" %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

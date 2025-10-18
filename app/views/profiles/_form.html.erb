@@ -17,38 +17,35 @@
     </div>
   <% end %>
 
-  <div class="flex flex-col gap-4">
-    <div>
-      <%= f.label :timezone, class: "mb-2 label-primary" do %>
-        <span class="text-base-content mr-1"><i class='fa-solid fa-globe'></i></span>
+  <div class="flex gap-4 ">
+    <fieldset class="fieldset grow w-1/2">
+      <%= f.label :timezone, class: "fieldset-label" do %>
+        <i class='ti ti-timezone'></i>
         <%= User.human_attribute_name(:timezone) %>
       <% end %>
-      <div class="flex items-stretch gap-5">
+
+      <div class="w-full flex justify-stretch">
         <%= f.select :timezone,
           ActiveSupport::TimeZone.all.sort_by(&:utc_offset).map{|e| ["#{e.name} (GMT#{e.now.formatted_offset})", e.name]},
           { include_blank: true },
-          { class: "input-primary m-0", data: { controller: 'select2' } } %>
+          { class: "w-full", data: { controller: 'select2' } } %>
       </div>
-
-      <span class="text-sm text-base-content mt-2">
+      <span class="fieldset-legend text-base-content/70">
         <%= t(".why_is_timezone_needed") %>
       </span>
-    </div>
+    </fieldset>
 
-    <div class="">
-      <%= f.label :locale, class: "mb-2 label-primary" do %>
-        <span class="text-base-content mr-1"><i class='fa-solid fa-globe'></i></span>
+    <fieldset class="fieldset grow w-1/2">
+      <%= f.label :locale, class: "fieldset-label" do %>
+        <i class='ti ti-globe'></i>
         <%= User.human_attribute_name(:locale) %>
       <% end %>
-      <div class="flex items-stretch gap-5">
-        <%= f.select :locale, [['English', 'en'], ['Português (Brasil)', 'pt-BR']], { selected: I18n.locale }, { class: "input-primary m-0" } %>
-      </div>
-    </div>
 
-
-    <div class="flex justify-center self-center	">
-      <%= f.button t('actions.update'), class: "btn-primary" %>
-    </div>
+      <%= f.select :locale, [['English', 'en'], ['Português (Brasil)', 'pt-BR']], { selected: I18n.locale }, { class: "select w-full" } %>
+    </fieldset>
   </div>
 
+  <div class="flex justify-end">
+    <%= f.button t('actions.update'), class: "btn btn-primary" %>
+  </div>
 <% end %>
