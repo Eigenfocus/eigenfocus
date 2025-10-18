@@ -11,6 +11,7 @@ pt-BR:
     projects: 'Projetos'
     theme: 'Tema'
     notifications: 'Notificações'
+    help: 'Ajuda'
   layouts:
     guide_modal:
       title: "Nossas funcionalidades"
@@ -46,12 +47,12 @@ pt-BR:
         new_version_available: "Nova versão disponível"
         check_our_releases: "Veja nossas releases"
         check_pro_edition: "Upgrade para PRO edition"
-      tours:
+      tour:
         title: "Guided Tours"
         projects: "Gerenciando projetos"
         time_entries: "Registrando tempo"
         issues: "Gerenciando issues"
-        board: "Usando o quadro de fluxo de trabalho"
+        board: "Usando Boards"
         features_list: "Visão geral das funcionalidades"
         more: "Mais guias"
       notification:

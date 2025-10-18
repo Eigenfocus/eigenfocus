@@ -11,6 +11,7 @@ en:
     recent_projects: 'Recent projects'
     theme: 'Theme'
     notifications: 'Notifications'
+    help: 'Help'
   layouts:
     guide_modal:
       title: "Our features"
@@ -45,12 +46,12 @@ en:
         new_version_available: "New version available"
         check_our_releases: "Check our releases"
         check_pro_edition: "Upgrade to PRO edition"
-      tours:
+      tour:
         title: "Guided Tours"
         projects: "Managing projects"
         time_entries: "Tracking time"
         issues: "Managing issues"
-        board: "Using the workflow board"
+        board: "Using boards"
         features_list: "Features overview"
         more: "More Guides"
       notification:

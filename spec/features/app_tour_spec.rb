@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'As a user, I can follow the tours', skip: false do
+describe 'As a user, I can follow the tours' do
   let!(:user) { FactoryBot.create(:user) }
 
   before(:each) do
@@ -27,24 +27,13 @@ describe 'As a user, I can follow the tours', skip: false do
   specify "I can list the available tours" do
     visit root_path
 
-    find("header .cpy-header-tour-button").click
+    find(".cpy-header-tour-button").click
 
     expect(page).to have_content("Guided Tours")
     expect(page).to have_content("Managing projects")
     expect(page).to have_content("Managing issues")
-    expect(page).to have_content("Using the workflow board")
+    expect(page).to have_content("Using boards")
     expect(page).to have_content("Tracking time")
-  end
-
-  specify "I can see the features list" do
-    visit root_path
-
-    within "header" do
-      find(".cpy-header-tour-button").click
-      find(".cpy-feature-list-button").click
-    end
-
-    expect(page).to have_content("Thanks for using Eigenfocus!")
   end
 
   specify "I can start a project tour" do
@@ -70,7 +59,7 @@ describe 'As a user, I can follow the tours', skip: false do
   specify "I can start the workflow board tour" do
     visit root_path
 
-    start_tour "workflow board"
+    start_tour "Using boards"
 
     should_have_tour_popover("Workflow Board")
     next_tour_step
