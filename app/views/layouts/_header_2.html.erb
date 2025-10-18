@@ -21,6 +21,8 @@
     <%= react_component("FocusApp", {}, { "data-turbo-permanent": true, id: 'focus-app-wrapper' }) %>
     <div class="divider divider-neutral/40 divider-horizontal mx-0"></div>
     <%= render "layouts/_header/themes" %>
+    <%= render "layouts/_header/tour" %>
+    <%= render "layouts/_header/notification", notifications: Notification.order(published_at: :desc).limit(10) %>
     <%= link_to edit_profile_path, class: "btn btn-sm btn-ghost" do %>
       <i class="ti ti-user"></i>
     <% end %>
