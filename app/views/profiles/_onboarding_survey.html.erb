@@ -1,18 +1,14 @@
-<div class="card bg-base-100 shadow-xl mb-8">
+<div class="card bg-base-100 my-8">
   <div class="card-body">
-    <h2 class="card-title text-2xl mb-6">
-      <i class="fa fa-lightbulb text-primary"></i>
+    <h2 class="card-title">
       <%= t(".title") %>
     </h2>
 
     <%= turbo_frame_tag "survey_form" do %>
       <%= form_with url: survey_responses_path, method: :post, class: "space-y-6" do |f| %>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text font-semibold">
-              <%= t(".team_size") %>
-            </span>
-          </label>
+        <fieldset class="fieldset ">
+          <legend class="fieldset-label"><%= t(".team_size") %></legend>
+
           <div class="flex flex-wrap gap-4">
             <%
               [
@@ -28,22 +24,19 @@
                 }
               ].each do |option|
             %>
-              <label class="label cursor-pointer gap-2 bg-base-200 px-4 py-3 rounded-lg hover:bg-base-300 transition-colors">
+              <label class="label">
                 <%= radio_button_tag :team_size,
                   option[:value],
                   false,
-                  class: "radio radio-primary" %>
-                <span class="label-text"><%= option[:label] %></span>
+                  class: "radio radio-primary radio-sm" %>
+                <%= option[:label] %>
               </label>
             <% end %>
           </div>
-        </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text font-semibold">
-              <%= t(".utilization_context") %>
-            </span>
-          </label>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <legend class="fieldset-label"><%= t(".utilization_context") %></legend>
           <div class="flex flex-wrap gap-4">
             <%
               [
@@ -62,24 +55,20 @@
                 }
               ].each do |option|
             %>
-              <label class="label cursor-pointer gap-2 bg-base-200 px-4 py-3 rounded-lg hover:bg-base-300 transition-colors">
+              <label class="label">
                 <%= radio_button_tag :utilization_context,
                   option[:value],
                   false,
-                  class: "radio radio-primary" %>
-                <span class="label-text"><%= option[:label] %></span>
+                  class: "radio radio-primary radio-sm" %>
+                <%= option[:label] %>
               </label>
             <% end %>
           </div>
-        </div>
+        </fieldset>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text font-semibold">
-              <%= t(".usage_purposes") %>
-            </span>
-          </label>
-          <div class="flex flex-wrap gap-4">
+        <fieldset class="fieldset">
+          <legend class="fieldset-label"><%= t(".usage_purposes") %></legend>
+          <div class="flex flex-wrap md:gap-8">
             <%
               [{
                   label: t(".answer_labels.usage_purposes.project_management"),
@@ -94,23 +83,19 @@
                 }
               ].each do |option|
             %>
-              <label class="label cursor-pointer gap-2 bg-base-200 px-4 py-3 rounded-lg hover:bg-base-300 transition-colors">
+              <label class="label">
                 <%= check_box_tag 'usage_purposes[]',
                   option[:value],
                   false,
-                  class: "checkbox checkbox-primary" %>
-                <span class="label-text"><%= option[:label] %></span>
+                  class: "checkbox checkbox-sm checkbox-primary" %>
+                <%= option[:label] %>
               </label>
             <% end %>
           </div>
-        </div>
+        </fieldset>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text font-semibold">
-              <%= t(".how_did_you_found_us") %>
-            </span>
-          </label>
+        <fieldset class="fieldset">
+          <legend class="fieldset-label"><%= t(".how_did_you_found_us") %></legend>
           <div class="flex flex-wrap gap-4">
             <%
               [
@@ -132,20 +117,20 @@
                 }
               ].each do |option|
             %>
-              <label class="label cursor-pointer gap-2 bg-base-200 px-4 py-3 rounded-lg hover:bg-base-300 transition-colors">
+              <label class="label">
                 <%= radio_button_tag :how_did_you_found_us,
                   option[:value],
                   false,
-                  class: "radio radio-primary",
+                  class: "radio radio-primary radio-sm",
                   "onclick": "document.getElementById('how-did-you-found-us-details').style.display = 'block';"
                 %>
-                <span class="label-text"><%= option[:label] %></span>
+                <%= option[:label] %>
               </label>
             <% end %>
           </div>
-        </div>
+        </fieldset>
 
-        <div id="how-did-you-found-us-details" style="display: none;" class="form-control">
+        <div id="how-did-you-found-us-details" style="display: none;" class="fieldset">
           <label class="label">
             <span class="label-text">
               <%= t(".how_did_you_found_us_please_elaborate") %>
@@ -154,19 +139,15 @@
           <%= text_field_tag :how_did_you_found_us_details, nil, class: "input input-bordered w-full", placeholder: "Tell us more..." %>
         </div>
 
-        <div class="form-control">
+        <div class="fieldset">
           <label class="label">
-            <span class="label-text">
-              <i class="fa-solid fa-envelope mr-2"></i>
+              <i class="ti ti-mail"></i>
               <%= t(".share_your_contact_details") %>
-            </span>
           </label>
           <%= f.email_field :contact_email, class: "input input-bordered w-full", placeholder: "your@email.com" %>
         </div>
 
-        <div class="card-actions justify-end pt-4">
-          <%= f.submit t('.submit_answers'), class: "btn btn-primary btn-lg" %>
-        </div>
+        <%= f.submit t('.submit_answers'), class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </div>
