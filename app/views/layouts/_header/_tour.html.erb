@@ -1,0 +1,49 @@
+<div class="relative inline-flex" data-controller="dropdown">
+
+  <button type="button" class="text-base-content hover:text-primary tour--header-guide-button cpy-header-tour-button" data-action="click->dropdown#toggle click@window->dropdown#hide" data-dropdown-target="button">
+    <i class="fa-solid fa-circle-question"></i>
+  </button>
+
+  <div class="cpy-header-tour-dropdown absolute text-left text-sm z-10 mt-2 w-64 right-0 top-4 rounded-md bg-base-200 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" data-dropdown-target="menu">
+    <div class="w-full flex justify-stretch flex-col">
+      <h3 class="px-4 py-2 text-xs font-semibold text-base-content">
+        <%= t('.tours.title') %>
+      </h3>
+
+      <%= link_to projects_path(activate_tour: "projects/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
+        <%= icon_for(:projects) %>
+        <%= t('.tours.projects') %>
+      <% end %>
+
+      <% if example_project_id = Issue.first&.project_id %>
+        <%= link_to project_issues_path(example_project_id, activate_tour: "issues/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
+          <%= icon_for(:issues) %>
+          <%= t('.tours.issues') %>
+        <% end %>
+      <% end %>
+
+      <% if example_visualization = Visualization.first %>
+        <%= link_to visualization_path(example_visualization, activate_tour: "visualization/board"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
+          <%= icon_for(:boards) %>
+          <%= t('.tours.board') %>
+        <% end %>
+      <% end %>
+
+      <%= link_to time_entries_path(activate_tour: "time_entries/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
+        <%= icon_for(:time_entries) %>
+        <%= t('.tours.time_entries') %>
+      <% end %>
+    </div>
+
+    <div class="flex flex-col justify-stretch w-ful mt-4">
+      <h3 class="px-4 py-2 text-xs font-semibold text-base-content">
+        <%= t('.tours.more') %>
+      </h3>
+      <button role="button" onclick="document.getElementById('guide-modal').modal.open()"
+        class="flex flex-start text-left items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100 cpy-feature-list-button">
+        <i class="fa-solid fa-star"></i>
+        <%= t('.tours.features_list') %>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,16 @@
 pt-BR:
+  menu_items:
+    edit_profile: "Editar perfil"
+    profile_options: "Perfil e configurações"
+    timesheet: 'Timesheet'
+    total_time_report: 'Relatório de tempo'
+    manage_projects: 'Gerenciar projetos'
+    add_project: 'Adicionar projeto'
+    recent_projects: 'Projetos recentes'
+    list_all_projects: 'Listar todos os projetos'
+    projects: 'Projetos'
+    theme: 'Tema'
+    notifications: 'Notificações'
   layouts:
     guide_modal:
       title: "Nossas funcionalidades"
@@ -30,7 +42,10 @@ pt-BR:
       new_version: "Nova versão"
       current_version: "Versão atual"
       check_our_github: "Veja nosso Github"
-      outdated_alert_html: "Sua versão está desatualizada.<br/>Nossa versão mais atual é %{newest_version}."
+      version_badge:
+        new_version_available: "Nova versão disponível"
+        check_our_releases: "Veja nossas releases"
+        check_pro_edition: "Upgrade para PRO edition"
       tours:
         title: "Guided Tours"
         projects: "Gerenciando projetos"
@@ -46,16 +61,6 @@ pt-BR:
       notification_item:
         visit_link: "Visite o link"
         mark_as_read: "Marcar como lida"
-
-    sidebar:
-      edit_profile: "Editar perfil"
-      profile_options: "Perfil e configurações"
-      menu:
-        timesheet: 'Registros de Tempo'
-        total_time_report: 'Relatórios de Tempo'
-      projects_menu:
-        list_all_projects: 'Listar todos os projetos'
-        projects: 'Projetos'
     confirm_modal:
       title: "Apenas para verificar..."
       body: "Tem certeza que quer fazer isso?"

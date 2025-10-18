@@ -1,26 +1,25 @@
-<div id="<%= dom_id(notification) %>" class="cpy-notification px-3 py-2 border-b first:border-b-0 border-base-200 last:border-b-0 hover:bg-base-100">
-  <div class="flex justify-stretch items-stretch gap-3">
-    <div class="flex grow flex-col">
-      <p class="text-sm font-bold text-base-content"><%= notification.title %></p>
-      <div class="text-xs mt-1 text-italic  text-base-content"><%= notification.content %></div>
-      <div class="text-xs flex mt-1 justify-between gap-4">
-        <span>
-          <% if notification.external_link? %>
-            <%= link_to "https://notifications.eigenfocus.com/#{notification.external_id}", target: "_blank", class: "cpy-external-link text-xs text-primary hover:text-primary" do %>
-              <i class="mr-1 fa-solid fa-arrow-up-right-from-square"></i>
-              <%= t(".visit_link") %>
-            <% end %>
-          <% end %>
-        </span>
-        <% unless notification.read? %>
-          <%= button_to mark_as_read_notification_path(notification),
-              class: "text-xs text-primary hover:text-primary cpy-mark-as-read",
-              data: { turbo_method: :post } do %>
-            <%= t(".mark_as_read") %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+<div id="<%= dom_id(notification) %>" class="cpy-notification list-row text-base-content flex flex-col">
+  <div class="list-col-wrap">
+    <div class="text-xs uppercase font-semibold opacity-60"><%= notification.title %></div>
+    <p class="list-col-wrap text-xs mt-1">
+      <%= notification.content %>
+    </p>
+  </div>
+  <div class="flex gap-3 items-baseline justify-end">
+    <% if notification.external_link? %>
+      <%= link_to "https://notifications.eigenfocus.com/#{notification.external_id}", target: "_blank", class: "cpy-external-link text-xs text-primary hover:text-primary " do %>
+        <%= t(".visit_link") %>
+      <% end %>
+    <% end %>
+
+    <% unless notification.read? %>
+      <%= button_to mark_as_read_notification_path(notification),
+          class: "text-xs text-primary hover:text-primary cpy-mark-as-read link-hover",
+          data: { turbo_method: :post } do %>
+        <%= t(".mark_as_read") %>
+      <% end %>
+    <% end %>
 
   </div>
+
 </div>
