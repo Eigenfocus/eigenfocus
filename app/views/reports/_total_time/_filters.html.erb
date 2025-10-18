@@ -47,7 +47,7 @@
         <%= t('actions.clear_filter') %>
       <% end %>
 
-      <%= f.button onclick: "document.querySelector('.js-filter-form').action = '#{total_time_reports_path(format: :csv)}'", class: "btn btn-ghost " do %>
+      <%= f.button onclick: "document.querySelector('.js-filter-form').action = '#{total_time_reports_path(format: :csv)}'", class: "btn btn-neutral btn-soft" do %>
         <%= t(".generate_report_csv") %>
       <% end %>
 

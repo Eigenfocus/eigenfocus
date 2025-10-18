@@ -19,6 +19,7 @@ export default class extends Controller {
         return $.fn.select2.defaults.defaults.matcher(params, data);
       },
       width: '100%',
+      dropdownAutoWidth: true,
       tags: (this.element.dataset.tags == "true")
     });
 

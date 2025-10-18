@@ -14,12 +14,28 @@
   font-size: 14px !important;
 }
 
-.select2-container .select2-selection--single {
+.selection {
+  display: flex;
+  width: 100% !important;
+  justify-content: stretch;
+}
+
+.selection .select2-selection.select2-selection--single {
+  width: 100% !important;
+  flex-grow: 1;
+}
+
+.select2-container .select2-selection--single,
+.select2-selection.select2-selection--single {
   @apply input! w-full!;
+  width: 100% !important;
+  flex-grow: 1;
 }
 
 .select2-selection.select2-selection--multiple {
-  @apply input! w-full!;
+  @apply input!;
+  width: 100% !important;
+  flex-grow: 1;
 }
 
 .select2-sm .select2-selection.select2-selection--multiple,

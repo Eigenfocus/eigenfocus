@@ -27,7 +27,7 @@
         <% if notifications.any? %>
           <%= render partial: "layouts/_header/notification_item", collection: notifications, as: :notification %>
         <% else %>
-          <div class="list-item">
+          <div class="text-center text-base-content py-2">
             <p class="text-sm"><%= t(".no_notifications") %></p>
           </div>
         <% end %>

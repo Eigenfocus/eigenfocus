@@ -65,7 +65,7 @@ en:
     allocate: "Allocate"
     deallocate: "Deallocate"
     filter: "Filter"
-    clear_filter: "clear filter"
+    clear_filter: "Clear filter"
     preview: "Preview"
     press: "Press"
     go_to_board: 'Board'
