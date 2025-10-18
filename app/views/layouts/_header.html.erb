@@ -1,133 +1,35 @@
-<header class="sticky z-999 top-0 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10 z-100 max-lg:shadow-sm bg-background-menu border-b border-base-300 bg-base-100">
-
-  <div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
-
-    <div class="flex gap-4">
-      <button class="text-base-content hover:text-base-content lg:hidden" data-action="click->sidebar#toggleSidebarMenu" aria-controls="sidebar" aria-expanded="false">
-        <span class="sr-only">Open sidebar</span>
-        <svg class="w-6 h-6 fill-neutral-content" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="5" width="16" height="2"></rect>
-          <rect x="4" y="11" width="16" height="2"></rect>
-          <rect x="4" y="17" width="16" height="2"></rect>
-        </svg>
-      </button>
-
-      <div class="flex items-center gap-4">
-        <span class="bg-primary-50 flex items-center justify-center border border-primary text-xs text-base-content px-2 py-1 rounded-md">
-          Free Edition
-        </span>
-        <a data-controller="upgrade-to-pro-button" href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=header_button"
-          target="_blank"
-          class="text-base text-sm text-base-content hover:text-primary">
-          <span class="relative">
-            <i class="fa-solid fa-rocket mr-1"></i>
-          </span>
-          <span>Need more? Upgrade to PRO</span>
-        </a>
-      </div>
-    </div>
-    <div class="flex items-center space-x-4">
-      <div class="relative inline-flex" data-controller="dropdown">
-
-        <button type="button" class="text-base-content hover:text-primary tour--header-guide-button cpy-header-tour-button" data-action="click->dropdown#toggle click@window->dropdown#hide" data-dropdown-target="button">
-          <i class="fa-solid fa-circle-question"></i>
-        </button>
-
-        <div class="cpy-header-tour-dropdown absolute text-left text-sm z-10 mt-2 w-64 right-0 top-4 rounded-md bg-base-200 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" data-dropdown-target="menu">
-          <div class="w-full flex justify-stretch flex-col">
-            <h3 class="px-4 py-2 text-xs font-semibold text-base-content">
-              <%= t('.tours.title') %>
-            </h3>
-
-            <%= link_to projects_path(activate_tour: "projects/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
-              <%= icon_for(:projects) %>
-              <%= t('.tours.projects') %>
-            <% end %>
-
-            <% if example_project_id = Issue.first&.project_id %>
-              <%= link_to project_issues_path(example_project_id, activate_tour: "issues/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
-                <%= icon_for(:issues) %>
-                <%= t('.tours.issues') %>
-              <% end %>
-            <% end %>
-
-            <% if example_visualization = Visualization.first %>
-              <%= link_to visualization_path(example_visualization, activate_tour: "visualization/board"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
-                <%= icon_for(:boards) %>
-                <%= t('.tours.board') %>
-              <% end %>
-            <% end %>
-
-            <%= link_to time_entries_path(activate_tour: "time_entries/index"), class: "flex items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100", data: { turbo_frame: "_top" } do %>
-              <%= icon_for(:time_entries) %>
-              <%= t('.tours.time_entries') %>
-            <% end %>
-          </div>
-
-          <div class="flex flex-col justify-stretch w-ful mt-4">
-            <h3 class="px-4 py-2 text-xs font-semibold text-base-content">
-              <%= t('.tours.more') %>
-            </h3>
-            <button role="button" onclick="document.getElementById('guide-modal').modal.open()"
-              class="flex flex-start text-left items-center gap-3 px-4 py-2 text-base-content hover:bg-base-100 cpy-feature-list-button">
-              <i class="fa-solid fa-star"></i>
-              <%= t('.tours.features_list') %>
-            </button>
-          </div>
+<div class="navbar bg-base-100 shadow-sm sticky z-999 top-0 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10 z-100 px-4">
+  <div class="w-7xl  mx-auto flex justify-between items-center">
+    <div class="navbar-start gap-2">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
         </div>
-      </div>
-      <%= render "layouts/_header/notification", notifications: Notification.order(published_at: :desc).limit(10) %>
-      <div class="relative inline-flex" data-controller="dropdown">
-        <button data-action="click->dropdown#toggle click@window->dropdown#hide"
-          role="button" data-dropdown-target="button"
-          class="text-base-content hover:text-primary flex items-center"
-          aria-haspopup="true" aria-expanded="false">
-
-          <% if AppMetadata.instance.is_app_outdated? %>
-            <span class="text-sm rounded-md py-1 flex items-center px-2 border border-primary">
-              <i class="fa-solid fa-gear mr-2 text-lg"></i>
-              <%= t(".new_version") %>
-            </span>
-          <% else %>
-            <i class="fa-solid text-lg fa-gear"></i>
-          <% end %>
-        </button>
-        <div data-dropdown-target="menu" class="bg-base-200 right-0 z-10 absolute top-full min-w-max bg-white border border-base-300 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
-          <div class="flex flex-col justify-stretch items-stretch text-left text-base-content">
-            <p class="py-2 px-4 text-sm font-bold bg-base-200"><%= t(".current_version") %>: <%= AppMetadata.instance.current_version %></p>
-            <% if AppMetadata.instance.is_app_outdated? %>
-              <p class="top-0 right-0 text-sm px-4 py-2 text-italic text-secondary font-medium">
-                <%= t(".outdated_alert_html", newest_version: AppMetadata.instance.last_released_version) %>
-              </p>
-              <a href="https://github.com/Eigenfocus/eigenfocus/releases" target="_blank" class="text-left py-2 px-4 text-sm text-primary hover:bg-base-100"><i class="fa-solid fa-tag mr-1"></i> <%= t(".check_our_releases") %></a>
-            <% else %>
-              <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="text-left py-2 px-4 text-sm text-primary hover:bg-base-100"><i class="fa-brands fa-github mr-1"></i> <%= t(".check_our_github") %></a>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="dropdown dropdown-end block ">
-        <div tabindex="0" role="button" class="btn group btn-sm gap-1.5 px-1.5 btn-ghost" aria-label="Change Theme"><div class="bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1 transition-colors"><div class="bg-base-content size-1 rounded-full"></div> <div class="bg-primary size-1 rounded-full"></div> <div class="bg-secondary size-1 rounded-full"></div> <div class="bg-accent size-1 rounded-full"></div></div> <svg width="12px" height="12px" class="mt-px hidden size-2 fill-current opacity-60 sm:inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg></div>
-        <ul data-controller="theme-switcher" tabindex="-1" class="menu dropdown-content bg-base-100 rounded-box z-1 w-54 p-2 shadow-2xl">
-          <li class="menu-title text-xs">Theme</li>
-          <% TailwindTheme.all.each do |theme| %>
-            <li>
-              <a href="<%= update_preferences_profile_path(favorite_theme_key: theme.key) %>"
-              data-theme-switcher-target="switchButton"
-              data-turbo-method="patch" class="px-2 flex"
-              data-action="click->theme-switcher#switchTheme"
-              data-set-theme="<%= theme.key %>">
-                <div data-theme="<%= theme.key %>" class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm"><div class="bg-base-content size-1 rounded-full"></div>
-                  <div class="bg-primary size-1 rounded-full"></div>
-                  <div class="bg-secondary size-1 rounded-full"></div>
-                  <div class="bg-accent size-1 rounded-full"></div>
-                </div>
-                <div class="w-32 truncate"><%= theme.name %></div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="<%= theme.key == current_theme_key ? '' : 'invisible' %> h-3 w-3 shrink-0"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"></path></svg>
-              </a>
-            </li>
-          <% end %>
+        <ul
+          tabindex="-1"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <li><%= link_to t('menu_items.projects'), projects_path, class: "text-base" %></li>
+          <li><%= link_to t('menu_items.timesheet'), time_entries_path, class: "text-base" %></li>
+          <li><%= link_to t('menu_items.total_time_report'), total_time_reports_path, class: "text-base" %></li>
         </ul>
       </div>
+
+      <%= render "layouts/_header/version_badge" %>
     </div>
-</header>
+    <%= render "layouts/_header/center_menu" %>
+    <div class="navbar-end gap-0">
+      <%= react_component("FocusApp", {}, { "data-turbo-permanent": true, id: 'focus-app-wrapper' }) %>
+      <div class="divider divider-neutral/40 divider-horizontal mx-0"></div>
+      <%= render "layouts/_header/tour" %>
+      <%= render "layouts/_header/themes" %>
+      <%= render "layouts/_header/notification", notifications: Notification.order(published_at: :desc).limit(10) %>
+      <%= link_to edit_profile_path, class: "btn btn-sm btn-slide btn-ghost cpy-profile-button" do %>
+        <i class="ti ti-user"></i>
+        <span class="sliding-text"><span class="sliding-text-inner">
+          <%= t('menu_items.edit_profile') %>
+        </span></span>
+      <% end %>
+
+    </div>
+  </div>
+</div>
