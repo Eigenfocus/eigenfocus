@@ -24,7 +24,7 @@
       <div class="divider divider-neutral/40 divider-horizontal mx-0"></div>
       <%= render "layouts/_header/themes" %>
       <%= render "layouts/_header/notification", notifications: Notification.order(published_at: :desc).limit(10) %>
-      <%= link_to edit_profile_path, class: "btn btn-sm btn-slide btn-ghost" do %>
+      <%= link_to edit_profile_path, class: "btn btn-sm btn-slide btn-ghost cpy-profile-button" do %>
         <i class="ti ti-user"></i>
         <span class="sliding-text"><span class="sliding-text-inner">
           <%= t('menu_items.edit_profile') %>
