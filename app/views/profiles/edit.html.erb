@@ -21,32 +21,4 @@
 
 <%= render "onboarding_survey" %>
 
-<div class="card mt-8 bg-base-100">
-  <div class="text-center w-full flex flex-row justify-start items-center gap-2 pb-2 border-b border-neutral-content">
-    <div class="text-md size-8 rounded-full bg-primary-50 text-primary flex items-center justify-center">
-      <i class="fa fa-newspaper"></i>
-    </div>
-    <h4 class="text-lg font-medium text-base-content">
-      <%= t(".subscription.title") %>
-    </h4>
-  </div>
-
-  <div class="mt-4 text-base flex flex-col">
-    <p class="text-sm text-italic text-base-content leading-loose">
-      <%= t(".subscription.description_html") %>
-    </p>
-  </div>
-  <form class="mt-4" action="https://eigenfocus.com/subscription/join" method="GET" target="_blank">
-    <div class="mb-4 flex flex-col items-stretch gap-2">
-      <label class="label-primary" for="subscriber_name">
-        <i class="fa-solid fa-envelope"></i>
-        Email
-      </label>
-      <input required="required"  aria-required="true" class="input-primary" type="email" name="subscriber[email]" id="subscriber_name">
-      <input type="hidden" name="subscriber[source]" value="self_hosted_app">
-    </div>
-    <div class="flex justify-center self-center">
-      <button name="button" type="submit" class="btn-primary"><%= t(".subscription.subscribe_action") %></button>
-    </div>
-  </form>
-</div>
+<%= render "newsletter" %>

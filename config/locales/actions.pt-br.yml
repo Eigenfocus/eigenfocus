@@ -37,15 +37,10 @@ pt-BR:
       title: "Editar perfil"
       title_complete_your_profile: "Vamos começar"
       why_you_need_to_fill_profile_html: "Olá. 👋 Antes de começar a cadastrar seus projetos precisamos que informe seu idioma preferencial e seu fuso horário.<br/>Você pode utilizar o formulário abaixo."
-      subscription:
-        title: "Inscreva-se na nossa Newsletter"
-        subscribe_action: "Inscrever-se"
-        description_html: >
-          Queremos manter contato e te notificar sobre atualizações.
-          <br/>
-          Considere se inscrever e nos dar uma estrela no <a href="https://github.com/Eigenfocus/eigenfocus" target="_blank" class="inline-flex link-primary">Github</a>.
-          <br/>
-          Ninguém gosta de spam e levamos e-mails muito a sério. Este passo é completamente opcional, sinta-se à vontade para pulá-lo.
+    newsletter:
+      title: "Inscreva-se na nossa Newsletter"
+      subscribe_action: "Inscrever-se"
+      description: "Fique por dentro das novidades e lançamentos do Eigenfocus."
 
     onboarding_survey:
       submit_answers: "Enviar respostas"

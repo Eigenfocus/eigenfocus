@@ -131,20 +131,18 @@
         </fieldset>
 
         <div id="how-did-you-found-us-details" style="display: none;" class="fieldset">
-          <label class="label">
-            <span class="label-text">
-              <%= t(".how_did_you_found_us_please_elaborate") %>
-            </span>
+          <label class="fieldset-label">
+            <%= t(".how_did_you_found_us_please_elaborate") %>
           </label>
-          <%= text_field_tag :how_did_you_found_us_details, nil, class: "input input-bordered w-full", placeholder: "Tell us more..." %>
+          <%= text_field_tag :how_did_you_found_us_details, nil, class: "input", placeholder: "Tell us more..." %>
         </div>
 
         <div class="fieldset">
-          <label class="label">
+          <label class="fieldset-label">
               <i class="ti ti-mail"></i>
               <%= t(".share_your_contact_details") %>
           </label>
-          <%= f.email_field :contact_email, class: "input input-bordered w-full", placeholder: "your@email.com" %>
+          <%= f.email_field :contact_email, class: "input", placeholder: "your@email.com" %>
         </div>
 
         <%= f.submit t('.submit_answers'), class: "btn btn-primary" %>
