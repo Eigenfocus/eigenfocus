@@ -1,0 +1,16 @@
+.btn-slide {
+  .sliding-text {
+    display: grid;
+    grid-template-columns: 0fr;
+    transition: grid-template-columns 0.3s ease-out;
+    white-space: nowrap;
+  }
+
+  &:hover .sliding-text {
+    grid-template-columns: 1fr;
+  }
+
+  .sliding-text-inner {
+    overflow: hidden;
+  }
+}

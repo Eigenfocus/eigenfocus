@@ -9,6 +9,8 @@ pt-BR:
     recent_projects: 'Projetos recentes'
     list_all_projects: 'Listar todos os projetos'
     projects: 'Projetos'
+    theme: 'Tema'
+    notifications: 'Notificações'
   layouts:
     guide_modal:
       title: "Nossas funcionalidades"

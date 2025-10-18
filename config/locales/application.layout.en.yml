@@ -9,6 +9,8 @@ en:
     projects: 'Projects'
     list_all_projects: 'List all projects'
     recent_projects: 'Recent projects'
+    theme: 'Theme'
+    notifications: 'Notifications'
   layouts:
     guide_modal:
       title: "Our features"

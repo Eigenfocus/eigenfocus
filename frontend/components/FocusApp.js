@@ -1,7 +1,5 @@
 import React, { useState } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark, faWindowRestore, faVolumeHigh, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
-import { IconFocus, IconHourglassEmpty, IconBrandDeezer } from '@tabler/icons-react';
+import { IconHourglassEmpty, IconBrandDeezer, IconLayoutDashboard } from '@tabler/icons-react';
 
 import AnimatedBackground from "./FocusApp/AnimatedBackground"
 import FocusSpace from "./FocusApp/FocusSpace"
@@ -34,11 +32,11 @@ const FocusApp = ({ }) => {
           onHide={() => setIsFocusSpaceShowing(false)} />
       </div>
       <div className={`${isFocusSpaceShowing ? 'space-showing' : ''}`}>
-        <button className={`tour--open-focus-app-button cpy-open-space-button btn btn-sm px-1.5 btn-ghost`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
+        <button className={`tour--open-focus-app-button btn-slide cpy-open-space-button btn btn-sm btn-ghost`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
           {
             !hasSoundPlaying &&
             !showPomodoroIcon &&
-            (<IconFocus/>)
+            (<IconLayoutDashboard/>)
           }
           {!isFocusSpaceShowing && (
             <>
@@ -47,7 +45,7 @@ const FocusApp = ({ }) => {
               )}
 
               {hasSoundPlaying && (
-                <span className='sound-playing-icon'>
+                <span className='sound-playing-icon animate-pulse'>
                   <IconBrandDeezer />
                 </span>
               )}
@@ -59,7 +57,7 @@ const FocusApp = ({ }) => {
               )}
             </>
           )}
-          Focus space
+          <span className="sliding-text"><span className="sliding-text-inner">Focus space</span></span>
         </button>
       </div>
     </>

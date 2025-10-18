@@ -17,9 +17,14 @@
 }
 
 svg.tabler-icon {
-  stroke-width: 1.25;
+  stroke-width: 1.5;
   height: 18px;
   width: 18px;
+}
+
+i.ti {
+  font-size: 18px;
+  font-weight: 300;
 }
 
 @custom-variant sidebar-expanded {

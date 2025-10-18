@@ -1,4 +1,5 @@
 @import "./focus-app";
+@import "./button";
 @import "./issue-label";
 @import "./issue-detail";
 @import "./sidebar";
