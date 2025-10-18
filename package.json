@@ -28,6 +28,7 @@
     "@milkdown/kit": "^7.6.3",
     "@milkdown/react": "^7.6.3",
     "@rails/request.js": "^0.0.12",
+    "@tabler/icons-react": "^3.35.0",
     "@types/babel__core": "^7.20.5",
     "@types/webpack": "^5.28.5",
     "atomico": "^1.79.2",

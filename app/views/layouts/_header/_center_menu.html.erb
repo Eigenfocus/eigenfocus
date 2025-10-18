@@ -2,7 +2,7 @@
 
   <div class="flex gap-0 text-base-content/80 items-center">
     <div class="dropdown dropdown-hover">
-      <a href="<%= projects_path %>" class="btn btn-sm btn-ghost drawer-button font-normal"><%= t('menu_items.projects') %></a>
+      <a href="<%= projects_path %>" class="btn btn-sm btn-ghost"><%= t('menu_items.projects') %></a>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box text-xs w-52">
         <li><%= link_to t('menu_items.list_all_projects'), projects_path, class: "text-nowrap" %></li>
         <li><%= link_to t('menu_items.add_project'), projects_path(open_form: true), class: "text-nowrap" %></li>
@@ -35,7 +35,7 @@
         }
       ].each do |menu_item|
     %>
-      <%= link_to menu_item[:url], class: 'btn btn-sm btn-ghost drawer-button font-normal' do %>
+      <%= link_to menu_item[:url], class: 'btn btn-sm btn-ghost' do %>
         <%= menu_item[:text] %>
       <% end %>
 
