@@ -59,7 +59,9 @@
           <%= yield %>
          <% else %>
           <main class="grow p-4 sm:p-8">
-            <%= yield %>
+            <div class="mx-auto lg:max-w-4xl">
+              <%= yield %>
+            </div>
           </main>
         <% end %>
       </div>

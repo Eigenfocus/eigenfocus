@@ -6,14 +6,15 @@
         <%= icon_for(:projects) %>
         <span class="sliding-text"><span class="sliding-text-inner"><%= t('menu_items.projects') %></span></span>
       </a>
-      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box text-xs w-52">
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 border border-base-200 py-3 rounded-box text-sm w-52">
         <li><%= link_to t('menu_items.list_all_projects'), projects_path, class: "text-nowrap" %></li>
         <li><%= link_to t('menu_items.add_project'), projects_path(open_form: true), class: "text-nowrap" %></li>
         <%
           recent_projects = Project.active.order(name: :asc).limit(10).all
           if recent_projects.any?
         %>
-          <li class="menu-title text-xs"><%= t('menu_items.recent_projects') %></li>
+          <li class="divider h-[0.5px]"></li>
+          <li class="menu-title text-sm"><%= t('menu_items.recent_projects') %></li>
           <%  recent_projects.each do |project| %>
             <li class="text-nowrap">
               <%= link_to project.name, visualization_path(project.default_visualization), class: "text-nowrap" %>
