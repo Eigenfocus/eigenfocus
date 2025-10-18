@@ -42,7 +42,10 @@ pt-BR:
       new_version: "Nova versão"
       current_version: "Versão atual"
       check_our_github: "Veja nosso Github"
-      outdated_alert_html: "Sua versão está desatualizada.<br/>Nossa versão mais atual é %{newest_version}."
+      version_badge:
+        new_version_available: "Nova versão disponível."
+        check_our_releases: "Veja nossas releases"
+        check_pro_edition: "Upgrade para PRO edition"
       tours:
         title: "Guided Tours"
         projects: "Gerenciando projetos"
