@@ -2,12 +2,13 @@ pt-BR:
   menu_items:
     edit_profile: "Editar perfil"
     profile_options: "Perfil e configurações"
-    menu:
-      timesheet: 'Registros de Tempo'
-      total_time_report: 'Relatórios de Tempo'
-    projects_menu:
-      list_all_projects: 'Listar todos os projetos'
-      projects: 'Projetos'
+    timesheet: 'Registros de Tempo'
+    total_time_report: 'Relatórios de Tempo'
+    manage_projects: 'Gerenciar projetos'
+    add_project: 'Adicionar projeto'
+    recent_projects: 'Projetos recentes'
+    list_all_projects: 'Listar todos os projetos'
+    projects: 'Projetos'
   layouts:
     guide_modal:
       title: "Nossas funcionalidades"

@@ -4,8 +4,11 @@ en:
     profile_options: "Profile & Settings"
     timesheet: 'Timesheet'
     total_time_report: 'Time reports'
-    list_all_projects: 'List all projects'
+    manage_projects: 'Manage projects'
+    add_project: 'Add project'
     projects: 'Projects'
+    list_all_projects: 'List all projects'
+    recent_projects: 'Recent projects'
   layouts:
     guide_modal:
       title: "Our features"

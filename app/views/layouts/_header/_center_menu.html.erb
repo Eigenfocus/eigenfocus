@@ -1,20 +1,24 @@
 <div class="navbar-center hidden lg:flex">
-  <ul class="menu menu-horizontal px-1">
-    <li>
-      <details>
-        <summary>
-          <%= link_to projects_path, data: { turbo_frame: "_top" } do %>
-            <%= icon_for(:projects) %>
-            <%= t('.tours.projects') %>
-          <% end %>
-        </summary>
-        <ul class="p-2">
-          <li><a>Submenu 1</a></li>
-          <li><a>Submenu 2</a></li>
-        </ul>
-      </details>
-    </li>
 
+  <div class="flex gap-0 text-base-content/80 items-center">
+    <div class="dropdown dropdown-hover">
+      <a href="<%= projects_path %>" class="btn btn-sm btn-ghost drawer-button font-normal"><%= t('menu_items.projects') %></a>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box text-xs w-52">
+        <li><%= link_to t('menu_items.list_all_projects'), projects_path, class: "text-nowrap" %></li>
+        <li><%= link_to t('menu_items.add_project'), projects_path(open_form: true), class: "text-nowrap" %></li>
+        <%
+        recent_projects = Project.active.order(name: :asc).limit(10).all
+        if recent_projects.any?
+        %>
+          <li class="menu-title text-xs"><%= t('menu_items.recent_projects') %></li>
+          <%  recent_projects.each do |project| %>
+            <li class="text-nowrap">
+              <%= link_to project.name, visualization_path(project.default_visualization), class: "text-nowrap" %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
     <%
       [
         {
@@ -31,12 +35,10 @@
         }
       ].each do |menu_item|
     %>
-      <li>
-        <%= link_to menu_item[:url], data: { turbo_frame: "_top" } do %>
-          <%= menu_item[:icon] %>
-          <%= menu_item[:text] %>
-        <% end %>
-      </li>
+      <%= link_to menu_item[:url], class: 'btn btn-sm btn-ghost drawer-button font-normal' do %>
+        <%= menu_item[:text] %>
+      <% end %>
+
     <% end %>
-  </ul>
+  </div>
 </div>
