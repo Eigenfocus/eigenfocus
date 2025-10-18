@@ -1,11 +1,11 @@
 module EigenfocusHelpers
   def open_focus_space
     disable_welcome_screen!
-    find(".open-space-button.open").click
+    find(".cpy-open-space-button.open").click
   end
 
   def close_focus_space
-    find(".open-space-button.close").click
+    find(".cpy-open-space-button.close").click
   end
 
   def disable_welcome_screen!

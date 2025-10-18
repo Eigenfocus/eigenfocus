@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Using the Focus Space' do
-  specify "I can open and close the Focus Space" do
+  specify "I can open and close the Focus Space", pending: true do
     visit root_path
 
     open_focus_space

@@ -10,7 +10,7 @@
   } %>
 </div>
 
-<main class="grow visualization--board tour--visualization-board"
+<main class="min-h-screen visualization--board tour--visualization-board"
   data-controller="visualization--issue-filtering visualization--favorite-issue-labels"
   data-action="keydown@window->visualization--favorite-issue-labels#onKeyPress"
   data-visualization--favorite-issue-labels-add-path-value="<%= add_label_project_issue_path(@visualization.project, 'ISSUE_ID_PLACEHOLDER') %>"
