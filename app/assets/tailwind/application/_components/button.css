@@ -6,11 +6,17 @@
     white-space: nowrap;
   }
 
-  &:hover .sliding-text {
+  &:hover .sliding-text,
+  &:active .sliding-text ,
+  &:focus .sliding-text {
     grid-template-columns: 1fr;
   }
 
   .sliding-text-inner {
     overflow: hidden;
   }
+}
+
+.dropdown-hover:hover > .btn-slide .sliding-text {
+  grid-template-columns: 1fr;
 }
