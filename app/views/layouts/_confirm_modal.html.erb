@@ -11,12 +11,19 @@
     class: "hidden animate__animated animate__zoomIn fixed inset-0 overflow-y-auto flex items-center justify-center",
     style: "z-index: 10000; animation-duration: 300ms;"
   }) do %>
-  <h3 class="text-xl mb-4"><%= t(".title") %></h3>
+  <div class="flex">
+	  <div class="text-info">
+      <i class="ti ti-alert-square-rounded" style="font-size: 24px"></i>
+	  </div>
 
-  <p id="confirm-title" class="mb-4"><%= t(".body") %></p>
+	  <div class="ml-3">
+      <h2 class="font-semibold"><%= t(".title") %></h2>
+      <p class="mt-2 text-sm leading-relaxed" id="confirm-title"><%= t(".body") %></p>
+	  </div>
+	</div>
 
   <div class="confirm-modal-actions flex justify-end items-center flex-wrap mt-6 gap-2">
-    <button class="confirm-cancel btn-cancel" data-action="click->modal#close"><%= t("actions.cancel") %></button>
-    <button id="confirm-accept" class="btn-primary" data-action="click->modal#close"><%= t("actions.confirm") %></button>
+    <button class="confirm-cancel btn btn-sm btn-neutral" data-action="click->modal#close"><%= t("actions.cancel") %></button>
+    <button id="confirm-accept" class="btn btn-sm btn-primary" data-action="click->modal#close"><%= t("actions.confirm") %></button>
   </div>
 <% end %>
