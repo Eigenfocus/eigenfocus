@@ -1,0 +1,23 @@
+<div class="card mt-8 bg-base-100">
+  <div class="card-body">
+    <h2 class="card-title">
+      <%= t(".title") %>
+    </h2>
+
+    <p class="text-base-content/80 text-sm">
+      <%= t(".description") %>
+    </p>
+
+    <form class="mt-4" action="https://eigenfocus.com/subscription/join" method="GET" target="_blank">
+      <div class="mb-4 flex flex-col items-stretch gap-2">
+        <label class="label" for="subscriber_name">
+          <i class="ti ti-mail"></i>
+          Email
+        </label>
+        <input required="required"  aria-required="true" class="input" type="email" name="subscriber[email]" id="subscriber_name">
+        <input type="hidden" name="subscriber[source]" value="self_hosted_app">
+      </div>
+      <button name="button" type="submit" class="btn btn-primary"><%= t(".subscribe_action") %></button>
+    </form>
+  </div>
+</div>
