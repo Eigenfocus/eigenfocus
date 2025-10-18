@@ -13,9 +13,7 @@
           <li><%= link_to t('menu_items.total_time_report'), total_time_reports_path, class: "text-base" %></li>
         </ul>
       </div>
-      <a href="<%= root_path %>" class="flex justify-center items-center sidebar-expanded:hidden">
-        <%= image_tag 'icon.svg', style: 'height: 32px;' %>
-      </a>
+
       <%= render "layouts/_header/version_badge" %>
     </div>
     <%= render "layouts/_header/center_menu" %>

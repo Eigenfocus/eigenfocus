@@ -1,11 +1,12 @@
 <div class="dropdown dropdown-hover block ">
   <button tabindex="0" role="button"
-    class="flex items-center link link-hover text-base-content/60 relative font-mono text-[0.625rem] whitespace-nowrap">
+    class="flex items-center text-base-content/60 relative font-sans text-[0.625rem] whitespace-nowrap">
     <% if AppMetadata.instance.is_app_outdated? %>
-      <span class="status status-info status-sm mr-1"></span>
+      <span class="status status-info status-sm mr-1 animate-pulse"></span>
     <% end %>
-    <span>Free Edition v<%= AppMetadata.instance.current_version %></span>
-    <i class="ti ti-chevron-down ml-1" style="font-size: 0.75rem;"></i>
+    <%= image_tag 'icon.svg', style: 'height: 32px;' %>
+    <span class="ml-2">v<%= AppMetadata.instance.current_version %>-FREE</span>
+    <i class="ti ti-chevron-down ml-0.5" style="font-size: 0.75rem;"></i>
   </button>
   <ul data-controller="theme-switcher" tabindex="-1" class="menu dropdown-content bg-base-100 rounded-box z-1 w-fit-content p-2 shadow-2xl">
     <% if AppMetadata.instance.is_app_outdated? %>
@@ -20,7 +21,7 @@
       </a>
     </li>
     <li>
-      <a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=version_badge" target="_blank" class="px-2 flex text-nowrap">
+      <a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=version_badge" target="_blank" class="px-2 flex text-nowrap link-primary">
         <i class="ti ti-rocket mr-1"></i>
         <%= t(".check_pro_edition") %>
       </a>
