@@ -17,7 +17,15 @@
 
     .sliding-text {
       grid-template-columns: 1fr;
+    }
+  }
 
+  &:has(+ .dropdown-content:focus-within),
+  &:has(+ .dropdown-content:focus-visible),
+  &:has(+ .dropdown-content:focus),
+  &:has(+ .dropdown-content:hover) {
+    i {
+      @apply mr-1;
     }
   }
 

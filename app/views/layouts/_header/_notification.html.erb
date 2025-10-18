@@ -6,30 +6,28 @@
     aria-haspopup="true" aria-expanded="false">
     <i class="ti ti-bell relative">
       <% if has_unread_notifications %>
-        <span class="js-notifications-ping size-2 absolute top-[-5px] left-[-4px] status status-info"></span>
+        <span class="js-notifications-ping size-2 absolute top-[0px] right-[-2px] status status-sm status-info"></span>
       <% end %>
     </i>
     <span class="sliding-text"><span class="sliding-text-inner"><%= t('menu_items.notifications') %></span></span>
   </button>
-  <div data-dropdown-target="menu" class="bg-base-200 origin-top-right z-10 absolute top-full w-96 md:w-124 bg-white border border-base-300 rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
-    <div class="flex flex-col">
-      <div class="px-3 py-2 bg-base-100 border-b border-base-200">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm font-medium text-base-content"><%= t(".notifications") %></h3>
-          <% if notifications.unread.exists? %>
-            <%= button_to mark_all_as_read_notifications_path,
-                class: "text-xs text-primary hover:text-primary",
-                data: { turbo_method: :post } do %>
-              <%= t(".mark_all_as_read") %>
-            <% end %>
+  <div data-dropdown-target="menu" class="bg-base-100 origin-top-right z-10 absolute top-full w-96 md:w-124  rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+    <div class="flex flex-col text-base-content">
+      <div class="flex items-center justify-between px-3 py-2 border-b border-base-200 bg-base-300">
+        <h3 class="text-sm font-medium"><%= t(".notifications") %></h3>
+        <% if notifications.unread.exists? %>
+          <%= button_to mark_all_as_read_notifications_path,
+              class: "text-xs link link-primary link-hover",
+              data: { turbo_method: :post } do %>
+            <%= t(".mark_all_as_read") %>
           <% end %>
-        </div>
+        <% end %>
       </div>
-      <div class="notifications-list max-h-96 overflow-y-auto divide-y divide-base-200">
+      <div class="list max-h-96 overflow-y-auto ">
         <% if notifications.any? %>
           <%= render partial: "layouts/_header/notification_item", collection: notifications, as: :notification %>
         <% else %>
-          <div class="p-4 text-center text-base-content">
+          <div class="list-item">
             <p class="text-sm"><%= t(".no_notifications") %></p>
           </div>
         <% end %>
