@@ -1,4 +1,17 @@
 en:
+  menu_items:
+    edit_profile: "Edit profile"
+    profile_options: "Profile & Settings"
+    timesheet: 'Timesheet'
+    total_time_report: 'Time reports'
+    manage_projects: 'Manage projects'
+    add_project: 'Add project'
+    projects: 'Projects'
+    list_all_projects: 'List all projects'
+    recent_projects: 'Recent projects'
+    theme: 'Theme'
+    notifications: 'Notifications'
+    help: 'Help'
   layouts:
     guide_modal:
       title: "Our features"
@@ -29,13 +42,16 @@ en:
       new_version: "New version"
       current_version: "Current Version"
       check_our_github: "Check our Github"
-      outdated_alert_html: "You version is outdated.<br/>Our newest version is %{newest_version}."
-      tours:
+      version_badge:
+        new_version_available: "New version available"
+        check_our_releases: "Check our releases"
+        check_pro_edition: "Upgrade to PRO edition"
+      tour:
         title: "Guided Tours"
         projects: "Managing projects"
         time_entries: "Tracking time"
         issues: "Managing issues"
-        board: "Using the workflow board"
+        board: "Using boards"
         features_list: "Features overview"
         more: "More Guides"
       notification:
@@ -45,16 +61,6 @@ en:
       notification_item:
         visit_link: "Visit link"
         mark_as_read: "Mark as read"
-
-    sidebar:
-      edit_profile: "Edit profile"
-      profile_options: "Profile & Settings"
-      menu:
-        timesheet: 'Timesheet'
-        total_time_report: 'Time reports'
-      projects_menu:
-        list_all_projects: 'List all projects'
-        projects: 'Projects'
     confirm_modal:
       title: "Just to double check..."
       body: "Are you sure you want to do this?"

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import AmbientSoundsPlayer from "./AmbientSoundsPlayer"
 import PomodoroTimer from "./PomodoroTimer"
+import { IconX } from "@tabler/icons-react"
 
 const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroStateChange }) => {
 
@@ -13,6 +14,9 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
   return (
     <React.Fragment>
       <div className={`focus-space`} onClick={handleClickOutside}>
+        <button className="cpy-close-space-button btn btn-sm btn-ghost" onClick={onHide}>
+          <IconX />
+        </button>
         <div className="flex items-center justify-center">
           <PomodoroTimer onStateChange={onPomodoroStateChange} />
         </div>

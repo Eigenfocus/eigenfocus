@@ -1,0 +1,49 @@
+<div class="navbar-center hidden lg:flex">
+
+  <div class="flex gap-0 text-base-content/80 items-center gap-0">
+    <div class="dropdown dropdown-hover">
+      <a href="<%= projects_path %>" class="btn btn-slide btn-sm btn-ghost">
+        <%= icon_for(:projects) %>
+        <span class="sliding-text"><span class="sliding-text-inner"><%= t('menu_items.projects') %></span></span>
+      </a>
+      <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 border border-base-200 py-3 rounded-box text-sm w-52">
+        <li><%= link_to t('menu_items.list_all_projects'), projects_path, class: "text-nowrap" %></li>
+        <li><%= link_to t('menu_items.add_project'), projects_path(open_form: true), class: "text-nowrap" %></li>
+        <%
+          recent_projects = Project.active.order(name: :asc).limit(10).all
+          if recent_projects.any?
+        %>
+          <li class="divider h-[0.5px]"></li>
+          <li class="menu-title text-sm"><%= t('menu_items.recent_projects') %></li>
+          <%  recent_projects.each do |project| %>
+            <li class="text-nowrap">
+              <%= link_to project.name, visualization_path(project.default_visualization), class: "text-nowrap" %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <%
+      [
+        {
+          text: t('menu_items.timesheet'),
+          icon: icon_for(:time_entries),
+          main_controller: :time_entries,
+          url: time_entries_path
+        },
+        {
+          text: t('menu_items.total_time_report'),
+          icon: icon_for(:report),
+          main_controller: :reports,
+          url: total_time_reports_path
+        }
+      ].each do |menu_item|
+    %>
+      <%= link_to menu_item[:url], class: 'btn-slide btn btn-sm btn-ghost' do %>
+        <%= menu_item[:icon] %>
+        <span class="sliding-text"><span class="sliding-text-inner"><%= menu_item[:text] %></span></span>
+      <% end %>
+
+    <% end %>
+  </div>
+</div>

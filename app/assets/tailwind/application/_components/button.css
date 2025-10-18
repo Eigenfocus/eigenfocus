@@ -1,0 +1,39 @@
+.btn-slide {
+  gap: 0;
+
+  .sliding-text {
+    display: grid;
+    grid-template-columns: 0fr;
+    transition: grid-template-columns 0.3s ease-out;
+    white-space: nowrap;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    i {
+      @apply mr-1;
+    }
+
+    .sliding-text {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &:has(+ .dropdown-content:focus-within),
+  &:has(+ .dropdown-content:focus-visible),
+  &:has(+ .dropdown-content:focus),
+  &:has(+ .dropdown-content:hover) {
+    i {
+      @apply mr-1;
+    }
+  }
+
+  .sliding-text-inner {
+    overflow: hidden;
+  }
+}
+
+.dropdown-hover:hover > .btn-slide .sliding-text {
+  grid-template-columns: 1fr;
+}

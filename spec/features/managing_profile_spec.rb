@@ -50,9 +50,7 @@ describe 'When entering my workspace for the first time' do
 
     visit projects_path
 
-    within '.sidebar-bottom' do
-      click_link 'Profile'
-    end
+    find('.cpy-profile-button').click
 
     expect(page).to have_content("Edit profile")
 

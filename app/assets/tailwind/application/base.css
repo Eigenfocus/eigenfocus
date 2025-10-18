@@ -12,9 +12,19 @@
 @import './pagy.tailwind';
 @import './_components/all';
 
-/* :empty does't work if element has any text */
 :root {
   --alert-color: var(--color-base-100);
+}
+
+svg.tabler-icon {
+  stroke-width: 1.5;
+  height: 18px;
+  width: 18px;
+}
+
+i.ti {
+  font-size: 18px;
+  font-weight: 300;
 }
 
 @custom-variant sidebar-expanded {

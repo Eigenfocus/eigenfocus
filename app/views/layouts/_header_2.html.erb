@@ -1,0 +1,37 @@
+<div class="navbar bg-base-100 shadow-sm sticky z-999 top-0 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10 z-100 px-4">
+  <div class="w-7xl  mx-auto flex justify-between items-center">
+    <div class="navbar-start gap-2">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        </div>
+        <ul
+          tabindex="-1"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <li><%= link_to t('menu_items.projects'), projects_path, class: "text-base" %></li>
+          <li><%= link_to t('menu_items.timesheet'), time_entries_path, class: "text-base" %></li>
+          <li><%= link_to t('menu_items.total_time_report'), total_time_reports_path, class: "text-base" %></li>
+        </ul>
+      </div>
+      <a href="<%= root_path %>" class="flex justify-center items-center sidebar-expanded:hidden">
+        <%= image_tag 'icon.svg', style: 'height: 32px;' %>
+      </a>
+      <%= render "layouts/_header/version_badge" %>
+    </div>
+    <%= render "layouts/_header/center_menu" %>
+    <div class="navbar-end gap-0">
+      <%= react_component("FocusApp", {}, { "data-turbo-permanent": true, id: 'focus-app-wrapper' }) %>
+      <div class="divider divider-neutral/40 divider-horizontal mx-0"></div>
+      <%= render "layouts/_header/tour" %>
+      <%= render "layouts/_header/themes" %>
+      <%= render "layouts/_header/notification", notifications: Notification.order(published_at: :desc).limit(10) %>
+      <%= link_to edit_profile_path, class: "btn btn-sm btn-slide btn-ghost cpy-profile-button" do %>
+        <i class="ti ti-user"></i>
+        <span class="sliding-text"><span class="sliding-text-inner">
+          <%= t('menu_items.edit_profile') %>
+        </span></span>
+      <% end %>
+
+    </div>
+  </div>
+</div>

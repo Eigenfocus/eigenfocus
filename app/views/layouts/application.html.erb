@@ -28,6 +28,7 @@
     <%= stylesheet_link_tag "flatpickr.min.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "driverjs.css", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "coloris.css", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tabler-icons.min", "data-turbo-track": "reload" %>
 
     <%= javascript_include_tag 'simplemde.min', "data-turbo-track": "reload" %>
     <%= javascript_include_tag 'simplemde.override', "data-turbo-track": "reload" %>
@@ -42,7 +43,7 @@
     <%= javascript_pack_tag "application" %>
   </head>
 
-  <body class="antialiased" data-controller="sidebar">
+  <body class="antialiased bg-base-200 min-h-screen">
     <%= app_tour_tags %>
 
     <div id="alert-messages">
@@ -51,24 +52,22 @@
     <%= render "layouts/guide_modal" %>
     <div id="modal-area"></div>
 
-    <main class="flex h-screen overflow-hidden bg-base-200">
-      <%= render "layouts/sidebar" %>
-
+    <main class="flex h-screen overflow-hidden">
       <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-         <%= render "layouts/header" %>
-
+        <%= render "layouts/header_2" %>
          <% if skip_layout_content_wrapper? %>
           <%= yield %>
          <% else %>
           <main class="grow p-4 sm:p-8">
-            <%= yield %>
+            <div class="mx-auto lg:max-w-4xl">
+              <%= yield %>
+            </div>
           </main>
         <% end %>
       </div>
     </main>
+
     <%= render partial: "layouts/issue_detail", locals: issue_detail_context %>
     <%= render partial: "layouts/confirm_modal" %>
-
-    <%= react_component("FocusApp", {}, { "data-turbo-permanent": true, id: 'focus-app-wrapper' }) %>
   </body>
 </html>

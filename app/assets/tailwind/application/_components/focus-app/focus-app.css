@@ -56,7 +56,7 @@
   z-index: 1000;
 
   .open-space-button {
-    @apply text-xl rounded-md p-4 border;
+    @apply btn btn-sm gap-1.5 px-1.5 btn-ghost;
     transition: all 0.3s ease-in-out;
 
     .ping-notification {

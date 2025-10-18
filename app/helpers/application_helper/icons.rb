@@ -3,7 +3,7 @@ module Icons
   def icon_for(name)
     icon_classes = case name.to_sym
     when :time_entries
-      "fa-solid fa-clock"
+      "ti ti-clock"
     when :groupings
       "fa-solid fa-table-columns"
     when :boards
@@ -15,19 +15,23 @@ module Icons
     when :files
       "fa-solid fa-file"
     when :projects
-      "fa-solid fa-folder-closed"
+      "ti ti-folder"
     when :user
       "fa-solid fa-user"
     when :report
-      "fa-solid fa-gauge"
+      "ti ti-chart-bar-popular"
     when :issue_labels
       "fa-solid fa-tags"
     when :theme
-      "fa-solid fa-palette"
+      "ti ti-palette"
     when :archived
       "fa-solid fa-box-archive"
     when :finished
       "fa-solid fa-check"
+    when :close
+      "ti ti-x"
+    when :focus_space
+      "ti ti-layout-dashboard"
     else
       raise "Icon class not defined for name #{name}"
     end

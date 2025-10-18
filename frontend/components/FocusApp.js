@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark, faWindowRestore, faVolumeHigh, faHourglassHalf } from '@fortawesome/free-solid-svg-icons'
+import { IconHourglassEmpty, IconBrandDeezer } from '@tabler/icons-react';
 
 import AnimatedBackground from "./FocusApp/AnimatedBackground"
 import FocusSpace from "./FocusApp/FocusSpace"
@@ -17,6 +16,8 @@ const FocusApp = ({ }) => {
     setPomodoroState(newState)
   }
 
+  const showPomodoroIcon = (pomodoroState === POMODORO_STATE.RUNNING || pomodoroState === POMODORO_STATE.PAUSED)
+
   return (
     <>
       {isFocusSpaceShowing && (
@@ -30,31 +31,33 @@ const FocusApp = ({ }) => {
           onPomodoroStateChange={handlePomodoroStateChange}
           onHide={() => setIsFocusSpaceShowing(false)} />
       </div>
-      <div className={`focus-space-access-buttons ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
-        <button className={`tour--open-focus-app-button open-space-button ${isFocusSpaceShowing ? 'close' : 'open'}`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
-          <FontAwesomeIcon icon={isFocusSpaceShowing ? faXmark : faWindowRestore} />
+      <div className={`${isFocusSpaceShowing ? 'space-showing' : ''}`}>
+        <button className={`tour--open-focus-app-button btn-slide cpy-open-space-button btn btn-sm btn-ghost`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
+          {
+            !hasSoundPlaying &&
+            !showPomodoroIcon &&
+            (<i className="ti ti-layout-dashboard"></i>)
+          }
           {!isFocusSpaceShowing && (
             <>
               {(pomodoroState === POMODORO_STATE.FINISHED) && (
-                <span className="ping-notification">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex size-3 rounded-full bg-primary"></span>
-                </span>
+                <div aria-label="status" class="status status-info animate-bounce"></div>
               )}
 
               {hasSoundPlaying && (
-                <span className='sound-playing-icon'>
-                  <FontAwesomeIcon icon={faVolumeHigh} />
+                <span className='sound-playing-icon animate-pulse'>
+                  <IconBrandDeezer />
                 </span>
               )}
 
-              {(pomodoroState === POMODORO_STATE.RUNNING || pomodoroState === POMODORO_STATE.PAUSED) && (
+              {showPomodoroIcon && (
                 <span className='pomodoro-running-icon'>
-                  <FontAwesomeIcon icon={faHourglassHalf} />
+                  <IconHourglassEmpty />
                 </span>
               )}
             </>
           )}
+          <span className="sliding-text"><span className="sliding-text-inner">Focus space</span></span>
         </button>
       </div>
     </>
