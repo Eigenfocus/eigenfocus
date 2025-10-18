@@ -2,8 +2,8 @@ pt-BR:
   menu_items:
     edit_profile: "Editar perfil"
     profile_options: "Perfil e configurações"
-    timesheet: 'Registros de Tempo'
-    total_time_report: 'Relatórios de Tempo'
+    timesheet: 'Timesheet'
+    total_time_report: 'Relatório de tempo'
     manage_projects: 'Gerenciar projetos'
     add_project: 'Adicionar projeto'
     recent_projects: 'Projetos recentes'

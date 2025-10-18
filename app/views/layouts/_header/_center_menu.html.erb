@@ -7,8 +7,8 @@
         <li><%= link_to t('menu_items.list_all_projects'), projects_path, class: "text-nowrap" %></li>
         <li><%= link_to t('menu_items.add_project'), projects_path(open_form: true), class: "text-nowrap" %></li>
         <%
-        recent_projects = Project.active.order(name: :asc).limit(10).all
-        if recent_projects.any?
+          recent_projects = Project.active.order(name: :asc).limit(10).all
+          if recent_projects.any?
         %>
           <li class="menu-title text-xs"><%= t('menu_items.recent_projects') %></li>
           <%  recent_projects.each do |project| %>
