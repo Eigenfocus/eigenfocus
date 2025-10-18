@@ -15,7 +15,7 @@ module Modal
         'action': "mousedown->modal#closeBackground keyup@window->modal#closeWithKeyboard"
       },
       class: "animate__animated animate__fadeIn fixed inset-0 overflow-y-auto flex items-center justify-center",
-      style: "z-index: 9999; animation-duration: 300ms;"
+      style: "z-index: 9999; animation-duration: 400ms;"
     }.deep_merge(container_options)
 
     inner_container_options = {
