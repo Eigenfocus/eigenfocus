@@ -10,8 +10,11 @@ import {
 } from "tailwindcss-stimulus-components"
 
 class CustomModal extends Modal {
-  static targets = [ "content" ]
   connect() {
+    if (this.isDialog) {
+      return
+    }
+
     this.element[this.identifier] = this
 
     super.connect()
@@ -30,10 +33,18 @@ class CustomModal extends Modal {
   }
 
   close(e) {
+    if (this.isDialog) {
+      this.element.close()
+      return
+    }
     super.close(e)
     // Removing this one to allow "double modal"
     // for alerts/confirm messages
     // this.dispatch("closed")
+  }
+
+  get isDialog() {
+    return this.element.tagName === "DIALOG"
   }
 }
 

@@ -1,16 +1,6 @@
-<%= render_modal(
-  wrapper_options: {
-    id: 'confirm-modal',
-    class: "confirm-modal",
-    data: {
-      modal_background_id: "confirm-modal-background",
-      modal_background_html: "<div id=\"confirm-modal-background\" class=\"fixed top-0 left-0 w-full h-full\" style=\"background-color: rgba(0, 0, 0, 0.8); z-index: 9999;\"></div>",
-    }
-  },
-  container_options: {
-    class: "hidden animate__animated animate__zoomIn fixed inset-0 overflow-y-auto flex items-center justify-center",
-    style: "z-index: 10000; animation-duration: 300ms;"
-  }) do %>
+<%= render Modal::DialogComponent.new(
+  open: false,
+  dialog_id: 'confirm-modal') do %>
   <div class="flex">
 	  <div class="text-info">
       <i class="ti ti-alert-square-rounded" style="font-size: 24px"></i>

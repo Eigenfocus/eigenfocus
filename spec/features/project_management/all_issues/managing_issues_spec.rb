@@ -176,7 +176,9 @@ describe 'As a project manager, I want to manage my issues from all issues' do
       click_link "Track time"
     end
 
-    expect(page).to have_content("Create Time entry")
+    within '#time_entry_form' do
+      expect(page).to have_button("Create")
+    end
 
     expect(page).to have_current_path(time_entries_path(new_entry: { project_id: project.id, issue_id: issue.id }))
   end

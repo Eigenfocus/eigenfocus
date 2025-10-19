@@ -1,0 +1,20 @@
+<%= content_tag(:dialog, {
+    data: { controller: "modal"} ,
+    id: dialog_id,
+    class: "modal",
+    open: open,
+  }) do %>
+  <%= content_tag(:div, modal_box) do %>
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cpy-close-modal">
+
+        <i class="ti ti-x"></i>
+      </button>
+    </form>
+    <%= render_title %>
+    <%= content %>
+  <% end %>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+<% end %>

@@ -1,18 +1,9 @@
 <%= turbo_frame_tag 'project_form' do %>
-<%= render_modal(inner_container_options: {
-    class: "max-h-screen w-full max-w-2xl"
-  }) do %>
+<%= render Modal::DialogComponent.new(
+ title: (project.persisted? ? "#{t("actions.edit")} #{Project.model_name.human}" : "#{t("actions.create")} #{Project.model_name.human}"),
+ icon: icon_for(:projects),
+ modal_box: { class: "max-h-screen w-full max-w-2xl" }) do %>
 
-  <div class="border-b border-base-200 pb-2 mb-4">
-    <div class="flex items-center space-x-2">
-      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-base-content ">
-        <%= icon_for(:projects) %>
-      </div>
-      <h4 class="font-bold text-lg">
-        <%= project.persisted? ? "#{t("actions.edit")} #{Project.model_name.human}" : "#{t("actions.create")} #{Project.model_name.human}"%>
-      </h4>
-    </div>
-  </div>
   <div class="space-y-4">
     <%= form_with(model: project, html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
       <% if project.errors.any? %>

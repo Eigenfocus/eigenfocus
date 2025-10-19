@@ -1,15 +1,8 @@
 <%= turbo_frame_tag 'move_all_issues_modal' do %>
-  <%= render_modal do %>
-    <div class="border-b border-base-200 pb-2 mb-4">
-      <div class="flex items-center space-x-2">
-        <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary ">
-          <%= icon_for(:groupings) %>
-        </div>
-        <h4 class="text-lg font-medium text-base-content">
-          <%= t(".title", grouping: source_grouping.title) %>
-        </h4>
-      </div>
-    </div>
+  <%= render Modal::DialogComponent.new(
+    title: t(".title", grouping: source_grouping.title),
+    icon: icon_for(:groupings)) do %>
+
     <div class="space-y-4">
       <p class="text-sm text-base-content">
         <%= t(".description") %>

@@ -7,14 +7,14 @@
   </div>
   <div class="flex gap-3 items-baseline justify-end">
     <% if notification.external_link? %>
-      <%= link_to "https://notifications.eigenfocus.com/#{notification.external_id}", target: "_blank", class: "cpy-external-link text-xs text-primary hover:text-primary " do %>
+      <%= link_to "https://notifications.eigenfocus.com/#{notification.external_id}", target: "_blank", class: "cpy-external-link text-xs link-primary link-hover " do %>
         <%= t(".visit_link") %>
       <% end %>
     <% end %>
 
     <% unless notification.read? %>
       <%= button_to mark_as_read_notification_path(notification),
-          class: "text-xs text-primary hover:text-primary cpy-mark-as-read link-hover",
+          class: "text-xs cpy-mark-as-read link link-primary link-hover",
           data: { turbo_method: :post } do %>
         <%= t(".mark_as_read") %>
       <% end %>
