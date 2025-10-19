@@ -1,0 +1,15 @@
+<dialog data-controller="modal" class="modal" onload="this.showModal()" open>
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 .cpy-close-modal">
+
+        <i class="ti ti-x"></i>
+      </button>
+    </form>
+    <%= render_title %>
+    <%= content %>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
