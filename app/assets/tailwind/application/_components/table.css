@@ -1,0 +1,5 @@
+.table-header {
+  thead {
+    @apply bg-base-200 text-base-content;
+  }
+}

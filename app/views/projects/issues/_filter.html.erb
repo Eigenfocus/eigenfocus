@@ -1,7 +1,6 @@
 <%= search_form_for q, url: project_issues_path(project_id: current_project.id), class: "w-full cpy-filter-form", data: { controller: 'form' } do |f| %>
-
   <div class="flex flex-col lg:flex-row justify-start items-stretch gap-4 flex-wrap">
-    <div class="flex gap-2  items-center cpy-by-status w-52">
+    <div class="flex gap-2 items-center cpy-by-status w-52">
       <%= f.select :by_archiving_status, Issue::ARCHIVING_STATUS_LIST.map { |status| [t(".by_archiving_status.#{status}"), status] },
         { include_hidden: false },
         class: 'select input-sm w-full',
@@ -53,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div class="flex items-stretch">
+    <div class="flex items- gap-2">
       <%= link_to project_issues_path(current_project), class: "btn btn-sm btn-ghost" do %>
         <%= t('actions.clear_filter').capitalize %>
       <% end %>

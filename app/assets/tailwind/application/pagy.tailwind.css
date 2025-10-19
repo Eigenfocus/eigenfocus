@@ -1,5 +1,5 @@
 .pagy-summary {
-  @apply flex flex-col sm:flex-row items-center gap-4 justify-between;
+  @apply flex flex-col sm:flex-row items-center gap-4 justify-between mt-4;
 
   .pagy.info {
     @apply text-sm text-base-content;
@@ -20,14 +20,14 @@
       @apply text-base-content border-t border-r border-b border-neutral-content;
 
       &:hover {
-        @apply bg-primary text-base-content;
+        @apply bg-neutral text-neutral-content;
       }
       &:not([href]) { /* disabled links */
         @apply text-base-content opacity-70 cursor-default;
       }
 
       &.current {
-        @apply bg-primary/20 text-base-content font-bold;
+        @apply bg-neutral text-neutral-content font-bold;
       }
 
       &:first-child {
