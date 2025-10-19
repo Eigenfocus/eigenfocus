@@ -11,13 +11,13 @@
     </i>
     <span class="sliding-text"><span class="sliding-text-inner"><%= t('menu_items.notifications') %></span></span>
   </button>
-  <div data-dropdown-target="menu" class="bg-base-100 origin-top-right z-10 absolute top-full w-96 md:w-124  rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
+  <div data-dropdown-target="menu" class="bg-base-100 origin-top-right z-10 absolute top-full w-56 md:w-86  rounded-lg shadow-lg overflow-hidden mt-1 right-0 hidden">
     <div class="flex flex-col text-base-content">
-      <div class="flex items-center justify-between px-3 py-2 border-b border-base-200 bg-base-300">
-        <h3 class="text-sm font-medium"><%= t(".notifications") %></h3>
-        <% if notifications.unread.exists? %>
+      <div class="border-b border-base-200 px-4 py-2 flex items-center justify-between">
+        <h6 class="text-sm font-medium"><%= t(".notifications") %></h6>
+         <% if notifications.unread.exists? %>
           <%= button_to mark_all_as_read_notifications_path,
-              class: "text-xs link link-primary link-hover",
+              class: "text-xs link-primary link link-hover",
               data: { turbo_method: :post } do %>
             <%= t(".mark_all_as_read") %>
           <% end %>
@@ -27,7 +27,7 @@
         <% if notifications.any? %>
           <%= render partial: "layouts/_header/notification_item", collection: notifications, as: :notification %>
         <% else %>
-          <div class="text-center text-base-content py-2">
+          <div class="text-center text-base-content py-4">
             <p class="text-sm"><%= t(".no_notifications") %></p>
           </div>
         <% end %>
