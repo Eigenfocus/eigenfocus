@@ -35,7 +35,7 @@ module Modal
               data-action="click->modal#close">
               <i class="fa fa-close"></i>
             </a>
-            <div class="bg-base-200 rounded-box">
+            <div class="bg-base-100 rounded-box">
               <div class="p-6">
                 #{capture(&block)}
               </div>
