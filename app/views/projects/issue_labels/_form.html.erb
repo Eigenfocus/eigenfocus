@@ -1,18 +1,9 @@
 
 <%= turbo_frame_tag 'issue_label_form' do %>
-<%= render_modal do %>
+<%= render Modal::DialogComponent.new(
+  title: issue_label.persisted? ? "#{t("actions.edit")} #{IssueLabel.model_name.human}" : "#{t("actions.create")} #{IssueLabel.model_name.human}",
+  icon: icon_for(:issue_labels)) do %>
 
-  <div class="border-b border-base-200 pb-2 mb-4">
-    <div class="flex items-center space-x-2">
-      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-primary ">
-        <%= icon_for(:issue_labels) %>
-      </div>
-
-      <h4 class="text-lg font-medium text-base-content">
-        <%= issue_label.persisted? ? "#{t("actions.edit")} #{IssueLabel.model_name.human}" : "#{t("actions.create")} #{IssueLabel.model_name.human}"%>
-      </h4>
-    </div>
-  </div>
   <div class="space-y-4">
     <%= form_with(model: [current_project, issue_label], html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
       <% if issue_label.errors.any? %>
