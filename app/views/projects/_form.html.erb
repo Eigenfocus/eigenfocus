@@ -2,7 +2,7 @@
 <%= render Modal::DialogComponent.new(
  title: (project.persisted? ? "#{t("actions.edit")} #{Project.model_name.human}" : "#{t("actions.create")} #{Project.model_name.human}"),
  icon: icon_for(:projects),
- dialog_options: { class: "max-h-screen w-full max-w-2xl" }) do %>
+ modal_box: { class: "max-h-screen w-full max-w-2xl" }) do %>
 
   <div class="space-y-4">
     <%= form_with(model: project, html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>

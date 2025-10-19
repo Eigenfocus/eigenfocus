@@ -1,5 +1,5 @@
-<dialog data-controller="modal" class="modal" onload="this.showModal()" open>
-  <div class="modal-box <%= dialog_classes %>">
+<dialog data-controller="modal" class="modal" open>
+  <%= content_tag(:div, modal_box) do %>
     <form method="dialog">
       <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 .cpy-close-modal">
 
@@ -8,7 +8,7 @@
     </form>
     <%= render_title %>
     <%= content %>
-  </div>
+  <% end %>
   <form method="dialog" class="modal-backdrop">
     <button>close</button>
   </form>
