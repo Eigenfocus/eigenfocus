@@ -12,7 +12,7 @@ describe "As a project manager, I want to manage issue archive status" do
     visit project_issues_path(project)
 
     within dom_id(non_archived_issue) do
-      click_link('Go to issue')
+      find(".cpy-edit-button").click
     end
 
     within '.cpy-issue-detail' do
@@ -37,7 +37,7 @@ describe "As a project manager, I want to manage issue archive status" do
     select "List only archived issues", from: "q[by_archiving_status]"
 
     within "table #issue_#{archieved_issue.id}" do
-      click_link('Go to issue')
+      find(".cpy-edit-button").click
     end
 
     within '.cpy-issue-detail' do
@@ -72,7 +72,7 @@ describe "As a project manager, I want to remove an issue" do
     select "List only archived issues", from: "q[by_archiving_status]"
 
     within "table #issue_#{archieved_issue.id}" do
-      click_link('Go to issue')
+      find(".cpy-edit-button").click
     end
 
     within '.cpy-issue-detail' do
@@ -95,7 +95,7 @@ describe "As a project manager, I want to remove an issue" do
     visit project_issues_path(project)
 
     within dom_id(non_archived_issue) do
-      click_link('Go to issue')
+      find(".cpy-edit-button").click
     end
 
     within '.cpy-issue-detail' do

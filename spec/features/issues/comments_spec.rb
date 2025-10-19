@@ -9,7 +9,7 @@ describe "Issue Comments" do
     visit project_issues_path(project)
 
     within dom_id(issue) do
-      click_link('Go to issue')
+      find(".cpy-edit-button").click
     end
 
     within '.cpy-comments-container' do
@@ -31,7 +31,7 @@ describe "Issue Comments" do
     visit project_issues_path(project)
 
     within dom_id(issue) do
-      click_link('Go to issue')
+      find(".cpy-edit-button").click
     end
 
     within dom_id(comment) do
@@ -51,7 +51,7 @@ describe "Issue Comments" do
     visit project_issues_path(project)
 
     within dom_id(issue) do
-      click_link('Go to issue')
+      find(".cpy-edit-button").click
     end
 
     within dom_id(comment) do
