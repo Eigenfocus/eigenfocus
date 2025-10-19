@@ -2,7 +2,7 @@
 
 <%= start_pending_app_tour_tag("time_entries/form") %>
 
-<%= render Modal::DialogComponent.new(title: "#{TimeEntry.model_name.human} - #{l(time_entry.reference_date)}", icon: icon_for(:time_entries)) do %>
+<%= render Modal::DialogComponent.new title: "#{TimeEntry.model_name.human} - #{l(time_entry.reference_date)}", icon: icon_for(:time_entries) do %>
   <div class="">
     <%= form_with(model: time_entry, html: {
         class: 'flex flex-col gap-2',
