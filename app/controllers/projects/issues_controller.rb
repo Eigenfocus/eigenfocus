@@ -18,6 +18,8 @@ class Projects::IssuesController < Projects::BaseController
         form_path: project_issue_path(current_project, @issue)
       )
     end
+
+    skip_layout_content_wrapper!
   end
 
   def new

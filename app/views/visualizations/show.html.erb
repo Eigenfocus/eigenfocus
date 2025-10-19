@@ -4,11 +4,11 @@
 
 <%= start_pending_app_tour_tag("visualization/board") %>
 
-<div class="flex mt-8 flex-col sm:px-8">
-  <%= render partial: 'projects/navigation_header', locals: {
-    project: @visualization.project
-  } %>
-</div>
+
+<%= render partial: 'projects/navigation_header', locals: {
+  project: @visualization.project
+} %>
+
 
 <main class="grow visualization--board tour--visualization-board"
   data-controller="visualization--issue-filtering visualization--favorite-issue-labels"
