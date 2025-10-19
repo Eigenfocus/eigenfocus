@@ -1,26 +1,25 @@
 <%= search_form_for q, url: project_issues_path(project_id: current_project.id), class: "w-full cpy-filter-form", data: { controller: 'form' } do |f| %>
 
   <div class="flex flex-col lg:flex-row justify-start items-stretch gap-4 flex-wrap">
-    <div class="flex gap-2 grow items-center cpy-by-status">
+    <div class="flex gap-2  items-center cpy-by-status w-52">
       <%= f.select :by_archiving_status, Issue::ARCHIVING_STATUS_LIST.map { |status| [t(".by_archiving_status.#{status}"), status] },
         { include_hidden: false },
-        class: 'input-primary input-sm pr-8',
+        class: 'select input-sm w-full',
         data: {
           action: 'change->form#submit'
         }
       %>
     </div>
 
-    <div class="flex gap-2 lg:w-60 items-center">
-      <%= f.label :title_cont, class: "text-base-content text-nowrap font-medium text-xs" %>
-      <%= f.search_field :title_cont, class: 'input-contrast input-sm' %>
+    <div class="flex gap-2 grow lg:w-70 items-center">
+      <%= f.label :title_cont, class: "label fieldset-legend text-sm" %>
+      <%= f.search_field :title_cont, class: 'input input-sm w-full' %>
     </div>
 
     <div class="flex gap-2 lg:grow lg:w-72 items-center cpy-by-labels-titles">
-      <%= f.label :by_label_titles, class: "text-base-content text-nowrap font-medium text-xs" %>
+      <%= f.label :by_label_titles, class: "label fieldset-legend text-sm" %>
       <%= f.select :by_label_titles, current_project.issue_labels.pluck(:title),
                 { include_hidden: false },
-                class: 'input-primary input-sm',
                 multiple: true,
                 data: {
                   controller: 'select2',
@@ -33,34 +32,34 @@
   <div class="flex mt-4 flex-col lg:flex-row justify-between items-stretch gap-4 flex-wrap">
     <div class="flex flex-col lg:flex-row items-stretch gap-4 flex-wrap">
       <div class="flex gap-2 lg:w-56 items-center ">
-        <%= f.label :due_date_gteq, class: "text-base-content text-nowrap font-medium text-xs" %>
+        <%= f.label :due_date_gteq, class: "label fieldset-legend text-sm" %>
 
         <div class="flatpickr-resetable-container">
           <%= f.search_field :due_date_gteq,
-            class: 'input-contrast input-sm',
+            class: 'input input-sm',
             data: { "flatpickr-date-format": t("date.formats.flatpickr"), controller: "flatpickr", show_clear_button: true }
           %>
         </div>
       </div>
 
       <div class="flex gap-2 lg:w-56 items-center">
-        <%= f.label :due_date_lteq, class: "text-base-content text-nowrap font-medium text-xs" %>
+        <%= f.label :due_date_lteq, class: "label fieldset-legend text-sm" %>
 
         <div class="flatpickr-resetable-container">
           <%= f.search_field :due_date_lteq,
-            class: 'input-contrast input-sm',
+            class: 'input input-sm',
             data: { "flatpickr-date-format": t("date.formats.flatpickr"), controller: "flatpickr", show_clear_button: true }
           %>
         </div>
       </div>
     </div>
-    <div class="flex gap-4 items-stretch">
-      <%= f.button class: "btn-primary flex items-center grow" do %>
-        <i class="fa fa-search mr-2"></i>
-        <%= t(:search, scope: :actions) %>
-      <% end %>
-      <%= link_to project_issues_path(current_project), class: "flex grow items-center text-nowrap link-cancel text-sm" do %>
+    <div class="flex items-stretch">
+      <%= link_to project_issues_path(current_project), class: "btn btn-sm btn-ghost" do %>
         <%= t('actions.clear_filter').capitalize %>
+      <% end %>
+      <%= f.button class: "btn btn-sm btn-secondary btn-soft" do %>
+        <i class="ti ti-search"></i>
+        <%= t(:search, scope: :actions) %>
       <% end %>
     </div>
   </div>
