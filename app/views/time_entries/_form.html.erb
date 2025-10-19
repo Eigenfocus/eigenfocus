@@ -1,18 +1,9 @@
 <%= turbo_frame_tag 'time_entry_form' do %>
 
 <%= start_pending_app_tour_tag("time_entries/form") %>
-
 <%= render_modal do %>
-  <div class="border-b border-base-200 mb-4">
-    <div class="flex items-center space-x-2 pb-2">
-      <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 p-1 text-base-content ">
-        <%= icon_for(:time_entries) %>
-      </div>
-      <h4 class="font-bold text-lg">
-        <%= time_entry.persisted? ? "#{t("actions.edit")} #{TimeEntry.model_name.human}" : "#{t("actions.create")} #{TimeEntry.model_name.human}"%> - <%= l(time_entry.reference_date) %>
-      </h4>
-    </div>
-  </div>
+
+  <%= render Modal::TitleComponent.new(title: "#{TimeEntry.model_name.human} - #{l(time_entry.reference_date)}", icon: icon_for(:time_entries)) %>
   <div class="">
     <%= form_with(model: time_entry, html: {
         class: 'flex flex-col gap-2',
