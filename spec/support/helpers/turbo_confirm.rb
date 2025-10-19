@@ -6,7 +6,7 @@ class Capybara::Session
 
     if document.has_selector?("#confirm-modal-background")
       # Using pure JS to escape the scope `within` blocks
-      document.evaluate_script('document.querySelector(".confirm-modal #confirm-accept").click()')
+      document.evaluate_script('document.querySelector("#confirm-modal #confirm-accept").click()')
     else
       throw ConfirmModalNotFound.new("Unable to find confirm modal")
     end
