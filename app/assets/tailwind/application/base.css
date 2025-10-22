@@ -44,6 +44,9 @@ i.ti {
   }
 }
 
+.w-header {
+  @apply w-7xl;
+}
 
 .input-with-icon-wrapper .icon-wrapper {
   @apply text-base-content;
