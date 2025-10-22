@@ -4,7 +4,7 @@
     width: 256px;
 
     &:hover {
-      @apply bg-accent-100;
+      @apply bg-base-100/70;
     }
 
     &.collapsed {
