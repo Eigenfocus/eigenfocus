@@ -10,12 +10,11 @@
   data-turbo-frame="issue_detail"
   data-turbo-action="advance"
   >
-  <div class="group relative flex flex-col gap-2 text-sm text-content-500 border-2 border-base-200 bg-base-100 hover:bg-base-100 hover:border-background-900 cursor-pointer shadow-sm rounded-xl card p-3">
+  <div class="group relative flex flex-col gap-2 text-sm text-base-content border-2 border-base-300 bg-base-100 hover:bg-base-200/50 hover:border-background-900 cursor-pointer rounded-box card p-3">
 
-    <div class="hidden flex items-center justify-center p-2 text-xs flex group-hover:flex items-center absolute top-2 right-2 rounded-full  bg-base-100">
-      <i class="fa fa-pencil"></i>
+    <div class="hidden flex items-center justify-center p-2 text-xs flex group-hover:flex items-center absolute top-1 right-2 rounded-full bg-base-100/50">
+      <i class="ti ti-pencil"></i>
     </div>
-
 
     <div class="flex flex-nowrap">
       <%= render(Issue::FinishToggleComponent.new(issue: issue)) %>
@@ -24,7 +23,6 @@
         <%= issue.title %>
       </p>
     </div>
-
 
     <%= labels_list_for(issue) %>
 

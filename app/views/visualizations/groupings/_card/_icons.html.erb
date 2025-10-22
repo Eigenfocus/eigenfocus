@@ -14,14 +14,14 @@
   <% if has_any_icon_showing %>
     <div class="flex flex-row items-center justify-start gap-3 text-base-content">
       <% if issue.description.present? %>
-        <i class="fa-solid text-sm fa-align-justify"></i>
+        <i class="ti text-sm ti-align-justified"></i>
       <% end %>
       <% if issue.files.any? %>
-        <i class="fa-solid text-sm fa-file"></i>
+        <i class="ti text-sm ti-file"></i>
       <% end %>
       <% if issue.comments.size > 0 %>
-        <span>
-          <i class="fa-regular text-sm fa-comment"></i>
+        <span class="flex items-center gap-1">
+          <i class="ti text-sm ti-message-circle"></i>
           <span class="text-sm" data-issue-comments-count="<%= issue.id %>"><%= issue.comments.size %></span>
         </span>
       <% end %>

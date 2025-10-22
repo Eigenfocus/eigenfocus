@@ -1,7 +1,11 @@
 .visualization--board {
   .board--column {
-    @apply max-h-full flex flex-col shrink-0 p-2 border hover:bg-base-100/70 border-neutral-content/30 rounded-md transition-all duration-200;
+    @apply max-h-full flex flex-col shrink-0 p-2 rounded-md transition-all duration-200;
     width: 256px;
+
+    &:hover {
+      @apply bg-accent-100;
+    }
 
     &.collapsed {
       width: 50px;
@@ -16,7 +20,7 @@
     }
 
     .board--column--header-actions {
-      @apply flex flex-row grow-0 shrink-0 relative;
+      @apply flex flex-row grow-0 shrink-0 relative justify-end;
     }
 
     .board--column--card-list {
