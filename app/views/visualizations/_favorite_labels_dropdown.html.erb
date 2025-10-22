@@ -1,8 +1,8 @@
 
 <div class="relative inline-flex cpy-keyboard-shortcuts" data-controller="dropdown">
-  <button class="btn btn-square btn-ghost" data-action="click->dropdown#toggle click@window->dropdown#hide"
+  <button class="btn btn-square" data-action="click->dropdown#toggle click@window->dropdown#hide"
     data-dropdown-target="button">
-    <i class="fa-regular fa-keyboard"></i>
+    <%= icon_for(:issue_labels) %>
   </button>
   <div data-dropdown-target="menu" class=" origin-top-left pt-4 z-10 absolute top-full border border-base-300 right-0 min-w-64 bg-base-100 rounded-md shadow-lg overflow-hidden mt-2">
     <div class="px-4 text-xs font-semibold text-base-content uppercase">
