@@ -9,7 +9,7 @@
   project: current_project
 } %>
 
-<div class="bg-base-100 px-8 min-h-screen">
+<div class="bg-base-200 px-8 grow">
   <%= turbo_frame_tag 'issues', class: "tour--issues-list", autoscroll: true, 'autoblock-scroll': 'start', data: { turbo_action: "advance" } do %>
     <%= render partial: 'filter', locals: { q: @q } %>
 
