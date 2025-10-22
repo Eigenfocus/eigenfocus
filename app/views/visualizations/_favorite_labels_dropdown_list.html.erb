@@ -11,15 +11,15 @@
         data-action="change->form#submit"
         data-visualization--favorite-issue-labels-target="favoriteLabelInput"
         value="<%= visualization.favorite_issue_labels[i] %>"
-        class="input-primary h-8 text-xs input-sm">
+        class="input input-sm">
     </div>
   <% end %>
   <p class="px-4 mt-2 font-base">
-    <span class="text-primary font-bold text-xs"><i class="fa-solid fa-wand-magic-sparkles"></i> <%= t(".pro_tip.title") %></span>
+    <span class="text-primary font-bold text-xs"><i class="ti ti-sparkles"></i> <%= t(".pro_tip.title") %></span>
     <br/>
     <span class="text-base-content text-xs text-italic"><%= t(".pro_tip.description") %></span>
   </p>
   <div class="px-4 py-2 border-t border-base-300 flex items-center justify-end text-xs bg-base-100">
-    <button class="btn-sm btn-primary" data-action="click->dropdown#toggle"><%= t(:save, scope: :actions) %></button>
+    <button class="btn-sm btn btn-primary" data-action="click->dropdown#toggle"><%= t(:save, scope: :actions) %></button>
   </div>
 <% end %>
