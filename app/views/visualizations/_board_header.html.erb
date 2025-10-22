@@ -1,7 +1,7 @@
 <div class="px-4 sm:px-8 flex justify-between items-center">
   <div class="flex items-stretch gap-4">
-    <div class="input">
-      <i class="text-base-content fa fa-search"></i>
+    <div class="input input-sm">
+      <i class="text-base-content opacity-50 ti ti-search"></i>
       <input class="grow cpy-issues-search"
         placeholder="Search issue"
         data-visualization--issue-filtering-target="searchInput"
@@ -12,14 +12,5 @@
 
   <div class="flex items-stretch flex-col sm:flex-row">
     <%= render partial: 'favorite_labels_dropdown', locals: { visualization: visualization } %>
-
-    <%= link_to new_visualization_grouping_path(visualization), class: "btn btn-ghost", data: { turbo_frame: 'grouping_form' } do %>
-      <i class="fa-solid fa-plus mr-2"></i>
-
-      <h2 class="grow font-semibold truncate">
-        <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
-      </h2>
-
-    <% end %>
   </div>
 </div>

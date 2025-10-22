@@ -20,7 +20,7 @@
       @apply text-base-content border-t border-r border-b border-neutral-content;
 
       &:hover {
-        @apply bg-neutral text-neutral-content;
+        @apply bg-neutral text-neutral-content!;
       }
       &:not([href]) { /* disabled links */
         @apply text-base-content opacity-70 cursor-default;

@@ -10,7 +10,7 @@
 } %>
 
 
-<main class="grow visualization--board tour--visualization-board"
+<main class="grow  visualization--board tour--visualization-board"
   data-controller="visualization--issue-filtering visualization--favorite-issue-labels"
   data-action="keydown@window->visualization--favorite-issue-labels#onKeyPress"
   data-visualization--favorite-issue-labels-add-path-value="<%= add_label_project_issue_path(@visualization.project, 'ISSUE_ID_PLACEHOLDER') %>"
@@ -41,7 +41,7 @@
         </ul>
 
         <div class="w-64 shrink-0">
-          <%= link_to new_visualization_grouping_path(@visualization), class: "flex p-2 border items-center justify-between bg-base-200 border-base-300 hover:border-primary rounded-md shadow-xs text-base-content hover:text-base-content", data: { turbo_frame: 'grouping_form' } do %>
+          <%= link_to new_visualization_grouping_path(@visualization), class: "btn btn-ghost btn-wide", data: { turbo_frame: 'grouping_form' } do %>
 
             <h2 class="grow font-semibold truncate">
               <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>

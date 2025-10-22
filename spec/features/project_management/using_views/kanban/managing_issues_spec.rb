@@ -23,12 +23,10 @@ describe 'As a user, I want to manage my project using a kanban view' do
 
     within dom_id(grouping) do
       find('.cpy-column-menu-button').click
+    end
 
-      within '.cpy-column-menu' do
-        expect(page).to have_content("Actions")
-
-        click_link "Create issue"
-      end
+    within '.cpy-column-menu' do
+      click_button "Create issue"
     end
 
     within "#grouping-#{grouping.id}-inline-issue-form" do

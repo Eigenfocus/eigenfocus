@@ -1,6 +1,6 @@
-<div class="bg-base-100 px-8 py-4">
-  <div class="flex items-center justify-between gap-2 bg-base-100 cpy-project-navigation">
-    <h2 class="flex items-center text-base-content font-semibold">
+<div class="py-4">
+  <div class="px-4 flex items-center justify-between gap-2 cpy-project-navigation">
+    <h2 class="flex items-center text-base-content/80 text-2xl pl-2 font-semibold">
       <% if local_assigns[:sub_section] %>
         <div class="flex gap-2 items-center">
           <% if sub_section[:icon] %>
@@ -26,9 +26,9 @@
     </div>
   </div>
 
-  <div class="mt-4 flex gap-4 text-sm font-medium border-b border-base-200 tour--project-navigation-tabs">
+  <div class="mt-4  px-4 flex gap-4 text-sm font-medium tour--project-navigation-tabs">
     <%
-      default_classes = "px-2 pb-1 whitespace-nowrap"
+
       tabs = [{
           icon: icon_for(:issues),
           text: t(:all_issues, scope: :nav),
@@ -54,4 +54,5 @@
       <% end %>
     <% end %>
   </div>
+  <div class="border-b border-base-300 h-0.5" style="margin-top: -2px;"></div>
 </div>

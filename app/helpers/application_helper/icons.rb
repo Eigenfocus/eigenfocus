@@ -21,7 +21,7 @@ module Icons
     when :report
       "ti ti-chart-bar-popular"
     when :issue_labels
-      "fa-solid fa-tags"
+      "ti ti-tags"
     when :theme
       "ti ti-palette"
     when :archived
