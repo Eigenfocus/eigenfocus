@@ -31,12 +31,12 @@
         <i class="ti  <%= grouping.hidden ? 'rotate-45 ti-arrows-diagonal' : 'rotate-135 ti-arrows-diagonal-minimize' %>"></i>
       <% end %>
 
-      <details class="dropdown">
-        <summary class="btn btn-ghost btn-square cpy-column-menu-button tour--column-menu-button <%= 'hidden' if grouping.hidden %>">
+      <div class="" data-controller="dropdown">
+        <button role="button" data-action="click->dropdown#toggle click@window->dropdown#hide" class="btn btn-ghost btn-square cpy-column-menu-button tour--column-menu-button <%= 'hidden' if grouping.hidden %>">
           <i class="ti ti-dots"></i>
-        </summary>
+        </button>
 
-        <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+        <ul data-dropdown-target="menu" class="menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
           <li class="menu-title">
             <%= Issue.model_name.human(count: 2) %>
           </li>
@@ -68,7 +68,7 @@
               class: "menu-item link-error",
               data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %> </li>
         </ul>
-      </details>
+      </div>
     </div>
   </header>
 

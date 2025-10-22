@@ -17,21 +17,22 @@
       <div class="card-body bg-base-100 border-base-300 rounded-box">
         <%= render partial: 'filter', locals: { q: @q } %>
 
+        <div class="mb-2 flex justify-end gap-4 items-center flex-col lg:flex-row">
+          <%= link_to "#{t('actions.create')} #{Issue.model_name.human.downcase}",
+              new_project_issue_path(current_project),
+              class: "btn btn-primary btn-sm tour--create-issue",
+              data: { turbo_frame: 'new_issue_form' } %>
+        </div>
+
         <div class="overflow-x-auto">
           <% if @issues.empty? %>
-            <%= render EmptyListComponent.new(
-              message: params[:q].present? ?
+          <p class="text-center text-base-content/80 text-lg font-semibold">
+            <%= params[:q].present? ?
                 t("zero_records_for_this_search", resource_name: Issue.model_name.human) :
-                t("zero_records", resource_name: Issue.model_name.human))
+                t("zero_records", resource_name: Issue.model_name.human)
             %>
+          </p>
           <% else %>
-
-            <div class="mb-2 flex justify-end gap-4 items-center flex-col lg:flex-row">
-              <%= link_to "#{t('actions.create')} #{Issue.model_name.human.downcase}",
-                  new_project_issue_path(current_project),
-                  class: "btn btn-primary btn-sm tour--create-issue",
-                  data: { turbo_frame: 'new_issue_form' } %>
-            </div>
 
             <table class="table table-header table-sm">
               <thead class="">
