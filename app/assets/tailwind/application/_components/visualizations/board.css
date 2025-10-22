@@ -16,7 +16,7 @@
     }
 
     .board--column--header-actions {
-      @apply flex flex-row gap-4 grow-0 shrink-0 relative;
+      @apply flex flex-row grow-0 shrink-0 relative;
     }
 
     .board--column--card-list {
