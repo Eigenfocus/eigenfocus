@@ -22,16 +22,16 @@
     </div>
   </div>
 
-  <div class="flex gap-2 items-stretch ">
+  <div class="flex items-stretch justify-end ">
     <%= hidden_field_tag :allocate_to_grouping_id, grouping.id, id: nil %>
 
-    <%= f.button class: "btn-primary flex items-center text-sm px-4" do %>
-      <i class="fa fa-add mr-2"></i> <%= t('actions.create') %>
-    <% end %>
-
-    <a class="btn-cancel text-sm px-4" data-action="click->grouping-column#hideInlineCardForm">
-      <i class="fa fa-close"></i>
+    <a class="btn btn-square btn-sm" data-action="click->grouping-column#hideInlineCardForm">
+      <i class="ti ti-x"></i>
     </a>
+
+    <%= f.button class: "ml-1 btn btn-primary btn-sm" do %>
+      <i class="ti ti-plus"></i> <%= t('actions.create') %>
+    <% end %>
 
   </div>
 

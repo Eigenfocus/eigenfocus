@@ -28,7 +28,7 @@
     }
 
     .board--column--create-button {
-      @apply w-full flex flex-row items-center mt-4 p-2 hover:bg-base-100 rounded-md;
+      @apply btn btn-ghost btn-wide mt-4;
 
       .board--column--create-button-shortcut {
         @apply hidden text-xs font-medium ml-2 mr-2;
