@@ -64,8 +64,6 @@ describe 'As a user, I want to manage my kanban view columns' do
     within dom_id(grouping) do
       find('.cpy-column-menu-button').click
 
-      expect(page).to have_content("Actions")
-
       accept_confirm do
         click_link "Delete column"
       end

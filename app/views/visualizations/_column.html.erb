@@ -36,9 +36,15 @@
           <i class="ti ti-dots"></i>
         </button>
 
-        <ul data-dropdown-target="menu" class="absolute left-0 top-full menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+        <ul data-dropdown-target="menu" class=" cpy-column-menu absolute left-0 top-full menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
           <li class="menu-title">
             <%= Issue.model_name.human(count: 2) %>
+          </li>
+          <li>
+            <button class="cpy-new-issue menu-item"
+              data-action="click->grouping-column#showInlineCardForm click->dropdown#toggle">
+              <%= t('visualizations.column_menu.create_issue') %>
+            </button>
           </li>
           <li><%= link_to t('visualizations.column_menu.move_all_issues'),
               move_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
