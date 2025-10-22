@@ -1,5 +1,5 @@
 .issue--finish-toggle {
-  @apply rounded-full border-base-300 bg-base-100 border-2 text-base-content transition-all duration-300;
+  @apply rounded-full border-base-content/70 bg-base-100 border-2 text-base-content transition-all duration-300;
   @apply flex items-center justify-center;
   @apply cursor-pointer;
 
@@ -14,13 +14,18 @@
     display: none;
   }
 
+  &:hover {
+    @apply border-success;
+  }
+
   &.finished {
-    @apply text-success ;
+    @apply text-success border-success;
 
     &:not(:hover) {
       border: none;
       background: none;
     }
+
     .finish-icon {
       display: inline-block;
     }
