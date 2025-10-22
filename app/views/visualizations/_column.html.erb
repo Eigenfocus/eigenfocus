@@ -9,7 +9,7 @@
   data-action="keypress.n@window->grouping-column#nWasPressed"
   data-visualization--board-target="column"
   >
-  <header class="board--column--header" data-controller="dropdown">
+  <header class="board--column--header">
     <%= link_to edit_visualization_grouping_path(grouping.visualization_id, grouping.id),
           class: "board--column--header-title",
           data: { turbo_frame: 'grouping_form' } do %>
@@ -31,18 +31,15 @@
         <i class="ti  <%= grouping.hidden ? 'rotate-45 ti-arrows-diagonal' : 'rotate-135 ti-arrows-diagonal-minimize' %>"></i>
       <% end %>
 
-      <div class="" data-controller="dropdown">
+      <div class="relative" data-controller="dropdown">
         <button role="button" data-action="click->dropdown#toggle click@window->dropdown#hide" class="btn btn-ghost btn-square cpy-column-menu-button tour--column-menu-button <%= 'hidden' if grouping.hidden %>">
           <i class="ti ti-dots"></i>
         </button>
 
-        <ul data-dropdown-target="menu" class="menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+        <ul data-dropdown-target="menu" class="absolute left-0 top-full menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
           <li class="menu-title">
             <%= Issue.model_name.human(count: 2) %>
           </li>
-          <li><%= link_to t('visualizations.column_menu.create_issue'), "#",
-              class: "cpy-new-issue menu-item",
-              data: { action: "click->grouping-column#showInlineCardForm click->dropdown#toggle" } %> </li>
           <li><%= link_to t('visualizations.column_menu.move_all_issues'),
               move_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
               class: "menu-item",
