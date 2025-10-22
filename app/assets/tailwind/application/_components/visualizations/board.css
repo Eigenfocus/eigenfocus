@@ -1,10 +1,10 @@
 .visualization--board {
   .board--column {
-    @apply max-h-full flex flex-col shrink-0 p-2 rounded-md transition-all duration-200;
+    @apply max-h-full flex flex-col shrink-0 p-2 bg-base-300/60 rounded-md transition-all duration-200;
     width: 256px;
 
     &:hover {
-      @apply bg-base-100/70;
+      @apply bg-base-300;
     }
 
     &.collapsed {
