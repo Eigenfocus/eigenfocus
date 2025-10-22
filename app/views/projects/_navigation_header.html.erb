@@ -1,4 +1,4 @@
-<div class="bg-base-200 px-8 py-4">
+<div class="bg-base-200 px-8 py-4 <%= local_assigns[:header_width] ? "w-header mx-auto" : "" %>">
   <div class="flex items-center justify-between gap-2 cpy-project-navigation">
     <h2 class="flex items-center text-base-content font-semibold">
       <% if local_assigns[:sub_section] %>

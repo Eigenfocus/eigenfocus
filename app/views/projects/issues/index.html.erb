@@ -6,23 +6,25 @@
 <% end %>
 
 <%= render partial: 'projects/navigation_header', locals: {
-  project: current_project
+  project: current_project,
+  header_width: true
 } %>
 
-<div class="bg-base-200 px-8 grow">
+<div class="px-8 grow w-header mx-auto">
   <%= turbo_frame_tag 'issues', class: "tour--issues-list", autoscroll: true, 'autoblock-scroll': 'start', data: { turbo_action: "advance" } do %>
-    <%= render partial: 'filter', locals: { q: @q } %>
 
-    <div class="overflow-x-auto rounded-box">
-      <% if @issues.empty? %>
-        <%= render EmptyListComponent.new(
-          message: params[:q].present? ?
-            t("zero_records_for_this_search", resource_name: Issue.model_name.human) :
-            t("zero_records", resource_name: Issue.model_name.human))
-        %>
-      <% else %>
-        <div class="card">
-          <div class="card-body bg-base-100 border-base-300">
+    <div class="card">
+      <div class="card-body bg-base-100 border-base-300 rounded-box">
+        <%= render partial: 'filter', locals: { q: @q } %>
+
+        <div class="overflow-x-auto">
+          <% if @issues.empty? %>
+            <%= render EmptyListComponent.new(
+              message: params[:q].present? ?
+                t("zero_records_for_this_search", resource_name: Issue.model_name.human) :
+                t("zero_records", resource_name: Issue.model_name.human))
+            %>
+          <% else %>
 
             <div class="mb-2 flex justify-end gap-4 items-center flex-col lg:flex-row">
               <%= link_to "#{t('actions.create')} #{Issue.model_name.human.downcase}",
@@ -48,9 +50,9 @@
               </tbody>
             </table>
             <%== pagy_summary(@pagy) %>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </div>
