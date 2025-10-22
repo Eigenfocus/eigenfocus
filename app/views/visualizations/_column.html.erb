@@ -31,66 +31,44 @@
         <i class="ti  <%= grouping.hidden ? 'rotate-45 ti-arrows-diagonal' : 'rotate-135 ti-arrows-diagonal-minimize' %>"></i>
       <% end %>
 
-      <button class="btn btn-ghost btn-square cpy-column-menu-button tour--column-menu-button <%= 'hidden' if grouping.hidden %>"
-              data-action="click->dropdown#toggle click@window->dropdown#hide"
-              data-dropdown-target="button"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false">
-        <i class="ti ti-dots"></i>
-      </button>
+      <details class="dropdown">
+        <summary class="btn btn-ghost btn-square cpy-column-menu-button tour--column-menu-button <%= 'hidden' if grouping.hidden %>">
+          <i class="ti ti-dots"></i>
+        </summary>
 
-      <div class="bg-base-200 z-10 absolute -right-2 top-full min-w-60 border border-base-200 rounded-lg shadow-lg overflow-hidden hidden cpy-column-menu"
-        data-dropdown-target="menu">
-        <div class="flex flex-col justify-stretch items-stretch text-sm text-left py-2">
-          <div class="flex flex-row py-2 relative">
-            <h3 class="mx-auto">
-              <%= t('visualizations.column_menu.actions') %>
-            </h3>
-            <button class="absolute right-0 mr-4"
-                    data-action="click->dropdown#toggle"
-                    >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
+        <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <li class="menu-title">
+            <%= Issue.model_name.human(count: 2) %>
+          </li>
+          <li><%= link_to t('visualizations.column_menu.create_issue'), "#",
+              class: "cpy-new-issue menu-item",
+              data: { action: "click->grouping-column#showInlineCardForm click->dropdown#toggle" } %> </li>
+          <li><%= link_to t('visualizations.column_menu.move_all_issues'),
+              move_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
+              class: "menu-item",
+              data: { turbo_frame: 'move_all_issues_modal', action: "click->dropdown#toggle" } %> </li>
+          <li><%= link_to t('visualizations.column_menu.archive_all_issues'),
+              archive_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
+              class: "menu-item",
+              data: {
+                turbo_method: :post,
+                turbo_confirm: t("visualizations.column_menu.archive_all_issues_confirmation", title: grouping.title),
+                action: "click->dropdown#toggle"
+              } %> </li>
 
-        <div class="flex flex-col mt-2 justify-stretch items-stretch">
-          <div class="flex flex-col justify-stretch border-b border-base-100 pb-2 mb-2">
-            <h4 class="text-sm font-bold text-base-content px-4 mb-2">
-              <%= Issue.model_name.human(count: 2) %>
-            </h4>
-            <%= link_to t('visualizations.column_menu.create_issue'), "#",
-                class: "cpy-new-issue text-left py-2 px-4 hover:bg-base-100 w-full",
-                data: { action: "click->grouping-column#showInlineCardForm click->dropdown#toggle" } %>
-            <%= link_to t('visualizations.column_menu.move_all_issues'),
-                move_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
-                class: "py-2 px-4 hover:bg-base-100 w-full",
-                data: { turbo_frame: 'move_all_issues_modal', action: "click->dropdown#toggle" } %>
-            <%= link_to t('visualizations.column_menu.archive_all_issues'),
-                archive_all_issues_visualization_grouping_path(grouping.visualization_id, grouping.id),
-                class: "py-2 px-4 hover:bg-base-100 w-full",
-                data: {
-                  turbo_method: :post,
-                  turbo_confirm: t("visualizations.column_menu.archive_all_issues_confirmation", title: grouping.title),
-                  action: "click->dropdown#toggle"
-                } %>
-          </div>
-
-          <div class="flex flex-col justify-stretch">
-            <h4 class="text-sm font-bold text-base-content px-4 mb-2">
-              <%= Grouping.model_name.human(count: 2) %>
-            </h4>
-            <%= link_to t('visualizations.column_menu.edit_column'),
-                edit_visualization_grouping_path(grouping.visualization_id, grouping.id),
-                class: "cpy-edit-column py-2 px-4 hover:bg-base-100 w-full",
-                data: { turbo_frame: 'grouping_form', action: "click->dropdown#toggle" } %>
-            <%= link_to t('visualizations.column_menu.delete'),
-                visualization_grouping_path(grouping.visualization_id, grouping),
-                class: "py-2 px-4 hover:bg-base-100 w-full text-red-600",
-                data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %>
-          </div>
-        </div>
-      </div>
+          <li class="menu-title">
+            <%= Grouping.model_name.human(count: 2) %>
+          </li>
+          <li><%= link_to t('visualizations.column_menu.edit_column'),
+              edit_visualization_grouping_path(grouping.visualization_id, grouping.id),
+              class: "cpy-edit-column menu-item",
+              data: { turbo_frame: 'grouping_form', action: "click->dropdown#toggle" } %> </li>
+          <li><%= link_to t('visualizations.column_menu.delete'),
+              visualization_grouping_path(grouping.visualization_id, grouping),
+              class: "menu-item link-error",
+              data: { turbo_method: :delete, turbo_confirm: t("visualizations.column_menu.destroy_confirmation", title: grouping.title) } %> </li>
+        </ul>
+      </details>
     </div>
   </header>
 
