@@ -48,24 +48,24 @@ const Description = ({ content, issueId }) => {
   }, [setIsEditing, setLocalState])
 
   return (
-    <form onSubmit={handleSave}>
+    <form onSubmit={handleSave} className="grow">
       <div className="mt-2 mb-2 flex items-center justify-between">
         <h3 className="text-lg font-medium text-base-content">
           <span className="mr-1 text-base-content/80">
-            <i className="fa-solid text-sm fa-align-justify"></i>
+            <i className="ti ti-align-justified"></i>
           </span>
           { t("activerecord.attributes.issue.description") }
         </h3>
 
         <div className="flex flex-row gap-2 items-center justify-between">
           { localState && (
-            <a className="link-primary text-sm cursor-pointer btn-sm" onClick={() => { setIsEditing(true) }}>
+            <a className="link-warning text-sm cursor-pointer btn-sm" onClick={() => { setIsEditing(true) }}>
               { t("issue_detail.description.changes_not_saved") }
             </a>
           )}
 
           { !isEditing && (
-            <a className="btn-primary text-sm cursor-pointer btn-sm" onClick={() => { setIsEditing(true) }}>
+            <a className="btn btn-sm" onClick={() => { setIsEditing(true) }}>
               { t("actions.edit") }
             </a>
           )}
@@ -83,11 +83,11 @@ const Description = ({ content, issueId }) => {
       </div>
       { isEditing && (
         <div className="flex gap-4 items-center mt-2 justify-end">
-          <a className="link-cancel text-sm" onClick={handleCancel}>
+          <a className="btn-ghost btn btn-sm" onClick={handleCancel}>
             { localState ? t("issue_detail.description.discard_changed") : t("actions.cancel") }
           </a>
 
-          <button type="submit" className="btn-primary">
+          <button type="submit" className="btn btn-sm btn-primary">
             { t("actions.save") }
           </button>
         </div>

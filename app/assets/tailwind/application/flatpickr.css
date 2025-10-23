@@ -30,7 +30,7 @@
 }
 
 .flatpickr-clear-button {
-  @apply link-  ;
+  @apply text-base-content;
   position: absolute;
   top: 50%;
   right: 10px;
