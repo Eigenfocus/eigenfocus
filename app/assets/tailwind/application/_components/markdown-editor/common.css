@@ -1,4 +1,21 @@
 .milkdown {
+  @apply rounded-lg overflow-hidden border border-base-300;
+
+  > [contenteditable="true"] {
+    @apply border-base-300! bg-base-200! text-base-content!;
+  }
+
+  > [contenteditable="false"] {
+    @apply bg-base-200/60! text-base-content!;
+    border: 0 !important;
+
+    &:hover {
+      @apply bg-base-200;
+    }
+  }
+}
+
+.milkdown {
   position: relative;
   border: 0 solid;
   box-sizing: border-box;
@@ -24,8 +41,6 @@
   }
 
   font-family: var(--font-default);
-  color: var(--color-on-background);
-  background: var(--color-background);
 
   .ProseMirror-focused {
     outline: none;
