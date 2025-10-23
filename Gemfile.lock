@@ -460,8 +460,8 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.4)
     useragent (0.16.11)
-    view_component (4.0.2)
-      activesupport (>= 7.1.0, < 8.1)
+    view_component (4.1.0)
+      activesupport (>= 7.1.0, < 8.2)
       concurrent-ruby (~> 1)
     web-console (4.2.1)
       actionview (>= 6.0.0)
@@ -533,7 +533,7 @@ DEPENDENCIES
   timecop
   turbo-rails
   tzinfo-data
-  view_component (= 4.0.2)
+  view_component (= 4.1.0)
   web-console
   webmock
 
