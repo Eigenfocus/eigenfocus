@@ -15,23 +15,23 @@
     </div>
   </div>
 
-  <div class="flex gap-4 items-center">
+  <div class="flex items-center">
     <%= link_to rails_blob_path(file, description: "attachment"),
-      class: "text-base-content text-center inline-flex items-center gap-2",
+      class: "btn btn-ghost btn-sm",
       target: '_blank' do %>
-      <i class="fa-solid text-sm fa-download"></i>
+      <i class="ti ti-download"></i>
     <% end %>
 
-    <button data-issue-detail-file-url-param="<%= rails_blob_url(file, description: "attachment") %>" data-action="click->issue-detail#copyToClipboard" class="text-primary items-center flex text-center inline-flex items-center gap-2">
-      <i class="hidden text-success-500 fa-solid fa-check"></i>
-      <i class="text-base-content fa-solid text-sm fa-copy"></i>
+    <button data-issue-detail-file-url-param="<%= rails_blob_url(file, description: "attachment") %>" data-action="click->issue-detail#copyToClipboard" class="btn btn-ghost btn-sm">
+      <i class="hidden text-success ti ti-check"></i>
+      <i class="text-base-content ti ti-copy"></i>
     </button>
 
     <%= link_to issue_file_path(issue, blob_signed_id: file.signed_id),
-      class: "text-danger-500 text-center inline-flex items-center gap-2",
+      class: "btn btn-ghost btn-sm",
       data: { turbo_method: :delete,
       turbo_confirm: t("confirmations.delete_file") } do %>
-      <i class="fa-solid text-sm fa-trash"></i>
+      <i class="ti ti-trash"></i>
     <% end %>
   </div>
 </div>

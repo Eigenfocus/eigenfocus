@@ -14,14 +14,6 @@
   justify-content: center;
 }
 
-.milkdown .ProseMirror {
-  @apply bg-base-200/40!;
-}
-
-.milkdown .ProseMirror:hover {
-  @apply bg-base-200!;
-}
-
 .ProseMirror.editor  {
   @apply bg-base-100;
 }

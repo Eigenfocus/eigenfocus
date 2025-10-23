@@ -11,9 +11,9 @@ module Icons
     when :issues
       "fa-solid fa-list-ul"
     when :comments
-      "fa-solid fa-comment"
+      "ti ti-message-circle"
     when :files
-      "fa-solid fa-file"
+      "ti ti-file"
     when :projects
       "ti ti-folder"
     when :user

@@ -66,11 +66,11 @@ export default class extends Controller {
   copyToClipboard(e) {
     const button = e.currentTarget
     navigator.clipboard.writeText(e.params.fileUrl)
-    button.querySelector(".fa-check").classList.remove('hidden')
-    button.querySelector(".fa-copy").classList.add('hidden')
+    button.querySelector(".ti-check").classList.remove('hidden')
+    button.querySelector(".ti-copy").classList.add('hidden')
     setTimeout(() => {
-      button.querySelector(".fa-check").classList.add('hidden')
-      button.querySelector(".fa-copy").classList.remove('hidden')
+      button.querySelector(".ti-check").classList.add('hidden')
+      button.querySelector(".ti-copy").classList.remove('hidden')
     }, 1500)
   }
 
