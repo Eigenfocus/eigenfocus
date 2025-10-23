@@ -14,7 +14,7 @@ module ApplicationHelper
       }
 
       content_tag(:span, wrapper_options) do
-        concat content_tag(:span, "##{issue.id}", class: "inline-block text-sm cursor-pointer link-primary js-animation-target-#{issue.id}", data: { animation_target: "animatable" })
+        concat content_tag(:span, "##{issue.id}", class: "inline-block font-semibold cursor-pointer link-primary js-animation-target-#{issue.id}", data: { animation_target: "animatable" })
         concat(
           content_tag(:div, nil, class: "popover__content opacity-0 top-1/2 left-full -translate-y-1/2 ml-2 text-nowrap", data: { issue__global_link_target: "content" })
         )

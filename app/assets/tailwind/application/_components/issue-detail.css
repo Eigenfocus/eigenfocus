@@ -1,5 +1,5 @@
 .issue-detail-title-input {
-  @apply w-full text-xl bg-base-200 border-none font-bold text-base-content absolute p-2 pt-1 w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden;
+  @apply w-full text-xl bg-base-100 border-none font-bold text-base-content absolute p-2 pt-1 w-full left-0 top-0 right-0 bottom-0 overflow-y-hidden;
   box-sizing: border-box;
 
   &:focus {
