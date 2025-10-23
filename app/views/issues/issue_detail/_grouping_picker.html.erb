@@ -1,9 +1,8 @@
 <%= turbo_frame_tag 'issue_grouping_picker' do %>
-  <div class="mb-2 flex items-center text-sm gap-2" data-controller="dropdown">
+  <div class="mt-2 mb-4 flex items-center text-sm gap-2" data-controller="dropdown">
     <span><%= t(".in_grouping") %></span>
 
-    <div
-      class="relative cpy-grouping-picker-button"
+    <div class="relative cpy-grouping-picker-button"
       data-action="click->dropdown#toggle click@window->dropdown#hide"
       role="button" aria-haspopup="true" aria-expanded="false"
       data-dropdown-target="button"

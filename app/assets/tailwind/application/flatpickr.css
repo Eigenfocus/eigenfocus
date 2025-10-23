@@ -30,13 +30,14 @@
 }
 
 .flatpickr-clear-button {
-  @apply link-neutral;
+  @apply link-  ;
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
   z-index: 1;
   font-size: 0.8em;
+  cursor: pointer;
 }
 
 .flatpickr-input[value=""] + .flatpickr-clear-button,
