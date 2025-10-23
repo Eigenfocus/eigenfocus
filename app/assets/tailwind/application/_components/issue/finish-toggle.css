@@ -3,10 +3,10 @@
   @apply flex items-center justify-center;
   @apply cursor-pointer;
 
-  height: 1.2rem;
-  width: 1.2rem;
-  min-height: 1.2rem;
-  min-width: 1.2rem;
+  height: 1.4rem;
+  width: 1.4rem;
+  min-height: 1.4rem;
+  min-width: 1.4rem;
 
   font-size: 0.65rem;
 
@@ -19,6 +19,7 @@
   }
 
   &.finished {
+    font-size: 0.7rem;
     @apply text-success border-success;
 
     &:not(:hover) {
@@ -29,16 +30,6 @@
     .finish-icon {
       display: inline-block;
     }
-  }
-
-  &.minimal,
-  &.minimal.finished {
-    background-color: transparent;
-  }
-
-  &.minimal.finished {
-    border: none;
-    @apply text-success-content text-sm;
   }
 }
 
@@ -51,14 +42,14 @@
   &:has(.finished) {
     @apply mr-1;
     opacity: 1;
-    width: 1.2rem;
+    width: 1.4rem;
   }
 }
 
 .show-issue-finish-toggle-on-hover:hover {
   .issue--finish-toggle-wrapper {
     @apply mr-1;
-    width: 1.2rem;
+    width: 1.4rem;
     opacity: 1;
   }
 }
