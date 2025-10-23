@@ -272,11 +272,6 @@ span.flatpickr-weekday {
   @apply ml-4;
 }
 
-.flatpickr-year-select-wrapper select {
-  width: 85px !important;
-  padding-left: 10px;
-}
-
 /* Year plugin */
 .flatpickr-current-month .numInputWrapper {
     display: none;
