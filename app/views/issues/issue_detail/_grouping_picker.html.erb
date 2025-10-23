@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'issue_grouping_picker' do %>
-  <div class="mb-2 flex items-center text-xs gap-2" data-controller="dropdown">
+  <div class="mb-2 flex items-center text-sm gap-2" data-controller="dropdown">
     <span><%= t(".in_grouping") %></span>
 
     <div
@@ -8,7 +8,7 @@
       role="button" aria-haspopup="true" aria-expanded="false"
       data-dropdown-target="button"
       >
-      <div class="text-xs rounded-md w-full flex justify-between items-center border-base-300 bg-base-100 border px-3 py-1">
+      <div class=" cursor-pointer text-sm rounded-md w-full flex justify-between items-center border-base-300 bg-base-100 border px-3 py-1">
         <span>
           <% if issue.groupings.empty? %>
             <%= t(".no_grouping") %>
@@ -22,9 +22,9 @@
 
       <div data-dropdown-target="menu" class="flex min-w-content flex-col bg-base-200 absolute z-10 top-full left-0 border border-base-300 rounded-lg shadow-lg overflow-hidden whitespace-nowrap mt-1 hidden cpy-grouping-picker-container">
         <% issue.project.default_visualization.groupings.each do |grouping| %>
-          <% css_classes = "hover:bg-base-100 py-2 px-4" %>
+          <% css_classes = "hover:bg-secondary hover:text-secondary-content py-2 px-4" %>
           <% is_selected = issue.groupings.first == grouping %>
-          <% css_classes += " bg-base-100" if is_selected %>
+          <% css_classes += " bg-secondary text-secondary-content" if is_selected %>
           <% if is_selected %>
             <span class="<%= css_classes %>"><%= grouping.title %></span>
           <% else %>
@@ -36,7 +36,7 @@
           <% end %>
         <% end %>
 
-        <% css_classes = "hover:bg-base-100 py-2 px-4" %>
+        <% css_classes = "hover:bg-secondary hover:text-secondary-content py-2 px-4" %>
         <% is_selected = issue.groupings.empty? %>
         <% css_classes += " bg-base-100" if is_selected %>
         <% if is_selected %>
