@@ -1,5 +1,5 @@
 <% running_class = time_entry.running? ? "border-success/70" : "border-base-100/80" %>
-<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> rounded-box border bg-base-100 flex flex-col md:flex-row gap-8 relative peer peer-exists tour--time-entry">
+<div id="<%= dom_id(time_entry) %>" class="<%= running_class %> border border-base-300 rounded-box border bg-base-100 flex flex-col md:flex-row gap-8 relative peer peer-exists tour--time-entry">
   <% if time_entry.running? %>
     <span class="absolute left-[-7px] flex" style="width:16px; height:16px; top: calc(50% - 6px)">
       <span class="relative  inline-flex rounded-full text-success" style="left:-2px;top:-2px;font-size:16px">

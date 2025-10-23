@@ -14,6 +14,8 @@ class ReportsController < ApplicationController
       @total_in_hours = 0
     end
 
+    set_layout_with_header_width!
+
     respond_to do |format|
       format.html
       format.csv do

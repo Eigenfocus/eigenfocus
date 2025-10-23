@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   # Helpers
   helper_method :current_user
-  helper_method :skip_layout_content_wrapper?
+  helper_method :skip_layout_content_wrapper?, :layout_with_header_width?
   helper_method :t_flash_message
 
   # Hooks
@@ -44,6 +44,14 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= Current.user
+  end
+
+  def set_layout_with_header_width!
+    @layout_with_header_width = true
+  end
+
+  def layout_with_header_width?
+    @layout_with_header_width
   end
 
   def skip_layout_content_wrapper!

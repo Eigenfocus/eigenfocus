@@ -1,11 +1,11 @@
 <% set_page_title(:reports) %>
 
-<div class="max-w-5xl mx-auto">
-  <%= render partial: 'reports/_total_time/filters', locals: { q: @q } %>
+<%= render partial: 'reports/_total_time/filters', locals: { q: @q } %>
 
+<div class="mt-8">
   <% if params[:q].present? %>
     <%= render partial: 'reports/_total_time/report' %>
   <% else %>
-    <%= render partial: 'choose_filters' %>
-<% end %>
+    <%= render EmptyListComponent.new(message: t(".choose_filters")) %>
+  <% end %>
 </div>
