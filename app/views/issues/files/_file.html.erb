@@ -28,7 +28,7 @@
     </button>
 
     <%= link_to issue_file_path(issue, blob_signed_id: file.signed_id),
-      class: "btn btn-ghost btn-sm",
+      class: "btn btn-ghost btn-sm btn-error",
       data: { turbo_method: :delete,
       turbo_confirm: t("confirmations.delete_file") } do %>
       <i class="ti ti-trash"></i>

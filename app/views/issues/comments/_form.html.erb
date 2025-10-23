@@ -11,10 +11,10 @@
 
   <div class="flex gap-2 justify-end">
     <% if comment.new_record? %>
-      <%= button_tag t("actions.cancel"), type: "button", class: "link-cancel text-xs", data: { action: "issue--comments#hideForm" } %>
+      <%= button_tag t("actions.cancel"), type: "button", class: "btn btn-sm btn-ghost", data: { action: "issue--comments#hideForm" } %>
     <% else %>
-      <%= f.submit t("actions.cancel"), value: 'cancel', class: "link-cancel text-xs", data: { action: "issue--comments#hideForm" } %>
+      <%= f.submit t("actions.cancel"), value: 'cancel', class: "btn btn-sm btn-ghost", data: { action: "issue--comments#hideForm" } %>
     <% end %>
-    <%= f.submit t("actions.save"), class: "btn-primary btn-sm", data: { action: "issue--comments#hideForm" } %>
+    <%= f.submit t("actions.save"), class: "btn btn-primary btn-sm", data: { action: "issue--comments#hideForm" } %>
   </div>
 <% end %>
