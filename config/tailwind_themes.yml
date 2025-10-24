@@ -1,7 +1,7 @@
 # Rails loads items on shared keys for all environments
 shared:
-  - key: "royallavender"
-    name: "Royal lavender"
+  - key: "eigenfocus-light"
+    name: "Light"
   - key: "amethystmoon"
     name: "Amethyst moon"
   - key: "zengarden"
