@@ -22,17 +22,22 @@ function IssueLabels({
     setProjectLabels(availableLabels)
   }, [availableLabels])
 
-  const addLabel = async (labelTitle) => {
+  const addLabel = async (labelTitle, hexColor = null) => {
+    const labelData = { title: labelTitle }
+    if (hexColor) {
+      labelData.hex_color = hexColor
+    }
+
     const request = new FetchRequest('post', addLabelPath, {
       body: JSON.stringify({
-        label: { title: labelTitle }
+        label: labelData
       })
     })
 
     try {
       const response = await request.perform()
       if (response.ok) {
-        const newLabel = { title: labelTitle }
+        const newLabel = { title: labelTitle, hexColor: hexColor }
         const updatedLabels = [...selectedLabels, newLabel]
         setSelectedLabels(updatedLabels)
 
