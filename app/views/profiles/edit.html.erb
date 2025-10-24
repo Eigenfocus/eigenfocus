@@ -10,7 +10,7 @@
       <%= current_user.is_profile_complete? ? t('.title') : t('.title_complete_your_profile') %>
     </h2>
     <% unless current_user.is_profile_complete? %>
-      <p class="alert alert-info alert-soft my-4">
+      <p class="alert alert-info my-4">
         <%= t(".why_you_need_to_fill_profile_html") %>
       </p>
     <% end %>

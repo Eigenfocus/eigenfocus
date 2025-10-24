@@ -15,26 +15,28 @@
   default: false;
   prefersdark: false;
   color-scheme: "light";
-  --color-base-100: oklch(100% 0 0);
-  --color-base-200: oklch(97.466% 0.011 259.822);
-  --color-base-300: oklch(93.268% 0.016 262.751);
-  --color-base-content: oklch(41.886% 0.053 255.824);
+
+  --color-base-100: oklch(98.127% 0.007 260.731);
+  --color-base-200: oklch(93.299% 0.01 261.788);
+  --color-base-300: oklch(89.925% 0.016 262.749);
+  --color-base-content: oklch(32.437% 0.022 264.182);
+
   --color-primary: #3A59D1;
   --color-primary-content: oklch(0.949 0.051 257.6);
   --color-secondary: #3D90D7;
   --color-secondary-content: oklch(0.179 0.134 247.7);
   --color-accent: #7AC6D2;
-  --color-accent-content: oklch(11.988% 0.038 335.171);
+  --color-accent-content: oklch(38% 0.063 188.416);
   --color-neutral: oklch(19.616% 0.063 257.651);
-  --color-neutral-content: oklch(83.923% 0.012 257.651);
+  --color-neutral-content: oklch(92% 0.004 286.32);
   --color-info: oklch(88.127% 0.085 214.515);
-  --color-info-content: oklch(17.625% 0.017 214.515);
+  --color-info-content: oklch(29% 0.066 243.157);
   --color-success: oklch(0.742 0.110 197.8);
-  --color-success-content: oklch(16.098% 0.015 197.823);
+  --color-success-content: oklch(37% 0.077 168.94);
   --color-warning: #FFAB56;
-  --color-warning-content: oklch(17.834% 0.009 71.47);
+  --color-warning-content: oklch(27% 0.105 12.094);
   --color-error: oklch(73.092% 0.11 20.076);
-  --color-error-content: oklch(14.618% 0.022 20.076);
+  --color-error-content: oklch(27% 0.105 12.094);
   --radius-selector: 0.25rem;
   --radius-field: 0.25rem;
   --radius-box: 0.25rem;
@@ -48,7 +50,7 @@
 @plugin "./daisyui-theme.mjs" {
   name: "eigenfocus-dark";
   default: false;
-  prefersdark: false;
+  prefersdark: true;
   color-scheme: "dark";
   --color-base-100: oklch(25.33% 0.016 252.42);
   --color-base-200: oklch(23.26% 0.014 253.1);
@@ -70,18 +72,18 @@
   --color-warning-content: oklch(41% 0.112 45.904);
   --color-error: oklch(71% 0.194 13.428);
   --color-error-content: oklch(27% 0.105 12.094);
-  --radius-selector: 0.5rem;
+  --radius-selector: 0.25rem;
   --radius-field: 0.25rem;
-  --radius-box: 0.5rem;
+  --radius-box: 0.25rem;
   --size-selector: 0.25rem;
-  --size-field: 0.25rem;
+  --size-field: 0.21875rem;
   --border: 1px;
   --depth: 1;
   --noise: 0;
 }
 
 @plugin "./daisyui-theme.mjs" {
-  name: "pastel";
+  name: "dim";
   default: false;
   prefersdark: false;
   color-scheme: "light";
@@ -105,13 +107,13 @@
   --color-warning-content: oklch(17.097% 0.017 84.093);
   --color-error: oklch(60.61% 0.12 15.341);
   --color-error-content: oklch(12.122% 0.024 15.341);
-  --radius-selector: 1rem;
+  --radius-selector: 0.25rem;
   --radius-field: 0.25rem;
-  --radius-box: 0.5rem;
+  --radius-box: 0.25rem;
   --size-selector: 0.25rem;
-  --size-field: 0.25rem;
+  --size-field: 0.21875rem;
   --border: 1px;
-  --depth: 0;
+  --depth: 1;
   --noise: 0;
 }
 
@@ -147,6 +149,41 @@
   --size-field: 0.25rem;
   --border: 1.5px;
   --depth: 0;
+  --noise: 1;
+}
+
+@plugin "./daisyui-theme.mjs" {
+  name: "christmas";
+  default: false;
+  prefersdark: false;
+  color-scheme: "dark";
+  --color-base-100: #A3485A;
+  --color-base-200: #842A3B;
+  --color-base-300: #A3485A;
+  --color-base-content: oklch(1.000 0.071 12.8);
+  --color-primary: #F5DAA7;
+  --color-primary-content: oklch(0.360 0.072 83.1);
+  --color-secondary: #932F67;
+  --color-secondary-content: oklch(96% 0.016 293.756);
+  --color-accent: #8ABB6C;
+  --color-accent-content: oklch(18.685% 0.02 94.555);
+ --color-neutral: #C1856D;
+  --color-neutral-content: oklch(0.000 0.173 354.8);
+  --color-info: oklch(0.394 0.227 262.9);
+  --color-info-content: oklch(0.968 0.043 262.9);
+  --color-success: oklch(62.705% 0.169 149.213);
+  --color-success-content: oklch(12.541% 0.033 149.213);
+  --color-warning: oklch(0.947 0.157 58.3);
+  --color-warning-content: oklch(27% 0.077 45.635);
+  --color-error: oklch(73.95% 0.19 27.33);
+  --color-error-content: oklch(14.79% 0.038 27.33);
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.21875rem;
+  --size-field: 0.28125rem;
+  --border: 2px;
+  --depth: 1;
   --noise: 1;
 }
 
