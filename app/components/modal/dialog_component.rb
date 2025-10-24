@@ -23,5 +23,4 @@ class Modal::DialogComponent < ViewComponent::Base
   def hide_close_button?
     @hide_close_button
   end
-
 end
