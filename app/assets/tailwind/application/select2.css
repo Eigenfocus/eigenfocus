@@ -32,18 +32,19 @@
   flex-grow: 1;
 }
 
+
+label .select2-selection.select2-selection--multiple,
+label .select2-selection.select2-selection--single {
+  border: 0 !important;
+  margin: 0 !important;
+}
+
 .select2-selection.select2-selection--multiple {
-  @apply rounded-field border border-base-300 pt-1;
+  @apply input!;
   width: 100% !important;
   flex-grow: 1;
 }
 
-
-label.select .selection .select2-selection.select2-selection--multiple,
-label.select .selection .select2-selection.select2-selection--single {
-  border: none !important;
-  border-radius: 0 !important;
-}
 
 
 .select-sm .select2-selection.select2-selection--multiple,

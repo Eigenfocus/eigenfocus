@@ -71,7 +71,7 @@ const Description = ({ content, issueId }) => {
           )}
         </div>
       </div>
-      <div className={ isEditing ? "" : "cursor-pointer grow cpy-issue-detail-description" } onClick={() => { setIsEditing(true) }}>
+      <div className={ isEditing ? "" : "cursor-pointer cpy-issue-detail-description" } onClick={() => { setIsEditing(true) }}>
         <MarkdownEditor
           defaultValue={defaultValue}
           readOnly={!isEditing}

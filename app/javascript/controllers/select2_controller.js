@@ -26,6 +26,9 @@ export default class extends Controller {
     if (this.element.dataset.select2AdditionalClasses) {
       this.select2.data('select2').$container.addClass(this.element.dataset.select2AdditionalClasses);
     }
+    if (this.element.dataset.disableSelectionBorder) {
+      this.select2.data('select2').$container.find('.select2-selection').css('border', '0 !important');
+    }
 
     this.select2.on('select2:select', function () {
       let event = new Event('change', { bubbles: true }) // fire a native event
