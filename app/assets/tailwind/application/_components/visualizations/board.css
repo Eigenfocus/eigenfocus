@@ -3,10 +3,6 @@
     @apply max-h-full flex flex-col shrink-0 p-2 bg-base-200/90 rounded-md transition-all duration-200;
     width: 256px;
 
-    &:hover {
-      @apply bg-base-300/90;
-    }
-
     &.collapsed {
       width: 50px;
     }
