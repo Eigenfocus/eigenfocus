@@ -109,7 +109,8 @@ pt-BR:
       comment:
         created_at: "criado em %{date}"
     issue_detail:
-      issue_archived_at: "Esta issue foi arquivada em %{date}"
+      header:
+        issue_archived_at: "Esta issue foi arquivada em %{date}"
       grouping_picker:
         in_grouping: "em"
         no_grouping: "Sem coluna"

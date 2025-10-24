@@ -1,6 +1,6 @@
 <%= turbo_stream_from "issue_#{issue.id}/comments" %>
 
-<div class="cpy-comments-container w-full lg:w-[40%]" data-controller="issue--comments" data-current-user-id="<%= current_user.id %>">
+<div class="cpy-comments-container w-full lg:w-[40%] bg-base-200/40" data-controller="issue--comments" data-current-user-id="<%= current_user.id %>">
   <div class="mt-2 mb-2 flex justify-between">
     <h3 class="text-lg font-medium text-base-content">
       <span class="mr-1 text-base-content/80"><%= icon_for(:comments) %></span>
