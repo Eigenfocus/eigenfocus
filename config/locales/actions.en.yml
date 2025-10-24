@@ -107,7 +107,8 @@ en:
       comment:
         created_at: "created at %{date}"
     issue_detail:
-      issue_archived_at: "This issue was archived on %{date}"
+      header:
+        issue_archived_at: "This issue was archived on %{date}"
       grouping_picker:
         in_grouping: "in"
         no_grouping: "No column"
@@ -133,8 +134,8 @@ en:
       confirm_destroy: "Do you want to remove this time entry? This action can not be undone."
   reports:
     choose_filters:
-      please_choose_filters: 'To generate a report use the filter above.'
     total_time:
+      choose_filters: 'To generate a report use the filter above.'
       report:
         no_entries_for: "No time entries for"
         total: 'Total'

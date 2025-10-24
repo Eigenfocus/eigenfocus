@@ -1,0 +1,58 @@
+<div class="sticky top-0 z-10 flex items-center justify-between px-4 py-2  border-b border-base-300/80 bg-base-200">
+  <div class="flex gap-2 items-center">
+    <%= global_issue_link(issue) %>
+    <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>
+      <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
+    <% end %>
+  </div>
+  <% if issue.archived? %>
+    <div role="alert" class="text-sm italic font-medium hidden md:block">
+      <%= t('.issue_archived_at', date: l(issue.archived_at, format: :long)) %>
+    </div>
+  <% end %>
+  <div class="flex items-center">
+    <% if issue.persisted? %>
+      <% if issue.archived? %>
+          <%= link_to unarchive_issue_path(issue),
+          class: "btn-slide btn btn-sm btn-success btn-ghost",
+          data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") } do %>
+          <i class="ti ti-archive-off"></i>
+          <span class="sliding-text"><span class="sliding-text-inner">
+            <%= t("actions.unarchive") %>
+          </span></span>
+        <% end %>
+
+        <%= link_to issue_path(issue), class: "btn btn-sm btn-error btn-slide btn-ghost", data: { turbo_method: :delete, turbo_confirm: t("issue.confirm_destroy", resource_name: Issue.model_name.human.downcase) } do %>
+          <i class="ti ti-trash"></i>
+          <span class="sliding-text"><span class="sliding-text-inner">
+            <%= t("actions.remove") %>
+          </span></span>
+        <% end %>
+      <% else %>
+        <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "btn btn-slidebtn-sm btn-primary btn-ghost tour--issue-detail-time-tracking", data: { turbo_frame: "_top" } do %>
+          <%= icon_for(:time_entries) %>
+          <span class="sliding-text"><span class="sliding-text-inner">
+            <%= t("actions.start_time_tracking") %>
+          </span></span>
+        <% end %>
+
+        <div class="divider divider-vertical"></div>
+
+        <%= link_to archive_issue_path(issue),
+            class: "btn btn-sm btn-error btn-slide btn-ghost",
+            data: { turbo_method: :put, turbo_confirm: t("issue.confirm_archive") } do %>
+          <i class="ti ti-archive"></i>
+          <span class="sliding-text"><span class="sliding-text-inner">
+            <%= t("actions.archive") %>
+          </span></span>
+        <% end %>
+
+      <% end %>
+    <% end %>
+    <form method="dialog">
+      <button class="btn btn-circle btn-ghost cpy-close-modal">
+        <i class="ti ti-x"></i>
+      </button>
+    </form>
+  </div>
+</div>

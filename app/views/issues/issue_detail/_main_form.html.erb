@@ -1,28 +1,49 @@
 <div class="flex flex-col tour--issue-detail-fields">
-  <%= form_with(model: issue, url: form_path, html: {
-    class: 'flex flex-col gap-2',
-    data: {
-      turbo: true,
-      "issue-detail-target": "form",
-      action: "turbo:submit-end->issue-detail#onFormSubmit",
-    }
-    }) do |f| %>
+  <% if issue.persisted? %>
+    <div class="flex gap-2 mb-4">
+      <%= form_with(model: issue, url: form_path, html: {
+        class: 'flex flex-col grow gap-2',
+        data: {
+          turbo: true,
+          "issue-detail-target": "form",
+          action: "turbo:submit-end->issue-detail#onFormSubmit",
+        }
+        }) do |f| %>
+          <div data-controller='issue--labels'
+              data-issue--labels-add-path-value="<%= add_label_project_issue_path(issue.project, issue) %>"
+              data-issue--labels-remove-path-value="<%= remove_label_project_issue_path(issue.project, issue) %>"
+              class="cpy-issue-labels max-w-full">
+            <%= f.label :label_ids, class: "select w-full pr-0 " do  %>
+              <span class="label text-sm mr-0 "><%= Issue.human_attribute_name(:label_ids) %></span>
+              <%= f.select :label_ids,
+                    options_from_collection_for_select(issue.project.issue_labels, :id, :title, issue.label_ids),
+                    { include_blank: false },
+                    {
+                      multiple: true,
+                      data: {
+                        controller: 'select2',
+                        tags: true,
+                        "disable-selection-border": true
+                      }
+                    } %>
+            <% end %>
+          </div>
+      <% end %>
 
-    <% if issue.persisted? %>
-      <div data-controller='issue--labels'
-          data-issue--labels-add-path-value="<%= add_label_project_issue_path(issue.project, issue) %>"
-          data-issue--labels-remove-path-value="<%= remove_label_project_issue_path(issue.project, issue) %>"
-          class="mb-4 flex flex-col items-stretch gap-2 cpy-issue-labels">
-        <%= f.label :label_ids, Issue.human_attribute_name(:label_ids), class: "label-primary" %>
-        <%= f.select :label_ids,
-              options_from_collection_for_select(issue.project.issue_labels, :id, :title, issue.label_ids),
-              { include_blank: false },
-              {
-                class: 'input-primary', multiple: true,
-                data: { controller: 'select2', tags: true }
-              } %>
-      </div>
-    <% end %>
+      <%= form_with(model: issue, url: form_path, html: {
+        class: 'flex flex-col',
+        data: { controller: "form", turbo: true }
+        }) do |f| %>
+          <%= f.label :due_date, class: "input" do %>
+            <span class="label text-sm"><%= Issue.human_attribute_name(:due_date) %></span>
+            <div class="flatpickr-resetable-container">
+              <%= f.text_field :due_date, class: 'input w-30',
+                data: { controller: "flatpickr", action: "input->form#submit", show_clear_button: true }
+                %>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 
   <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>

@@ -5,12 +5,13 @@
     open: open,
   }) do %>
   <%= content_tag(:div, modal_box) do %>
-    <form method="dialog">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cpy-close-modal">
-
-        <i class="ti ti-x"></i>
-      </button>
-    </form>
+    <% unless hide_close_button? %>
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cpy-close-modal">
+          <i class="ti ti-x"></i>
+        </button>
+      </form>
+    <% end %>
     <%= render_title %>
     <%= content %>
   <% end %>

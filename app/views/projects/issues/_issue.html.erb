@@ -1,7 +1,7 @@
 <tr id="<%= dom_id(issue) %>">
   <td class="show-issue-finish-toggle-on-hover">
-    <span class="flex">
-      <%= render Issue::FinishToggleComponent.new(issue: issue, minimal_style: true) %>
+    <span class="flex items-center">
+      <%= render Issue::FinishToggleComponent.new(issue: issue) %>
 
       <%= link_to project_show_issue_path(issue.project, issue),
             data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>

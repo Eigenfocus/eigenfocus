@@ -12,60 +12,56 @@
   <% data.merge!("issue-detail-attach-path-value": attach_issue_file_path(issue)) if issue.persisted? %>
 
   <%= render Modal::DialogComponent.new(
+    hide_close_button: true,
     modal_box: {
-      class: "max-w-3xl relative cpy-issue-detail",
-      data: data
+      class: "max-w-5xl relative cpy-issue-detail max-h-[95vh] p-0 flex flex-col",
+      data: data,
     }) do %>
-    <div class="issue-detail">
-      <% if issue.archived? %>
-        <div class="text-warning-900 font-bold text-base mb-4 bg-warning-500/40 p-2 rounded-lg border border-warning-500/40 flex items-center gap-2 mr-4">
-          <%= icon_for(:archived) %>
-          <%= t('.issue_archived_at', date: l(issue.archived_at, format: :long)) %>
-        </div>
-      <% end %>
 
-      <div class="flex justify-between items-center">
-        <%= global_issue_link(issue) %>
-      </div>
-      <div class="flex flex-row items-center flex-nowrap gap-2">
-        <%= render(Issue::FinishToggleComponent.new(issue: issue, has_hover_animation: false)) %>
+      <%= render 'issues/issue_detail/header', issue: issue %>
 
-        <div class="flex grow">
-          <%= form_with(model: issue, url: local_assigns[:form_path], html: {
-            class: 'w-full flex justify-stretch',
-            data: {
-              turbo: true,
-              "issue-detail-target": "form",
-              action: "turbo:submit-end->issue-detail#onFormSubmit",
-            }
-            }) do |f| %>
 
-            <div data-controller='resizable-input' class="w-full cpy-issue-detail-title relative" >
-              <div data-resizable-input-target="replica" class="break-all text-xl font-bold text-base-content p-1 pt-1 -ml-2 whitespace-pre-line"></div>
+      <div class="flex flex-col md:flex-row items-stretch grow h-full">
+        <div class="issue-detail p-4 w-full lg:w-[60%] flex flex-col">
 
-              <%= f.text_area :title, required: true,
-                class: "issue-detail-title-input -ml-2 min-h-8",
-                "data-resizable-input-target": "input",
-                "data-issue-detail-target": "titleField",
-                "data-action": "keydown.enter->issue-detail#onTitleFieldEnter keydown.esc->issue-detail#onTitleFieldEsc blur->issue-detail#onTitleFieldBlur"
-                %>
+          <div class="flex flex-row items-center flex-nowrap gap-2">
+            <%= render(Issue::FinishToggleComponent.new(issue: issue, has_hover_animation: false)) %>
+
+            <div class="flex grow">
+              <%= form_with(model: issue, url: local_assigns[:form_path], html: {
+                class: 'w-full flex justify-stretch',
+                data: {
+                  turbo: true,
+                  "issue-detail-target": "form",
+                  action: "turbo:submit-end->issue-detail#onFormSubmit",
+                }
+                }) do |f| %>
+
+                <div data-controller='resizable-input' class="w-full cpy-issue-detail-title relative" >
+                  <div data-resizable-input-target="replica" class="break-all text-xl font-bold text-base-content p-1 pt-1 -ml-2 whitespace-pre-line"></div>
+
+                  <%= f.text_area :title, required: true,
+                    class: "issue-detail-title-input -ml-2 min-h-8",
+                    "data-resizable-input-target": "input",
+                    "data-issue-detail-target": "titleField",
+                    "data-action": "keydown.enter->issue-detail#onTitleFieldEnter keydown.esc->issue-detail#onTitleFieldEsc blur->issue-detail#onTitleFieldBlur"
+                    %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
+          </div>
+          <%= render partial: "issues/issue_detail/issue_finished_at", locals: { issue: } %>
+
+          <div class="mt-4" data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
+
+            <%= render partial: 'issues/issue_detail/main_form', locals: { issue:, form_path: local_assigns[:form_path] } %>
+
+          </div>
         </div>
-      </div>
-      <%= render partial: "issues/issue_detail/issue_finished_at", locals: { issue: } %>
 
-      <div class="flex flex-col md:flex-row gap-8" data-controller="dropzone" data-action="dropzone:complete->issue-detail#fileUploadCompleted">
-        <div class="flex flex-col w-full md:w-3/4">
-          <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>
-            <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
-          <% end %>
-
-          <%= render partial: 'issues/issue_detail/main_form', locals: { issue:, form_path: local_assigns[:form_path] } %>
+        <div class="w-full lg:w-[40%] bg-base-200/40 p-4">
           <%= render partial: 'issues/comments/comments', locals: { issue: } if issue.persisted? %>
         </div>
-        <%= render partial: 'issues/issue_detail/right_sidebar', locals: { issue:, form_path: local_assigns[:form_path] } %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 <% end %>

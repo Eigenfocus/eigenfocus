@@ -14,6 +14,10 @@
   justify-content: center;
 }
 
+.ProseMirror.editor  {
+  @apply bg-base-100;
+}
+
 .markdown-editor .editor-toolbar > a.active {
   @apply bg-primary text-primary border-primary;
 }
@@ -23,17 +27,17 @@
 }
 
 .markdown-editor .CodeMirror {
-  @apply text-base-content bg-base-100 ;
+  @apply text-base-content bg-base-200 ;
 }
 
 .markdown-editor .CodeMirror-cursor {
-  @apply border-neutral-content ;
+  @apply border-base-300 ;
 }
 
 pre.CodeMirror-line { overflow-wrap: anywhere ; }
 
 :is(.markdown-content, .editor-preview) {
-  @apply bg-base-100 text-base-content font-sans leading-relaxed;
+  @apply bg-base-200  text-base-content font-sans leading-relaxed;
 }
 
 /* Headings */

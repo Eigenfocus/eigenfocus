@@ -1,6 +1,6 @@
 <%= turbo_frame_tag 'report' do %>
   <div class="flex mt-8 flex-col lg:flex-row gap-4">
-    <div class="flex flex-col rounded-box gap-2 bg-base-100 p-4 lg:w-1/5">
+    <div class="flex flex-col rounded-box gap-2 bg-base-100 p-4 lg:w-1/5 border border-base-300">
       <h4 class="text-xs text-base-content uppercase">
         <%= t(".total") %>
       </h4>
@@ -10,9 +10,9 @@
     </div>
   </div>
 
-  <div class="min-w-full mt-8 overflow-x-auto">
+  <div class="mt-8 overflow-x-auto">
     <% if @time_entries.any? %>
-      <div class="card bg-base-100">
+      <div class="card bg-base-100 rounded-box border border-base-300">
         <div class="card-body">
           <table class="table table-md table-zebra table-pin-rows table-pin-cols">
             <thead>

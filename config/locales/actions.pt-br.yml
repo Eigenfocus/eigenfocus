@@ -109,7 +109,8 @@ pt-BR:
       comment:
         created_at: "criado em %{date}"
     issue_detail:
-      issue_archived_at: "Esta issue foi arquivada em %{date}"
+      header:
+        issue_archived_at: "Esta issue foi arquivada em %{date}"
       grouping_picker:
         in_grouping: "em"
         no_grouping: "Sem coluna"
@@ -134,9 +135,8 @@ pt-BR:
       no_description: "sem descrição"
       confirm_destroy: "Deseja realmente remover este registro de tempo? Esta ação não poderá ser desfeita."
   reports:
-    choose_filters:
-      please_choose_filters: 'Para gerar um relatório, utilize o filtro acima.'
     total_time:
+      choose_filters: 'Para gerar um relatório, utilize o filtro acima.'
       report:
         no_entries_for: "Sem entradas de tempo para"
         total: 'Total'

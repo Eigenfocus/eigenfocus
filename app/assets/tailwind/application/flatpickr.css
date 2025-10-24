@@ -26,17 +26,18 @@
 }
 
 .flatpickr-resetable-container {
-    position: relative;
+  position: relative;
 }
 
 .flatpickr-clear-button {
-  @apply link-neutral;
+  @apply text-base-content;
   position: absolute;
   top: 50%;
   right: 10px;
-  transform: translateY(-50%);
+  transform: translateY(-40%);
   z-index: 1;
   font-size: 0.8em;
+  cursor: pointer;
 }
 
 .flatpickr-input[value=""] + .flatpickr-clear-button,
@@ -158,7 +159,7 @@
 .flatpickr-day.selected.nextMonthDay,
 .flatpickr-day.startRange.nextMonthDay,
 .flatpickr-day.endRange.nextMonthDay {
-    @apply bg-primary text-primary-content rounded-md;
+    @apply bg-secondary text-secondary-content rounded-md;
 }
 
 .flatpickr-innerContainer {
@@ -184,7 +185,7 @@
 .flatpickr-day.nextMonthDay:focus,
 .flatpickr-day.today:hover,
 .flatpickr-day.today:focus {
-    @apply bg-primary text-primary-content rounded-md;
+    @apply bg-secondary text-secondary-content rounded-md;
 }
 
 .flatpickr-day.inRange,
@@ -269,11 +270,6 @@ span.flatpickr-weekday {
 
 .flatpickr-year-select-wrapper  {
   @apply ml-4;
-}
-
-.flatpickr-year-select-wrapper select {
-  width: 85px !important;
-  padding-left: 10px;
 }
 
 /* Year plugin */
