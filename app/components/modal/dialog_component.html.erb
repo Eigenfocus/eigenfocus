@@ -1,8 +1,9 @@
 <%= content_tag(:dialog, {
-    data: { controller: "modal"} ,
+    # We pass the open value to the modal controller so we can open it programmatically
+    # when the element is inserted in the DOM so the show animation is triggered
+    data: { controller: "modal", "modal-open-value": open } ,
     id: dialog_id,
-    class: "modal",
-    open: open,
+    class: "modal"
   }) do %>
   <%= content_tag(:div, modal_box) do %>
     <% unless hide_close_button? %>

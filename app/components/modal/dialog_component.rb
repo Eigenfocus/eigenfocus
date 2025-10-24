@@ -9,7 +9,7 @@ class Modal::DialogComponent < ViewComponent::Base
     @title = title
     @icon = icon
     @modal_box = modal_box
-    modal_box[:class] = modal_box[:class].to_s + " modal-box"
+    modal_box[:class] = modal_box[:class].to_s + " modal-box max-h-[95vh]"
     @open = open
     @dialog_id = dialog_id
     @hide_close_button = hide_close_button
