@@ -4,5 +4,7 @@ shared:
     name: "Light"
   - key: "eigenfocus-dark"
     name: "Dark"
+  - key: "pastel"
+    name: "Pastel"
   - key: "spookyhalloween"
     name: "Spooky Halloween"
