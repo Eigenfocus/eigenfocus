@@ -4,44 +4,47 @@
 <%= render Modal::DialogComponent.new(
   title: issue.persisted? ? "#{t("actions.edit")} #{Issue.model_name.human}" : "#{t("actions.create")} #{Issue.model_name.human}",
   icon: icon_for(:issues),
-  modal_box: { class: "max-w-2xl relative cpy-issue-detail" }) do %>
+  modal_box: { class: "max-w-xl relative cpy-issue-detail" }) do %>
 
   <div class="space-y-4">
-    <%= form_with(model: issue, url: create_issue_url, html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
+    <%= form_with(model: issue, url: create_issue_url, html: { class: 'flex flex-col justify-stretch gap-2', data: { turbo_frame: "_top" } }) do |f| %>
       <% if issue.errors.any? %>
         <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
           <%= issue.errors.full_messages.to_sentence.capitalize %>
         </div>
       <% end %>
 
-      <div class="mb-4 flex flex-col items-stretch gap-2">
-        <%= f.label :title, Issue.human_attribute_name(:title), class: "label-primary" %>
-        <%= f.text_field :title, autofocus: true, required: true, class: "input-primary" %>
-      </div>
+      <fieldset class="fieldset grow">
+        <%= f.label :title, Issue.human_attribute_name(:title), class: "fieldset-legend" %>
+        <%= f.text_field :title, autofocus: true, required: true, class: "input w-full" %>
+      </fieldset>
 
-      <div class="mb-4 cpy-by-labels-titles flex flex-col items-stretch gap-2">
-        <%= f.label :labels_list, Issue.human_attribute_name(:label_ids), class: "label-primary" %>
+      <fieldset class="fieldset grow">
+        <%= f.label :labels_list, Issue.human_attribute_name(:label_ids), class: "fieldset-legend" %>
 
         <% available_options = (issue.labels_list + issue.project.issue_labels.map(&:title)).uniq.sort %>
         <%= f.select :labels_list,
             available_options,
             { include_blank: false },
             {
-              class: 'input-primary', multiple: true,
+              multiple: true,
               data: { controller: 'select2', tags: true }
             } %>
-      </div>
+      </fieldset>
 
-      <%= react_component("MarkdownEditor", defaultValue: issue.description, mirrorInputTargetSelector: "#new_issue_form .js-issue-description" ) %>
-      <%= f.hidden_field :description, class: "js-issue-description" %>
+      <fieldset class="fieldset grow">
+        <%= f.label :description, Issue.human_attribute_name(:description), class: "fieldset-legend" %>
 
-      <div class="flex gap-2 justify-center">
-        <a class="btn-cancel" data-action="click->modal#close">
+        <%= react_component("MarkdownEditor", defaultValue: issue.description, mirrorInputTargetSelector: "#new_issue_form .js-issue-description" ) %>
+        <%= f.hidden_field :description, class: "js-issue-description" %>
+      </fieldset>
+      <div class="mt-2 flex gap-2 justify-center">
+        <a class="btn btn-ghost" data-action="click->modal#close">
           <%= t('actions.cancel') %>
         </a>
 
         <% text = issue.persisted? ? t('actions.update') : t('actions.create') %>
-        <%= f.button text, class: "btn-primary" %>
+        <%= f.button text, class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

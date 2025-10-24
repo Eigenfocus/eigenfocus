@@ -95,15 +95,15 @@ label .select2-selection.select2-selection--single {
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  @apply text-base-content! bg-base-200! border-base-300!;
+  @apply text-base-content! bg-base-100! border-base-300!;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-  @apply text-base-content! bg-base-200! border-base-300!;
+  @apply text-base-content! bg-base-100! border-base-300!;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
-  @apply text-base-content! bg-base-200! border-base-300!;
+  @apply text-base-content! bg-base-100! border-base-300!;
 }
 
 /*
