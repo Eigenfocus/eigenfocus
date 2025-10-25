@@ -44,7 +44,7 @@ i.ti {
 }
 
 .w-header {
-  @apply w-7xl;
+  @apply md:w-7xl md:mx-auto;
 }
 
 .input-with-icon-wrapper .icon-wrapper {

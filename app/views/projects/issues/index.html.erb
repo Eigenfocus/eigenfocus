@@ -10,7 +10,7 @@
   header_width: true
 } %>
 
-<div class="px-8 grow lg:w-header lg:mx-auto">
+<div class="px-8 grow w-header">
   <%= turbo_frame_tag 'issues', class: "tour--issues-list", autoscroll: true, 'autoblock-scroll': 'start', data: { turbo_action: "advance" } do %>
 
     <div class="card">
