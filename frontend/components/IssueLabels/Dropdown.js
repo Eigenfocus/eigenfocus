@@ -58,16 +58,7 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
   }
 
   return (
-    <div ref={dropdownRef}>
-      <button
-        type="button"
-        onClick={() => onToggle(!isOpen)}
-        className="btn btn-sm btn-outline"
-      >
-        <i className="ti ti-plus" />
-        {t("actions.add")} {t("activerecord.models.issue_label.one").toLowerCase()}
-      </button>
-
+    <div href={dropdownRef}>
       {isOpen && (
         <div className="menu bg-base-100 rounded-box z-50 w-64 p-2 shadow-lg mt-2">
           {
@@ -78,8 +69,8 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                   <div className="form-control p-2 gap-2 flex">
                     <input
                       type="text"
-                      placeholder="Search labels..."
-                      className="input input-sm input-ghost w-full"
+                      placeholder={t("issue.search_labels")}
+                      className="input input-sm w-full"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       onKeyDown={(e) => {

@@ -1,43 +1,20 @@
 <div class="flex flex-col tour--issue-detail-fields">
   <% if issue.persisted? %>
-    <div class="flex gap-2 mb-4">
-      <%= form_with(model: issue, url: form_path, html: {
-        class: 'flex flex-col grow gap-2',
-        data: {
-          turbo: true,
-          "issue-detail-target": "form",
-          action: "turbo:submit-end->issue-detail#onFormSubmit",
-        }
-        }) do |f| %>
-          <div class="cpy-issue-labels max-w-full">
-            <label class="label text-sm">
-              <%= Issue.human_attribute_name(:label_ids) %>
-            </label>
-            <%= react_component("IssueLabels",
-              availableLabels: issue.project.issue_labels.map { |l| { title: l.title, hexColor: l.hex_color } },
-              issue: {
-                labels: issue.labels.map { |l| { title: l.title, hexColor: l.hex_color } },
-                project_id: issue.project_id,
-                id: issue.id
-              }
-            ) %>
+
+    <%= form_with(model: issue, url: form_path, html: {
+      class: 'flex flex-col',
+      data: { controller: "form", turbo: true }
+      }) do |f| %>
+        <%= f.label :due_date, class: "input" do %>
+          <span class="label text-sm"><%= Issue.human_attribute_name(:due_date) %></span>
+          <div class="flatpickr-resetable-container">
+            <%= f.text_field :due_date, class: 'input w-30',
+              data: { controller: "flatpickr", action: "input->form#submit", show_clear_button: true }
+              %>
           </div>
       <% end %>
+    <% end %>
 
-      <%= form_with(model: issue, url: form_path, html: {
-        class: 'flex flex-col',
-        data: { controller: "form", turbo: true }
-        }) do |f| %>
-          <%= f.label :due_date, class: "input" do %>
-            <span class="label text-sm"><%= Issue.human_attribute_name(:due_date) %></span>
-            <div class="flatpickr-resetable-container">
-              <%= f.text_field :due_date, class: 'input w-30',
-                data: { controller: "flatpickr", action: "input->form#submit", show_clear_button: true }
-                %>
-            </div>
-        <% end %>
-      <% end %>
-    </div>
   <% end %>
 
   <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>

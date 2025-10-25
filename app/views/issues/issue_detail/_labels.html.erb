@@ -1,0 +1,21 @@
+<% if issue.persisted? %>
+  <%= form_with(model: issue, url: form_path, html: {
+    class: 'flex flex-col grow gap-2 mb-2',
+    data: {
+      turbo: true,
+      "issue-detail-target": "form",
+      action: "turbo:submit-end->issue-detail#onFormSubmit",
+    }
+    }) do |f| %>
+      <div class="cpy-issue-labels max-w-full">
+        <%= react_component("IssueLabels",
+          availableLabels: issue.project.issue_labels.map { |l| { title: l.title, hexColor: l.hex_color } },
+          issue: {
+            labels: issue.labels.map { |l| { title: l.title, hexColor: l.hex_color } },
+            project_id: issue.project_id,
+            id: issue.id
+          }
+        ) %>
+      </div>
+  <% end %>
+<% end %>
