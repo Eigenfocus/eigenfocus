@@ -13,6 +13,11 @@ function IssueLabels({
   const [projectLabels, setProjectLabels] = useState(availableLabels)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
+  useEffect(() => {
+    const newProjectLabels = availableLabels.filter(label => !selectedLabels.some(selected => selected.title === label.title))
+    setProjectLabels(newProjectLabels)
+  }, [selectedLabels])
+
   const getUnselectedLabels = () => {
     return projectLabels.filter(
       label => !selectedLabels.some(selected => selected.title === label.title)
@@ -35,10 +40,6 @@ function IssueLabels({
       const newLabel = { title, hexColor }
 
       setSelectedLabels([...selectedLabels, newLabel])
-
-      if (!projectLabels.some(label => label.title === title)) {
-        setProjectLabels([...projectLabels, newLabel])
-      }
     }
 
   }
