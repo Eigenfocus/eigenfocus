@@ -9,7 +9,6 @@ function IssueLabels({
   availableLabels = [],
   issue
 }) {
-  console.log('IssueLabels', issue)
   const [selectedLabels, setSelectedLabels] = useState(issue.labels)
   const [projectLabels, setProjectLabels] = useState(availableLabels)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -21,7 +20,6 @@ function IssueLabels({
   }
 
   const addLabel = async (title, hexColor) => {
-    console.log('addLabel', title, hexColor, addLabelProjectIssuePath(issue.project_id, issue.id))
     const request = new FetchRequest('post', addLabelProjectIssuePath(issue.project_id, issue.id), {
       body: JSON.stringify({
         label: {
@@ -46,7 +44,6 @@ function IssueLabels({
   }
 
   const removeLabel = async (title) => {
-    console.log('removeLabel', title, removeLabelProjectIssuePath(issue.project_id, issue.id))
     const request = new FetchRequest('delete', removeLabelProjectIssuePath(issue.project_id, issue.id), {
       body: JSON.stringify({
         label: {
