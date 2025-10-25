@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
 
-function LabelDropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
+function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [isCreating, setIsCreating] = useState(false)
   const [newLabelTitle, setNewLabelTitle] = useState('')
@@ -209,4 +209,4 @@ function LabelDropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
   )
 }
 
-export default LabelDropdown
+export default Dropdown

@@ -1,6 +1,6 @@
 import React from "react"
 
-function LabelBadge({ label, onRemove }) {
+function Badge({ label, onRemove }) {
   const handleRemove = (e) => {
     e.preventDefault()
     onRemove(label.title)
@@ -55,4 +55,4 @@ function LabelBadge({ label, onRemove }) {
   )
 }
 
-export default LabelBadge
+export default Badge

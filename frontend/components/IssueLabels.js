@@ -2,8 +2,8 @@ import React,{ useState, useEffect } from "react"
 import { FetchRequest } from '@rails/request.js'
 import { addLabelProjectIssuePath, removeLabelProjectIssuePath } from "routes.js.erb"
 
-import LabelBadge from './IssueLabels/LabelBadge'
-import LabelDropdown from './IssueLabels/LabelDropdown'
+import LabelBadge from './IssueLabels/Badge'
+import LabelsDropdown from './IssueLabels/Dropdown'
 
 function IssueLabels({
   availableLabels = [],
@@ -73,7 +73,7 @@ function IssueLabels({
         />
       ))}
 
-      <LabelDropdown
+      <LabelsDropdown
         isOpen={isDropdownOpen}
         onToggle={setIsDropdownOpen}
         availableLabels={getUnselectedLabels()}
