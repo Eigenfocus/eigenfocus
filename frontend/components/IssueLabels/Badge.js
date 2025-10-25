@@ -24,32 +24,20 @@ function Badge({ label, onRemove }) {
     borderColor: label.hexColor
   } : {}
 
-  const badgeClasses = label.hexColor
-    ? "badge badge-lg gap-2"
-    : "badge badge-lg badge-primary gap-2"
-
   return (
-    <div className={badgeClasses} style={badgeStyle}>
+    <div className="text-sm pl-2 pr-1 py-1 font-medium rounded-field flex items-center" style={badgeStyle}>
       <span>{label.title}</span>
       <button
         type="button"
         onClick={handleRemove}
-        className="btn btn-ghost btn-xs btn-circle opacity-70 hover:opacity-100"
-        aria-label={`Remove ${label.title} label`}
+        className="cursor-pointer flex items-center"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          className="inline-block w-4 h-4 stroke-current"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+        <i className="ti ti-x ml-2" style={{
+          fontSize: '0.95rem',
+          color: getContrastColor(label.hexColor),
+          position: 'relative',
+          top: '1px'
+        }} />
       </button>
     </div>
   )
