@@ -24,12 +24,12 @@ function Badge({ label, onRemove }) {
   } : {}
 
   return (
-    <div className="text-sm pl-2 pr-1 py-1 font-medium rounded-field flex items-center" style={badgeStyle}>
+    <div className="text-sm pl-2 pr-1 py-1 font-medium rounded-field flex items-center cpy-label-badge" style={badgeStyle}>
       <span>{label.title}</span>
       <button
         type="button"
         onClick={handleRemove}
-        className="cursor-pointer flex items-center"
+        className="cursor-pointer flex items-center cpy-label-remove"
       >
         <i className="ti ti-x ml-2" style={{
           fontSize: '0.95rem',

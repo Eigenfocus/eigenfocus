@@ -33,7 +33,7 @@ export function Form({ suggestedTitle, onSubmit, onCancel }) {
         ref={titleInputRef}
         type="text"
         placeholder={t("issue.enter_label_name")}
-        className="input w-full"
+        className="input w-full cpy-label-title"
         value={newLabel.title}
         onChange={(e) => setNewLabel({ ...newLabel, title: e.target.value })}
         onKeyDown={(e) => {
@@ -45,7 +45,7 @@ export function Form({ suggestedTitle, onSubmit, onCancel }) {
         }}
       />
 
-      <div className="flex items-center justify-between mt-2">
+      <div className="flex items-center justify-between mt-3">
 
         {SUGGESTED_COLORS.map((color) => (
           <button
