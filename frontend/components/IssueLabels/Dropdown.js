@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 
+import { t } from 'i18n.js.erb'
+
 import { Form as LabelForm} from "./Form"
 
 function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
@@ -62,7 +64,8 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
         onClick={() => onToggle(!isOpen)}
         className="btn btn-sm btn-outline"
       >
-        + Add label
+        <i className="ti ti-plus" />
+        {t("actions.add")} {t("activerecord.models.issue_label.one").toLowerCase()}
       </button>
 
       {isOpen && (
@@ -117,7 +120,7 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                       ))
                     ) : (
                       <li className="text-base-content text-sm px-4 py-2">
-                        No labels found
+                        {t("issue.no_labels_found")}
                       </li>
                     )}
                   </ul>
@@ -129,7 +132,8 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                     onClick={handleCreateNewLabel}
                     className="btn btn-sm btn-ghost"
                   >
-                    + Create new label
+                    <i className="ti ti-plus" />
+                    {t("actions.create")} {t("activerecord.models.issue_label.one").toLowerCase()}
                   </button>
                 </>
               )

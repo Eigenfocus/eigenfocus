@@ -1,5 +1,9 @@
 import React, { useState, useRef } from "react"
 
+import { t } from 'i18n.js.erb'
+
+import { getContrastColor } from "./Badge"
+
 const SUGGESTED_COLORS = [
   "#00D2BC",
   "#00BBFF",
@@ -25,26 +29,21 @@ export function Form({ suggestedTitle, onSubmit, onCancel }) {
 
   return (
     <form onSubmit={handleCreateLabelSubmission}  >
-      <fieldset className="fieldset">
-        <label className="fieldset-legend">
-          New label name
-        </label>
-        <input
-          ref={titleInputRef}
-          type="text"
-          placeholder="Enter label name..."
-          className="input input-sm w-full"
-          value={newLabel.title}
-          onChange={(e) => setNewLabel({ ...newLabel, title: e.target.value })}
-          onKeyDown={(e) => {
-            if (e.key === 'Escape') {
-              e.stopPropagation()
-              e.preventDefault()
-              handleCancelCreate()
-            }
-          }}
-        />
-      </fieldset>
+      <input
+        ref={titleInputRef}
+        type="text"
+        placeholder={t("issue.enter_label_name")}
+        className="input w-full"
+        value={newLabel.title}
+        onChange={(e) => setNewLabel({ ...newLabel, title: e.target.value })}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') {
+            e.stopPropagation()
+            e.preventDefault()
+            handleCancelCreate()
+          }
+        }}
+      />
 
       <div className="flex items-center justify-between mt-2">
 
@@ -64,9 +63,15 @@ export function Form({ suggestedTitle, onSubmit, onCancel }) {
         <button className={`relative button size-6 flex rounded-full items-center overflow-hidden justify-center ${
               SUGGESTED_COLORS.includes(newLabel.color) ? '' : 'ring-1 ring-offset-1 ring-base-content scale-110'
             } `}
-          style={{ backgroundColor: newLabel.color }}
+          style={{
+            backgroundColor: newLabel.color
+          }}
           onClick={() => colorInputRef.current.click()}>
-          <i className="ti ti-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
+          <i
+            style={{ color: getContrastColor(newLabel.color) }}
+            className="ti ti-plus absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
           <input
             type="color"
             ref={colorInputRef}

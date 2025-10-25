@@ -30,8 +30,8 @@ en:
         other: 'Comments'
 
       issue_label:
-        one: 'Issue Label'
-        other: 'Issue Labels'
+        one: 'Label'
+        other: 'Labels'
 
       time_entry:
         one: 'Time entry'

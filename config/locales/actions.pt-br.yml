@@ -2,6 +2,9 @@ pt-BR:
   issue:
     confirm_destroy: "Ao remover esta issue, todas os registros de tempo vinculados a ela serão desvinculados. Deseja prosseguir?"
     confirm_archive: "Tem certeza que deseja arquivar esta issue? Isso impedirá que ela seja utilizada em atividades de registro de tempo. Os registros de tempo existentes não serão afetados."
+    search_labels: "Pesquisar labels..."
+    no_labels_found: "Nenhum label encontrado"
+    enter_label_name: "Digite o nome do label..."
   projects:
     form:
       select_template: "O que você quer gerenciar? Escolha um template ou comece do zero."

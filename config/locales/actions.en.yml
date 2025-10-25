@@ -2,6 +2,9 @@ en:
   issue:
     confirm_destroy: "After the removal, all time entries linked to this issue wil be unlinked. Do you want to proceed?"
     confirm_archive: "Are you sure you want to archive this issue? This will prevent it from being used in any time tracking activities. The existing time entries will not be affected."
+    search_labels: "Search labels..."
+    no_labels_found: "No labels found"
+    enter_label_name: "Enter label name..."
   projects:
     form:
       select_template: "What do you want to manage? Choose a template or start from scratch."

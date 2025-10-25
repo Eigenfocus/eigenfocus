@@ -30,8 +30,8 @@ pt-BR:
         other: 'Comentários'
 
       issue_label:
-        one: 'Label de Issues'
-        other: 'Labels de Issues'
+        one: 'Label'
+        other: 'Labels'
 
       time_entry:
         one: 'Registro de tempo'
