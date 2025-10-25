@@ -1,19 +1,22 @@
 import React, { useState, useRef, useEffect } from "react"
 
+const SUGGESTED_COLORS = [
+  "#00D2BC",
+  "#00BBFF",
+  "#412AD5",
+  "#F52E99",
+  "#09090B",
+  "#FF637F"
+]
+
 function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [isCreating, setIsCreating] = useState(false)
   const [newLabelTitle, setNewLabelTitle] = useState('')
-  const [newLabelColor, setNewLabelColor] = useState('#3b82f6')
+  const [newLabelColor, setNewLabelColor] = useState(SUGGESTED_COLORS[0])
   const dropdownRef = useRef(null)
   const inputRef = useRef(null)
 
-  const predefinedColors = [
-    '#3b82f6', '#8b5cf6', '#ec4899', '#f43f5e',
-    '#ef4444', '#f97316', '#f59e0b', '#eab308',
-    '#84cc16', '#22c55e', '#10b981', '#14b8a6',
-    '#06b6d4', '#0ea5e9', '#6366f1', '#a855f7'
-  ]
 
   useEffect(() => {
     if (isOpen && !isCreating) {
@@ -54,19 +57,19 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
     setSearchTerm('')
   }
 
-  const handleCreateClick = () => {
+  const handleCreateNewLabel = () => {
     setIsCreating(true)
     setNewLabelTitle(searchTerm)
-    setNewLabelColor('#3b82f6')
+    setNewLabelColor(SUGGESTED_COLORS[0])
   }
 
-  const handleCreateLabel = (e) => {
+  const handleCreateLabelSubmission = (e) => {
     e.preventDefault()
     if (newLabelTitle.trim()) {
       onSelectLabel(newLabelTitle.trim(), newLabelColor)
       setIsCreating(false)
       setNewLabelTitle('')
-      setNewLabelColor('#3b82f6')
+      setNewLabelColor(SUGGESTED_COLORS[0])
       setSearchTerm('')
     }
   }
@@ -74,11 +77,11 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
   const handleCancelCreate = () => {
     setIsCreating(false)
     setNewLabelTitle('')
-    setNewLabelColor('#3b82f6')
+    setNewLabelColor(SUGGESTED_COLORS[0])
   }
 
   return (
-    <div className="dropdown" ref={dropdownRef}>
+    <div ref={dropdownRef}>
       <button
         type="button"
         onClick={() => onToggle(!isOpen)}
@@ -88,32 +91,45 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
       </button>
 
       {isOpen && (
-        <div className="dropdown-content menu bg-base-100 rounded-box z-50 w-64 p-2 shadow-lg border border-base-300 mt-2">
+        <div className="menu bg-base-100 rounded-box z-50 w-64 p-2 shadow-lg mt-2">
           {!isCreating ? (
             <>
-              <div className="form-control p-2">
+              <div className="form-control p-2 gap-2 flex">
                 <input
                   type="text"
                   placeholder="Search labels..."
                   className="input input-sm input-ghost w-full"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') {
+                      e.stopPropagation()
+                      e.preventDefault()
+                      onToggle(false)
+                    }
+                  }}
                   autoFocus
                 />
+                <button
+                  type="button"
+                  onClick={() => onToggle(false)}
+                  className="btn btn-sm btn-square btn-ghost"
+                >
+                  <i className="ti ti-x" />
+                </button>
               </div>
-
-              <ul className="menu-compact max-h-48 overflow-y-auto">
+              <ul className="mt-2 max-h-48 overflow-y-auto">
                 {filteredLabels.length > 0 ? (
                   filteredLabels.map((label, index) => (
                     <li key={`${label.title}-${index}`}>
                       <button
                         type="button"
                         onClick={() => handleSelectLabel(label)}
-                        className="text-left flex items-center gap-2"
+                        className="text-left"
                       >
                         {label.hexColor && (
                           <span
-                            className="w-3 h-3 rounded-full"
+                            className="w-2 h-2 rounded-full"
                             style={{ backgroundColor: label.hexColor }}
                           />
                         )}
@@ -122,7 +138,7 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                     </li>
                   ))
                 ) : (
-                  <li className="text-base-content/50 text-sm px-4 py-2">
+                  <li className="text-base-content text-sm px-4 py-2">
                     No labels found
                   </li>
                 )}
@@ -132,14 +148,14 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
 
               <button
                 type="button"
-                onClick={handleCreateClick}
-                className="btn btn-sm btn-ghost justify-start"
+                onClick={handleCreateNewLabel}
+                className="btn btn-sm btn-ghost"
               >
                 + Create new label
               </button>
             </>
           ) : (
-            <form onSubmit={handleCreateLabel} className="p-2">
+            <form onSubmit={handleCreateLabelSubmission} className="p-2">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-xs">New label name</span>
@@ -153,6 +169,8 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                   onChange={(e) => setNewLabelTitle(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === 'Escape') {
+                      e.stopPropagation()
+                      e.preventDefault()
                       handleCancelCreate()
                     }
                   }}
@@ -164,7 +182,7 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                   <span className="label-text text-xs">Color</span>
                 </label>
                 <div className="grid grid-cols-8 gap-2">
-                  {predefinedColors.map((color) => (
+                  {SUGGESTED_COLORS.map((color) => (
                     <button
                       key={color}
                       type="button"
