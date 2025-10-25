@@ -60,7 +60,7 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
   return (
     <div href={dropdownRef}>
       {isOpen && (
-        <div className="menu bg-base-100 rounded-box z-50 w-64 p-2 shadow-lg mt-2 border border-base-300/50">
+        <div className="cpy-labels-dropdown menu bg-base-100 rounded-box z-50 w-64 p-2 shadow-lg mt-2 border border-base-300/50">
           {
             isCreating ?
               <LabelForm suggestedTitle={searchTerm} onSubmit={handleCreateLabelSubmission} onCancel={handleCancelCreate} /> :
@@ -70,7 +70,7 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                     <input
                       type="text"
                       placeholder={t("issue.search_labels")}
-                      className="input input-sm w-full"
+                      className="input input-sm w-full cpy-label-search"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       onKeyDown={(e) => {

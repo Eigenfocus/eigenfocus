@@ -93,4 +93,22 @@ describe 'As a project manager, I want to quickly use issue labels from kanban b
     issue.reload
     expect(issue.labels).to eq([ label_marketing ])
   end
+
+  specify "I can search for labels" do
+    visit show_visualization_issue_path(project.default_visualization, issue)
+
+    open_labels_dropdown
+
+    within ".cpy-labels-dropdown" do
+      find(".cpy-label-search").set "Marketing"
+    end
+
+    within ".cpy-labels-dropdown " do
+      expect(page).to have_content("Marketing")
+      expect(page).to_not have_content("Development")
+      expect(page).to_not have_content("Urgent")
+      click_button "Marketing"
+      expect(page).to_not have_content("Marketing")
+    end
+  end
 end
