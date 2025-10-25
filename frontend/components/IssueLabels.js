@@ -61,7 +61,7 @@ function IssueLabels({
   }
 
   return (
-    <div className="flex flex-wrap gap-2 items-center">
+    <div className="flex flex-wrap gap-2 items-stretch">
       {selectedLabels.map((label, index) => (
         <LabelBadge
           key={`${label.title}-${index}`}
@@ -69,7 +69,7 @@ function IssueLabels({
           onRemove={removeLabel}
         />
       ))}
-      <div className="relative flex items-center gap-2">
+      <div className="relative flex items-stretch gap-2">
         <button
           type="button"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}

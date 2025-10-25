@@ -20,8 +20,7 @@ function Badge({ label, onRemove }) {
 
   const badgeStyle = label.hexColor ? {
     backgroundColor: label.hexColor,
-    color: getContrastColor(label.hexColor),
-    borderColor: label.hexColor
+    color: getContrastColor(label.hexColor)
   } : {}
 
   return (
