@@ -10,15 +10,8 @@ import {
 } from "tailwindcss-stimulus-components"
 
 class CustomModal extends Modal {
-  static values = {
-    open: Boolean
-  }
-
   connect() {
     if (this.isDialog) {
-      if (this.openValue) {
-        this.open()
-      }
       return
     }
 
@@ -37,10 +30,6 @@ class CustomModal extends Modal {
       this.background = document.querySelector(`#${this.backgroundId}`);
       this.background.style.backgroundColor = "rgba(0, 0, 0, 0.35)"
     }
-  }
-
-  open() {
-    this.element.showModal()
   }
 
   close(e) {
