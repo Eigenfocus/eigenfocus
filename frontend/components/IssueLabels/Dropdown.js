@@ -78,6 +78,10 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                           e.stopPropagation()
                           e.preventDefault()
                           onToggle(false)
+                        } else if (e.key === 'Enter') {
+                          e.stopPropagation()
+                          e.preventDefault()
+                          handleSelectLabel(filteredLabels[0])
                         }
                       }}
                       autoFocus
