@@ -14,10 +14,12 @@
               <%= Issue.human_attribute_name(:label_ids) %>
             </label>
             <%= react_component("IssueLabels",
-              initialLabels: issue.labels.map { |l| { title: l.title, hexColor: l.hex_color } },
               availableLabels: issue.project.issue_labels.map { |l| { title: l.title, hexColor: l.hex_color } },
-              addLabelPath: add_label_project_issue_path(issue.project, issue),
-              removeLabelPath: remove_label_project_issue_path(issue.project, issue)
+              issue: {
+                labels: issue.labels.map { |l| { title: l.title, hexColor: l.hex_color } },
+                project_id: issue.project_id,
+                id: issue.id
+              }
             ) %>
           </div>
       <% end %>

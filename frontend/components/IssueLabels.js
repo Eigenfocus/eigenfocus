@@ -1,81 +1,66 @@
-import React, { useState, useEffect } from "react"
+import React,{ useState, useEffect } from "react"
 import { FetchRequest } from '@rails/request.js'
+import { addLabelProjectIssuePath, removeLabelProjectIssuePath } from "routes.js.erb"
+
 import LabelBadge from './IssueLabels/LabelBadge'
 import LabelDropdown from './IssueLabels/LabelDropdown'
 
 function IssueLabels({
-  initialLabels = [],
   availableLabels = [],
-  addLabelPath,
-  removeLabelPath,
-  onLabelsChange = () => {}
+  issue
 }) {
-  const [selectedLabels, setSelectedLabels] = useState(initialLabels)
+  console.log('IssueLabels', issue)
+  const [selectedLabels, setSelectedLabels] = useState(issue.labels)
   const [projectLabels, setProjectLabels] = useState(availableLabels)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
-  useEffect(() => {
-    setSelectedLabels(initialLabels)
-  }, [initialLabels])
-
-  useEffect(() => {
-    setProjectLabels(availableLabels)
-  }, [availableLabels])
-
-  const addLabel = async (labelTitle, hexColor = null) => {
-    const labelData = { title: labelTitle }
-    if (hexColor) {
-      labelData.hex_color = hexColor
-    }
-
-    const request = new FetchRequest('post', addLabelPath, {
-      body: JSON.stringify({
-        label: labelData
-      })
-    })
-
-    try {
-      const response = await request.perform()
-      if (response.ok) {
-        const newLabel = { title: labelTitle, hexColor: hexColor }
-        const updatedLabels = [...selectedLabels, newLabel]
-        setSelectedLabels(updatedLabels)
-
-        if (!projectLabels.some(label => label.title === labelTitle)) {
-          setProjectLabels([...projectLabels, newLabel])
-        }
-
-        onLabelsChange(updatedLabels)
-        setIsDropdownOpen(false)
-      }
-    } catch (error) {
-      console.error('Error adding label:', error)
-    }
-  }
-
-  const removeLabel = async (labelTitle) => {
-    const request = new FetchRequest('delete', removeLabelPath, {
-      body: JSON.stringify({
-        label: { title: labelTitle }
-      })
-    })
-
-    try {
-      const response = await request.perform()
-      if (response.ok) {
-        const updatedLabels = selectedLabels.filter(label => label.title !== labelTitle)
-        setSelectedLabels(updatedLabels)
-        onLabelsChange(updatedLabels)
-      }
-    } catch (error) {
-      console.error('Error removing label:', error)
-    }
-  }
 
   const getUnselectedLabels = () => {
     return projectLabels.filter(
       label => !selectedLabels.some(selected => selected.title === label.title)
     )
+  }
+
+  const addLabel = async (title, hexColor) => {
+    console.log('addLabel', title, hexColor, addLabelProjectIssuePath(issue.project_id, issue.id))
+    const request = new FetchRequest('post', addLabelProjectIssuePath(issue.project_id, issue.id), {
+      body: JSON.stringify({
+        label: {
+          title,
+          hex_color: hexColor
+        }
+      })
+    })
+
+    const response = await request.perform()
+
+    if (response.ok) {
+      const newLabel = { title, hexColor }
+
+      setSelectedLabels([...selectedLabels, newLabel])
+
+      if (!projectLabels.some(label => label.title === title)) {
+        setProjectLabels([...projectLabels, newLabel])
+      }
+    }
+
+  }
+
+  const removeLabel = async (title) => {
+    console.log('removeLabel', title, removeLabelProjectIssuePath(issue.project_id, issue.id))
+    const request = new FetchRequest('delete', removeLabelProjectIssuePath(issue.project_id, issue.id), {
+      body: JSON.stringify({
+        label: {
+          title
+        }
+      })
+    })
+
+    const response = await request.perform()
+
+    if (response.ok) {
+      const updatedLabels = selectedLabels.filter(label => label.title !== title)
+      setSelectedLabels(updatedLabels)
+    }
   }
 
   return (
