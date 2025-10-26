@@ -1,6 +1,6 @@
 
 .focus-space-animated-background  {
-  @apply  backdrop-blur-md;
+  @apply  backdrop-blur-md bg-base-300/50;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -9,9 +9,6 @@
   pointer-events: none;
   z-index: 1000;
   overflow: hidden;
-  background: var(--focus-space-background);
-	background-size: 400% 400%;
-	animation: animated-gradient-background 14s linear infinite;
 
   .wave {
     background: var(--focus-space-wave-color);

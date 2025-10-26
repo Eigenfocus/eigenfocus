@@ -1,9 +1,8 @@
 body {
-  @apply  backdrop-blur-sm;
-  --focus-space-color-one: #4F46E5;
+  --focus-space-color-one: #3A59D1;
   --focus-space-color-two: rgb(86, 107, 146);
   --focus-space-color-three: #4f45a3;
-  --focus-space-color-four: #2b827c;
+  --focus-space-color-four: #3A59D1;
   --focus-space-background-opacity: 95%;
   --focus-space-background: linear-gradient(
     -80deg,

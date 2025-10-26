@@ -9,7 +9,7 @@ const TimerControls = ({ isRunning, isFinished, onStartPause, onReset }) => {
     <div className="timer-controls">
       {!isFinished ? (
         <button
-          className="button-primary big start-pause-button"
+          className="btn btn-xl btn-primary"
           onClick={onStartPause}
         >
           {isRunning ?
@@ -20,7 +20,7 @@ const TimerControls = ({ isRunning, isFinished, onStartPause, onReset }) => {
         </button>
       ) : null}
       <button
-        className="button-primary big"
+        className="btn btn-xl"
         onClick={onReset}
       >
         <FontAwesomeIcon icon={faClockRotateLeft} />
