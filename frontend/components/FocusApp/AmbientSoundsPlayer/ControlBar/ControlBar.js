@@ -8,7 +8,7 @@ const ControlBar = ({ isPlaying, onPlayToggle, onIamLucky }) => {
   return <div className="control-bar">
     <PlayStopButton isPlaying={isPlaying} onPlayToggle={onPlayToggle} />
     <div className="flex items-end gap-2">
-      <button className="button-clean" onClick={onIamLucky}>
+      <button className="btn btn-xl btn-secondary btn-ghost" onClick={onIamLucky}>
         <FontAwesomeIcon icon={faMusic} />
         {t("actions.i_am_lucky")}
       </button>

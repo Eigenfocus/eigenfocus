@@ -9,7 +9,7 @@ const TimerControls = ({ isRunning, isFinished, onStartPause, onReset }) => {
     <div className="timer-controls">
       {!isFinished ? (
         <button
-          className="btn btn-xl btn-primary"
+          className={`btn btn-xl ${isRunning ? 'btn-error' : 'btn-primary'}`}
           onClick={onStartPause}
         >
           {isRunning ?
