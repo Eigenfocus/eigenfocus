@@ -74,7 +74,7 @@ function IssueLabels({
         <button
           type="button"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="btn btn-sm"
+          className="btn btn-sm btn-soft"
         >
           <i className="ti ti-plus" />
           {t("actions.add")} {t("activerecord.models.issue_label.one").toLowerCase()}
