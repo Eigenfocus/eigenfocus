@@ -3,10 +3,9 @@
   @apply flex flex-col gap-8 mx-auto;
 
   .timer-display {
-    @apply text-center font-bold;
+    @apply text-center font-bold text-base-content;
     font-size: 7.6rem;
     line-height: 1;
-    color: color-mix(in srgb, var(--focus-space-color-readable) 60%, transparent);
     letter-spacing: 2px;
   }
 

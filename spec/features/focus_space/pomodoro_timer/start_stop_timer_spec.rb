@@ -14,21 +14,21 @@ describe 'Focus Space - Pomodoro Timer' do
   end
 
   specify "I can start the timer" do
-    find(".timer-controls .start-pause-button", text: "Start").click
+    find(".timer-controls .cpy-start-pause-button", text: "Start").click
 
-    within(".timer-controls .start-pause-button") do
+    within(".timer-controls .cpy-start-pause-button") do
       expect(page).to have_content("Pause")
       expect(page).to_not have_content("Start")
     end
   end
 
   specify "I can pause the timer" do
-    find(".timer-controls .start-pause-button", text: "Start").click
+    find(".timer-controls .cpy-start-pause-button", text: "Start").click
 
     # not worth the time... no pun intended
     # sleep 3.14
 
-    find(".timer-controls .start-pause-button", text: "Pause").click
+    find(".timer-controls .cpy-start-pause-button", text: "Pause").click
 
     # within ".timer-display" do
     #   expect(page).to have_content("24:59")

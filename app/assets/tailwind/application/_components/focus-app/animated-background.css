@@ -1,6 +1,6 @@
 
 .focus-space-animated-background  {
-  @apply  backdrop-blur-md;
+  @apply  backdrop-blur-md bg-base-200/80;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -9,19 +9,16 @@
   pointer-events: none;
   z-index: 1000;
   overflow: hidden;
-  background: var(--focus-space-background);
-	background-size: 400% 400%;
-	animation: animated-gradient-background 14s linear infinite;
 
   .wave {
-    background: var(--focus-space-wave-color);
+    @apply bg-primary/40;
     border-radius: 1000% 1000% 0 0;
     position: absolute;
     width: 200%;
     height: 12em;
     animation: focus-space-wave 10s -3s linear infinite;
     transform: translate3d(0, 0, 0);
-    opacity: 0.8;
+    opacity: 0.5;
     bottom: -7%;
     left: 0;
     z-index: -1;
@@ -30,13 +27,13 @@
   .wave:nth-of-type(2) {
     bottom: -9%;
     animation: focus-space-wave 18s linear reverse infinite;
-    opacity: 0.8;
+    opacity: 0.3;
   }
 
   .wave:nth-of-type(3) {
     bottom: -12%;
     animation: focus-space-wave 20s -1s reverse infinite;
-    opacity: 0.9;
+    opacity: 0.2;
   }
 }
 

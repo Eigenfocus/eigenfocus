@@ -14,7 +14,7 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
   return (
     <React.Fragment>
       <div className={`focus-space`} onClick={handleClickOutside}>
-        <button className="cpy-close-space-button btn btn-sm btn-ghost" onClick={onHide}>
+        <button className="cpy-close-space-button fixed top-4 right-4 btn btn-xl btn-circle btn-ghost" onClick={onHide}>
           <IconX />
         </button>
         <div className="flex items-center justify-center">
@@ -22,12 +22,6 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
         </div>
         <div className="flex items-center justify-center">
           <AmbientSoundsPlayer onPlay={onPlayStart} onStop={onPlayToggle} />
-        </div>
-
-        <div className="focus-space-fireflies">
-          {Array.from({ length: 15 }).map((_, index) => (
-            <div key={index} className="firefly"></div>
-          ))}
         </div>
       </div>
     </React.Fragment>

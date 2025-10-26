@@ -3,65 +3,44 @@
   @apply max-w-3xl mx-auto;
 
   input[type="range"] {
+    @apply bg-base-content/50;
     -webkit-appearance: none;
     width: 90%;
     height: 5px;
-    background: #d3d3d3;
     outline: none;
     opacity: 0.7;
     transition: opacity 0.2s;
   }
 
   input[type="range"]::-webkit-slider-thumb {
+    @apply bg-base-content;
     -webkit-appearance: none;
     appearance: none;
     width: 15px;
     height: 15px;
-    background: var(--focus-space-slider-circle-color);
     cursor: pointer;
     border-radius: 50%;
   }
 
   .control-bar {
     @apply flex grow mb-4 gap-8 text-xl justify-between;
-
-    .play-button {
-      @apply text-base flex items-center rounded-md px-4 py-2;
-      border: 1px solid color-mix(in srgb, var(--focus-space-color-readable) 60%, transparent);
-      color: color-mix(in srgb, var(--focus-space-color-readable) 60%, transparent);
-
-      svg {
-        @apply mr-2;
-      }
-
-      &:hover {
-        color: color-mix(in srgb, var(--focus-space-color-readable) 80%, transparent);
-        border-color: color-mix(in srgb, var(--focus-space-color-readable) 80%, transparent);
-      }
-    }
   }
 
   .ambient-sounds-list {
     .sound {
-      @apply relative rounded-lg;
+      @apply relative rounded-lg text-base-content/60 bg-base-300 border-base-content/30 font-medium;
       border-width: 3px;
 
       transition: all 0.2s ease-in-out;
 
-      color: color-mix(in srgb, var(--focus-space-color-readable) 70%, transparent);
-      border-color: color-mix(in srgb, var(--focus-space-color-readable) 25%, transparent);
-
-      svg {
-        opacity: 0.8;
+      svg.sound-wave {
+        @apply fill-base-content;
+        opacity: 1;
       }
 
-      &:hover {
-        border-color: color-mix(in srgb, var(--focus-space-color-readable) 30%, transparent);
-        background-color: color-mix(in srgb, var(--focus-space-color-readable) 20%, transparent);
-
-        svg {
-          opacity: 0.9;
-        }
+      svg {
+        @apply fill-base-content;
+        opacity: 0.5;
       }
 
       .wave-wrapper {
@@ -70,9 +49,9 @@
         right: 10px;
 
         svg {
+          @apply fill-base-content/30;
           width: 25px;
           height: auto;
-          fill: color-mix(in srgb, var(--focus-space-color-readable) 50%, transparent);
         }
       }
 
@@ -85,24 +64,16 @@
         height: 20px;
       }
 
-      &.sound-playing {
-        background: linear-gradient(
-          25deg,
-          color-mix(in srgb, var(--focus-space-color-readable) 4%, transparent),
-          color-mix(in srgb, var(--focus-space-color-readable) 30%, transparent)
-        );
-        animation: animated-background 22s linear infinite;
-        border-color: color-mix(in srgb, var(--focus-space-color-readable) 40%, transparent);
-      }
-
+      &:hover,
+      &.sound-playing,
       &.sound-selected {
-        border-color: color-mix(in srgb, var(--focus-space-color-readable) 70%, transparent);
-        color: color-mix(in srgb, var(--focus-space-color-readable) 70%, transparent);
+        @apply border-base-content/80 text-base-content/80;
 
         svg {
-          fill: color-mix(in srgb, var(--focus-space-color-readable) 70%, transparent);
+          @apply fill-base-content/60;
         }
       }
+
     }
   }
 }
