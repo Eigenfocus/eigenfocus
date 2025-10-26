@@ -1,13 +1,14 @@
 .firefly {
   position: fixed;
   left: 50%;
-  top: 50%;
+  top: 40%;
   width: 0.4vw;
   height: 0.4vw;
   margin: -0.2vw 0 0 9.8vw;
   animation: ease 200s alternate infinite;
   pointer-events: none;
 }
+
 .firefly::before, .firefly::after {
   content: "";
   position: absolute;
@@ -16,6 +17,7 @@
   border-radius: 50%;
   transform-origin: -10vw;
 }
+
 .firefly::before {
   background: black;
   opacity: 0.4;

@@ -5,42 +5,50 @@ const sounds = {
   rain: {
     src: soundUrl('rain'),
     title: t('focus_space.ambient_sounds.rain'),
-    icon: require('./sound-icons/rain.svg')
+    icon: require('./sound-icons/rain.svg'),
+    iconType: 'cloud-rain'
   },
   thunder: {
     src: soundUrl('thunder'),
     title: t('focus_space.ambient_sounds.thunder'),
-    icon: require('./sound-icons/thunder.svg')
+    icon: require('./sound-icons/thunder.svg'),
+    iconType: 'bolt'
   },
   birds: {
     src: soundUrl('birds'),
     title: t('focus_space.ambient_sounds.birds'),
-    icon: require('./sound-icons/birds.svg')
+    icon: require('./sound-icons/birds.svg'),
+    iconType: 'sunrise'
   },
   fire: {
     src: soundUrl('fire'),
     title: t('focus_space.ambient_sounds.fire'),
-    icon: require('./sound-icons/fire.svg')
+    icon: require('./sound-icons/fire.svg'),
+    iconType: 'flame'
   },
   office: {
     src: soundUrl('office'),
     title: t('focus_space.ambient_sounds.office'),
-    icon: require('./sound-icons/office.svg')
+    icon: require('./sound-icons/office.svg'),
+    iconType: 'desk'
   },
   forest: {
     src: soundUrl('forest'),
     title: t('focus_space.ambient_sounds.forest'),
-    icon: require('./sound-icons/forest.svg')
+    icon: require('./sound-icons/forest.svg'),
+    iconType: 'trees'
   },
   walk: {
     src: soundUrl('walk'),
     title: t('focus_space.ambient_sounds.walk'),
-    icon: require('./sound-icons/walk.svg')
+    icon: require('./sound-icons/walk.svg'),
+    iconType: 'walk'
   },
   whitenoise: {
     src: soundUrl('whitenoise'),
     title: t('focus_space.ambient_sounds.whitenoise'),
-    icon: require('./sound-icons/noise.svg')
+    icon: require('./sound-icons/noise.svg'),
+    iconType: 'wave-sine'
   }
 }
 

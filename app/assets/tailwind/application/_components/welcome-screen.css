@@ -17,7 +17,7 @@
     color-mix(in srgb, #4568DC 95%, transparent)
   );
 	background-size: 100% 100%;
-  animation: animated-gradient-background 12s linear infinite;
+  animation: welcome-screen-animated-gradient-background 12s linear infinite;
   color: rgba(255, 255, 255, 0.6);
 
   animation: welcome-screen-zoomOutFade 2s forwards;
@@ -89,5 +89,17 @@
   }
   100% {
     transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+@keyframes welcome-screen-animated-gradient-background {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

@@ -3,8 +3,7 @@
   @apply flex flex-col gap-8 mx-auto;
 
   .timer-display {
-    @apply text-center font-bold text-base-content;
-    font-size: 7.6rem;
+    @apply text-center font-bold text-base-content text-8xl;
     line-height: 1;
     letter-spacing: 2px;
   }
