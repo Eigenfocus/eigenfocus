@@ -41,7 +41,7 @@
         </ul>
 
         <div class="w-64 shrink-0">
-          <%= link_to new_visualization_grouping_path(@visualization), class: "btn btn-ghost btn-wide", data: { turbo_frame: 'grouping_form' } do %>
+          <%= link_to new_visualization_grouping_path(@visualization), class: "btn btn-soft btn-wide", data: { turbo_frame: 'grouping_form' } do %>
 
             <h2 class="grow font-semibold truncate">
               <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
