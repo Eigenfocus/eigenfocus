@@ -32,7 +32,7 @@ const FocusApp = ({ }) => {
           onHide={() => setIsFocusSpaceShowing(false)} />
       </div>
       <div className={`${isFocusSpaceShowing ? 'space-showing' : ''}`}>
-        <button className={`tour--open-focus-app-button btn-slide cpy-open-space-button btn btn-sm btn-ghost`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
+        <button className={`tour--open-focus-app-button btn-slide cpy-open-space-button btn btn-sm btn-primary btn-ghost`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
           {
             !hasSoundPlaying &&
             !showPomodoroIcon &&
