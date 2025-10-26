@@ -44,42 +44,46 @@ const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
   }
 
   return (
-    <div className="focus-app-modal timer-modal" onClick={handleClickOutside}>
-      <div className="focus-app-modal-content">
-        <button className="close-button" onClick={onClose}>
-          <FontAwesomeIcon icon={faXmark} />
+    <dialog className="modal" onClick={handleClickOutside} open={true}>
+      <div className="modal-box">
+        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cpy-close-modal" onClick={onClose}>
+          <i className="ti ti-x"></i>
         </button>
-        <h2 className="text-xl font-bold mb-2">{ t("focus_space.pomodoro_timer.timers_settings") }</h2>
+
+        <h2 className="text-xl font-bold mb-3">{ t("focus_space.pomodoro_timer.timers_settings") }</h2>
         <form onSubmit={handleSubmit}>
           {mutableTimePresets.map(({name, minutes}, key) => (
-            <div className="flex justify-stretch gap-2 mb-4" key={key}>
+            <div className="flex items-stretch gap-2 mb-4" key={key}>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => updateTimePreset({ name: e.target.value }, key)}
-                className="input-field grow"
+                className="input grow"
               />
-            <input
-              type="number"
-              value={minutes == 0 ? '' : minutes}
-              min={1}
-              onChange={(e) => updateTimePreset({ minutes: (e.target.value === '' ? 0 : parseInt(e.target.value)) }, key)}
-              className="input-field w-16 text-center"
-              />
-              <label className="flex items-center text-xs">{ t("minutes") }</label>
+
+              <label className="input">
+                <input
+                  type="number"
+                  value={minutes == 0 ? '' : minutes}
+                  min={1}
+                  onChange={(e) => updateTimePreset({ minutes: (e.target.value === '' ? 0 : parseInt(e.target.value)) }, key)}
+                  className="text-center"
+                  />
+                <span className="label">{ t("minutes") }</span>
+              </label>
             </div>
           ))}
           <h2 className="text-xl font-bold mt-6 mb-2">{ t("focus_space.pomodoro_timer.sound_settings") }</h2>
-          <div className="flex justify-stretch items-center mb-4">
+          <div className="flex justify-stretch items-stretch mb-4">
             <select value={selectedAlarm.key}
               name="alarm_key"
               onChange={(e) => setSelectedAlarm(alarms.find(alarm => alarm.key === e.target.value))}
-              className="input-field grow">
+              className="select grow">
               {alarms.map((alarm, key) => (
                 <option key={key} value={alarm.key}>{alarm.title}</option>
               ))}
             </select>
-            <a className="ml-4 button-clean tex-xs cursor-pointer" onClick={playSelectedAlarm}>
+            <a className="ml-2 btn btn-ghost" onClick={playSelectedAlarm}>
               <FontAwesomeIcon icon={faPlay} />
               { t("actions.play") }
             </a>
@@ -87,7 +91,7 @@ const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
           <div className="flex flex-row-reverse gap-5">
             <button
               type="submit"
-              className="button-primary"
+              className="btn btn-primary"
             >
               { t("actions.save") }
             </button>
@@ -97,14 +101,14 @@ const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
                 e.preventDefault()
                 onClose()
               }}
-              className="button-clean"
+              className="btn btn-ghost"
             >
               { t("actions.cancel") }
             </button>
           </div>
         </form>
       </div>
-    </div>
+    </dialog>
   )
 }
 

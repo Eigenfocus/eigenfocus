@@ -45,7 +45,7 @@ const FocusApp = ({ }) => {
               )}
 
               {hasSoundPlaying && (
-                <span className='sound-playing-icon animate-pulse'>
+                <span className='sound-playing-icon animate-pulse mr-2'>
                   <IconBrandDeezer />
                 </span>
               )}
