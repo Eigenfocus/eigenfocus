@@ -2,7 +2,7 @@
   <%= render(Issue::FinishToggleComponent.new(issue: issue, has_hover_animation: false)) %>
 
   <div class="flex grow">
-    <%= form_with(model: issue, url: local_assigns[:form_path], html: {
+    <%= form_with(model: issue, url: form_path, html: {
       class: 'w-full flex justify-stretch',
       data: {
         turbo: true,
