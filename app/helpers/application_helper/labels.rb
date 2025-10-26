@@ -34,8 +34,6 @@ module ApplicationHelper
     end
 
     def get_label_text_color(label)
-      return "#000" unless label.hex_color.to_s.match?(/^#[0-9a-fA-F]{6}$/)
-
       r = label.hex_color[1..2].to_i(16)
       g = label.hex_color[3..4].to_i(16)
       b = label.hex_color[5..6].to_i(16)

@@ -14,7 +14,8 @@ describe Project::Templatable::TemplateApplier do
           title: "Label1",
           color: "#f16365"
         }, {
-          title: "Label2"
+          title: "Label2",
+          color: "#f16365"
         } ],
         sample_issues: [
           {

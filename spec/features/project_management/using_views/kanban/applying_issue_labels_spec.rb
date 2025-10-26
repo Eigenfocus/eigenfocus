@@ -15,25 +15,38 @@ describe 'As a project manager, I want to quickly use issue labels from kanban b
     FactoryBot.create(:grouping_issue_allocation, issue: issue, grouping: grouping)
   end
 
-  specify "I can see applied tags" do
+  def open_labels_dropdown
+    within ".cpy-issue-labels" do
+      click_button "Add label"
+    end
+  end
+
+  def apply_label(label)
+    open_labels_dropdown
+
+    within ".cpy-issue-labels" do
+      click_button label
+    end
+  end
+
+  specify "I can see applied labels" do
     issue.labels << label_marketing
 
     visit show_visualization_issue_path(project.default_visualization, issue)
 
-
-    within ".cpy-issue-labels .select2-selection__rendered" do
+    within ".cpy-issue-labels" do
       expect(page).to have_content("Marketing")
     end
   end
 
-  specify "I can add an existing tag" do
+  specify "I can add an existing label" do
     issue.labels << label_marketing
 
     visit show_visualization_issue_path(project.default_visualization, issue)
 
-    select_from_select2 selector: '.cpy-issue-labels .select2', option_text: 'Development'
+    apply_label 'Development'
 
-    within ".cpy-issue-labels .select2-selection__rendered" do
+    within ".cpy-issue-labels" do
       expect(page).to have_content("Marketing")
       expect(page).to have_content("Development")
     end
@@ -42,14 +55,20 @@ describe 'As a project manager, I want to quickly use issue labels from kanban b
     expect(issue.labels).to eq([ label_development, label_marketing ])
   end
 
-  specify "I can add a new tag" do
+  specify "I can add a new label" do
     issue.labels << label_marketing
 
     visit show_visualization_issue_path(project.default_visualization, issue)
 
-    add_to_select2 selector: '.cpy-issue-labels .select2', option_text: 'nice-to-have'
+    open_labels_dropdown
 
-    within ".cpy-issue-labels .select2-selection__rendered" do
+    within ".cpy-issue-labels" do
+      click_button "Create label"
+      find(".cpy-label-title").set "nice-to-have"
+      click_button "Create"
+    end
+
+    within ".cpy-issue-labels" do
       expect(page).to have_content("Marketing")
       expect(page).to have_content("nice-to-have")
     end
@@ -58,19 +77,38 @@ describe 'As a project manager, I want to quickly use issue labels from kanban b
     expect(issue.labels.last.title).to eq('nice-to-have')
   end
 
-  specify "I can remove a tag" do
+  specify "I can remove a label" do
     issue.labels << label_marketing
     issue.labels << label_development
 
     visit show_visualization_issue_path(project.default_visualization, issue)
 
-    within ".cpy-issue-labels .select2-selection__rendered" do
-      find(".select2-selection__choice[title='Development'] .select2-selection__choice__remove").click
+    find(".cpy-label-badge", text: "Development").find(".cpy-label-remove").click
+
+    within ".cpy-issue-labels" do
       expect(page).to have_content("Marketing")
       expect(page).to_not have_content("Development")
     end
 
     issue.reload
     expect(issue.labels).to eq([ label_marketing ])
+  end
+
+  specify "I can search for labels" do
+    visit show_visualization_issue_path(project.default_visualization, issue)
+
+    open_labels_dropdown
+
+    within ".cpy-labels-dropdown" do
+      find(".cpy-label-search").set "Marketing"
+    end
+
+    within ".cpy-labels-dropdown " do
+      expect(page).to have_content("Marketing")
+      expect(page).to_not have_content("Development")
+      expect(page).to_not have_content("Urgent")
+      click_button "Marketing"
+      expect(page).to_not have_content("Marketing")
+    end
   end
 end

@@ -119,7 +119,8 @@ describe 'As a project manager, I want to manage my issues from all issues' do
       write_in_md_editor_field("My description")
     end
 
-    select_from_select2(selector: '.cpy-by-labels-titles .select2', option_text: "Development")
+    select_from_select2(selector: '#new_issue_form .select2', option_text: "Development")
+
 
     click_button 'Create'
 

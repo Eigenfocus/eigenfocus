@@ -52,7 +52,7 @@ class Projects::IssuesController < Projects::BaseController
   def add_label
     issue = Issue.find(params[:id])
     label = current_project.issue_labels.with_title(params[:label][:title]).first
-    label ||= current_project.issue_labels.create(title: params[:label][:title])
+    label ||= current_project.issue_labels.create(title: params[:label][:title], hex_color: params[:label][:hex_color])
 
     if issue.labels.exclude?(label)
       issue.labels << label

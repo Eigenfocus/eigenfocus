@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'As a project manager, I want to manage my issue labels' do
+describe 'As a project manager, I want to manage my labels' do
   let!(:user) { FactoryBot.create(:user) }
 
   let!(:project) { FactoryBot.create(:project) }
@@ -33,7 +33,7 @@ describe 'As a project manager, I want to manage my issue labels' do
 
     visit project_issue_labels_path(project)
 
-    expect(page).to have_content("You haven't created any Issue Label yet.")
+    expect(page).to have_content("You haven't created any Label yet.")
   end
 
   specify 'I can filter label by title' do
@@ -56,7 +56,7 @@ describe 'As a project manager, I want to manage my issue labels' do
   specify "I can add a label" do
     visit project_issue_labels_path(project)
 
-    click_link 'Create issue label'
+    click_link 'Create label'
 
     fill_in :issue_label_title, with: "type:test"
 
@@ -103,12 +103,12 @@ describe 'As a project manager, I want to manage my issue labels' do
     end
 
     within '#issue_label_removal_confirmation' do
-      expect(page).to have_content('This label is associated with 1 Issue Label')
+      expect(page).to have_content('This label is associated with 1 Label')
 
       click_link("Remove")
     end
 
-    expect(page).to have_content("Issue Label was successfully removed.")
+    expect(page).to have_content("Label was successfully removed.")
 
     within 'table' do
       expect(page).to_not have_content("Development")

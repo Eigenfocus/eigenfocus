@@ -1,0 +1,26 @@
+<div class="flex flex-row items-center flex-nowrap gap-2">
+  <%= render(Issue::FinishToggleComponent.new(issue: issue, has_hover_animation: false)) %>
+
+  <div class="flex grow">
+    <%= form_with(model: issue, url: form_path, html: {
+      class: 'w-full flex justify-stretch',
+      data: {
+        turbo: true,
+        "issue-detail-target": "form",
+        action: "turbo:submit-end->issue-detail#onFormSubmit",
+      }
+      }) do |f| %>
+
+      <div data-controller='resizable-input' class="w-full cpy-issue-detail-title relative" >
+        <div data-resizable-input-target="replica" class="break-all text-xl font-bold text-base-content p-1 pt-1 -ml-2 whitespace-pre-line"></div>
+
+        <%= f.text_area :title, required: true,
+          class: "issue-detail-title-input -ml-2 min-h-8",
+          "data-resizable-input-target": "input",
+          "data-issue-detail-target": "titleField",
+          "data-action": "keydown.enter->issue-detail#onTitleFieldEnter keydown.esc->issue-detail#onTitleFieldEsc blur->issue-detail#onTitleFieldBlur"
+          %>
+      </div>
+    <% end %>
+  </div>
+</div>

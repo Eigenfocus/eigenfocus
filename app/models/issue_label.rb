@@ -33,4 +33,8 @@ class IssueLabel < ApplicationRecord
   def to_s
     title
   end
+
+  def hex_color
+    self[:hex_color] || "#3D90D7"
+  end
 end
