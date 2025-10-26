@@ -30,6 +30,14 @@ module Icons
       "ti ti-x"
     when :focus_space
       "ti ti-layout-dashboard"
+    when :preview
+      "ti ti-eye"
+    when :edit
+      "ti ti-pencil"
+    when :remove
+      "ti ti-trash"
+    when :menu_arrow_down
+      "ti ti-chevron-down"
     else
       raise "Icon class not defined for name #{name}"
     end

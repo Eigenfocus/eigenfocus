@@ -3,7 +3,7 @@
   <% if time_entry.running? %>
     <span class="absolute left-[-7px] flex" style="width:16px; height:16px; top: calc(50% - 6px)">
       <span class="relative  inline-flex rounded-full text-success" style="left:-2px;top:-2px;font-size:16px">
-        <i class="animate-spin fa-solid fa-clock"></i>
+        <i class="animate-spin ti ti-clock"></i>
       </span>
       <span style='width:16px;height:16px;left: -2px; top:-2px;' class="animate-ping absolute inline-flex rounded-full bg-success"></span>
     </span>
@@ -15,7 +15,7 @@
         <%= link_to project_issues_path(time_entry.project), class: "link link-hover group flex items-center gap-2 text-sm uppercase font-semibold opacity-60", data: { turbo_frame: "_top" } do %>
           <%= time_entry.project.name %>
           <span class="hidden group-hover:block">
-            <i class="fa-solid opacity-70 fa-arrow-up-right-from-square"></i>
+            <i class="opacity-70 ti ti-arrow-up-right"></i>
           </span>
         <% end %>
 
@@ -23,7 +23,7 @@
           <%= link_to visualization_issue_path(time_entry.project.default_visualization, time_entry.issue), class: "link link-hover text-sm group font-medium flex items-center gap-2", data: { turbo_frame: "_top" } do %>
             <%= time_entry.issue.title %>
             <span class="hidden group-hover:block">
-              <i class="fa-solid opacity-70 fa-arrow-up-right-from-square"></i>
+              <i class="opacity-70 ti ti-arrow-up-right"></i>
             </span>
           <% end %>
         <% end %>
@@ -59,7 +59,7 @@
         class: link_classes + " btn-error text-error hover:text-error-content",
         data: { turbo_method: :put }  do %>
 
-        <span class="mr-2"><i class="fa-solid fa-stop"></i></span>
+        <span class="mr-2"><i class="ti ti-player-stop"></i></span>
         <span class=""><%= t('actions.stop') %></span>
       <% end %>
     <% else %>
@@ -67,7 +67,7 @@
         class: link_classes + "  btn-success  text-success hover:text-success-content",
         data: { turbo_method: :put }  do %>
 
-        <span class="mr-2"><i class="fa-solid fa-play"></i></span>
+        <span class="mr-2"><i class="ti-filled ti ti-player-play"></i></span>
         <span class=""><%= t('actions.start') %></span>
       <% end %>
     <% end %>
@@ -78,7 +78,7 @@
       class: link_classes,
       data: { turbo_frame: "time_entry_form" }  do %>
 
-      <span class="mr-2"><i class="fa-solid fa-edit"></i></span>
+      <span class="mr-2"><%= icon_for(:edit) %></span>
       <span class=""><%= t('actions.edit') %></span>
     <% end %>
 
@@ -91,7 +91,7 @@
 
       }  do %>
 
-      <span class="mr-2"><i class="fa-solid fa-trash"></i></span>
+      <span class="mr-2"><%= icon_for(:remove) %></span>
       <span class=""><%= t('actions.remove') %></span>
     <% end %>
   </div>

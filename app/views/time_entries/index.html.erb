@@ -29,7 +29,7 @@
     } ) do |f| %>
 
       <label class="input max-w-36">
-        <i class="fa-regular fa-calendar opacity-50"></i>
+        <i class="ti ti-calendar opacity-50"></i>
 
         <input id="go-to-date"
           name="reference_date"
@@ -55,7 +55,7 @@
     <%= link_to new_time_entry_path(reference_date: @reference_date),
         class: "btn btn-primary tour--new-time-entry",
         data: { turbo_frame: 'time_entry_form' } do %>
-      <i class="fa-solid fa-circle-plus"></i>
+      <i class="ti ti-circle-plus"></i>
       <%= "#{t('actions.new')} #{TimeEntry.model_name.human.downcase}" %>
     <% end %>
   </div>
@@ -66,7 +66,7 @@
         <% component.with_action do %>
           <%= link_to time_entries_path(reference_date: date.strftime("%Y-%m-%d")), class: "btn btn-primary btn-soft flex-nowrap", data: { 'turbo-action': 'advance' } do %>
             <span><%= l(date, format: :short).downcase %></span>
-            <i class="ml-1 fa-solid fa-arrow-right"></i>
+            <i class="ti ti-arrow-right"></i>
           <% end %>
         <% end %>
       <% end %>
