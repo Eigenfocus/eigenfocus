@@ -4,12 +4,10 @@ module Icons
     icon_classes = case name.to_sym
     when :time_entries
       "ti ti-clock"
-    when :groupings
-      "fa-solid fa-table-columns"
     when :boards
-      "fa-solid fa-chart-simple rotate-180"
+      "ti ti-layout-kanban"
     when :issues
-      "fa-solid fa-list-ul"
+      "ti ti-list"
     when :comments
       "ti ti-message-circle"
     when :files
@@ -17,7 +15,7 @@ module Icons
     when :projects
       "ti ti-folder"
     when :user
-      "fa-solid fa-user"
+      "ti ti-user"
     when :report
       "ti ti-chart-bar-popular"
     when :issue_labels
@@ -25,9 +23,9 @@ module Icons
     when :theme
       "ti ti-palette"
     when :archived
-      "fa-solid fa-box-archive"
+      "ti ti-archive"
     when :finished
-      "fa-solid fa-check"
+      "ti ti-check"
     when :close
       "ti ti-x"
     when :focus_space
