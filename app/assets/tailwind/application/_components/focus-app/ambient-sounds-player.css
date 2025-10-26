@@ -3,7 +3,7 @@
   @apply max-w-3xl mx-auto;
 
   input[type="range"] {
-    @apply bg-primary/30;
+    @apply bg-base-content/50;
     -webkit-appearance: none;
     width: 90%;
     height: 5px;
@@ -13,7 +13,7 @@
   }
 
   input[type="range"]::-webkit-slider-thumb {
-    @apply bg-primary;
+    @apply bg-base-content;
     -webkit-appearance: none;
     appearance: none;
     width: 15px;
@@ -28,9 +28,15 @@
 
   .ambient-sounds-list {
     .sound {
-      @apply relative rounded-lg text-base-content/50 border-base-content/50;
+      @apply relative rounded-lg text-base-content/60 bg-base-300 border-base-content/30 font-medium;
       border-width: 3px;
+
       transition: all 0.2s ease-in-out;
+
+      svg.sound-wave {
+        @apply fill-base-content;
+        opacity: 1;
+      }
 
       svg {
         @apply fill-base-content;
@@ -61,10 +67,10 @@
       &:hover,
       &.sound-playing,
       &.sound-selected {
-        @apply border-primary/80 text-primary/80 font-bold;
+        @apply border-base-content/80 text-base-content/80;
 
         svg {
-          @apply fill-primary/60;
+          @apply fill-base-content/60;
         }
       }
 

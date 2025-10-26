@@ -9,7 +9,7 @@ const TimerPresets = ({ presets, activePreset, onSelectPreset, onOpenSettings })
       {presets.map((preset, index) => (
         <button
           key={index}
-          className={activePreset === index ? "btn btn-xl btn-active" : "btn btn-xl"}
+          className={activePreset === index ? "btn btn-xl btn-secondary btn-active" : "btn btn-xl btn-secondary"}
           onClick={() => onSelectPreset(preset.minutes, index)}
         >
           {preset.name}
