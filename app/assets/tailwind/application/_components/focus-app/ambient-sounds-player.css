@@ -28,19 +28,23 @@
 
   .ambient-sounds-list {
     .sound {
-      @apply relative rounded-lg text-base-content/60 bg-base-100 border-base-content/30 font-medium opacity-70;
+      @apply relative rounded-lg font-semibold text-base-content/60 bg-base-100 border-base-content/30 opacity-70;
       border-width: 3px;
 
       transition: all 0.2s ease-in-out;
+
 
       svg.sound-wave {
         @apply fill-base-content;
         opacity: 1;
       }
 
+      i.ti {
+        @apply text-5xl;
+      }
+
       svg {
         @apply fill-base-content;
-        opacity: 0.7;
       }
 
       .wave-wrapper {

@@ -7,7 +7,7 @@ import useSound from "shared/useSound";
 const PlayListItem = ({
   src,
   title,
-  icon,
+  iconType,
   isSelected,
   volume,
   isPlaying,
@@ -56,11 +56,7 @@ const PlayListItem = ({
     <div className={`sound ${isPlaying ? 'sound-playing' : isSelected ? 'sound-selected' : ''}`}>
       <div onClick={handleClick} className={`cursor-pointer flex grow p-6 flex-col gap-2 items-center justify-center`}>
         <p className="text-lg font-base">{title}</p>
-        <ReactSVG
-          src={icon} alt=""
-          beforeInjection={(svg) => {
-            svg.setAttribute('style', 'width: 50px; height: 50px; fill: currentColor; stroke: currentColor;')
-          }} />
+        <i class={`ti ti-${iconType}`}/>
       </div>
       {isPlaying ? (
         <Fragment>
