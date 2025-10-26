@@ -23,12 +23,12 @@
 
   --color-primary: #3A59D1;
   --color-primary-content: oklch(0.949 0.051 257.6);
-  --color-secondary: #3D90D7;
-  --color-secondary-content: oklch(0.179 0.134 247.7);
-  --color-accent: #7AC6D2;
-  --color-accent-content: oklch(38% 0.063 188.416);
-  --color-neutral: oklch(19.616% 0.063 257.651);
-  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-secondary: #464555;
+  --color-secondary-content: oklch(0.917 0.027 288.0);
+  --color-accent: #50be9d;
+  --color-accent-content: oklch(0.310 0.112 170.4);
+  --color-neutral: #d5cabd;
+  --color-neutral-content: oklch(0.350 0.004 286.3);
   --color-info: oklch(88.127% 0.085 214.515);
   --color-info-content: oklch(29% 0.066 243.157);
   --color-success: oklch(0.742 0.110 197.8);
