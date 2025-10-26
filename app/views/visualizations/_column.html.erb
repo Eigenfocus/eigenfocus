@@ -102,8 +102,8 @@
     <button class="board--column--create-button cpy-inline-create-button tour--inline-create-button"
       data-grouping-column-target="showFormButton"
       data-action="click->grouping-column#showInlineCardForm">
-      <i class="ti ti-plus mr-2"></i>
-      <p class="grow text-left">
+      <p class="grow text-left flex items-center gap-1">
+        <%= icon_for(:add_entry) %>
         <%= t('visualizations.column_menu.create_issue') %>
       </p>
       <span class="board--column--create-button-shortcut"><%= t("actions.press") %> N</span>

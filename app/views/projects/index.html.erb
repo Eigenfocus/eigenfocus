@@ -9,10 +9,12 @@
   <h2 class="font-semibold text-3xl text-base-content">
     <%= Project.model_name.human(count: 2) %>
   </h2>
-  <%= link_to "#{t('actions.create')} #{Project.model_name.human.downcase}",
-      new_project_path,
+  <%= link_to new_project_path,
       class: "btn btn-primary",
-      data: { turbo_frame: 'project_form' } %>
+      data: { turbo_frame: 'project_form' } do %>
+      <%= icon_for(:add_entry) %>
+      <%= "#{t('actions.create')} #{Project.model_name.human.downcase}" %>
+    <% end %>
 </div>
 
 <%= turbo_frame_tag 'project_form', src: (params[:open_form] ? params[:form_project_id] ? edit_project_path(params[:form_project_id]) : new_project_path : nil) do %>

@@ -53,7 +53,7 @@ context "As a user, I want to manage my time entries" do
 
     visit time_entries_path
 
-    first(:link, "New time entry").click
+    first(:link, "Add time entry").click
 
     fill_in :time_entry_description, with: "new description"
     fill_in :time_entry_total_logged_time, with: "20"

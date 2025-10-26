@@ -59,7 +59,7 @@
         class: link_classes + " btn-error text-error hover:text-error-content",
         data: { turbo_method: :put }  do %>
 
-        <span class="mr-2"><i class="ti ti-player-stop"></i></span>
+        <span class="mr-2"><i class="ti ti-player-stop-filled"></i></span>
         <span class=""><%= t('actions.stop') %></span>
       <% end %>
     <% else %>
@@ -67,7 +67,7 @@
         class: link_classes + "  btn-success  text-success hover:text-success-content",
         data: { turbo_method: :put }  do %>
 
-        <span class="mr-2"><i class="ti-filled ti ti-player-play"></i></span>
+        <span class="mr-2"><i class="ti ti-player-play-filled"></i></span>
         <span class=""><%= t('actions.start') %></span>
       <% end %>
     <% end %>

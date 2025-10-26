@@ -36,6 +36,8 @@ module Icons
       "ti ti-pencil"
     when :remove
       "ti ti-trash"
+    when :add_entry
+      "ti ti-circle-plus-filled"
     when :menu_arrow_down
       "ti ti-chevron-down"
     else

@@ -55,8 +55,8 @@
     <%= link_to new_time_entry_path(reference_date: @reference_date),
         class: "btn btn-primary tour--new-time-entry",
         data: { turbo_frame: 'time_entry_form' } do %>
-      <i class="ti ti-circle-plus"></i>
-      <%= "#{t('actions.new')} #{TimeEntry.model_name.human.downcase}" %>
+      <%= icon_for(:add_entry) %>
+      <%= "#{t('actions.add')} #{TimeEntry.model_name.human.downcase}" %>
     <% end %>
   </div>
 
