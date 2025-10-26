@@ -3,7 +3,7 @@
   @apply max-w-3xl mx-auto;
 
   input[type="range"] {
-    @apply bg-primary/70;
+    @apply bg-accent/70;
     -webkit-appearance: none;
     width: 90%;
     height: 5px;
@@ -13,7 +13,7 @@
   }
 
   input[type="range"]::-webkit-slider-thumb {
-    @apply bg-primary;
+    @apply bg-accent;
     -webkit-appearance: none;
     appearance: none;
     width: 15px;
@@ -28,11 +28,10 @@
 
   .ambient-sounds-list {
     .sound {
-      @apply relative rounded-lg font-semibold text-base-content/60 bg-base-100 border-base-content/30 opacity-70;
-      border-width: 3px;
+      @apply relative rounded-lg font-semibold text-base-content/60 bg-base-100/60 border-base-content/30 opacity-70;
+      border-width: 2px;
 
       transition: all 0.2s ease-in-out;
-
 
       svg.sound-wave {
         @apply fill-base-content;
@@ -69,7 +68,7 @@
       }
 
       &:hover {
-        @apply border-base-content/65 opacity-80;
+        @apply border-accent/65 opacity-80;
 
         svg {
           @apply fill-base-content/65;
@@ -77,7 +76,7 @@
       }
 
       &.sound-selected {
-        @apply border-base-content/80 opacity-90;
+        @apply border-accent/80 opacity-90;
 
         svg {
           @apply fill-base-content/80;
@@ -85,10 +84,10 @@
       }
 
       &.sound-playing {
-        @apply border-primary/90 text-primary/80 opacity-100;
+        @apply border-accent/90 text-accent/80 opacity-100;
 
         svg {
-          @apply fill-primary/90;
+          @apply fill-accent/90;
         }
       }
     }

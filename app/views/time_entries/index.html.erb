@@ -79,7 +79,7 @@
         wrap_tag = (date == @reference_date) ? :div : :a
         wrap_options = if (date == @reference_date)
           {
-            class: "bg-neutral text-neutral-content"
+            class: "bg-accent text-accent-content"
           }
         else
           {
@@ -91,7 +91,7 @@
           'reference-date': date.strftime("%Y-%m-%d"),
           'turbo-action': 'advance'
         }
-        wrap_options[:class] += " min-w-32 md:min-w-auto transition-colors hover:bg-neutral hover:text-neutral-content grow rounded-box flex flex-col items-center justify-center px-2 py-4"
+        wrap_options[:class] += " min-w-32 md:min-w-auto transition-colors hover:bg-accent hover:text-accent-content grow rounded-box flex flex-col items-center justify-center px-2 py-4"
 
       %>
 
