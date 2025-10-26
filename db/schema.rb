@@ -161,6 +161,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_12_010305) do
     t.string "timezone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "favorite_theme_key"
   end
 
   create_table "visualizations", force: :cascade do |t|

@@ -5,50 +5,9 @@ const application = Application.start()
 // Import and register all TailwindCSS Components
 import {
   Dropdown,
-  Modal,
   Popover,
 } from "tailwindcss-stimulus-components"
 
-class CustomModal extends Modal {
-  connect() {
-    if (this.isDialog) {
-      return
-    }
-
-    this.element[this.identifier] = this
-
-    super.connect()
-    if (!this.containerTarget.classList.contains("hidden")) {
-      this.insertBackdrop();
-    }
-  }
-
-  insertBackdrop() {
-    // Insert the background
-    if (!this.data.get("disable-backdrop")) {
-      document.body.insertAdjacentHTML('beforeend', this.backgroundHtml);
-      this.background = document.querySelector(`#${this.backgroundId}`);
-      this.background.style.backgroundColor = "rgba(0, 0, 0, 0.35)"
-    }
-  }
-
-  close(e) {
-    if (this.isDialog) {
-      this.element.close()
-      return
-    }
-    super.close(e)
-    // Removing this one to allow "double modal"
-    // for alerts/confirm messages
-    // this.dispatch("closed")
-  }
-
-  get isDialog() {
-    return this.element.tagName === "DIALOG"
-  }
-}
-
-application.register('modal', CustomModal)
 application.register('dropdown', Dropdown)
 application.register('popover', Popover)
 
