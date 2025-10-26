@@ -1,6 +1,7 @@
 
 .focus-space-animated-background  {
-  @apply backdrop-blur-md bg-base-100/50;
+  @apply backdrop-blur-md;
+  background-color: oklch(0% 0 0/.4);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -11,7 +12,7 @@
   overflow: hidden;
 
   .wave {
-    @apply bg-primary/40;
+    @apply bg-linear-to-r from-primary/40 via-secondary/40 to-accent/60;
     border-radius: 1000% 1000% 0 0;
     position: absolute;
     width: 200%;

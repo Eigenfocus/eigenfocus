@@ -1,4 +1,7 @@
 .focus-space {
+  @apply backdrop-blur-md;
+  background-color: oklch(0% 0 0/.2);
+
   @apply py-16 md:py-0;
   @apply w-full min-h-screen flex flex-col justify-center items-center gap-8;
   position: relative;
