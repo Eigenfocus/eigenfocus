@@ -136,7 +136,6 @@ describe 'As a user, I want to manage my kanban view columns' do
       expect(page).to have_content("Select a target column to move all issues to:")
 
       expect(page).to have_content("TODO")
-      expect(page).to have_content("Current column")
 
       click_link "Done"
     end

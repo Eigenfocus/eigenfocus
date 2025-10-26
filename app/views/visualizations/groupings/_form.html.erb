@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'grouping_form' do %>
   <%= render Modal::DialogComponent.new(
     title: grouping.persisted? ? "#{t("actions.edit")} #{Grouping.model_name.human}" : "#{t("actions.create")} #{Grouping.model_name.human}",
-    icon: icon_for(:boads)) do %>
+    icon: icon_for(:boards)) do %>
 
     <div class="space-y-4">
       <%= form_with(model: [visualization, grouping], html: { class: 'flex flex-col gap-2' }) do |f| %>
