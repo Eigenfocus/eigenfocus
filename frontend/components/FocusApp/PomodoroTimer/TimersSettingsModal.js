@@ -44,7 +44,7 @@ const TimersSettingsModal = ({ timePresets, alarms, onClose, onSubmit }) => {
   }
 
   return (
-    <dialog className="modal" onClick={handleClickOutside} open={true}>
+    <dialog className="modal cpy-timer-modal" onClick={handleClickOutside} open={true}>
       <div className="modal-box">
         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cpy-close-modal" onClick={onClose}>
           <i className="ti ti-x"></i>

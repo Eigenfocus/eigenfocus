@@ -16,7 +16,7 @@ const TimerPresets = ({ presets, activePreset, onSelectPreset, onOpenSettings })
         </button>
       ))}
       <button
-        className="btn btn-xl btn-soft btn-square"
+        className="btn btn-xl btn-soft btn-square cpy-settings"
         onClick={onOpenSettings}
       >
         <FontAwesomeIcon icon={faCog} />
