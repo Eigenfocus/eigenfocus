@@ -17,15 +17,11 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
         <button className="cpy-close-space-button fixed top-4 right-4 btn btn-xl btn-circle btn-ghost" onClick={onHide}>
           <IconX />
         </button>
-        <div className="flex items-center justify-center card border border-base-300/70 bg-base-100/50 rounded-box">
-          <div className="card-body">
-            <PomodoroTimer onStateChange={onPomodoroStateChange} />
-          </div>
+        <div className="flex items-center justify-center p-8 rounded-box border shadow-sm border-base-300/70 bg-base-100/50">
+          <PomodoroTimer onStateChange={onPomodoroStateChange} />
         </div>
-        <div className="flex items-center justify-center card border border-base-300/70 bg-base-100/50 rounded-box">
-          <div className="card-body">
-            <AmbientSoundsPlayer onPlay={onPlayStart} onStop={onPlayToggle} />
-          </div>
+        <div className="flex items-center justify-center p-8 rounded-box border shadow-sm border-base-300/70 bg-base-100/50">
+          <AmbientSoundsPlayer onPlay={onPlayStart} onStop={onPlayToggle} />
         </div>
       </div>
     </React.Fragment>
