@@ -40,7 +40,7 @@
 
       svg {
         @apply fill-base-content;
-        opacity: 0.5;
+        opacity: 0.7;
       }
 
       .wave-wrapper {
