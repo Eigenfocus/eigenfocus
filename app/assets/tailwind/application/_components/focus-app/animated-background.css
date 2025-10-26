@@ -1,7 +1,6 @@
 
 .focus-space-animated-background  {
-  /* @apply backdrop-blur-md bg-base-200/60; */
-  @apply backdrop-blur-md bg-base-300/80;
+  @apply backdrop-blur-md ;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -10,6 +9,15 @@
   pointer-events: none;
   z-index: 1000;
   overflow: hidden;
+
+  background: linear-gradient(
+    -45deg,
+    color-mix(in srgb, #3A59D1 60%, transparent),
+    color-mix(in srgb, #4F45A3 50%, transparent),
+    color-mix(in srgb, #3D90D7 30%, transparent)
+  );
+	background-size: 100% 100%;
+  animation: focus-space-animated-gradient-background 12s linear infinite;
 
   .wave {
     @apply bg-primary/40;
@@ -46,4 +54,17 @@
   height: 100%;
   pointer-events: none;
   opacity: 0.3;
+}
+
+
+@keyframes focus-space-animated-gradient-background {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

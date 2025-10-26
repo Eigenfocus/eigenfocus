@@ -17,10 +17,10 @@ const FocusSpace = ({ isShowing, onHide, onPlayStart, onPlayToggle, onPomodoroSt
         <button className="cpy-close-space-button fixed top-4 right-4 btn btn-xl btn-circle btn-ghost" onClick={onHide}>
           <IconX />
         </button>
-        <div className="flex items-center justify-center p-8 rounded-box border shadow-sm border-base-300/70 bg-base-100/50">
+        <div className="flex items-center justify-center p-8 rounded-box border shadow-sm border-base-300/70 bg-base-100/50 mx-auto max-w-4xl">
           <PomodoroTimer onStateChange={onPomodoroStateChange} />
         </div>
-        <div className="flex items-center justify-center p-8 rounded-box border shadow-sm border-base-300/70 bg-base-100/50">
+        <div className="flex items-center justify-center p-8 rounded-box border shadow-sm border-base-300/70 bg-base-100/50 mx-auto max-w-4xl">
           <AmbientSoundsPlayer onPlay={onPlayStart} onStop={onPlayToggle} />
         </div>
       </div>
