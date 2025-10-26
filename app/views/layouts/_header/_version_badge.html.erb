@@ -8,7 +8,7 @@
     <span class="ml-2">v<%= AppMetadata.instance.current_version %>-FREE</span>
     <i class="ti ti-chevron-down ml-0.5" style="font-size: 0.75rem;"></i>
   </button>
-  <ul data-controller="theme-switcher" tabindex="-1" class="menu dropdown-content bg-base-100 rounded-box z-1 w-fit-content p-2 shadow-2xl">
+  <ul data-controller="theme-switcher" tabindex="-1" class="menu dropdown-content bg-base-100 rounded-box z-1 w-fit-content p-2 shadow-2xl gap-2">
     <% if AppMetadata.instance.is_app_outdated? %>
       <li class="text-info text-xs px-2 py-2 uppercase font-medium">
         <%= t(".new_version_available") %>
@@ -21,10 +21,14 @@
       </a>
     </li>
     <li>
-      <a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=version_badge" target="_blank" class="px-2 flex text-nowrap link-primary">
+      <a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=version_badge" target="_blank" class="px-2 flex text-nowrap btn btn-secondary">
         <i class="ti ti-rocket mr-1"></i>
         <%= t(".check_pro_edition") %>
       </a>
     </li>
   </ul>
 </div>
+<span class="ml-2 btn btn-xs btn-soft btn-secondary">
+  <i class="ti ti-rocket"></i>
+  <%= t(".upgrade") %>
+</span>

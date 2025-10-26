@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'grouping_form' do %>
   <%= render Modal::DialogComponent.new(
     title: grouping.persisted? ? "#{t("actions.edit")} #{Grouping.model_name.human}" : "#{t("actions.create")} #{Grouping.model_name.human}",
-    icon: icon_for(:groupings)) do %>
+    icon: icon_for(:boards)) do %>
 
     <div class="space-y-4">
       <%= form_with(model: [visualization, grouping], html: { class: 'flex flex-col gap-2' }) do |f| %>
@@ -11,19 +11,19 @@
           </div>
         <% end %>
 
-        <div class="mb-4 flex flex-col items-stretch gap-2">
-          <%= f.label :title, Grouping.human_attribute_name(:title), class: "label-primary" %>
-          <%= f.text_field :title, required: true, autofocus: true, class: "input-primary" %>
+        <div class="fieldset">
+          <%= f.label :title, Grouping.human_attribute_name(:title), class: "fieldset-legend" %>
+          <%= f.text_field :title, required: true, autofocus: true, class: "input w-full" %>
         </div>
 
 
         <div class="flex gap-2 justify-center">
-          <a class="btn-cancel" data-action="click->modal#close">
+          <a class="btn btn-ghost" data-action="click->modal#close">
             <%= t('actions.cancel') %>
           </a>
 
           <% text = grouping.persisted? ? t('actions.update') : t('actions.create') %>
-          <%= f.button text, class: "btn-primary" %>
+          <%= f.button text, class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>

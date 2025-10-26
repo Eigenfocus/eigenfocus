@@ -1,12 +1,12 @@
 .tab-item {
-  @apply rounded-field text-base-content hover:bg-neutral hover:text-neutral-content;
+  @apply rounded-field text-base-content hover:bg-accent hover:text-accent-content;
 
   &.tab-item-xs {
     @apply px-3 py-1 text-xs;
   }
 
   &.tab-item.tab-item--active {
-    @apply bg-neutral text-neutral-content ;
+    @apply bg-accent text-accent-content ;
     cursor: default;
   }
 }

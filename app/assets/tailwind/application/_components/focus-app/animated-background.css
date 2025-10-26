@@ -1,6 +1,7 @@
 
 .focus-space-animated-background  {
-  @apply backdrop-blur-md ;
+  @apply backdrop-blur-md;
+  background-color: oklch(0% 0 0/.4);
   position: fixed;
   left: 0;
   bottom: 0;
@@ -10,17 +11,8 @@
   z-index: 1000;
   overflow: hidden;
 
-  background: linear-gradient(
-    -45deg,
-    color-mix(in srgb, #3A59D1 60%, transparent),
-    color-mix(in srgb, #4F45A3 50%, transparent),
-    color-mix(in srgb, #3D90D7 30%, transparent)
-  );
-	background-size: 100% 100%;
-  animation: focus-space-animated-gradient-background 12s linear infinite;
-
   .wave {
-    @apply bg-primary/40;
+    @apply bg-linear-to-r from-primary/40 via-secondary/40 to-accent/60;
     border-radius: 1000% 1000% 0 0;
     position: absolute;
     width: 200%;

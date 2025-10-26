@@ -42,10 +42,10 @@
         }
       ].each do |tab|
 
-      tab[:options][:class] = "flex items-center gap-1 px-2 pb-2 whitespace-nowrap hover:text-secondary"
+      tab[:options][:class] = "flex items-center gap-1 px-2 pb-2 whitespace-nowrap hover:text-accent"
       tab[:options][:data] = { turbo_frame: "_top" }
       if tab[:is_selected]
-        tab[:options][:class] += " border-b-2 border-secondary text-secondary"
+        tab[:options][:class] += " border-b-2 border-accent text-accent"
       end
     %>
       <%= content_tag :a, tab[:options] do %>

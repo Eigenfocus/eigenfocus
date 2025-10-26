@@ -5,7 +5,7 @@
         <% if file.representable? %>
           <%= image_tag file.representation(resize_to_limit: [100, 100]), class: 'w-auto' %>
         <% else %>
-          <i class="fa fa-file"></i>
+          <%= icon_for(:files) %>
         <% end %>
       <% end %>
     </div>

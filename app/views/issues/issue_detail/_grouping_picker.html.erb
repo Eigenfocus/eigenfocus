@@ -8,7 +8,7 @@
       data-dropdown-target="button"
       >
       <div class=" cursor-pointer text-sm rounded-md w-full flex justify-between items-center border-base-300 bg-base-100 border px-3 py-1">
-        <span>
+        <span class="mr-2">
           <% if issue.groupings.empty? %>
             <%= t(".no_grouping") %>
           <% else %>
@@ -16,7 +16,7 @@
           <% end %>
         </span>
 
-        <i class="ml-2 fa-solid fa-angle-down"></i>
+        <%= icon_for(:menu_arrow_down) %>
       </div>
 
       <div data-dropdown-target="menu" class="flex min-w-content flex-col bg-base-200 absolute z-10 top-full left-0 border border-base-300 rounded-lg shadow-lg overflow-hidden whitespace-nowrap mt-1 hidden cpy-grouping-picker-container">

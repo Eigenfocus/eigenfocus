@@ -1,44 +1,31 @@
 <%= turbo_frame_tag 'move_all_issues_modal' do %>
   <%= render Modal::DialogComponent.new(
     title: t(".title", grouping: source_grouping.title),
-    icon: icon_for(:groupings)) do %>
+    icon: icon_for(:boards)) do %>
 
     <div class="space-y-4">
       <p class="text-sm text-base-content">
         <%= t(".description") %>
       </p>
 
-      <div class="flex flex-col gap-2 mt-4">
+      <div class="flex flex-col items-stretch gap-2 mt-4">
         <% current_visualization.groupings.each do |g| %>
           <% is_current = g == source_grouping %>
-          <% if is_current %>
-            <div class="w-full text-left py-3 px-4 rounded-md border border-base-200 bg-base-100">
-              <div class="flex items-center gap-3">
-                <span class="text-base-content font-medium">
-                  <%= g.title %>
-                </span>
-                <span class="ml-auto text-xs bg-primary text-primary px-2 py-1 rounded-full font-medium">
-                  <%= t(".current_column") %>
-                </span>
-              </div>
-            </div>
-          <% else %>
+          <% unless is_current %>
             <%= link_to move_all_issues_to_visualization_grouping_path(visualization, source_grouping, target_grouping_id: g.id),
               data: { turbo_method: :post },
-              class: "w-full text-left py-3 px-4 hover:bg-primary-50 rounded-md border border-base-200 hover:border-primary transition-colors duration-150 group" do %>
-              <div class="flex items-center gap-3">
-                <span class="text-base-content group-hover:text-primary font-medium">
+              class: "btn btn-accent w-full btn-soft justify-between" do %>
+                <span>
                   <%= g.title %>
                 </span>
-                <i class="fa-solid fa-arrow-right ml-auto text-base-content group-hover:text-primary"></i>
-              </div>
+                <i class="ti ti-arrow-right ml-auto"></i>
             <% end %>
           <% end %>
         <% end %>
       </div>
 
       <div class="flex gap-2 justify-center mt-6 pt-4 border-t border-base-200">
-        <a class="btn-cancel" data-action="click->modal#close">
+        <a class="btn btn-ghost" data-action="click->modal#close">
           <%= t('actions.cancel') %>
         </a>
       </div>

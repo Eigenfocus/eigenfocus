@@ -42,12 +42,8 @@
 
         <div class="w-64 shrink-0">
           <%= link_to new_visualization_grouping_path(@visualization), class: "btn btn-soft btn-wide", data: { turbo_frame: 'grouping_form' } do %>
-
-            <h2 class="grow font-semibold truncate">
-              <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
-            </h2>
-            <i class="fa-solid fa-plus"></i>
-
+            <%= icon_for(:add_entry) %>
+            <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>
           <% end %>
         </div>
       </div>

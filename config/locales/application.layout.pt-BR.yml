@@ -47,6 +47,7 @@ pt-BR:
         new_version_available: "Nova versão disponível"
         check_our_releases: "Veja nossas releases"
         check_pro_edition: "Upgrade para PRO edition"
+        upgrade: "Upgrade"
       tour:
         title: "Guided Tours"
         projects: "Gerenciando projetos"

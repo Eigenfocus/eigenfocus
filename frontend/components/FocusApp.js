@@ -20,9 +20,6 @@ const FocusApp = ({ }) => {
 
   return (
     <>
-      {isFocusSpaceShowing && (
-        <AnimatedBackground />
-      )}
       <div className={`focus-app ${isFocusSpaceShowing ? 'space-showing' : ''}`}>
 
         <FocusSpace isFocusSpaceShowing={isFocusSpaceShowing}

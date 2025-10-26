@@ -46,6 +46,7 @@ en:
         new_version_available: "New version available"
         check_our_releases: "Check our releases"
         check_pro_edition: "Upgrade to PRO edition"
+        upgrade: "Upgrade"
       tour:
         title: "Guided Tours"
         projects: "Managing projects"
