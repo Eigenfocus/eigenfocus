@@ -7,29 +7,29 @@
   <div class="space-y-4">
     <%= form_with(model: [current_project, issue_label], html: { class: 'flex flex-col gap-2', data: { turbo_frame: "_top" } }) do |f| %>
       <% if issue_label.errors.any? %>
-        <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
+        <div class="alert alert-error">
           <%= issue_label.errors.full_messages.to_sentence.capitalize %>
         </div>
       <% end %>
 
-      <div class="mb-4 flex flex-col items-stretch gap-2">
-        <%= f.label :title, IssueLabel.human_attribute_name(:title), class: "label-primary" %>
-        <%= f.text_field :title, autofocus: true, required: true, class: "input-primary" %>
-      </div>
+      <fieldset class="fieldset">
+        <%= f.label :title, IssueLabel.human_attribute_name(:title), class: "fieldset-legend" %>
+        <%= f.text_field :title, autofocus: true, required: true, class: "input w-full" %>
+      </fieldset>
 
-      <div
-        class="mb-4 flex flex-col items-stretch gap-2"
+      <fieldset
+        class="fieldset"
         data-controller="color-input"
         data-color-input-issue-preview-outlet=".js-issue-preview-outlet"
         >
-        <%= f.label :hex_color, IssueLabel.human_attribute_name(:hex_color), class: "label-primary" %>
-        <div class="relative" data-color-input-target="wrapper">
-          <%= f.text_field :hex_color, required: true, class: "input-primary", data: { color_input_target: "input" } %>
-        </div>
-      </div>
+        <%= f.label :hex_color, IssueLabel.human_attribute_name(:hex_color), class: "fieldset-legend" %>
+        <fieldset class="relative" data-color-input-target="wrapper">
+          <%= f.text_field :hex_color, required: true, class: "input", data: { color_input_target: "input" } %>
+        </fieldset>
+      </fieldset>
 
       <div
-        class="mb-4 flex flex-col items-stretch gap-2 js-issue-preview-outlet"
+        class="fieldset js-issue-preview-outlet"
         data-controller="issue-preview"
         >
         <p><%= t(".card_preview") %></p>
@@ -53,14 +53,13 @@
         </div>
       </div>
 
-
-      <div class="flex gap-2 justify-center">
-        <a class="btn-cancel" data-action="click->modal#close">
+      <div class="flex gap-2 justify-center mt-2">
+        <a class="btn btn-ghost" data-action="click->modal#close">
           <%= t('actions.cancel') %>
         </a>
 
         <% text = issue_label.persisted? ? t('actions.update') : t('actions.create') %>
-        <%= f.button text, class: "btn-primary" %>
+        <%= f.button text, class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
