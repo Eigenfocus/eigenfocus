@@ -5,24 +5,23 @@
   icon: icon_for(:issue_labels)) do %>
 
   <div class="mt-4">
-    <p class="text-base mb-4">
+    <p class="alert alert-warning">
       <%= t(".associations", count_text: "#{@issue_label.issues.count} #{IssueLabel.model_name.human(count: @issue_label.issues.count)}" ) %>
     </p>
 
-    <p class="text-sm text-base-content"><%= t(".explanation") %></p>
-    <p class="mt-2 text-sm text-base-content"><%= t("confirmations.want_to_proceed") %></p>
+    <p class="text-sm text-base-content mt-2 italic"><%= t(".explanation") %></p>
+    <p class="mt-2 text-sm text-base-content text-center mt-4"><%= t("confirmations.want_to_proceed") %></p>
 
-    <div class="flex mt-4 gap-2 justify-end">
-      <a class="btn-cancel btn-md" data-action="click->modal#close">
+    <div class="flex mt-4 gap-2 justify-center">
+      <a class="btn-ghost btn" data-action="click->modal#close">
         <%= t('actions.cancel') %>
       </a>
       <%= link_to t('actions.remove'),
             project_issue_label_path(@issue_label.project_id, @issue_label),
-            class: "btn-danger",
+            class: "btn-primary btn",
             data: {
               turbo_method: :delete,
-              turbo_frame: "_top",
-              turbo_confirm: t("confirmations.remove", resource_name: IssueLabel.model_name.human)
+              turbo_frame: "_top"
             }
             %>
     </div>

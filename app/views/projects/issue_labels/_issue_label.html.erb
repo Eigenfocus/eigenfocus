@@ -2,17 +2,16 @@
   <td><%= badge_for_issue_label(issue_label, { class: "issue-label big" }) %></td>
   <td><%= l issue_label.updated_at, format: :short %></td>
   <td>
-    <div class="flex gap-4 text-lg opacity-80">
-      <%= link_to t('actions.edit'),
-                  edit_project_issue_label_path(issue_label.project_id, issue_label.id),
-                  class: "btn-primary ",
-                  data: { turbo_frame: "issue_label_form" }  %>
+    <%= link_to t('actions.edit'),
+                edit_project_issue_label_path(issue_label.project_id, issue_label.id),
+                class: "btn btn-primary btn-sm",
+                data: { turbo_frame: "issue_label_form" }  %>
 
-      <%= link_to t('actions.remove'),
-        destroy_confirmation_project_issue_label_path(issue_label.project_id, issue_label.id),
-        class: "btn-danger ",
-        data: { turbo_frame: "issue_label_removal_confirmation" }  %>
+    <%= link_to t('actions.remove'),
+      destroy_confirmation_project_issue_label_path(issue_label.project_id, issue_label.id),
+      class: "btn btn-error btn-sm ml-2",
+      data: { turbo_frame: "issue_label_removal_confirmation" }  %>
 
-    </div>
+
   </td>
 </tr>

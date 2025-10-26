@@ -59,7 +59,7 @@
           <%= yield %>
          <% else %>
           <main class="grow p-4 sm:p-8">
-            <div class="mx-auto <%= layout_with_header_width? ? 'lg:w-header' : 'lg:max-w-4xl' %>">
+            <div class="mx-auto <%= layout_with_header_width? ? 'w-header' : 'lg:max-w-4xl' %>">
               <%= yield %>
             </div>
           </main>
