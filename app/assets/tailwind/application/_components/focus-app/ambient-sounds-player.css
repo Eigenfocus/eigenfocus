@@ -3,7 +3,7 @@
   @apply max-w-3xl mx-auto;
 
   input[type="range"] {
-    @apply bg-base-content/50;
+    @apply bg-primary/70;
     -webkit-appearance: none;
     width: 90%;
     height: 5px;
@@ -13,7 +13,7 @@
   }
 
   input[type="range"]::-webkit-slider-thumb {
-    @apply bg-base-content;
+    @apply bg-primary;
     -webkit-appearance: none;
     appearance: none;
     width: 15px;
@@ -28,7 +28,7 @@
 
   .ambient-sounds-list {
     .sound {
-      @apply relative rounded-lg text-base-content/60 bg-base-300 border-base-content/30 font-medium;
+      @apply relative rounded-lg text-base-content/60 bg-base-100 border-base-content/30 font-medium opacity-70;
       border-width: 3px;
 
       transition: all 0.2s ease-in-out;
@@ -64,16 +64,29 @@
         height: 20px;
       }
 
-      &:hover,
-      &.sound-playing,
-      &.sound-selected {
-        @apply border-base-content/80 text-base-content/80;
+      &:hover {
+        @apply border-base-content/65 opacity-80;
 
         svg {
-          @apply fill-base-content/60;
+          @apply fill-base-content/65;
         }
       }
 
+      &.sound-selected {
+        @apply border-base-content/80 opacity-90;
+
+        svg {
+          @apply fill-base-content/80;
+        }
+      }
+
+      &.sound-playing {
+        @apply border-primary/90 text-primary/80 opacity-100;
+
+        svg {
+          @apply fill-primary/90;
+        }
+      }
     }
   }
 }

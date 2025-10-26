@@ -9,14 +9,14 @@ const TimerPresets = ({ presets, activePreset, onSelectPreset, onOpenSettings })
       {presets.map((preset, index) => (
         <button
           key={index}
-          className={activePreset === index ? "btn btn-xl btn-secondary btn-active" : "btn btn-xl btn-secondary"}
+          className={activePreset === index ? "btn btn-secondary btn-active" : "btn btn-secondary"}
           onClick={() => onSelectPreset(preset.minutes, index)}
         >
           {preset.name}
         </button>
       ))}
       <button
-        className="btn btn-xl btn-soft btn-square cpy-settings"
+        className="btn btn-soft btn-square cpy-settings"
         onClick={onOpenSettings}
       >
         <FontAwesomeIcon icon={faCog} />
