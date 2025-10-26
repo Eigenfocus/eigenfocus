@@ -121,6 +121,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     select_from_select2(selector: '#new_issue_form .select2', option_text: "Development")
 
+
     click_button 'Create'
 
     within 'table' do
