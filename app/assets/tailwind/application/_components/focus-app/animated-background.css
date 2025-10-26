@@ -1,6 +1,6 @@
 
 .focus-space-animated-background  {
-  @apply  backdrop-blur-md bg-base-300/50;
+  @apply  backdrop-blur-md bg-base-200/80;
   position: fixed;
   left: 0;
   bottom: 0;
