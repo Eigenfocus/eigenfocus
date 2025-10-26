@@ -15,6 +15,10 @@
   --alert-color: var(--color-base-100);
 }
 
+body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 svg.tabler-icon {
   stroke-width: 1.5;
   height: 18px;
