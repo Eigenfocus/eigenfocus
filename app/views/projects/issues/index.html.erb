@@ -26,12 +26,12 @@
 
         <div class="overflow-x-auto">
           <% if @issues.empty? %>
-          <p class="text-center text-base-content/80 text-lg font-semibold">
-            <%= params[:q].present? ?
-                t("zero_records_for_this_search", resource_name: Issue.model_name.human) :
-                t("zero_records", resource_name: Issue.model_name.human)
-            %>
-          </p>
+            <p class="text-center text-base-content/80 text-lg font-semibold">
+              <%= params[:q].present? ?
+                  t("zero_records_for_this_search", resource_name: Issue.model_name.human) :
+                  t("zero_records", resource_name: Issue.model_name.human)
+              %>
+            </p>
           <% else %>
 
             <table class="table table-header table-sm">

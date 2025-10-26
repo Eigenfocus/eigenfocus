@@ -105,9 +105,7 @@ describe 'As a project manager, I want to manage my issue labels' do
     within '#issue_label_removal_confirmation' do
       expect(page).to have_content('This label is associated with 1 Issue Label')
 
-      accept_confirm do
-        click_link("Remove")
-      end
+      click_link("Remove")
     end
 
     expect(page).to have_content("Issue Label was successfully removed.")

@@ -6,7 +6,7 @@
     </div>
 
     <div class="flex items-center gap-2">
-      <%= link_to project_issues_path(current_project), class: "btn btn-sm btn-ghost" do %>
+      <%= link_to project_issue_labels_path(current_project), class: "btn btn-sm btn-ghost" do %>
         <%= t('actions.clear_filter').capitalize %>
       <% end %>
       <%= f.button class: "btn btn-sm btn-primary btn-soft" do %>
