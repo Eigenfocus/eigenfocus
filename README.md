@@ -20,7 +20,8 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Made with care-Rails.svg?style=flat&logo=undertale&labelColor=%235E6AD2&color=%235E6AD2"/>
-  <img src="https://raw.githubusercontent.com/Eigenfocus/eigenfocus/refs/heads/main/1.3.2--free-blue.svg"/>
+  <img src="https://img.shields.io/badge/Current_Release-1.3.2--free-blue.svg?style=flat"/>
+  <img src="https://img.shields.io/badge/Preview_Release-1.4.0.rc1--free-242F2F.svg?style=flat"/>
   <img src="https://img.shields.io/docker/pulls/eigenfocus/eigenfocus.svg"></img>
   <br />
   <br/>
