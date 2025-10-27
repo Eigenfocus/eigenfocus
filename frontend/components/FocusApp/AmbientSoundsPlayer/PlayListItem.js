@@ -56,7 +56,7 @@ const PlayListItem = ({
     <div className={`sound ${isPlaying ? 'sound-playing' : isSelected ? 'sound-selected' : ''}`}>
       <div onClick={handleClick} className={`cursor-pointer flex grow p-6 flex-col gap-2 items-center justify-center`}>
         <p className="text-lg font-base">{title}</p>
-        <i class={`ti ti-${iconType}`}/>
+        <i className={`ti ti-${iconType}`}/>
       </div>
       {isPlaying ? (
         <Fragment>

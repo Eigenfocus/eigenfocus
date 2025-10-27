@@ -38,7 +38,7 @@ const FocusApp = ({ }) => {
           {!isFocusSpaceShowing && (
             <>
               {(pomodoroState === POMODORO_STATE.FINISHED) && (
-                <div aria-label="status" class="status status-info animate-bounce"></div>
+                <div aria-label="status" className="status status-info animate-bounce"></div>
               )}
 
               {hasSoundPlaying && (
