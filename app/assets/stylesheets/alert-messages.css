@@ -12,6 +12,7 @@
   transition: all 400ms ease-out;
   opacity: 0;
   translate: 320px;
+  margin-top: 10px;
 }
 
 #alert-messages > .showing {

@@ -1,6 +1,8 @@
-<div role="alert" class="alert w-full alert-vertical sm:alert-horizontal <%= type.present? ? "alert-#{type}" : "" %>">
-  <i class="ti ti-alert-square-rounded"></i>
-  <span><%= message %></span>
+<div role="alert" class="alert w-full alert-vertical flex justify-between items-center sm:alert-horizontal <%= type.present? ? "alert-#{type}" : "" %>">
+  <div class="flex items-center grow gap-2">
+    <i class="ti ti-alert-square-rounded"></i>
+    <span><%= message %></span>
+  </div>
 
   <% actions.each do |action| %>
     <%= action %>
