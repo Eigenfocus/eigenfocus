@@ -8,7 +8,7 @@
       <span style='width:16px;height:16px;left: -2px; top:-2px;' class="animate-ping absolute inline-flex rounded-full bg-success"></span>
     </span>
   <% end %>
-  <div class="flex grow flex-col p-6 gap-4">
+  <div class="p-6 space-y-4 grow">
     <div class="flex items-center justify-between">
       <div class="flex flex-col gap-1">
 
@@ -29,7 +29,7 @@
         <% end %>
       </div>
     </div>
-    <div class="text-sm border-l-2 <%= time_entry.description.present? ? 'border-base-content' : 'border-base-content/60' %> italic grow text-base-content py-2 pl-2">
+    <div class="text-sm border-l-2 <%= time_entry.description.present? ? 'border-base-content' : 'border-base-content/60' %> italic  text-wrap break-all text-base-content py-2 pl-2 max-w-full">
       <% if time_entry.description.blank? %>
         <p class="italic text-xs"><%= t(".no_description") %></p>
       <% else %>
@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <div class="md:max-w-24 text-4xl tabular-nums flex items-center justify-center <%= time_entry.running? ? "text-success font-base animate-pulse" : "text-base-content/70 font-extralight" %> tour--time-entry-duration">
+  <div class="md:max-w-24 text-4xl shrink-0 tabular-nums flex items-center justify-center <%= time_entry.running? ? "text-success font-base animate-pulse" : "text-base-content/70 font-extralight" %> tour--time-entry-duration">
     <% if time_entry.running? %>
       <div data-controller="clock-timer"
         data-clock-timer-started-at-value="<%= format_datetime_to_momentjs(time_entry.started_at) %>"
@@ -51,7 +51,7 @@
     <% end %>
   </div>
 
-  <div class="join join-horizontal md:join-vertical tour--time-entry-actions overflow-hidden rounded-b-box md:rounded-r-box md:rounded-b-none">
+  <div class="join join-horizontal md:join-vertical shrink-0 tour--time-entry-actions overflow-hidden rounded-b-box md:rounded-r-box md:rounded-b-none">
     <% link_classes = "btn join-item btn-ghost min-h-12 grow rounded-none justify-center md:justify-start" %>
 
     <% if time_entry.running? %>
