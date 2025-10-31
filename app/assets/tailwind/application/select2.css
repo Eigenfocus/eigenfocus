@@ -73,7 +73,7 @@ label .select2-selection.select2-selection--single {
 }
 
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
-  @apply !bg-neutral !text-neutral-content;
+  @apply !bg-accent !text-accent-content;
 }
 
 .select2-container--default .select2-search--inline .select2-search__field {
