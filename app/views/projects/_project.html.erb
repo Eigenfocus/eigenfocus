@@ -40,19 +40,19 @@
   <% unless project.archived? %>
     <div class="flex w-full flex-col lg:flex-row gap-4 text-sm justify-end items-center">
       <%= link_to time_entries_path(new_entry: { project_id: project.id }),
-          class: "btn btn-primary btn-soft tour--time-tracking",
+          class: "btn btn-neutral  tour--time-tracking",
           data: { turbo_frame: "_top" } do %>
         <%= icon_for(:time_entries) %>
         <%= t("actions.start_time_tracking") %>
       <% end %>
       <%= link_to project_issues_path(project),
-          class: "btn btn-primary btn-soft tour--issues-list",
+          class: "btn btn-neutral  tour--issues-list",
           data: { turbo_frame: "_top" } do %>
         <%= icon_for(:issues) %>
         <%= Issue.model_name.human.pluralize %>
       <% end %>
       <%= link_to visualization_path(project.default_visualization),
-          class: "btn btn-primary btn-soft tour--workflow-board",
+          class: "btn btn-neutral  tour--workflow-board",
           data: { turbo_frame: "_top" } do %>
         <%= icon_for(:boards) %>
         <%= t("actions.go_to_board") %>
