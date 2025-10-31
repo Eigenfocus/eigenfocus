@@ -58,7 +58,7 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
   }
 
   return (
-    <div href={dropdownRef}>
+    <div ref={dropdownRef}>
       {isOpen && (
         <div className="cpy-labels-dropdown menu bg-base-100 rounded-box z-50 w-64 p-2 shadow-lg mt-2 border border-base-300/50">
           {
@@ -81,7 +81,11 @@ function Dropdown({ isOpen, onToggle, availableLabels, onSelectLabel }) {
                         } else if (e.key === 'Enter') {
                           e.stopPropagation()
                           e.preventDefault()
-                          handleSelectLabel(filteredLabels[0])
+                          if (filteredLabels.length > 0) {
+                            handleSelectLabel(filteredLabels[0])
+                          } else {
+                            setIsCreating(true)
+                          }
                         }
                       }}
                       autoFocus

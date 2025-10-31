@@ -5,7 +5,7 @@
     data: { controller: "form", turbo: true }
     }) do |f| %>
     <fieldset class="fieldset">
-      <label class="fieldset-legend" for="issue_due_date"><%= Issue.human_attribute_name(:due_date) %></label>
+      <label class="fieldset-legend pb-1" for="issue_due_date"><%= Issue.human_attribute_name(:due_date) %></label>
       <div class="flatpickr-resetable-container">
         <%= f.text_field :due_date, class: 'input w-full',
           data: { controller: "flatpickr", action: "input->form#submit", show_clear_button: true }

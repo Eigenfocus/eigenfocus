@@ -62,8 +62,8 @@ function IssueLabels({
   }
 
   return (
-    <fieldset class="fieldset">
-      <label className="fieldset-legend">{t("activerecord.models.issue_label.other")}</label>
+    <fieldset className="fieldset">
+      <label className="fieldset-legend pb-1">{t("activerecord.models.issue_label.other")}</label>
       <div className="flex flex-wrap gap-2 items-stretch">
         {selectedLabels.map((label, index) => (
           <LabelBadge
