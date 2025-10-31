@@ -43,6 +43,7 @@ export function Form({ suggestedTitle, onSubmit, onCancel }) {
             handleCancelCreate()
           }
         }}
+        autoFocus
       />
 
       <div className="flex items-center justify-between mt-3">

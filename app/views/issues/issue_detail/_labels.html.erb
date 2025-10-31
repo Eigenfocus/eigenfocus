@@ -1,6 +1,6 @@
 <% if issue.persisted? %>
   <%= form_with(model: issue, url: form_path, html: {
-    class: 'flex flex-col grow gap-2 mb-2',
+    class: 'flex flex-col grow gap-2',
     data: {
       turbo: true,
       action: "turbo:submit-end->issue-detail#onFormSubmit",
