@@ -35,16 +35,13 @@ i.ti {
     @slot;
   }
 }
-@media (prefers-color-scheme: light) {
-  .dark-themes-only {
-    display: none;
-  }
+
+html[data-theme="eigenfocus-light"] .hide-on-light {
+  display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .light-themes-only {
-    display: none;
-  }
+html[data-theme="eigenfocus-dark"] .hide-on-dark {
+  display: none;
 }
 
 .w-header {

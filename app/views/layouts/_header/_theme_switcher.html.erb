@@ -1,0 +1,24 @@
+<div data-controller="theme-switcher" class="block">
+
+  <a href="<%= update_preferences_profile_path(favorite_theme_key: 'eigenfocus-dark') %>"
+     data-theme-switcher-target="switchButton"
+     data-turbo-method="patch"
+     data-action="click->theme-switcher#switchTheme"
+     data-set-theme="eigenfocus-dark"
+     class="btn btn-slide btn-sm btn-primary btn-ghost hide-on-dark"
+     aria-label="Dark Theme">
+
+    <i class="ti ti-moon"></i>
+  </a>
+
+  <a href="<%= update_preferences_profile_path(favorite_theme_key: 'eigenfocus-light') %>"
+     data-theme-switcher-target="switchButton"
+     data-turbo-method="patch"
+     data-action="click->theme-switcher#switchTheme"
+     data-set-theme="eigenfocus-light"
+     class="btn btn-slide btn-sm btn-primary btn-ghost hide-on-light"
+     aria-label="Light Theme">
+
+    <i class="ti ti-sun"></i>
+  </a>
+</div>
