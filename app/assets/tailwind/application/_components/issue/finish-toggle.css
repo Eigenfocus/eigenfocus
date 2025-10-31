@@ -1,12 +1,13 @@
 .issue--finish-toggle {
-  @apply rounded-full border-base-content/70 bg-base-100 border-2 text-base-content transition-all duration-300;
+  @apply rounded-full border-base-content/70 bg-base-100 border text-base-content transition-all duration-300;
   @apply flex items-center justify-center;
   @apply cursor-pointer;
 
-  height: 1.4rem;
-  width: 1.4rem;
-  min-height: 1.4rem;
-  min-width: 1.4rem;
+  --size: 1.1rem;
+  height: var(--size);
+  width: var(--size);
+  min-height: var(--size);
+  min-width: var(--size);
 
   font-size: 0.65rem;
 
@@ -16,10 +17,11 @@
 
   &:hover {
     @apply border-success;
+    border-width: 2px;
   }
 
   &.finished {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     @apply text-success border-success;
 
     &:not(:hover) {
@@ -42,14 +44,14 @@
   &:has(.finished) {
     @apply mr-1;
     opacity: 1;
-    width: 1.4rem;
+    width: var(--size);
   }
 }
 
 .show-issue-finish-toggle-on-hover:hover {
   .issue--finish-toggle-wrapper {
     @apply mr-1;
-    width: 1.4rem;
+    width: var(--size);
     opacity: 1;
   }
 }
