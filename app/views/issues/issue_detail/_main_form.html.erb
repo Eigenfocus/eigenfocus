@@ -1,22 +1,4 @@
-<div class="flex flex-col tour--issue-detail-fields">
-  <% if issue.persisted? %>
-
-    <%= form_with(model: issue, url: form_path, html: {
-      class: 'flex flex-col',
-      data: { controller: "form", turbo: true }
-      }) do |f| %>
-        <%= f.label :due_date, class: "input" do %>
-          <span class="label text-sm"><%= Issue.human_attribute_name(:due_date) %></span>
-          <div class="flatpickr-resetable-container">
-            <%= f.text_field :due_date, class: 'input w-30',
-              data: { controller: "flatpickr", action: "input->form#submit", show_clear_button: true }
-              %>
-          </div>
-      <% end %>
-    <% end %>
-
-  <% end %>
-
+<div class="flex flex-col tour--issue-detail-fields mt-4">
   <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>
 
   <% if issue.persisted? %>

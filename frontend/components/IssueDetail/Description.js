@@ -50,10 +50,8 @@ const Description = ({ content, issueId }) => {
   return (
     <form onSubmit={handleSave} className="grow">
       <div className="mt-2 mb-2 flex items-center justify-between">
-        <h3 className="text-lg font-medium text-base-content">
-          <span className="mr-1 text-base-content/80">
-            <i className="ti ti-align-justified"></i>
-          </span>
+        <h3 className="text-base font-medium text-base-content flex items-center gap-1">
+          <i className="ti ti-align-justified opacity-60"></i>
           { t("activerecord.attributes.issue.description") }
         </h3>
 

@@ -62,33 +62,36 @@ function IssueLabels({
   }
 
   return (
-    <div className="flex flex-wrap gap-2 items-stretch">
-      {selectedLabels.map((label, index) => (
-        <LabelBadge
-          key={`${label.title}-${index}`}
-          label={label}
-          onRemove={removeLabel}
-        />
-      ))}
-      <div className="relative flex items-stretch gap-2">
-        <button
-          type="button"
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="btn btn-sm btn-soft"
-        >
-          <i className="ti ti-plus" />
-          {t("actions.add")} {t("activerecord.models.issue_label.one").toLowerCase()}
-        </button>
-        <div className="absolute top-full left-0 z-50" >
-          <LabelsDropdown
-            isOpen={isDropdownOpen}
-            onToggle={setIsDropdownOpen}
-            availableLabels={getUnselectedLabels()}
-            onSelectLabel={addLabel}
+    <fieldset class="fieldset">
+      <label className="fieldset-legend">{t("activerecord.models.issue_label.other")}</label>
+      <div className="flex flex-wrap gap-2 items-stretch">
+        {selectedLabels.map((label, index) => (
+          <LabelBadge
+            key={`${label.title}-${index}`}
+            label={label}
+            onRemove={removeLabel}
           />
+        ))}
+        <div className="relative flex items-stretch gap-2">
+          <button
+            type="button"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="btn btn-sm btn-soft"
+          >
+            <i className="ti ti-plus" />
+            {t("actions.add")} {t("activerecord.models.issue_label.one").toLowerCase()}
+          </button>
+          <div className="absolute top-full left-0 z-50" >
+            <LabelsDropdown
+              isOpen={isDropdownOpen}
+              onToggle={setIsDropdownOpen}
+              availableLabels={getUnselectedLabels()}
+              onSelectLabel={addLabel}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </fieldset>
   )
 }
 
