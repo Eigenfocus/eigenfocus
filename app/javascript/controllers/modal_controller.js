@@ -5,6 +5,8 @@ export default class Modal extends Controller {
     this.element.addEventListener('close', (e) => {
       window.dispatchEvent(new CustomEvent('modal:closed'))
     })
+
+    this.element.focus()
   }
 
   close(e) {
