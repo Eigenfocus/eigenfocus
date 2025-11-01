@@ -62,7 +62,7 @@ label .select2-selection.select2-selection--single {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-  top: 7px;
+  top: 5px;
 }
 
 .select2-dropdown {
