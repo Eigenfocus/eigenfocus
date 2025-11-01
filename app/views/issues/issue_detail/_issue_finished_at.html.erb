@@ -1,9 +1,9 @@
 <% if issue.finished? %>
-  <span data-issue-finished-at="" class="mb-2 <%= "animate__animated duration-150 animate__fadeIn" if local_assigns[:animate] %> text-success-800 text-sm flex items-center gap-2">
+  <span data-issue-finished-at="" class="mb-2 <%= "animate__animated duration-150 animate__fadeIn" if local_assigns[:animate] %> text-success text-sm flex items-center gap-2">
     <%= Issue.human_attribute_name(:finished_at) %>
     <%= l(issue.finished_at, format: :day_month_year) %>
   </span>
 <% else %>
-  <span data-issue-finished-at="" class="text-success-800 text-sm flex items-center gap-2">
+  <span data-issue-finished-at="" class="text-success text-sm flex items-center gap-2">
   </span>
 <% end %>

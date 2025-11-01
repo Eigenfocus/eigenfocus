@@ -12,7 +12,7 @@
 <%= form_with(**form_options) do |f| %>
 
   <% if current_user.errors.any? %>
-    <div class="flex rounded-md w-full border-l-6 border-alert-500 bg-alert-500 bg-opacity-[15%] px-4 py-1 mb-5 shadow-sm md:p-4 text-sm text-alert-500">
+    <div class="alert alert-error">
       <%= current_user.errors.full_messages.to_sentence.capitalize %>
     </div>
   <% end %>
