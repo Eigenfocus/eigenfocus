@@ -27,7 +27,7 @@
   <td>
     <%= due_date_for(issue) %>
   </td>
-  <td class="tour--issue-actions text-center">
+  <td class="tour--issue-actions text-right">
     <%= link_to project_show_issue_path(issue.project, issue),
         class: "btn btn-sm btn-square cpy-edit-button",
         data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>
