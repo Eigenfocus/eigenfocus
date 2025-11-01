@@ -2,7 +2,7 @@
   @apply transition-all;
 
   .issue--title {
-    @apply transition-all duration-300;
+    @apply transition-all duration-300 text-base-content/80;
   }
 
   .issue--card-due-date.finished {
