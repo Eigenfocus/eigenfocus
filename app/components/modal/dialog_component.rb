@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Modal::DialogComponent < ViewComponent::Base
-  attr_reader :title, :icon, :modal_box, :open, :dialog_id
+  attr_reader :title, :icon, :modal_box, :open, :dialog_id, :emit_close_event
 
   renders_one :header
 
-  def initialize(title: nil, icon: nil, modal_box: {}, open: true, dialog_id: nil, hide_close_button: false)
+  def initialize(title: nil, icon: nil, modal_box: {}, open: true, dialog_id: nil, hide_close_button: false, emit_close_event: true)
     @title = title
     @icon = icon
     @modal_box = modal_box
@@ -13,6 +13,7 @@ class Modal::DialogComponent < ViewComponent::Base
     @open = open
     @dialog_id = dialog_id
     @hide_close_button = hide_close_button
+    @emit_close_event = emit_close_event
   end
 
   def render_title

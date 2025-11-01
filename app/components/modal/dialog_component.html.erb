@@ -1,7 +1,8 @@
 <%= content_tag(:dialog, {
     data: {
       controller: "modal",
-      action: "keydown.esc->modal#close"
+      action: "keydown.esc->modal#close",
+      "modal-emit-close-event-value": emit_close_event
     },
     id: dialog_id,
     class: "modal",
