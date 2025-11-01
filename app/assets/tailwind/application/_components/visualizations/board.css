@@ -28,7 +28,7 @@
     }
 
     .board--column--create-button {
-      @apply btn btn-ghost btn-primary btn-wide mt-4;
+      @apply btn btn-ghost btn-primary btn-wide mt-2 pl-2;
 
       .board--column--create-button-shortcut {
         @apply hidden text-xs font-medium ml-2 mr-2;
