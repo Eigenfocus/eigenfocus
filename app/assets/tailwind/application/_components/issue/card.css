@@ -1,6 +1,20 @@
 .issue--card {
   @apply transition-all;
 
+  @apply rounded-box p-px bg-gradient-to-b from-base-200 to-secondary/30;
+
+  .issue--card-inner {
+    @apply  relative flex flex-col gap-2 text-sm text-base-content bg-base-100 hover:border-2 hover:border-secondary cursor-pointer rounded-box p-3;
+
+    .issue--card-edit {
+      @apply hidden flex items-center justify-center p-2 text-xs items-center absolute top-1 right-2 rounded-full bg-base-100/50;
+    }
+
+    &:hover {
+      display: flex;
+    }
+  }
+
   .issue--title {
     @apply transition-all duration-300 text-base-content/80;
   }

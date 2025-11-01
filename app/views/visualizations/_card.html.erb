@@ -1,4 +1,4 @@
-<a class="cpy-card tour--card issue--card rounded-box p-px bg-gradient-to-b from-base-200 to-secondary/30  show-issue-finish-toggle-on-hover"
+<a class="cpy-card tour--card issue--card show-issue-finish-toggle-on-hover"
   id="<%= dom_id(issue) %>"
   href="<%= show_visualization_issue_path(visualization, issue) %>"
   data-controller="visualization--board--card"
@@ -10,9 +10,9 @@
   data-turbo-frame="issue_detail"
   data-turbo-action="advance"
   >
-  <div class="group relative flex flex-col gap-2 text-sm text-base-content bg-base-100 hover:border-2 hover:border-secondary cursor-pointer rounded-box card p-3">
+  <div class="issue--card-inner">
 
-    <div class="hidden flex items-center justify-center p-2 text-xs flex group-hover:flex items-center absolute top-1 right-2 rounded-full bg-base-100/50">
+    <div class="issue--card-edit">
       <i class="ti ti-pencil"></i>
     </div>
 
