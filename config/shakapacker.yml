@@ -57,7 +57,7 @@ default: &default
 
 development:
   <<: *default
-  compile: true
+  compile: false
   compiler_strategy: mtime
 
   # Reference: https://webpack.js.org/configuration/dev-server/

@@ -24,7 +24,7 @@ function Badge({ label, onRemove }) {
   } : {}
 
   return (
-    <div className="text-sm pl-2 pr-1 py-1 font-medium rounded-field flex items-center cpy-label-badge" style={badgeStyle}>
+    <div className="flex items-center text-xs font-medium rounded-field min-h-[35px] py-1 px-2 gap-1 cpy-label-badge" style={badgeStyle}>
       <span>{label.title}</span>
       <button
         type="button"
