@@ -6,3 +6,7 @@
     @apply rounded-lg border bg-base-100 focus:border-primary mb-2;
   }
 }
+
+.issue-comment .milkdown p {
+  @apply text-xs;
+}
