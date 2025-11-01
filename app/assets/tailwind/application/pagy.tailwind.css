@@ -6,36 +6,16 @@
   }
 
   .pagy.nav {
-    @apply flex text-base-content text-sm;
+    @apply join rounded-field overflow-hidden;
 
     a {
-      @apply flex items-center justify-center leading-tight px-3.5 py-2 bg-base-200;
+      @apply join-item btn btn-sm btn-soft;
 
       &.gap {
         @apply text-base-content cursor-default;
       }
     }
 
-    a:not(.gap) {
-      @apply text-base-content border-t border-r border-b border-neutral-content;
 
-      &:hover {
-        @apply bg-neutral text-neutral-content!;
-      }
-      &:not([href]) { /* disabled links */
-        @apply text-base-content opacity-70 cursor-default;
-      }
-
-      &.current {
-        @apply bg-neutral text-neutral-content font-bold;
-      }
-
-      &:first-child {
-        @apply rounded-s-lg border-l;
-      }
-      &:last-child {
-        @apply rounded-e-lg;
-      }
-    }
   }
 }
