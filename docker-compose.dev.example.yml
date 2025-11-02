@@ -30,7 +30,7 @@ services:
 
     env_file:
       - "./.env"
-    command: "bin/rails themed_tailwindcss:watch"
+    command: "bin/rails tailwindcss:watch"
   js:
     build:
       dockerfile: 'Dockerfile.dev'
@@ -45,7 +45,7 @@ services:
     command: "bin/shakapacker -w"
 
   selenium:
-    image: selenium/standalone-chrome:131.0-20250414
+    image: selenium/standalone-chrome:140.0-20251025
     platform: linux/amd64
     environment:
       - SE_VNC_NO_PASSWORD=true
