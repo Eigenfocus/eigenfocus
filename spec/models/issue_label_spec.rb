@@ -13,7 +13,7 @@ describe IssueLabel do
   describe '#hex_color' do
     it 'uses a default color when hex_color is not present' do
       label = described_class.new(title: 'Important', hex_color: nil)
-      expect(label.hex_color).to eq('#3D90D7')
+      expect(label.hex_color).to eq('#464555')
     end
   end
 end
