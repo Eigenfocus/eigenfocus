@@ -10,10 +10,10 @@ export default class extends Controller {
 
     document.documentElement.dataset.theme = theme
 
-    this.switchButtonTargets.forEach(button => {
-      button.querySelector("svg").classList.add("invisible")
-    })
+    // this.switchButtonTargets.forEach(button => {
+    //   button.querySelector("svg").classList.add("invisible")
+    // })
 
-    e.currentTarget.querySelector("svg").classList.remove("invisible")
+    // e.currentTarget.querySelector("svg").classList.remove("invisible")
   }
 }
