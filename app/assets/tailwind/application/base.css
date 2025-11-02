@@ -1,15 +1,9 @@
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import './_components/all';
 @import './select2';
 @import './flatpickr';
 @import './markdown';
 @import './sortablejs';
 @import './pagy.tailwind';
-@import './_components/all';
 
 :root {
   --alert-color: var(--color-base-100);
