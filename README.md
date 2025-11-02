@@ -4,7 +4,7 @@
   <br/>
   <a href="https://eigenfocus.com?utm-source=github" target="_blank"><strong>Website</strong></a> |
   <a href="#installation"><strong>Docker Installation</strong></a> |
-  <a href="https://eigenfocus.pro/?utm_source=eigenfocus-github&utm_medium=header" target="_blank"><strong>PRO - Live demo</strong></a>
+  <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header" target="_blank"><strong>PRO - Live demo</strong></a>
 </div>
 <br />
 <div align="center">
@@ -91,7 +91,7 @@ Here are some of the features:
 <div align="center">
   <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>PRO Edition - Features</strong></a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://eigenfocus.pro/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
+  <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
 </div>
 
 <br/>
@@ -155,7 +155,7 @@ Here are some of the features:
 <div align="center">
   <a href="http://eigenfocus.com/features?utm_source=github-readme"><strong>PRO Edition - Features</strong></a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://eigenfocus.pro/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
+  <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
 </div>
 
 <br/>
