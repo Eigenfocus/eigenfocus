@@ -6,15 +6,15 @@
 
 # Pagy Variables
 # See https://ddnexus.github.io/pagy/docs/api/pagy#variables
-# You can set any pagy variable as a Pagy::DEFAULT. They can also be overridden per instance by just passing them to
+# You can set any pagy variable as a Pagy.options. They can also be overridden per instance by just passing them to
 # Pagy.new|Pagy::Countless.new|Pagy::Calendar::*.new or any of the #pagy* controller methods
 # Here are the few that make more sense as DEFAULTs:
-Pagy::DEFAULT[:limit]       = 50                    # default
-# Pagy::DEFAULT[:size]        = 5                     # default
-# Pagy::DEFAULT[:ends]        = true                  # default
-# Pagy::DEFAULT[:page_param]  = :page                 # default
-# Pagy::DEFAULT[:count_args]  = []                    # example for non AR ORMs
-# Pagy::DEFAULT[:max_pages]   = 3000                  # example
+Pagy.options[:limit]       = 50                    # default
+# Pagy.options[:size]        = 5                     # default
+# Pagy.options[:ends]        = true                  # default
+# Pagy.options[:page_param]  = :page                 # default
+# Pagy.options[:count_args]  = []                    # example for non AR ORMs
+# Pagy.options[:max_pages]   = 3000                  # example
 
 
 # Extras
@@ -59,21 +59,21 @@ Pagy::DEFAULT[:limit]       = 50                    # default
 # Countless extra: Paginate without any count, saving one query per rendering
 # See https://ddnexus.github.io/pagy/docs/extras/countless
 # require 'pagy/extras/countless'
-# Pagy::DEFAULT[:countless_minimal] = false   # default (eager loading)
+# Pagy.options[:countless_minimal] = false   # default (eager loading)
 
 # Elasticsearch Rails extra: Paginate `ElasticsearchRails::Results` objects
 # See https://ddnexus.github.io/pagy/docs/extras/elasticsearch_rails
 # Default :pagy_search method: change only if you use also
 # the searchkick or meilisearch extra that defines the same
-# Pagy::DEFAULT[:elasticsearch_rails_pagy_search] = :pagy_search
+# Pagy.options[:elasticsearch_rails_pagy_search] = :pagy_search
 # Default original :search method called internally to do the actual search
-# Pagy::DEFAULT[:elasticsearch_rails_search] = :search
+# Pagy.options[:elasticsearch_rails_search] = :search
 # require 'pagy/extras/elasticsearch_rails'
 
 # Headers extra: http response headers (and other helpers) useful for API pagination
 # See https://ddnexus.github.io/pagy/docs/extras/headers
 # require 'pagy/extras/headers'
-# Pagy::DEFAULT[:headers] = { page: 'Current-Page',
+# Pagy.options[:headers] = { page: 'Current-Page',
 #                            limit: 'Page-Items',
 #                            count: 'Total-Count',
 #                            pages: 'Total-Pages' }     # default
@@ -86,9 +86,9 @@ Pagy::DEFAULT[:limit]       = 50                    # default
 # See https://ddnexus.github.io/pagy/docs/extras/meilisearch
 # Default :pagy_search method: change only if you use also
 # the elasticsearch_rails or searchkick extra that define the same method
-# Pagy::DEFAULT[:meilisearch_pagy_search] = :pagy_search
+# Pagy.options[:meilisearch_pagy_search] = :pagy_search
 # Default original :search method called internally to do the actual search
-# Pagy::DEFAULT[:meilisearch_search] = :ms_search
+# Pagy.options[:meilisearch_search] = :ms_search
 # require 'pagy/extras/meilisearch'
 
 # Metadata extra: Provides the pagination metadata to Javascript frameworks like Vue.js, react.js, etc.
@@ -97,15 +97,15 @@ Pagy::DEFAULT[:limit]       = 50                    # default
 # require 'pagy/extras/js_tools'
 # require 'pagy/extras/metadata'
 # For performance reasons, you should explicitly set ONLY the metadata you use in the frontend
-# Pagy::DEFAULT[:metadata] = %i[scaffold_url page prev next last]   # example
+# Pagy.options[:metadata] = %i[scaffold_url page prev next last]   # example
 
 # Searchkick extra: Paginate `Searchkick::Results` objects
 # See https://ddnexus.github.io/pagy/docs/extras/searchkick
 # Default :pagy_search method: change only if you use also
 # the elasticsearch_rails or meilisearch extra that defines the same
-# Pagy::DEFAULT[:searchkick_pagy_search] = :pagy_search
+# Pagy.options[:searchkick_pagy_search] = :pagy_search
 # Default original :search method called internally to do the actual search
-# Pagy::DEFAULT[:searchkick_search] = :search
+# Pagy.options[:searchkick_search] = :search
 # require 'pagy/extras/searchkick'
 # uncomment if you are going to use Searchkick.pagy_search
 # Searchkick.extend Pagy::Searchkick
@@ -128,7 +128,7 @@ Pagy::DEFAULT[:limit]       = 50                    # default
 
 # Multi size var used by the *_nav_js helpers
 # See https://ddnexus.github.io/pagy/docs/extras/pagy#steps
-# Pagy::DEFAULT[:steps] = { 0 => 5, 540 => 7, 720 => 9 }   # example
+# Pagy.options[:steps] = { 0 => 5, 540 => 7, 720 => 9 }   # example
 
 
 # Feature Extras
@@ -137,38 +137,38 @@ Pagy::DEFAULT[:limit]       = 50                    # default
 # See https://ddnexus.github.io/pagy/docs/extras/gearbox
 # require 'pagy/extras/gearbox'
 # set to false only if you want to make :gearbox_extra an opt-in variable
-# Pagy::DEFAULT[:gearbox_extra] = false               # default true
-# Pagy::DEFAULT[:gearbox_limit] = [15, 30, 60, 100]   # default
+# Pagy.options[:gearbox_extra] = false               # default true
+# Pagy.options[:gearbox_limit] = [15, 30, 60, 100]   # default
 
 # Limit extra: Allow the client to request a custom limit per page with an optional selector UI
 # See https://ddnexus.github.io/pagy/docs/extras/limit
 # require 'pagy/extras/limit'
 # set to false only if you want to make :limit_extra an opt-in variable
-# Pagy::DEFAULT[:limit_extra] = false    # default true
-Pagy::DEFAULT[:limit_param] = :limit   # default
-Pagy::DEFAULT[:limit_max]   = 100      # default
+# Pagy.options[:limit_extra] = false    # default true
+Pagy.options[:limit_param] = :limit   # default
+Pagy.options[:limit_max]   = 100      # default
 
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/docs/extras/overflow
 # require 'pagy/extras/overflow'
-# Pagy::DEFAULT[:overflow] = :empty_page    # default  (other options: :last_page and :exception)
+# Pagy.options[:overflow] = :empty_page    # default  (other options: :last_page and :exception)
 
 # Trim extra: Remove the page=1 param from links
 # See https://ddnexus.github.io/pagy/docs/extras/trim
 # require 'pagy/extras/trim'
 # set to false only if you want to make :trim_extra an opt-in variable
-# Pagy::DEFAULT[:trim_extra] = false # default true
+# Pagy.options[:trim_extra] = false # default true
 
 # Standalone extra: Use pagy in non Rack environment/gem
 # See https://ddnexus.github.io/pagy/docs/extras/standalone
 # require 'pagy/extras/standalone'
-# Pagy::DEFAULT[:url] = 'http://www.example.com/subdir'  # optional default
+# Pagy.options[:url] = 'http://www.example.com/subdir'  # optional default
 
 # Jsonapi extra: Implements JSON:API specifications
 # See https://ddnexus.github.io/pagy/docs/extras/jsonapi
 # require 'pagy/extras/jsonapi'   # must be required after the other extras
 # set to false only if you want to make :jsonapi an opt-in variable
-# Pagy::DEFAULT[:jsonapi] = false  # default true
+# Pagy.options[:jsonapi] = false  # default true
 
 # Rails
 # Enable the .js file required by the helpers that use javascript
@@ -195,8 +195,8 @@ Pagy::DEFAULT[:limit_max]   = 100      # default
 #
 # load the "de", "en" and "es" built-in locales:
 # (the first passed :locale will be used also as the default_locale)
-Pagy::I18n.load({ locale: "en" },
-                { locale: "pt-BR" })
+# Pagy::I18n.load({ locale: "en" },
+#                 { locale: "pt-BR" })
 #
 # load the "en" built-in locale, a custom "es" locale,
 # and a totally custom locale complete with a custom :pluralize proc:
@@ -215,4 +215,4 @@ Pagy::I18n.load({ locale: "en" },
 
 
 # When you are done setting your own default freeze it, so it will not get changed accidentally
-Pagy::DEFAULT.freeze
+Pagy.options.freeze

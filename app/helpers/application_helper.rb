@@ -1,5 +1,4 @@
 module ApplicationHelper
-  include Pagy::Frontend
   include ApplicationHelper::CustomPagy
 
   include ApplicationHelper::Alerts

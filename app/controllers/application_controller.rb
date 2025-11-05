@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include Pagy::Backend
+  include Pagy::Method
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     locale = current_user&.locale
     locale = I18n.default_locale if locale.blank?
     response.set_header "Content-Language", locale
-    @pagy_locale = locale
+    Pagy::I18n.locale = locale
     I18n.with_locale locale, &action
   end
 
