@@ -5,7 +5,7 @@
     @apply text-sm text-base-content;
   }
 
-  .pagy.nav {
+  .pagy.series-nav {
     @apply join rounded-field overflow-hidden;
 
     a {
