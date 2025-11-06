@@ -39,7 +39,7 @@ html[data-theme="eigenfocus-dark"] .hide-on-dark {
 }
 
 .w-header {
-  @apply md:w-7xl md:mx-auto;
+  @apply xl:w-7xl xl:mx-auto w-full;
 }
 
 .input-with-icon-wrapper .icon-wrapper {
