@@ -1,5 +1,7 @@
 <div align="center">
-  <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner"><img src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/eigenfocus-github-banner-2.png" alt="Eigenfocus"/></a>
+  <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner">
+    <img src="https://eigen-assets.eigenfocus.com/github/eigenfocus-github-banner-2.png" alt="Eigenfocus"/>
+  </a>
   <br/>
   <br/>
   <a href="https://eigenfocus.com?utm-source=github" target="_blank"><strong>Website</strong></a> |
@@ -36,9 +38,8 @@ From solo projects to multi-member teams, Eigenfocus adapts to your workflow.
 # FREE EDITION (This Repo)
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/overview.gif" alt="Eigenfocus"/>
+  <img alt="Eigenfocus" src="https://eigen-assets.eigenfocus.com/github/free-full-demo-2.gif" width="98%" style="border-radius: 10px;"/>
 </div>
-
 <br/>
 
 Here are some of our current features:
@@ -56,15 +57,6 @@ Here are some of our current features:
 
 <div align="center">
 ⭐️ this repository and stay up to date.
-</div>
-
-<br/>
-
-<div align="center">
-  <img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/board-2.gif" width="75%"/>
-  <img alt="board" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/all-issues-1.gif" width="75%"/>
-  <img alt="time-track" src="https://blog-assets.eigenfocus.com/post-080/readme/croped/time-track-black-3.gif" width="75%"/>
-  <img alt="focus-timers" src="https://blog-assets.eigenfocus.com/demo-v1/focus-space-min.gif" width="75%"/>
 </div>
 
 <br/>
@@ -89,7 +81,7 @@ Here are some of the features:
 <br/>
 
 <div align="center">
-  <a href="http://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>PRO Edition - Features</strong></a>
+  <a href="https://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>PRO Edition - Features</strong></a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
 </div>
@@ -101,8 +93,7 @@ Here are some of the features:
 <br/>
 
 <div align="center">
-  <img width="80%" src="https://raw.githubusercontent.com/Eigenfocus/focus-assets/refs/heads/main/images/features/all-logins.png"/>
-
+  <img width="80%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/github/all-logins.png"/>
 </div>
 
 <br/>
@@ -111,16 +102,16 @@ Here are some of the features:
   <p>
     Custom Statuses & Types with Multiple Views
   </p>
-  <img width="40%" src="https://assets.eigenfocus.com/landing/pro-features/issue-types-2.jpg"/>
+  <img width="40%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/issue-types-2.jpg"/>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img width="40%" src="https://assets.eigenfocus.com/landing/pro-features/views-1.jpg"/>
+  <img width="40%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/views-1.jpg"/>
   <br/>
   <br/>
   <p>
-    Retrospective Board using Labels as Columns
+    More views
   </p>
   <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" src="https://assets.eigenfocus.com/features/board-retrospective.png"/>
+    <img width="90%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/landing/issue-list.gif"/>
   </a>
   <br/>
   <br/>
@@ -129,19 +120,8 @@ Here are some of the features:
   </p>
 
   <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" src="https://assets.eigenfocus.com/features/grid-workload.png"/>
+    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/landing/grid-1.gif"/>
   </a>
-
-  <br/>
-  <br/>
-  <p>
-    Grid View - CRM: Status X Deal Value (label)
-  </p>
-
-  <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" src="https://assets.eigenfocus.com/features/grid-view-status.png"/>
-  </a>
-
   <br/>
 </div>
 
@@ -153,7 +133,7 @@ Here are some of the features:
 <br/>
 
 <div align="center">
-  <a href="http://eigenfocus.com/features?utm_source=github-readme"><strong>PRO Edition - Features</strong></a>
+  <a href="https://eigenfocus.com/features?utm_source=github-readme"><strong>PRO Edition - Features</strong></a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
 </div>
