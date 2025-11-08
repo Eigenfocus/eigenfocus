@@ -1,9 +1,9 @@
 # Rails loads items on shared keys for all environments
 shared:
-  - key: "eigenfocus-dark"
-    name: "Dark"
   - key: "eigenfocus-light"
     name: "Light"
+  - key: "eigenfocus-dark"
+    name: "Dark"
   # - key: "dim"
   #   name: "Light Dim"
   # - key: "spookyhalloween"
