@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -z "$1" ]; then
+  echo "Error: Version argument required"
+  echo "Usage: bin/release <version>"
+  echo "Example: bin/release 1.4.5.rc4"
+  exit 1
+fi
+
+VERSION=$1
+VERSION_FILE="VERSION-FREE"
+COMMIT_MESSAGE="bump: v${VERSION}-free"
+TAG_NAME="v${VERSION}-free"
+
+if [ ! -f "$VERSION_FILE" ]; then
+  echo "Error: $VERSION_FILE not found"
+  exit 1
+fi
+
+echo "Updating version to: ${VERSION}"
+echo "${VERSION}" > "$VERSION_FILE"
+
+echo "Staging changes..."
+git add "$VERSION_FILE"
+
+echo "Committing with message: $COMMIT_MESSAGE"
+git commit -m "$COMMIT_MESSAGE"
+
+echo "Creating tag: $TAG_NAME"
+git tag "$TAG_NAME"
+
+echo "Pushing branch..."
+git push
+
+echo "Pushing tag..."
+git push origin "$TAG_NAME"
+
+echo "✓ Release ${VERSION} completed successfully!"
+echo "  - Version file updated: $VERSION_FILE"
+echo "  - Commit created: $COMMIT_MESSAGE"
+echo "  - Tag created: $TAG_NAME"
