@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => "/cable"
 
+  get "design-system" => "design_system#index"
+
   resources :projects do
     member do
       put :archive
