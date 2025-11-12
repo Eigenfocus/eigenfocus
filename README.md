@@ -37,15 +37,16 @@ From solo projects to multi-member teams, Eigenfocus adapts to your workflow.
 # FREE EDITION (This Repo)
 
 <div align="center">
-  <img alt="Eigenfocus" src="https://eigen-assets.eigenfocus.com/github/free-full-demo-2.gif" width="98%" style="border-radius: 10px;"/>
+  <img alt="Eigenfocus" src="https://eigen-assets.eigenfocus.com/github/demo-3.gif" width="98%" style="border-radius: 10px;"/>
 </div>
 <br/>
 
 Here are some of our current features:
 
 - Projects: create/edit/update/archive you projects
-- Boards: each project has a board where you can customize columns to your workflow
 - Issues: create issues, write markdown descriptions and attach files
+- Lists: quickly filter and list issues
+- Boards: each project has a board where you can customize columns to your workflow
 - Workflow with Boards: Make changes to your boards and see changes in real-time
 - Issue Labels and Shortcuts: Organize your issues and workflow with labels
 - Issue comments / notes in markdown
@@ -89,15 +90,18 @@ Here are some of the features:
 
 ------
 
-<br/>
 
 <div align="center">
-  <img width="80%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/github/all-logins.png"/>
-</div>
+  <br/>
+  <p>
+    Grid View - Use columns and rows to group issues by status, labels, assignees...
+  </p>
 
-<br/>
+  <a href="https://eigenfocus.com/features?utm_source=github-readme">
+    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/landing/grid-1.gif"/>
+  </a>
 
-<div align="center">
+  <br/>
   <p>
     Custom Statuses & Types with Multiple Views
   </p>
@@ -107,21 +111,13 @@ Here are some of the features:
   <br/>
   <br/>
   <p>
-    More views
+    Views are projections - columns and rows can represent multiple fields: item status, labels, assignees...
   </p>
   <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/landing/issue-list.gif"/>
+    <img width="90%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/features-v2/dynamic-column-1.png"/>
   </a>
   <br/>
-  <br/>
-  <p>
-    Grid View - Team Workload: Status X Assignee
-  </p>
 
-  <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/landing/grid-1.gif"/>
-  </a>
-  <br/>
 </div>
 
 <br/>
