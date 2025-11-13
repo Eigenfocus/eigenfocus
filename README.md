@@ -37,7 +37,7 @@ From solo projects to multi-member teams, Eigenfocus adapts to your workflow.
 # FREE EDITION (This Repo)
 
 <div align="center">
-  <img alt="Eigenfocus" src="https://eigen-assets.eigenfocus.com/github/demo-3.gif" width="98%" style="border-radius: 10px;"/>
+  <img alt="Eigenfocus" src="https://eigen-assets.eigenfocus.com/github/demo-6.gif" width="85%" style="border-radius: 10px;"/>
 </div>
 <br/>
 
@@ -66,13 +66,14 @@ We have a PRO Edition (Pay ONCE) with advanced features for managing complex pro
 
 Here are some of the features:
 
+- Views as projections: group issues by label, assignee, status and switch between views instantly
+- Create multiple views for different purposes: planning, daily tracking, retrospectives and more.
+- Custom Issue Statuses & Types
+- Grid View: Customize columns and rows as you need.
+- Columns and Rows can represent multiple fields: item status, labels, assignees...
 - Multiple Users with Permission Control
 - Easy SSO (Single Sign-On) login with Google, Microsoft and Github
-- SSO Login using custom OIDC provider: Authentik, Okta, etc...
-- Custom Issue Statuses & Types
-- Create multiple views for different purposes: planning, daily tracking, retrospectives and more.
-- Columns and Rows can represent multiple fields: item status, labels, assignees...
-- Grid View: also know as swimlanes. Customize columns and rows by status, assignee, label, etc. This view can handle multiple workflows and needs.
+- SSO Login using custom OIDC provider: Authentik, Okta...
 
 <br/>
 
@@ -94,6 +95,15 @@ Here are some of the features:
 <div align="center">
   <br/>
   <p>
+    Views as projections: group issues by label, assignee, status and switch between views instantly.
+  </p>
+
+  <a href="https://eigenfocus.com/features?utm_source=github-readme">
+    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/features-v2/views-as-projections.gif"/>
+  </a>
+
+  <br/>
+  <p>
     Grid View - Use columns and rows to group issues by status, labels, assignees...
   </p>
 
@@ -103,20 +113,13 @@ Here are some of the features:
 
   <br/>
   <p>
-    Custom Statuses & Types with Multiple Views
+    Custom Statuses & Types
   </p>
   <img width="40%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/issue-types-2.jpg"/>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img width="40%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/views-1.jpg"/>
   <br/>
-  <br/>
-  <p>
-    Views are projections - columns and rows can represent multiple fields: item status, labels, assignees...
-  </p>
-  <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/features-v2/dynamic-column-1.png"/>
-  </a>
-  <br/>
+
 
 </div>
 
