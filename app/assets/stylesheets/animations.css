@@ -13,19 +13,32 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-  transform: rotate(45deg);
+  background: linear-gradient(25deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(-25deg);
   animation: shine 2s ease-in-out 0.5s;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   mix-blend-mode: overlay;
 }
 
 @keyframes shine {
   0% {
-    transform: translateX(-100%) rotate(45deg);
+    transform: translateX(-100%) rotate(-25deg);
   }
   100% {
-    transform: translateX(100%) rotate(45deg);
+    transform: translateX(100%) rotate(-25deg);
+  }
+}
+
+.floating-animation {
+  animation: floating 1.5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
   }
 }
