@@ -31,49 +31,48 @@
 <br />
 
 # Eigenfocus
-All-in-One Project Management, Planning and Time Tracking app.
-From solo projects to multi-member teams, Eigenfocus adapts to your workflow.
+Eigenfocus is a project management and time tracking tool built for clarity and ownership.
 
-# FREE EDITION (This Repo)
+# FREE EDITION
+Eigenfocus FREE gives you everything you need to manage small projects with focus and confidence.
 
 <div align="center">
   <img alt="Eigenfocus" src="https://eigen-assets.eigenfocus.com/github/demo-6.gif" width="85%" style="border-radius: 10px;"/>
 </div>
 <br/>
 
-Here are some of our current features:
+Here are some of the features included in the FREE edition:
 
-- Projects: create/edit/update/archive you projects
-- Issues: create issues, write markdown descriptions and attach files
-- Lists: quickly filter and list issues
-- Boards: each project has a board where you can customize columns to your workflow
-- Workflow with Boards: Make changes to your boards and see changes in real-time
-- Issue Labels and Shortcuts: Organize your issues and workflow with labels
-- Issue comments / notes in markdown
-- Time Tracking: track time spent on a Project and a Specific Issue
-- Time Report: generate time reports by project and time periods
-- Focus Space where you can setup
-- Themes: customize the UI to your taste
+- Create unlimited projects
+- Issues with markdown descriptions and file attachments
+- Table list to browse all issues
+- Kanban board for visual issue management
+- Labels to organize work
+- Comments for adding notes and context
+- Time Tracking on projects and individual issues
+- Time Reports by project and date range
+- Focus Space with timers and ambient sounds
+- Light and Dark themes
 
 <div align="center">
-⭐️ this repository and stay up to date.
+If you enjoy Eigenfocus, ⭐️ the repo to follow updates.
 </div>
 
 <br/>
 
-# PRO Edition - Pay ONCE
-We have a PRO Edition (Pay ONCE) with advanced features for managing complex projects and larger teams.
+# Upgrade with Pay ONCE
+When your projects grow, Eigenfocus grows with you.
 
-Here are some of the features:
+Our Pay ONCE plans give you features for teams, more complex projects and workflows.
 
+- Multiple users with per-project permission control
 - Views as projections: group issues by label, assignee, status and switch between views instantly
-- Create multiple views for different purposes: planning, daily tracking, retrospectives and more.
+- Create multiple Views for different workflows like planning, tracking or retros
 - Custom Issue Statuses & Types
-- Grid View: Customize columns and rows as you need.
-- Columns and Rows can represent multiple fields: item status, labels, assignees...
-- Multiple Users with Permission Control
-- Easy SSO (Single Sign-On) login with Google, Microsoft and Github
-- SSO Login using custom OIDC provider: Authentik, Okta...
+- Grid View with fully customizable columns and rows
+- Columns and Rows matched to fields like status, label, assignee
+- SSO login with Google, Microsoft, and GitHub
+- Support for custom OIDC providers (Authentik, Okta, and others)
 
 <br/>
 
@@ -198,7 +197,7 @@ And access it at http://localhost:3001.
 
 ## Environment Configurations
 
-- `DEFAULT_HOST_URL`: URL that is going to be used to access your application.
+- `DEFAULT_HOST_URL`: URL used to access Eigenfocus
   - Example: "http://localhost:3001", "http://mydomain.com" or "https://mydomain.com"
 - `FORCE_SSL`: Defaults to `false`. If set to `true`, all incoming requests that are not HTTPS will be redirected to use HTTPS protocol.
 - `ASSUME_SSL_REVERSE_PROXY`: Defaults to `false`. If set to `true`, all incoming requests will be interpreted as HTTPS. This is useful for cases when you have `FORCE_SSL` set to `true` but are behind a reverse proxy that terminates the SSL. This means that our app will be receiving requests via HTTP. In order to avoid an infinite redirect loop to HTTPS you must set `ASSUME_SSL_REVERSE_PROXY` to `true`. For more information, check the conversation and changelog on https://github.com/rails/rails/pull/47139.
@@ -219,11 +218,11 @@ Feel free to contact us `hi@eigenfocus.com` or open an issue.
 
 # Other
 ## Contributions
-Thank you for your interest in contributing to the project.
+Thank you for your interest in contributing to Eigenfocus.
 
-Feel free to open an issue with any idea, suggestion or comment.
+You’re welcome to open issues with ideas, suggestions or feedback.
 
-As we offer a paid version of Eigenfocus, we don't think it's fair to accept code contributions from other people so we're not accepting pull requests.
+Since Eigenfocus includes a paid version, we don’t accept external pull requests. We believe this keeps expectations clear and fair.
 
 ## License
-We're a free self-hosted project that you can use but we're not open source. Check our [License](LICENSE).
+Eigenfocus is free to self host, but not open source. See the [License](LICENSE) for more details.
