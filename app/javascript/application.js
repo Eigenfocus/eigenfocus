@@ -30,3 +30,7 @@ $.fn.select2.amd.require(['select2/selection/search'], function (Search) {
       this.$search.val('');
   };
 });
+
+window.openUpgradeModal = () => {
+  document.getElementById('upgrade-modal').showModal()
+}

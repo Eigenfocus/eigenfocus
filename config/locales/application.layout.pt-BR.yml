@@ -13,6 +13,9 @@ pt-BR:
     notifications: 'Notificações'
     help: 'Ajuda'
   layouts:
+    upgrade_modal:
+      title: "Melhore seu fluxo de trabalho"
+      body: "Atualize para desbloquear funcionalidades que ajudam você a trabalhar da maneira que você quer - sem o caos."
     guide_modal:
       title: "Nossas funcionalidades"
       features:

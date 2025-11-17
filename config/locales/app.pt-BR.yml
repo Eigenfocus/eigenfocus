@@ -72,6 +72,8 @@ pt-BR:
     go_to_board: 'Board'
     go_to_issue: 'Ir para issue'
     start_time_tracking: "Registrar tempo"
+    upgrade: "Upgrade"
+    see_plans: "Ver planos"
   flash:
     change_success: "Alteração realizada com sucesso."
     change_error: "Alteração não pôde ser realizada."

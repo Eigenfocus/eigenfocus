@@ -71,6 +71,8 @@ en:
     go_to_board: 'Board'
     go_to_issue: 'Go to issue'
     start_time_tracking: "Track time"
+    upgrade: "Upgrade"
+    see_plans: "See plans"
   flash:
     change_success: "Change successfully made."
     change_error: "Change could not be made."

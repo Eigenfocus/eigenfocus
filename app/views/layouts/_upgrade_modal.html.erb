@@ -1,0 +1,24 @@
+<%= render Modal::DialogComponent.new(
+  open: false,
+  dialog_id: 'upgrade-modal') do %>
+
+  <div class="text-primary-content bg-primary/80 h-16 w-16 rounded-full mx-auto flex items-center justify-center">
+    <i class="ti ti-rocket" style="font-size: 32px"></i>
+  </div>
+  <div class="text-center mt-4">
+    <h2 class="text-3xl font-semibold text-center">
+      <%= t(".title") %>
+      </h2>
+
+    <p class="text-center text-sm text-base-content/80 mt-2">
+      <%= t(".body") %>
+    </p>
+	</div>
+
+  <div class="confirm-modal-actions flex justify-center items-center flex-wrap mt-6 gap-2">
+    <a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=upgrade_modal" target="_blank" class="btn btn btn-primary">
+      <%= t("actions.see_plans") %>
+      <i class="ti ti-arrow-right"></i>
+    </a>
+  </div>
+<% end %>

@@ -13,6 +13,9 @@ en:
     notifications: 'Notifications'
     help: 'Help'
   layouts:
+    upgrade_modal:
+      title: "Take your workflow further"
+      body: "Upgrade to unlock features that help you work the way you want - without the clutter."
     guide_modal:
       title: "Our features"
       features:
