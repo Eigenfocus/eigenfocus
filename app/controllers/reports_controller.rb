@@ -18,10 +18,6 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv do
-        report = TotalTimeLoggedCsvReport.new(@time_entries, @total_in_hours)
-        send_csv_response(report.generate_csv, "total-time")
-      end
     end
   end
 end
