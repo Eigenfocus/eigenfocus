@@ -16,7 +16,7 @@ ENV RAILS_ENV="production" \
 FROM base AS build
 
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libvips pkg-config gnupg2 curl
+    apt-get install --no-install-recommends -y build-essential git libvips pkg-config gnupg2 curl libyaml-dev
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
