@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.3.1
+ARG RUBY_VERSION=3.4.7
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim AS base
 
 # Eigenfocus App
@@ -16,7 +16,7 @@ ENV RAILS_ENV="production" \
 FROM base AS build
 
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libvips pkg-config gnupg2 curl
+    apt-get install --no-install-recommends -y build-essential git libvips pkg-config gnupg2 curl libyaml-dev
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
