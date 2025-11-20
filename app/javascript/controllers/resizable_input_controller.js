@@ -12,11 +12,12 @@ export default class extends Controller {
     this.inputTarget.style.resize = 'none'
 
     if (this.inputTarget.value.trim() == '') {
-      this.replicaTarget.textContent += ' '  // Prevents wrong height if input is empty
+      this.replicaTarget.innerHTML += '&nbsp;'  // Prevents wrong height if input is empty
     }
 
     this.inputTarget.addEventListener('input', () => {
-      this.replicaTarget.textContent = this.inputTarget.value + ' '  // the ' ' prevents ui jumps
+      this.replicaTarget.textContent = this.inputTarget.value // we first set the textContent to escape html
+      this.replicaTarget.innerHTML += '&nbsp;'  // the ' ' prevents ui jumps
     })
   }
 }
