@@ -33,7 +33,7 @@
       <% if time_entry.description.blank? %>
         <p class="italic text-xs"><%= t(".no_description") %></p>
       <% else %>
-        <%= simple_format(time_entry.description) %>
+        <%= simple_format(h(time_entry.description)) %>
       <% end %>
     </div>
   </div>

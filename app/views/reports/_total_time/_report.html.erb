@@ -52,7 +52,7 @@
                   </td>
                   <td>
 
-                    <%= simple_format(entry.description) %>
+                    <%= simple_format(h(entry.description)) %>
                   </td>
                   <td>
                     <%= entry.total_logged_time_in_minutes %> min
