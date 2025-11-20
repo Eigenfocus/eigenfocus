@@ -8,15 +8,15 @@ export default class extends Controller {
   ]
 
   connect() {
-    this.replicaTarget.innerHTML = this.inputTarget.value
+    this.replicaTarget.textContent = this.inputTarget.value
     this.inputTarget.style.resize = 'none'
 
     if (this.inputTarget.value.trim() == '') {
-      this.replicaTarget.innerHTML += '&nbsp;' // Avoid wrong height if input is empty
+      this.replicaTarget.textContent += ' '  // Prevents wrong height if input is empty
     }
 
     this.inputTarget.addEventListener('input', () => {
-      this.replicaTarget.innerText = this.inputTarget.value + '&nbsp;' // the ' ' avoid ui jumps
+      this.replicaTarget.textContent = this.inputTarget.value + ' '  // the ' ' prevents ui jumps
     })
   }
 }
