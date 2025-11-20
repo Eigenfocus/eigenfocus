@@ -529,6 +529,7 @@ DEPENDENCIES
   ransack (~> 4.4)
   react-rails (~> 3.2)
   rspec-rails (~> 8.0)
+  rubocop-performance (~> 1.24)
   rubocop-rails-omakase
   selenium-webdriver (= 4.38.0)
   shakapacker (~> 8.4)
