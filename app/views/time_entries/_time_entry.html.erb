@@ -2,7 +2,7 @@
 <div id="<%= dom_id(time_entry) %>" class="<%= running_class %> border border-base-300 rounded-box border bg-base-100 flex flex-col md:flex-row gap-8 relative peer peer-exists tour--time-entry">
   <% if time_entry.running? %>
     <span class="absolute left-[-7px] flex" style="width:16px; height:16px; top: calc(50% - 6px)">
-      <span class="relative  inline-flex rounded-full text-success" style="left:-2px;top:-2px;font-size:16px">
+      <span class="relative  inline-flex rounded-full bg-base-100 text-success" style="left:-2px;top:-2px;font-size:16px">
         <i class="animate-spin ti ti-clock"></i>
       </span>
       <span style='width:16px;height:16px;left: -2px; top:-2px;' class="animate-ping absolute inline-flex rounded-full bg-success"></span>
