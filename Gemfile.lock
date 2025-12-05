@@ -210,7 +210,7 @@ GEM
     js-routes (2.3.5)
       railties (>= 5)
       sorbet-runtime
-    json (2.16.0)
+    json (2.17.0)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
@@ -262,7 +262,7 @@ GEM
     nokogiri (1.18.10-x86_64-linux-musl)
       racc (~> 1.4)
     package_json (0.1.0)
-    pagy (43.1.6)
+    pagy (43.2.0)
       json
       yaml
     parallel (1.27.0)
@@ -523,7 +523,7 @@ DEPENDENCIES
   image_processing (~> 1.14)
   importmap-rails
   js-routes (~> 2.3)
-  pagy (~> 43.1)
+  pagy (~> 43.2)
   positioning (~> 0.4)
   propshaft
   puma (>= 5.0)
