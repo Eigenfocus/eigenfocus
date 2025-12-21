@@ -68,3 +68,9 @@ en:
     confirm_modal:
       title: "Just to double check..."
       body: "Are you sure you want to do this?"
+
+  header:
+    running_time_entries_component:
+      running_entries:
+        one: "1 running entry"
+        other: "%{count} running entries"

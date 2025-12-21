@@ -1,11 +1,11 @@
-class RunningTimeEntriesButtonComponent < ViewComponent::Base
+class Header::RunningTimeEntriesComponent < ViewComponent::Base
   attr_reader :count
 
   def initialize(count:)
     @count = count
   end
 
-  def render?
+  def show_button?
     count > 0
   end
 end
