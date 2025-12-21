@@ -22,8 +22,4 @@ class User < ApplicationRecord
   def preferences
     super || build_preferences
   end
-
-  def running_time_entries_count
-    time_entries.running.count
-  end
 end

@@ -72,5 +72,5 @@ en:
   header:
     running_time_entries_component:
       running_entries:
-        one: "1 running entry"
-        other: "%{count} running entries"
+        one: "1 timer running"
+        other: "%{count} timers running"

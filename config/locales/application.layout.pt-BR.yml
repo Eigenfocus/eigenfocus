@@ -73,5 +73,5 @@ pt-BR:
   header:
     running_time_entries_component:
       running_entries:
-        one: "1 entrada em execução"
-        other: "%{count} entradas em execução"
+        one: "1 timer rodando"
+        other: "%{count} timers rodando"
