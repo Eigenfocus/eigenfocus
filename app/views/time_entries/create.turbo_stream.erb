@@ -2,7 +2,7 @@
   <%= turbo_stream.prepend "time-entries-tbody", partial: "time_entries/time_entry", locals: { time_entry: @time_entry } %>
   <%= turbo_stream.update 'time_entry_form', "" %>
   <%= turbo_stream_update_daily_time(@time_entry.reference_date, @total_logged_time)%>
-  <%= turbo_stream_update_running_time_entries_button %>
+  <%= turbo_stream.replace "running_time_entries_button", RunningTimeEntriesButtonComponent.new(count: current_user.running_time_entries_count) %>
   <%= new_turbo_stream_alert_message(:notice, t_flash_message(@time_entry)) %>
 <% else %>
   <%= turbo_stream.replace 'time_entry_form', partial: "time_entries/form", locals: { time_entry: @time_entry } %>

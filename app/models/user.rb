@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Relations
   has_many :time_entries
+  has_many :running_time_entries, -> { running }, class_name: "TimeEntry"
   has_one :preferences, class_name: "User::Preferences"
 
   # Validations
@@ -20,5 +21,9 @@ class User < ApplicationRecord
 
   def preferences
     super || build_preferences
+  end
+
+  def running_time_entries_count
+    time_entries.running.count
   end
 end
