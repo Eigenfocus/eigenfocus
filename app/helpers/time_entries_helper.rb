@@ -14,4 +14,8 @@ module TimeEntriesHelper
   def format_datetime_to_momentjs(datetime)
     datetime.strftime("%Y-%m-%dT%H:%M:%S%:z")
   end
+
+  def turbo_stream_update_header_running_time_entries
+    turbo_stream.update "header_running_time_entries", Header::RunningTimeEntriesComponent.new(count: current_user.running_time_entries.count)
+  end
 end
