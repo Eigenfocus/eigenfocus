@@ -44,6 +44,7 @@
   </head>
 
   <body class="antialiased min-h-screen bg-base-200/50">
+    <%= turbo_stream_from "layout_updates" %>
     <%= app_tour_tags %>
 
     <div id="alert-messages">
