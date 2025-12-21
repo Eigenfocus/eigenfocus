@@ -127,3 +127,8 @@ en:
       weekday_name: "%^A"
       flatpickr: "%Y-%m-%d"
       default: "%b/%d/%Y"
+
+  running_time_entries_button_component:
+    running_entries:
+      one: "1 running entry"
+      other: "%{count} running entries"

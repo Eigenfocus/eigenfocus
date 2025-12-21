@@ -337,3 +337,8 @@ pt-BR:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
     pm: ''
+
+  running_time_entries_button_component:
+    running_entries:
+      one: "1 entrada em execução"
+      other: "%{count} entradas em execução"
