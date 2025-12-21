@@ -1,5 +1,6 @@
 <% if @time_entry.destroyed? %>
   <%= turbo_stream.remove @time_entry %>
+  <%= turbo_stream_update_running_time_entries_button %>
   <%= new_turbo_stream_alert_message(:notice, t_flash_message(@time_entry)) %>
   <%= turbo_stream_update_daily_time(@time_entry.reference_date, @total_logged_time)%>
 

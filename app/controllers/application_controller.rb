@@ -8,10 +8,12 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :skip_layout_content_wrapper?, :layout_with_header_width?
   helper_method :t_flash_message
+  helper_method :running_time_entries_count
 
   # Hooks
   before_action :ensure_user_profile_is_complete
   before_action :update_app_metadata_daily_usage
+  before_action :set_running_time_entries_count
   around_action :switch_locale
   around_action :switch_time_zone
 
@@ -80,5 +82,13 @@ class ApplicationController < ActionController::Base
         message: message
       }
     )
+  end
+
+  def set_running_time_entries_count
+    @running_time_entries_count = current_user.time_entries.running.count
+  end
+
+  def running_time_entries_count
+    @running_time_entries_count
   end
 end

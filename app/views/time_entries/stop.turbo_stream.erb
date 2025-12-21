@@ -1,3 +1,4 @@
 <%= turbo_stream.replace @time_entry, partial: "time_entries/time_entry", locals: { time_entry: @time_entry } %>
+<%= turbo_stream_update_running_time_entries_button %>
 <%= new_turbo_stream_alert_message(:notice, t(".success")) %>
 <%= turbo_stream_update_daily_time(@time_entry.reference_date, @total_logged_time)%>
