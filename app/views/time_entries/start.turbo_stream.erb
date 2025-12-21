@@ -1,2 +1,3 @@
 <%= turbo_stream.replace @time_entry, partial: "time_entries/time_entry", locals: { time_entry: @time_entry } %>
+<%= turbo_stream_update_header_running_time_entries %>
 <%= new_turbo_stream_alert_message(:notice, t(".success")) %>

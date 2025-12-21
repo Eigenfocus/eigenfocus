@@ -69,3 +69,9 @@ pt-BR:
     confirm_modal:
       title: "Apenas para verificar..."
       body: "Tem certeza que quer fazer isso?"
+
+  header:
+    running_time_entries_component:
+      running_entries:
+        one: "1 timer rodando"
+        other: "%{count} timers rodando"

@@ -18,6 +18,9 @@
     </div>
     <%= render "layouts/_header/center_menu" %>
     <div class="navbar-end gap-0">
+      <%= turbo_frame_tag "header_running_time_entries" do %>
+        <%= render Header::RunningTimeEntriesComponent.new(count: current_user.running_time_entries.count) %>
+      <% end %>
       <%= react_component("FocusApp", {}, { "data-turbo-permanent": true, id: 'focus-app-wrapper' }) %>
       <div class="divider divider-neutral/40 divider-horizontal mx-0"></div>
       <%= render "layouts/_header/tour" %>

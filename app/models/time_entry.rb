@@ -27,6 +27,8 @@ class TimeEntry < ApplicationRecord
   # Broadcasts
   broadcasts_to ->(time_entry) { "time_entries" }, inserts_by: :prepend, target: "time-entries-tbody"
 
+  after_commit :broadcast_header_update
+
   # Ransack
   def self.ransackable_attributes(auth_object = nil)
     [ "project_id", "reference_date", "by_issue_labels_title" ]
@@ -57,5 +59,16 @@ class TimeEntry < ApplicationRecord
 
   def running?
     started_at.present?
+  end
+
+  private
+
+  def broadcast_header_update
+    broadcast_replace_to(
+      "layout_updates",
+      target: "header_running_time_entries",
+      renderable: Header::RunningTimeEntriesComponent.new(count: user.running_time_entries.count),
+      action: :update
+    )
   end
 end

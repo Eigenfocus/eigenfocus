@@ -45,7 +45,7 @@ context "As a user, I want to manage my time entries" do
     expect(page).to have_content('yt entry')
   end
 
-  specify "I can create one" do
+  specify "I can create one - no auto start" do
     project = Project.create!(name: 'One project')
     issue = project.issues.create(title: "Special issue")
 
@@ -69,6 +69,35 @@ context "As a user, I want to manage my time entries" do
     expect(time_entry.description).to eq("new description")
     expect(time_entry.issue).to eq(issue)
     expect(time_entry.project).to eq(project)
+    expect(time_entry).to_not be_running
+  end
+
+  specify "I can create one - with auto start" do
+    project = Project.create!(name: 'One project')
+    issue = project.issues.create(title: "Special issue")
+
+    Project.create!(name: 'Other project')
+
+    visit time_entries_path
+
+    first(:link, "Add time entry").click
+
+    fill_in :time_entry_description, with: "new description"
+    select_from_select2(label_for: 'time_entry_project_id', option_text: "One project")
+    select_from_select2(selector: '#project_dependent_fields .select2', option_text: "Special issue")
+
+    click_button "Create"
+
+    expect(page).to have_content("Time entry was successfully created.")
+
+    time_entry = TimeEntry.last
+    expect(time_entry.description).to eq("new description")
+    expect(time_entry.issue).to eq(issue)
+    expect(time_entry.project).to eq(project)
+    expect(time_entry).to be_running
+    within "#header_running_time_entries" do
+      expect(page).to have_content("1 timer running")
+    end
   end
 
   specify "I can update a time entry that has an issue" do
@@ -128,7 +157,7 @@ context "As a user, I want to manage my time entries" do
 
   specify "I can remove" do
     keep_entry = FactoryBot.create(:time_entry, user:, description: 'keep entry', reference_date: Date.current)
-    remove_entry = FactoryBot.create(:time_entry, user:, description: 'to remove entry', reference_date: Date.current)
+    remove_entry = FactoryBot.create(:time_entry, user:, description: 'to remove entry', reference_date: Date.current, started_at: 1.hour.ago)
 
     visit time_entries_path
 
@@ -146,6 +175,7 @@ context "As a user, I want to manage my time entries" do
 
     expect(TimeEntry.count).to eq(1)
     expect(TimeEntry.where(id: remove_entry.id).exists?).to eq(false)
+    expect(page).to_not have_selector("#header_running_time_entries")
   end
 
   specify "I can start time log" do
@@ -183,6 +213,51 @@ context "As a user, I want to manage my time entries" do
 
       expect(time_entry.total_logged_time_in_minutes).to eq(70)
       expect(time_entry).to_not be_running
+    end
+  end
+
+  describe "Header running time entries information" do
+    before do
+      @time_entry = FactoryBot.create(:time_entry, user:, description: 'entry', reference_date: Date.current, started_at: 1.hour.ago)
+      @time_entry2 = FactoryBot.create(:time_entry, user:, description: 'entry2', reference_date: 4.days.ago, started_at: 4.days.ago)
+    end
+
+    specify "Counting running time entries" do
+      visit time_entries_path
+
+      within "#header_running_time_entries" do
+        expect(page).to have_content("2 timers running")
+      end
+    end
+
+    specify "Updating count when running time entries changes" do
+      visit time_entries_path
+
+      within "#time_entry_#{@time_entry.id}" do
+        click_link "Stop"
+      end
+
+      within "#header_running_time_entries" do
+        expect(page).to have_content("1 timer running")
+      end
+
+      within "#time_entry_#{@time_entry.id}" do
+        click_link "Start"
+      end
+
+      within "#header_running_time_entries" do
+        expect(page).to have_content("2 timers running")
+      end
+
+      page.accept_alert do
+        within "#time_entry_#{@time_entry.id}" do
+          click_link "Remove"
+        end
+      end
+
+      within "#header_running_time_entries" do
+        expect(page).to have_content("1 timer running")
+      end
     end
   end
 end

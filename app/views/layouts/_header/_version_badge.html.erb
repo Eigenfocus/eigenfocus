@@ -1,4 +1,4 @@
-<div class="dropdown dropdown-hover block ">
+<div class="dropdown dropdown-hover hidden md:block ">
   <button tabindex="0" role="button"
     class="flex items-center text-base-content/80 relative text-xs font-medium whitespace-nowrap">
     <% if AppMetadata.instance.is_app_outdated? %>
@@ -28,7 +28,7 @@
     </li>
   </ul>
 </div>
-<a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=version_badge" class="ml-2 btn btn-xs btn-soft btn-secondary">
+<a href="https://eigenfocus.com?utm_source=free_edition&utm_campaign=upgrade_to_pro&utm_content=version_badge" class="ml-2 btn btn-xs btn-soft btn-secondary hidden md:flex">
   <i class="ti ti-rocket"></i>
   <%= t(".upgrade") %>
 </a>
