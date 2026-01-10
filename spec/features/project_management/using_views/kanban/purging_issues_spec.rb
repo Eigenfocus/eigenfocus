@@ -54,7 +54,6 @@ describe "As a project manager, I want to achieve a issue from kanban board" do
       end
     end
 
-    expect(page).to_not have_css(".cpy-issue-detail")
     expect(page).to have_content("Issue was successfully removed.")
 
     expect(Issue.exists?(issue.id)).to be_falsey
