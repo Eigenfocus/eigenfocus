@@ -37,7 +37,7 @@ gem "positioning", "~> 0.4"
 gem "solid_cable", "~> 3.0"
 
 # Background job processing
-gem "solid_queue", "~> 1.2"
+gem "solid_queue", "~> 1.3"
 
 # Filter and pagination
 gem "ransack", "~> 4.4"
