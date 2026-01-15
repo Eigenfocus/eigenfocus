@@ -26,6 +26,10 @@ default: &default
   # See https://github.com/shakacode/shakapacker#deployment
   shakapacker_precompile: true
 
+  # Keep backwards compatibility with v8 behaviour
+  # https://github.com/shakacode/shakapacker/blob/main/docs/v9_upgrade.md
+  css_modules_export_mode: default
+
   # Location for manifest.json, defaults to {public_output_path}/manifest.json if unset
   # manifest_path: public/packs/manifest.json
 
@@ -37,7 +41,7 @@ default: &default
   cache_manifest: false
 
   # Select loader to use, available options are 'babel' (default), 'swc' or 'esbuild'
-  webpack_loader: 'babel'
+  javascript_transpiler: 'babel'
 
   # Raises an error if there is a mismatch in the shakapacker gem and npm package being used
   ensure_consistent_versioning: true
