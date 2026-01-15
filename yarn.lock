@@ -7283,13 +7283,15 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shakapacker@8.4.0:
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/shakapacker/-/shakapacker-8.4.0.tgz#be37a2adba5a090f581811b8c0c1a00f2e227580"
-  integrity sha512-ZfuxfHxy5tdjv7tCdRZHJKJQLDFwvFXOVBVUj150zgNuRKUlOAyXzOBp9/G5hUhu4MLzuPAif/fuKOdjnZeVtw==
+shakapacker@9.5.0:
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/shakapacker/-/shakapacker-9.5.0.tgz#761aee7f4c01d8a37b13d628968b6730897c967b"
+  integrity sha512-pTGHzHCc74CIoXeg8otCoBa8DjGWZUoYVKu9eyWwpdO9Jq6yHxSD9u5Qp36nXjC9jupd9gnfhCY5YHqkJHpfLA==
   dependencies:
     js-yaml "^4.1.0"
     path-complete-extname "^1.0.0"
+    webpack-merge "^5.8.0"
+    yargs "^17.7.2"
 
 shallow-clone@^3.0.0:
   version "3.0.1"
@@ -7963,7 +7965,7 @@ webpack-dev-server@^5.2.1:
     webpack-dev-middleware "^7.4.2"
     ws "^8.18.0"
 
-webpack-merge@^5.10.0, webpack-merge@^5.7.3:
+webpack-merge@^5.10.0, webpack-merge@^5.7.3, webpack-merge@^5.8.0:
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.10.0.tgz#a3ad5d773241e9c682803abf628d4cd62b8a4177"
   integrity sha512-+4zXKdx7UnO+1jaN4l2lHVD+mFvnlZQP/6ljaJVb4SZiwIKeUnrT5l0gkT8z+n4hKpC+jpOv6O9R+gLtag7pSA==
@@ -8086,7 +8088,7 @@ yargs-parser@^21.1.1:
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.1.1.tgz#9096bceebf990d21bb31fa9516e0ede294a77d35"
   integrity sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==
 
-yargs@^17.3.1:
+yargs@^17.3.1, yargs@^17.7.2:
   version "17.7.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.7.2.tgz#991df39aca675a192b816e1e0363f9d75d2aa269"
   integrity sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==
