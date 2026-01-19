@@ -391,7 +391,7 @@ GEM
       logger
     rubyzip (3.2.2)
     securerandom (0.4.1)
-    selenium-webdriver (4.39.0)
+    selenium-webdriver (4.40.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -526,7 +526,7 @@ DEPENDENCIES
   rspec-rails (~> 8.0)
   rubocop-performance (~> 1.26)
   rubocop-rails-omakase
-  selenium-webdriver (= 4.39.0)
+  selenium-webdriver (= 4.40.0)
   shakapacker (~> 9.5)
   solid_cable (~> 3.0)
   solid_queue (~> 1.3)
