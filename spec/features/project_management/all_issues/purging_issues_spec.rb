@@ -17,7 +17,7 @@ describe "As a project manager, I want to manage issue archive status" do
 
     within '.cpy-issue-detail' do
       accept_confirm do
-        click_link('Archive')
+        find("[data-tip='Archive']").click
       end
     end
 
@@ -42,7 +42,7 @@ describe "As a project manager, I want to manage issue archive status" do
 
     within '.cpy-issue-detail' do
       accept_confirm do
-        click_link('Unarchive')
+        find("[data-tip='Unarchive']").click
       end
     end
 
@@ -77,7 +77,7 @@ describe "As a project manager, I want to remove an issue" do
 
     within '.cpy-issue-detail' do
       accept_confirm do
-        click_link('Remove')
+        find("[data-tip='Remove']").click
       end
     end
 
@@ -99,7 +99,7 @@ describe "As a project manager, I want to remove an issue" do
     end
 
     within '.cpy-issue-detail' do
-      expect(page).not_to have_link('Remove')
+      expect(page).not_to have_css("[data-tip='Remove']")
     end
   end
 end

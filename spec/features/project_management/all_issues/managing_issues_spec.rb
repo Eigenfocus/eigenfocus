@@ -174,7 +174,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
     end
 
     within ".cpy-issue-detail" do
-      click_link "Track time"
+      find("[data-tip='Track time']").click
     end
 
     within '#time_entry_form' do
