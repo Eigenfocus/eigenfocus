@@ -2,9 +2,9 @@
 
   <div class="flex gap-0 text-base-content/80 items-center gap-0">
     <div class="dropdown dropdown-hover">
-      <a href="<%= projects_path %>" class="btn btn-slide btn-sm btn-primary btn-ghost">
+      <a href="<%= projects_path %>" class="btn btn-sm btn-primary btn-ghost">
         <%= icon_for(:projects) %>
-        <span class="sliding-text"><span class="sliding-text-inner"><%= t('menu_items.projects') %></span></span>
+        <%= t('menu_items.projects') %>
       </a>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 border border-base-200 py-3 rounded-box text-sm min-w-52">
         <li><%= link_to t('menu_items.list_all_projects'), projects_path, class: "text-nowrap" %></li>
@@ -39,11 +39,10 @@
         }
       ].each do |menu_item|
     %>
-      <%= link_to menu_item[:url], class: 'btn-slide btn btn-sm btn-primary btn-ghost' do %>
+      <%= link_to menu_item[:url], class: 'btn btn-sm btn-primary btn-ghost' do %>
         <%= menu_item[:icon] %>
-        <span class="sliding-text"><span class="sliding-text-inner"><%= menu_item[:text] %></span></span>
+        <%= menu_item[:text] %>
       <% end %>
-
     <% end %>
   </div>
 </div>
