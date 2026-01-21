@@ -23,7 +23,7 @@ describe "As a project manager, I want to achieve a issue from kanban board" do
 
     within ".cpy-issue-detail" do
       accept_confirm do
-        click_link "Archive"
+        find("[data-tip='Archive']").click
       end
     end
   end
@@ -38,8 +38,8 @@ describe "As a project manager, I want to achieve a issue from kanban board" do
     expect(issue).to be_archived
 
     within ".cpy-issue-detail" do
-      expect(page).not_to have_link("Archive")
-      expect(page).to have_link("Unarchive")
+      expect(page).not_to have_css("[data-tip='Archive']")
+      expect(page).to have_css("[data-tip='Unarchive']")
     end
   end
 
@@ -50,7 +50,7 @@ describe "As a project manager, I want to achieve a issue from kanban board" do
 
     within ".cpy-issue-detail" do
       accept_confirm do
-        click_link "Remove"
+        find("[data-tip='Remove']").click
       end
     end
 

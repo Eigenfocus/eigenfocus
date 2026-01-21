@@ -26,11 +26,10 @@
       <%= render "layouts/_header/tour" %>
       <%= render "layouts/_header/theme_switcher" %>
       <%= render "layouts/_header/notification", notifications: Notification.order(published_at: :desc).limit(10) %>
-      <%= link_to edit_profile_path, class: "btn btn-sm btn-slide btn-primary btn-ghost cpy-profile-button" do %>
+      <%= link_to edit_profile_path, class: "btn btn-sm btn-primary btn-ghost cpy-profile-button tooltip tooltip-bottom", data: {
+        tip: t('menu_items.edit_profile')
+        } do %>
         <i class="ti ti-user"></i>
-        <span class="sliding-text"><span class="sliding-text-inner">
-          <%= t('menu_items.edit_profile') %>
-        </span></span>
       <% end %>
 
     </div>
