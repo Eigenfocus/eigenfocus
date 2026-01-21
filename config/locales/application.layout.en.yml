@@ -1,6 +1,6 @@
 en:
   menu_items:
-    profile: "Edit profile"
+    edit_profile: "Edit profile"
     profile_options: "Profile & Settings"
     timesheet: 'Timesheet'
     total_time_report: 'Time reports'

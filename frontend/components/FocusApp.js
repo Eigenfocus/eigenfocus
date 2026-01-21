@@ -29,7 +29,7 @@ const FocusApp = ({ }) => {
           onHide={() => setIsFocusSpaceShowing(false)} />
       </div>
       <div className={`${isFocusSpaceShowing ? 'space-showing' : ''}`}>
-        <button className={`tour--open-focus-app-button btn-slide cpy-open-space-button btn btn-sm btn-primary btn-ghost`} onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
+        <button className={`tour--open-focus-app-button cpy-open-space-button btn btn-sm btn-primary btn-ghost tooltip tooltip-bottom`} data-tip="Focus space" onClick={() => setIsFocusSpaceShowing(!isFocusSpaceShowing)}>
           {
             !hasSoundPlaying &&
             !showPomodoroIcon &&
@@ -54,7 +54,6 @@ const FocusApp = ({ }) => {
               )}
             </>
           )}
-          <span className="sliding-text"><span className="sliding-text-inner">Focus space</span></span>
         </button>
       </div>
     </>
