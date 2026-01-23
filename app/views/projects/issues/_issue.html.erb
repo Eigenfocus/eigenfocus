@@ -1,15 +1,17 @@
 <tr id="<%= dom_id(issue) %>">
   <td class="show-issue-finish-toggle-on-hover">
     <span class="flex items-center">
+      <% if issue.archived? %>
+        <span class="mr-1 text-warning text-sm">
+          <%= icon_for(:archived) %>
+        </span>
+      <% end %>
+
       <%= render Issue::FinishToggleComponent.new(issue: issue) %>
 
       <%= link_to project_show_issue_path(issue.project, issue),
             data: { turbo_frame: 'issue_detail', turbo_action: 'advance' } do %>
-        <% if issue.archived? %>
-          <span class="mr-1 text-warning text-sm">
-            <%= icon_for(:archived) %>
-          </span>
-        <% end %>
+
         <%= issue.title %>
       <% end %>
     </span>
