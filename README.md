@@ -22,7 +22,7 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Made with care-Rails.svg?style=flat&logo=undertale&labelColor=%235E6AD2&color=%235E6AD2"/>
-  <img src="https://img.shields.io/badge/Current_Release-1.4.1--free-blue.svg?style=flat"/>
+  <img src="https://img.shields.io/badge/Current_Release-1.5.0.rc2--free-blue.svg?style=flat"/>
   <img src="https://img.shields.io/docker/pulls/eigenfocus/eigenfocus.svg"></img>
   <br />
   <br/>
@@ -66,11 +66,11 @@ When your projects grow, Eigenfocus grows with you.
 Our Pay ONCE plans give you features for teams, more complex projects and workflows.
 
 - Multiple users with per-project permission control
-- Views as projections: group issues by label, assignee, status and switch between views instantly
-- Create multiple Views for different workflows like planning, tracking or retros
-- Custom Issue Statuses & Types
 - Grid View with fully customizable columns and rows
-- Columns and Rows matched to fields like status, label, assignee
+- Create multiple Views for different workflows
+- Views as projections: group issues by label, assignee, status and switch between views instantly
+- Custom Issue Statuses & Types
+- Clone projects and use them as templates
 - SSO login with Google, Microsoft, and GitHub
 - Support for custom OIDC providers (Authentik, Okta, and others)
 
@@ -166,7 +166,7 @@ docker run \
     -p 3001:3000 \
     -e DEFAULT_HOST_URL=http://localhost:3001 \
     -d \
-    eigenfocus/eigenfocus:1.4.1-free
+    eigenfocus/eigenfocus:1.5.0.rc2-free
 ```
 
 And access it at http://localhost:3001.
@@ -177,7 +177,7 @@ Or using a `docker-compose.yml` file:
 ```yaml
 services:
   web:
-    image: eigenfocus/eigenfocus:1.4.1-free
+    image: eigenfocus/eigenfocus:1.5.0.rc2-free
     restart: unless-stopped
     volumes:
       - ./app-data:/eigenfocus-app/app-data
