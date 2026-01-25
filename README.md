@@ -66,6 +66,7 @@ When your projects grow, Eigenfocus grows with you.
 Our Pay ONCE plans give you features for teams, more complex projects and workflows.
 
 - Multiple users with per-project permission control
+- My Work list: all your assigned issues in one place.
 - Grid View with fully customizable columns and rows
 - Create multiple Views for different workflows
 - Views as projections: group issues by label, assignee, status and switch between views instantly
@@ -94,7 +95,7 @@ Our Pay ONCE plans give you features for teams, more complex projects and workfl
 <div align="center">
   <br/>
   <p>
-    Views as projections: group issues by label, assignee, status and switch between views instantly.
+    Your tasks live in one place. Views let you slice them however you need.
   </p>
 
   <a href="https://eigenfocus.com/features?utm_source=github-readme">
