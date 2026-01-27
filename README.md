@@ -1,18 +1,18 @@
 <div align="center">
   <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner">
-    <img src="https://eigen-assets.eigenfocus.com/github/eigenfocus-github-banner-2.png" alt="Eigenfocus"/>
+    <img src="https://eigen-assets.eigenfocus.com/github/github-banner-3.png" alt="Eigenfocus"/>
   </a>
-  <br/>
-  <br/>
-  <a href="https://eigenfocus.com?utm-source=github" target="_blank"><strong>Website</strong></a> |
+  <p>
+    Self-hosted Project Management tool - without the clutter.
+    <br/>
+    Powerful enough for complex projects. Simple enough to actually use.
+  </p>
   <a href="#installation"><strong>Docker Installation</strong></a> |
+  <a href="https://eigenfocus.com?utm-source=github" target="_blank"><strong>Website</strong></a> |
   <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header" target="_blank"><strong>PRO - Live demo</strong></a>
 </div>
 <br />
-<div align="center">
 
-</div>
-<br />
 <div align="center">
   <img src="https://github.com/Eigenfocus/eigenfocus/actions/workflows/ci.yml/badge.svg"></img>
   <img src="https://img.shields.io/badge/Ruby-Ruby.svg?style=flat&logo=ruby&labelColor=%23CC342D&color=%23333"/>
@@ -28,29 +28,18 @@
   <br/>
 </div>
 
-<br />
-
-# Eigenfocus
-Eigenfocus is a project management and time tracking tool built for clarity and ownership.
-
-# FREE EDITION
-Eigenfocus FREE gives you everything you need to manage small projects with focus and confidence.
+# Eigenfocus - FREE EDITION
 
 <div align="center">
   <img alt="Eigenfocus" src="https://eigen-assets.eigenfocus.com/github/demo-6.gif" width="85%" style="border-radius: 10px;"/>
 </div>
 <br/>
 
-Here are some of the features included in the FREE edition:
-
-- Create unlimited projects
-- Issues with markdown descriptions and file attachments
-- Table list to browse all issues
-- Kanban board for visual issue management
-- Labels to organize work
-- Comments for adding notes and context
-- Time Tracking on projects and individual issues
-- Time Reports by project and date range
+- Unlimited projects, boards, and issues
+- List and Board views
+- Markdown descriptions and file attachments
+- Labels, comments, and due dates
+- Built-in time tracking with reports
 - Focus Space with timers and ambient sounds
 - Light and Dark themes
 
@@ -60,54 +49,35 @@ If you enjoy Eigenfocus, ⭐️ the repo to follow updates.
 
 <br/>
 
-# Upgrade with Pay ONCE
-When your projects grow, Eigenfocus grows with you.
+# When You Need More
 
-Our Pay ONCE plans give you features for teams, more complex projects and workflows.
+Eigenfocus grows with you. Pay once, no subscriptions.
 
-- Multiple users with per-project permission control
-- My Work list: all your assigned issues in one place.
-- Grid View with fully customizable columns and rows
-- Create multiple Views for different workflows
-- Views as projections: group issues by label, assignee, status and switch between views instantly
-- Custom Issue Statuses & Types
-- Clone projects and use them as templates
-- SSO login with Google, Microsoft, and GitHub
-- Support for custom OIDC providers (Authentik, Okta, and others)
-
-<br/>
-
-------
-
-<br/>
+- Multiple users with permissions
+- Custom statuses and issue types
+- New types of views
+- Project cloning (templates)
+- SSO (Google, Microsoft, GitHub, OIDC)
 
 <div align="center">
-  <a href="https://eigenfocus.com/features?utm_content=pro-section&utm_source=github-readme#pro-features"><strong>PRO Edition - Features</strong></a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
+<a href="https://eigenfocus.com/features?utm_source=github-readme">See all features</a> | <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=readme">PRO Edition - Live demo</a>
 </div>
-
-<br/>
-
-------
-
-
 <div align="center">
   <br/>
   <p>
-    Your tasks live in one place. Views let you slice them however you need.
+    See all your assigned issues in one centralized place.
   </p>
 
-  <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/features-v2/views-as-projections.gif"/>
+  <a href="https://eigenfocus.com/features?utm_source=github-readme#project-management-assigned-issues">
+    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/features-v2/my-work.png"/>
   </a>
 
   <br/>
   <p>
-    Grid View - Use columns and rows to group issues by status, labels, assignees...
+    Grid View - Visualize work using columns and rows. Handle multiple workflows.
   </p>
 
-  <a href="https://eigenfocus.com/features?utm_source=github-readme">
+  <a href="https://eigenfocus.com/features?utm_source=github-readme#project-management-grid-view">
     <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/landing/grid-1.gif"/>
   </a>
 
@@ -115,28 +85,11 @@ Our Pay ONCE plans give you features for teams, more complex projects and workfl
   <p>
     Custom Statuses & Types
   </p>
-  <img width="40%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/issue-types-2.jpg"/>
+  <img width="40%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/issue-types-2.jpg"/>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img width="40%" style="border-radius: 10px;"  src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/views-1.jpg"/>
+  <img width="40%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/views-1.jpg"/>
   <br/>
-
-
 </div>
-
-<br/>
-
-
-------
-
-<br/>
-
-<div align="center">
-  <a href="https://eigenfocus.com/features?utm_source=github-readme"><strong>PRO Edition - Features</strong></a>
-  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header"><strong>Live demo</strong></a>
-</div>
-
-<br/>
 
 ------
 
@@ -145,19 +98,7 @@ Our Pay ONCE plans give you features for teams, more complex projects and workfl
 
 # Installation
 
-> Hey 👋,
->
-> This FREE Edition exists thanks our PRO Edition cloud and self-hosted users
->
-> If you know someone who might benefit from Eigenfocus,
->
-> *spread the word* and help us grow! 💪
->
-> Thanks!
-
-<br/>
-
-You can run our project using our docker image directly with docker or docker compose:
+> If you know someone who might benefit, spread the word.
 
 ## Docker
 ```sh
@@ -211,19 +152,16 @@ You can enable HTTP Basic Auth by setting these two env variables:
 
 ➜ If you're exposing the service to the internet don't forget to setup a certificate and use HTTPS.
 
-# Development Guidelines
-Check the [README.md](docs/README.md) file for instructions on how to setup the project.
-
 # Contact
-Feel free to contact us `hi@eigenfocus.com` or open an issue.
+Feel free to contact us `hi@eigenfocus.com`.
 
 # Other
 ## Contributions
 Thank you for your interest in contributing to Eigenfocus.
 
-You’re welcome to open issues with ideas, suggestions or feedback.
+You’re welcome to email us with ideas, suggestions or feedback.
 
 Since Eigenfocus includes a paid version, we don’t accept external pull requests. We believe this keeps expectations clear and fair.
 
 ## License
-Eigenfocus is free to self host, but not open source. See the [License](LICENSE) for more details.
+Eigenfocus is free to self host and source available under [License](LICENSE).
