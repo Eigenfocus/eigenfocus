@@ -1,7 +1,9 @@
 # 1.5.0-free
-- Replaced sliding text buttons with tooltips
 - Added running time entries information in the menu
+- UI Adjustments: buttons, spacing and minor changes/fixes
+  - Replaced sliding text buttons with icons + tooltips on hover
 - Upgraded Ruby to 4.0.0
+- Updated a lot of gems
 
 # 1.4.1-free
 - Upgraded Ruby to 3.4.7
