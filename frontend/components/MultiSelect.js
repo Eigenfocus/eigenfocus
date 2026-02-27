@@ -77,7 +77,7 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "" }) {
     <div ref={containerRef} className="relative w-full cpy-multi-select">
       <div
         onClick={handleContainerClick}
-        className="flex flex-wrap items-center gap-1 min-h-8 px-2 py-1 border border-base-300 rounded-xs bg-base-100 cursor-pointer w-full"
+        className="flex flex-wrap items-center gap-1 min-h-8 w-full px-2 py-1 border border-base-300 rounded-xs bg-base-100 cursor-pointer"
       >
         {selected.length > 0 ? (
           selected.map((value) => (

@@ -2,16 +2,19 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    const options = Array.from(this.element.options).map(o => ({
-      value: o.value,
-      label: o.text
-    }))
+    const options = Array.from(this.element.options)
+      .filter(o => o.value !== '')
+      .map(o => ({
+        value: o.value,
+        label: o.text
+      }))
 
     const selectedValues = Array.from(this.element.selectedOptions).map(o => o.value)
 
     this.element.style.display = 'none'
 
     this.container = document.createElement('div')
+    this.container.className = 'grow w-full'
     this.container.setAttribute('data-react-class', 'MultiSelect')
     this.container.setAttribute('data-react-props', JSON.stringify({
       options,
