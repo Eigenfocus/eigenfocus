@@ -87,7 +87,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
     expect(page).to have_content("Second issue")
     expect(page).to have_content("Third issue")
 
-    select_from_select2 selector: '.cpy-by-labels-titles .select2', option_text: 'red'
+    select_from_multi_select selector: '.cpy-by-labels-titles', option_text: 'red'
     click_button "Search"
 
     expect(page).to have_content("First issue")
@@ -95,7 +95,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     expect(page).not_to have_content("Second issue")
 
-    select_from_select2 selector: '.cpy-by-labels-titles .select2', option_text: 'green'
+    select_from_multi_select selector: '.cpy-by-labels-titles', option_text: 'green'
     click_button "Search"
 
     expect(page).to have_content("First issue")
