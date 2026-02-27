@@ -103,7 +103,7 @@ describe 'As a project manager, I want to manage my labels' do
     end
 
     within '#issue_label_removal_confirmation' do
-      expect(page).to have_content('This label is associated with 1 Label')
+      expect(page).to have_content('This label is associated with 1 Issue')
 
       click_link("Remove")
     end
