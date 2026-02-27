@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import { t } from 'i18n.js.erb'
 
-function MultiSelect({ options = [], selectedValues = [], placeholder = "" }) {
+function MultiSelect({ options = [], selectedValues = [], placeholder = "", multiple = true }) {
   const [selected, setSelected] = useState(selectedValues)
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
@@ -56,7 +56,13 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "" }) {
   )
 
   const handleSelect = (value) => {
-    const newSelected = [...selected, value]
+    let newSelected
+    if (multiple) {
+      newSelected = [...selected, value]
+    } else {
+      newSelected = [value]
+      setIsOpen(false)
+    }
     setSelected(newSelected)
     dispatchChange(newSelected)
     setSearchTerm('')
@@ -70,7 +76,30 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "" }) {
   }
 
   const handleContainerClick = () => {
-    setIsOpen(true)
+    setIsOpen(!isOpen)
+  }
+
+  const renderSelectedContent = () => {
+    if (selected.length === 0) {
+      return <span className="text-base-content/50 text-sm">{placeholder}</span>
+    }
+
+    if (multiple) {
+      return selected.map((value) => (
+        <span key={value} className="badge badge-sm gap-1 cpy-multi-select-tag">
+          {getLabel(value)}
+          <button
+            type="button"
+            onClick={(e) => handleRemove(value, e)}
+            className="cursor-pointer cpy-multi-select-remove"
+          >
+            <i className="ti ti-x" style={{ fontSize: '0.75rem' }} />
+          </button>
+        </span>
+      ))
+    }
+
+    return <span className="text-sm truncate">{getLabel(selected[0])}</span>
   }
 
   return (
@@ -79,25 +108,7 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "" }) {
         onClick={handleContainerClick}
         className="flex flex-wrap items-center gap-1 min-h-8 w-full px-2 py-1 border border-base-300 rounded-xs bg-base-100 cursor-pointer"
       >
-        {selected.length > 0 ? (
-          selected.map((value) => (
-            <span
-              key={value}
-              className="badge badge-sm gap-1 cpy-multi-select-tag"
-            >
-              {getLabel(value)}
-              <button
-                type="button"
-                onClick={(e) => handleRemove(value, e)}
-                className="cursor-pointer cpy-multi-select-remove"
-              >
-                <i className="ti ti-x" style={{ fontSize: '0.75rem' }} />
-              </button>
-            </span>
-          ))
-        ) : (
-          <span className="text-base-content/50 text-sm">{placeholder}</span>
-        )}
+        {renderSelectedContent()}
         <i className="ti ti-chevron-down ml-auto text-base-content/50" style={{ fontSize: '0.9rem' }} />
       </div>
 
@@ -107,7 +118,7 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "" }) {
             <input
               ref={searchInputRef}
               type="text"
-              placeholder={t("issue.search_labels")}
+              placeholder={t("multi_select.search_placeholder")}
               className="input input-sm w-full cpy-multi-select-search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -141,7 +152,7 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "" }) {
               ))
             ) : (
               <li className="text-base-content/50 text-sm px-3 py-2">
-                {t("issue.no_labels_found")}
+                {t("multi_select.no_results")}
               </li>
             )}
           </ul>

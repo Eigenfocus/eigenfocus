@@ -9,7 +9,10 @@ export default class extends Controller {
         label: o.text
       }))
 
-    const selectedValues = Array.from(this.element.selectedOptions).map(o => o.value)
+    const selectedValues = Array.from(this.element.selectedOptions)
+      .filter(o => o.value !== '')
+      .map(o => o.value)
+    const multiple = this.element.multiple
 
     this.element.style.display = 'none'
 
@@ -19,6 +22,7 @@ export default class extends Controller {
     this.container.setAttribute('data-react-props', JSON.stringify({
       options,
       selectedValues,
+      multiple,
       placeholder: this.element.getAttribute('placeholder') || ''
     }))
 
