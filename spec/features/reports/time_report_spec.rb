@@ -25,19 +25,15 @@ context "As a user, I want to generate time reports" do
 
     click_button "Generate report"
 
-    within 'form' do
-      select "Alpha", from: "q_project_id_in"
-      click_button "Generate report"
-    end
+    select_from_multi_select(selector: '.cpy-projects-select', option_text: "Alpha")
+    click_button "Generate report"
 
     within '#report' do
       expect(page).to have_content("0.42 hours")
     end
 
-    within 'form' do
-      select "Beta", from: "q_project_id_in"
-      click_button "Generate report"
-    end
+    select_from_multi_select(selector: '.cpy-projects-select', option_text: "Beta")
+    click_button "Generate report"
 
     within '#report' do
       expect(page).to have_content("3.92 hours") # alpha + beta

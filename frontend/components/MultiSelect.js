@@ -49,9 +49,11 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "", mult
     return option ? option.label : value
   }
 
-  const unselectedOptions = options.filter(o => !selected.includes(o.value))
+  const availableOptions = multiple
+    ? options.filter(o => !selected.includes(o.value))
+    : options
 
-  const filteredOptions = unselectedOptions.filter(o =>
+  const filteredOptions = availableOptions.filter(o =>
     o.label.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
