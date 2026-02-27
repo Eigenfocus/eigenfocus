@@ -6,7 +6,7 @@
 
   <div class="mt-4">
     <p class="alert alert-warning">
-      <%= t(".associations", count_text: "#{@issue_label.issues.count} #{IssueLabel.model_name.human(count: @issue_label.issues.count)}" ) %>
+      <%= t(".associations", count_text: "#{@issue_label.issues.count} #{Issue.model_name.human(count: @issue_label.issues.count)}" ) %>
     </p>
 
     <p class="text-sm text-base-content mt-2 italic"><%= t(".explanation") %></p>
