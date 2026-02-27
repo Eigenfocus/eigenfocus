@@ -24,7 +24,7 @@ describe 'When entering my workspace for the first time' do
 
     disable_welcome_screen!
 
-    select_from_select2(label_for: 'profile_timezone', option_text: "Tokyo (GMT+09:00)")
+    select_from_multi_select(label_for: 'profile_timezone', option_text: "Tokyo (GMT+09:00)")
 
     within '.edit-profile' do
       select "English", from: "profile_locale"
@@ -54,7 +54,7 @@ describe 'When entering my workspace for the first time' do
 
     expect(page).to have_content("Edit profile")
 
-    select_from_select2(label_for: 'profile_timezone', option_text: "Tokyo (GMT+09:00)")
+    select_from_multi_select(label_for: 'profile_timezone', option_text: "Tokyo (GMT+09:00)")
     within '.edit-profile' do
       click_button 'Update'
     end

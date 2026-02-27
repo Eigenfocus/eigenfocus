@@ -64,7 +64,7 @@ context "As a user, I want to generate time reports" do
     visit total_time_reports_path
 
 
-    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Marketing")
+    select_from_multi_select(selector: '.cpy-tags-select', option_text: "Marketing")
     click_button "Generate report"
 
 
@@ -74,8 +74,8 @@ context "As a user, I want to generate time reports" do
 
     visit total_time_reports_path
 
-    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Marketing")
-    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Development")
+    select_from_multi_select(selector: '.cpy-tags-select', option_text: "Marketing")
+    select_from_multi_select(selector: '.cpy-tags-select', option_text: "Development")
     click_button "Generate report"
 
 
