@@ -6,7 +6,7 @@
         <%
             projects_data = Project.order(name: :asc).pluck(:name, :id)
           %>
-        <%= f.select 'project_id_in', Project.pluck(:name, :id), { multiple: true }, { class: "w-full", data: { controller: 'select2' } } %>
+        <%= f.select 'project_id_in', Project.pluck(:name, :id), { multiple: true }, { class: "w-full", data: { controller: 'multi-select' } } %>
       </fieldset>
 
       <fieldset class="fieldset grow cpy-tags-select">
@@ -17,8 +17,7 @@
             class: 'input',
             multiple: true,
             data: {
-              controller: 'select2',
-              "select2-additional-classes": 'select2'
+              controller: 'multi-select'
             }
           %>
       </fieldset>

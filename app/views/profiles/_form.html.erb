@@ -28,7 +28,7 @@
         <%= f.select :timezone,
           ActiveSupport::TimeZone.all.sort_by(&:utc_offset).map{|e| ["#{e.name} (GMT#{e.now.formatted_offset})", e.name]},
           { include_blank: true },
-          { class: "w-full", required: true,data: { controller: 'select2' } } %>
+          { class: "w-full", required: true, data: { controller: 'multi-select' } } %>
       </div>
       <span class="fieldset-legend text-base-content/70">
         <%= t(".why_is_timezone_needed") %>
