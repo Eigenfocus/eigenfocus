@@ -1,3 +1,9 @@
+# 1.6.0-free
+- Replaced Select2 jQuery library with a custom SearchableSelect component (React + Stimulus)
+  - Supports both single-select and multi-select modes with search/filter dropdown
+  - Overflow tags display a +N badge when exceeding input width
+  - Tabs for switching between available and selected options in multi-select mode
+
 # 1.5.0-free
 - Added running time entries information in the menu
 - UI Adjustments: buttons, spacing and minor changes/fixes
