@@ -1,17 +1,57 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react"
 import { t } from 'i18n.js.erb'
 
-function SearchableSelect({ options = [], selectedValues = [], placeholder = "", multiple = true, size = "md" }) {
+function SearchableSelect({ options = [], selectedValues = [], placeholder = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title" }) {
   const [selected, setSelected] = useState(selectedValues)
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [hiddenCount, setHiddenCount] = useState(0)
   const [activeTab, setActiveTab] = useState('available')
+  const [remoteOptions, setRemoteOptions] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [hasFetched, setHasFetched] = useState(false)
   const containerRef = useRef(null)
   const searchInputRef = useRef(null)
   const tagsContainerRef = useRef(null)
 
   const sizeClass = `input-${size}`
+
+  const fetchOptions = useCallback(() => {
+    if (!url || hasFetched || isLoading) return
+
+    setIsLoading(true)
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content
+
+    fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+        'X-CSRF-Token': csrfToken
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        const mapped = data.map(item => ({
+          value: String(item[valueKey]),
+          label: String(item[labelKey])
+        }))
+        setRemoteOptions(mapped)
+        setHasFetched(true)
+        setIsLoading(false)
+      })
+      .catch(() => {
+        setIsLoading(false)
+      })
+  }, [url, hasFetched, isLoading, valueKey, labelKey])
+
+  // Fetch on mount if there are pre-selected values (to resolve labels)
+  useEffect(() => {
+    if (url && selectedValues.length > 0) {
+      fetchOptions()
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const effectiveOptions = url ? remoteOptions : options
 
   const dispatchChange = (newSelected) => {
     if (containerRef.current) {
@@ -71,8 +111,12 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
     if (isOpen) {
       setSearchTerm('')
       setActiveTab('available')
+      // Fetch on first open if not yet fetched
+      if (url && !hasFetched) {
+        fetchOptions()
+      }
     }
-  }, [isOpen])
+  }, [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useLayoutEffect(() => {
     computeHiddenCount()
@@ -90,13 +134,13 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   }, [computeHiddenCount])
 
   const getLabel = (value) => {
-    const option = options.find(o => o.value === value)
+    const option = effectiveOptions.find(o => o.value === value)
     return option ? option.label : value
   }
 
   const availableOptions = multiple
-    ? options.filter(o => !selected.includes(o.value))
-    : options
+    ? effectiveOptions.filter(o => !selected.includes(o.value))
+    : effectiveOptions
 
   const filteredOptions = availableOptions.filter(o =>
     o.label.toLowerCase().includes(searchTerm.toLowerCase())
@@ -161,6 +205,14 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   }
 
   const renderDropdownContent = () => {
+    if (isLoading) {
+      return (
+        <div className="text-base-content/50 text-sm px-3 py-2">
+          {t("searchable_select.loading")}
+        </div>
+      )
+    }
+
     if (activeTab === 'selected') {
       return (
         <ul className="mt-1 max-h-48 overflow-y-auto">
