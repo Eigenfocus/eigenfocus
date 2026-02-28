@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import { t } from 'i18n.js.erb'
 
-function MultiSelect({ options = [], selectedValues = [], placeholder = "", multiple = true }) {
+function SearchableSelect({ options = [], selectedValues = [], placeholder = "", multiple = true }) {
   const [selected, setSelected] = useState(selectedValues)
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
@@ -11,7 +11,7 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "", mult
   const dispatchChange = (newSelected) => {
     if (containerRef.current) {
       containerRef.current.dispatchEvent(
-        new CustomEvent('multi-select:change', {
+        new CustomEvent('searchable-select:change', {
           bubbles: true,
           detail: { selectedValues: newSelected }
         })
@@ -88,12 +88,12 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "", mult
 
     if (multiple) {
       return selected.map((value) => (
-        <span key={value} className="badge badge-sm gap-1 cpy-multi-select-tag">
+        <span key={value} className="badge badge-sm gap-1 cpy-searchable-select-tag">
           {getLabel(value)}
           <button
             type="button"
             onClick={(e) => handleRemove(value, e)}
-            className="cursor-pointer cpy-multi-select-remove"
+            className="cursor-pointer cpy-searchable-select-remove"
           >
             <i className="ti ti-x" style={{ fontSize: '0.75rem' }} />
           </button>
@@ -105,7 +105,7 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "", mult
   }
 
   return (
-    <div ref={containerRef} className="relative w-full cpy-multi-select">
+    <div ref={containerRef} className="relative w-full cpy-searchable-select">
       <div
         onClick={handleContainerClick}
         className="flex flex-wrap items-center gap-1 min-h-8 w-full px-2 py-1 border border-base-300 rounded-xs bg-base-100 cursor-pointer"
@@ -115,13 +115,13 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "", mult
       </div>
 
       {isOpen && (
-        <div className="absolute z-50 mt-1 w-full bg-base-100 rounded-box shadow-lg border border-base-300/50 p-2 cpy-multi-select-dropdown">
+        <div className="absolute z-50 mt-1 w-full bg-base-100 rounded-box shadow-lg border border-base-300/50 p-2 cpy-searchable-select-dropdown">
           <div className="form-control p-1">
             <input
               ref={searchInputRef}
               type="text"
-              placeholder={t("multi_select.search_placeholder")}
-              className="input input-sm w-full cpy-multi-select-search"
+              placeholder={t("searchable_select.search_placeholder")}
+              className="input input-sm w-full cpy-searchable-select-search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={(e) => {
@@ -146,7 +146,7 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "", mult
                   <button
                     type="button"
                     onClick={() => handleSelect(option.value)}
-                    className="w-full text-left px-3 py-1.5 text-sm hover:bg-base-200 rounded cursor-pointer cpy-multi-select-option"
+                    className="w-full text-left px-3 py-1.5 text-sm hover:bg-base-200 rounded cursor-pointer cpy-searchable-select-option"
                   >
                     {option.label}
                   </button>
@@ -154,7 +154,7 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "", mult
               ))
             ) : (
               <li className="text-base-content/50 text-sm px-3 py-2">
-                {t("multi_select.no_results")}
+                {t("searchable_select.no_results")}
               </li>
             )}
           </ul>
@@ -164,4 +164,4 @@ function MultiSelect({ options = [], selectedValues = [], placeholder = "", mult
   )
 }
 
-export default MultiSelect
+export default SearchableSelect

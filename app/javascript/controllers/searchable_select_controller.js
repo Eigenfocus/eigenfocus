@@ -18,7 +18,7 @@ export default class extends Controller {
 
     this.container = document.createElement('div')
     this.container.className = 'grow w-full'
-    this.container.setAttribute('data-react-class', 'MultiSelect')
+    this.container.setAttribute('data-react-class', 'SearchableSelect')
     this.container.setAttribute('data-react-props', JSON.stringify({
       options,
       selectedValues,
@@ -28,7 +28,7 @@ export default class extends Controller {
 
     this.element.insertAdjacentElement('afterend', this.container)
 
-    this.container.addEventListener('multi-select:change', this.handleChange.bind(this))
+    this.container.addEventListener('searchable-select:change', this.handleChange.bind(this))
   }
 
   handleChange(event) {
@@ -43,7 +43,7 @@ export default class extends Controller {
 
   disconnect() {
     if (this.container) {
-      this.container.removeEventListener('multi-select:change', this.handleChange.bind(this))
+      this.container.removeEventListener('searchable-select:change', this.handleChange.bind(this))
       this.container.remove()
     }
   }

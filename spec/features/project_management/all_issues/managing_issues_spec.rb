@@ -87,7 +87,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
     expect(page).to have_content("Second issue")
     expect(page).to have_content("Third issue")
 
-    select_from_multi_select selector: '.cpy-by-labels-titles', option_text: 'red'
+    select_from_searchable_select selector: '.cpy-by-labels-titles', option_text: 'red'
     click_button "Search"
 
     expect(page).to have_content("First issue")
@@ -95,7 +95,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
 
     expect(page).not_to have_content("Second issue")
 
-    select_from_multi_select selector: '.cpy-by-labels-titles', option_text: 'green'
+    select_from_searchable_select selector: '.cpy-by-labels-titles', option_text: 'green'
     click_button "Search"
 
     expect(page).to have_content("First issue")
@@ -119,7 +119,7 @@ describe 'As a project manager, I want to manage my issues from all issues' do
       write_in_md_editor_field("My description")
     end
 
-    select_from_multi_select(selector: '#new_issue_form', option_text: "Development")
+    select_from_searchable_select(selector: '#new_issue_form', option_text: "Development")
 
 
     click_button 'Create'

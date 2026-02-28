@@ -6,7 +6,7 @@
         <%
             projects_data = Project.order(name: :asc).pluck(:name, :id)
           %>
-        <%= f.select 'project_id_in', Project.pluck(:name, :id), { multiple: true }, { class: "w-full", data: { controller: 'multi-select' } } %>
+        <%= f.select 'project_id_in', Project.pluck(:name, :id), { multiple: true }, { class: "w-full", data: { controller: 'searchable-select' } } %>
       </fieldset>
 
       <fieldset class="fieldset grow cpy-tags-select">
@@ -17,7 +17,7 @@
             class: 'input',
             multiple: true,
             data: {
-              controller: 'multi-select'
+              controller: 'searchable-select'
             }
           %>
       </fieldset>

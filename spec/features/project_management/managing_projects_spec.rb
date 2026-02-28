@@ -139,7 +139,7 @@ context "As a user, I want to manage my projects" do
     end
 
     within '#time_entry_form' do
-      expect(page).to have_css('.cpy-multi-select', text: project_beta.name)
+      expect(page).to have_css('.cpy-searchable-select', text: project_beta.name)
     end
 
     expect(page).to have_current_path(time_entries_path(new_entry: { project_id: project_beta.id }))

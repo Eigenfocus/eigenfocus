@@ -25,14 +25,14 @@ context "As a user, I want to generate time reports" do
 
     click_button "Generate report"
 
-    select_from_multi_select(selector: '.cpy-projects-select', option_text: "Alpha")
+    select_from_searchable_select(selector: '.cpy-projects-select', option_text: "Alpha")
     click_button "Generate report"
 
     within '#report' do
       expect(page).to have_content("0.42 hours")
     end
 
-    select_from_multi_select(selector: '.cpy-projects-select', option_text: "Beta")
+    select_from_searchable_select(selector: '.cpy-projects-select', option_text: "Beta")
     click_button "Generate report"
 
     within '#report' do
@@ -60,7 +60,7 @@ context "As a user, I want to generate time reports" do
     visit total_time_reports_path
 
 
-    select_from_multi_select(selector: '.cpy-tags-select', option_text: "Marketing")
+    select_from_searchable_select(selector: '.cpy-tags-select', option_text: "Marketing")
     click_button "Generate report"
 
 
@@ -70,8 +70,8 @@ context "As a user, I want to generate time reports" do
 
     visit total_time_reports_path
 
-    select_from_multi_select(selector: '.cpy-tags-select', option_text: "Marketing")
-    select_from_multi_select(selector: '.cpy-tags-select', option_text: "Development")
+    select_from_searchable_select(selector: '.cpy-tags-select', option_text: "Marketing")
+    select_from_searchable_select(selector: '.cpy-tags-select', option_text: "Development")
     click_button "Generate report"
 
 

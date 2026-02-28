@@ -30,7 +30,7 @@
         <%= f.select :project_id, options_from_collection_for_select(projects_for_select, :id, :name, time_entry.project_id), { include_blank: t('select_one') }, {required: true, style: "width: 100%",
          autofocus: (time_entry.new_record? && time_entry.project_id.blank?),
         data: {
-          controller: 'multi-select',
+          controller: 'searchable-select',
           dependent_fields_target: "hasDependents",
           dependant_turbo_frame_selector: '#project_dependent_fields'
         } } %>
