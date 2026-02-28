@@ -19,11 +19,14 @@ export default class extends Controller {
     this.container = document.createElement('div')
     this.container.className = 'grow w-full'
     this.container.setAttribute('data-react-class', 'SearchableSelect')
+    const size = this.element.dataset.searchableSelectSize || 'md'
+
     this.container.setAttribute('data-react-props', JSON.stringify({
       options,
       selectedValues,
       multiple,
-      placeholder: this.element.getAttribute('placeholder') || ''
+      placeholder: this.element.getAttribute('placeholder') || '',
+      size
     }))
 
     this.element.insertAdjacentElement('afterend', this.container)

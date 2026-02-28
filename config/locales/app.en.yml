@@ -25,6 +25,8 @@ en:
   searchable_select:
     search_placeholder: "Search..."
     no_results: "No results found"
+    tab_available: "Available"
+    tab_selected: "Selected"
   click_here_to_create_one: "Click here to create one"
   click_here_to_create_one_f: "Click here to create one"
   confirmations:
