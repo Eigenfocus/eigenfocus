@@ -17,12 +17,19 @@
 
     <div class="flex gap-2 lg:grow lg:w-72 items-center cpy-by-labels-titles">
       <%= f.label :by_label_titles, class: "label fieldset-legend text-sm" %>
-      <%= f.select :by_label_titles, current_project.issue_labels.pluck(:title),
+      <%= f.select :by_label_titles,
+                options_for_select(
+                  Array(params.dig(:q, :by_label_titles)).map { |t| [t, t] },
+                  params.dig(:q, :by_label_titles)
+                ),
                 { include_hidden: false },
                 multiple: true,
                 data: {
                   controller: 'searchable-select',
-                  "searchable-select-size": "sm"
+                  "searchable-select-size": "sm",
+                  "searchable-select-url": project_issue_labels_path(current_project, format: :json),
+                  "searchable-select-value-key": "title",
+                  "searchable-select-label-key": "title"
                 }
               %>
     </div>
