@@ -21,12 +21,9 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
 
     setIsLoading(true)
 
-    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content
-
     fetch(url, {
       headers: {
-        'Accept': 'application/json',
-        'X-CSRF-Token': csrfToken
+        'Accept': 'application/json'
       }
     })
       .then(response => response.json())
@@ -49,7 +46,7 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
     if (url && selectedValues.length > 0) {
       fetchOptions()
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [])
 
   const effectiveOptions = url ? remoteOptions : options
 
@@ -116,7 +113,7 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
         fetchOptions()
       }
     }
-  }, [isOpen]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isOpen])
 
   useLayoutEffect(() => {
     computeHiddenCount()
@@ -207,8 +204,8 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   const renderDropdownContent = () => {
     if (isLoading) {
       return (
-        <div className="text-base-content/50 text-sm px-3 py-2">
-          {t("searchable_select.loading")}
+        <div className="flex justify-center p-2">
+          <span className="loading loading-spinner loading-sm" />
         </div>
       )
     }
