@@ -34,7 +34,7 @@ describe 'As a user, I want to see appropriate links in the time entry form' do
       expect(page).not_to have_link("Go to issue", exact: true)
     end
 
-    select_from_select2(selector: '#project_dependent_fields .select2', option_text: issue.title)
+    select_from_searchable_select(selector: '#project_dependent_fields', option_text: issue.title)
 
     within '#time_entry_form' do
       expect(page).not_to have_link("All issues", exact: true)

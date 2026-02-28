@@ -57,8 +57,8 @@ context "As a user, I want to manage my time entries" do
 
     fill_in :time_entry_description, with: "new description"
     fill_in :time_entry_total_logged_time, with: "20"
-    select_from_select2(label_for: 'time_entry_project_id', option_text: "One project")
-    select_from_select2(selector: '#project_dependent_fields .select2', option_text: "Special issue")
+    select_from_searchable_select(label_for: 'time_entry_project_id', option_text: "One project")
+    select_from_searchable_select(selector: '#project_dependent_fields', option_text: "Special issue")
 
     click_button "Create"
 
@@ -83,8 +83,8 @@ context "As a user, I want to manage my time entries" do
     first(:link, "Add time entry").click
 
     fill_in :time_entry_description, with: "new description"
-    select_from_select2(label_for: 'time_entry_project_id', option_text: "One project")
-    select_from_select2(selector: '#project_dependent_fields .select2', option_text: "Special issue")
+    select_from_searchable_select(label_for: 'time_entry_project_id', option_text: "One project")
+    select_from_searchable_select(selector: '#project_dependent_fields', option_text: "Special issue")
 
     click_button "Create"
 
@@ -114,8 +114,8 @@ context "As a user, I want to manage my time entries" do
 
     fill_in :time_entry_description, with: "Edited description"
     fill_in :time_entry_total_logged_time, with: "45"
-    select_from_select2(label_for: 'time_entry_project_id', option_text: "New project")
-    select_from_select2(selector: '#project_dependent_fields .select2', option_text: "New issue")
+    select_from_searchable_select(label_for: 'time_entry_project_id', option_text: "New project")
+    select_from_searchable_select(selector: '#project_dependent_fields', option_text: "New issue")
 
     click_button "Update"
 
@@ -141,8 +141,8 @@ context "As a user, I want to manage my time entries" do
 
     fill_in :time_entry_description, with: "Edited description"
     fill_in :time_entry_total_logged_time, with: "45"
-    select_from_select2(label_for: 'time_entry_project_id', option_text: "New project")
-    select_from_select2(selector: '#project_dependent_fields .select2', option_text: "New issue")
+    select_from_searchable_select(label_for: 'time_entry_project_id', option_text: "New project")
+    select_from_searchable_select(selector: '#project_dependent_fields', option_text: "New issue")
 
     click_button "Update"
 

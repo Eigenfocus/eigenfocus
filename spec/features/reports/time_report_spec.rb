@@ -25,19 +25,15 @@ context "As a user, I want to generate time reports" do
 
     click_button "Generate report"
 
-    within 'form' do
-      select "Alpha", from: "q_project_id_in"
-      click_button "Generate report"
-    end
+    select_from_searchable_select(selector: '.cpy-projects-select', option_text: "Alpha")
+    click_button "Generate report"
 
     within '#report' do
       expect(page).to have_content("0.42 hours")
     end
 
-    within 'form' do
-      select "Beta", from: "q_project_id_in"
-      click_button "Generate report"
-    end
+    select_from_searchable_select(selector: '.cpy-projects-select', option_text: "Beta")
+    click_button "Generate report"
 
     within '#report' do
       expect(page).to have_content("3.92 hours") # alpha + beta
@@ -64,7 +60,7 @@ context "As a user, I want to generate time reports" do
     visit total_time_reports_path
 
 
-    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Marketing")
+    select_from_searchable_select(selector: '.cpy-tags-select', option_text: "Marketing")
     click_button "Generate report"
 
 
@@ -74,8 +70,8 @@ context "As a user, I want to generate time reports" do
 
     visit total_time_reports_path
 
-    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Marketing")
-    select_from_select2(selector: '.cpy-tags-select .select2', option_text: "Development")
+    select_from_searchable_select(selector: '.cpy-tags-select', option_text: "Marketing")
+    select_from_searchable_select(selector: '.cpy-tags-select', option_text: "Development")
     click_button "Generate report"
 
 
