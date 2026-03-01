@@ -273,6 +273,9 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
 
       {isOpen && (
         <div className="absolute z-50 mt-1 w-full bg-base-100 rounded-box shadow-lg border border-base-300/50 p-2 cpy-searchable-select-dropdown">
+          <button onClick={() => setIsOpen(false) } className="cursor-pointer absolute right-4 top-4">
+            <i className="ti ti-x"></i>
+          </button>
           {multiple && selected.length > 0 && (
             <div className="tabs tabs-border text-sm mb-2">
               <button
