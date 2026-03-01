@@ -28,7 +28,7 @@ describe "Issues - Mark as finished" do
     end
   end
 
-  context 'When issue is not finished yet' do
+  context 'When issue is finished' do
     let!(:issue) { create(:issue, :finished, project:) }
 
     specify "I can mark issue as unfinished directly on board view" do
@@ -40,6 +40,7 @@ describe "Issues - Mark as finished" do
         find(".cpy-finish-check-toggle").click
       end
 
+      wait_for_turbo_frame_response
       expect(page).to_not have_css(".cpy-finish-check-toggle.finished")
       expect(issue.reload).to_not be_finished
     end
