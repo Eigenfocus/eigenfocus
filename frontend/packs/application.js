@@ -14,6 +14,8 @@ ReactRailsUJS.useContext(componentRequireContext);
 //
 // See more: https://github.com/reactjs/react-rails/issues/1113
 document.addEventListener("DOMContentLoaded", () => {
+  const roots = new WeakMap()
+
   const findComponents = (childNodes, testFn, nodes = []) => {
     for (let child of childNodes) {
       if (child.childNodes.length > 0) {
@@ -35,12 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const propsJson = child.getAttribute(ReactRailsUJS.PROPS_ATTR)
         const props = propsJson && JSON.parse(propsJson)
 
-        // Improvement:
-        // Was this component already rendered? Just hydrate it with the props coming in.
-        // This is currently acceptable since all our components are expected to be reset
-        // on page navigation.
         const component = React.createElement(constructor, props)
-        createRoot(child).render(component)
+        let root = roots.get(child)
+        if (!root) {
+          root = createRoot(child)
+          roots.set(child, root)
+        }
+        root.render(component)
       }
     }
   }
