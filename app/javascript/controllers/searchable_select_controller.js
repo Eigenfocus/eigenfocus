@@ -6,16 +6,12 @@ export default class extends Controller {
     const valueKey = this.element.dataset.searchableSelectValueKey || 'id'
     const labelKey = this.element.dataset.searchableSelectLabelKey || 'title'
 
-    const selectedValues = Array.from(this.element.selectedOptions)
-      .filter(o => o.value !== '')
-      .map(o => o.value)
+    const selectedValues = Array.from(this.element.selectedOptions).map(o => o.value)
     const multiple = this.element.multiple
 
     let options = []
     if (!url) {
-      options = Array.from(this.element.options)
-        .filter(o => o.value !== '')
-        .map(o => ({
+      options = Array.from(this.element.options).map(o => ({
           value: o.value,
           label: o.text
         }))
@@ -28,10 +24,14 @@ export default class extends Controller {
     this.container.setAttribute('data-react-class', 'SearchableSelect')
     const size = this.element.dataset.searchableSelectSize || 'md'
 
+    const blankOption = Array.from(this.element.options).find(o => o.value === '')
+    const includeBlank = blankOption ? blankOption.text : ''
+
     const props = {
       options,
       selectedValues,
       multiple,
+      includeBlank,
       placeholder: this.element.getAttribute('placeholder') || '',
       size
     }
