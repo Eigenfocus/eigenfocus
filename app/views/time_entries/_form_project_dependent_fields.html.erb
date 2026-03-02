@@ -44,9 +44,8 @@
           end
         %>
         <%= select_tag "time_entry[issue_id]",
-            options_from_collection_for_select(issues_for_select, :id, :title, time_entry.issue_id),
+            content_tag(:option, t('none_selected_f'), value: '') + options_from_collection_for_select(issues_for_select, :id, :title, time_entry.issue_id),
             {
-              include_blank: t('none_selected_f'),
               style: "width: 100%",
               data: {
                 controller: "searchable-select",

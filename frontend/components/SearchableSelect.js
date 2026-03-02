@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react"
 import { t } from 'i18n.js.erb'
 
-function SearchableSelect({ options = [], selectedValues = [], placeholder = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title" }) {
+function SearchableSelect({ options = [], selectedValues = [], placeholder = "", includeBlank = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title" }) {
   const [selected, setSelected] = useState(selectedValues)
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
@@ -196,6 +196,10 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
           ))}
         </div>
       )
+    }
+
+    if (selected[0] === '' && includeBlank) {
+      return <span className="text-base-content/50 text-sm">{includeBlank}</span>
     }
 
     return <span className="text-sm truncate">{getLabel(selected[0])}</span>
