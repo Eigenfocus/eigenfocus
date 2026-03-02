@@ -27,7 +27,8 @@
             projects_for_select.push(time_entry.project)
           end
         %>
-        <%= f.select :project_id, options_from_collection_for_select(projects_for_select, :id, :name, time_entry.project_id), { include_blank: t('select_one') }, {required: true, style: "width: 100%",
+        <%= f.select :project_id, options_from_collection_for_select(projects_for_select, :id, :name, time_entry.project_id), {}, {required: true, style: "width: 100%",
+         placeholder: t('select_one'),
          autofocus: (time_entry.new_record? && time_entry.project_id.blank?),
         data: {
           controller: 'searchable-select',
