@@ -46,6 +46,13 @@ export default class extends Controller {
 
     this.element.insertAdjacentElement('afterend', this.container)
 
+    if (this.element.hasAttribute('autofocus')) {
+      setTimeout(() => {
+        const trigger = this.container.querySelector('[role="combobox"]')
+        if (trigger) trigger.focus()
+      }, 0)
+    }
+
     this._handleChange = this.handleChange.bind(this)
     this.container.addEventListener('searchable-select:change', this._handleChange)
 
