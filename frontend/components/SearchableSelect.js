@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react"
+import { createPortal } from "react-dom"
 import { t } from 'i18n.js.erb'
 
 function SearchableSelect({ options = [], selectedValues = [], placeholder = "", includeBlank = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title" }) {
@@ -16,6 +17,8 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   const searchInputRef = useRef(null)
   const tagsContainerRef = useRef(null)
   const wasOpenRef = useRef(false)
+  const dropdownRef = useRef(null)
+  const [dropdownStyle, setDropdownStyle] = useState({})
 
   const sizeClass = `input-${size}`
 
@@ -90,7 +93,10 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
+      if (
+        containerRef.current && !containerRef.current.contains(event.target) &&
+        dropdownRef.current && !dropdownRef.current.contains(event.target)
+      ) {
         setIsOpen(false)
       }
     }
@@ -120,6 +126,40 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
       if (url && !hasFetched) {
         fetchOptions()
       }
+    }
+  }, [isOpen])
+
+  useLayoutEffect(() => {
+    if (isOpen && containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect()
+      setDropdownStyle({
+        position: 'fixed',
+        top: rect.bottom + 4,
+        left: rect.left,
+        width: rect.width,
+        zIndex: 9999,
+      })
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    let listening = false
+    const frameId = requestAnimationFrame(() => {
+      listening = true
+      document.addEventListener('scroll', handleScroll, true)
+    })
+
+    const handleScroll = (e) => {
+      // Ignore scroll events from within the dropdown itself
+      if (dropdownRef.current && dropdownRef.current.contains(e.target)) return
+      setIsOpen(false)
+    }
+
+    return () => {
+      cancelAnimationFrame(frameId)
+      if (listening) document.removeEventListener('scroll', handleScroll, true)
     }
   }, [isOpen])
 
@@ -281,7 +321,7 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   }
 
   return (
-    <div ref={containerRef} className="relative w-full cpy-searchable-select">
+    <div ref={containerRef} className="w-full cpy-searchable-select">
       <div
         ref={triggerRef}
         tabIndex={0}
@@ -307,8 +347,12 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
         <i className="ti ti-chevron-down shrink-0 text-base-content/50" style={{ fontSize: '0.9rem' }} />
       </div>
 
-      {isOpen && (
-        <div className="absolute z-50 mt-1 w-full bg-base-100 rounded-box shadow-lg border border-base-300/50 p-2 cpy-searchable-select-dropdown">
+      {isOpen && createPortal(
+        <div
+          ref={dropdownRef}
+          className="bg-base-100 rounded-box shadow-lg border border-base-300/50 p-2 cpy-searchable-select-dropdown"
+          style={dropdownStyle}
+        >
           <button onClick={() => setIsOpen(false) } className="cursor-pointer absolute right-4 top-4">
             <i className="ti ti-x"></i>
           </button>
@@ -364,7 +408,8 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
             />
           </div>
           {renderDropdownContent()}
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   )
