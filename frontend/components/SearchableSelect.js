@@ -129,39 +129,33 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
     }
   }, [isOpen])
 
+  const updateDropdownPosition = useCallback(() => {
+    if (!containerRef.current) return
+    const rect = containerRef.current.getBoundingClientRect()
+    setDropdownStyle({
+      position: 'fixed',
+      top: rect.bottom + 4,
+      left: rect.left,
+      width: rect.width,
+      zIndex: 9999,
+    })
+  }, [])
+
   useLayoutEffect(() => {
-    if (isOpen && containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      setDropdownStyle({
-        position: 'fixed',
-        top: rect.bottom + 4,
-        left: rect.left,
-        width: rect.width,
-        zIndex: 9999,
-      })
-    }
-  }, [isOpen])
+    if (isOpen) updateDropdownPosition()
+  }, [isOpen, updateDropdownPosition])
 
   useEffect(() => {
     if (!isOpen) return
 
-    let listening = false
-    const frameId = requestAnimationFrame(() => {
-      listening = true
-      document.addEventListener('scroll', handleScroll, true)
-    })
-
     const handleScroll = (e) => {
       // Ignore scroll events from within the dropdown itself
       if (dropdownRef.current && dropdownRef.current.contains(e.target)) return
-      setIsOpen(false)
+      updateDropdownPosition()
     }
-
-    return () => {
-      cancelAnimationFrame(frameId)
-      if (listening) document.removeEventListener('scroll', handleScroll, true)
-    }
-  }, [isOpen])
+    document.addEventListener('scroll', handleScroll, true)
+    return () => document.removeEventListener('scroll', handleScroll, true)
+  }, [isOpen, updateDropdownPosition])
 
   useEffect(() => {
     setHighlightedIndex(0)
