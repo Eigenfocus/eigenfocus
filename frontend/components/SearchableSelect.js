@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react"
+import { createPortal } from "react-dom"
 import { t } from 'i18n.js.erb'
 
 function SearchableSelect({ options = [], selectedValues = [], placeholder = "", includeBlank = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title" }) {
@@ -7,12 +8,17 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   const [searchTerm, setSearchTerm] = useState('')
   const [hiddenCount, setHiddenCount] = useState(0)
   const [activeTab, setActiveTab] = useState('available')
+  const [highlightedIndex, setHighlightedIndex] = useState(0)
   const [remoteOptions, setRemoteOptions] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [hasFetched, setHasFetched] = useState(false)
   const containerRef = useRef(null)
+  const triggerRef = useRef(null)
   const searchInputRef = useRef(null)
   const tagsContainerRef = useRef(null)
+  const wasOpenRef = useRef(false)
+  const dropdownRef = useRef(null)
+  const [dropdownStyle, setDropdownStyle] = useState({})
 
   const sizeClass = `input-${size}`
 
@@ -87,7 +93,10 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (containerRef.current && !containerRef.current.contains(event.target)) {
+      if (
+        containerRef.current && !containerRef.current.contains(event.target) &&
+        dropdownRef.current && !dropdownRef.current.contains(event.target)
+      ) {
         setIsOpen(false)
       }
     }
@@ -105,15 +114,52 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
     if (isOpen && searchInputRef.current) {
       searchInputRef.current.focus()
     }
+    if (!isOpen && wasOpenRef.current && triggerRef.current) {
+      triggerRef.current.focus()
+    }
+    wasOpenRef.current = isOpen
     if (isOpen) {
       setSearchTerm('')
       setActiveTab('available')
+      setHighlightedIndex(0)
       // Fetch on first open if not yet fetched
       if (url && !hasFetched) {
         fetchOptions()
       }
     }
   }, [isOpen])
+
+  const updateDropdownPosition = useCallback(() => {
+    if (!containerRef.current) return
+    const rect = containerRef.current.getBoundingClientRect()
+    setDropdownStyle({
+      position: 'fixed',
+      top: rect.bottom + 4,
+      left: rect.left,
+      width: rect.width,
+      zIndex: 9999,
+    })
+  }, [])
+
+  useLayoutEffect(() => {
+    if (isOpen) updateDropdownPosition()
+  }, [isOpen, updateDropdownPosition])
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleScroll = (e) => {
+      // Ignore scroll events from within the dropdown itself
+      if (dropdownRef.current && dropdownRef.current.contains(e.target)) return
+      updateDropdownPosition()
+    }
+    document.addEventListener('scroll', handleScroll, true)
+    return () => document.removeEventListener('scroll', handleScroll, true)
+  }, [isOpen, updateDropdownPosition])
+
+  useEffect(() => {
+    setHighlightedIndex(0)
+  }, [searchTerm])
 
   useLayoutEffect(() => {
     computeHiddenCount()
@@ -242,12 +288,18 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
     return (
       <ul className="mt-1 max-h-48 overflow-y-auto">
         {filteredOptions.length > 0 ? (
-          filteredOptions.map((option) => (
-            <li key={option.value}>
+          filteredOptions.map((option, index) => (
+            <li key={option.value}
+              ref={(el) => {
+                if (index === highlightedIndex && el) {
+                  el.scrollIntoView({ block: 'nearest' })
+                }
+              }}
+            >
               <button
                 type="button"
                 onClick={() => handleSelect(option.value)}
-                className="w-full text-left px-3 py-1.5 text-sm hover:bg-base-200 rounded cursor-pointer cpy-searchable-select-option"
+                className={`w-full text-left px-3 py-1.5 text-sm hover:bg-base-200 rounded cursor-pointer cpy-searchable-select-option ${index === highlightedIndex ? 'bg-base-200' : ''}`}
               >
                 {option.label}
               </button>
@@ -263,9 +315,23 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   }
 
   return (
-    <div ref={containerRef} className="relative w-full cpy-searchable-select">
+    <div ref={containerRef} className="w-full cpy-searchable-select">
       <div
+        ref={triggerRef}
+        tabIndex={0}
+        role="combobox"
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
         onClick={handleContainerClick}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            setIsOpen(!isOpen)
+          } else if (e.key === 'ArrowDown') {
+            e.preventDefault()
+            if (!isOpen) setIsOpen(true)
+          }
+        }}
         className={`input ${sizeClass} w-full cursor-pointer grid grid-cols-[1fr_auto] gap-1 items-center relative`}
       >
         {renderSelectedContent()}
@@ -275,8 +341,12 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
         <i className="ti ti-chevron-down shrink-0 text-base-content/50" style={{ fontSize: '0.9rem' }} />
       </div>
 
-      {isOpen && (
-        <div className="absolute z-50 mt-1 w-full bg-base-100 rounded-box shadow-lg border border-base-300/50 p-2 cpy-searchable-select-dropdown">
+      {isOpen && createPortal(
+        <div
+          ref={dropdownRef}
+          className="bg-base-100 rounded-box shadow-lg border border-base-300/50 p-2 cpy-searchable-select-dropdown"
+          style={dropdownStyle}
+        >
           <button onClick={() => setIsOpen(false) } className="cursor-pointer absolute right-4 top-4">
             <i className="ti ti-x"></i>
           </button>
@@ -311,18 +381,29 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
                   e.stopPropagation()
                   e.preventDefault()
                   setIsOpen(false)
+                } else if (e.key === 'ArrowDown') {
+                  e.preventDefault()
+                  setHighlightedIndex(prev =>
+                    prev < filteredOptions.length - 1 ? prev + 1 : prev
+                  )
+                } else if (e.key === 'ArrowUp') {
+                  e.preventDefault()
+                  setHighlightedIndex(prev => (prev > 0 ? prev - 1 : prev))
                 } else if (e.key === 'Enter') {
                   e.stopPropagation()
                   e.preventDefault()
-                  if (activeTab === 'available' && filteredOptions.length > 0) {
-                    handleSelect(filteredOptions[0].value)
+                  if (activeTab === 'available' && filteredOptions.length > 0 && highlightedIndex >= 0 && highlightedIndex < filteredOptions.length) {
+                    handleSelect(filteredOptions[highlightedIndex].value)
                   }
+                } else if (e.key === 'Tab') {
+                  setIsOpen(false)
                 }
               }}
             />
           </div>
           {renderDropdownContent()}
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   )
