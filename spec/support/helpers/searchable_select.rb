@@ -7,8 +7,10 @@ module SearchableSelectRspecHelper
       label.ancestor('fieldset, .fieldset', match: :first)
     end
 
-    # Click the trigger to open the dropdown
-    within(scope) { find('.cpy-searchable-select').click }
+    # Click the trigger to open the dropdown (skip if already open)
+    unless page.document.has_css?('.cpy-searchable-select-dropdown', wait: 0.2)
+      within(scope) { find('.cpy-searchable-select').click }
+    end
 
     # Dropdown is portaled to document.body, so find from page root (escape any `within` scope)
     root = page.document
