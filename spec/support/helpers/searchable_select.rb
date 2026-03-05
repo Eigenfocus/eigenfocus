@@ -4,21 +4,24 @@ module SearchableSelectRspecHelper
       selector
     else
       label = find("label[for=#{label_for}]", match: :first)
-      label.ancestor('fieldset', match: :first)
+      label.ancestor('fieldset, .fieldset', match: :first)
     end
 
     # Click the trigger to open the dropdown
     within(scope) { find('.cpy-searchable-select').click }
 
-    # Dropdown is portaled to document.body, so find from page root
-    expect(page).to have_css('.cpy-searchable-select-dropdown')
-    dropdown = page.find('.cpy-searchable-select-dropdown')
+    # Dropdown is portaled to document.body, so find from page root (escape any `within` scope)
+    root = page.document
+    expect(root).to have_css('.cpy-searchable-select-dropdown')
+    dropdown = root.find('.cpy-searchable-select-dropdown')
     dropdown.find('.cpy-searchable-select-option', text: option_text).click
 
-    # Close the dropdown by clicking outside if it's still open (multi-select stays open)
-    if page.has_css?('.cpy-searchable-select-dropdown', wait: 0.2)
-      page.find('body').click
-      expect(page).to have_no_css('.cpy-searchable-select-dropdown')
+    # Close the dropdown if it's still open (multi-select stays open after selection)
+    # Dispatch a synthetic mousedown event on body so the click-outside handler closes the dropdown
+    # without physically clicking the drawer overlay (which would close the sidebar)
+    if root.has_css?('.cpy-searchable-select-dropdown', wait: 0.2)
+      page.execute_script("document.body.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }))")
+      expect(root).to have_no_css('.cpy-searchable-select-dropdown')
     end
   end
 end
