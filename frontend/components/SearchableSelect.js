@@ -19,6 +19,7 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   const wasOpenRef = useRef(false)
   const dropdownRef = useRef(null)
   const [dropdownStyle, setDropdownStyle] = useState({})
+  const skipFocusOpenRef = useRef(false)
 
   const sizeClass = `input-${size}`
 
@@ -115,6 +116,7 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
       searchInputRef.current.focus()
     }
     if (!isOpen && wasOpenRef.current && triggerRef.current) {
+      skipFocusOpenRef.current = true
       triggerRef.current.focus()
     }
     wasOpenRef.current = isOpen
@@ -323,6 +325,14 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
         aria-expanded={isOpen}
         aria-haspopup="listbox"
         onClick={handleContainerClick}
+        onFocus={(e) => {
+          if (skipFocusOpenRef.current) {
+            skipFocusOpenRef.current = false
+            return
+          }
+          if (!e.currentTarget.matches(':focus-visible')) return
+          setIsOpen(true)
+        }}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault()
