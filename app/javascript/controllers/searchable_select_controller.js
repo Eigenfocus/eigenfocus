@@ -33,7 +33,8 @@ export default class extends Controller {
       multiple,
       includeBlank,
       placeholder: this.element.getAttribute('placeholder') || '',
-      size
+      size,
+      autoOpen: this.element.hasAttribute('autofocus')
     }
 
     if (url) {
@@ -45,13 +46,6 @@ export default class extends Controller {
     this.container.setAttribute('data-react-props', JSON.stringify(props))
 
     this.element.insertAdjacentElement('afterend', this.container)
-
-    if (this.element.hasAttribute('autofocus')) {
-      setTimeout(() => {
-        const trigger = this.container.querySelector('[role="combobox"]')
-        if (trigger) trigger.focus()
-      }, 0)
-    }
 
     this._handleChange = this.handleChange.bind(this)
     this.container.addEventListener('searchable-select:change', this._handleChange)

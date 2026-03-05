@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from
 import { createPortal } from "react-dom"
 import { t } from 'i18n.js.erb'
 
-function SearchableSelect({ options = [], selectedValues = [], placeholder = "", includeBlank = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title" }) {
+function SearchableSelect({ options = [], selectedValues = [], placeholder = "", includeBlank = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title", autoOpen = false }) {
   const [selected, setSelected] = useState(selectedValues)
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(autoOpen)
   const [searchTerm, setSearchTerm] = useState('')
   const [hiddenCount, setHiddenCount] = useState(0)
   const [activeTab, setActiveTab] = useState('available')
