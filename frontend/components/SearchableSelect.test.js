@@ -31,9 +31,10 @@ beforeEach(() => {
 })
 
 const groupedOptions = [
-  { value: 'a', label: 'Alpha', group: 'Team A' },
   { value: 'b', label: 'Beta', group: 'Team B' },
+  { value: 'a', label: 'Alpha', group: 'Team A' },
   { value: 'c', label: 'Gamma', group: null },
+  { value: 'z', label: 'Zeta', group: 'A Team' },
   { value: 'd', label: 'Delta', group: 'Team A' },
   { value: 'e', label: 'Epsilon', group: '' }
 ]
@@ -50,11 +51,12 @@ it('renders grouped headers in source order and keeps ungrouped items last', () 
     document.querySelectorAll('.cpy-searchable-select-dropdown li')
   )
     .map((node) => node.textContent)
-    .filter((text) => ['Team A', 'Team B', 'No group'].includes(text))
+    .filter((text) => ['A Team', 'Team A', 'Team B', 'No group'].includes(text))
 
-  expect(sectionHeaders).toEqual(['Team A', 'Team B', 'No group'])
+  expect(sectionHeaders).toEqual(['A Team', 'Team A', 'Team B', 'No group'])
   expect(screen.getByText('Gamma')).toBeTruthy()
   expect(screen.getByText('Epsilon')).toBeTruthy()
+  expect(screen.getByText('Zeta')).toBeTruthy()
 })
 
 it('filters options and hides empty sections', () => {

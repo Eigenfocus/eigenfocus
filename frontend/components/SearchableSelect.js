@@ -200,6 +200,7 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
 
   const groupedFilteredOptions = (() => {
     const hasGroupedOptions = filteredOptions.some(option => option.group)
+    const noGroupTitle = t("searchable_select.no_group")
 
     if (!hasGroupedOptions) {
       return [{
@@ -229,12 +230,17 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
 
     if (ungroupedOptions.length > 0) {
       sections.push({
-        title: t("searchable_select.no_group"),
+        title: noGroupTitle,
         options: ungroupedOptions
       })
     }
 
-    return sections
+    return sections.sort((left, right) => {
+      if (left.title === noGroupTitle) return 1
+      if (right.title === noGroupTitle) return -1
+
+      return left.title.localeCompare(right.title)
+    })
   })()
 
   const filteredSelected = selected.filter(value =>
