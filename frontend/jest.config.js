@@ -1,3 +1,4 @@
 module.exports = {
-  setupFilesAfterEnv : ["./jest/react.js"]
-};
+  rootDir: '..',
+  setupFilesAfterEnv : ["<rootDir>/frontend/jest/react.js"]
+}
