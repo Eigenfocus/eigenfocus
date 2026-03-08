@@ -12,7 +12,7 @@ export default class extends Controller {
 
     let options = []
     if (!url) {
-      options = this.buildLocalOptions()
+      options = this.#buildLocalOptions()
     }
 
     this.element.style.display = 'none'
@@ -52,7 +52,7 @@ export default class extends Controller {
     this._isAjax = !!url
   }
 
-  buildLocalOptions() {
+  #buildLocalOptions() {
     return Array.from(this.element.children).flatMap((child) => {
       if (child.tagName === 'OPTGROUP') {
         const group = child.label || null

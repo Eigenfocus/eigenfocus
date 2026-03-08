@@ -193,6 +193,15 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
   )
 
   const groupedFilteredOptions = (() => {
+    const hasGroupedOptions = filteredOptions.some(option => option.group)
+
+    if (!hasGroupedOptions) {
+      return [{
+        title: null,
+        options: filteredOptions
+      }]
+    }
+
     const sections = []
     const groupedSections = new Map()
     const ungroupedOptions = []
@@ -214,7 +223,7 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
 
     if (ungroupedOptions.length > 0) {
       sections.push({
-        title: t("searchable_select.ungrouped"),
+        title: t("searchable_select.no_group"),
         options: ungroupedOptions
       })
     }
@@ -325,12 +334,14 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
         {filteredOptions.length > 0 ? (
           <ul>
             {groupedFilteredOptions.flatMap((section) => ([
-              <li
-                key={`header-${section.title}`}
-                className="sticky top-0 z-10 bg-base-100/95 px-3 py-1 text-xs font-medium tracking-wide text-base-content/60 backdrop-blur supports-[backdrop-filter]:bg-base-100/75"
-              >
-                {section.title}
-              </li>,
+              ...(section.title ? [(
+                <li
+                  key={`header-${section.title}`}
+                  className="sticky top-0 z-10 bg-base-100/95 px-3 py-1 text-xs font-medium tracking-wide text-base-content/60 backdrop-blur supports-[backdrop-filter]:bg-base-100/75"
+                >
+                  {section.title}
+                </li>
+              )] : []),
               ...section.options.map((option) => {
                 optionIndex += 1
                 const index = optionIndex
