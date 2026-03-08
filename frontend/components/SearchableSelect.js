@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from
 import { createPortal } from "react-dom"
 import { t } from 'i18n.js.erb'
 
-function SearchableSelect({ options = [], selectedValues = [], placeholder = "", includeBlank = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title", autoOpen = false }) {
+function SearchableSelect({ options = [], selectedValues = [], placeholder = "", includeBlank = "", multiple = true, size = "md", url = null, valueKey = "id", labelKey = "title", groupKey = "group", autoOpen = false }) {
   const [selected, setSelected] = useState(selectedValues)
   const [isOpen, setIsOpen] = useState(autoOpen)
   const [searchTerm, setSearchTerm] = useState('')
@@ -37,7 +37,8 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
       .then(data => {
         const mapped = data.map(item => ({
           value: String(item[valueKey]),
-          label: String(item[labelKey])
+          label: String(item[labelKey]),
+          group: item[groupKey] == null || item[groupKey] === '' ? null : String(item[groupKey])
         }))
         setRemoteOptions(mapped)
         setHasFetched(true)
@@ -46,7 +47,7 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
       .catch(() => {
         setIsLoading(false)
       })
-  }, [url, hasFetched, isLoading, valueKey, labelKey])
+  }, [url, hasFetched, isLoading, valueKey, labelKey, groupKey])
 
   // Fetch on mount if there are pre-selected values (to resolve labels)
   useEffect(() => {
@@ -191,6 +192,45 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
     o.label.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
+  const groupedFilteredOptions = (() => {
+    const hasGroupedOptions = filteredOptions.some(option => option.group)
+
+    if (!hasGroupedOptions) {
+      return [{
+        title: null,
+        options: filteredOptions
+      }]
+    }
+
+    const sections = []
+    const groupedSections = new Map()
+    const ungroupedOptions = []
+
+    filteredOptions.forEach((option) => {
+      if (!option.group) {
+        ungroupedOptions.push(option)
+        return
+      }
+
+      if (!groupedSections.has(option.group)) {
+        const section = { title: option.group, options: [] }
+        groupedSections.set(option.group, section)
+        sections.push(section)
+      }
+
+      groupedSections.get(option.group).options.push(option)
+    })
+
+    if (ungroupedOptions.length > 0) {
+      sections.push({
+        title: t("searchable_select.no_group"),
+        options: ungroupedOptions
+      })
+    }
+
+    return sections
+  })()
+
   const filteredSelected = selected.filter(value =>
     getLabel(value).toLowerCase().includes(searchTerm.toLowerCase())
   )
@@ -287,32 +327,52 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
       )
     }
 
+    let optionIndex = -1
+
     return (
-      <ul className="mt-1 max-h-48 overflow-y-auto">
+      <div className="mt-1 max-h-48 overflow-y-auto">
         {filteredOptions.length > 0 ? (
-          filteredOptions.map((option, index) => (
-            <li key={option.value}
-              ref={(el) => {
-                if (index === highlightedIndex && el) {
-                  el.scrollIntoView({ block: 'nearest' })
-                }
-              }}
-            >
-              <button
-                type="button"
-                onClick={() => handleSelect(option.value)}
-                className={`w-full text-left px-3 py-1.5 text-sm hover:bg-base-200 rounded cursor-pointer cpy-searchable-select-option ${index === highlightedIndex ? 'bg-base-200' : ''}`}
-              >
-                {option.label}
-              </button>
-            </li>
-          ))
+          <ul>
+            {groupedFilteredOptions.flatMap((section) => ([
+              ...(section.title ? [(
+                <li
+                  key={`header-${section.title}`}
+                  className="sticky top-0 z-10 bg-base-100/95 px-3 py-1 text-xs font-medium tracking-wide text-base-content/60 backdrop-blur supports-[backdrop-filter]:bg-base-100/75"
+                >
+                  {section.title}
+                </li>
+              )] : []),
+              ...section.options.map((option) => {
+                optionIndex += 1
+                const index = optionIndex
+
+                return (
+                  <li
+                    key={option.value}
+                    ref={(el) => {
+                      if (index === highlightedIndex && el) {
+                        el.scrollIntoView({ block: 'nearest' })
+                      }
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => handleSelect(option.value)}
+                      className={`w-full text-left px-3 py-1.5 text-sm hover:bg-base-200 rounded cursor-pointer cpy-searchable-select-option ${index === highlightedIndex ? 'bg-base-200' : ''}`}
+                    >
+                      {option.label}
+                    </button>
+                  </li>
+                )
+              })
+            ]))}
+          </ul>
         ) : (
-          <li className="text-base-content/50 text-sm px-3 py-2">
+          <div className="text-base-content/50 text-sm px-3 py-2">
             {t("searchable_select.no_results")}
-          </li>
+          </div>
         )}
-      </ul>
+      </div>
     )
   }
 

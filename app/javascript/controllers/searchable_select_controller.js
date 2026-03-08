@@ -5,16 +5,14 @@ export default class extends Controller {
     const url = this.element.dataset.searchableSelectUrl || null
     const valueKey = this.element.dataset.searchableSelectValueKey || 'id'
     const labelKey = this.element.dataset.searchableSelectLabelKey || 'title'
+    const groupKey = this.element.dataset.searchableSelectGroupKey || 'group'
 
     const selectedValues = Array.from(this.element.selectedOptions).map(o => o.value)
     const multiple = this.element.multiple
 
     let options = []
     if (!url) {
-      options = Array.from(this.element.options).map(o => ({
-          value: o.value,
-          label: o.text
-        }))
+      options = this.#buildLocalOptions()
     }
 
     this.element.style.display = 'none'
@@ -41,6 +39,7 @@ export default class extends Controller {
       props.url = url
       props.valueKey = valueKey
       props.labelKey = labelKey
+      props.groupKey = groupKey
     }
 
     this.container.setAttribute('data-react-props', JSON.stringify(props))
@@ -51,6 +50,32 @@ export default class extends Controller {
     this.container.addEventListener('searchable-select:change', this._handleChange)
 
     this._isAjax = !!url
+  }
+
+  #buildLocalOptions() {
+    return Array.from(this.element.children).flatMap((child) => {
+      if (child.tagName === 'OPTGROUP') {
+        const group = child.label || null
+
+        return Array.from(child.children)
+          .filter(option => option.tagName === 'OPTION')
+          .map(option => ({
+            value: option.value,
+            label: option.text,
+            group
+          }))
+      }
+
+      if (child.tagName === 'OPTION') {
+        return [{
+          value: child.value,
+          label: child.text,
+          group: null
+        }]
+      }
+
+      return []
+    })
   }
 
   handleChange(event) {
