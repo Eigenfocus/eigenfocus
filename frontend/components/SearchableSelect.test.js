@@ -68,6 +68,19 @@ it('filters options and hides empty sections', () => {
   expect(screen.getByText('Beta')).toBeTruthy()
 })
 
+it('shows all options from a matching group when searching by group name', () => {
+  openSelect()
+
+  fireEvent.change(screen.getByPlaceholderText('Search...'), { target: { value: 'team a' } })
+
+  expect(screen.getByText('Team A')).toBeTruthy()
+  expect(screen.getByText('Alpha')).toBeTruthy()
+  expect(screen.getByText('Delta')).toBeTruthy()
+  expect(screen.queryByText('Team B')).toBeNull()
+  expect(screen.queryByText('Beta')).toBeNull()
+  expect(screen.queryByText('No group')).toBeNull()
+})
+
 it('keeps keyboard navigation working across grouped sections', () => {
   const handleChange = jest.fn()
   render(

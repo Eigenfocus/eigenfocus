@@ -188,9 +188,15 @@ function SearchableSelect({ options = [], selectedValues = [], placeholder = "",
     ? effectiveOptions.filter(o => !selected.includes(o.value))
     : effectiveOptions
 
-  const filteredOptions = availableOptions.filter(o =>
-    o.label.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const normalizedSearchTerm = searchTerm.toLowerCase()
+
+  const filteredOptions = availableOptions.filter((option) => {
+    if (option.label.toLowerCase().includes(normalizedSearchTerm)) {
+      return true
+    }
+
+    return !!option.group && option.group.toLowerCase().includes(normalizedSearchTerm)
+  })
 
   const groupedFilteredOptions = (() => {
     const hasGroupedOptions = filteredOptions.some(option => option.group)
