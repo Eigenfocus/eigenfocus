@@ -53,41 +53,39 @@ If you enjoy Eigenfocus, ⭐️ the repo to follow updates.
 
 Eigenfocus grows with you. Pay once, no subscriptions.
 
-- Multiple users with permissions
+- Multiple users with roles and permissions
+
+- Custom Fields to track project-specific data
+- Create multiple views with predefined settings
+- Grid View with columns and swimlanes
+- Timeline View to plan and visualize work over time
 - Custom statuses and issue types
-- New types of views
-- Project cloning (templates)
+- Project templates
 - SSO (Google, Microsoft, GitHub, OIDC)
 
 <div align="center">
 <a href="https://eigenfocus.com/features?utm_source=github-readme">See all features</a> | <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=readme">PRO Edition - Live demo</a>
+<br/>
+Also available as a <a href="https://eigenfocus.com/pricing?utm_source=github-readme">managed Cloud edition</a>.
 </div>
 <div align="center">
   <br/>
   <p>
-    See all your assigned issues in one centralized place.
+    Board, Grid, List and Timeline views. Switch between them in one click.
   </p>
 
-  <a href="https://eigenfocus.com/features?utm_source=github-readme#project-management-assigned-issues">
-    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/features-v2/my-work.png"/>
+  <a href="https://eigenfocus.com/features?utm_source=github-readme">
+    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/features-v2/multiple-views/multiple-views-jump-raw-cut.gif"/>
   </a>
 
   <br/>
   <p>
-    Grid View - Visualize work using columns and rows. Handle multiple workflows.
+    Custom Fields - Per-project fields, visible right on your cards.
   </p>
 
-  <a href="https://eigenfocus.com/features?utm_source=github-readme#project-management-grid-view">
-    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/landing/grid-1.gif"/>
+  <a href="https://eigenfocus.com/features?utm_source=github-readme">
+    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/features-v2/custom-fields/custom-field-showcase-2.min.gif"/>
   </a>
-
-  <br/>
-  <p>
-    Custom Statuses & Types
-  </p>
-  <img width="40%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/issue-types-2.jpg"/>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img width="40%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/all/landing/pro-features/views-1.jpg"/>
   <br/>
 </div>
 
