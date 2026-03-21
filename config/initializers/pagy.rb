@@ -216,4 +216,4 @@ Pagy::OPTIONS[:limit_max]   = 100      # default
 
 
 # When you are done setting your own default freeze it, so it will not get changed accidentally
-Pagy.options.freeze
+Pagy::OPTIONS.freeze
