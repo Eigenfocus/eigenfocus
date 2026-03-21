@@ -31,8 +31,8 @@
     "mini-css-extract-plugin": "^2.9.2",
     "prop-types": "^15.8.1",
     "rails-erb-loader": "^5.5.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19",
+    "react-dom": "^19",
     "react_ujs": "^3.2.1",
     "shakapacker": "9.5.0",
     "style-loader": "^4.0.0",
@@ -46,7 +46,7 @@
   "devDependencies": {
     "@happy-dom/jest-environment": "^17.1.8",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/react": "^16.2.0",
+    "@testing-library/react": "^16",
     "jest": "^29.7.0",
     "react-svg": "^16.3.0",
     "webpack-dev-server": "^5.2.1"
