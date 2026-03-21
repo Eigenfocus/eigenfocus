@@ -64,4 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const observer = new MutationObserver(callback)
   observer.observe(document, { childList: true, subtree: true })
+
+  // Mount components already present in the DOM on initial page load.
+  // react_ujs is not compatible with React 19, so we handle this ourselves.
+  const existingNodes = document.querySelectorAll(`[${ReactRailsUJS.CLASS_NAME_ATTR}]`)
+  mountComponents(existingNodes)
 })
