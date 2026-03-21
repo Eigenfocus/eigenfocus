@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@happy-dom/jest-environment": "^17.1.8",
+    "@swc/jest": "^0.2.39",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16",
     "jest": "^29.7.0",
