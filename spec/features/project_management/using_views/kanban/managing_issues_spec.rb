@@ -217,10 +217,11 @@ describe 'As a user, I want to manage my project using a kanban view' do
 
     visit visualization_path(project.default_visualization)
 
-    all_cards = all(".cpy-card")
-
-    first_issue = all_cards[0]
-    third_issue = all_cards[2]
+    # Find elements right before the drag action to avoid stale references
+    # caused by Turbo/JS re-rendering the cards after initial page load
+    find(".cpy-card", match: :first)
+    first_issue = all(".cpy-card")[0]
+    third_issue = all(".cpy-card")[2]
 
     first_issue.drag_to(third_issue)
 
