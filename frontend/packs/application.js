@@ -1,11 +1,15 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { createRoot } from 'react-dom/client'
 
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
+
+// Disable react_ujs auto-mounting since it uses the legacy ReactDOM.render API
+// removed in React 19. Custom mounting with createRoot is handled below.
+ReactRailsUJS.mountComponents = () => {};
+ReactRailsUJS.unmountComponents = () => {};
 
 // Turbo frames doesn't emit events when a frame loads, which means
 // React doesn't know when their components should be re-rendered.
