@@ -28,7 +28,12 @@
 
         <label class="input max-w-36">
           <i class="ti ti-calendar opacity-50"></i>
-          <%= f.text_field :reference_date_gteq, class: 'grow', data: { controller: "flatpickr" } %>
+          <%= render DatePickerComponent.new(
+            name: "q[reference_date_gteq]",
+            value: params.dig(:q, :reference_date_gteq),
+            id: "q_reference_date_gteq",
+            input_class: "grow"
+          ) %>
         </label>
       </fieldset>
 
@@ -37,7 +42,12 @@
 
         <label class="input max-w-36">
           <i class="ti ti-calendar opacity-50"></i>
-          <%= f.text_field :reference_date_lteq, class: 'grow', data: { controller: "flatpickr" } %>
+          <%= render DatePickerComponent.new(
+            name: "q[reference_date_lteq]",
+            value: params.dig(:q, :reference_date_lteq),
+            id: "q_reference_date_lteq",
+            input_class: "grow"
+          ) %>
         </label>
       </fieldset>
     </div>
