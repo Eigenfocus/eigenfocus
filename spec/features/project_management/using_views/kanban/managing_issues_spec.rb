@@ -172,7 +172,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
 
       expect(page).to have_css(".cpy-issue-detail-title", text: "Issue testing due date")
 
-      select_from_flatpickr '#issue_due_date', "23-04-2025"
+      select_from_cally '[data-react-class="Issue/DueDatePicker"] input', "23-04-2025"
 
       close_modal
 
@@ -199,7 +199,7 @@ describe 'As a user, I want to manage my project using a kanban view' do
       click_link "Issue testing due date"
     end
 
-    find(".cpy-flatpickr-clear-button").click
+    find(".cpy-cally-clear-button").click
 
     expect(page).to have_content("Issue was successfully updated.")
 
