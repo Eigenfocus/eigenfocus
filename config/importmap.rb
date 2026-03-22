@@ -33,3 +33,4 @@ pin_all_from "app/javascript/channels", under: "channels"
 pin "clipboard" # @2.0.11
 pin "@melloware/coloris", to: "@melloware--coloris.js" # @0.24.0
 pin "@rolemodel/turbo-confirm", to: "@rolemodel--turbo-confirm.js" # @2.1.1
+pin "cally" # @0.9.2
