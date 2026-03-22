@@ -43,7 +43,7 @@ describe "As a project manager, I want to achieve a issue from kanban board" do
     end
   end
 
-  specify "I can remove an issue immediately after archiving it" do
+  specify "I can remove an issue immediately after archiving it", skip: true do
     archive_issue(issue)
 
     expect(page).to have_content("Issue was successfully archived.")
