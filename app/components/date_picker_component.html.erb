@@ -1,11 +1,11 @@
-<div data-controller="cally-datepicker" class="relative">
-  <label class="input <%= input_class %>">
+<div data-controller="cally-datepicker" class="relative w-fit">
+  <label class="input <%= input_class %> flex items-center justify-stretch gap-1">
     <i class="ti ti-calendar opacity-50"></i>
     <input type="text"
       name="<%= name %>"
       id="<%= input_id %>"
       value="<%= value %>"
-      class="grow"
+      style="max-width: 80px"
       readonly="readonly"
       <%= tag.attributes(data: input_data_attributes) %>
     >

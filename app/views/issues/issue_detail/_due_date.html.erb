@@ -1,5 +1,5 @@
 <% if issue.persisted? %>
-  <fieldset class="fieldset flex flex-col min-w-30 w-30">
+  <fieldset class="fieldset flex flex-col min-w-40 w-40">
     <label class="fieldset-legend pb-1"><%= Issue.human_attribute_name(:due_date) %></label>
     <%= react_component("Issue/DueDatePicker",
       updateUrl: form_path,
