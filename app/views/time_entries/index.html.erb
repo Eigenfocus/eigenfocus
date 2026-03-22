@@ -28,18 +28,15 @@
       controller: 'form'
     } ) do |f| %>
 
-      <label class="input max-w-36">
-        <i class="ti ti-calendar opacity-50"></i>
-        <%= render DatePickerComponent.new(
-          name: "reference_date",
-          value: @reference_date,
-          id: "go-to-date",
-          min: "2019-01-01",
-          max: "2030-01-01",
-          input_class: "grow",
-          data: { action: "change->form#submit" }
-        ) %>
-      </label>
+      <%= render DatePickerComponent.new(
+        name: "reference_date",
+        value: @reference_date,
+        id: "go-to-date",
+        min: "2019-01-01",
+        max: "2030-01-01",
+        input_class: "max-w-40",
+        data: { action: "change->form#submit" }
+      ) %>
 
       <% if @reference_date != Date.current %>
         <%= link_to time_entries_path(reference_date: Date.current.strftime("%Y-%m-%d")),

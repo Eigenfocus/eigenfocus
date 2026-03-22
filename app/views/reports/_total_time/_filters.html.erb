@@ -25,30 +25,22 @@
 
       <fieldset class="fieldset ">
         <legend class="fieldset-legend"><%= t(".entry_start_at") %></legend>
-
-        <label class="input max-w-36">
-          <i class="ti ti-calendar opacity-50"></i>
-          <%= render DatePickerComponent.new(
-            name: "q[reference_date_gteq]",
-            value: params.dig(:q, :reference_date_gteq),
-            id: "q_reference_date_gteq",
-            input_class: "grow"
-          ) %>
-        </label>
+        <%= render DatePickerComponent.new(
+          name: "q[reference_date_gteq]",
+          value: params.dig(:q, :reference_date_gteq),
+          id: "q_reference_date_gteq",
+          input_class: "max-w-40"
+        ) %>
       </fieldset>
 
       <fieldset class="fieldset">
         <legend class="fieldset-legend"><%= t(".entry_end_at") %></legend>
-
-        <label class="input max-w-36">
-          <i class="ti ti-calendar opacity-50"></i>
-          <%= render DatePickerComponent.new(
-            name: "q[reference_date_lteq]",
-            value: params.dig(:q, :reference_date_lteq),
-            id: "q_reference_date_lteq",
-            input_class: "grow"
-          ) %>
-        </label>
+        <%= render DatePickerComponent.new(
+          name: "q[reference_date_lteq]",
+          value: params.dig(:q, :reference_date_lteq),
+          id: "q_reference_date_lteq",
+          input_class: "max-w-40"
+        ) %>
       </fieldset>
     </div>
 

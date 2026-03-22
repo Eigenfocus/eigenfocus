@@ -1,12 +1,15 @@
 <div data-controller="cally-datepicker" class="relative">
-  <input type="text"
-    name="<%= name %>"
-    id="<%= input_id %>"
-    value="<%= value %>"
-    class="input <%= input_class %> <%= 'pr-8' if show_clear_button %>"
-    readonly="readonly"
-    <%= tag.attributes(data: input_data_attributes) %>
-  >
+  <label class="input <%= input_class %> <%= 'pr-8' if show_clear_button %>">
+    <i class="ti ti-calendar opacity-50"></i>
+    <input type="text"
+      name="<%= name %>"
+      id="<%= input_id %>"
+      value="<%= value %>"
+      class="grow"
+      readonly="readonly"
+      <%= tag.attributes(data: input_data_attributes) %>
+    >
+  </label>
 
   <% if show_clear_button %>
     <button type="button"
