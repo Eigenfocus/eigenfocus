@@ -2886,6 +2886,13 @@ callsites@^3.0.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
+cally@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/cally/-/cally-0.9.2.tgz#41e725570ebc1d5eadeefa6a81e29563c4f0a182"
+  integrity sha512-zY/Ueh+p6O+LKPYqNB13dATgNuazAHS0n3JbtKyUmMoQfRq5mC2/zFI3UV2X3g+2lZn2BBwr1Z+HxyG9Dt/6lw==
+  dependencies:
+    atomico "^1.79.2"
+
 camelcase@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
