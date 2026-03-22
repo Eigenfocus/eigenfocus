@@ -1,6 +1,5 @@
 @import './_components/all';
 @import './select2';
-@import './flatpickr';
 @import './markdown';
 @import './sortablejs';
 @import './pagy.tailwind';
