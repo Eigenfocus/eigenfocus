@@ -49,24 +49,26 @@ const CallyDatePicker = ({
 
   return (
     <div className="relative" ref={wrapperRef}>
-      <input
-        type="text"
-        value={value}
-        className={`input ${inputClass} ${showClearButton ? "pr-8" : ""}`}
-        placeholder={placeholder}
-        onClick={() => setIsOpen(!isOpen)}
-        readOnly
-      />
-
-      {showClearButton && value && (
-        <button
-          type="button"
-          className="cpy-cally-clear-button absolute right-2 top-1/2 -translate-y-1/2 opacity-60 hover:opacity-100 cursor-pointer"
-          onClick={handleClear}
-        >
-          <i className="fa-solid fa-arrow-rotate-left text-sm"></i>
-        </button>
-      )}
+      <label className={`input ${inputClass}`}>
+        <i className="ti ti-calendar opacity-50"></i>
+        <input
+          type="text"
+          value={value}
+          className="grow"
+          placeholder={placeholder}
+          onClick={() => setIsOpen(!isOpen)}
+          readOnly
+        />
+        {showClearButton && value && (
+          <button
+            type="button"
+            className="cpy-cally-clear-button opacity-60 hover:opacity-100 cursor-pointer"
+            onClick={handleClear}
+          >
+            <i className="fa-solid fa-arrow-rotate-left text-sm"></i>
+          </button>
+        )}
+      </label>
 
       {isOpen && (
         <div className="absolute z-50 mt-1 bg-base-100 rounded-box shadow-lg border border-base-300">

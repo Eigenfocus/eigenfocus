@@ -72,6 +72,6 @@ export default class extends Controller {
   syncClearButtonVisibility() {
     if (!this.hasClearButtonTarget) return
 
-    this.clearButtonTarget.style.display = this.inputTarget.value ? "block" : "none"
+    this.clearButtonTarget.classList.toggle("hidden", !this.inputTarget.value)
   }
 }

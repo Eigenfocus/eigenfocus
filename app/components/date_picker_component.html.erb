@@ -1,5 +1,5 @@
 <div data-controller="cally-datepicker" class="relative">
-  <label class="input <%= input_class %> <%= 'pr-8' if show_clear_button %>">
+  <label class="input <%= input_class %>">
     <i class="ti ti-calendar opacity-50"></i>
     <input type="text"
       name="<%= name %>"
@@ -9,16 +9,15 @@
       readonly="readonly"
       <%= tag.attributes(data: input_data_attributes) %>
     >
+    <% if show_clear_button %>
+      <button type="button"
+        class="cpy-cally-clear-button hidden opacity-60 hover:opacity-100 cursor-pointer"
+        data-cally-datepicker-target="clearButton"
+        data-action="click->cally-datepicker#clear">
+        <i class="fa-solid fa-arrow-rotate-left text-sm"></i>
+      </button>
+    <% end %>
   </label>
-
-  <% if show_clear_button %>
-    <button type="button"
-      class="cpy-cally-clear-button absolute right-2 top-1/2 -translate-y-1/2 opacity-60 hover:opacity-100 cursor-pointer"
-      data-cally-datepicker-target="clearButton"
-      data-action="click->cally-datepicker#clear">
-      <i class="fa-solid fa-arrow-rotate-left text-sm"></i>
-    </button>
-  <% end %>
 
   <div class="hidden absolute z-50 mt-1 bg-base-100 rounded-box shadow-lg border border-base-300" data-cally-datepicker-target="popover">
     <calendar-date
