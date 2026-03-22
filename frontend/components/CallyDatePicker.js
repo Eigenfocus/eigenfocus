@@ -1,5 +1,9 @@
 import React, { useState, useRef, useEffect } from "react"
-import "cally"
+
+// Register cally custom elements if not already registered by importmap
+if (!customElements.get("calendar-date")) {
+  require("cally")
+}
 
 const CallyDatePicker = ({
   value: initialValue = "",
@@ -48,7 +52,7 @@ const CallyDatePicker = ({
       <input
         type="text"
         value={value}
-        className={`input ${inputClass}`}
+        className={`input ${inputClass} ${showClearButton ? "pr-8" : ""}`}
         placeholder={placeholder}
         onClick={() => setIsOpen(!isOpen)}
         readOnly
@@ -57,10 +61,10 @@ const CallyDatePicker = ({
       {showClearButton && value && (
         <button
           type="button"
-          className="cpy-cally-clear-button"
+          className="cpy-cally-clear-button absolute right-2 top-1/2 -translate-y-1/2 opacity-60 hover:opacity-100 cursor-pointer"
           onClick={handleClear}
         >
-          <i className="fa-solid fa-arrow-rotate-left"></i>
+          <i className="fa-solid fa-arrow-rotate-left text-sm"></i>
         </button>
       )}
 

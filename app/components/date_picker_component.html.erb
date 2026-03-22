@@ -3,17 +3,17 @@
     name="<%= name %>"
     id="<%= input_id %>"
     value="<%= value %>"
-    class="input <%= input_class %>"
+    class="input <%= input_class %> <%= 'pr-8' if show_clear_button %>"
     readonly="readonly"
     <%= tag.attributes(data: input_data_attributes) %>
   >
 
   <% if show_clear_button %>
     <button type="button"
-      class="cpy-cally-clear-button"
+      class="cpy-cally-clear-button absolute right-2 top-1/2 -translate-y-1/2 opacity-60 hover:opacity-100 cursor-pointer"
       data-cally-datepicker-target="clearButton"
       data-action="click->cally-datepicker#clear">
-      <i class="fa-solid fa-arrow-rotate-left"></i>
+      <i class="fa-solid fa-arrow-rotate-left text-sm"></i>
     </button>
   <% end %>
 
