@@ -28,19 +28,15 @@
       controller: 'form'
     } ) do |f| %>
 
-      <label class="input max-w-36">
-        <i class="ti ti-calendar opacity-50"></i>
-
-        <input id="go-to-date"
-          name="reference_date"
-          class="grow"
-          placeholder="Reference Date"
-          data-controller="flatpickr"
-          data-action="change->form#submit"
-          data-flatpickr-min-date="2019-01-01"
-          data-flatpickr-max-date="2030-01-01"
-          value="<%= l @reference_date, format: :flatpickr %>" type="text" readonly="readonly">
-      </label>
+      <%= render DatePickerComponent.new(
+        name: "reference_date",
+        value: @reference_date,
+        id: "go-to-date",
+        min: "2019-01-01",
+        max: "2030-01-01",
+        input_class: "max-w-32",
+        data: { action: "change->form#submit" }
+      ) %>
 
       <% if @reference_date != Date.current %>
         <%= link_to time_entries_path(reference_date: Date.current.strftime("%Y-%m-%d")),

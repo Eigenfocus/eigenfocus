@@ -1,0 +1,35 @@
+<div data-controller="cally-datepicker" class="relative w-fit">
+  <label class="input <%= input_class %> flex items-center justify-stretch gap-1">
+    <i class="ti ti-calendar opacity-50"></i>
+    <input type="text"
+      name="<%= name %>"
+      id="<%= input_id %>"
+      value="<%= value %>"
+      style="max-width: 80px"
+      readonly="readonly"
+      <%= tag.attributes(data: input_data_attributes) %>
+    >
+    <% if show_clear_button %>
+      <button type="button"
+        class="cpy-cally-clear-button hidden opacity-60 hover:opacity-100 cursor-pointer"
+        data-cally-datepicker-target="clearButton"
+        data-action="click->cally-datepicker#clear">
+        <i class="fa-solid fa-arrow-rotate-left text-sm"></i>
+      </button>
+    <% end %>
+  </label>
+
+  <div class="hidden absolute z-50 mt-1 bg-base-100 rounded-box shadow-lg border border-base-300" data-cally-datepicker-target="popover">
+    <calendar-date
+      class="cally bg-base-100"
+      data-cally-datepicker-target="calendar"
+      value="<%= value %>"
+      <% if min.present? %>min="<%= min %>"<% end %>
+      <% if max.present? %>max="<%= max %>"<% end %>
+    >
+      <i slot="previous" class="ti ti-chevron-left"></i>
+      <i slot="next" class="ti ti-chevron-right"></i>
+      <calendar-month></calendar-month>
+    </calendar-date>
+  </div>
+</div>

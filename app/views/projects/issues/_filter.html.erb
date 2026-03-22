@@ -37,26 +37,26 @@
 
   <div class="flex mt-4 flex-col lg:flex-row justify-between items-stretch gap-4 flex-wrap">
     <div class="flex flex-col lg:flex-row items-stretch gap-4 flex-wrap">
-      <div class="flex gap-2 lg:w-56 items-center ">
+      <div class="flex gap-2 items-center ">
         <%= f.label :due_date_gteq, class: "label fieldset-legend text-sm" %>
-
-        <div class="flatpickr-resetable-container">
-          <%= f.search_field :due_date_gteq,
-            class: 'input input-sm',
-            data: { "flatpickr-date-format": t("date.formats.flatpickr"), controller: "flatpickr", show_clear_button: true }
-          %>
-        </div>
+        <%= render DatePickerComponent.new(
+          name: "q[due_date_gteq]",
+          value: params.dig(:q, :due_date_gteq),
+          id: "q_due_date_gteq",
+          input_class: "input-sm",
+          show_clear_button: true
+        ) %>
       </div>
 
-      <div class="flex gap-2 lg:w-56 items-center">
+      <div class="flex gap-2 items-center">
         <%= f.label :due_date_lteq, class: "label fieldset-legend text-sm" %>
-
-        <div class="flatpickr-resetable-container">
-          <%= f.search_field :due_date_lteq,
-            class: 'input input-sm',
-            data: { "flatpickr-date-format": t("date.formats.flatpickr"), controller: "flatpickr", show_clear_button: true }
-          %>
-        </div>
+        <%= render DatePickerComponent.new(
+          name: "q[due_date_lteq]",
+          value: params.dig(:q, :due_date_lteq),
+          id: "q_due_date_lteq",
+          input_class: "input-sm",
+          show_clear_button: true
+        ) %>
       </div>
     </div>
     <div class="flex items-center gap-2">

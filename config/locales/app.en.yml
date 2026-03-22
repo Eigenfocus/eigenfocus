@@ -119,7 +119,6 @@ en:
     formats:
       month_name_year: "%B %Y"
       day_single_digit: "%e"
-      flatpickr: "%Y-%m-%d"
       weekday_name: "%^A"
       day_month_year: "%d, %B %Y"
 
@@ -131,5 +130,4 @@ en:
       day_single_digit: "%e"
       short_weekday_name: "%a"
       weekday_name: "%^A"
-      flatpickr: "%Y-%m-%d"
       default: "%b/%d/%Y"
