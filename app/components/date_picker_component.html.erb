@@ -1,10 +1,9 @@
-<div data-controller="cally-datepicker">
+<div data-controller="cally-datepicker" class="relative">
   <input type="text"
     name="<%= name %>"
     id="<%= input_id %>"
     value="<%= value %>"
     class="input <%= input_class %>"
-    popovertarget="<%= popover_id %>"
     readonly="readonly"
     <%= tag.attributes(data: input_data_attributes) %>
   >
@@ -18,7 +17,7 @@
     </button>
   <% end %>
 
-  <div popover id="<%= popover_id %>" class="dropdown bg-base-100 rounded-box shadow-lg" data-cally-datepicker-target="popover">
+  <div class="hidden absolute z-50 mt-1 bg-base-100 rounded-box shadow-lg border border-base-300" data-cally-datepicker-target="popover">
     <calendar-date
       class="cally bg-base-100"
       data-cally-datepicker-target="calendar"

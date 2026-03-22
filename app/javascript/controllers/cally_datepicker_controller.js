@@ -3,10 +3,6 @@ import "cally"
 
 export default class extends Controller {
   static targets = ["input", "calendar", "popover", "clearButton"]
-  static values = {
-    min: { type: String, default: "" },
-    max: { type: String, default: "" },
-  }
 
   connect() {
     if (this.hasCalendarTarget) {
@@ -14,11 +10,40 @@ export default class extends Controller {
     }
 
     this.syncClearButtonVisibility()
+    this.handleOutsideClick = this.handleOutsideClick.bind(this)
   }
 
   disconnect() {
     if (this.hasCalendarTarget) {
       this.calendarTarget.removeEventListener("change", this.handleDateChange)
+    }
+    document.removeEventListener("click", this.handleOutsideClick)
+  }
+
+  toggle() {
+    if (!this.hasPopoverTarget) return
+
+    const isHidden = this.popoverTarget.classList.contains("hidden")
+    if (isHidden) {
+      this.open()
+    } else {
+      this.close()
+    }
+  }
+
+  open() {
+    this.popoverTarget.classList.remove("hidden")
+    document.addEventListener("click", this.handleOutsideClick)
+  }
+
+  close() {
+    this.popoverTarget.classList.add("hidden")
+    document.removeEventListener("click", this.handleOutsideClick)
+  }
+
+  handleOutsideClick(event) {
+    if (!this.element.contains(event.target)) {
+      this.close()
     }
   }
 
@@ -29,10 +54,7 @@ export default class extends Controller {
     this.inputTarget.dispatchEvent(new Event("input", { bubbles: true }))
     this.inputTarget.dispatchEvent(new Event("change", { bubbles: true }))
 
-    if (this.hasPopoverTarget) {
-      this.popoverTarget.hidePopover()
-    }
-
+    this.close()
     this.syncClearButtonVisibility()
   }
 
@@ -43,10 +65,7 @@ export default class extends Controller {
     this.inputTarget.dispatchEvent(new Event("input", { bubbles: true }))
     this.inputTarget.dispatchEvent(new Event("change", { bubbles: true }))
 
-    if (this.hasPopoverTarget) {
-      this.popoverTarget.hidePopover()
-    }
-
+    this.close()
     this.syncClearButtonVisibility()
   }
 

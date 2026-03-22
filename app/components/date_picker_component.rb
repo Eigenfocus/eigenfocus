@@ -23,8 +23,16 @@ class DatePickerComponent < ViewComponent::Base
 
   def input_data_attributes
     base = {
-      "cally-datepicker-target": "input"
+      "cally-datepicker-target": "input",
+      action: "click->cally-datepicker#toggle"
     }
-    base.merge(data)
+
+    merged = base.merge(data)
+
+    if data[:action].present?
+      merged[:action] = "click->cally-datepicker#toggle #{data[:action]}"
+    end
+
+    merged
   end
 end
