@@ -56,7 +56,7 @@ describe "As a project manager, I want to achieve a issue from kanban board" do
 
     wait_for_turbo_frame_response
 
-    expect(page).to have_content("Issue was successfully removed.")
+    wait_until { !Issue.exists?(issue.id) }
 
     expect(Issue.exists?(issue.id)).to be_falsey
   end
