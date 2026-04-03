@@ -45,7 +45,7 @@ gem "pagy", "~> 43.4"
 
 # Frontend app
 gem "shakapacker", "~> 9.5"
-gem "react-rails", "~> 3.2"
+gem "react-rails", "~> 3.3"
 gem "js-routes", "~> 2.3"
 gem "i18n-js", "~> 4.2"
 gem "view_component", "4.6.0"
