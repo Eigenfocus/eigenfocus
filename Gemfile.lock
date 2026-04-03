@@ -264,7 +264,7 @@ GEM
     parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
-    positioning (0.4.7)
+    positioning (0.4.8)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
     pp (0.6.3)
