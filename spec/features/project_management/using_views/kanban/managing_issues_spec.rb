@@ -225,17 +225,12 @@ describe 'As a user, I want to manage my project using a kanban view' do
 
     first_issue.drag_to(third_issue)
 
-    # We need this to make capybara wait for the
-    # turbo-stream response to finish
-    expect(page).to have_content("Issue 1")
-
-    # now that the turbo stream has finished we
-    # can get the cards with the new HTML for the moved on
-    all_cards = all(".cpy-card")
-
-    expect(all_cards[0].text).to eq("Issue 1")
-    expect(all_cards[1].text).to eq("Issue 2")
-    expect(all_cards[2].text).to eq("Issue 0")
+    # Wait for the reorder to complete by checking the final card position.
+    # We use CSS + have_text matchers so Capybara retries automatically,
+    # avoiding stale element references from Turbo Stream DOM replacements.
+    expect(find(".cpy-card:nth-child(1)")).to have_text("Issue 1")
+    expect(find(".cpy-card:nth-child(2)")).to have_text("Issue 2")
+    expect(find(".cpy-card:nth-child(3)")).to have_text("Issue 0")
 
     expect(grouping.allocations.map(&:issue).map(&:title)).to eq([
       "Issue 1",
