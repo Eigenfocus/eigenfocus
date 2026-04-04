@@ -136,7 +136,6 @@ en:
       no_description: "no description"
       confirm_destroy: "Do you want to remove this time entry? This action can not be undone."
   reports:
-    choose_filters:
     total_time:
       choose_filters: 'To generate a report use the filter above.'
       report:

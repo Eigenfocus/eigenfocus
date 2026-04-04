@@ -119,7 +119,7 @@ pt-BR:
         no_grouping: "Sem coluna"
   time_entries:
     form:
-      ave_on_command_enter_html: Pressione <kbd class="kbd kbd-xs">CTRL + Enter</kbd> ou <kbd class="kbd kbd-xs">CMD + Enter</kbd> para salvar
+      save_on_command_enter_html: Pressione <kbd class="kbd kbd-xs">CTRL + Enter</kbd> ou <kbd class="kbd kbd-xs">CMD + Enter</kbd> para salvar
     form_project_dependent_fields:
       select_a_project: "Selecione um projeto primeiro"
       project_has_no_issue: "Este projeto não possui nenhuma issue ativa"
@@ -145,6 +145,7 @@ pt-BR:
         total: 'Total'
         total_time_report: 'Tempo registrado'
         date: 'Data'
+        subtotal: "Subtotal"
         no_entries: "Não existem entradas de tempo para o filtro aplicado."
       filters:
         generate_report: "Gerar relatório"

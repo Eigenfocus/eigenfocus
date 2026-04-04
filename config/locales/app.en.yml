@@ -13,6 +13,7 @@ en:
   none_selected: 'None selected'
   none_selected_f: 'None selected'
   day: 'Day'
+  days: 'Days'
   week: 'Week'
   month: 'Month'
   hours: 'Hours'
