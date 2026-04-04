@@ -28,6 +28,8 @@ ENV LANG=C.UTF-8 \
 RUN mkdir -p /app/node_modules /app/.bundle /app/.yarn-cache /app/.rubocop-cache
 RUN chown -R ${UID}:${GID} /app/node_modules /app/.bundle /app/.yarn-cache /app/.rubocop-cache
 
+ENV HOME=/app
+
 USER ${UID}:${GID}
 
 

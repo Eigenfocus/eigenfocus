@@ -62,3 +62,5 @@ docker-compose.yml
 yarn-debug.log*
 .yarn-integrity
 .cursor
+.yarnrc
+.npm/**/*
