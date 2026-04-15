@@ -450,7 +450,7 @@ GEM
     thruster (0.1.20-x86_64-darwin)
     thruster (0.1.20-x86_64-linux)
     tilt (2.7.0)
-    timecop (0.9.10)
+    timecop (0.9.11)
     timeout (0.6.1)
     tsort (0.2.0)
     turbo-rails (2.0.23)
