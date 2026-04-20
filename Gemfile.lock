@@ -84,7 +84,7 @@ GEM
       execjs (~> 2.0)
     base64 (0.3.0)
     benchmark (0.5.0)
-    bigdecimal (4.1.0)
+    bigdecimal (4.1.2)
     bindex (0.8.1)
     bootsnap (1.23.0)
       msgpack (~> 1.2)
@@ -202,7 +202,7 @@ GEM
     js-routes (2.3.6)
       railties (>= 5)
       sorbet-runtime
-    json (2.19.3)
+    json (2.19.4)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
@@ -222,7 +222,7 @@ GEM
       logger
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (6.0.2)
+    minitest (6.0.4)
       drb (~> 2.0)
       prism (~> 1.5)
     msgpack (1.8.0)
@@ -463,7 +463,7 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     useragent (0.16.11)
-    view_component (4.6.0)
+    view_component (4.7.0)
       actionview (>= 7.1.0)
       activesupport (>= 7.1.0)
       concurrent-ruby (~> 1)
@@ -539,7 +539,7 @@ DEPENDENCIES
   timecop
   turbo-rails
   tzinfo-data
-  view_component (= 4.6.0)
+  view_component (= 4.7.0)
   web-console
   webmock
 
