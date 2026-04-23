@@ -222,7 +222,7 @@ GEM
       logger
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (6.0.4)
+    minitest (6.0.5)
       drb (~> 2.0)
       prism (~> 1.5)
     msgpack (1.8.0)
@@ -463,7 +463,7 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.1)
     useragent (0.16.11)
-    view_component (4.7.0)
+    view_component (4.8.0)
       actionview (>= 7.1.0)
       activesupport (>= 7.1.0)
       concurrent-ruby (~> 1)
@@ -539,7 +539,7 @@ DEPENDENCIES
   timecop
   turbo-rails
   tzinfo-data
-  view_component (= 4.7.0)
+  view_component (= 4.8.0)
   web-console
   webmock
 
