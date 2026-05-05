@@ -166,6 +166,8 @@ You don't need to use PostgreSQL if you don't want to. SQLite works well for mos
 
 When `POSTGRES_HOST` is set, the app automatically switches to PostgreSQL.
 
+The app uses three databases: the primary database, one for Action Cable and one for background jobs (Solid Queue). They are named based on `POSTGRES_DB_NAME` with `_cable` and `_queue` suffixes. Make sure all three exist before starting the app.
+
 `docker-compose.yml` example with PostgreSQL:
 
 ```yaml
@@ -195,6 +197,8 @@ services:
 volumes:
   postgres_data:
 ```
+
+> **Note:** The example above only creates the primary database (`eigenfocus_production`) via `POSTGRES_DB`. You still need to create `eigenfocus_production_cable` and `eigenfocus_production_queue`. You can do this by running `createdb` against the container or adding an init script to PostgreSQL.
 
 # Contact
 Feel free to contact us `hi@eigenfocus.com`.

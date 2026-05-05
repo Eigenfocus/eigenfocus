@@ -24,7 +24,7 @@ services:
 
   # Uncomment for PostgreSQL:
   # postgres:
-  #   image: postgres:17
+  #   image: postgres:18.3-alpine
   #   restart: unless-stopped
   #   volumes:
   #     - postgres_data:/var/lib/postgresql/data

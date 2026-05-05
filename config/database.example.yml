@@ -11,32 +11,32 @@ default: &default
 development:
   primary:
     <<: *default
-    database: eigenfocus_self_hosted_development
+    database: eigenfocus_development
     schema_dump: pg_schema.rb
   cable:
     <<: *default
-    database: eigenfocus_self_hosted_development_cable
+    database: eigenfocus_development_cable
     migrations_paths: db/cable_migrate
     schema_dump: pg_cable_schema.rb
   queue:
     <<: *default
-    database: eigenfocus_self_hosted_development_queue
+    database: eigenfocus_development_queue
     migrations_paths: db/queue_migrate
     schema_dump: pg_queue_schema.rb
 
 test:
   primary:
     <<: *default
-    database: eigenfocus_self_hosted_test
+    database: eigenfocus_test
     schema_dump: pg_schema.rb
   cable:
     <<: *default
-    database: eigenfocus_self_hosted_test_cable
+    database: eigenfocus_test_cable
     migrations_paths: db/cable_migrate
     schema_dump: pg_cable_schema.rb
   queue:
     <<: *default
-    database: eigenfocus_self_hosted_test_queue
+    database: eigenfocus_test_queue
     migrations_paths: db/queue_migrate
     schema_dump: pg_queue_schema.rb
 
