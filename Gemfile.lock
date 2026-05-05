@@ -202,7 +202,7 @@ GEM
     js-routes (2.3.7)
       railties (>= 5)
       sorbet-runtime
-    json (2.19.4)
+    json (2.19.5)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
@@ -403,8 +403,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
-    semantic_range (3.1.0)
-    shakapacker (9.5.0)
+    semantic_range (3.1.1)
+    shakapacker (10.0.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -533,7 +533,7 @@ DEPENDENCIES
   rubocop-performance (~> 1.26)
   rubocop-rails-omakase
   selenium-webdriver (= 4.43.0)
-  shakapacker (~> 9.5)
+  shakapacker (~> 10.0.0)
   solid_cable (~> 3.0)
   solid_queue (~> 1.4)
   sqlite3 (>= 2.1)

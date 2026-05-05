@@ -34,11 +34,11 @@
     "react": "^19",
     "react-dom": "^19",
     "react_ujs": "^3.2.1",
-    "shakapacker": "9.5.0",
+    "shakapacker": "10.0.0",
     "style-loader": "^4.0.0",
     "swc-loader": "^0.2.7",
     "terser-webpack-plugin": "^5.3.11",
-    "webpack": "^5.98.0",
+    "webpack": "^5.106.0",
     "webpack-assets-manifest": "^5.2.1",
     "webpack-cli": "^4.10.0",
     "webpack-merge": "^5.10.0"
