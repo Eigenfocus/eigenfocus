@@ -10,5 +10,34 @@ services:
       - ./app-data:/usr/src/app/app-data
     environment:
      - DEFAULT_HOST_URL=http://localhost:3001
+     # Uncomment for PostgreSQL (remove the SQLite volume above if not needed):
+     # - POSTGRES_HOST=postgres
+     # - POSTGRES_PORT=5432
+     # - POSTGRES_DB_USER=eigenfocus
+     # - POSTGRES_DB_PASSWORD=secret
+     # - POSTGRES_DB_NAME=eigenfocus_production
     ports:
       - 3001:3000
+    # depends_on:
+    #   postgres:
+    #     condition: service_healthy
+
+  # Uncomment for PostgreSQL:
+  # postgres:
+  #   image: postgres:18.3-alpine
+  #   restart: unless-stopped
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_USER: eigenfocus
+  #     POSTGRES_PASSWORD: secret
+  #     POSTGRES_DB: eigenfocus_production
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U eigenfocus"]
+  #     interval: 5s
+  #     timeout: 5s
+  #     retries: 5
+
+# Uncomment for PostgreSQL:
+# volumes:
+#   postgres_data:

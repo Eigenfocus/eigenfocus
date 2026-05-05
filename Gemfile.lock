@@ -264,6 +264,13 @@ GEM
     parser (3.3.10.0)
       ast (~> 2.4.1)
       racc
+    pg (1.6.3)
+    pg (1.6.3-aarch64-linux)
+    pg (1.6.3-aarch64-linux-musl)
+    pg (1.6.3-arm64-darwin)
+    pg (1.6.3-x86_64-darwin)
+    pg (1.6.3-x86_64-linux)
+    pg (1.6.3-x86_64-linux-musl)
     positioning (0.4.8)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
@@ -519,6 +526,7 @@ DEPENDENCIES
   importmap-rails
   js-routes (~> 2.3)
   pagy (~> 43.5)
+  pg
   positioning (~> 0.4)
   propshaft
   puma (>= 5.0)

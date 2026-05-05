@@ -16,7 +16,7 @@ ENV RAILS_ENV="production" \
 FROM base AS build
 
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libvips pkg-config gnupg2 curl libyaml-dev
+    apt-get install --no-install-recommends -y build-essential git libvips pkg-config gnupg2 curl libyaml-dev libpq-dev
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
@@ -47,7 +47,7 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libsqlite3-0 libvips && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libsqlite3-0 libpq5 libvips && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application

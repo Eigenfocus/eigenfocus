@@ -6,6 +6,7 @@ gem "rails", "~> 8.1.3"
 
 # Database
 gem "sqlite3", ">= 2.1"
+gem "pg"
 # https://stackoverflow.com/questions/79844786/ruby-on-rails-redis-connection-pool-wrong-number-of-arguments-given-1-expected
 gem "connection_pool", "< 3"
 

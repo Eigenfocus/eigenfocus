@@ -1,9 +1,64 @@
-# SQLite. Versions 3.8.0 and up are supported.
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem "sqlite3"
-#
+<% if ENV['POSTGRES_HOST'].present? %>
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("POSTGRES_HOST") %>
+  port: <%= ENV.fetch("POSTGRES_PORT", 5432) %>
+  username: <%= ENV.fetch("POSTGRES_DB_USER", "postgres") %>
+  password: <%= ENV.fetch("POSTGRES_DB_PASSWORD", "") %>
+
+development:
+  primary:
+    <<: *default
+    database: eigenfocus_development
+    schema_dump: pg_schema.rb
+  cable:
+    <<: *default
+    database: eigenfocus_development_cable
+    migrations_paths: db/cable_migrate
+    schema_dump: pg_cable_schema.rb
+  queue:
+    <<: *default
+    database: eigenfocus_development_queue
+    migrations_paths: db/queue_migrate
+    schema_dump: pg_queue_schema.rb
+
+test:
+  primary:
+    <<: *default
+    database: eigenfocus_test
+    schema_dump: pg_schema.rb
+  cable:
+    <<: *default
+    database: eigenfocus_test_cable
+    migrations_paths: db/cable_migrate
+    schema_dump: pg_cable_schema.rb
+  queue:
+    <<: *default
+    database: eigenfocus_test_queue
+    migrations_paths: db/queue_migrate
+    schema_dump: pg_queue_schema.rb
+
+production:
+  primary:
+    <<: *default
+    database: <%= ENV.fetch("POSTGRES_DB_NAME", "eigenfocus_production") %>
+    schema_dump: pg_schema.rb
+
+  cable:
+    <<: *default
+    database: <%= ENV.fetch("POSTGRES_DB_NAME", "eigenfocus_production") %>_cable
+    migrations_paths: db/cable_migrate
+    schema_dump: pg_cable_schema.rb
+
+  queue:
+    <<: *default
+    database: <%= ENV.fetch("POSTGRES_DB_NAME", "eigenfocus_production") %>_queue
+    migrations_paths: db/queue_migrate
+    schema_dump: pg_queue_schema.rb
+
+<% else %>
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -22,19 +77,10 @@ development:
     database: storage/development_queue.sqlite3
     migrations_paths: db/queue_migrate
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
   database: storage/test.sqlite3
 
-# SQLite3 write its data on the local filesystem, as such it requires
-# persistent disks. If you are deploying to a managed service, you should
-# make sure it provides disk persistence, as many don't.
-#
-# Similarly, if you deploy your application as a Docker container, you must
-# ensure the database is located in a persisted volume.
 production:
   primary:
     <<: *default
@@ -47,3 +93,4 @@ production:
     <<: *default
     database: app-data/database/production_queue.sqlite3
     migrations_paths: db/queue_migrate
+<% end %>

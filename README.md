@@ -150,6 +150,56 @@ You can enable HTTP Basic Auth by setting these two env variables:
 
 ➜ If you're exposing the service to the internet don't forget to setup a certificate and use HTTPS.
 
+### Optional: using PostgreSQL instead of SQLite
+
+By default, Eigenfocus uses SQLite. The database file is stored inside the `app-data` mounted volume, so your data persists across container restarts with zero configuration.
+
+You don't need to use PostgreSQL if you don't want to. SQLite works well for most setups. However, if you prefer PostgreSQL, you can activate it by setting the following environment variables on the web service:
+
+| Variable | Description |
+|----------|-------------|
+| `POSTGRES_HOST` | PostgreSQL host (e.g. `postgres`) |
+| `POSTGRES_PORT` | Port (defaults to `5432`) |
+| `POSTGRES_DB_USER` | Database user |
+| `POSTGRES_DB_PASSWORD` | Database password |
+| `POSTGRES_DB_NAME` | Database name (defaults to `eigenfocus_production`) |
+
+When `POSTGRES_HOST` is set, the app automatically switches to PostgreSQL.
+
+The app uses three databases: the primary database, one for Action Cable and one for background jobs (Solid Queue). They are named based on `POSTGRES_DB_NAME` with `_cable` and `_queue` suffixes. Make sure all three exist before starting the app.
+
+`docker-compose.yml` example with PostgreSQL:
+
+```yaml
+services:
+  postgres:
+    image: postgres:18.3-alpine
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: eigenfocus
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: eigenfocus_production
+
+  web:
+    # Previous setup
+    environment:
+      - DEFAULT_HOST_URL=http://localhost:3001
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB_USER=eigenfocus
+      - POSTGRES_DB_PASSWORD=secret
+      - POSTGRES_DB_NAME=eigenfocus_production
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+```
+
+> **Note:** The example above only creates the primary database (`eigenfocus_production`) via `POSTGRES_DB`. You still need to create `eigenfocus_production_cable` and `eigenfocus_production_queue`. You can do this by running `createdb` against the container or adding an init script to PostgreSQL.
+
 # Contact
 Feel free to contact us `hi@eigenfocus.com`.
 
