@@ -33,7 +33,7 @@
     "rails-erb-loader": "^5.5.2",
     "react": "^19",
     "react-dom": "^19",
-    "react_ujs": "^3.2.1",
+    "react_ujs": "^3.3.0",
     "shakapacker": "10.0.0",
     "style-loader": "^4.0.0",
     "swc-loader": "^0.2.7",

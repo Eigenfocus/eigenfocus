@@ -6433,10 +6433,10 @@ react_ujs@^2.7.1:
   resolved "https://registry.yarnpkg.com/react_ujs/-/react_ujs-2.7.1.tgz#d87cbcb82593fe59d30fc5dbc51800d1571001a8"
   integrity sha512-nQ/y/Vn2hZQXjNxFKY4pV5hAQbG3o/8yaRzq3nJAAdk7tMgey/EsMKoDOWlEQxZ+D3J4BtwquW1oCESMiHSHnQ==
 
-react_ujs@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/react_ujs/-/react_ujs-3.2.1.tgz#8ea0d25f2abefa7a208645f44e5dea1ccaf3c6cf"
-  integrity sha512-Cm3wpkIHUcQau8j/X4CHf1ZchgqpaL9GhVupX0YFwSOmDdMhLJdHRiXw9yBYpqdsvtBaVcCX2D+K42N5jMl3Cw==
+react_ujs@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react_ujs/-/react_ujs-3.3.0.tgz#5b3342847dabc59dc8b6bdfeae5e4a68946878eb"
+  integrity sha512-LPJFpDq5jcTlwAzj6NnTX6CWGK7zNNInf69YelpY7xkCsWYHQKZmiRGqYVNsd3hxO1a2fYABmv1aEuv9r2LdfA==
   dependencies:
     "@babel/preset-react" "^7.22.5"
     css-loader "^6.8.1"
