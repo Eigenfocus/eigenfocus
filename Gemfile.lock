@@ -265,8 +265,6 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.6.3)
-    pg (1.6.3-aarch64-linux)
-    pg (1.6.3-x86_64-linux)
     positioning (0.4.8)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
