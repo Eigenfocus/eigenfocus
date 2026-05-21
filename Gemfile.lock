@@ -83,7 +83,6 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     base64 (0.3.0)
-    benchmark (0.5.0)
     bigdecimal (4.1.2)
     bindex (0.8.1)
     bootsnap (1.24.4)
@@ -170,7 +169,6 @@ GEM
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
-    ffi (1.17.1)
     fugit (1.12.1)
       et-orbi (~> 1.4)
       raabro (~> 1.4)
@@ -186,9 +184,7 @@ GEM
       glob (>= 0.4.0)
       i18n
     ice_nine (0.11.2)
-    image_processing (1.14.0)
-      mini_magick (>= 4.9.5, < 6)
-      ruby-vips (>= 2.0.17, < 3)
+    image_processing (2.0.0)
     importmap-rails (2.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -217,9 +213,6 @@ GEM
       net-smtp
     marcel (1.1.0)
     matrix (0.4.2)
-    mini_magick (5.1.2)
-      benchmark
-      logger
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (6.0.6)
@@ -390,9 +383,6 @@ GEM
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
-    ruby-vips (2.2.3)
-      ffi (~> 1.12)
-      logger
     rubyzip (3.3.0)
     securerandom (0.4.1)
     selenium-webdriver (4.44.0)
@@ -516,7 +506,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.5)
   i18n-debug
   i18n-js (~> 4.2)
-  image_processing (~> 1.14)
+  image_processing (~> 2.0)
   importmap-rails
   js-routes (~> 2.3)
   pagy (~> 43.5)
