@@ -164,7 +164,7 @@ GEM
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
-    execjs (2.10.0)
+    execjs (2.10.1)
     factory_bot (6.5.5)
       activesupport (>= 6.1.0)
     factory_bot_rails (6.5.1)
@@ -334,7 +334,7 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
-    react-rails (3.3.0)
+    react-rails (3.3.1)
       babel-transpiler (>= 0.7.0)
       connection_pool
       execjs
