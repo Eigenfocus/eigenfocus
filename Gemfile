@@ -36,7 +36,7 @@ gem "ruby-vips", "~> 2.0"
 gem "positioning", "~> 0.4"
 
 # Real-time updates
-gem "solid_cable", "~> 3.0"
+gem "solid_cable", "~> 4.0"
 
 # Background job processing
 gem "solid_queue", "~> 1.4"
