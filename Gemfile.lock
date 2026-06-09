@@ -208,7 +208,7 @@ GEM
     js-routes (2.3.7)
       railties (>= 5)
       sorbet-runtime
-    json (2.19.5)
+    json (2.19.8)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
@@ -259,7 +259,7 @@ GEM
     nokogiri (1.19.3-x86_64-linux-musl)
       racc (~> 1.4)
     package_json (0.2.0)
-    pagy (43.5.5)
+    pagy (43.5.6)
       json
       uri
       yaml
