@@ -1,0 +1,32 @@
+<%= turbo_frame_tag dom_id(todo) do %>
+  <div class="cpy-todo flex items-start gap-2 group">
+    <%= form_with url: toggle_issue_todo_list_todo_path(todo.todo_list.issue, todo.todo_list, todo),
+      method: :put,
+      data: { controller: "form" },
+      class: "flex items-center pt-0.5" do %>
+      <%= check_box_tag "finished", "1", todo.finished?,
+        class: "checkbox checkbox-sm",
+        data: {
+          "issue--todos-target": "checkbox",
+          action: "change->form#submit change->issue--todos#refresh"
+        } %>
+    <% end %>
+
+    <%= link_to todo.description,
+      edit_issue_todo_list_todo_path(todo.todo_list.issue, todo.todo_list, todo),
+      class: "grow cursor-pointer break-all #{'line-through opacity-60' if todo.finished?}",
+      data: { turbo_frame: dom_id(todo), "todo-text": true } %>
+
+    <% if todo.finished? %>
+      <span class="text-xs opacity-50 whitespace-nowrap" title="<%= t('todo_lists.finished_on', date: l(todo.finished_at.to_date, format: :long)) %>">
+        <i class="ti ti-check"></i>
+      </span>
+    <% end %>
+
+    <%= button_to issue_todo_list_todo_path(todo.todo_list.issue, todo.todo_list, todo),
+      method: :delete,
+      class: "cpy-delete-todo btn btn-ghost btn-xs btn-error opacity-50 group-hover:opacity-100" do %>
+      <i class="ti ti-trash"></i>
+    <% end %>
+  </div>
+<% end %>

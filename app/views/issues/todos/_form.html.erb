@@ -1,0 +1,15 @@
+<%= form_with model: todo,
+  url: issue_todo_list_todo_path(todo.todo_list.issue, todo.todo_list, todo),
+  method: :patch,
+  data: { controller: "form" } do |f| %>
+  <div data-controller="resizable-input" class="w-full relative">
+    <div data-resizable-input-target="replica" class="p-1 whitespace-pre-line break-all"></div>
+    <%= f.text_area :description,
+      class: "cpy-todo-description-input w-full bg-transparent p-1 min-h-8",
+      autofocus: true,
+      data: {
+        "resizable-input-target": "input",
+        action: "blur->form#submit keydown.enter->form#submit:prevent"
+      } %>
+  </div>
+<% end %>
