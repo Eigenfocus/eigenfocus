@@ -1,0 +1,7 @@
+en:
+  todo_lists:
+    default_title: "To-do list"
+    add_list: "Add list"
+    add_item: "Add item"
+    confirm_delete: "Delete this todo list and all its items?"
+    finished_on: "Finished on %{date}"
