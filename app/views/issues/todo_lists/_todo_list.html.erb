@@ -19,7 +19,11 @@
     </div>
 
     <div id="<%= dom_id(todo_list, :todos) %>" class="mt-2 flex flex-col gap-1">
-      <%# todos rendered here in Task 4 %>
+      <%= render partial: "issues/todos/todo", collection: todo_list.todos.order(:created_at), as: :todo %>
     </div>
+
+    <%= button_to t("todo_lists.add_item"), issue_todo_list_todos_path(todo_list.issue, todo_list),
+      method: :post,
+      class: "btn btn-ghost btn-xs self-start mt-2 opacity-70" %>
   </div>
 <% end %>

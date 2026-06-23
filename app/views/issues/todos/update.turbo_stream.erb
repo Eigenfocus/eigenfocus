@@ -1,0 +1,7 @@
+<% if @todo.destroyed? %>
+  <%= turbo_stream.remove dom_id(@todo) %>
+<% else %>
+  <%= turbo_stream.replace dom_id(@todo) do %>
+    <%= render partial: "issues/todos/todo", locals: { todo: @todo } %>
+  <% end %>
+<% end %>
