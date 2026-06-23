@@ -3,6 +3,10 @@ class Issues::TodosController < ApplicationController
     @todo = current_todo_list.todos.create
   end
 
+  def show
+    @todo = current_todo_list.todos.find(params[:id])
+  end
+
   def edit
     @todo = current_todo_list.todos.find(params[:id])
   end
@@ -14,6 +18,7 @@ class Issues::TodosController < ApplicationController
       @todo.destroy
     else
       @todo.update(todo_params)
+      @new_todo = current_todo_list.todos.create if params[:continue] == "1"
     end
   end
 

@@ -3,6 +3,10 @@ class Issues::TodoListsController < ApplicationController
     @todo_list = current_issue.todo_lists.create(title: t("todo_lists.default_title"))
   end
 
+  def show
+    @todo_list = current_issue.todo_lists.find(params[:id])
+  end
+
   def edit
     @todo_list = current_issue.todo_lists.find(params[:id])
   end

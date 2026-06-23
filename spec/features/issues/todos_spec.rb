@@ -19,8 +19,8 @@ describe "Issue Todos" do
     within dom_id(todo_list) do
       click_button "Add item"
       find(".cpy-todo-description-input").set("Buy milk")
+      find(".cpy-save-todo").click
     end
-    find("body").click
 
     within dom_id(todo_list) do
       expect(page).to have_content("Buy milk")
@@ -28,17 +28,69 @@ describe "Issue Todos" do
     expect(todo_list.reload.todos.pluck(:description)).to include("Buy milk")
   end
 
-  specify "an emptied new todo is discarded on blur" do
+  specify "saving an empty todo discards it" do
     open_issue_detail
 
     within dom_id(todo_list) do
       click_button "Add item"
-      find(".cpy-todo-description-input").set("")
+      find(".cpy-save-todo").click
     end
-    find("body").click
 
     expect(page).to have_no_css(".cpy-todo-description-input")
     expect(todo_list.reload.todos.count).to eq(0)
+  end
+
+  specify "closing a new todo discards it" do
+    open_issue_detail
+
+    within dom_id(todo_list) do
+      click_button "Add item"
+      find(".cpy-todo-description-input").set("changed my mind")
+      find(".cpy-close-todo").click
+    end
+
+    expect(page).to have_no_css(".cpy-todo-description-input")
+    expect(todo_list.reload.todos.count).to eq(0)
+  end
+
+  specify "pressing Enter keeps adding new todos" do
+    open_issue_detail
+
+    within dom_id(todo_list) do
+      click_button "Add item"
+
+      find(".cpy-todo-description-input").set("First")
+      find(".cpy-todo-description-input").send_keys(:enter)
+      expect(page).to have_content("First")
+
+      find(".cpy-todo-description-input").set("Second")
+      find(".cpy-todo-description-input").send_keys(:enter)
+      expect(page).to have_content("Second")
+
+      find(".cpy-todo-description-input").send_keys(:escape)
+      expect(page).to have_no_css(".cpy-todo-description-input")
+    end
+
+    expect(todo_list.reload.todos.order(:created_at).pluck(:description)).to eq(%w[First Second])
+  end
+
+  specify "pressing Esc exits edit mode without closing the modal" do
+    todo = FactoryBot.create(:issue_todo, todo_list: todo_list, description: "Original")
+    open_issue_detail
+
+    within dom_id(todo) do
+      find(".cpy-todo-text").click
+      field = find(".cpy-todo-description-input")
+      field.set("Changed text")
+      field.send_keys(:escape)
+    end
+
+    within dom_id(todo) do
+      expect(page).to have_content("Original")
+      expect(page).to have_no_css(".cpy-todo-description-input")
+    end
+    expect(page).to have_content("My list")
+    expect(todo.reload.description).to eq("Original")
   end
 
   specify "I can check a todo, recording who finished it" do

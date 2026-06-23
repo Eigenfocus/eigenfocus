@@ -1,15 +1,14 @@
 <%= form_with model: todo_list,
   url: issue_todo_list_path(todo_list.issue, todo_list),
   method: :patch,
-  data: { controller: "form" } do |f| %>
-  <div data-controller="resizable-input" class="w-full relative">
-    <div data-resizable-input-target="replica" class="font-medium p-1 whitespace-pre-line break-all"></div>
-    <%= f.text_area :title, required: true,
-      class: "cpy-todo-list-title-input font-medium w-full bg-transparent p-1 min-h-8",
-      autofocus: true,
-      data: {
-        "resizable-input-target": "input",
-        action: "blur->form#submit keydown.enter->form#submit:prevent"
-      } %>
-  </div>
+  data: {
+    controller: "issue--inline-edit",
+    "issue--inline-edit-show-path-value": issue_todo_list_path(todo_list.issue, todo_list)
+  } do |f| %>
+  <%= f.text_area :title, rows: 1, required: true,
+    class: "cpy-todo-list-title-input w-full font-medium bg-base-100 text-base-content border border-base-300 rounded p-1 resize-none overflow-hidden",
+    data: {
+      "issue--inline-edit-target": "input",
+      action: "input->issue--inline-edit#autogrow blur->issue--inline-edit#save keydown.enter->issue--inline-edit#saveAndContinue keydown.esc->issue--inline-edit#cancel"
+    } %>
 <% end %>

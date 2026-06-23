@@ -14,7 +14,7 @@
 
     <%= link_to todo.description,
       edit_issue_todo_list_todo_path(todo.todo_list.issue, todo.todo_list, todo),
-      class: "grow cursor-pointer break-all #{'line-through opacity-60' if todo.finished?}",
+      class: "cpy-todo-text grow cursor-pointer break-all #{'line-through opacity-60' if todo.finished?}",
       data: { turbo_frame: dom_id(todo), "todo-text": true } %>
 
     <% if todo.finished? %>

@@ -94,8 +94,8 @@ Rails.application.routes.draw do
         post :attach, on: :collection
       end
       resources :comments, only: [ :create, :edit, :update, :destroy ]
-      resources :todo_lists, only: [ :create, :edit, :update, :destroy ] do
-        resources :todos, only: [ :create, :edit, :update, :destroy ] do
+      resources :todo_lists, only: [ :create, :show, :edit, :update, :destroy ] do
+        resources :todos, only: [ :create, :show, :edit, :update, :destroy ] do
           member do
             put :toggle
           end
