@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_22_090000) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_22_090100) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -108,6 +108,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_090000) do
     t.index ["issue_id"], name: "index_issue_todo_lists_on_issue_id"
   end
 
+  create_table "issue_todos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "description"
+    t.datetime "finished_at"
+    t.integer "finished_by_id"
+    t.integer "todo_list_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["finished_by_id"], name: "index_issue_todos_on_finished_by_id"
+    t.index ["todo_list_id"], name: "index_issue_todos_on_todo_list_id"
+  end
+
   create_table "issues", force: :cascade do |t|
     t.datetime "archived_at"
     t.integer "comments_count", default: 0, null: false
@@ -191,6 +202,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_090000) do
   add_foreign_key "issue_label_links", "issue_labels"
   add_foreign_key "issue_label_links", "issues"
   add_foreign_key "issue_todo_lists", "issues"
+  add_foreign_key "issue_todos", "issue_todo_lists", column: "todo_list_id"
+  add_foreign_key "issue_todos", "users", column: "finished_by_id"
   add_foreign_key "issues", "projects"
   add_foreign_key "time_entries", "projects"
   add_foreign_key "time_entries", "users"
