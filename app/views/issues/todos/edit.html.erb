@@ -1,3 +1,3 @@
 <%= turbo_frame_tag dom_id(@todo) do %>
-  <%= render partial: "issues/todos/form", locals: { todo: @todo } %>
+  <%= render partial: "issues/todos/form", locals: { todo: @todo, adding: false } %>
 <% end %>
