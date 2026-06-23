@@ -2,6 +2,10 @@
   <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>
 
   <% if issue.persisted? %>
+    <%= render partial: "issues/todo_lists/todo_lists", locals: { issue: } %>
+  <% end %>
+
+  <% if issue.persisted? %>
     <%= render partial: 'issues/files_drop', locals: { issue: } %>
   <% end %>
 </div>

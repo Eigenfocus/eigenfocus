@@ -1,0 +1,14 @@
+<div id="issue_todo_lists" class="mt-4 flex flex-col gap-4">
+  <h3 class="text-base flex items-center gap-1 font-medium text-base-content">
+    <span class="opacity-60 flex items-center"><i class="ti ti-checklist"></i></span>
+    <span class="flex items-center"><%= Issue::TodoList.model_name.human(count: 2) %></span>
+  </h3>
+
+  <div id="<%= dom_id(issue, :todo_lists) %>" class="flex flex-col gap-4">
+    <%= render partial: "issues/todo_lists/todo_list", collection: issue.todo_lists.order(:created_at), as: :todo_list %>
+  </div>
+
+  <%= button_to t("todo_lists.add_list"), issue_todo_lists_path(issue),
+    method: :post,
+    class: "btn btn-sm btn-soft self-start" %>
+</div>

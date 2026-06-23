@@ -29,6 +29,14 @@ en:
         one: 'Comment'
         other: 'Comments'
 
+      issue/todo_list:
+        one: 'Todo list'
+        other: 'Todo lists'
+
+      issue/todo:
+        one: 'Todo'
+        other: 'Todos'
+
       issue_label:
         one: 'Label'
         other: 'Labels'
@@ -60,6 +68,12 @@ en:
         grouping: 'Column'
         comments: 'Comments'
         finished_at: 'Finished at'
+
+      issue/todo_list:
+        title: 'Title'
+
+      issue/todo:
+        description: 'Description'
 
       issue_label:
         title: 'Title'

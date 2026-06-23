@@ -29,6 +29,14 @@ pt-BR:
         one: 'Comentário'
         other: 'Comentários'
 
+      issue/todo_list:
+        one: 'Lista de tarefas'
+        other: 'Listas de tarefas'
+
+      issue/todo:
+        one: 'Tarefa'
+        other: 'Tarefas'
+
       issue_label:
         one: 'Label'
         other: 'Labels'
@@ -60,6 +68,12 @@ pt-BR:
         grouping: 'Coluna'
         comments: 'Comentários'
         finished_at: 'Finalizada em'
+
+      issue/todo_list:
+        title: 'Título'
+
+      issue/todo:
+        description: 'Descrição'
 
       issue_label:
         title: 'Título'
