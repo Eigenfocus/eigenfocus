@@ -18,8 +18,13 @@
       <% end %>
     </div>
 
-    <div id="<%= dom_id(checklist, :items) %>" class="mt-2 flex flex-col gap-1">
-      <%= render partial: "issues/checklist_items/checklist_item", collection: checklist.items.order(:created_at), as: :item %>
+    <div id="<%= dom_id(checklist, :items) %>" class="mt-2 flex flex-col gap-1"
+      data-controller="sortable"
+      data-sortable-target="container"
+      data-sortable-shared-group-value="checklist_<%= checklist.id %>_items"
+      data-sortable-move-path-value="<%= move_issue_checklist_items_path(checklist.issue, checklist) %>"
+      data-sortable-grouping-id="<%= checklist.id %>">
+      <%= render partial: "issues/checklist_items/checklist_item", collection: checklist.items.order(:position), as: :item %>
     </div>
 
     <%= button_to t("checklists.add_item"), issue_checklist_items_path(checklist.issue, checklist),

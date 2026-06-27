@@ -37,6 +37,12 @@ class Issues::ChecklistItemsController < ApplicationController
     end
   end
 
+  def move
+    item = current_checklist.items.find_by!(position: move_params[:from][:position])
+    item.update(position: move_params[:to][:position])
+    head :ok
+  end
+
   private
 
   def current_issue
@@ -49,5 +55,9 @@ class Issues::ChecklistItemsController < ApplicationController
 
   def item_params
     params.require(:issue_checklist_item).permit(:description)
+  end
+
+  def move_params
+    params.deep_transform_keys(&:to_sym)
   end
 end

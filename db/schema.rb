@@ -76,7 +76,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_090100) do
     t.string "description"
     t.datetime "finished_at"
     t.integer "finished_by_id"
+    t.integer "position", null: false
     t.datetime "updated_at", null: false
+    t.index ["checklist_id", "position"], name: "index_issue_checklist_items_on_checklist_id_and_position", unique: true
     t.index ["checklist_id"], name: "index_issue_checklist_items_on_checklist_id"
     t.index ["finished_by_id"], name: "index_issue_checklist_items_on_finished_by_id"
   end
