@@ -124,10 +124,25 @@ describe "Issue Todos" do
     open_issue_detail
 
     within dom_id(todo) do
+      find(".cpy-todo").hover
       find(".cpy-delete-todo").click
     end
 
     expect(page).not_to have_content("Remove me")
     expect(Issue::Todo.exists?(todo.id)).to be(false)
+  end
+
+  specify "I can edit a todo from the pencil button" do
+    todo = FactoryBot.create(:issue_todo, todo_list: todo_list, description: "Edit me")
+    open_issue_detail
+
+    within dom_id(todo) do
+      find(".cpy-todo").hover
+      find(".cpy-edit-todo").click
+      find(".cpy-todo-description-input").set("Edited")
+      find(".cpy-save-todo").click
+      expect(page).to have_content("Edited")
+    end
+    expect(todo.reload.description).to eq("Edited")
   end
 end
