@@ -125,7 +125,7 @@ describe "Issue Todos" do
 
     within dom_id(todo) do
       find(".cpy-todo").hover
-      find(".cpy-delete-todo").click
+      find(".cpy-delete-todo", visible: :visible).click
     end
 
     expect(page).not_to have_content("Remove me")
@@ -138,7 +138,7 @@ describe "Issue Todos" do
 
     within dom_id(todo) do
       find(".cpy-todo").hover
-      find(".cpy-edit-todo").click
+      find(".cpy-edit-todo", visible: :visible).click
       find(".cpy-todo-description-input").set("Edited")
       find(".cpy-save-todo").click
       expect(page).to have_content("Edited")

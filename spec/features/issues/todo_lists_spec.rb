@@ -30,13 +30,26 @@ describe "Issue Todo Lists" do
     within dom_id(todo_list) do
       find(".cpy-todo-list-title").click
       find(".cpy-todo-list-title-input").set("New name")
-    end
-    find("body").click
+      find(".cpy-save-list").click
 
-    within dom_id(todo_list) do
       expect(page).to have_content("New name")
     end
     expect(todo_list.reload.title).to eq("New name")
+  end
+
+  specify "I can cancel renaming a todo list with the back button" do
+    todo_list = FactoryBot.create(:issue_todo_list, issue: issue, title: "Keep me")
+    open_issue_detail
+
+    within dom_id(todo_list) do
+      find(".cpy-todo-list-title").click
+      find(".cpy-todo-list-title-input").set("Discarded name")
+      find(".cpy-close-list").click
+
+      expect(page).to have_content("Keep me")
+      expect(page).to have_no_css(".cpy-todo-list-title-input")
+    end
+    expect(todo_list.reload.title).to eq("Keep me")
   end
 
   specify "I can delete a todo list" do
@@ -44,8 +57,9 @@ describe "Issue Todo Lists" do
     open_issue_detail
 
     within dom_id(todo_list) do
+      find(".cpy-todo-list").hover
       accept_confirm do
-        find(".cpy-delete-todo-list").click
+        find(".cpy-delete-todo-list", visible: :visible).click
       end
     end
 
