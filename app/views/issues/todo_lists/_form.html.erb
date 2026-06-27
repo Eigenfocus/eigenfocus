@@ -9,6 +9,18 @@
     class: "cpy-todo-list-title-input w-full font-medium bg-base-100 text-base-content border border-base-300 rounded p-1 resize-none overflow-hidden",
     data: {
       "issue--inline-edit-target": "input",
-      action: "input->issue--inline-edit#autogrow blur->issue--inline-edit#save keydown.enter->issue--inline-edit#saveAndContinue keydown.esc->issue--inline-edit#cancel"
+      action: "input->issue--inline-edit#autogrow keydown.enter->issue--inline-edit#saveAndContinue keydown.esc->issue--inline-edit#cancel"
     } %>
+
+  <div class="flex justify-end items-center gap-1 mt-1">
+    <button type="button" class="cpy-save-list btn btn-primary btn-xs"
+      data-action="issue--inline-edit#save">
+      <%= t("actions.save") %>
+    </button>
+    <button type="button" class="cpy-close-list btn btn-ghost btn-xs"
+      title="<%= t('actions.close') %>"
+      data-action="issue--inline-edit#cancel">
+      <i class="ti ti-arrow-back-up"></i>
+    </button>
+  </div>
 <% end %>

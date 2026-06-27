@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(todo_list) do %>
-  <div class="cpy-todo-list rounded-box border border-base-300 p-3"
+  <div class="cpy-todo-list group/list rounded-box border border-base-300 p-3"
     data-controller="issue--todos">
     <div class="flex items-center justify-between gap-2">
       <div class="flex items-center gap-2 grow">
@@ -12,9 +12,9 @@
 
       <%= button_to issue_todo_list_path(todo_list.issue, todo_list),
         method: :delete,
-        class: "cpy-delete-todo-list btn btn-ghost btn-xs btn-error",
+        class: "cpy-delete-todo-list btn btn-ghost btn-xs btn-error opacity-0 group-hover/list:opacity-100",
         form: { data: { turbo_confirm: t("todo_lists.confirm_delete") } } do %>
-        <i class="ti ti-trash"></i>
+        <%= icon_for(:remove) %>
       <% end %>
     </div>
 
