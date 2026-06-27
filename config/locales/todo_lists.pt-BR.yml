@@ -1,7 +1,0 @@
-pt-BR:
-  todo_lists:
-    default_title: "Lista de tarefas"
-    add_list: "Adicionar lista"
-    add_item: "Adicionar item"
-    save_and_close: "Salvar e fechar"
-    confirm_delete: "Excluir esta lista de tarefas e todos os seus itens?"

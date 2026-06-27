@@ -1,0 +1,34 @@
+<%= turbo_frame_tag dom_id(item) do %>
+  <div class="cpy-checklist-item flex items-start gap-2 group">
+    <%= form_with url: toggle_issue_checklist_item_path(item.checklist.issue, item.checklist, item),
+      method: :put,
+      data: { controller: "form" },
+      class: "flex items-center pt-0.5" do %>
+      <%= check_box_tag "finished", "1", item.finished?,
+        class: "checkbox checkbox-sm",
+        data: {
+          "issue--checklist-target": "checkbox",
+          action: "change->form#submit change->issue--checklist#refresh"
+        } %>
+    <% end %>
+
+    <%= link_to item.description,
+      edit_issue_checklist_item_path(item.checklist.issue, item.checklist, item),
+      class: "cpy-checklist-item-text grow cursor-pointer break-all #{'line-through opacity-60' if item.finished?}",
+      data: { turbo_frame: dom_id(item), "checklist-item-text": true } %>
+
+    <div class="flex items-center gap-1 opacity-0 group-hover:opacity-100">
+      <%= button_to issue_checklist_item_path(item.checklist.issue, item.checklist, item),
+        method: :delete,
+        class: "cpy-delete-checklist-item btn btn-ghost btn-xs btn-error" do %>
+        <%= icon_for(:remove) %>
+      <% end %>
+
+      <%= link_to edit_issue_checklist_item_path(item.checklist.issue, item.checklist, item),
+        class: "cpy-edit-checklist-item btn btn-ghost btn-xs",
+        data: { turbo_frame: dom_id(item) } do %>
+        <%= icon_for(:edit) %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

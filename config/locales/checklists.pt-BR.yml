@@ -1,0 +1,6 @@
+pt-BR:
+  checklists:
+    default_title: "Checklist"
+    add_checklist: "Adicionar checklist"
+    add_item: "Adicionar item"
+    confirm_delete: "Excluir este checklist e todos os seus itens?"

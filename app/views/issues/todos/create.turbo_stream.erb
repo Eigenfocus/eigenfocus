@@ -1,5 +1,0 @@
-<%= turbo_stream.append dom_id(@todo.todo_list, :todos) do %>
-  <%= turbo_frame_tag dom_id(@todo) do %>
-    <%= render partial: "issues/todos/form", locals: { todo: @todo, adding: true } %>
-  <% end %>
-<% end %>

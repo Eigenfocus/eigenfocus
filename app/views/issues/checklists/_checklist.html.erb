@@ -1,0 +1,29 @@
+<%= turbo_frame_tag dom_id(checklist) do %>
+  <div class="cpy-checklist group/checklist rounded-box border border-base-300 p-3"
+    data-controller="issue--checklist">
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 grow">
+        <%= link_to checklist.title,
+          edit_issue_checklist_path(checklist.issue, checklist),
+          class: "cpy-checklist-title font-medium text-base-content cursor-pointer",
+          data: { turbo_frame: dom_id(checklist), "issue--checklist-target": "title" } %>
+        <span class="text-xs opacity-60" data-issue--checklist-target="count"></span>
+      </div>
+
+      <%= button_to issue_checklist_path(checklist.issue, checklist),
+        method: :delete,
+        class: "cpy-delete-checklist btn btn-ghost btn-xs btn-error opacity-0 group-hover/checklist:opacity-100",
+        form: { data: { turbo_confirm: t("checklists.confirm_delete") } } do %>
+        <%= icon_for(:remove) %>
+      <% end %>
+    </div>
+
+    <div id="<%= dom_id(checklist, :items) %>" class="mt-2 flex flex-col gap-1">
+      <%= render partial: "issues/checklist_items/checklist_item", collection: checklist.items.order(:created_at), as: :item %>
+    </div>
+
+    <%= button_to t("checklists.add_item"), issue_checklist_items_path(checklist.issue, checklist),
+      method: :post,
+      class: "btn btn-ghost btn-xs self-start mt-2 opacity-70" %>
+  </div>
+<% end %>

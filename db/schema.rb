@@ -70,6 +70,25 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_090100) do
     t.index ["visualization_id"], name: "index_groupings_on_visualization_id"
   end
 
+  create_table "issue_checklist_items", force: :cascade do |t|
+    t.integer "checklist_id", null: false
+    t.datetime "created_at", null: false
+    t.string "description"
+    t.datetime "finished_at"
+    t.integer "finished_by_id"
+    t.datetime "updated_at", null: false
+    t.index ["checklist_id"], name: "index_issue_checklist_items_on_checklist_id"
+    t.index ["finished_by_id"], name: "index_issue_checklist_items_on_finished_by_id"
+  end
+
+  create_table "issue_checklists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "issue_id", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_issue_checklists_on_issue_id"
+  end
+
   create_table "issue_comments", force: :cascade do |t|
     t.integer "author_id", null: false
     t.text "content"
@@ -98,25 +117,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_090100) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_issue_labels_on_project_id"
     t.index ["title"], name: "index_issue_labels_on_title"
-  end
-
-  create_table "issue_todo_lists", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.integer "issue_id", null: false
-    t.string "title", null: false
-    t.datetime "updated_at", null: false
-    t.index ["issue_id"], name: "index_issue_todo_lists_on_issue_id"
-  end
-
-  create_table "issue_todos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.string "description"
-    t.datetime "finished_at"
-    t.integer "finished_by_id"
-    t.integer "todo_list_id", null: false
-    t.datetime "updated_at", null: false
-    t.index ["finished_by_id"], name: "index_issue_todos_on_finished_by_id"
-    t.index ["todo_list_id"], name: "index_issue_todos_on_todo_list_id"
   end
 
   create_table "issues", force: :cascade do |t|
@@ -197,13 +197,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_090100) do
   add_foreign_key "grouping_issue_allocations", "groupings"
   add_foreign_key "grouping_issue_allocations", "issues"
   add_foreign_key "groupings", "visualizations"
+  add_foreign_key "issue_checklist_items", "issue_checklists", column: "checklist_id"
+  add_foreign_key "issue_checklist_items", "users", column: "finished_by_id"
+  add_foreign_key "issue_checklists", "issues"
   add_foreign_key "issue_comments", "issues"
   add_foreign_key "issue_comments", "users", column: "author_id"
   add_foreign_key "issue_label_links", "issue_labels"
   add_foreign_key "issue_label_links", "issues"
-  add_foreign_key "issue_todo_lists", "issues"
-  add_foreign_key "issue_todos", "issue_todo_lists", column: "todo_list_id"
-  add_foreign_key "issue_todos", "users", column: "finished_by_id"
   add_foreign_key "issues", "projects"
   add_foreign_key "time_entries", "projects"
   add_foreign_key "time_entries", "users"

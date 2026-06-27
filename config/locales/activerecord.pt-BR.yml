@@ -29,13 +29,13 @@ pt-BR:
         one: 'Comentário'
         other: 'Comentários'
 
-      issue/todo_list:
-        one: 'Lista de tarefas'
-        other: 'Listas de tarefas'
+      issue/checklist:
+        one: 'Checklist'
+        other: 'Checklists'
 
-      issue/todo:
-        one: 'Tarefa'
-        other: 'Tarefas'
+      issue/checklist_item:
+        one: 'Item do checklist'
+        other: 'Itens do checklist'
 
       issue_label:
         one: 'Label'
@@ -69,10 +69,10 @@ pt-BR:
         comments: 'Comentários'
         finished_at: 'Finalizada em'
 
-      issue/todo_list:
+      issue/checklist:
         title: 'Título'
 
-      issue/todo:
+      issue/checklist_item:
         description: 'Descrição'
 
       issue_label:

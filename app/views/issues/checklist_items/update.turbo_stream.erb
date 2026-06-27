@@ -1,0 +1,15 @@
+<% if @item.destroyed? %>
+  <%= turbo_stream.remove dom_id(@item) %>
+<% else %>
+  <%= turbo_stream.replace dom_id(@item) do %>
+    <%= render partial: "issues/checklist_items/checklist_item", locals: { item: @item } %>
+  <% end %>
+
+  <% if @new_item %>
+    <%= turbo_stream.append dom_id(@item.checklist, :items) do %>
+      <%= turbo_frame_tag dom_id(@new_item) do %>
+        <%= render partial: "issues/checklist_items/form", locals: { item: @new_item, adding: true } %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

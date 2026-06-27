@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Inline edit for todo list titles and todos. Handles autogrow, save on
-// blur/Enter, "keep adding" when editing a brand new todo, and cancel on Esc
+// Inline edit for checklist titles and checklist items. Handles autogrow, save
+// on blur/Enter, "keep adding" when editing a brand new item, and cancel on Esc
 // (reverting to the saved display without closing the issue modal).
 export default class extends Controller {
   static targets = ["input", "continueField"]

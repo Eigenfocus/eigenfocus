@@ -1,0 +1,26 @@
+<%= form_with model: checklist,
+  url: issue_checklist_path(checklist.issue, checklist),
+  method: :patch,
+  data: {
+    controller: "issue--inline-edit",
+    "issue--inline-edit-show-path-value": issue_checklist_path(checklist.issue, checklist)
+  } do |f| %>
+  <%= f.text_area :title, rows: 1, required: true,
+    class: "cpy-checklist-title-input w-full font-medium bg-base-100 text-base-content border border-base-300 rounded p-1 resize-none overflow-hidden",
+    data: {
+      "issue--inline-edit-target": "input",
+      action: "input->issue--inline-edit#autogrow keydown.enter->issue--inline-edit#saveAndContinue keydown.esc->issue--inline-edit#cancel"
+    } %>
+
+  <div class="flex justify-end items-center gap-1 mt-1">
+    <button type="button" class="cpy-save-checklist btn btn-primary btn-xs"
+      data-action="issue--inline-edit#save">
+      <%= t("actions.save") %>
+    </button>
+    <button type="button" class="cpy-close-checklist btn btn-ghost btn-xs"
+      title="<%= t('actions.close') %>"
+      data-action="issue--inline-edit#cancel">
+      <i class="ti ti-arrow-back-up"></i>
+    </button>
+  </div>
+<% end %>
