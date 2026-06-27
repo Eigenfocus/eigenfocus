@@ -100,6 +100,9 @@ Rails.application.routes.draw do
           member do
             put :toggle
           end
+          collection do
+            post :move
+          end
         end
       end
     end

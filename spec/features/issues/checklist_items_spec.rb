@@ -132,6 +132,24 @@ describe "Issue Checklist Items" do
     expect(Issue::ChecklistItem.exists?(item.id)).to be(false)
   end
 
+  specify "I can reorder items within a checklist by dragging" do
+    %w[A B C].each do |description|
+      FactoryBot.create(:issue_checklist_item, checklist: checklist, description: description)
+    end
+    open_issue_detail
+
+    within dom_id(checklist) do
+      find(".cpy-checklist-item", match: :first)
+      first_item = all(".cpy-checklist-item")[0]
+      third_item = all(".cpy-checklist-item")[2]
+
+      first_item.drag_to(third_item)
+    end
+
+    wait_until { checklist.reload.items.order(:position).pluck(:description) == %w[B C A] }
+    expect(checklist.items.order(:position).pluck(:description)).to eq(%w[B C A])
+  end
+
   specify "I can edit an item from the pencil button" do
     item = FactoryBot.create(:issue_checklist_item, checklist: checklist, description: "Edit me")
     open_issue_detail
