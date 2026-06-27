@@ -1,0 +1,5 @@
+<%= turbo_stream.append dom_id(@item.checklist, :items) do %>
+  <%= turbo_frame_tag dom_id(@item) do %>
+    <%= render partial: "issues/checklist_items/form", locals: { item: @item, adding: true } %>
+  <% end %>
+<% end %>

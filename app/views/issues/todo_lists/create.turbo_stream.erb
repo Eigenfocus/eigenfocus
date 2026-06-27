@@ -1,3 +1,0 @@
-<%= turbo_stream.append dom_id(@todo_list.issue, :todo_lists) do %>
-  <%= render partial: "issues/todo_lists/todo_list", locals: { todo_list: @todo_list } %>
-<% end %>

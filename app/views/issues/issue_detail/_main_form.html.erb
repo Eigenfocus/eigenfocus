@@ -2,7 +2,7 @@
   <%= react_component("IssueDetail/Description", content: issue.description, issueId: issue.id) %>
 
   <% if issue.persisted? %>
-    <%= render partial: "issues/todo_lists/todo_lists", locals: { issue: } %>
+    <%= render partial: "issues/checklists/checklists", locals: { issue: } %>
   <% end %>
 
   <% if issue.persisted? %>

@@ -8,7 +8,7 @@ class Issue < ApplicationRecord
   has_many :grouping_issue_allocations, dependent: :destroy
   has_many :groupings, through: :grouping_issue_allocations
   has_many :comments, class_name: "Issue::Comment", dependent: :destroy, counter_cache: :comments_count
-  has_many :todo_lists, class_name: "Issue::TodoList", dependent: :destroy
+  has_many :checklists, class_name: "Issue::Checklist", dependent: :destroy
 
   ## Relations/Labels
   has_many :label_links, class_name: "IssueLabelLink", dependent: :destroy

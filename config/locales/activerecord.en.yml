@@ -29,13 +29,13 @@ en:
         one: 'Comment'
         other: 'Comments'
 
-      issue/todo_list:
-        one: 'Todo list'
-        other: 'Todo lists'
+      issue/checklist:
+        one: 'Checklist'
+        other: 'Checklists'
 
-      issue/todo:
-        one: 'Todo'
-        other: 'Todos'
+      issue/checklist_item:
+        one: 'Checklist item'
+        other: 'Checklist items'
 
       issue_label:
         one: 'Label'
@@ -69,10 +69,10 @@ en:
         comments: 'Comments'
         finished_at: 'Finished at'
 
-      issue/todo_list:
+      issue/checklist:
         title: 'Title'
 
-      issue/todo:
+      issue/checklist_item:
         description: 'Description'
 
       issue_label:

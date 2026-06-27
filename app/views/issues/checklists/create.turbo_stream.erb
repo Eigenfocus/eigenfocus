@@ -1,0 +1,3 @@
+<%= turbo_stream.append dom_id(@checklist.issue, :checklists) do %>
+  <%= render partial: "issues/checklists/checklist", locals: { checklist: @checklist } %>
+<% end %>

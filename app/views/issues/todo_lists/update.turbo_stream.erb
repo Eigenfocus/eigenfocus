@@ -1,9 +1,0 @@
-<% if @todo_list.valid? %>
-  <%= turbo_stream.replace dom_id(@todo_list) do %>
-    <%= render partial: "issues/todo_lists/todo_list", locals: { todo_list: @todo_list } %>
-  <% end %>
-<% else %>
-  <%= turbo_stream.replace dom_id(@todo_list) do %>
-    <%= render partial: "issues/todo_lists/todo_list", locals: { todo_list: @todo_list.reload } %>
-  <% end %>
-<% end %>

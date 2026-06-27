@@ -1,0 +1,9 @@
+<% if @checklist.valid? %>
+  <%= turbo_stream.replace dom_id(@checklist) do %>
+    <%= render partial: "issues/checklists/checklist", locals: { checklist: @checklist } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace dom_id(@checklist) do %>
+    <%= render partial: "issues/checklists/checklist", locals: { checklist: @checklist.reload } %>
+  <% end %>
+<% end %>

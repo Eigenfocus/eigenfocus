@@ -1,0 +1,33 @@
+<%
+  adding = local_assigns.fetch(:adding, false)
+  item_path = issue_checklist_item_path(item.checklist.issue, item.checklist, item)
+%>
+<%= form_with model: item, url: item_path, method: :patch,
+  data: {
+    controller: "issue--inline-edit",
+    "issue--inline-edit-adding-value": adding,
+    "issue--inline-edit-show-path-value": item_path
+  } do |f| %>
+  <%= f.text_area :description, rows: 1,
+    class: "cpy-checklist-item-input w-full text-sm bg-base-100 text-base-content border border-base-300 rounded p-1 resize-none overflow-hidden",
+    data: {
+      "issue--inline-edit-target": "input",
+      action: "input->issue--inline-edit#autogrow keydown.enter->issue--inline-edit#saveAndContinue keydown.esc->issue--inline-edit#cancel"
+    } %>
+
+  <% if adding %>
+    <%= hidden_field_tag :continue, "0", data: { "issue--inline-edit-target": "continueField" } %>
+  <% end %>
+
+  <div class="flex justify-end items-center gap-1 mt-1">
+    <button type="button" class="cpy-save-checklist-item btn btn-primary btn-xs"
+      data-action="issue--inline-edit#save">
+      <%= t("actions.save") %>
+    </button>
+    <button type="button" class="cpy-close-checklist-item btn btn-ghost btn-xs"
+      title="<%= t('actions.close') %>"
+      data-action="issue--inline-edit#cancel">
+      <i class="ti ti-arrow-back-up"></i>
+    </button>
+  </div>
+<% end %>
