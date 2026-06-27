@@ -5,4 +5,3 @@ en:
     add_item: "Add item"
     save_and_close: "Save and close"
     confirm_delete: "Delete this todo list and all its items?"
-    finished_on: "Finished on %{date}"

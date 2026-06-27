@@ -5,4 +5,3 @@ pt-BR:
     add_item: "Adicionar item"
     save_and_close: "Salvar e fechar"
     confirm_delete: "Excluir esta lista de tarefas e todos os seus itens?"
-    finished_on: "Concluído em %{date}"

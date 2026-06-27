@@ -17,16 +17,18 @@
       class: "cpy-todo-text grow cursor-pointer break-all #{'line-through opacity-60' if todo.finished?}",
       data: { turbo_frame: dom_id(todo), "todo-text": true } %>
 
-    <% if todo.finished? %>
-      <span class="text-xs opacity-50 whitespace-nowrap" title="<%= t('todo_lists.finished_on', date: l(todo.finished_at.to_date, format: :long)) %>">
-        <i class="ti ti-check"></i>
-      </span>
-    <% end %>
+    <div class="flex items-center gap-1 opacity-0 group-hover:opacity-100">
+      <%= button_to issue_todo_list_todo_path(todo.todo_list.issue, todo.todo_list, todo),
+        method: :delete,
+        class: "cpy-delete-todo btn btn-ghost btn-xs btn-error" do %>
+        <%= icon_for(:remove) %>
+      <% end %>
 
-    <%= button_to issue_todo_list_todo_path(todo.todo_list.issue, todo.todo_list, todo),
-      method: :delete,
-      class: "cpy-delete-todo btn btn-ghost btn-xs btn-error opacity-50 group-hover:opacity-100" do %>
-      <i class="ti ti-trash"></i>
-    <% end %>
+      <%= link_to edit_issue_todo_list_todo_path(todo.todo_list.issue, todo.todo_list, todo),
+        class: "cpy-edit-todo btn btn-ghost btn-xs",
+        data: { turbo_frame: dom_id(todo) } do %>
+        <%= icon_for(:edit) %>
+      <% end %>
+    </div>
   </div>
 <% end %>
