@@ -34,7 +34,7 @@
     "react": "^19",
     "react-dom": "^19",
     "react_ujs": "^3.3.0",
-    "shakapacker": "10.0.0",
+    "shakapacker": "10.3.0",
     "style-loader": "^4.0.0",
     "swc-loader": "^0.2.7",
     "terser-webpack-plugin": "^5.5.0",

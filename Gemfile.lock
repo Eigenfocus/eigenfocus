@@ -291,7 +291,7 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.2.6)
-    rack-proxy (0.7.7)
+    rack-proxy (0.8.3)
       rack
     rack-session (2.1.2)
       base64 (>= 0.1.0)
@@ -413,7 +413,7 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     semantic_range (3.1.1)
-    shakapacker (10.0.0)
+    shakapacker (10.3.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -542,7 +542,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   ruby-vips (~> 2.0)
   selenium-webdriver (= 4.46.0)
-  shakapacker (~> 10.0.0)
+  shakapacker (~> 10.3.0)
   solid_cable (~> 4.0)
   solid_queue (~> 1.4)
   sqlite3 (>= 2.1)
