@@ -19,7 +19,7 @@
     "@rails/request.js": "^0.0.12",
     "@swc/core": "^1.15.8",
     "@tabler/icons-react": "^3.35.0",
-    "@tabler/icons-webfont": "^3.35.0",
+    "@tabler/icons-webfont": "^3.45.0",
     "@types/webpack": "^5.28.5",
     "atomico": "^1.79.2",
     "compression-webpack-plugin": "^12.0.0",
