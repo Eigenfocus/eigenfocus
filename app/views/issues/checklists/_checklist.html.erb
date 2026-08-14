@@ -27,6 +27,10 @@
       <%= render partial: "issues/checklist_items/checklist_item", collection: checklist.items.order(:position), as: :item %>
     </div>
 
+    <%# The form for a brand new item lives outside the items list so incoming
+        broadcasts appending items can't shuffle it out of place. %>
+    <div id="<%= dom_id(checklist, :new_item) %>" class="mt-1"></div>
+
     <%= button_to t("checklists.add_item"), issue_checklist_items_path(checklist.issue, checklist),
       method: :post,
       class: "btn btn-ghost btn-xs self-start mt-2 opacity-70" %>

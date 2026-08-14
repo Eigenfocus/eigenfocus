@@ -16,6 +16,7 @@
     } %>
 
   <% if adding %>
+    <%= hidden_field_tag :adding, "1" %>
     <%= hidden_field_tag :continue, "0", data: { "issue--inline-edit-target": "continueField" } %>
   <% end %>
 
