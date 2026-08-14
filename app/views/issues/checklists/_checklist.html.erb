@@ -24,7 +24,7 @@
       data-sortable-shared-group-value="checklist_<%= checklist.id %>_items"
       data-sortable-move-path-value="<%= move_issue_checklist_items_path(checklist.issue, checklist) %>"
       data-sortable-grouping-id="<%= checklist.id %>">
-      <%= render partial: "issues/checklist_items/checklist_item", collection: checklist.items.order(:position), as: :item %>
+      <%= render partial: "issues/checklist_items/items", locals: { checklist: checklist } %>
     </div>
 
     <%# The form for a brand new item lives outside the items list so incoming

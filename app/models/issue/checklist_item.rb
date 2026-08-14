@@ -4,6 +4,10 @@ class Issue::ChecklistItem < ApplicationRecord
 
   positioned on: :checklist, column: :position
 
+  # An item without a description is one somebody is still typing, only its
+  # author sees it, through the form in the checklist's new item slot.
+  scope :described, -> { where.not(description: [ nil, "" ]) }
+
   # Broadcasts
   #
   # Clicking "Add item" persists a blank item right away and only its author
@@ -30,6 +34,10 @@ class Issue::ChecklistItem < ApplicationRecord
   private
 
   def broadcast_item_update
+    # The positioned gem shifts the siblings with a bulk update, so the dragged
+    # item is the only one with callbacks. Re-render the list rather than trying
+    # to move a single row.
+    return broadcast_items_reorder if saved_change_to_position?
     return if description.blank?
 
     if saved_change_to_description? && description_previously_was.blank?
@@ -43,6 +51,19 @@ class Issue::ChecklistItem < ApplicationRecord
         }
       )
     end
+  end
+
+  def broadcast_items_reorder
+    # Update, not replace, so the container holding the sortable controller
+    # survives and only its rows are swapped.
+    broadcast_update_later_to(
+      checklist.broadcast_stream,
+      target: ActionView::RecordIdentifier.dom_id(checklist, :items),
+      partial: "issues/checklist_items/items",
+      locals: {
+        checklist: checklist
+      }
+    )
   end
 
   def broadcast_append_item

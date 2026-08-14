@@ -101,6 +101,28 @@ describe "Issue checklist broadcasts", type: :model do
       expect(messages.first).to include("line-through")
     end
 
+    it "updates the whole list when an item is moved" do
+      create(:issue_checklist_item, checklist: checklist, description: "A")
+      moved = create(:issue_checklist_item, checklist: checklist, description: "B")
+
+      messages = broadcasts_from { moved.update!(position: 1) }
+
+      expect(messages.size).to eq(1)
+      expect(messages.first).to include('action="update"')
+      expect(messages.first).to include("target=\"#{dom_id(checklist, :items)}\"")
+      expect(messages.first.index(">B<")).to be < messages.first.index(">A<")
+    end
+
+    it "leaves blank items out of the list it broadcasts" do
+      create(:issue_checklist_item, checklist: checklist, description: "A")
+      blank = checklist.items.create!
+      moved = create(:issue_checklist_item, checklist: checklist, description: "B")
+
+      messages = broadcasts_from { moved.update!(position: 1) }
+
+      expect(messages.first).not_to include(dom_id(blank))
+    end
+
     it "removes the item when destroyed" do
       item = create(:issue_checklist_item, checklist: checklist, description: "Buy milk")
 
