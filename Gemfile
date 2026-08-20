@@ -65,7 +65,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "i18n-debug"
   gem "rubocop-rails-omakase", require: false
-  gem "rubocop-performance", "~> 1.26"
+  gem "rubocop-performance", "~> 1.27"
 end
 
 group :development do
