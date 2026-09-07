@@ -194,7 +194,7 @@ GEM
       glob (>= 0.4.0)
       i18n
     ice_nine (0.11.2)
-    image_processing (2.0.3)
+    image_processing (2.1.0)
     importmap-rails (2.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -526,7 +526,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.5)
   i18n-debug
   i18n-js (~> 4.2)
-  image_processing (~> 2.0)
+  image_processing (~> 2.1)
   importmap-rails
   js-routes (~> 2.4)
   pagy (~> 43.6)
