@@ -111,6 +111,15 @@ docker run \
 
 And access it at http://localhost:3001.
 
+## Easypanel
+
+If you don't want to run the container yourself, [Easypanel](https://easypanel.io) is a self-hosted deployment platform with a one-click Eigenfocus template:
+
+[![Deploy on Easypanel][easypanel-btn]][easypanel-deploy]
+
+[easypanel-btn]: https://easypanel.io/img/deploy-on-easypanel-40.svg
+[easypanel-deploy]: https://easypanel.io/templates/eigenfocus
+
 ## Docker Compose
 Or using a `docker-compose.yml` file:
 
