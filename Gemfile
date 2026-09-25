@@ -42,7 +42,7 @@ gem "solid_cable", "~> 4.0"
 gem "solid_queue", "~> 1.7"
 
 # Filter and pagination
-gem "ransack", "~> 4.4"
+gem "ransack", "~> 5.0"
 gem "pagy", "~> 43.6"
 
 # Frontend app
