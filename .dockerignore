@@ -48,3 +48,22 @@
 /Dockerfile*
 
 /app-data/*
+
+./build-scripts
+
+
+# Ignore macOS metadata files
+**/.DS_Store
+**/._*
+**/.AppleDouble
+**/.LSOverride
+**/.Spotlight-V100
+**/.Trashes
+**/.fseventsd
+
+# Ignore local editor and tooling files
+/.claude
+/.ruby-lsp
+/.vscode
+/.idea
+/docs/superpowers
