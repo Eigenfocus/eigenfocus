@@ -107,6 +107,10 @@ const Description = ({ content, issueId }) => {
             </a>
           )}
 
+          { updatedAt && (
+            <UpdatedFeedback key={updatedAt} onDone={hideUpdatedFeedback} />
+          )}
+
           { !isEditing && (
             <a className="btn btn-sm" onClick={() => { setIsEditing(true) }}>
               { t("actions.edit") }
@@ -135,11 +139,6 @@ const Description = ({ content, issueId }) => {
           <button type="submit" className="btn btn-sm btn-primary">
             { t("actions.save") }
           </button>
-        </div>
-      )}
-      { !isEditing && updatedAt && (
-        <div className="flex gap-4 items-center mt-2 justify-end">
-          <UpdatedFeedback key={updatedAt} onDone={hideUpdatedFeedback} />
         </div>
       )}
     </form>
