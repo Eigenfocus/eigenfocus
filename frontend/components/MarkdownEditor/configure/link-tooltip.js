@@ -1,12 +1,10 @@
-import { html } from 'atomico'
-
 import { configureLinkTooltip, linkTooltipConfig } from "@milkdown/kit/component/link-tooltip";
 
 const customConfig = {
-  linkIcon: () => html`<i class="fa-solid fa-link"></i>`,
-  editButton: () => html`<i class="fa-solid fa-pen"></i>`,
-  removeButton: () => html`<i class="fa-solid fa-trash-can"></i>`,
-  confirmButton: () => html`<i class="fa-solid fa-check"></i>`,
+  linkIcon: '<i class="fa-solid fa-link"></i>',
+  editButton: '<i class="fa-solid fa-pen"></i>',
+  removeButton: '<i class="fa-solid fa-trash-can"></i>',
+  confirmButton: '<i class="fa-solid fa-check"></i>',
   inputPlaceholder: "https://..."
 }
 

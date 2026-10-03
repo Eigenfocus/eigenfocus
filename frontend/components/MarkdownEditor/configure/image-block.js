@@ -1,12 +1,10 @@
-import { html } from 'atomico'
-
 import { imageBlockConfig } from "@milkdown/kit/component/image-block"
 
 const customConfig = {
-  imageIcon: () => html`<i class="fa-solid fa-image"></i>`,
-  captionIcon: () => html`<i class="fa-solid fa-file-pen"></i>`,
-  uploadButton: () => html`<i class="fa-solid fa-file-arrow-up"></i>`,
-  confirmButton: () => html`<i class="fa-solid fa-check"></i>`,
+  imageIcon: '<i class="fa-solid fa-image"></i>',
+  captionIcon: '<i class="fa-solid fa-file-pen"></i>',
+  uploadButton: '<i class="fa-solid fa-file-arrow-up"></i>',
+  confirmButton: '<i class="fa-solid fa-check"></i>',
   captionPlaceholderText: "..."
 }
 

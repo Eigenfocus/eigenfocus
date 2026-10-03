@@ -2824,11 +2824,6 @@ asn1js@^3.0.6:
     pvutils "^1.1.5"
     tslib "^2.8.1"
 
-atomico@^1.79.2:
-  version "1.79.2"
-  resolved "https://registry.yarnpkg.com/atomico/-/atomico-1.79.2.tgz#eebff0e65fe12fdf2d751f57ec66e8057e923ddc"
-  integrity sha512-mshhLRMeIltNYbnQnqgnrvJ/uDa8XDfTQcjw3ymOygQqwHIQ4Sp0LcNYMCbACkV3DtV+eDXb9szwU4qMUuGwYQ==
-
 auto-config-loader@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/auto-config-loader/-/auto-config-loader-2.0.2.tgz#3d13340a1253697ea1357166613e8e2e982ccc75"
