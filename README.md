@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner">
-    <img src="https://eigen-assets.eigenfocus.com/github/github-banner-3.png" alt="Eigenfocus"/>
+    <img src="https://eigen-assets.eigenfocus.com/github/github-banner-4.png" alt="Eigenfocus"/>
   </a>
   <p>
     Self-hosted Project Management tool - without the clutter.
