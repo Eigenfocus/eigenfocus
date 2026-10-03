@@ -5,7 +5,7 @@
     list-style: none;
   }
 
-  milkdown-list-item-block {
+  .milkdown-list-item-block {
     li {
       gap: 10px;
     }
@@ -13,12 +13,20 @@
     .list-item {
       display: flex;
       flex-direction: row;
-      align-items: baseline;
+      align-items: center;
       flex-wrap: nowrap;
+    }
+
+    .label-wrapper:has(input:not([disabled])) {
+      cursor: pointer;
     }
 
     input[type="checkbox"] {
       border: solid var(--color-list-checkbox-border) 1px;
+      pointer-events: none;
+      height: 16px;
+      width: 16px;
+      padding: 2px;
     }
   }
 

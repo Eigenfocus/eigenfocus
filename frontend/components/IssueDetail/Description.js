@@ -8,31 +8,76 @@ import useLocalState from 'utils/use-local-state'
 
 const { useEffect, useCallback } = React
 
+const UpdatedFeedback = ({ onDone }) => {
+  const [fading, setFading] = useState(false)
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setFading(true), 1000)
+    const doneTimer = setTimeout(onDone, 1500)
+
+    return () => {
+      clearTimeout(fadeTimer)
+      clearTimeout(doneTimer)
+    }
+  }, [onDone])
+
+  return (
+    <span className={`flex items-center gap-1 text-sm text-success transition-opacity duration-500 ${fading ? "opacity-0" : "opacity-100"}`}>
+      <i className="ti ti-circle-dashed-check"></i>
+      { t("issue_detail.description.updated") }
+    </span>
+  )
+}
+
 const Description = ({ content, issueId }) => {
   const hiddenFieldRef = useRef(null)
   const [localState, setLocalState] = useLocalState(issueId)
   const [isEditing, setIsEditing] = useState(false)
   const [currentContent, setCurrentContent] = useState(content)
+  const [previewVersion, setPreviewVersion] = useState(0)
+  const [updatedAt, setUpdatedAt] = useState(null)
   const defaultValue = localState || currentContent || ""
+
+  const saveDescription = useCallback((description) => {
+    return new FetchRequest('patch', updateDescriptionIssuePath(issueId), {
+      body: JSON.stringify({ description }),
+      responseKind: 'turbo-stream'
+    }).perform()
+  }, [issueId])
 
   const handleSave = useCallback((e) => {
     e.preventDefault()
 
-    const request = new FetchRequest('patch', updateDescriptionIssuePath(issueId), {
-      body: JSON.stringify({ description: hiddenFieldRef.current.value }),
-      responseKind: 'turbo-stream'
-    }).perform()
-
-    request.then((response) => {
+    saveDescription(hiddenFieldRef.current.value).then((response) => {
       if (response.ok) {
         setIsEditing(false)
         setCurrentContent(hiddenFieldRef.current.value)
         setLocalState(null)
+        setUpdatedAt(Date.now())
       } else {
         alert("Failed to update description")
       }
     })
-  }, [hiddenFieldRef, setIsEditing, setCurrentContent, setLocalState])
+  }, [hiddenFieldRef, saveDescription, setIsEditing, setCurrentContent, setLocalState, setUpdatedAt])
+
+  const handleTaskToggle = useCallback(markdown => {
+    if (localState) {
+      setLocalState(markdown)
+      return
+    }
+
+    saveDescription(markdown).then((response) => {
+      if (response.ok) {
+        setCurrentContent(markdown)
+        setUpdatedAt(Date.now())
+      } else {
+        setPreviewVersion(version => version + 1)
+        alert("Failed to update description")
+      }
+    })
+  }, [localState, saveDescription, setLocalState, setCurrentContent, setUpdatedAt])
+
+  const hideUpdatedFeedback = useCallback(() => setUpdatedAt(null), [setUpdatedAt])
 
   const handleInput = useCallback(value => {
     const persistedContent = currentContent || ""
@@ -62,6 +107,10 @@ const Description = ({ content, issueId }) => {
             </a>
           )}
 
+          { updatedAt && (
+            <UpdatedFeedback key={updatedAt} onDone={hideUpdatedFeedback} />
+          )}
+
           { !isEditing && (
             <a className="btn btn-sm" onClick={() => { setIsEditing(true) }}>
               { t("actions.edit") }
@@ -71,12 +120,13 @@ const Description = ({ content, issueId }) => {
       </div>
       <div className={ isEditing ? "" : "cursor-pointer cpy-issue-detail-description" } onClick={() => { setIsEditing(true) }}>
         <MarkdownEditor
-          key={isEditing ? "editing" : "reading"}
+          key={isEditing ? "editing" : `reading-${localState ? "draft" : "saved"}-${previewVersion}`}
           defaultValue={defaultValue}
           readOnly={!isEditing}
           mirrorInputTargetRef={hiddenFieldRef}
           identifier={issueId}
           onInput={handleInput}
+          onTaskToggle={isEditing ? undefined : handleTaskToggle}
           />
         <input type="hidden" name="issue[description]" value={defaultValue} ref={hiddenFieldRef}/>
       </div>

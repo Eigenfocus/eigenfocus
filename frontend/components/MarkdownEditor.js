@@ -21,11 +21,20 @@ import configureMenu from './MarkdownEditor/configure/menu'
 import configureLinkTooltip from './MarkdownEditor/configure/link-tooltip'
 import configureTableBlock from './MarkdownEditor/configure/table-block'
 import configureImageBlock from './MarkdownEditor/configure/image-block'
+import configureListItemBlock from './MarkdownEditor/configure/list-item-block'
+import { remarkImageTitle } from './MarkdownEditor/plugins/remark-image-title'
+import { toggleTaskListCommand } from './MarkdownEditor/plugins/toggle-task-list'
+import { readonlyTaskToggle } from './MarkdownEditor/plugins/readonly-task-toggle'
 
-const { useCallback } = React
+const { useCallback, useRef } = React
 
-function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInput = () => {}, ...props }) {
-  const handleMarkdownUpdate = useCallback((_ctx, markdown, _prevMarkdown) => {
+function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInput = () => {}, onTaskToggle, ...props }) {
+  const onTaskToggleRef = useRef(onTaskToggle)
+  onTaskToggleRef.current = onTaskToggle
+
+  const handleMarkdownUpdate = useCallback((_ctx, markdown, prevMarkdown) => {
+    if (markdown.trim() === prevMarkdown?.trim()) return
+
     if (mirrorInputTargetSelector) {
       const target = document.querySelector(mirrorInputTargetSelector)
       target.value = markdown
@@ -50,7 +59,9 @@ function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInp
           ctx.set(defaultValueCtx, props.defaultValue)
         }
 
-        ctx.get(listenerCtx).markdownUpdated(handleMarkdownUpdate)
+        if (!readOnly) {
+          ctx.get(listenerCtx).markdownUpdated(handleMarkdownUpdate)
+        }
 
         ctx.update(editorViewOptionsCtx, (prev) => ({
           ...prev,
@@ -60,6 +71,7 @@ function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInp
       .config(configureLinkTooltip)
       .config(configureTableBlock)
       .config(configureImageBlock)
+      .config(configureListItemBlock({ interactiveTasks: !!onTaskToggle }))
       .use(listener)
       .use(commonmark)
       .use(gfm)
@@ -71,9 +83,14 @@ function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInp
       .use(tableBlock)
       .use(trailing)
       .use(imageBlockComponent)
+      .use(remarkImageTitle)
 
       if (editable()) {
-        editor.config(configureMenu).use(menu)
+        editor.config(configureMenu).use(toggleTaskListCommand).use(menu)
+      }
+
+      if (readOnly && onTaskToggle) {
+        editor.use(readonlyTaskToggle(markdown => onTaskToggleRef.current(markdown)))
       }
 
       return editor

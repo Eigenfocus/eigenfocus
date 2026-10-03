@@ -1,5 +1,6 @@
 import { menu, menuConfigCtx } from '@milkdown-lab/plugin-menu'
 import { editorStateCtx, prosePluginsCtx, schemaCtx } from '@milkdown/core'
+import { isInTaskList } from '../plugins/toggle-task-list'
 
 function createButtonFor(command, options) {
   return {
@@ -28,6 +29,8 @@ function classFor(command) {
       return 'fa-solid fa-list-ul'
     case 'WrapInOrderedList':
       return 'fa-solid fa-list-ol'
+    case 'ToggleTaskList':
+      return 'fa-solid fa-list-check'
     case 'ToggleLink':
       return 'fa-solid fa-link'
     case 'InsertImage':
@@ -112,6 +115,9 @@ const menuItens = [
   [
     createButtonFor('WrapInBulletList'),
     createButtonFor('WrapInOrderedList'),
+    createButtonFor('ToggleTaskList', {
+      active: isInTaskList,
+    }),
   ],
   [
     createButtonFor('ToggleLink', {
