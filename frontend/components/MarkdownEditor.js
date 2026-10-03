@@ -27,7 +27,9 @@ import { remarkImageTitle } from './MarkdownEditor/plugins/remark-image-title'
 const { useCallback } = React
 
 function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInput = () => {}, ...props }) {
-  const handleMarkdownUpdate = useCallback((_ctx, markdown, _prevMarkdown) => {
+  const handleMarkdownUpdate = useCallback((_ctx, markdown, prevMarkdown) => {
+    if (markdown.trim() === prevMarkdown?.trim()) return
+
     if (mirrorInputTargetSelector) {
       const target = document.querySelector(mirrorInputTargetSelector)
       target.value = markdown
