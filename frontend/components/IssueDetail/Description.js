@@ -13,17 +13,20 @@ const Description = ({ content, issueId }) => {
   const [localState, setLocalState] = useLocalState(issueId)
   const [isEditing, setIsEditing] = useState(false)
   const [currentContent, setCurrentContent] = useState(content)
+  const [previewVersion, setPreviewVersion] = useState(0)
   const defaultValue = localState || currentContent || ""
+
+  const saveDescription = useCallback((description) => {
+    return new FetchRequest('patch', updateDescriptionIssuePath(issueId), {
+      body: JSON.stringify({ description }),
+      responseKind: 'turbo-stream'
+    }).perform()
+  }, [issueId])
 
   const handleSave = useCallback((e) => {
     e.preventDefault()
 
-    const request = new FetchRequest('patch', updateDescriptionIssuePath(issueId), {
-      body: JSON.stringify({ description: hiddenFieldRef.current.value }),
-      responseKind: 'turbo-stream'
-    }).perform()
-
-    request.then((response) => {
+    saveDescription(hiddenFieldRef.current.value).then((response) => {
       if (response.ok) {
         setIsEditing(false)
         setCurrentContent(hiddenFieldRef.current.value)
@@ -32,7 +35,23 @@ const Description = ({ content, issueId }) => {
         alert("Failed to update description")
       }
     })
-  }, [hiddenFieldRef, setIsEditing, setCurrentContent, setLocalState])
+  }, [hiddenFieldRef, saveDescription, setIsEditing, setCurrentContent, setLocalState])
+
+  const handleTaskToggle = useCallback(markdown => {
+    if (localState) {
+      setLocalState(markdown)
+      return
+    }
+
+    saveDescription(markdown).then((response) => {
+      if (response.ok) {
+        setCurrentContent(markdown)
+      } else {
+        setPreviewVersion(version => version + 1)
+        alert("Failed to update description")
+      }
+    })
+  }, [localState, saveDescription, setLocalState, setCurrentContent])
 
   const handleInput = useCallback(value => {
     const persistedContent = currentContent || ""
@@ -71,12 +90,13 @@ const Description = ({ content, issueId }) => {
       </div>
       <div className={ isEditing ? "" : "cursor-pointer cpy-issue-detail-description" } onClick={() => { setIsEditing(true) }}>
         <MarkdownEditor
-          key={isEditing ? "editing" : `reading-${localState ? "draft" : "saved"}`}
+          key={isEditing ? "editing" : `reading-${localState ? "draft" : "saved"}-${previewVersion}`}
           defaultValue={defaultValue}
           readOnly={!isEditing}
           mirrorInputTargetRef={hiddenFieldRef}
           identifier={issueId}
           onInput={handleInput}
+          onTaskToggle={isEditing ? undefined : handleTaskToggle}
           />
         <input type="hidden" name="issue[description]" value={defaultValue} ref={hiddenFieldRef}/>
       </div>
