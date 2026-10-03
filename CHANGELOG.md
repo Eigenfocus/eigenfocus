@@ -3,6 +3,11 @@
   - Supports both single-select and multi-select modes with search/filter dropdown
   - Overflow tags display a +N badge when exceeding input width
   - Tabs for switching between available and selected options in multi-select mode
+- Task lists in the issue description
+  - New task list button in the editor toolbar
+  - Check and uncheck items in preview mode, saved right away
+  - "Updated" feedback after the description is saved
+  - Upgraded Milkdown editor to 7.22.2
 
 # 1.5.0-free
 - Added running time entries information in the menu
