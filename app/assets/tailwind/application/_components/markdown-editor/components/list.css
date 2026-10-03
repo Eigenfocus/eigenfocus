@@ -5,7 +5,7 @@
     list-style: none;
   }
 
-  milkdown-list-item-block {
+  .milkdown-list-item-block {
     li {
       gap: 10px;
     }
