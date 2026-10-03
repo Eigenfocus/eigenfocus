@@ -24,6 +24,9 @@
     input[type="checkbox"] {
       border: solid var(--color-list-checkbox-border) 1px;
       pointer-events: none;
+      height: 16px;
+      width: 16px;
+      padding: 2px;
     }
   }
 
