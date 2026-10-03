@@ -23,6 +23,7 @@ import configureTableBlock from './MarkdownEditor/configure/table-block'
 import configureImageBlock from './MarkdownEditor/configure/image-block'
 import configureListItemBlock from './MarkdownEditor/configure/list-item-block'
 import { remarkImageTitle } from './MarkdownEditor/plugins/remark-image-title'
+import { toggleTaskListCommand } from './MarkdownEditor/plugins/toggle-task-list'
 
 const { useCallback } = React
 
@@ -79,7 +80,7 @@ function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInp
       .use(remarkImageTitle)
 
       if (editable()) {
-        editor.config(configureMenu).use(menu)
+        editor.config(configureMenu).use(toggleTaskListCommand).use(menu)
       }
 
       return editor
