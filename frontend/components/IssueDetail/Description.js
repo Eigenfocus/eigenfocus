@@ -71,7 +71,7 @@ const Description = ({ content, issueId }) => {
       </div>
       <div className={ isEditing ? "" : "cursor-pointer cpy-issue-detail-description" } onClick={() => { setIsEditing(true) }}>
         <MarkdownEditor
-          key={isEditing ? "editing" : "reading"}
+          key={isEditing ? "editing" : `reading-${localState ? "draft" : "saved"}`}
           defaultValue={defaultValue}
           readOnly={!isEditing}
           mirrorInputTargetRef={hiddenFieldRef}
