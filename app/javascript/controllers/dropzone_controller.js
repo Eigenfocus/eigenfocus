@@ -129,6 +129,7 @@ function createDirectUpload(file, url, controller) {
 function createDropZone(controller) {
   return new Dropzone(controller.element, {
     url: controller.url,
+    clickable: ".dz-message",
     headers: controller.headers,
     maxFiles: controller.maxFiles,
     maxFilesize: controller.maxFileSize,
