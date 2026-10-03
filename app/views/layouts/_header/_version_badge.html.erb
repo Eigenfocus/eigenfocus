@@ -4,7 +4,7 @@
     <% if AppMetadata.instance.is_app_outdated? %>
       <span class="status status-info status-sm mr-1 animate-pulse"></span>
     <% end %>
-    <%= image_tag 'icon.svg', style: 'height: 32px;' %>
+    <%= image_tag 'icon.svg', style: 'height: 24px; position: relative; top: -1px;' %>
     <span class="ml-2">v<%= AppMetadata.instance.current_version %>-FREE</span>
     <i class="ti ti-chevron-down ml-0.5" style="font-size: 0.75rem;"></i>
   </button>
