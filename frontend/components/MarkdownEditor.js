@@ -21,6 +21,7 @@ import configureMenu from './MarkdownEditor/configure/menu'
 import configureLinkTooltip from './MarkdownEditor/configure/link-tooltip'
 import configureTableBlock from './MarkdownEditor/configure/table-block'
 import configureImageBlock from './MarkdownEditor/configure/image-block'
+import configureListItemBlock from './MarkdownEditor/configure/list-item-block'
 
 const { useCallback } = React
 
@@ -60,6 +61,7 @@ function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInp
       .config(configureLinkTooltip)
       .config(configureTableBlock)
       .config(configureImageBlock)
+      .config(configureListItemBlock)
       .use(listener)
       .use(commonmark)
       .use(gfm)
