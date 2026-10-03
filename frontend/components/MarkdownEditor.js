@@ -22,6 +22,7 @@ import configureLinkTooltip from './MarkdownEditor/configure/link-tooltip'
 import configureTableBlock from './MarkdownEditor/configure/table-block'
 import configureImageBlock from './MarkdownEditor/configure/image-block'
 import configureListItemBlock from './MarkdownEditor/configure/list-item-block'
+import { remarkImageTitle } from './MarkdownEditor/plugins/remark-image-title'
 
 const { useCallback } = React
 
@@ -73,6 +74,7 @@ function MilkdownEditor({ mirrorInputTargetSelector, mirrorInputTargetRef, onInp
       .use(tableBlock)
       .use(trailing)
       .use(imageBlockComponent)
+      .use(remarkImageTitle)
 
       if (editable()) {
         editor.config(configureMenu).use(menu)
