@@ -1,20 +1,25 @@
 import { listItemBlockConfig } from "@milkdown/kit/component/list-item-block"
 
-const customConfig = {
-  renderLabel: ({ label, listType, checked, readonly }) => {
-    if (checked == null) {
-      return listType === "bullet" ? "⦿" : label
-    }
+function customConfig({ interactiveTasks }) {
+  return {
+    renderLabel: ({ label, listType, checked, readonly }) => {
+      if (checked == null) {
+        return listType === "bullet" ? "⦿" : label
+      }
 
-    return `<input type="checkbox"${checked ? " checked" : ""}${readonly ? " disabled" : ""} />`
+      const disabled = readonly && !interactiveTasks
+      return `<input type="checkbox"${checked ? " checked" : ""}${disabled ? " disabled" : ""} />`
+    }
   }
 }
 
-export default function configure(ctx) {
-  ctx.update(listItemBlockConfig.key, defaultConfig => {
-    return {
-      ...defaultConfig,
-      ...customConfig
-    }
-  })
+export default function configure({ interactiveTasks = false } = {}) {
+  return (ctx) => {
+    ctx.update(listItemBlockConfig.key, defaultConfig => {
+      return {
+        ...defaultConfig,
+        ...customConfig({ interactiveTasks })
+      }
+    })
+  }
 }

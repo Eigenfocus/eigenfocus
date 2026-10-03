@@ -17,8 +17,13 @@
       flex-wrap: nowrap;
     }
 
+    .label-wrapper:has(input:not([disabled])) {
+      cursor: pointer;
+    }
+
     input[type="checkbox"] {
       border: solid var(--color-list-checkbox-border) 1px;
+      pointer-events: none;
     }
   }
 
