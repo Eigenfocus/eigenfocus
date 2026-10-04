@@ -1995,13 +1995,12 @@
   dependencies:
     "@tabler/icons" "3.35.0"
 
-"@tabler/icons-webfont@^3.45.0":
-  version "3.46.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons-webfont/-/icons-webfont-3.46.0.tgz#2bccbac5a607d82392513272c40fc4924f3da7a8"
-  integrity sha512-aQouIxJQb+F5cRsHo/FW5qSILDuU7pd7d86JjmSUCMgpJhBeRuyovnfJlQeyuug2gHz0jFaosl4GNYo3SLnjrQ==
+"@tabler/icons-webfont@3.48.0":
+  version "3.48.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-webfont/-/icons-webfont-3.48.0.tgz#f7b2090b193735c0aa54f220c04dae0ac35e25a3"
+  integrity sha512-Cwqm0qkn6qqBeoBwDt9nFeMSFnRbwoC3e6y4u+weSroj4lecaFhTUfe2T24/ByQA6Rjn9tq76VhT5PL+5czhAw==
   dependencies:
-    "@tabler/icons" "3.46.0"
-    svg-path-commander "^2.1.11"
+    "@tabler/icons" "3.48.0"
     svgtofont "^6.5.0"
 
 "@tabler/icons@3.35.0":
@@ -2009,10 +2008,10 @@
   resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-3.35.0.tgz#6f35247e41baba2a1b0f4dff048bb1335d6c1075"
   integrity sha512-yYXe+gJ56xlZFiXwV9zVoe3FWCGuZ/D7/G4ZIlDtGxSx5CGQK110wrnT29gUj52kEZoxqF7oURTk97GQxELOFQ==
 
-"@tabler/icons@3.46.0":
-  version "3.46.0"
-  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-3.46.0.tgz#28ba3f4895715863fdd78b49a5617764c9557fe5"
-  integrity sha512-f2RYFl3fzPwj5WO82x6en0dmkjefxEfOm16D1ByM6cj/McNiwOkL4VaPUoP9VVIrXAD9WnTSVFr70px703b//A==
+"@tabler/icons@3.48.0":
+  version "3.48.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-3.48.0.tgz#08ad2b8c328ef5115b10ea306a52b6d9271f7b32"
+  integrity sha512-lQk06gVHNVBnJp0UOgtth54mcZBJM7rdYKsAxKOProj1bbSAx+/xiuOWfHlyvgdL3M+Y+I0HINrjHa3ygp8eXQ==
 
 "@tanem/svg-injector@^10.1.68":
   version "10.1.68"
@@ -2043,11 +2042,6 @@
   integrity sha512-XU5/SytQM+ykqMnAnvB2umaJNIOsLF3PVv//1Ew4CTcpz0/BRyy/af40qqrt7SjKpDdT1saBMc42CUok5gaw+g==
   dependencies:
     "@babel/runtime" "^7.12.5"
-
-"@thednp/dommatrix@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@thednp/dommatrix/-/dommatrix-3.1.1.tgz#f118b81fea81ff2a562a6a9bce8c25b2865f881e"
-  integrity sha512-LQw9A56KeDYN9aPFGjad2xTpGNnsIsvq98k1l28HNsvi+SuRFY6M5ET3f0SFrtssOKOcvgqmObztR0/dc6kSZQ==
 
 "@types/aria-query@^5.0.1":
   version "5.0.4"
@@ -7593,13 +7587,6 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
-
-svg-path-commander@^2.1.11:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/svg-path-commander/-/svg-path-commander-2.3.1.tgz#bc998e132f038fe4de18297edfe521e145060752"
-  integrity sha512-2xrujvzC1qiJYHnLvfe04287sgjEnsMTJd3IeEh+qexdV/MrAzgOF6/Ze39g1wbg9d+Lzq8IFi2hv/Vu27m0zQ==
-  dependencies:
-    "@thednp/dommatrix" "^3.1.1"
 
 svg-pathdata@^7.0.0:
   version "7.2.0"
