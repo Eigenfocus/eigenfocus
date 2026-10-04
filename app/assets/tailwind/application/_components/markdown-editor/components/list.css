@@ -13,8 +13,14 @@
     .list-item {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: nowrap;
+    }
+
+    .label-wrapper {
+      display: flex;
+      align-items: center;
+      height: 1lh;
     }
 
     .label-wrapper:has(input:not([disabled])) {
