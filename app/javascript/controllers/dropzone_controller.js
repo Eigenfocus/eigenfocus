@@ -27,7 +27,7 @@ export default class extends Controller {
   }
 
   get headers() {
-    const csrf = document.querySelector(`meta[name="csrf-token"]`).getAttribute("content")
+    const csrf = document.querySelector(`meta[name="csrf-token"]`)?.getAttribute("content")
     return { "X-CSRF-Token": csrf }
   }
 
