@@ -5,7 +5,7 @@ import Dropzone from "dropzone"
 Dropzone.autoDiscover = false
 
 export default class extends Controller {
-  static targets = ["input", "previewsContainer", "previewTemplate"]
+  static targets = ["input", "pickerInput", "previewsContainer", "previewTemplate"]
 
   connect() {
     this.dropZone = createDropZone(this)
@@ -42,6 +42,22 @@ export default class extends Controller {
   get previewsContainer() { return `#${this.previewsContainerTarget.id}` }
 
   get previewTemplate() { return this.previewTemplateTarget.innerHTML }
+
+  pickFile({ accept, purpose }) {
+    this.pickerInputTarget.accept = accept
+    this.pickerInputTarget.dataset.purpose = purpose
+    this.pickerInputTarget.click()
+  }
+
+  addPickedFile() {
+    const file = this.pickerInputTarget.files[0]
+    if (!file) return
+
+    file.purpose = this.pickerInputTarget.dataset.purpose
+    this.pickerInputTarget.value = ""
+    this.dropZone.addFile(file)
+    this.previewsContainerTarget.scrollIntoView({ behavior: "smooth", block: "nearest" })
+  }
 
   removeElement(el) {
     if (el && el.parentNode) {
@@ -114,7 +130,7 @@ class DirectUploadController {
   emitDropzoneSuccess(attributes) {
     this.file.status = Dropzone.SUCCESS
     this.source.dropZone.emit("success", attributes)
-    this.source.dropZone.emit("complete", attributes)
+    this.source.dropZone.emit("complete", attributes, this.file)
   }
 }
 

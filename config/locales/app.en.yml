@@ -85,6 +85,8 @@ en:
     change_error: "Change could not be made."
     file_successfully_removed: "File was successfully removed."
     issues:
+      cover:
+        invalid_image: "The cover must be an image."
       pick_grouping:
         success: "Issue column was successfully updated."
     groupings:

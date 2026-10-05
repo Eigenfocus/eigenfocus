@@ -7,8 +7,11 @@ export default class extends Controller {
     "titleField",
   ]
 
+  static outlets = [ "dropzone" ]
+
   static values = {
     attachPath: String,
+    coverPath: String,
     pathForModalClosed: String,
     submitOnTitleChange: { type: Boolean, default: true }
   }
@@ -50,10 +53,18 @@ export default class extends Controller {
     this.lastTitleWas = element.value
   }
 
-  fileUploadCompleted(e) {
-    const fileSignedId = e.detail.args[0].signed_id
+  uploadCover(e) {
+    e.currentTarget.closest("details")?.removeAttribute("open")
+    this.dropzoneOutlet.pickFile({ accept: e.params.accept, purpose: "cover" })
+  }
 
-    const request = new FetchRequest('post', this.attachPathValue, {
+  fileUploadCompleted(e) {
+    const [blob, file] = e.detail.args
+    const fileSignedId = blob.signed_id
+    if (!fileSignedId) return
+
+    const path = file?.purpose == "cover" ? this.coverPathValue : this.attachPathValue
+    const request = new FetchRequest('post', path, {
       body: JSON.stringify({
         blob_signed_id: fileSignedId
       }),

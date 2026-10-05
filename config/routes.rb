@@ -93,6 +93,7 @@ Rails.application.routes.draw do
       resource :file, only: [ :destroy ] do
         post :attach, on: :collection
       end
+      resource :cover, only: [ :create, :update, :destroy ]
       resources :comments, only: [ :create, :edit, :update, :destroy ]
     end
   end
