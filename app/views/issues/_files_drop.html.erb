@@ -10,11 +10,11 @@
   <%= form.file_field(
     :files,
     class: 'hidden',
-    direct_upload: true,
     multiple: true,
     disabled: true,
     data: {
-      "dropzone-target": 'input'
+      "dropzone-target": 'input',
+      "direct-upload-url": uploads_path
     }
   ) %>
 

@@ -97,6 +97,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :uploads, only: [ :create ]
+
   resource :profile, only: [ :edit, :update ] do
     patch :update_preferences
   end
