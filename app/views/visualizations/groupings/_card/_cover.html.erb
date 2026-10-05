@@ -1,0 +1,7 @@
+<div id="<%= dom_id(issue, :card_cover) %>" class="contents">
+  <% if issue.cover? %>
+    <div class="issue--card-cover cpy-card-cover">
+      <%= image_tag issue.cover_attachment.representation(:cover_card), loading: "lazy", draggable: false, alt: "" %>
+    </div>
+  <% end %>
+</div>

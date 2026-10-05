@@ -14,7 +14,8 @@ describe "Issues - Cover", :disable_in_pro_edition do
   end
 
   specify "I can upload an image as the issue cover" do
-    visit_issue
+    visit visualization_path(project.default_visualization)
+    find(dom_id(issue)).click
 
     within(".cpy-issue-detail") do
       find(".cpy-cover-button").click
@@ -24,7 +25,37 @@ describe "Issues - Cover", :disable_in_pro_edition do
       expect(page).to have_css("#issue-#{issue.id}-file-list", text: "cover.png")
     end
 
+    within(dom_id(issue)) do
+      expect(page).to have_css(".cpy-card-cover img")
+    end
+
     expect(issue.reload.cover_attachment.filename.to_s).to eq("cover.png")
+  end
+
+  specify "the board card shows the issue cover" do
+    issue.cover_with_upload(image)
+
+    visit visualization_path(project.default_visualization)
+
+    within(dom_id(issue)) do
+      expect(page).to have_css(".cpy-card-cover img")
+    end
+  end
+
+  specify "removing the cover removes it from the board card" do
+    issue.cover_with_upload(image)
+
+    visit visualization_path(project.default_visualization)
+    find(dom_id(issue)).click
+
+    within(".cpy-issue-detail") do
+      find(".cpy-cover-button").click
+      find(".cpy-remove-cover").click
+    end
+
+    within(dom_id(issue)) do
+      expect(page).not_to have_css(".cpy-card-cover")
+    end
   end
 
   specify "uploading an image through the files area does not set it as cover" do
