@@ -8,6 +8,12 @@
   - Check and uncheck items in preview mode, saved right away
   - "Updated" feedback after the description is saved
   - Upgraded Milkdown editor to 7.22.2
+- Added issue covers
+  - Add a cover from the new cover button in the issue modal header, by picking one of the issue images or uploading a new one
+  - Uploaded cover images are also added to the issue files
+  - The cover shows as a banner on the board card and at the top of the issue modal
+  - Change or remove the cover from the header button or by hovering the banner in the modal
+  - Removing the cover keeps the file, and deleting the cover file removes the cover
 
 # 1.5.0-free
 - Added running time entries information in the menu
