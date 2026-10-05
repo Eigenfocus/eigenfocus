@@ -1,0 +1,9 @@
+<div id="<%= dom_id(issue, :cover_button) %>" class="flex items-center">
+  <details class="group dropdown dropdown-end" data-controller="closable-dropdown">
+    <summary class="btn btn-sm btn-ghost tooltip tooltip-bottom group-open:before:hidden group-open:after:hidden cpy-cover-button"
+      data-tip="<%= issue.cover? ? t(".change_cover") : t(".add_cover") %>">
+      <i class="ti ti-photo"></i>
+    </summary>
+    <%= render "issues/covers/menu", issue: %>
+  </details>
+</div>

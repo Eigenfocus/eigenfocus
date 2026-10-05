@@ -6,8 +6,8 @@ class Issues::FilesController < ApplicationController
 
   def destroy
     @blob = ActiveStorage::Blob.find_signed(params[:blob_signed_id])
-    attachment = issue.files.attachments.find_by(blob: @blob)
-    attachment.purge
+    issue.remove_file(@blob)
+    issue.reload
   end
 
   private def issue

@@ -1,0 +1,35 @@
+<% images = issue.files.select(&:variable?) %>
+
+<div class="dropdown-content z-30 mt-1 w-72 p-3 flex flex-col gap-3 bg-base-100 text-base-content border border-base-300 rounded-box shadow-lg cpy-cover-menu">
+
+  <% if images.any? %>
+    <span class="text-xs uppercase text-base-content/60"><%= t(".issue_images") %></span>
+
+    <div class="grid grid-cols-3 gap-2">
+      <% images.each do |file| %>
+        <%= link_to issue_cover_path(issue, attachment_id: file.id),
+          title: file.filename,
+          class: "block rounded-md overflow-hidden ring-offset-1 ring-offset-base-100 hover:ring-2 hover:ring-secondary #{'ring-2 ring-primary' if issue.cover_attachment_id == file.id} cpy-cover-option",
+          data: { turbo_method: :put } do %>
+          <%= image_tag file.representation(resize_to_limit: [ 100, 100 ]), class: "w-full h-12 object-cover", loading: "lazy", alt: file.filename %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <button type="button" class="btn btn-sm btn-outline border-dashed cpy-cover-upload"
+    data-action="issue-detail#uploadCover"
+    data-issue-detail-accept-param="<%= ActiveStorage.variable_content_types.join(",") %>">
+    <i class="ti ti-upload"></i>
+    <span><%= t(".upload_image") %></span>
+  </button>
+
+  <% if issue.cover? %>
+    <%= link_to issue_cover_path(issue),
+      class: "btn btn-sm btn-ghost text-error justify-start cpy-remove-cover",
+      data: { turbo_method: :delete } do %>
+      <i class="ti ti-photo-off"></i>
+      <span><%= t(".remove_cover") %></span>
+    <% end %>
+  <% end %>
+</div>

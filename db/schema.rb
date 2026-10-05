@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_12_010305) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_05_025338) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -110,7 +110,9 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_12_010305) do
     t.date "due_date"
     t.integer "comments_count", default: 0, null: false
     t.datetime "finished_at"
+    t.integer "cover_attachment_id"
     t.index ["archived_at"], name: "index_issues_on_archived_at"
+    t.index ["cover_attachment_id"], name: "index_issues_on_cover_attachment_id"
     t.index ["project_id"], name: "index_issues_on_project_id"
   end
 
@@ -182,6 +184,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_12_010305) do
   add_foreign_key "issue_comments", "users", column: "author_id"
   add_foreign_key "issue_label_links", "issue_labels"
   add_foreign_key "issue_label_links", "issues"
+  add_foreign_key "issues", "active_storage_attachments", column: "cover_attachment_id", on_delete: :nullify
   add_foreign_key "issues", "projects"
   add_foreign_key "time_entries", "projects"
   add_foreign_key "time_entries", "users"

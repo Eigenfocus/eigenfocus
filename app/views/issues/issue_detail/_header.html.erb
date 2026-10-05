@@ -23,6 +23,8 @@
           <i class="ti ti-trash"></i>
         <% end %>
       <% else %>
+        <%= render 'issues/issue_detail/cover_button', issue: %>
+
         <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "btn btn-sm btn-primary btn-ghost tour--issue-detail-time-tracking tooltip tooltip-bottom", data: { turbo_frame: "_top", tip: t("actions.start_time_tracking") } do %>
           <%= icon_for(:time_entries) %>
         <% end %>

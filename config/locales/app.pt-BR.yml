@@ -85,6 +85,8 @@ pt-BR:
     change_error: "Alteração não pôde ser realizada."
     file_successfully_removed: "Arquivo removido com sucesso."
     issues:
+      cover:
+        invalid_image: "A capa precisa ser uma imagem."
       pick_grouping:
         success: "Coluna da issue atualizada com sucesso."
     groupings:

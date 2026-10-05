@@ -111,9 +111,20 @@ pt-BR:
         write_a_comment: "Escreva um novo comentário"
       comment:
         created_at: "criado em %{date}"
+    covers:
+      menu:
+        issue_images: "Imagens da issue"
+        upload_image: "Enviar imagem"
+        remove_cover: "Remover capa"
     issue_detail:
       header:
         issue_archived_at: "Esta issue foi arquivada em %{date}"
+      cover:
+        change: "Alterar"
+        remove: "Remover"
+      cover_button:
+        add_cover: "Adicionar capa"
+        change_cover: "Alterar capa"
       grouping_picker:
         in_grouping: "em"
         no_grouping: "Sem coluna"

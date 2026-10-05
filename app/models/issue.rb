@@ -3,7 +3,11 @@ class Issue < ApplicationRecord
 
   # Relations
   belongs_to :project
-  has_many_attached :files
+  has_many_attached :files do |attachable|
+    attachable.variant :cover_card, resize_to_fill: [ 544, 240 ]
+    attachable.variant :cover_detail, resize_to_fill: [ 2048, 320 ]
+  end
+  belongs_to :cover_attachment, class_name: "ActiveStorage::Attachment", optional: true
   has_many :time_entries, dependent: :nullify
   has_many :grouping_issue_allocations, dependent: :destroy
   has_many :groupings, through: :grouping_issue_allocations
@@ -15,6 +19,12 @@ class Issue < ApplicationRecord
 
   # Validations
   validates :title, presence: true
+  validate :cover_must_be_an_issue_image, if: -> { cover_attachment_changed? && cover? }
+
+  def cover_must_be_an_issue_image
+    belongs_to_issue = cover_attachment.record_type == "Issue" && cover_attachment.record_id == id && cover_attachment.name == "files"
+    errors.add(:cover_attachment, :invalid) unless belongs_to_issue && cover_attachment.variable?
+  end
 
   # Scopes
   scope :archived, ->(archived = true) { archived ? where.not(archived_at: nil) : where(archived_at: nil) }
@@ -69,6 +79,37 @@ class Issue < ApplicationRecord
 
   def finished?
     finished_at.present?
+  end
+
+  def cover?
+    cover_attachment.present?
+  end
+
+  def cover_with(attachment)
+    self.cover_attachment = attachment
+
+    if save
+      files_attachments.reset
+      true
+    else
+      restore_attributes([ :cover_attachment_id ])
+      association(:cover_attachment).reset
+      false
+    end
+  end
+
+  def cover_with_upload(blob)
+    cover_with(files_attachments.find_by(blob:) || ActiveStorage::Attachment.new(record: self, name: "files", blob:))
+  end
+
+  def remove_cover
+    update(cover_attachment: nil)
+  end
+
+  def remove_file(blob)
+    attachment = files_attachments.find_by!(blob:)
+    remove_cover if cover_attachment_id == attachment.id
+    attachment.purge
   end
 
   def unfinish!

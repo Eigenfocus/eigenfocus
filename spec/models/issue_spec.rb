@@ -17,6 +17,72 @@ describe Issue do
   end
 
 
+  describe "cover" do
+    let(:image) { ActiveStorage::Blob.create_and_upload!(io: file_fixture("cover.png").open, filename: "cover.png") }
+
+    it "uses an attached image as cover" do
+      issue.files.attach(image)
+
+      expect(issue.cover_with(issue.files.attachments.first)).to be_truthy
+      expect(issue.reload.cover_attachment.blob).to eq(image)
+      expect(issue.files.count).to eq(1)
+    end
+
+    it "attaches the image to the issue files when it is not attached yet" do
+      expect(issue.cover_with_upload(image)).to be_truthy
+      expect(issue.reload.files.blobs).to eq([ image ])
+      expect(issue.cover_attachment.blob).to eq(image)
+    end
+
+    it "does not accept a file that is not an image" do
+      text = ActiveStorage::Blob.create_and_upload!(io: StringIO.new("content"), filename: "notes.txt", content_type: "text/plain")
+
+      expect(issue.cover_with_upload(text)).to be_falsey
+      expect(issue.reload.files).to be_empty
+      expect(issue.cover_attachment).to be_nil
+    end
+
+    it "does not accept a file from another issue" do
+      other_issue = create(:issue, project:)
+      other_issue.files.attach(image)
+
+      expect(issue.cover_with(other_issue.files.attachments.first)).to be_falsey
+      expect(issue.errors).to include(:cover_attachment)
+      expect(issue.reload.cover_attachment).to be_nil
+    end
+
+    it "keeps the issue usable after a rejected cover" do
+      issue.cover_with_upload(image)
+      text = ActiveStorage::Blob.create_and_upload!(io: StringIO.new("content"), filename: "notes.txt", content_type: "text/plain")
+
+      expect(issue.cover_with_upload(text)).to be_falsey
+      expect(issue.cover_attachment.blob).to eq(image)
+
+      issue.update!(title: "Renamed")
+      issue.update!(title: "Renamed again", cover_attachment: nil)
+
+      expect(issue.reload.files.blobs).to eq([ image ])
+    end
+
+    it "removes the cover and keeps the file" do
+      issue.cover_with_upload(image)
+
+      issue.remove_cover
+
+      expect(issue.reload.cover_attachment).to be_nil
+      expect(issue.files.count).to eq(1)
+    end
+
+    it "clears the cover when the cover file is removed" do
+      issue.cover_with_upload(image)
+
+      issue.remove_file(image)
+
+      expect(issue.reload.cover_attachment_id).to be_nil
+      expect(issue.files).to be_empty
+    end
+  end
+
   describe 'labels_list implementation' do
     context 'when given a comma-separated string' do
       it 'sets the labels_list but not the labels' do

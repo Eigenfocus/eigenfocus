@@ -1,0 +1,3 @@
+<%= render "issues/covers/streams", issue: @issue %>
+
+<%= turbo_stream.update "issue-#{@issue.id}-file-list", partial: "issues/files/list", locals: { issue: @issue } %>

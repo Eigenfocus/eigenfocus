@@ -3,3 +3,5 @@
 <%= new_turbo_stream_alert_message(:success, t("flash.file_successfully_removed")) %>
 
 <%= turbo_stream.replace dom_id(@issue, 'card-icons'), partial: 'visualizations/groupings/_card/icons', locals: { issue: @issue } %>
+
+<%= render "issues/covers/streams", issue: @issue %>

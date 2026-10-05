@@ -87,7 +87,7 @@
     >
 
     <% unless grouping.hidden %>
-      <% grouping.issues.active.each do |issue| %>
+      <% grouping.issues.active.includes(cover_attachment: [ :blob, :record ]).each do |issue| %>
         <%= render partial: 'visualizations/card', locals: {
           issue:,
           visualization: ,

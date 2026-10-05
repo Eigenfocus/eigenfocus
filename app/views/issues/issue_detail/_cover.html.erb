@@ -1,0 +1,24 @@
+<div id="<%= dom_id(issue, :detail_cover) %>">
+  <% if issue.cover? %>
+    <div class="group relative h-40 bg-base-200 cpy-issue-cover">
+      <%= image_tag issue.cover_attachment.representation(:cover_detail),
+        class: "w-full h-full object-cover",
+        alt: issue.cover_attachment.filename %>
+
+      <% unless issue.archived? %>
+        <div class="absolute right-3 bottom-3 flex items-center gap-2 opacity-0 group-hover:opacity-100 focus-within:opacity-100 has-[details[open]]:opacity-100 transition-opacity">
+          <details class="dropdown dropdown-end" data-controller="closable-dropdown">
+            <summary class="btn btn-sm bg-base-100/90 cpy-change-cover"><%= t(".change") %></summary>
+            <%= render "issues/covers/menu", issue: %>
+          </details>
+
+          <%= link_to issue_cover_path(issue),
+            class: "btn btn-sm bg-base-100/90",
+            data: { turbo_method: :delete } do %>
+            <%= t(".remove") %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
