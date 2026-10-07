@@ -259,7 +259,7 @@ GEM
     nokogiri (1.19.4-x86_64-linux-musl)
       racc (~> 1.4)
     package_json (0.2.0)
-    pagy (43.6.3)
+    pagy (43.7.0)
       json
       uri
       yaml
@@ -528,7 +528,7 @@ DEPENDENCIES
   image_processing (~> 2.2)
   importmap-rails
   js-routes (~> 2.4)
-  pagy (~> 43.6)
+  pagy (~> 43.7)
   pg
   positioning (~> 0.4)
   propshaft
