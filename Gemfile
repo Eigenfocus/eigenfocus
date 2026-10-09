@@ -43,7 +43,7 @@ gem "solid_queue", "~> 1.7"
 
 # Filter and pagination
 gem "ransack", "~> 5.0"
-gem "pagy", "~> 43.6"
+gem "pagy", "~> 43.7"
 
 # Frontend app
 gem "shakapacker", "~> 10.3.0"
