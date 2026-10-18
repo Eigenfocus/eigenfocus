@@ -21,6 +21,10 @@ class IssueLabel < ApplicationRecord
     [ "title", "updated_at" ]
   end
 
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
   # Broadcasts
   after_update_commit -> {
     broadcast_update_later_to(
