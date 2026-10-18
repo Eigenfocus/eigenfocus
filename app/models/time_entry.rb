@@ -34,6 +34,10 @@ class TimeEntry < ApplicationRecord
     [ "project_id", "reference_date", "by_issue_labels_title" ]
   end
 
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
   def self.ransackable_scopes(auth_object = nil)
     [ "by_issue_labels_title" ]
   end
