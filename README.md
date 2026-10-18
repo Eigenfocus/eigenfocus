@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://eigenfocus.com?utm_source=github-readme&utm_content=banner">
-    <img src="https://eigen-assets.eigenfocus.com/github/github-banner-4.png" alt="Eigenfocus"/>
+    <img src="https://assets.eigenfocus.com/github/github-banner-4.png" alt="Eigenfocus"/>
   </a>
   <p>
     Self-hosted Project Management tool - without the clutter.
@@ -9,7 +9,7 @@
   </p>
   <a href="#installation"><strong>Docker Installation</strong></a> |
   <a href="https://eigenfocus.com?utm-source=github" target="_blank"><strong>Website</strong></a> |
-  <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header" target="_blank"><strong>PRO - Live demo</strong></a>
+  <a href="https://demo-pro.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=header" target="_blank"><strong>PRO - Live demo</strong></a>
 </div>
 <br />
 
@@ -31,7 +31,7 @@
 # Eigenfocus - FREE EDITION
 
 <div align="center">
-  <img alt="Eigenfocus" src="https://eigen-assets.eigenfocus.com/github/demo-6.gif" width="85%" style="border-radius: 10px;"/>
+  <img alt="Eigenfocus" src="https://assets.eigenfocus.com/github/demo-6.gif" width="85%" style="border-radius: 10px;"/>
 </div>
 <br/>
 
@@ -64,7 +64,7 @@ Eigenfocus grows with you. Pay once, no subscriptions.
 - SSO (Google, Microsoft, GitHub, OIDC)
 
 <div align="center">
-<a href="https://eigenfocus.com/features?utm_source=github-readme">See all features</a> | <a href="https://pro-demo.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=readme">PRO Edition - Live demo</a>
+<a href="https://eigenfocus.com/features?utm_source=github-readme">See all features</a> | <a href="https://demo-pro.eigenfocus.com/?utm_source=eigenfocus-github&utm_medium=readme">PRO Edition - Live demo</a>
 <br/>
 Also available as a <a href="https://eigenfocus.com/pricing?utm_source=github-readme">managed Cloud edition</a>.
 </div>
@@ -75,7 +75,7 @@ Also available as a <a href="https://eigenfocus.com/pricing?utm_source=github-re
   </p>
 
   <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/features-v2/multiple-views/multiple-views-jump-raw-cut.gif"/>
+    <img width="90%" style="border-radius: 10px;" src="https://assets.eigenfocus.com/features-v2/multiple-views/multiple-views-jump-raw-cut.gif"/>
   </a>
 
   <br/>
@@ -84,7 +84,7 @@ Also available as a <a href="https://eigenfocus.com/pricing?utm_source=github-re
   </p>
 
   <a href="https://eigenfocus.com/features?utm_source=github-readme">
-    <img width="90%" style="border-radius: 10px;" src="https://eigen-assets.eigenfocus.com/features-v2/custom-fields/custom-field-showcase-2.min.gif"/>
+    <img width="90%" style="border-radius: 10px;" src="https://assets.eigenfocus.com/features-v2/custom-fields/custom-field-showcase-2.min.gif"/>
   </a>
   <br/>
 </div>
