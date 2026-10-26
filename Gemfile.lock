@@ -104,7 +104,7 @@ GEM
     crack (1.0.1)
       bigdecimal
       rexml
-    crass (1.0.7)
+    crass (1.0.8)
     csv (3.3.6)
     database_cleaner (2.1.0)
       database_cleaner-active_record (>= 2, < 3)
@@ -473,10 +473,9 @@ GEM
     unicode-emoji (4.2.0)
     uri (1.1.2)
     useragent (0.16.11)
-    view_component (4.16.0)
+    view_component (4.19.0)
       actionview (>= 7.1.0)
       activesupport (>= 7.1.0)
-      concurrent-ruby (~> 1)
     web-console (4.3.0)
       actionview (>= 8.0.0)
       bindex (>= 0.4.0)
@@ -551,7 +550,7 @@ DEPENDENCIES
   timecop
   turbo-rails
   tzinfo-data
-  view_component (= 4.16.0)
+  view_component (= 4.19.0)
   web-console
   webmock
 
