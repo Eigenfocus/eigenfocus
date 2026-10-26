@@ -528,7 +528,7 @@ DEPENDENCIES
   importmap-rails
   js-routes (~> 2.4)
   pagy (~> 43.8)
-  pg
+  pg (~> 1.6)
   positioning (~> 0.4)
   propshaft
   puma (>= 5.0)
@@ -555,7 +555,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 4.0.7p0
+  ruby 4.0.7p0
 
 BUNDLED WITH
-   4.0.20
+  4.0.20
