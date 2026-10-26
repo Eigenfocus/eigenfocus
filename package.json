@@ -43,7 +43,7 @@
     "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
-    "@happy-dom/jest-environment": "^17.1.8",
+    "@happy-dom/jest-environment": "21.0.4",
     "@swc/jest": "^0.2.39",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16",

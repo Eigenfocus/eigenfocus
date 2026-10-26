@@ -739,17 +739,12 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@happy-dom/jest-environment@^17.1.8":
-  version "17.1.8"
-  resolved "https://registry.yarnpkg.com/@happy-dom/jest-environment/-/jest-environment-17.1.8.tgz#66e4eef8a68a20ca2a776121f63c3d19643f394b"
-  integrity sha512-cqgpNXvX0Xnsyn2/GcfAVaaYpf8vwcV7NakmrK/2hd9zEzntGMsoNvSNFQJamo+lrbBO0o3mUobosH34AyV9eg==
+"@happy-dom/jest-environment@21.0.4":
+  version "21.0.4"
+  resolved "https://registry.yarnpkg.com/@happy-dom/jest-environment/-/jest-environment-21.0.4.tgz#30a668800f2475943736af73c595209e3408e06c"
+  integrity sha512-cojN5sDL1sGorR7TEwgMRZng4pxVz1UTVSHsOaJYT9eDVoXIm7g4c10vw3twFYnu/iCEvvEnCFzDHuIcmc+NGA==
   dependencies:
-    "@jest/environment" "^29.4.0"
-    "@jest/fake-timers" "^29.4.0"
-    "@jest/types" "^29.4.0"
-    happy-dom "^17.1.8"
-    jest-mock "^29.4.0"
-    jest-util "^29.4.0"
+    happy-dom "^21.0.4"
 
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
@@ -844,7 +839,7 @@
   dependencies:
     "@jest/types" "30.3.0"
 
-"@jest/environment@^29.4.0", "@jest/environment@^29.7.0":
+"@jest/environment@^29.7.0":
   version "29.7.0"
   resolved "https://registry.yarnpkg.com/@jest/environment/-/environment-29.7.0.tgz#24d61f54ff1f786f3cd4073b4b94416383baf2a7"
   integrity sha512-aQIfHDq33ExsN4jP1NWGXhxgQ/wixs60gDiKO+XVMd8Mn0NWPWgc34ZQDTb2jKaUWQ7MuwoitXAsN2XVXNMpAw==
@@ -869,7 +864,7 @@
     expect "^29.7.0"
     jest-snapshot "^29.7.0"
 
-"@jest/fake-timers@^29.4.0", "@jest/fake-timers@^29.7.0":
+"@jest/fake-timers@^29.7.0":
   version "29.7.0"
   resolved "https://registry.yarnpkg.com/@jest/fake-timers/-/fake-timers-29.7.0.tgz#fd91bf1fffb16d7d0d24a426ab1a47a49881a565"
   integrity sha512-q4DH1Ha4TTFPdxLsqDXK1d3+ioSL7yL5oCMJZgDYm6i+6CygW5E5xVr/D1HdsGxjt1ZWSfUAs9OxSB/BNelWrQ==
@@ -1006,7 +1001,7 @@
     "@types/yargs" "^17.0.33"
     chalk "^4.1.2"
 
-"@jest/types@^29.4.0", "@jest/types@^29.6.3":
+"@jest/types@^29.6.3":
   version "29.6.3"
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-29.6.3.tgz#1131f8cf634e7e84c5e77bab12f052af585fba59"
   integrity sha512-u3UPsIilWKOM3F9CXtrG8LEJmNxwoCQC/XVj4IKYXvvpx7QIi/Kg1LI5uDmDpKlac62NUtX7eLjRh+jVZcLOzw==
@@ -4266,7 +4261,7 @@ handle-thing@^2.0.0:
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.1.tgz#857f79ce359580c340d43081cc648970d0bb234e"
   integrity sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==
 
-happy-dom@21.0.4:
+happy-dom@21.0.4, happy-dom@^21.0.4:
   version "21.0.4"
   resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-21.0.4.tgz#3b9e4b23a6ef5f94f6db242857a99742dd14f943"
   integrity sha512-tFm+GaLBgo6o0awHnvHaNoraVo27qJ+2tZEtZ+cIa08hXbeitrxAJajLI05hsUy/2/YTKcUjQYzHe5mCcraLBw==
@@ -4278,14 +4273,6 @@ happy-dom@21.0.4:
     entities "^7.0.1"
     whatwg-mimetype "^3.0.0"
     ws "^8.21.0"
-
-happy-dom@^17.1.8:
-  version "17.6.3"
-  resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-17.6.3.tgz#2caa37058e6f9605f1b8b7ae03045253e6089477"
-  integrity sha512-UVIHeVhxmxedbWPCfgS55Jg2rDfwf2BCKeylcPSqazLz5w3Kri7Q4xdBJubsr/+VUzFLh0VjIvh13RaDA2/Xug==
-  dependencies:
-    webidl-conversions "^7.0.0"
-    whatwg-mimetype "^3.0.0"
 
 has-flag@^4.0.0:
   version "4.0.0"
@@ -4856,7 +4843,7 @@ jest-message-util@^29.7.0:
     slash "^3.0.0"
     stack-utils "^2.0.3"
 
-jest-mock@^29.4.0, jest-mock@^29.7.0:
+jest-mock@^29.7.0:
   version "29.7.0"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-29.7.0.tgz#4e836cf60e99c6fcfabe9f99d017f3fdd50a6347"
   integrity sha512-ITOMZn+UkYS4ZFh83xYAOzWStloNzJFO2s8DWrE4lhtGD+AorgnbkiKERe4wQVBydIGPx059g6riW5Btp6Llnw==
@@ -4996,7 +4983,7 @@ jest-util@30.3.0:
     graceful-fs "^4.2.11"
     picomatch "^4.0.3"
 
-jest-util@^29.4.0, jest-util@^29.7.0:
+jest-util@^29.7.0:
   version "29.7.0"
   resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-29.7.0.tgz#23c2b62bfb22be82b44de98055802ff3710fc0bc"
   integrity sha512-z6EbKajIpqGKU56y5KBUgy1dt1ihhQJgWzUlZHArA/+X2ad7Cb5iF+AK1EWVL/Bo7Rz9uurpqw6SiBCefUbCGA==
@@ -8062,11 +8049,6 @@ web-streams-polyfill@^3.0.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/web-streams-polyfill/-/web-streams-polyfill-3.3.3.tgz#2073b91a2fdb1fbfbd401e7de0ac9f8214cecb4b"
   integrity sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==
-
-webidl-conversions@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-7.0.0.tgz#256b4e1882be7debbf01d05f0aa2039778ea080a"
-  integrity sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==
 
 webpack-assets-manifest@^5.2.1:
   version "5.2.1"
