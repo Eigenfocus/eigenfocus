@@ -25,10 +25,11 @@ function updateTurboFrames(turboFrameSelector, requestParamValue) {
     fullURL.searchParams.set(requestParamName, requestParamValue);
     fullURL.searchParams.set('format', 'turbo_stream');
 
-
-    turboFrame.src = fullURL.toString();
-
-    turboFrame.reload()
+    if (turboFrame.src === fullURL.toString()) {
+      turboFrame.reload()
+    } else {
+      turboFrame.src = fullURL.toString()
+    }
   })
 }
 
