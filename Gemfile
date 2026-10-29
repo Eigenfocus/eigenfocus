@@ -52,7 +52,7 @@ gem "js-routes", "~> 2.4"
 gem "i18n-js", "~> 4.2"
 gem "view_component", "4.19.0"
 
-gem "json", "~> 2.21"
+gem "json", "~> 3"
 
 # For configuration files
 gem "dry-struct", "~> 1.8"
