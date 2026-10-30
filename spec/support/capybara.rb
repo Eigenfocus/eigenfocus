@@ -69,3 +69,17 @@ else
 end
 
 Capybara.disable_animation = true
+
+RSpec.configure do |config|
+  config.after(:each, type: :feature) do |example|
+    next unless example.exception
+    next if Capybara.current_driver == :rack_test
+
+    screenshot_path = page.save_screenshot("failure_#{example.metadata[:location].parameterize}.png")
+
+    puts "\n[capybara] #{example.metadata[:location]} failed at #{page.current_url}"
+    puts "[capybara] screenshot: #{screenshot_path}"
+  rescue StandardError => e
+    puts "\n[capybara] could not capture failure details: #{e.message}"
+  end
+end
