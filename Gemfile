@@ -50,7 +50,7 @@ gem "shakapacker", "~> 10.3.0"
 gem "react-rails", "~> 3.3"
 gem "js-routes", "~> 2.4"
 gem "i18n-js", "~> 4.2"
-gem "view_component", "4.19.0"
+gem "view_component", "4.20.0"
 
 gem "json", "~> 3"
 
