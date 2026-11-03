@@ -54,7 +54,8 @@ If you enjoy Eigenfocus, ⭐️ the repo to follow updates.
 Eigenfocus grows with you. Pay once, no subscriptions.
 
 - Multiple users with roles and permissions
-
+- MCP server, so AI tools like Claude Code, Codex, OpenCode can manage projects and issues
+- REST API for scripts and integrations
 - Custom Fields to track project-specific data
 - Create multiple views with predefined settings
 - Grid View with columns and swimlanes
