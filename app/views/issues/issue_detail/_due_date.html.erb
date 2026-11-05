@@ -1,10 +1,10 @@
 <% if issue.persisted? %>
 
   <%= form_with(model: issue, url: form_path, html: {
-    class: 'flex flex-col min-w-30 w-30',
+    class: 'flex flex-col',
     data: { controller: "form", turbo: true }
     }) do |f| %>
-    <fieldset class="fieldset">
+    <fieldset class="fieldset py-0">
       <label class="fieldset-legend pb-1" for="issue_due_date"><%= Issue.human_attribute_name(:due_date) %></label>
       <div class="flatpickr-resetable-container">
         <%= f.text_field :due_date, class: 'input w-full',

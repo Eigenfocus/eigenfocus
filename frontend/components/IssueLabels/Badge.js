@@ -24,18 +24,16 @@ function Badge({ label, onRemove }) {
   } : {}
 
   return (
-    <div className="flex items-center text-xs font-medium rounded-field min-h-[35px] py-1 px-2 gap-1 cpy-label-badge" style={badgeStyle}>
+    <div className="flex items-center text-xs font-medium rounded-field min-h-6 py-0.5 px-1.5 gap-1 cpy-label-badge" style={badgeStyle}>
       <span>{label.title}</span>
       <button
         type="button"
         onClick={handleRemove}
         className="cursor-pointer flex items-center cpy-label-remove"
       >
-        <i className="ti ti-x ml-2" style={{
-          fontSize: '0.95rem',
-          color: getContrastColor(label.hexColor),
-          position: 'relative',
-          top: '1px'
+        <i className="ti ti-x" style={{
+          fontSize: '0.8rem',
+          color: getContrastColor(label.hexColor)
         }} />
       </button>
     </div>

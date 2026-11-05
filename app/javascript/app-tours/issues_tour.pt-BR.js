@@ -42,7 +42,7 @@ const issueDetailTour = [
     element: ".tour--issue-detail-fields",
     popover: {
       title: "Detalhes da Issue",
-      description: "Aqui você pode gerenciar o título, labels, descrição (suporta markdown), uploads de arquivos, etc."
+      description: "Aqui você pode gerenciar a descrição (suporta markdown), uploads de arquivos, etc."
     }
   },
   {

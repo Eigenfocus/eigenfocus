@@ -62,9 +62,9 @@ function IssueLabels({
   }
 
   return (
-    <fieldset className="fieldset">
+    <fieldset className="fieldset py-0">
       <label className="fieldset-legend pb-1">{t("activerecord.models.issue_label.other")}</label>
-      <div className="flex flex-wrap gap-2 items-stretch">
+      <div className="flex flex-wrap gap-1 items-stretch">
         {selectedLabels.map((label, index) => (
           <LabelBadge
             key={`${label.title}-${index}`}
@@ -76,7 +76,7 @@ function IssueLabels({
           <button
             type="button"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="btn btn-soft"
+            className="btn btn-soft btn-xs h-auto min-h-6"
           >
             <i className="ti ti-plus" />
             {t("actions.add")} {t("activerecord.models.issue_label.one").toLowerCase()}

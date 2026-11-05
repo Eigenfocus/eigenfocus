@@ -42,7 +42,7 @@ const issueDetailTour = [
     element: ".tour--issue-detail-fields",
     popover: {
       title: "Issue Details",
-      description: "Here you can manage an issue title, labels, description (supports markdown), file uploads, etc."
+      description: "Here you can manage an issue description (supports markdown), file uploads, etc."
     }
   },
   {

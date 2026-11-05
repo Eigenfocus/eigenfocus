@@ -1,4 +1,6 @@
 # 1.6.0-free
+- Redesigned the issue details window
+  - It is wider, with the title, description, files and comments on the left and the other fields on the right
 - Replaced Select2 jQuery library with a custom SearchableSelect component (React + Stimulus)
   - Supports both single-select and multi-select modes with search/filter dropdown
   - Overflow tags display a +N badge when exceeding input width
