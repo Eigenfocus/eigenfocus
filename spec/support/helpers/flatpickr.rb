@@ -1,4 +1,9 @@
 module FlatpicrHelpers
+  def close_flatpickr(field)
+    page.execute_script("document.getElementById('#{field}')._flatpickr.close()")
+    expect(page.document).to have_no_css(".flatpickr-calendar.open")
+  end
+
   def select_from_flatpickr(selector, date)
     page.execute_script "document.querySelector('#{selector}').focus()"
 

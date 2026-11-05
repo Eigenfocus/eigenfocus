@@ -87,6 +87,7 @@ context "As a user, I want to generate time reports" do
 
     within 'form' do
       fill_in :q_reference_date_gteq, with: "2024-07-12" # one day ago
+      close_flatpickr(:q_reference_date_gteq)
       click_button "Generate report"
     end
 
@@ -96,8 +97,9 @@ context "As a user, I want to generate time reports" do
 
     within 'form' do
       fill_in :q_reference_date_gteq, with: "2024-07-7" # 6 days ago
+      close_flatpickr(:q_reference_date_gteq)
       fill_in :q_reference_date_lteq, with: "2024-07-11" # 2 days ago ago
-      page.execute_script("document.getElementById('q_reference_date_lteq').blur()")
+      close_flatpickr(:q_reference_date_lteq)
       click_button "Generate report"
     end
 
