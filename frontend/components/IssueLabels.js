@@ -64,7 +64,7 @@ function IssueLabels({
   return (
     <fieldset className="fieldset py-0">
       <label className="fieldset-legend pb-1">{t("activerecord.models.issue_label.other")}</label>
-      <div className="flex flex-wrap gap-1 items-stretch">
+      <div className="relative flex flex-wrap gap-1 items-stretch">
         {selectedLabels.map((label, index) => (
           <LabelBadge
             key={`${label.title}-${index}`}
@@ -72,7 +72,7 @@ function IssueLabels({
             onRemove={removeLabel}
           />
         ))}
-        <div className="relative flex items-stretch gap-2">
+        <div className="flex items-stretch gap-2">
           <button
             type="button"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -81,7 +81,7 @@ function IssueLabels({
             <i className="ti ti-plus" />
             {t("actions.add")} {t("activerecord.models.issue_label.one").toLowerCase()}
           </button>
-          <div className="absolute top-full left-0 z-50" >
+          <div className="absolute top-full right-0 z-50" >
             <LabelsDropdown
               isOpen={isDropdownOpen}
               onToggle={setIsDropdownOpen}

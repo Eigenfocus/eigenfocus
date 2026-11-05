@@ -19,8 +19,7 @@
 
 .flatpickr-calendar {
     border: inherit;
-    @apply bg-base-200 rounded-lg shadow-lg border border-base-200 left-1/2;
-    margin-left: calc(calc(var(--daysWidth) + calc(var(--calendarPadding)*2))*0.5*-1);
+    @apply bg-base-200 rounded-lg shadow-lg border border-base-200;
     padding: var(--calendarPadding);
     width: calc(var(--daysWidth) + calc(var(--calendarPadding)*2));
 }
@@ -45,16 +44,8 @@
   display: none;
 }
 
-@screen lg {
-    .flatpickr-calendar {
-        @apply left-0 right-auto;
-        margin-left: 0;
-    }
-}
-
 .flatpickr-right.flatpickr-calendar {
     @apply right-0 left-auto;
-    margin-left: 0;
 }
 
 .flatpickr-calendar.animate.open {
