@@ -3,7 +3,7 @@ require "capybara/rspec"
 require 'selenium-webdriver'
 
 Capybara.server_host = '0.0.0.0'
-Capybara.server_port = '3001'
+Capybara.server_port = 3001 + ENV.fetch("TEST_ENV_NUMBER", "").to_i
 
 Capybara.default_max_wait_time = 10
 

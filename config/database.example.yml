@@ -27,16 +27,16 @@ development:
 test:
   primary:
     <<: *default
-    database: eigenfocus_test
+    database: eigenfocus_test<%= ENV["TEST_ENV_NUMBER"] %>
     schema_dump: pg_schema.rb
   cable:
     <<: *default
-    database: eigenfocus_test_cable
+    database: eigenfocus_test_cable<%= ENV["TEST_ENV_NUMBER"] %>
     migrations_paths: db/cable_migrate
     schema_dump: pg_cable_schema.rb
   queue:
     <<: *default
-    database: eigenfocus_test_queue
+    database: eigenfocus_test_queue<%= ENV["TEST_ENV_NUMBER"] %>
     migrations_paths: db/queue_migrate
     schema_dump: pg_queue_schema.rb
 
@@ -79,7 +79,7 @@ development:
 
 test:
   <<: *default
-  database: storage/test.sqlite3
+  database: storage/test<%= ENV["TEST_ENV_NUMBER"] %>.sqlite3
 
 production:
   primary:

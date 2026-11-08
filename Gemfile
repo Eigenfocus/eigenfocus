@@ -68,6 +68,7 @@ group :development, :test do
   gem "i18n-debug"
   gem "rubocop-rails-omakase", require: false
   gem "rubocop-performance", "~> 1.27"
+  gem "parallel_tests"
 end
 
 group :development do
