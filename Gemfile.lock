@@ -226,9 +226,9 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (6.0.6)
+    minitest (6.1.0)
       drb (~> 2.0)
-      prism (~> 1.5)
+      prism (>= 1.5, < 3)
     msgpack (1.8.6)
     net-imap (0.6.8)
       date
@@ -474,7 +474,7 @@ GEM
     unicode-emoji (4.3.0)
     uri (1.1.2)
     useragent (0.16.11)
-    view_component (4.21.0)
+    view_component (4.23.0)
       actionview (>= 7.1.0)
       activesupport (>= 7.1.0)
       prism (>= 1.0)
@@ -553,7 +553,7 @@ DEPENDENCIES
   timecop
   turbo-rails
   tzinfo-data
-  view_component (= 4.21.0)
+  view_component (~> 4.21)
   web-console
   webmock
 
