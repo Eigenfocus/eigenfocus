@@ -24,7 +24,7 @@ describe "Issues - Mark as finished" do
       end
 
       expect(page).to have_css(".cpy-finish-check-toggle.finished")
-      expect(issue.reload).to be_finished
+      wait_until { issue.reload.finished? }
     end
   end
 
@@ -42,7 +42,7 @@ describe "Issues - Mark as finished" do
 
       wait_for_turbo_frame_response
       expect(page).to_not have_css(".cpy-finish-check-toggle.finished")
-      expect(issue.reload).to_not be_finished
+      wait_until { !issue.reload.finished? }
     end
   end
 end
