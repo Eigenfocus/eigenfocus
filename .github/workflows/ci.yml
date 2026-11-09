@@ -44,8 +44,18 @@ jobs:
       - name: Build the app
         run: docker compose build --build-arg UID=$(id -u) --build-arg GID=$(id -g) web
 
+      - name: Restore spec runtime log
+        uses: actions/cache@v6
+        with:
+          path: tmp/parallel_runtime_rspec.log
+          key: rspec-runtime-${{ github.run_id }}
+          restore-keys: rspec-runtime-
+
       - name: Setup DB
         run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/rails db:prepare
+
+      - name: Setup test DBs
+        run: docker compose run --user $(id -u):$(id -g) -e "RAILS_ENV=test" --rm --remove-orphans web bin/rake "parallel:setup[4]"
 
       - name: Setup Assets
         run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/rake assets:precompile
@@ -54,7 +64,7 @@ jobs:
         run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/rake i18n:check
 
       - name: Run Rspec
-        run: docker compose run --user $(id -u):$(id -g) -e "RAILS_ENV=test" --rm --remove-orphans web bundle exec rspec spec
+        run: docker compose run --user $(id -u):$(id -g) -e "RAILS_ENV=test" --rm --remove-orphans web bundle exec parallel_rspec -n 4 spec
 
       - name: Stop containers
         if: always()
