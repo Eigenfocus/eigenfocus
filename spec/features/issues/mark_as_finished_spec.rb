@@ -30,7 +30,7 @@ describe "Issues - Mark as finished" do
         expect(page).to have_content("16, June 2025")
       end
 
-      expect(issue.reload).to be_finished
+      wait_until { issue.reload.finished? }
     end
 
     specify "from the all issues list" do
@@ -44,7 +44,7 @@ describe "Issues - Mark as finished" do
         expect(page).to have_css(".fa-check")
       end
 
-      expect(issue.reload).to be_finished
+      wait_until { issue.reload.finished? }
     end
   end
 
@@ -61,7 +61,7 @@ describe "Issues - Mark as finished" do
       end
 
       expect(find("[data-issue-finished-at]").text).to eq("")
-      expect(issue.reload).to_not be_finished
+      wait_until { !issue.reload.finished? }
     end
 
     specify "from the all issues list" do
@@ -73,7 +73,7 @@ describe "Issues - Mark as finished" do
         expect(page).to_not have_css(".fa-check")
       end
 
-      expect(issue.reload).to_not be_finished
+      wait_until { !issue.reload.finished? }
     end
   end
 end
