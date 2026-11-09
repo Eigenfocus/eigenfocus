@@ -60,6 +60,9 @@ jobs:
       - name: Setup Assets
         run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/rake assets:precompile
 
+      - name: Run Jest
+        run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web npm run test
+
       - name: Check i18n keys
         run: docker compose run --user $(id -u):$(id -g) --rm --remove-orphans web bin/rake i18n:check
 
