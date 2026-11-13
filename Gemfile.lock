@@ -277,7 +277,7 @@ GEM
     pg (1.7.0-x86_64-darwin)
     pg (1.7.0-x86_64-linux)
     pg (1.7.0-x86_64-linux-musl)
-    positioning (0.4.8)
+    positioning (0.4.10)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
     pp (0.6.4)
