@@ -33,7 +33,7 @@ gem "thruster", require: false
 gem "image_processing", "~> 2.2"
 gem "ruby-vips", "~> 2.0"
 
-gem "positioning", "~> 0.4"
+gem "positioning", "~> 0.5"
 
 # Real-time updates
 gem "solid_cable", "~> 4.1"
