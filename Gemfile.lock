@@ -277,9 +277,9 @@ GEM
     pg (1.7.0-x86_64-darwin)
     pg (1.7.0-x86_64-linux)
     pg (1.7.0-x86_64-linux-musl)
-    positioning (0.4.8)
-      activerecord (>= 6.1)
-      activesupport (>= 6.1)
+    positioning (0.5.0)
+      activerecord (>= 7.2)
+      activesupport (>= 7.2)
     pp (0.6.4)
       prettyprint
     prettyprint (0.2.1)
@@ -535,7 +535,7 @@ DEPENDENCIES
   pagy (~> 43.8)
   parallel_tests
   pg (~> 1.6)
-  positioning (~> 0.4)
+  positioning (~> 0.5)
   propshaft
   puma (>= 5.0)
   rails (~> 8.1.4)
