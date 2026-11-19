@@ -1,0 +1,7 @@
+volumes:
+  bundle:
+    name: eigenfocus-ci-bundle
+    external: true
+  yarn-cache:
+    name: eigenfocus-ci-yarn-cache
+    external: true

@@ -1,5 +1,9 @@
 #!/bin/bash -e
 
 cp docker-compose.dev.example.yml docker-compose.yml
+cp docker-compose.ci.yml docker-compose.override.yml
 cp example.env .env
 cp config/database.example.yml config/database.yml
+
+docker volume create eigenfocus-ci-bundle > /dev/null
+docker volume create eigenfocus-ci-yarn-cache > /dev/null

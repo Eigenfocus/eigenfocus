@@ -8,6 +8,8 @@ on:
 jobs:
   quality:
     runs-on: self-hosted
+    env:
+      COMPOSE_PROJECT_NAME: ci-${{ github.run_id }}-${{ github.run_attempt }}-quality
 
     steps:
       - name: Checkout code
@@ -27,12 +29,14 @@ jobs:
 
       - name: Stop containers
         if: always()
-        run: docker compose down
+        run: docker compose down -v --remove-orphans --rmi local
 
   tests:
     needs: [quality]
     runs-on: self-hosted
     timeout-minutes: 10
+    env:
+      COMPOSE_PROJECT_NAME: ci-${{ github.run_id }}-${{ github.run_attempt }}-tests
 
     steps:
       - name: Checkout code
@@ -71,4 +75,4 @@ jobs:
 
       - name: Stop containers
         if: always()
-        run: docker compose down
+        run: docker compose down -v --remove-orphans --rmi local
