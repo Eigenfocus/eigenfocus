@@ -1,7 +1,10 @@
 volumes:
   bundle:
-    name: eigenfocus-ci-bundle
+    name: CI_VOLUME_PREFIX-bundle
     external: true
   yarn-cache:
-    name: eigenfocus-ci-yarn-cache
+    name: CI_VOLUME_PREFIX-yarn-cache
+    external: true
+  node_modules:
+    name: CI_VOLUME_PREFIX-node-modules-CI_YARN_LOCK_HASH
     external: true

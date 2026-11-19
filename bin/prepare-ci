@@ -1,9 +1,14 @@
 #!/bin/bash -e
 
 cp docker-compose.dev.example.yml docker-compose.yml
-cp docker-compose.ci.yml docker-compose.override.yml
 cp example.env .env
 cp config/database.example.yml config/database.yml
 
-docker volume create eigenfocus-ci-bundle > /dev/null
-docker volume create eigenfocus-ci-yarn-cache > /dev/null
+volume_prefix="eigenfocus-ci-${GITHUB_REPOSITORY#*/}-${GITHUB_BASE_REF:-${GITHUB_REF_NAME:-local}}"
+yarn_lock_hash=$(sha256sum yarn.lock | cut -c1-12)
+
+sed -e "s/CI_VOLUME_PREFIX/$volume_prefix/g" -e "s/CI_YARN_LOCK_HASH/$yarn_lock_hash/g" docker-compose.ci.yml > docker-compose.override.yml
+
+for volume in bundle yarn-cache "node-modules-$yarn_lock_hash"; do
+  docker volume create "$volume_prefix-$volume" > /dev/null
+done
