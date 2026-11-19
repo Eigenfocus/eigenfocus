@@ -1,6 +1,7 @@
 # 1.7.0-free (unreleased)
 - Redesigned the issue details window
   - It is wider, with the title, description, files and comments on the left and the other fields on the right
+- Upgraded Ruby to 4.0.10
 
 # 1.6.0-free
 - Replaced Select2 jQuery library with a custom SearchableSelect component (React + Stimulus)
