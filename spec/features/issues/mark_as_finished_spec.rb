@@ -60,7 +60,7 @@ describe "Issues - Mark as finished" do
         expect(page).to_not have_css(".fa-check")
       end
 
-      expect(find("[data-issue-finished-at]").text).to eq("")
+      expect(page).to have_css("[data-issue-finished-at]", exact_text: "")
       wait_until { !issue.reload.finished? }
     end
 
