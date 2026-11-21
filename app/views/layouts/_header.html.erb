@@ -17,16 +17,18 @@
       <%= render "layouts/_header/version_badge" %>
     </div>
     <%= render "layouts/_header/center_menu" %>
-    <div class="navbar-end gap-0">
+    <div class="navbar-end gap-0 max-sm:w-auto max-sm:grow max-sm:min-w-0">
       <%= turbo_frame_tag "header_running_time_entries" do %>
         <%= render Header::RunningTimeEntriesComponent.new(count: current_user.running_time_entries.count) %>
       <% end %>
       <%= react_component("FocusApp", {}, { "data-turbo-permanent": true, id: 'focus-app-wrapper' }) %>
-      <div class="divider divider-neutral/40 divider-horizontal mx-0"></div>
-      <%= render "layouts/_header/tour" %>
-      <%= render "layouts/_header/theme_switcher" %>
+      <div class="divider divider-neutral/40 divider-horizontal mx-0 max-sm:hidden"></div>
+      <div class="contents max-sm:hidden">
+        <%= render "layouts/_header/tour" %>
+        <%= render "layouts/_header/theme_switcher" %>
+      </div>
       <%= render "layouts/_header/notification", notifications: Notification.order(published_at: :desc).limit(10) %>
-      <%= link_to edit_profile_path, class: "btn btn-sm btn-primary btn-ghost cpy-profile-button tooltip tooltip-bottom", data: {
+      <%= link_to edit_profile_path, class: "btn btn-sm btn-primary btn-ghost cpy-profile-button tooltip tooltip-bottom max-sm:hidden", data: {
         tip: t('menu_items.edit_profile')
         } do %>
         <i class="ti ti-user"></i>
