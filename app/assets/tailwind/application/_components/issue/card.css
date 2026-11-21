@@ -31,3 +31,12 @@
     @apply hidden;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .issue--card {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+  }
+}
