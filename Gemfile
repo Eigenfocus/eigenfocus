@@ -8,7 +8,7 @@ gem "rails", "~> 8.1.4"
 gem "sqlite3", ">= 2.1"
 gem "pg", "~> 1.6"
 # https://stackoverflow.com/questions/79844786/ruby-on-rails-redis-connection-pool-wrong-number-of-arguments-given-1-expected
-gem "connection_pool", "< 3"
+gem "connection_pool", "< 4"
 
 # Server
 gem "puma", ">= 5.0"
