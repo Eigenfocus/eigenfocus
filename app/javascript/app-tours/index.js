@@ -1,6 +1,8 @@
 import { driver } from "driver.js"
 import { getTourConfigs } from "app-tours/tour_config"
 
+const BELOW_MD_QUERY = "(max-width: 767.98px)"
+
 const translations = {
   en: {
     skipBtnText: 'Stop all tours',
@@ -56,6 +58,8 @@ class AppTour {
   }
 
   startIfPending(targetTourKey) {
+    if (window.matchMedia(BELOW_MD_QUERY).matches) return
+
     const pendingTours = this.getPendingTours()
 
     if (pendingTours.includes(targetTourKey)) {
