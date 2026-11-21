@@ -26,14 +26,16 @@
     font-size: 0.65rem;
     @apply text-success border-success;
 
-    border: none;
-    background: none;
-
     @media (hover: hover) {
-      &:hover {
-        @apply border-success bg-base-100;
-        border-width: 2px;
+      &:not(:hover) {
+        border: none;
+        background: none;
       }
+    }
+
+    @media not all and (hover: hover) {
+      border: none;
+      background: none;
     }
 
     .finish-icon {
