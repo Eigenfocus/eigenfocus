@@ -117,6 +117,8 @@ const clearButtonPlugin = function (pluginConfig) {
     }
   }
 }
+const BELOW_MD_QUERY = "(max-width: 767.98px)"
+
 // create a new Stimulus controller by extending stimulus-flatpickr wrapper controller
 class CustomFlatpickr extends Flatpickr {
   initialize() {
@@ -145,6 +147,13 @@ class CustomFlatpickr extends Flatpickr {
       allowInput: true,
       plugins: plugins,
     }
+  }
+
+  _string(key) {
+    const value = super._string(key)
+    if (key !== 'position' || !value || !window.matchMedia(BELOW_MD_QUERY).matches) return value
+
+    return value.replace(/\s*right$/, '') || 'auto'
   }
 
   clear() {
