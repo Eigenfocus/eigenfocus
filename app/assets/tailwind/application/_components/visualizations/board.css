@@ -34,11 +34,13 @@
         @apply hidden text-xs font-medium ml-2 mr-2;
       }
 
-      &:hover {
-        @apply flex;
-
-        .board--column--create-button-shortcut {
+      @media (hover: hover) {
+        &:hover {
           @apply flex;
+
+          .board--column--create-button-shortcut {
+            @apply flex;
+          }
         }
       }
     }

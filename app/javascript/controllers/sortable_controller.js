@@ -17,6 +17,9 @@ export default class extends Controller {
     this.sortable = new Sortable(this.containerTarget, {
       scroll: true, // Enable the plugin. Can be HTMLElement
       animation: 150,
+      delayOnTouchOnly: true,
+      delay: 200,
+      touchStartThreshold: 5,
       emptyInsertThreshold: 30,
       group: this.sharedGroupValue,
       filter: this.ignoreDragSelectorValue,

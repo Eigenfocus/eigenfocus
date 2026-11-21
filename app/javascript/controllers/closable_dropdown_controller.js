@@ -8,10 +8,10 @@ export default class extends Controller {
       }
     }
 
-    window.addEventListener('mousedown', this.listener)
+    window.addEventListener('pointerdown', this.listener)
   }
 
   disconnect() {
-    window.removeEventListener('mousedown', this.listener)
+    window.removeEventListener('pointerdown', this.listener)
   }
 }

@@ -62,3 +62,11 @@
     font-size: 16px !important;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .tooltip:not(.tooltip-open)[data-tip]::before,
+  .tooltip:not(.tooltip-open)::after,
+  .tooltip:not(.tooltip-open) > .tooltip-content {
+    display: none;
+  }
+}
