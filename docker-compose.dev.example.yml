@@ -46,7 +46,7 @@ services:
 
   selenium:
     shm_size: 2gb
-    image: selenium/standalone-chrome:140.0-20251025
+    image: selenium/standalone-chrome:144.0-20260202
     platform: linux/amd64
     environment:
       - SE_VNC_NO_PASSWORD=true
