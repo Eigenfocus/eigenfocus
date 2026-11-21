@@ -10,7 +10,7 @@
     <%= Project.model_name.human(count: 2) %>
   </h2>
   <%= link_to new_project_path,
-      class: "btn btn-primary",
+      class: "btn btn-primary max-sm:w-full",
       data: { turbo_frame: 'project_form' } do %>
       <%= icon_for(:add_entry) %>
       <%= "#{t('actions.create')} #{Project.model_name.human.downcase}" %>

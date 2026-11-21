@@ -1,8 +1,8 @@
-<div id="<%= dom_id(project) %>" class='<%= project.archived? ? "bg-base-100/80" : "bg-base-100 border-base-300" %> border-l-4 p-8 flex flex-col items-stretch gap-4 border rounded-md text-md'>
-  <div class="flex flex-col md:flex-row md:justify-between gap-4 items-center">
-    <div class="flex gap-4">
-      <div class="flex items-center gap-2 text-base-content font-medium text-xl">
-        <%= link_to project_issues_path(project), data: { turbo_frame: "_top" } do %>
+<div id="<%= dom_id(project) %>" class='<%= project.archived? ? "bg-base-100/80" : "bg-base-100 border-base-300" %> border-l-4 p-8 max-sm:p-4 max-sm:relative flex flex-col items-stretch gap-4 border rounded-md text-md'>
+  <div class="flex flex-col md:flex-row md:justify-between gap-4 items-center max-sm:flex-row max-sm:justify-between max-sm:items-start max-sm:gap-2">
+    <div class="flex gap-4 max-sm:min-w-0">
+      <div class="flex items-center gap-2 text-base-content font-medium text-xl max-sm:text-lg max-sm:flex-wrap max-sm:min-w-0">
+        <%= link_to project_issues_path(project), class: "max-sm:break-all max-sm:after:absolute max-sm:after:inset-0", data: { turbo_frame: "_top" } do %>
           <%= project.name%>
         <% end %>
         <% if project.archived? %>
@@ -12,7 +12,56 @@
         <% end %>
       </div>
     </div>
-    <div class="flex items-stretch justify-center md:place-self-end gap-4">
+    <%= render ActionSheetComponent.new(title: project.name, trigger_label: t("action_sheet.more_actions"), wrapper_class: "sm:hidden shrink-0 relative z-10") do %>
+      <% unless project.archived? %>
+        <li>
+          <%= link_to time_entries_path(new_entry: { project_id: project.id }), data: { turbo_frame: "_top" } do %>
+            <%= icon_for(:time_entries) %>
+            <%= t("actions.start_time_tracking") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to project_issues_path(project), data: { turbo_frame: "_top" } do %>
+            <%= icon_for(:issues) %>
+            <%= Issue.model_name.human.pluralize %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to visualization_path(project.default_visualization), data: { turbo_frame: "_top" } do %>
+            <%= icon_for(:boards) %>
+            <%= t("actions.go_to_board") %>
+          <% end %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to edit_project_path(project), data: { turbo_frame: "project_form" } do %>
+          <i class="ti ti-edit"></i>
+          <%= t("actions.edit") %>
+        <% end %>
+      </li>
+      <% if project.archived? %>
+        <li>
+          <%= link_to unarchive_project_path(project), class: "text-success", data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") } do %>
+            <i class="ti ti-archive-off"></i>
+            <%= t("actions.unarchive") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to project_path(project), class: "text-error", data: { turbo_method: :delete, turbo_confirm: t(".confirm_destroy"), turbo_frame: "_top" } do %>
+            <i class="ti ti-trash"></i>
+            <%= t("actions.remove") %>
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to archive_project_path(project), class: "text-warning", data: { turbo_method: :put, turbo_confirm: t(".confirm_archive") } do %>
+            <i class="ti ti-archive"></i>
+            <%= t("actions.archive") %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+    <div class="flex items-stretch justify-center md:place-self-end gap-4 max-sm:hidden">
       <%= link_to t('actions.edit'),
                   edit_project_path(project),
                   class: "btn btn-ghost btn-primary",
@@ -38,7 +87,7 @@
     </div>
   </div>
   <% unless project.archived? %>
-    <div class="flex w-full flex-col lg:flex-row gap-4 text-sm justify-end items-center">
+    <div class="flex w-full flex-col lg:flex-row gap-4 text-sm justify-end items-center max-sm:hidden">
       <%= link_to time_entries_path(new_entry: { project_id: project.id }),
           class: "btn btn-neutral  tour--time-tracking",
           data: { turbo_frame: "_top" } do %>
