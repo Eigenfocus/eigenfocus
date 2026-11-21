@@ -73,7 +73,7 @@
     <% end %>
   <% end %>
 
-  <div class="mb-8 mt-4 flex gap-4 justify-stretch overflow-x-auto items-stretch text-nowrap tour--calendar-dates">
+  <div class="mb-8 mt-4 flex gap-4 justify-stretch overflow-x-auto items-stretch text-nowrap tour--calendar-dates max-md:grid max-md:grid-cols-7 max-md:gap-1 max-md:overflow-visible">
     <% @calendar_dates.each do |date| %>
       <%
         wrap_tag = (date == @reference_date) ? :div : :a
@@ -91,13 +91,15 @@
           'reference-date': date.strftime("%Y-%m-%d"),
           'turbo-action': 'advance'
         }
-        wrap_options[:class] += " min-w-32 md:min-w-auto transition-colors hover:bg-accent hover:text-accent-content grow rounded-box flex flex-col items-center justify-center px-2 py-4"
+        wrap_options[:class] += " min-w-32 md:min-w-auto transition-colors hover:bg-accent hover:text-accent-content grow rounded-box flex flex-col items-center justify-center px-2 py-4 max-md:min-w-0 max-md:px-0.5 max-md:py-2 max-md:min-h-14"
 
       %>
 
       <%= content_tag wrap_tag, wrap_options do %>
-        <span class="text-sm opacity-80 font-semibold"><%= l(date, format: :short_weekday_name )%>, <%= l(date, format: :short )%></span>
-        <span class="text-sm opacity-70 font-medium mt-2 turbo-stream-logged-time-text"><%= convert_minutes_to_human_readable_hour(@total_logged_time_per_day[date] || 0) %></span>
+        <span class="max-md:hidden text-sm opacity-80 font-semibold"><%= l(date, format: :short_weekday_name )%>, <%= l(date, format: :short )%></span>
+        <span class="md:hidden text-xs opacity-80 font-semibold"><%= l(date, format: :short_weekday_name) %></span>
+        <span class="md:hidden text-base font-semibold"><%= l(date, format: :day_single_digit) %></span>
+        <span class="text-sm opacity-70 font-medium mt-2 max-md:text-xs max-md:mt-1 turbo-stream-logged-time-text"><%= convert_minutes_to_human_readable_hour(@total_logged_time_per_day[date] || 0) %></span>
       <% end %>
     <% end %>
   </div>
