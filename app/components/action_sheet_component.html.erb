@@ -1,0 +1,17 @@
+<div data-controller="action-sheet" class="<%= wrapper_class %>">
+  <button type="button" class="<%= trigger_class %> tap-target" aria-label="<%= trigger_label %>" aria-haspopup="dialog" data-action="action-sheet#open">
+    <i class="<%= trigger_icon %>"></i>
+  </button>
+  <dialog class="modal modal-bottom sm:modal-middle" data-action-sheet-target="dialog" data-action="keydown.esc->action-sheet#close:stop close->action-sheet#restoreFocus">
+    <div class="modal-box action-sheet-box">
+      <div class="action-sheet-grabber"></div>
+      <h3 class="action-sheet-title"><%= title %></h3>
+      <ul class="action-sheet-menu" data-action="click->action-sheet#closeFromItem">
+        <%= content %>
+      </ul>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button><%= t("actions.close") %></button>
+    </form>
+  </dialog>
+</div>

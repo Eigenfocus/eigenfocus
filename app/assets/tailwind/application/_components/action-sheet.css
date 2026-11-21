@@ -1,0 +1,29 @@
+.action-sheet-box {
+  @apply p-0 flex flex-col max-h-[85dvh];
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.action-sheet-panel {
+  @apply fixed inset-x-0 bottom-0 bg-base-100 rounded-t-box shadow-2xl p-0 flex flex-col max-h-[85dvh] outline-none;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.action-sheet-grabber {
+  @apply mx-auto mt-2 mb-1 h-1 w-10 shrink-0 rounded-full bg-base-content/20 sm:hidden;
+}
+
+.action-sheet-title {
+  @apply px-4 pt-2 pb-1 text-xs font-semibold uppercase text-base-content/60;
+}
+
+.action-sheet-menu {
+  @apply menu w-full p-2 overflow-y-auto flex-nowrap;
+
+  & > li > a, & > li > button {
+    @apply min-h-11 gap-3 text-base;
+  }
+}
+
+.action-sheet-section-title {
+  @apply menu-title text-xs;
+}

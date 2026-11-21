@@ -23,6 +23,8 @@ en:
   click_here: 'Click here'
   zero_records: "You haven't created any %{resource_name} yet."
   zero_records_for_this_search: "No records were found for your search."
+  action_sheet:
+    more_actions: "More actions"
   searchable_select:
     search_placeholder: "Search..."
     no_results: "No results found"

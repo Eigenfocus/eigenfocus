@@ -23,6 +23,8 @@ pt-BR:
   click_here: 'Clique aqui'
   zero_records: "Você ainda não criou nenhum(a) %{resource_name}."
   zero_records_for_this_search: "Nenhum registro foi encontrado para sua busca."
+  action_sheet:
+    more_actions: "Mais ações"
   searchable_select:
     search_placeholder: "Buscar..."
     no_results: "Nenhum resultado encontrado"
