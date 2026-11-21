@@ -14,4 +14,5 @@ module ApplicationHelper
   include ApplicationHelper::AppTour
   include ApplicationHelper::DueDate
   include ApplicationHelper::Issues
+  include ApplicationHelper::Navigation
 end

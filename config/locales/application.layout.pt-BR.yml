@@ -12,6 +12,9 @@ pt-BR:
     theme: 'Tema'
     notifications: 'Notificações'
     help: 'Ajuda'
+    account: 'Conta'
+    open_menu: 'Abrir menu'
+    close_menu: 'Fechar menu'
   layouts:
     upgrade_modal:
       title: "Melhore seu fluxo de trabalho"

@@ -12,6 +12,9 @@ en:
     theme: 'Theme'
     notifications: 'Notifications'
     help: 'Help'
+    account: 'Account'
+    open_menu: 'Open menu'
+    close_menu: 'Close menu'
   layouts:
     upgrade_modal:
       title: "Take your workflow further"

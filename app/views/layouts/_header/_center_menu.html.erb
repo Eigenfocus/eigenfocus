@@ -10,7 +10,7 @@
         <li><%= link_to t('menu_items.list_all_projects'), projects_path, class: "text-nowrap" %></li>
         <li><%= link_to t('menu_items.add_project'), projects_path(open_form: true), class: "text-nowrap" %></li>
         <%
-          recent_projects = Project.active.order(name: :asc).limit(10).all
+          recent_projects = recent_nav_projects
           if recent_projects.any?
         %>
           <li class="divider h-[0.5px]"></li>
@@ -23,22 +23,7 @@
         <% end %>
       </ul>
     </div>
-    <%
-      [
-        {
-          text: t('menu_items.timesheet'),
-          icon: icon_for(:time_entries),
-          main_controller: :time_entries,
-          url: time_entries_path
-        },
-        {
-          text: t('menu_items.total_time_report'),
-          icon: icon_for(:report),
-          main_controller: :reports,
-          url: total_time_reports_path
-        }
-      ].each do |menu_item|
-    %>
+    <% main_nav_items.each do |menu_item| %>
       <%= link_to menu_item[:url], class: 'btn btn-sm btn-primary btn-ghost' do %>
         <%= menu_item[:icon] %>
         <%= menu_item[:text] %>
