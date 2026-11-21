@@ -1,5 +1,5 @@
 <tr id="<%= dom_id(issue) %>">
-  <td class="show-issue-finish-toggle-on-hover">
+  <td class="show-issue-finish-toggle-on-hover max-sm:min-w-44">
     <span class="flex items-center">
       <% if issue.archived? %>
         <span class="mr-1 text-warning text-sm">
@@ -16,7 +16,7 @@
       <% end %>
     </span>
   </td>
-  <td>
+  <td class="max-sm:hidden">
     <%= labels_list_for(issue) %>
   </td>
   <td>

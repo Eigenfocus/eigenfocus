@@ -10,14 +10,30 @@
   header_width: true
 } %>
 
-<div class="px-8 grow w-header">
+<div class="px-8 max-sm:px-4 grow w-header">
   <%= turbo_frame_tag 'issues', class: "tour--issues-list", autoscroll: true, 'autoblock-scroll': 'start', data: { turbo_action: "advance" } do %>
 
     <div class="card">
-      <div class="card-body bg-base-100 border-base-300 rounded-box">
-        <%= render partial: 'filter', locals: { q: @q } %>
+      <div class="card-body bg-base-100 border-base-300 rounded-box max-sm:p-3">
+        <input type="checkbox" id="issues-filter-toggle" class="peer hidden">
+        <div class="md:hidden flex items-center gap-2 mb-4">
+          <label for="issues-filter-toggle" class="btn btn-sm btn-ghost">
+            <i class="ti ti-filter"></i>
+            <%= t(".filters") %>
+          </label>
+          <%= link_to new_project_issue_path(current_project),
+              class: "btn btn-sm btn-primary grow",
+              data: { turbo_frame: 'new_issue_form' } do %>
+            <%= icon_for(:add_entry) %>
+            <%= "#{t('actions.create')} #{Issue.model_name.human.downcase}" %>
+          <% end %>
+        </div>
 
-        <div class="mb-2 flex justify-end gap-4 items-center flex-col lg:flex-row">
+        <div class="max-md:hidden max-md:peer-checked:block">
+          <%= render partial: 'filter', locals: { q: @q } %>
+        </div>
+
+        <div class="mb-2 flex justify-end gap-4 items-center flex-col lg:flex-row max-md:hidden">
           <%= link_to new_project_issue_path(current_project),
               class: "btn btn-primary  tour--create-issue",
               data: { turbo_frame: 'new_issue_form' } do %>
@@ -40,7 +56,7 @@
               <thead class="">
                 <tr>
                   <th><%= sort_link(@q, :title, Issue.human_attribute_name(:title)) %></th>
-                  <th><%= Issue.human_attribute_name(:labels) %></th>
+                  <th class="max-sm:hidden"><%= Issue.human_attribute_name(:labels) %></th>
                   <th><%= sort_link(@q, :groupings_title, Issue.human_attribute_name(:grouping)) %></th>
                   <th><%= sort_link(@q, :due_date, Issue.human_attribute_name(:due_date)) %></th>
                   <th class="text-center"></th>
