@@ -1,9 +1,20 @@
 <% if show_button? %>
-  <%= link_to oldest_active_timesheet_day_path, class: "btn btn-sm btn-ghost btn-primary gap-2 flex", aria: { label: t(".running_entries", count: count) }, data: { turbo_frame: "_top" } do %>
-    <span class="relative flex h-2 w-2">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
-    </span>
-    <span class="max-md:hidden"><%= t('.running_entries', count: count) %></span>
+  <% if drawer? %>
+    <%= link_to oldest_active_timesheet_day_path, class: "alert alert-success alert-soft flex items-center gap-3 w-full min-h-11 py-2", data: { turbo_frame: "_top" } do %>
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+      </span>
+      <span class="font-medium"><%= t('.running_entries', count: count) %></span>
+      <i class="ti ti-chevron-right ml-auto"></i>
+    <% end %>
+  <% else %>
+    <%= link_to oldest_active_timesheet_day_path, class: "btn btn-sm btn-ghost btn-primary gap-2 flex", aria: { label: t(".running_entries", count: count) }, data: { turbo_frame: "_top" } do %>
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+      </span>
+      <span class="max-md:hidden"><%= t('.running_entries', count: count) %></span>
+    <% end %>
   <% end %>
 <% end %>

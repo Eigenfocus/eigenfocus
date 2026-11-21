@@ -1,12 +1,17 @@
 class Header::RunningTimeEntriesComponent < ViewComponent::Base
-  attr_reader :count
+  attr_reader :count, :variant
 
-  def initialize(count:)
+  def initialize(count:, variant: :header)
     @count = count
+    @variant = variant
   end
 
   def show_button?
     count > 0
+  end
+
+  def drawer?
+    variant == :drawer
   end
 
   def oldest_active_timesheet_day_path
