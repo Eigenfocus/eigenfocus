@@ -1,18 +1,19 @@
-<div class="py-4">
+<% content_for :mobile_nav_project, render("layouts/_header/mobile_nav_project", project:) %>
+<div class="py-4 max-sm:py-2">
   <div class="px-4 flex items-center justify-between gap-2 cpy-project-navigation">
-    <h2 class="flex items-center text-base-content/80 text-2xl pl-2 font-semibold">
+    <h2 class="flex items-center max-lg:min-w-0 text-base-content/80 text-2xl max-sm:text-xl pl-2 font-semibold">
       <% if local_assigns[:sub_section] %>
-        <div class="flex gap-2 items-center">
+        <div class="flex gap-2 items-center max-lg:min-w-0">
           <% if sub_section[:icon] %>
             <%= icon_for(sub_section[:icon]) %>
           <% end %>
-          <span><%= sub_section[:title] %> - <%= project.name %></span>
+          <span class="max-lg:truncate"><%= sub_section[:title] %> - <%= project.name %></span>
         </div>
       <% else %>
-        <%= project.name %>
+        <span class="max-lg:truncate"><%= project.name %></span>
       <% end %>
     </h2>
-    <div class="flex items-center">
+    <div class="flex items-center shrink-0 max-md:hidden">
       <%= link_to time_entries_path(new_entry: { project_id: project.id }), class: "btn btn-sm btn-ghost", data: { turbo_frame: "_top" } do %>
         <%= icon_for(:time_entries) %>
         <%= t("actions.start_time_tracking") %>
@@ -24,9 +25,23 @@
         <%= t(:manage_issue_labels, scope: :nav) %>
       <% end %>
     </div>
+    <%= render ActionSheetComponent.new(title: project.name, trigger_label: t("action_sheet.more_actions"), wrapper_class: "md:hidden shrink-0") do %>
+      <li>
+        <%= link_to time_entries_path(new_entry: { project_id: project.id }), data: { turbo_frame: "_top" } do %>
+          <%= icon_for(:time_entries) %>
+          <%= t("actions.start_time_tracking") %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to project_issue_labels_path(project.id), data: { turbo_frame: "_top" } do %>
+          <%= icon_for(:issue_labels) %>
+          <%= t(:manage_issue_labels, scope: :nav) %>
+        <% end %>
+      </li>
+    <% end %>
   </div>
 
-  <div class="mt-4  px-4 flex gap-4 text-sm font-medium tour--project-navigation-tabs">
+  <div class="mt-4 max-sm:mt-2 px-4 flex gap-4 text-sm font-medium tour--project-navigation-tabs">
     <%
 
       tabs = [{
