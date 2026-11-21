@@ -5,6 +5,8 @@
 @source "../../../app/javascript/**/*.js";
 @source "../../../app/views/**/*";
 @source "../../../app/frontend/**/*";
+@source "../../../frontend/**/*.js";
+@source "../../../app/components/**/*";
 
 @plugin "./daisyui.mjs" {
   themes: all;
@@ -186,4 +188,5 @@
   --noise: 1;
 }
 
+@import "./application/mobile";
 @import "./application/base";

@@ -2,10 +2,9 @@
 <html lang="<%= I18n.locale %>" data-theme="<%= current_theme_key %>" >
   <head>
     <title><%= page_title %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="tour-language" content="<%= I18n.locale %>">
     <meta name="sounds-base-url" content="<%= ENV.fetch("SOUNDS_BASE_URL", "") %>">
     <meta name="turbo-cache-control" content="no-cache">
@@ -54,7 +53,7 @@
 
     <div id="modal-area"></div>
 
-    <main class="flex h-screen overflow-hidden">
+    <main class="flex h-dvh overflow-hidden px-safe">
       <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
         <%= render "layouts/header" %>
          <% if skip_layout_content_wrapper? %>

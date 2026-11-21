@@ -1,0 +1,64 @@
+@custom-variant touch (@media (hover: none) and (pointer: coarse));
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@utility px-safe {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scroll-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &[data-overflow-end] {
+    mask-image: linear-gradient(to right, black calc(100% - 2rem), transparent);
+  }
+
+  &[data-overflow-start] {
+    mask-image: linear-gradient(to left, black calc(100% - 2rem), transparent);
+  }
+
+  &[data-overflow-start][data-overflow-end] {
+    mask-image: linear-gradient(to right, transparent, black 2rem, black calc(100% - 2rem), transparent);
+  }
+}
+
+@utility tap-target {
+  @media (pointer: coarse) {
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .input, .select, .textarea, input, select, textarea {
+    font-size: 16px;
+  }
+
+  .select2-search__field {
+    font-size: 16px !important;
+  }
+}
