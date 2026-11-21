@@ -1,18 +1,9 @@
 <div class="navbar pt-[max(0.5rem,env(safe-area-inset-top))] bg-base-100 border-b border-base-300 sticky z-999 top-0 before:absolute before:inset-0 before:backdrop-blur-md before:-z-10 z-100">
   <div class="w-header mx-auto flex justify-between items-center">
-    <div class="navbar-start gap-2">
-      <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-        </div>
-        <ul
-          tabindex="-1"
-          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-          <li><%= link_to t('menu_items.projects'), projects_path, class: "text-base" %></li>
-          <li><%= link_to t('menu_items.timesheet'), time_entries_path, class: "text-base" %></li>
-          <li><%= link_to t('menu_items.total_time_report'), total_time_reports_path, class: "text-base" %></li>
-        </ul>
-      </div>
+    <div class="navbar-start gap-2 max-sm:w-auto">
+      <label for="mobile-nav-drawer" tabindex="0" role="button" class="btn btn-ghost btn-sm lg:hidden tap-target" aria-label="<%= t('menu_items.open_menu') %>">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </label>
 
       <%= render "layouts/_header/version_badge" %>
     </div>

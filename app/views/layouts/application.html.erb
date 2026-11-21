@@ -44,6 +44,7 @@
   </head>
 
   <body class="antialiased min-h-screen bg-base-200/50">
+    <%= render "layouts/_header/mobile_nav_drawer" %>
     <%= turbo_stream_from "layout_updates" %>
     <%= app_tour_tags %>
 

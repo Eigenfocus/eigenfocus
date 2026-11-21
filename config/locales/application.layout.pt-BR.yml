@@ -15,6 +15,8 @@ pt-BR:
     account: 'Conta'
     open_menu: 'Abrir menu'
     close_menu: 'Fechar menu'
+    dark_theme: 'Tema escuro'
+    light_theme: 'Tema claro'
   layouts:
     upgrade_modal:
       title: "Melhore seu fluxo de trabalho"

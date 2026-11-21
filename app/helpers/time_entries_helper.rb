@@ -16,6 +16,11 @@ module TimeEntriesHelper
   end
 
   def turbo_stream_update_header_running_time_entries
-    turbo_stream.update "header_running_time_entries", Header::RunningTimeEntriesComponent.new(count: current_user.running_time_entries.count)
+    count = current_user.running_time_entries.count
+
+    safe_join([
+      turbo_stream.update("header_running_time_entries", Header::RunningTimeEntriesComponent.new(count:)),
+      turbo_stream.update("mobile_nav_running_time_entries", Header::RunningTimeEntriesComponent.new(count:, variant: :drawer))
+    ])
   end
 end

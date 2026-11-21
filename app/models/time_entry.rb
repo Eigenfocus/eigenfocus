@@ -74,5 +74,11 @@ class TimeEntry < ApplicationRecord
       renderable: Header::RunningTimeEntriesComponent.new(count: user.running_time_entries.count),
       action: :update
     )
+    broadcast_replace_to(
+      "layout_updates",
+      target: "mobile_nav_running_time_entries",
+      renderable: Header::RunningTimeEntriesComponent.new(count: user.running_time_entries.count, variant: :drawer),
+      action: :update
+    )
   end
 end

@@ -1,0 +1,105 @@
+<% item_classes = "min-h-11 content-center" %>
+<div class="drawer lg:hidden" data-controller="mobile-nav" data-action="keydown.esc@window->mobile-nav#close turbo:before-visit@window->mobile-nav#close keydown.enter@window->mobile-nav#activateTrigger keydown.space@window->mobile-nav#activateTrigger keydown@window->mobile-nav#trapFocus">
+  <input id="mobile-nav-drawer" type="checkbox" class="drawer-toggle" data-mobile-nav-target="toggle" data-action="change->mobile-nav#toggled">
+  <div class="drawer-side z-1000">
+    <label for="mobile-nav-drawer" class="drawer-overlay" aria-label="<%= t('menu_items.close_menu') %>"></label>
+    <nav class="bg-base-100 min-h-full w-72 max-w-[85vw] pt-safe pb-safe flex flex-col" data-mobile-nav-target="panel" data-action="click->mobile-nav#closeFromLink">
+      <div class="flex items-center justify-between gap-2 pl-5 pr-3 py-3 border-b border-base-300">
+        <div class="flex items-center text-base-content/80 text-xs font-medium whitespace-nowrap">
+          <%= image_tag 'icon.svg', class: 'hide-on-dark', style: 'height: 24px;' %>
+          <%= image_tag 'icon-dark-background.svg', class: 'hide-on-light', style: 'height: 24px;' %>
+          <span class="ml-2">v<%= AppMetadata.instance.current_version %>-FREE</span>
+        </div>
+        <label for="mobile-nav-drawer" tabindex="0" role="button" class="btn btn-ghost btn-sm btn-square tap-target" aria-label="<%= t('menu_items.close_menu') %>">
+          <%= icon_for(:close) %>
+        </label>
+      </div>
+
+      <%= turbo_frame_tag "mobile_nav_running_time_entries" do %>
+        <%= render Header::RunningTimeEntriesComponent.new(count: current_user.running_time_entries.count, variant: :drawer) %>
+      <% end %>
+
+      <% if content_for?(:mobile_nav_project) %>
+        <div class="py-2 border-b border-base-200">
+          <%= yield(:mobile_nav_project) %>
+        </div>
+      <% end %>
+
+      <ul class="menu w-full px-3 py-2">
+        <li>
+          <%= link_to projects_path, class: class_names(item_classes, "menu-active": current_page?(projects_path)) do %>
+            <%= icon_for(:projects) %>
+            <span><%= t('menu_items.projects') %></span>
+          <% end %>
+        </li>
+        <% main_nav_items.each do |menu_item| %>
+          <li>
+            <%= link_to menu_item[:url], class: class_names(item_classes, "menu-active": current_page?(menu_item[:url])) do %>
+              <%= menu_item[:icon] %>
+              <span><%= menu_item[:text] %></span>
+            <% end %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to projects_path(open_form: true), class: item_classes do %>
+            <i class="ti ti-plus"></i>
+            <span><%= t('menu_items.add_project') %></span>
+          <% end %>
+        </li>
+      </ul>
+
+      <% recent_projects = recent_nav_projects %>
+      <% if recent_projects.any? %>
+        <ul class="menu w-full px-3 pb-2">
+          <li>
+            <details>
+              <summary class="<%= item_classes %>">
+                <i class="ti ti-history"></i>
+                <span><%= t('menu_items.recent_projects') %></span>
+              </summary>
+              <ul>
+                <% recent_projects.each do |project| %>
+                  <li>
+                    <%= link_to visualization_path(project.default_visualization), class: item_classes do %>
+                      <span class="truncate"><%= project.name %></span>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      <% end %>
+
+      <ul class="menu w-full px-3 py-2 mt-auto border-t border-base-200">
+        <li class="menu-title"><%= t('menu_items.account') %></li>
+        <li>
+          <%= link_to edit_profile_path, class: item_classes do %>
+            <i class="ti ti-user"></i>
+            <span><%= t('menu_items.edit_profile') %></span>
+          <% end %>
+        </li>
+        <li data-controller="theme-switcher">
+          <a href="<%= update_preferences_profile_path(favorite_theme_key: 'eigenfocus-dark') %>"
+             data-theme-switcher-target="switchButton"
+             data-turbo-method="patch"
+             data-action="click->theme-switcher#switchTheme"
+             data-set-theme="eigenfocus-dark"
+             class="hide-on-dark <%= item_classes %>">
+            <i class="ti ti-moon"></i>
+            <span><%= t('menu_items.dark_theme') %></span>
+          </a>
+          <a href="<%= update_preferences_profile_path(favorite_theme_key: 'eigenfocus-light') %>"
+             data-theme-switcher-target="switchButton"
+             data-turbo-method="patch"
+             data-action="click->theme-switcher#switchTheme"
+             data-set-theme="eigenfocus-light"
+             class="hide-on-light <%= item_classes %>">
+            <i class="ti ti-sun"></i>
+            <span><%= t('menu_items.light_theme') %></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
