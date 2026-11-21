@@ -2,7 +2,7 @@
 
 class Modal::DialogComponent < ViewComponent::Base
   MOBILE_BOX_CLASSES = {
-    sheet: "max-sm:max-h-[90dvh] max-sm:pb-[calc(1.5rem+env(safe-area-inset-bottom))]",
+    sheet: "max-sm:max-w-none max-sm:max-h-[90dvh] max-sm:pb-[calc(1.5rem+env(safe-area-inset-bottom))]",
     fullscreen: "max-sm:w-full max-sm:max-w-none max-sm:h-dvh max-sm:max-h-dvh max-sm:rounded-none max-sm:pb-safe",
     none: ""
   }.freeze
