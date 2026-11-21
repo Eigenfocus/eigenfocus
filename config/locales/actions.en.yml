@@ -116,6 +116,7 @@ en:
         remove_cover: "Remove cover"
     issue_detail:
       header:
+        actions_title: "Issue actions"
         issue_archived_at: "This issue was archived on %{date}"
       cover:
         change: "Change"

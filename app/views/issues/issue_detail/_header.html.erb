@@ -1,46 +1,78 @@
-<div class="tour--issue-detail-actions sticky top-0 z-10 flex items-center justify-between px-4 py-2  border-b border-base-300 bg-base-200">
-  <div class="flex gap-2 items-center">
+<div data-issue-detail-header class="tour--issue-detail-actions sticky top-0 z-10 flex items-center justify-between px-4 py-2  border-b border-base-300 bg-base-200 max-sm:flex-wrap max-sm:gap-y-2 max-sm:pt-[max(0.5rem,env(safe-area-inset-top))]">
+  <div class="flex gap-2 items-center max-sm:contents">
     <%= global_issue_link(issue) %>
     <% if issue.persisted? && issue.project.default_visualization.groupings.present? %>
-      <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
+      <div class="flex items-center gap-1 max-sm:order-last max-sm:basis-full max-sm:scroll-strip">
+        <%= render partial: 'issues/issue_detail/grouping_picker', locals: { issue: issue } %>
+      </div>
     <% end %>
   </div>
   <% if issue.archived? %>
-    <div role="alert" class="text-sm italic font-medium hidden md:block">
+    <div role="alert" class="text-sm italic font-medium hidden md:block max-sm:block max-sm:order-last max-sm:basis-full max-sm:text-xs">
       <%= t('.issue_archived_at', date: l(issue.archived_at, format: :long)) %>
     </div>
   <% end %>
-  <div class="flex items-center">
+  <div class="flex items-center max-sm:ml-auto">
     <% if issue.persisted? %>
       <% if issue.archived? %>
           <%= link_to unarchive_issue_path(issue),
-          class: "btn btn-sm btn-success btn-ghost tooltip tooltip-bottom",
+          class: "btn btn-sm btn-success btn-ghost tooltip tooltip-bottom max-sm:hidden",
           data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive"), tip: t("actions.unarchive") } do %>
           <i class="ti ti-archive-off"></i>
         <% end %>
 
-        <%= link_to issue_path(issue), class: "btn btn-sm btn-error btn-ghost tooltip tooltip-bottom", data: { turbo_method: :delete, turbo_confirm: t("issue.confirm_destroy", resource_name: Issue.model_name.human.downcase), tip: t("actions.remove") } do %>
+        <%= link_to issue_path(issue), class: "btn btn-sm btn-error btn-ghost tooltip tooltip-bottom max-sm:hidden", data: { turbo_method: :delete, turbo_confirm: t("issue.confirm_destroy", resource_name: Issue.model_name.human.downcase), tip: t("actions.remove") } do %>
           <i class="ti ti-trash"></i>
         <% end %>
       <% else %>
         <%= render 'issues/issue_detail/cover_button', issue: %>
 
-        <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "btn btn-sm btn-primary btn-ghost tour--issue-detail-time-tracking tooltip tooltip-bottom", data: { turbo_frame: "_top", tip: t("actions.start_time_tracking") } do %>
+        <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), class: "btn btn-sm btn-primary btn-ghost tour--issue-detail-time-tracking tooltip tooltip-bottom max-sm:hidden", data: { turbo_frame: "_top", tip: t("actions.start_time_tracking") } do %>
           <%= icon_for(:time_entries) %>
         <% end %>
 
-        <div class="divider divider-vertical"></div>
+        <div class="divider divider-vertical max-sm:hidden"></div>
 
         <%= link_to archive_issue_path(issue),
-            class: "btn btn-sm btn-error btn-ghost tooltip tooltip-bottom",
+            class: "btn btn-sm btn-error btn-ghost tooltip tooltip-bottom max-sm:hidden",
             data: { turbo_method: :put, turbo_confirm: t("issue.confirm_archive"), tip: t("actions.archive") } do %>
           <i class="ti ti-archive"></i>
         <% end %>
 
       <% end %>
+
+      <%= render ActionSheetComponent.new(title: "##{issue.id}", trigger_label: t('.actions_title'), wrapper_class: "sm:hidden") do %>
+        <% if issue.archived? %>
+          <li>
+            <%= link_to unarchive_issue_path(issue), class: "text-success", data: { turbo_method: :put, turbo_confirm: t("confirmations.unarchive") } do %>
+              <i class="ti ti-archive-off"></i>
+              <%= t("actions.unarchive") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to issue_path(issue), class: "text-error", data: { turbo_method: :delete, turbo_confirm: t("issue.confirm_destroy", resource_name: Issue.model_name.human.downcase) } do %>
+              <i class="ti ti-trash"></i>
+              <%= t("actions.remove") %>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to time_entries_path(new_entry: { project_id: issue.project_id, issue_id: issue.id }), data: { turbo_frame: "_top" } do %>
+              <%= icon_for(:time_entries) %>
+              <%= t("actions.start_time_tracking") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to archive_issue_path(issue), class: "text-error", data: { turbo_method: :put, turbo_confirm: t("issue.confirm_archive") } do %>
+              <i class="ti ti-archive"></i>
+              <%= t("actions.archive") %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
     <% end %>
     <form method="dialog">
-      <button class="btn btn-circle btn-ghost cpy-close-modal">
+      <button class="btn btn-circle btn-ghost tap-target cpy-close-modal">
         <i class="ti ti-x"></i>
       </button>
     </form>

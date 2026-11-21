@@ -5,13 +5,13 @@
       "modal-emit-close-event-value": emit_close_event
     },
     id: dialog_id,
-    class: "modal",
+    class: dialog_class,
     open: open,
   }) do %>
   <%= content_tag(:div, modal_box) do %>
     <% unless hide_close_button? %>
       <form method="dialog">
-        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 cpy-close-modal">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 tap-target cpy-close-modal">
           <i class="ti ti-x"></i>
         </button>
       </form>

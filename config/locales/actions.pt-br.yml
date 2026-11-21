@@ -118,6 +118,7 @@ pt-BR:
         remove_cover: "Remover capa"
     issue_detail:
       header:
+        actions_title: "Ações da issue"
         issue_archived_at: "Esta issue foi arquivada em %{date}"
       cover:
         change: "Alterar"
