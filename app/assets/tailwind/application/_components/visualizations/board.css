@@ -7,6 +7,14 @@
       width: 50px;
     }
 
+    @media (width < 40rem) {
+      width: calc(100vw - 3rem);
+
+      &.collapsed {
+        width: 50px;
+      }
+    }
+
     .board--column--header {
       @apply flex flex-row flex-nowrap justify-between items-center gap-x-1 mb-4 px-2 relative;
     }

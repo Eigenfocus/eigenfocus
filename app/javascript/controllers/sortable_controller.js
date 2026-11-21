@@ -23,12 +23,18 @@ export default class extends Controller {
       emptyInsertThreshold: 30,
       group: this.sharedGroupValue,
       filter: this.ignoreDragSelectorValue,
+      onStart: this.onDragStart.bind(this),
       onEnd: this.onDragEnd.bind(this),
       onMove: this.onMove.bind(this)
     })
   }
 
+  onDragStart() {
+    document.documentElement.dataset.sorting = "true"
+  }
+
   onDragEnd(evt) {
+    delete document.documentElement.dataset.sorting
     this._clearSelectedContainer()
 
     let didGroupingChanged = evt.from.dataset.sortableGroupingId !== evt.to.dataset.sortableGroupingId

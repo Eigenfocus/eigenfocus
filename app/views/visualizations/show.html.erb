@@ -23,9 +23,9 @@
     <%= turbo_frame_tag('move_all_issues_modal') {} %>
 
     <div class="mt-4 relative grow cpy-columns-wrapper">
-      <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-8 sm:pr-8 sm:pb-4 sm:scroll-pr-8 pb-2 sm:px-8 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth">
+      <div class="absolute top-0 left-0 right-0 bottom-0 sm:top-0 sm:pl-8 sm:pr-8 sm:pb-4 sm:scroll-pr-8 pb-2 sm:px-8 gap-x-8 flex flex-row overflow-x-auto overflow-y-hidden scroll-smooth max-sm:px-4 max-sm:scroll-px-4 max-sm:gap-x-3 max-sm:snap-x max-sm:snap-mandatory max-sm:in-data-[sorting=true]:snap-none">
         <ul
-            class="hidden has-[li]:flex flex-row flex-nowrap gap-x-8 items-start"
+            class="hidden has-[li]:flex flex-row flex-nowrap gap-x-8 max-sm:gap-x-3 items-start"
             id="js-kanban-board"
             data-controller="sortable visualization--board"
             data-sortable-target="container"
@@ -40,7 +40,7 @@
           } %>
         </ul>
 
-        <div class="w-64 shrink-0">
+        <div class="w-64 shrink-0 max-sm:snap-start">
           <%= link_to new_visualization_grouping_path(@visualization), class: "btn btn-soft btn-wide", data: { turbo_frame: 'grouping_form' } do %>
             <%= icon_for(:add_entry) %>
             <%= "#{t('actions.create')} #{Grouping.model_name.human.downcase}" %>

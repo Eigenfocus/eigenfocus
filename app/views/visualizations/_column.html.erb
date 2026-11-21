@@ -1,6 +1,6 @@
 <% animation_css = local_assigns[:recently_created] ? "animate__animated animate__zoomIn" : "" %>
 
-<li class="board--column cpy-grouping tour--column <%= animation_css %> <%= 'collapsed' if grouping.hidden %>"
+<li class="board--column max-sm:snap-start cpy-grouping tour--column <%= animation_css %> <%= 'collapsed' if grouping.hidden %>"
   style="animation-duration: 240ms;"
   id="<%= dom_id(grouping) %>"
   data-controller="grouping-column"

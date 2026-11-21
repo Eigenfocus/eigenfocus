@@ -1,6 +1,6 @@
 <div class="px-4 sm:px-8 flex justify-between items-center">
-  <div class="flex items-stretch gap-4">
-    <div class="input input-sm">
+  <div class="flex items-stretch gap-4 max-sm:grow max-sm:min-w-0">
+    <div class="input input-sm max-sm:w-full">
       <i class="text-base-content opacity-50 ti ti-search"></i>
       <input class="grow cpy-issues-search"
         placeholder="Search issue"
@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="flex items-stretch flex-col sm:flex-row">
+  <div class="flex items-stretch flex-col sm:flex-row max-sm:hidden">
     <%= render partial: 'favorite_labels_dropdown', locals: { visualization: visualization } %>
   </div>
 </div>
