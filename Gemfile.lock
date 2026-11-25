@@ -336,7 +336,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.4.2)
-    ransack (6.1.0)
+    ransack (6.1.1)
       activerecord (>= 8.1)
       activesupport (>= 8.1)
       i18n
